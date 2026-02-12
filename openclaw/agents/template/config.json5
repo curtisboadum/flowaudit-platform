@@ -1,0 +1,24 @@
+// OpenClaw Agent Template Config
+// Copy this directory for each new client agent
+{
+  name: "template-agent",
+  description: "Template for FlowAudit moat bot",
+  model: "claude-sonnet-4-5-20250929",
+  max_tokens: 4096,
+  temperature: 0.3,
+
+  system_prompt: "You are a workflow automation agent built by FlowAudit.",
+
+  skills: [
+    // Add skill directories here
+  ],
+
+  tools: [
+    // Available tool integrations
+  ],
+
+  gateway: {
+    url: "${OPENCLAW_GATEWAY_URL}",
+    auth: "bearer",
+  },
+}

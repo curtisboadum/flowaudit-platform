@@ -1,0 +1,22 @@
+// OpenClaw Gateway Configuration
+{
+  gateway: {
+    port: 8080,
+    host: "0.0.0.0",
+  },
+
+  agents: {
+    // Registered agents will be listed here
+    // Each agent gets a unique route: /agents/{id}/invoke
+  },
+
+  auth: {
+    type: "bearer",
+    // Token configured via OPENCLAW_API_KEY env var
+  },
+
+  logging: {
+    level: "info",
+    format: "json",
+  },
+}

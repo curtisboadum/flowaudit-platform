@@ -1,0 +1,622 @@
+- generic [ref=e3]:
+  - navigation [ref=e6]:
+    - generic [ref=e7]:
+      - link [ref=e9] [cursor=pointer]:
+        - /url: ./
+      - generic [ref=e10]:
+        - paragraph [ref=e12]:
+          - link "Solutions" [ref=e13] [cursor=pointer]:
+            - /url: ./#solutions
+        - paragraph [ref=e15]:
+          - link "Testimonials" [ref=e16] [cursor=pointer]:
+            - /url: ./#testimonials
+        - paragraph [ref=e18]:
+          - link "Agents" [ref=e19] [cursor=pointer]:
+            - /url: ./agents
+        - paragraph [ref=e21]:
+          - link "FAQs" [ref=e22] [cursor=pointer]:
+            - /url: ./#faq
+      - link "Book a Free Call" [ref=e24] [cursor=pointer]:
+        - /url: ./#contact
+        - generic [ref=e25]:
+          - paragraph [ref=e27]: Book a Free Call
+          - img [ref=e30]
+  - generic [ref=e34]:
+    - paragraph [ref=e43]: For Businesses Doing $1M+ ARR
+    - generic [ref=e44]:
+      - heading "Scale Your Business with Custom AI Infrastructure that Works 24/7 and Slashes Operational Costs" [level=1] [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e49]: Scale
+          - generic [ref=e50]: Your
+          - generic [ref=e51]: Business
+          - generic [ref=e52]: with
+        - generic [ref=e53]: Custom
+        - generic [ref=e54]: AI
+        - generic [ref=e55]: Infrastructure
+        - generic [ref=e56]:
+          - generic [ref=e57]: that
+          - generic [ref=e58]: Works
+          - generic [ref=e59]: 24/7
+          - generic [ref=e60]: and
+        - generic [ref=e61]: Slashes
+        - generic [ref=e62]: Operational
+        - generic [ref=e63]: Costs
+      - generic [ref=e64]:
+        - paragraph [ref=e67]:
+          - generic [ref=e68]: Our
+          - generic [ref=e69]: custom
+          - generic [ref=e70]: AI
+          - generic [ref=e71]: infrastructure
+          - generic [ref=e72]: learns
+          - generic [ref=e73]: your
+          - generic [ref=e74]: workflows,
+          - generic [ref=e75]: automates
+          - generic [ref=e76]: your
+          - generic [ref=e77]: operations,
+          - generic [ref=e78]: and
+          - generic [ref=e79]: unlocks
+          - generic [ref=e80]: new
+          - generic [ref=e81]: revenue
+          - generic [ref=e82]: streams…
+          - generic [ref=e83]: helping
+          - generic [ref=e84]: you
+          - generic [ref=e85]: save
+          - generic [ref=e86]: time,
+          - generic [ref=e87]: cut
+          - generic [ref=e88]: costs,
+          - generic [ref=e89]: and
+          - generic [ref=e90]: scale
+          - generic [ref=e91]: within
+          - generic [ref=e92]: "30"
+          - generic [ref=e93]: days.
+        - link "Book Your Free Consultation" [ref=e96] [cursor=pointer]:
+          - /url: ./#contact
+          - paragraph [ref=e98]: Book Your Free Consultation
+          - img [ref=e101]
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - img [ref=e107]
+            - paragraph [ref=e111]: Free 30-min Strategy Call
+          - generic [ref=e112]:
+            - img [ref=e115]
+            - paragraph [ref=e120]: Custom-Built for Your Business
+          - generic [ref=e121]:
+            - img [ref=e124]
+            - paragraph [ref=e129]: Deployed within 30 Days
+  - generic [ref=e137]:
+    - paragraph [ref=e140]: Teams that trust Altari to scale their operations
+    - list [ref=e145]:
+      - listitem [ref=e146]
+      - listitem [ref=e148]
+      - listitem [ref=e150]
+      - listitem [ref=e152]
+      - listitem [ref=e154]
+      - listitem [ref=e156]
+      - listitem [ref=e158]
+      - listitem [ref=e160]
+      - listitem [ref=e162]
+      - listitem [ref=e164]
+      - listitem [ref=e166]
+      - listitem [ref=e168]
+      - listitem [ref=e170]
+      - listitem [ref=e172]
+      - listitem [ref=e174]
+      - listitem [ref=e176]
+      - listitem [ref=e178]
+      - listitem [ref=e180]
+      - listitem [ref=e182]
+      - listitem [ref=e184]
+      - listitem [ref=e186]
+      - listitem [ref=e188]
+      - listitem [ref=e190]
+      - listitem [ref=e192]
+      - listitem [ref=e194]
+      - listitem [ref=e196]
+      - listitem [ref=e198]
+      - listitem [ref=e200]
+      - listitem [ref=e202]
+      - listitem [ref=e204]
+      - listitem [ref=e206]
+      - listitem [ref=e208]
+      - listitem [ref=e210]
+  - generic [ref=e213]:
+    - generic [ref=e214]:
+      - generic [ref=e215]:
+        - paragraph [ref=e221]: Customer Stories
+        - generic [ref=e222]:
+          - heading "Proven Results Across Multiple Industries" [level=2] [ref=e224]
+          - paragraph [ref=e226]: Our clients have automated thousands of hours, cut operational costs in half, and unlocked new growth — powered by custom AI infrastructure.
+      - generic [ref=e229]:
+        - generic [ref=e230]:
+          - generic [ref=e234] [cursor=pointer]:
+            - heading "Deel" [level=3] [ref=e237]
+            - paragraph [ref=e239]: Automated lead research, qualification, and assignment of 10,000+ companies – cutting weeks of manual work into hours and saving 60+ staff hours per month.
+          - generic [ref=e245] [cursor=pointer]:
+            - heading "EZYE" [level=3] [ref=e247]
+            - paragraph [ref=e249]: AI Reception & Follow-Up System
+          - generic [ref=e255] [cursor=pointer]:
+            - heading "Oriri" [level=3] [ref=e257]
+            - paragraph [ref=e259]: Content Writing & Campaign Management
+        - generic [ref=e261]:
+          - paragraph [ref=e267]: Lead Research Agent
+          - generic [ref=e268]:
+            - generic [ref=e269]:
+              - paragraph [ref=e271]: “Lead research & qualification used to manually take hours each day, and now it's done in the background – Altari has completely changed how we do this. Research quality is better too, less errors."
+              - generic [ref=e272]:
+                - paragraph [ref=e274]: Nick Roose
+                - paragraph [ref=e276]: SDR Leader, APAC
+            - generic [ref=e277]:
+              - generic [ref=e279]:
+                - img [ref=e282]
+                - generic [ref=e285]:
+                  - generic [ref=e286]:
+                    - paragraph [ref=e288]: 10K+ Leads
+                    - paragraph [ref=e290]: Enriched in 24 Hours
+                  - paragraph [ref=e292]: previously took 4+ weeks manually
+              - generic [ref=e294]:
+                - img [ref=e297]
+                - generic [ref=e300]:
+                  - generic [ref=e301]:
+                    - paragraph [ref=e303]: 60+ Hours
+                    - paragraph [ref=e305]: Saved per Month
+                  - paragraph [ref=e307]: freed sales team to focus on high-value outreach
+    - generic [ref=e308]:
+      - paragraph [ref=e312]:
+        - strong [ref=e313]: Measurable Impact Across Every Deployment
+      - generic [ref=e314]:
+        - generic [ref=e317]:
+          - heading "$1.2M+" [level=4] [ref=e319]
+          - paragraph [ref=e321]: Annual Costs Eliminated
+        - generic [ref=e325]:
+          - heading "60+ Hours" [level=4] [ref=e327]
+          - paragraph [ref=e329]: Saved Per Client, Per Month
+        - generic [ref=e333]:
+          - heading "3.5X" [level=4] [ref=e335]
+          - paragraph [ref=e337]: Average ROI in First 60 Days
+        - generic [ref=e341]:
+          - heading "30 Days" [level=4] [ref=e343]
+          - paragraph [ref=e345]: Average time to deployment
+  - generic [ref=e348]:
+    - generic [ref=e349]:
+      - paragraph [ref=e355]: Solutions
+      - generic [ref=e356]:
+        - heading "Popular Agentic Services" [level=2] [ref=e358]
+        - blockquote [ref=e360]:
+          - paragraph [ref=e361]: We build AI systems that automate outreach, operations, and communication – from outbound sales to full workflow automation.
+    - generic [ref=e362]:
+      - generic [ref=e363]:
+        - generic [ref=e365]:
+          - img [ref=e376]
+          - generic [ref=e378]:
+            - heading "Voice Agents" [level=4] [ref=e381]
+            - paragraph [ref=e383]: Qualify leads, schedule meetings, and handle inbound calls – fully automated, no human needed.
+        - generic [ref=e385]:
+          - img [ref=e396]
+          - generic [ref=e398]:
+            - heading "Sales Agents" [level=4] [ref=e401]
+            - blockquote [ref=e403]:
+              - paragraph [ref=e404]: Research prospects, write messages, and run personalised outreach — all on autopilot.
+        - generic [ref=e406]:
+          - img [ref=e417]
+          - generic [ref=e419]:
+            - heading "Chat Agents" [level=4] [ref=e422]
+            - blockquote [ref=e424]:
+              - paragraph [ref=e425]: Engage visitors, answer questions, and capture leads instantly – across web, CRM, or support.
+      - link "Book Your Free Consultation" [ref=e428] [cursor=pointer]:
+        - /url: ./#contact
+        - paragraph [ref=e430]: Book Your Free Consultation
+        - img [ref=e433]
+  - generic [ref=e439]:
+    - paragraph [ref=e442]: 600+ businesses engaged, 10,000+ people trained, with best-in-class platforms
+    - link [ref=e449] [cursor=pointer]:
+      - /url: https://relevanceai.com/?via=altari
+  - generic [ref=e457]:
+    - generic [ref=e458]:
+      - paragraph [ref=e464]: Benefits
+      - generic [ref=e465]:
+        - heading "What you get with Altari" [level=2] [ref=e467]
+        - paragraph [ref=e469]: We don’t sell templates – we build AI systems that deliver real, measurable results.
+    - generic [ref=e471]:
+      - generic [ref=e475]:
+        - heading "Custom-Built for You" [level=3] [ref=e477]
+        - generic [ref=e478]:
+          - generic [ref=e481]:
+            - generic [ref=e490]:
+              - img [ref=e495]
+              - paragraph [ref=e498]: Trigger
+            - generic [ref=e502]:
+              - img [ref=e507]
+              - paragraph [ref=e510]: Personalise
+            - generic [ref=e514]:
+              - img [ref=e519]
+              - paragraph [ref=e522]: Send Email
+          - paragraph [ref=e524]: Every system is designed from the ground up to match your workflows and goals.
+      - generic [ref=e528]:
+        - heading "Complete Ownership" [level=3] [ref=e530]
+        - generic [ref=e531]:
+          - generic [ref=e535]:
+            - paragraph [ref=e538]:
+              - text: "1"
+              - text: "2"
+              - text: "3"
+              - text: "4"
+              - text: "5"
+              - text: "6"
+              - text: "7"
+            - generic [ref=e539]:
+              - paragraph [ref=e541]:
+                - text: "Profile ResearchedLead{"
+                - text: "name: John Doe"
+                - text: "email: john.doe@email.com"
+                - text: "phone: +44 7123 456789"
+                - text: "linkedin: linkedin.com/in.."
+                - text: "sources: CRM,Web,Social"
+              - generic [ref=e542]:
+                - paragraph [ref=e544]: function
+                - generic [ref=e548]:
+                  - generic [ref=e549]: buildProfi
+                  - text: "|"
+          - paragraph [ref=e551]: You own the agents, data, and infrastructure - no hidden subscriptions and lock-ins.
+      - generic [ref=e555]:
+        - heading "Fully Integrated" [level=3] [ref=e557]
+        - generic [ref=e558]:
+          - generic [ref=e561]:
+            - img [ref=e569]
+            - img [ref=e577]
+            - img [ref=e583]
+            - img [ref=e590]
+            - img [ref=e596]
+            - img [ref=e604]
+            - img [ref=e610]
+          - paragraph [ref=e614]: We connect directly with your CRM, data, and communication stack.
+      - generic [ref=e618]:
+        - heading "Proven Results" [level=3] [ref=e620]
+        - generic [ref=e621]:
+          - generic [ref=e626]:
+            - generic [ref=e628]:
+              - paragraph [ref=e630]: "634"
+              - paragraph [ref=e632]: Contacts Added
+            - generic [ref=e634]:
+              - paragraph [ref=e636]: 3.4x
+              - paragraph [ref=e638]: Pipeline Cov.
+            - generic [ref=e640]:
+              - paragraph [ref=e642]: 24/24
+              - paragraph [ref=e644]: Activity Logged
+            - generic [ref=e646]:
+              - paragraph [ref=e648]: "0"
+              - paragraph [ref=e650]: Missed Updates
+          - paragraph [ref=e652]: Our builds generate qualified leads, save hours, and scale operations fast.
+  - generic [ref=e656]:
+    - paragraph [ref=e662]: Integrations
+    - generic [ref=e663]:
+      - heading "Work Seamlessly with Your Existing Tools" [level=2] [ref=e665]
+      - paragraph [ref=e667]: Our AI agents integrate directly with your CRM, inbox, and workflows – syncing perfectly with the systems you already use, from Salesforce to HubSpot.
+  - generic [ref=e718]:
+    - generic [ref=e719]:
+      - paragraph [ref=e725]: How it works
+      - generic [ref=e726]:
+        - heading "Getting started is easy" [level=2] [ref=e728]
+        - paragraph [ref=e730]: Every AI agent we build follows a proven process – designed to plug into your workflows and start filling pipeline fast.
+    - generic [ref=e733]:
+      - generic [ref=e735]:
+        - heading "01" [level=6] [ref=e739]
+        - img [ref=e751]
+        - generic [ref=e753]:
+          - heading "Discovery" [level=4] [ref=e756]
+          - paragraph [ref=e759]: We uncover where AI can create the biggest wins across your operations and workflows.
+      - generic [ref=e761]:
+        - img [ref=e773]
+        - generic [ref=e775]:
+          - heading "Design" [level=4] [ref=e778]
+          - paragraph [ref=e781]: We map your systems, data flow, and integrations to design your custom AI agent.
+        - heading "02" [level=6] [ref=e785]
+      - generic [ref=e787]:
+        - img [ref=e799]
+        - generic [ref=e802]:
+          - heading "Build & Test" [level=4] [ref=e805]
+          - paragraph [ref=e808]: We develop, integrate, and test your AI agent for accuracy and reliability.
+        - heading "03" [level=6] [ref=e812]
+      - generic [ref=e814]:
+        - img [ref=e826]
+        - generic [ref=e829]:
+          - heading "Launch" [level=4] [ref=e832]
+          - paragraph [ref=e835]: We deploy, monitor, and optimise performance to deliver measurable results fast.
+        - heading "04" [level=6] [ref=e839]
+    - link "Book Your Free Consultation" [ref=e842] [cursor=pointer]:
+      - /url: ./#contact
+      - paragraph [ref=e844]: Book Your Free Consultation
+      - img [ref=e847]
+  - generic [ref=e850]:
+    - generic [ref=e851]:
+      - paragraph [ref=e856]: AI Growth Partner
+      - generic [ref=e857]:
+        - heading "Why top companies choose Altari" [level=2] [ref=e859]
+        - paragraph [ref=e861]: Built by engineers and domain experts who understand growth – not just prompts.
+    - generic [ref=e866]:
+      - heading "Other Development Agencies" [level=6] [ref=e871]
+      - generic [ref=e872]:
+        - paragraph [ref=e874]: You Own the Agents, Data, and Infrastructure
+        - img [ref=e879]
+        - img [ref=e885]
+      - generic [ref=e888]:
+        - paragraph [ref=e890]: Experienced AI Engineers & Builders
+        - img [ref=e895]
+        - img [ref=e901]
+      - generic [ref=e904]:
+        - paragraph [ref=e906]: Proven Growth-Focused Systems
+        - img [ref=e911]
+        - img [ref=e917]
+      - generic [ref=e920]:
+        - paragraph [ref=e922]: Complete Custom Development
+        - img [ref=e927]
+        - img [ref=e933]
+      - generic [ref=e936]:
+        - paragraph [ref=e938]: Deep CRM & Workflow Integrations
+        - img [ref=e943]
+        - img [ref=e949]
+      - generic [ref=e952]:
+        - paragraph [ref=e954]: "End-to-End Delivery: Idea to Scale"
+        - img [ref=e959]
+        - img [ref=e965]
+  - generic [ref=e972]:
+    - generic [ref=e973]:
+      - paragraph [ref=e979]: Who We Are
+      - generic [ref=e980]:
+        - heading "Meet The Team" [level=2] [ref=e982]
+        - paragraph [ref=e984]: Altari was founded by operators who’ve built, tested, and deployed AI agents with hundreds of businesses before creating our own systems.
+    - generic [ref=e985]:
+      - link "Ahmed Alassafi Co-Founder & CEO" [ref=e988] [cursor=pointer]:
+        - /url: https://www.linkedin.com/in/ahmedalassafi/
+        - generic [ref=e992]:
+          - paragraph [ref=e994]: Ahmed Alassafi
+          - paragraph [ref=e996]: Co-Founder & CEO
+      - link "Artem Novitckii Co-Founder & CTO" [ref=e999] [cursor=pointer]:
+        - /url: https://www.linkedin.com/in/artem-novitckii/
+        - generic [ref=e1003]:
+          - paragraph [ref=e1005]: Artem Novitckii
+          - paragraph [ref=e1007]: Co-Founder & CTO
+  - generic [ref=e1009]:
+    - generic [ref=e1010]:
+      - paragraph [ref=e1016]: Let's Talk
+      - generic [ref=e1017]:
+        - heading "Book a Free Strategy Call" [level=2] [ref=e1019]
+        - paragraph [ref=e1021]: See exactly how AI can cut up to 70% of your operational workload and boost revenue — we’ll walk you through real systems already live in other businesses.
+    - generic [ref=e1022]:
+      - iframe [ref=e1029]:
+        - generic [active] [ref=f1e5]:
+          - img
+          - main [ref=f1e6]:
+            - generic [ref=f1e7]:
+              - generic [ref=f1e8]:
+                - generic [ref=f1e12]:
+                  - list [ref=f1e13]:
+                    - listitem [ref=f1e14]:
+                      - link "Altari" [ref=f1e15] [cursor=pointer]:
+                        - /url: https://cal.com/altari?redirect=false
+                        - img "Altari" [ref=f1e17]
+                  - paragraph [ref=f1e18]: Altari
+                  - heading "Free Strategy Call" [level=1] [ref=f1e19]
+                  - region "Description" [ref=f1e23]:
+                    - generic [ref=f1e24]:
+                      - 'heading "Altari is a full-service AI Growth Partner: we help you scale your business, without increasing headcount." [level=3] [ref=f1e25]':
+                        - text: Altari is a full-service
+                        - strong [ref=f1e26]:
+                          - strong [ref=f1e27]: AI Growth Partner
+                        - text: ": we help you scale your business, without increasing headcount."
+                      - paragraph [ref=f1e28]:
+                        - text: We help you identify where AI will have the biggest impact – then design, build, and deploy custom AI Employees that plug straight into your workflows.
+                        - text: These are built to cut costs, save time, and unlock new growth in 30 days.
+                      - paragraph [ref=f1e29]: "Our systems handle the manual work: lead research, outreach, quoting, CRM updates, and client communication – freeing your team to focus on growth, not admin."
+                      - paragraph [ref=f1e30]:
+                        - text: 60+ hours saved per month per client
+                        - text: $1.2M+ annual costs eliminated across deployments
+                        - text: 3.5× ROI in the first 60 days
+                      - paragraph [ref=f1e31]: We don’t sell templates or hype – we build AI systems that drive measurable results.
+                      - paragraph [ref=f1e32]: Book your free 30-minute strategy session to see exactly how AI can reduce your workload and scale your business.
+                  - generic [ref=f1e33]:
+                    - generic [ref=f1e34]:
+                      - img [ref=f1e35]
+                      - generic [ref=f1e37]: Requires confirmation
+                    - generic [ref=f1e38]:
+                      - img [ref=f1e39]
+                      - generic [ref=f1e41]: 30m
+                    - generic [ref=f1e45]:
+                      - img "Google Meet icon" [ref=f1e46]
+                      - paragraph [ref=f1e47]: Google Meet
+                    - generic [ref=f1e48] [cursor=pointer]:
+                      - img [ref=f1e49]
+                      - generic [ref=f1e57]:
+                        - generic [ref=f1e58]:
+                          - paragraph [ref=f1e60]: Europe/London
+                          - combobox "Timezone Select" [ref=f1e62]
+                        - img [ref=f1e66]
+                - generic [ref=f1e69]:
+                  - generic [ref=f1e70]:
+                    - time [ref=f1e72]:
+                      - strong [ref=f1e73]: February
+                      - text: "2026"
+                    - generic [ref=f1e75]:
+                      - button "View previous month" [disabled] [ref=f1e76]:
+                        - img [ref=f1e1]
+                      - button "View next month" [ref=f1e77] [cursor=pointer]:
+                        - img [ref=f1e3]
+                  - generic [ref=f1e78]:
+                    - generic [ref=f1e79]: Sun
+                    - generic [ref=f1e80]: Mon
+                    - generic [ref=f1e81]: Tue
+                    - generic [ref=f1e82]: Wed
+                    - generic [ref=f1e83]: Thu
+                    - generic [ref=f1e84]: Fri
+                    - generic [ref=f1e85]: Sat
+                  - generic [ref=f1e86]:
+                    - button "1" [disabled] [ref=f1e88]
+                    - button "2" [disabled] [ref=f1e90]
+                    - button "3" [disabled] [ref=f1e92]
+                    - button "4" [disabled] [ref=f1e94]
+                    - button "5" [disabled] [ref=f1e96]
+                    - button "6" [disabled] [ref=f1e98]
+                    - button "7" [disabled] [ref=f1e100]
+                    - button "8" [disabled] [ref=f1e102]
+                    - button "9" [disabled] [ref=f1e104]
+                    - button "10" [disabled] [ref=f1e106]
+                    - button "11 Today" [disabled] [ref=f1e108]:
+                      - text: "11"
+                      - generic [ref=f1e110]: Today
+                    - button "12" [disabled] [ref=f1e112]
+                    - button "13" [disabled] [ref=f1e114]
+                    - button "14" [disabled] [ref=f1e116]
+                    - button "15" [disabled] [ref=f1e118]
+                    - button "16" [ref=f1e120]
+                    - button "17" [ref=f1e122]
+                    - button "18" [ref=f1e124]
+                    - button "19" [ref=f1e126]
+                    - button "20" [ref=f1e128]
+                    - button "21" [disabled] [ref=f1e130]
+                    - button "22" [disabled] [ref=f1e132]
+                    - button "23" [ref=f1e134]
+                    - button "24" [ref=f1e136]
+                    - button "25" [ref=f1e138]
+                    - button "26" [ref=f1e140]
+                    - button "27" [ref=f1e142]
+                    - button "28" [disabled] [ref=f1e144]
+                - generic [ref=f1e145]:
+                  - generic [ref=f1e147]:
+                    - generic [ref=f1e148]:
+                      - text: Mon
+                      - generic [ref=f1e149]: "16"
+                    - group "Time format" [ref=f1e151]:
+                      - radio "12h" [ref=f1e152] [cursor=pointer]:
+                        - generic [ref=f1e153]: 12h
+                      - radio "24h" [checked] [ref=f1e154] [cursor=pointer]:
+                        - generic [ref=f1e155]: 24h
+                  - generic [ref=f1e159]:
+                    - button "01:00" [ref=f1e161] [cursor=pointer]:
+                      - generic [ref=f1e163]: 01:00
+                    - button "01:30" [ref=f1e165] [cursor=pointer]:
+                      - generic [ref=f1e167]: 01:30
+                    - button "02:00" [ref=f1e169] [cursor=pointer]:
+                      - generic [ref=f1e171]: 02:00
+                    - button "02:30" [ref=f1e173] [cursor=pointer]:
+                      - generic [ref=f1e175]: 02:30
+                    - button "03:00" [ref=f1e177] [cursor=pointer]:
+                      - generic [ref=f1e179]: 03:00
+                    - button "04:00" [ref=f1e181] [cursor=pointer]:
+                      - generic [ref=f1e183]: 04:00
+                    - button "04:30" [ref=f1e185] [cursor=pointer]:
+                      - generic [ref=f1e187]: 04:30
+                    - button "05:00" [ref=f1e189] [cursor=pointer]:
+                      - generic [ref=f1e191]: 05:00
+                    - button "05:30" [ref=f1e193] [cursor=pointer]:
+                      - generic [ref=f1e195]: 05:30
+                    - button "06:00" [ref=f1e197] [cursor=pointer]:
+                      - generic [ref=f1e199]: 06:00
+                    - button "06:30" [ref=f1e201] [cursor=pointer]:
+                      - generic [ref=f1e203]: 06:30
+                    - button "07:00" [ref=f1e205] [cursor=pointer]:
+                      - generic [ref=f1e207]: 07:00
+                    - button "07:30" [ref=f1e209] [cursor=pointer]:
+                      - generic [ref=f1e211]: 07:30
+                    - button "08:00" [ref=f1e213] [cursor=pointer]:
+                      - generic [ref=f1e215]: 08:00
+                    - button "08:30" [ref=f1e217] [cursor=pointer]:
+                      - generic [ref=f1e219]: 08:30
+                    - button "09:30" [ref=f1e221] [cursor=pointer]:
+                      - generic [ref=f1e223]: 09:30
+                    - button "10:00" [ref=f1e225] [cursor=pointer]:
+                      - generic [ref=f1e227]: 10:00
+                    - button "10:30" [ref=f1e229] [cursor=pointer]:
+                      - generic [ref=f1e231]: 10:30
+              - link "Cal.com Logo" [ref=f1e234] [cursor=pointer]:
+                - /url: https://go.cal.com/booking
+                - img "Cal.com Logo" [ref=f1e235]
+            - region "Notifications alt+T"
+          - alert [ref=f1e236]
+      - paragraph [ref=e1031]:
+        - link "Can't see the booking form? Click here" [ref=e1032] [cursor=pointer]:
+          - /url: https://cal.com/altari/30min
+  - generic [ref=e1034]:
+    - generic [ref=e1035]:
+      - paragraph [ref=e1041]: FAQ
+      - heading "Your Questions, Answered" [level=2] [ref=e1043]
+    - generic [ref=e1046]:
+      - generic [ref=e1050] [cursor=pointer]:
+        - heading "What exactly is a “Custom AI Agent”?" [level=6] [ref=e1052]
+        - img [ref=e1055]
+      - generic [ref=e1060] [cursor=pointer]:
+        - heading "How fast can I have one running in my business?" [level=6] [ref=e1062]
+        - img [ref=e1065]
+      - generic [ref=e1070] [cursor=pointer]:
+        - heading "How much time or money can this realistically save me?" [level=6] [ref=e1072]
+        - img [ref=e1075]
+      - generic [ref=e1080] [cursor=pointer]:
+        - heading "Can an AI agent actually generate new revenue?" [level=6] [ref=e1082]
+        - img [ref=e1085]
+      - generic [ref=e1090] [cursor=pointer]:
+        - heading "What industries does this work for?" [level=6] [ref=e1092]
+        - img [ref=e1095]
+      - generic [ref=e1100] [cursor=pointer]:
+        - heading "Do I need to be “tech-savvy” to use this?" [level=6] [ref=e1102]
+        - img [ref=e1105]
+      - generic [ref=e1110] [cursor=pointer]:
+        - heading "How is this different from a chatbot or virtual assistant?" [level=6] [ref=e1112]
+        - img [ref=e1115]
+      - generic [ref=e1120] [cursor=pointer]:
+        - heading "What tools or platforms does it connect with?" [level=6] [ref=e1122]
+        - img [ref=e1125]
+      - generic [ref=e1130] [cursor=pointer]:
+        - heading "Is my data safe?" [level=6] [ref=e1132]
+        - img [ref=e1135]
+      - generic [ref=e1140] [cursor=pointer]:
+        - heading "How do I get started?" [level=6] [ref=e1142]
+        - img [ref=e1145]
+  - contentinfo [ref=e1149]:
+    - generic [ref=e1151]:
+      - generic [ref=e1152]:
+        - generic [ref=e1153]:
+          - link [ref=e1154] [cursor=pointer]:
+            - /url: ./
+          - generic [ref=e1155]:
+            - generic [ref=e1156]:
+              - link "Instagram" [ref=e1157] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/altari-ai/
+                - img [ref=e1160]
+              - link "Instagram" [ref=e1163] [cursor=pointer]:
+                - /url: https://www.instagram.com/alassafi.ai
+                - img [ref=e1166]
+              - link "Youtube" [ref=e1169] [cursor=pointer]:
+                - /url: https://www.youtube.com/@Alassafi_AI
+                - img [ref=e1172]
+              - link "Twitter" [ref=e1175] [cursor=pointer]:
+                - /url: https://www.skool.com/altari
+                - img [ref=e1178]
+            - link "hello@altari.ai" [ref=e1180] [cursor=pointer]:
+              - /url: mailto:hello@altari.ai
+              - img [ref=e1183]
+              - paragraph [ref=e1187]: hello@altari.ai
+          - generic [ref=e1188]:
+            - paragraph [ref=e1190]:
+              - generic [ref=e1191]: Receive
+              - generic [ref=e1192]: free
+              - generic [ref=e1193]: AI
+              - generic [ref=e1194]: Agent
+              - generic [ref=e1195]: resources
+              - generic [ref=e1196]: "&"
+              - generic [ref=e1197]: templates
+              - generic [ref=e1198]: "weekly:"
+            - generic [ref=e1199]:
+              - textbox [ref=e1202]:
+                - /placeholder: Enter Your Email Address
+              - button "Subscribe" [ref=e1204] [cursor=pointer]:
+                - paragraph [ref=e1206]: Subscribe
+        - generic [ref=e1208]:
+          - paragraph [ref=e1210]:
+            - link "Solutions" [ref=e1211] [cursor=pointer]:
+              - /url: ./#solutions
+          - paragraph [ref=e1213]:
+            - link "Testimonials" [ref=e1214] [cursor=pointer]:
+              - /url: ./
+          - paragraph [ref=e1216]:
+            - link "FAQs" [ref=e1217] [cursor=pointer]:
+              - /url: ./#faq
+      - generic "Divider line" [ref=e1225]
+      - paragraph [ref=e1228]: Copyright © Altari Ltd. All rights reserved. 2026
