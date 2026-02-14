@@ -6,6 +6,64 @@ _No active session._
 
 ---
 
+## Session 2026-02-14 (Session 3)
+
+**Date:** 2026-02-14
+**Goal:** AI chat widget, calculator polish, industry workflow redesign, footer & security updates
+**Status:** Completed
+
+### Context
+
+- Marketing site live with SEO, breadcrumbs, favicon from Sessions 1-2
+- Needed interactive chat for visitor engagement and lead capture
+- Calculator labels needed refinement ("Setup Investment" → "Build & Deployment Fee")
+- Industry workflow cards were plain, needed visual redesign
+- Footer LinkedIn URL pointed to placeholder
+
+### Blockers
+
+- None
+
+### Notes
+
+- Built streaming chat widget powered by Gemini 2.0 Flash (chosen over Claude API for cost — marketing chat, not core product)
+- Chat endpoint includes rate limiting (20 req/min per IP), input sanitization, HTML stripping, conversation length cap
+- System prompt guides visitors toward booking discovery calls and using the ROI calculator
+- Redesigned industry workflow cards with numbered steps and "From/To" transformation labels
+- Calculator renamed "Setup Investment" → "Build & Deployment Fee", added "\*Based on conservative assumptions" disclaimer
+- Compressed homepage-hero.png from 296KB to 171KB
+- Tailwind class ordering cleanup across ~6 components
+- 16 modified files, 2 new files, ~267 additions / ~132 deletions
+
+---
+
+## Session 2026-02-14 (Session 2)
+
+**Date:** 2026-02-14
+**Goal:** Breadcrumb navigation, favicon, and production deployment
+**Status:** Completed
+
+### Context
+
+- Visual breadcrumb component needed for subpage navigation UX
+- Favicon missing from deployed site
+- PR #2 had just been merged; working from updated `main`
+
+### Blockers
+
+- `GITHUB_TOKEN` env var blocked `git push` — resolved by unsetting it and using keyring-stored OAuth token
+
+### Notes
+
+- Created reusable `Breadcrumbs` component with animated chevron separators
+- Added breadcrumbs to all 11 subpages with per-page hierarchy configuration
+- Dynamic slug resolution for blog and industry pages (e.g., `/blog/ai-automation` → "AI Automation")
+- Created `icon.svg` SVG favicon in `src/app/` — Next.js auto-serves with cache-busted hash
+- Committed as `a6e5360`, PR #3 created on `fix/breadcrumbs-favicon-todos` branch
+- PR #3 squash-merged to `main`, verified live on Vercel
+
+---
+
 ## Session 2026-02-14
 
 **Date:** 2026-02-14

@@ -380,37 +380,57 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
         {/* Workflow Templates */}
         <section className="border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0">
-          <h2 className="mb-10 text-center font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
+          <h2 className="mb-2 text-center font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
             Example Workflows
           </h2>
-          <div className="mx-auto max-w-[600px] space-y-4">
-            {industry.workflows.map((workflow) => (
+          <p className="mb-10 text-center font-sans text-sm text-[#605A57]">
+            See how your tools connect — fully automated, end to end.
+          </p>
+          <div className="mx-auto max-w-[700px] space-y-4">
+            {industry.workflows.map((workflow, index) => (
               <div
                 key={workflow.name}
-                className="rounded-xl border border-[rgba(55,50,47,0.08)] bg-white p-5"
+                className="group flex items-start gap-4 rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white p-5 shadow-sm transition-all hover:border-[rgba(55,50,47,0.16)] hover:shadow-md"
               >
-                <div className="mb-3 font-sans text-sm font-semibold text-[#37322F]">
-                  {workflow.name}
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#37322F]">
+                  <span className="font-sans text-xs font-bold text-white">{index + 1}</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="rounded-lg bg-[#F0EDEB] px-3 py-1.5 font-sans text-xs font-medium text-[#37322F]">
-                    {workflow.from}
+                <div className="flex-1">
+                  <div className="mb-3 font-sans text-sm font-semibold text-[#37322F]">
+                    {workflow.name}
                   </div>
-                  <svg
-                    className="h-4 w-4 text-[#605A57]"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                  <div className="rounded-lg bg-[#37322F] px-3 py-1.5 font-sans text-xs font-medium text-white">
-                    {workflow.to}
+                  <div className="flex items-center gap-3">
+                    <div>
+                      <div className="mb-1 font-sans text-[10px] font-medium tracking-wide text-[#605A57]/60 uppercase">
+                        From
+                      </div>
+                      <div className="rounded-lg bg-[#F0EDEB] px-3 py-1.5 font-sans text-xs font-medium text-[#37322F]">
+                        {workflow.from}
+                      </div>
+                    </div>
+                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 transition-colors group-hover:bg-emerald-200">
+                      <svg
+                        className="h-3 w-3 text-emerald-600"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="mb-1 font-sans text-[10px] font-medium tracking-wide text-[#605A57]/60 uppercase">
+                        To
+                      </div>
+                      <div className="rounded-lg bg-[#37322F] px-3 py-1.5 font-sans text-xs font-medium text-white">
+                        {workflow.to}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

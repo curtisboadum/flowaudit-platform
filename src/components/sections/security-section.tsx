@@ -9,7 +9,8 @@ const securityItems = [
   {
     icon: Shield,
     title: "Secure Hosting",
-    description: "Enterprise-grade infrastructure with encryption at rest and in transit.",
+    description:
+      "Hosted on enterprise-grade infrastructure with Cloudflare DNS, encryption at rest and in transit.",
   },
   {
     icon: Eye,

@@ -40,11 +40,11 @@ function ROICalculator({
   const isPositive = yearOneROI >= 0;
 
   return (
-    <div className="bg-white rounded-2xl border border-[rgba(55,50,47,0.08)] p-6 sm:p-8">
-      <h2 className="text-[#37322F] text-xl font-semibold font-sans mb-6">ROI Calculator</h2>
+    <div className="rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white p-6 sm:p-8">
+      <h2 className="mb-6 font-sans text-xl font-semibold text-[#37322F]">ROI Calculator</h2>
 
       {/* Sliders */}
-      <div className="space-y-6 mb-8">
+      <div className="mb-8 space-y-6">
         <SliderField
           label="Manual Hours per Week"
           value={hours}
@@ -62,9 +62,9 @@ function ROICalculator({
           prefix="$"
           suffix="/hr"
         />
-        <div className="flex justify-between items-center py-3 px-4 bg-[#F7F5F3] rounded-lg">
-          <span className="text-sm text-[#605A57] font-sans">Automation Efficiency</span>
-          <span className="text-sm text-[#37322F] font-semibold font-sans">
+        <div className="flex items-center justify-between rounded-lg bg-[#F7F5F3] px-4 py-3">
+          <span className="font-sans text-sm text-[#605A57]">Automation Efficiency</span>
+          <span className="font-sans text-sm font-semibold text-[#37322F]">
             {Math.round(EFFICIENCY * 100)}%
           </span>
         </div>
@@ -78,7 +78,7 @@ function ROICalculator({
         <ResultCell label="Remaining Hours" value={`${remainingHours.toFixed(1)} hrs`} />
         <ResultCell label="Annual After" value={fmt(annualAfter)} />
         <ResultCell label="Annual Savings" value={fmt(annualSavings)} highlight="green" />
-        <ResultCell label="Setup Investment" value={fmt(setupCost)} />
+        <ResultCell label="Build & Deployment Fee" value={fmt(setupCost)} />
         <ResultCell
           label="Break-Even"
           value={breakEvenWeeks === Infinity ? "N/A" : `${breakEvenWeeks} weeks`}
@@ -96,6 +96,9 @@ function ROICalculator({
           large
         />
       </div>
+      <p className="mt-4 text-center font-sans text-[10px] text-[#605A57]/60">
+        *Based on conservative assumptions.
+      </p>
     </div>
   );
 }
@@ -113,9 +116,9 @@ interface SliderFieldProps {
 function SliderField({ label, value, onChange, min, max, prefix, suffix }: SliderFieldProps) {
   return (
     <div className="space-y-2">
-      <div className="flex justify-between items-center">
-        <label className="text-sm text-[#37322F] font-medium font-sans">{label}</label>
-        <span className="text-sm text-[#37322F] font-semibold font-sans tabular-nums">
+      <div className="flex items-center justify-between">
+        <label className="font-sans text-sm font-medium text-[#37322F]">{label}</label>
+        <span className="font-sans text-sm font-semibold text-[#37322F] tabular-nums">
           {prefix ?? ""}
           {value}
           {suffix ? ` ${suffix}` : ""}
@@ -127,9 +130,9 @@ function SliderField({ label, value, onChange, min, max, prefix, suffix }: Slide
         max={max}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-2 bg-[#F0EDEB] rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-emerald-500 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:bg-emerald-500 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-none"
+        className="h-2 w-full cursor-pointer appearance-none rounded-full bg-[#F0EDEB] [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-none [&::-moz-range-thumb]:bg-emerald-500 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-emerald-500 [&::-webkit-slider-thumb]:shadow-md"
       />
-      <div className="flex justify-between text-xs text-[#605A57] font-sans">
+      <div className="flex justify-between font-sans text-xs text-[#605A57]">
         <span>
           {prefix ?? ""}
           {min}
@@ -157,16 +160,16 @@ function ResultCell({ label, value, highlight, large }: ResultCellProps) {
         "rounded-xl border p-4",
         large ? "col-span-1" : "",
         highlight === "green"
-          ? "bg-emerald-50 border-emerald-200"
+          ? "border-emerald-200 bg-emerald-50"
           : highlight === "red"
-            ? "bg-red-50 border-red-200"
-            : "bg-white border-[rgba(55,50,47,0.08)]",
+            ? "border-red-200 bg-red-50"
+            : "border-[rgba(55,50,47,0.08)] bg-white",
       )}
     >
-      <div className="text-xs text-[#605A57] font-sans mb-1">{label}</div>
+      <div className="mb-1 font-sans text-xs text-[#605A57]">{label}</div>
       <div
         className={cn(
-          "font-semibold font-sans tabular-nums",
+          "font-sans font-semibold tabular-nums",
           large ? "text-xl sm:text-2xl" : "text-base",
           highlight === "green"
             ? "text-emerald-700"
