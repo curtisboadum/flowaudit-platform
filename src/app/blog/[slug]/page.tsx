@@ -2,6 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { JsonLd } from "@/components/seo/json-ld";
+import { SITE_URL, SITE_NAME, canonicalUrl } from "@/lib/seo";
+import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 
 interface BlogPost {
   title: string;
@@ -106,8 +109,7 @@ That's how you improve revenue per employee — not by adding more people to do 
   },
   "revenue-per-employee": {
     title: "Revenue Per Employee: The Metric That Matters",
-    excerpt:
-      "Why revenue per employee is the single best indicator of operational health.",
+    excerpt: "Why revenue per employee is the single best indicator of operational health.",
     category: "Metrics",
     date: "January 2, 2025",
     readTime: "6 min read",
@@ -158,13 +160,20 @@ export function generateStaticParams() {
   return Object.keys(posts).map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   return params.then(({ slug }) => {
     const post = posts[slug];
     if (!post) return { title: "Blog — FlowAudit" };
     return {
       title: `${post.title} — FlowAudit Blog`,
       description: post.excerpt,
+      alternates: {
+        canonical: `/blog/${slug}`,
+      },
     };
   });
 }
@@ -178,31 +187,31 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   }
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center">
+    <div className="flex min-h-screen w-full flex-col items-center">
       <div className="w-full max-w-[700px] px-4 sm:px-6 lg:px-0">
         {/* Header */}
-        <header className="pt-28 sm:pt-36 lg:pt-44 pb-10">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs text-[#605A57] font-sans">{post.category}</span>
-            <span className="text-xs text-[#605A57] font-sans">{post.date}</span>
-            <span className="text-xs text-[#605A57] font-sans">{post.readTime}</span>
+        <header className="pt-28 pb-10 sm:pt-36 lg:pt-44">
+          <div className="mb-4 flex items-center gap-3">
+            <span className="font-sans text-xs text-[#605A57]">{post.category}</span>
+            <span className="font-sans text-xs text-[#605A57]">{post.date}</span>
+            <span className="font-sans text-xs text-[#605A57]">{post.readTime}</span>
           </div>
-          <h1 className="text-[#37322F] text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.15] font-serif">
+          <h1 className="font-serif text-3xl leading-[1.15] font-normal text-[#37322F] sm:text-4xl lg:text-5xl">
             {post.title}
           </h1>
-          <p className="text-[rgba(55,50,47,0.80)] text-base sm:text-lg font-sans leading-7 mt-4">
+          <p className="mt-4 font-sans text-base leading-7 text-[rgba(55,50,47,0.80)] sm:text-lg">
             {post.excerpt}
           </p>
         </header>
 
         {/* Content */}
-        <article className="pb-16 prose-custom">
+        <article className="prose-custom pb-16">
           {post.content.split("\n\n").map((block, i) => {
             if (block.startsWith("## ")) {
               return (
                 <h2
                   key={i}
-                  className="text-[#37322F] text-xl sm:text-2xl font-semibold font-sans mt-10 mb-4"
+                  className="mt-10 mb-4 font-sans text-xl font-semibold text-[#37322F] sm:text-2xl"
                 >
                   {block.replace("## ", "")}
                 </h2>
@@ -210,19 +219,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             }
             if (block.startsWith("### ")) {
               return (
-                <h3
-                  key={i}
-                  className="text-[#37322F] text-lg font-semibold font-sans mt-8 mb-3"
-                >
+                <h3 key={i} className="mt-8 mb-3 font-sans text-lg font-semibold text-[#37322F]">
                   {block.replace("### ", "")}
                 </h3>
               );
             }
             if (block.startsWith("- ")) {
               return (
-                <ul key={i} className="space-y-2 my-4">
+                <ul key={i} className="my-4 space-y-2">
                   {block.split("\n").map((line, j) => (
-                    <li key={j} className="text-[#605A57] text-base font-sans leading-7 pl-4">
+                    <li key={j} className="pl-4 font-sans text-base leading-7 text-[#605A57]">
                       {line.replace("- ", "")}
                     </li>
                   ))}
@@ -231,9 +237,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             }
             if (block.match(/^\d\./)) {
               return (
-                <ol key={i} className="space-y-2 my-4 list-decimal list-inside">
+                <ol key={i} className="my-4 list-inside list-decimal space-y-2">
                   {block.split("\n").map((line, j) => (
-                    <li key={j} className="text-[#605A57] text-base font-sans leading-7">
+                    <li key={j} className="font-sans text-base leading-7 text-[#605A57]">
                       {line.replace(/^\d+\.\s*/, "")}
                     </li>
                   ))}
@@ -241,7 +247,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               );
             }
             return (
-              <p key={i} className="text-[#605A57] text-base font-sans leading-7 my-4">
+              <p key={i} className="my-4 font-sans text-base leading-7 text-[#605A57]">
                 {block}
               </p>
             );
@@ -249,11 +255,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </article>
 
         {/* CTA */}
-        <div className="pb-16 sm:pb-20 border-t border-[rgba(55,50,47,0.12)] pt-10 flex flex-col items-center text-center">
-          <h2 className="text-[#37322F] text-xl sm:text-2xl font-normal font-serif">
+        <div className="flex flex-col items-center border-t border-[rgba(55,50,47,0.12)] pt-10 pb-16 text-center sm:pb-20">
+          <h2 className="font-serif text-xl font-normal text-[#37322F] sm:text-2xl">
             Ready to stop doing repetitive work?
           </h2>
-          <p className="text-[#605A57] text-sm font-sans mt-3 max-w-[400px]">
+          <p className="mt-3 max-w-[400px] font-sans text-sm text-[#605A57]">
             Book a free strategy call and see exactly how much time your team can save.
           </p>
           <Button size="lg" className="mt-5" asChild>
@@ -261,6 +267,34 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </Button>
         </div>
       </div>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", url: canonicalUrl("/") },
+          { name: "Blog", url: canonicalUrl("/blog") },
+          { name: post.title, url: canonicalUrl(`/blog/${slug}`) },
+        ])}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          author: {
+            "@type": "Organization",
+            name: SITE_NAME,
+            url: SITE_URL,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: SITE_NAME,
+            url: SITE_URL,
+          },
+          url: canonicalUrl(`/blog/${slug}`),
+          mainEntityOfPage: canonicalUrl(`/blog/${slug}`),
+        }}
+      />
     </div>
   );
 }

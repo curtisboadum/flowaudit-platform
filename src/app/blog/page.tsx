@@ -1,11 +1,17 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
+import { JsonLd } from "@/components/seo/json-ld";
+import { canonicalUrl } from "@/lib/seo";
+import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Blog — FlowAudit",
   description:
     "Insights on automation, operational efficiency, and growing without adding headcount.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 const posts = [
@@ -40,47 +46,53 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <div className="w-full min-h-screen flex flex-col items-center">
+    <div className="flex min-h-screen w-full flex-col items-center">
       <div className="w-full max-w-[1060px]">
         {/* Hero */}
-        <section className="pt-28 sm:pt-36 lg:pt-44 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-0 flex flex-col items-center text-center border-b border-[rgba(55,50,47,0.12)]">
+        <section className="flex flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 pt-28 pb-16 text-center sm:px-6 sm:pt-36 sm:pb-20 lg:px-0 lg:pt-44">
           <Badge text="Blog" />
-          <h1 className="text-[#37322F] text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] font-serif max-w-[600px] mt-4">
+          <h1 className="mt-4 max-w-[600px] font-serif text-3xl leading-[1.1] font-normal text-[#37322F] sm:text-5xl lg:text-6xl">
             Insights for Operators
           </h1>
-          <p className="text-[rgba(55,50,47,0.80)] text-base sm:text-lg font-sans leading-7 mt-6 max-w-[500px]">
+          <p className="mt-6 max-w-[500px] font-sans text-base leading-7 text-[rgba(55,50,47,0.80)] sm:text-lg">
             Practical thinking on automation, efficiency, and growing without adding headcount.
           </p>
         </section>
 
         {/* Blog Grid */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-0">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group bg-white rounded-xl border border-[rgba(55,50,47,0.08)] overflow-hidden hover:shadow-[0px_4px_12px_rgba(55,50,47,0.08)] transition-shadow"
+                className="group overflow-hidden rounded-xl border border-[rgba(55,50,47,0.08)] bg-white transition-shadow hover:shadow-[0px_4px_12px_rgba(55,50,47,0.08)]"
               >
                 {/* Placeholder image area */}
-                <div className="h-40 bg-[#F0EDEB] flex items-center justify-center">
-                  <span className="text-[#605A57] text-sm font-sans">{post.category}</span>
+                <div className="flex h-40 items-center justify-center bg-[#F0EDEB]">
+                  <span className="font-sans text-sm text-[#605A57]">{post.category}</span>
                 </div>
                 <div className="p-5">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs text-[#605A57] font-sans">{post.date}</span>
-                    <span className="text-xs text-[#605A57] font-sans">{post.readTime}</span>
+                  <div className="mb-3 flex items-center gap-3">
+                    <span className="font-sans text-xs text-[#605A57]">{post.date}</span>
+                    <span className="font-sans text-xs text-[#605A57]">{post.readTime}</span>
                   </div>
-                  <h2 className="text-[#37322F] text-base font-semibold font-sans group-hover:text-[#49423D] transition-colors">
+                  <h2 className="font-sans text-base font-semibold text-[#37322F] transition-colors group-hover:text-[#49423D]">
                     {post.title}
                   </h2>
-                  <p className="text-[#605A57] text-sm font-sans leading-6 mt-2">{post.excerpt}</p>
+                  <p className="mt-2 font-sans text-sm leading-6 text-[#605A57]">{post.excerpt}</p>
                 </div>
               </Link>
             ))}
           </div>
         </section>
       </div>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", url: canonicalUrl("/") },
+          { name: "Blog", url: canonicalUrl("/blog") },
+        ])}
+      />
     </div>
   );
 }

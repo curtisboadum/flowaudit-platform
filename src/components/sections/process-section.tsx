@@ -38,11 +38,11 @@ function ProcessSection() {
   return (
     <section
       id="how-it-works"
-      className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col items-center py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-0"
+      className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0 lg:py-24"
     >
       <div className="w-full max-w-[1060px]">
         {/* Header */}
-        <div className="flex flex-col items-center gap-4 mb-12 sm:mb-16">
+        <div className="mb-12 flex flex-col items-center gap-4 sm:mb-16">
           <Badge
             icon={
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -57,34 +57,36 @@ function ProcessSection() {
             }
             text="How It Works"
           />
-          <h2 className="text-center text-[#49423D] text-2xl sm:text-3xl lg:text-5xl font-semibold leading-tight font-sans tracking-tight">
+          <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
             From Manual to Automated in 10 Days
           </h2>
-          <p className="text-center text-[#605A57] text-sm sm:text-base leading-7 font-sans max-w-[500px]">
+          <p className="max-w-[500px] text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
             We do the heavy lifting — you just show up for a 30-minute call.
           </p>
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
               <div key={step.number} className="relative flex flex-col items-center text-center">
                 {/* Connector line (desktop) */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-[calc(50%+24px)] w-[calc(100%-48px)] h-[1px] bg-[rgba(55,50,47,0.12)]" />
+                  <div className="absolute top-8 left-[calc(50%+24px)] hidden h-[1px] w-[calc(100%-48px)] bg-[rgba(55,50,47,0.12)] lg:block" />
                 )}
-                <div className="w-16 h-16 rounded-2xl bg-white border border-[rgba(55,50,47,0.08)] flex items-center justify-center mb-4 shadow-sm relative z-10">
-                  <Icon className="w-6 h-6 text-[#37322F]" />
+                <div className="relative z-10 mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white shadow-sm">
+                  <Icon className="h-6 w-6 text-[#37322F]" />
                 </div>
-                <div className="text-xs text-[#605A57] font-sans font-medium mb-1">
+                <div className="mb-1 font-sans text-xs font-medium text-[#605A57]">
                   {step.number}
                 </div>
-                <h3 className="text-sm text-[#37322F] font-semibold font-sans mb-2">
+                <h3 className="mb-2 font-sans text-sm font-semibold text-[#37322F]">
                   {step.title}
                 </h3>
-                <p className="text-xs text-[#605A57] font-sans leading-5">{step.description}</p>
+                <p className="max-w-[180px] font-sans text-xs leading-relaxed text-[#605A57]">
+                  {step.description}
+                </p>
               </div>
             );
           })}
