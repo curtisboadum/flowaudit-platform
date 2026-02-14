@@ -170,11 +170,37 @@ function PDFExport({
 
   const handleExportPDF = useCallback(async () => {
     setIsExporting(true);
+    let iframe: HTMLIFrameElement | null = null;
     try {
       const html2pdf = (await import("html2pdf.js")).default;
-      const container = document.createElement("div");
-      container.innerHTML = generateHTML();
-      document.body.appendChild(container);
+
+      // Use an iframe to isolate from Tailwind's oklch() colors
+      // (html2canvas cannot parse oklch, which Tailwind v4 uses)
+      iframe = document.createElement("iframe");
+      iframe.style.position = "fixed";
+      iframe.style.left = "-9999px";
+      iframe.style.top = "-9999px";
+      iframe.style.width = "800px";
+      iframe.style.height = "1200px";
+      document.body.appendChild(iframe);
+
+      const iframeDoc = iframe.contentDocument;
+      if (!iframeDoc) throw new Error("Could not access iframe document");
+
+      iframeDoc.open();
+      iframeDoc.write(`<!DOCTYPE html>
+        <html><head>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        </head><body style="margin:0;padding:0;">
+          ${generateHTML()}
+        </body></html>`);
+      iframeDoc.close();
+
+      // Allow fonts and content to render
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      const content = iframeDoc.body.firstElementChild as HTMLElement | null;
+      if (!content) throw new Error("PDF content failed to render");
 
       await html2pdf()
         .set({
@@ -184,20 +210,25 @@ function PDFExport({
           html2canvas: { scale: 2 },
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
         })
-        .from(container)
+        .from(content)
         .save();
-
-      document.body.removeChild(container);
     } catch (error) {
       console.error("PDF export failed:", error);
     } finally {
+      if (iframe?.parentNode) {
+        iframe.parentNode.removeChild(iframe);
+      }
       setIsExporting(false);
     }
   }, [generateHTML, companyName]);
 
   const handlePrint = useCallback(() => {
     const printWindow = window.open("", "_blank");
-    if (!printWindow) return;
+    if (!printWindow) {
+      // Popup blocked — fall back to printing current page
+      window.print();
+      return;
+    }
     printWindow.document.write(`
       <!DOCTYPE html>
       <html>
@@ -207,7 +238,7 @@ function PDFExport({
         </head>
         <body style="margin: 0; padding: 20px;">
           ${generateHTML()}
-          <script>window.onload = function() { window.print(); }</script>
+          <script>window.onload = function() { window.print(); }<\/script>
         </body>
       </html>
     `);
