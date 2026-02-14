@@ -290,11 +290,11 @@ export async function POST(request: Request) {
       if (lastStatus === 429) {
         try {
           console.error(
-            "[chat] Primary model exhausted retries with 429. Trying gemini-1.5-flash fallback.",
+            "[chat] Primary model exhausted retries with 429. Trying gemini-2.0-flash-lite fallback.",
           );
 
           const fallbackModel = genAI.getGenerativeModel({
-            model: "gemini-1.5-flash",
+            model: "gemini-2.0-flash-lite",
             systemInstruction: SYSTEM_PROMPT,
             generationConfig: { maxOutputTokens: 512, temperature: 0.7 },
             safetySettings: [
@@ -333,7 +333,7 @@ export async function POST(request: Request) {
         } catch (fallbackErr: unknown) {
           lastError = fallbackErr;
           const fbMsg = fallbackErr instanceof Error ? fallbackErr.message : String(fallbackErr);
-          console.error("[chat] Fallback model (gemini-1.5-flash) also failed:", {
+          console.error("[chat] Fallback model (gemini-2.0-flash-lite) also failed:", {
             status: extractStatus(fallbackErr),
             message: fbMsg,
             error: fallbackErr,
