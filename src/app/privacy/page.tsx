@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — FlowAudit",
@@ -12,8 +13,9 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="flex min-h-screen w-full flex-col items-center">
-      <div className="w-full max-w-[700px] px-4 pt-28 pb-16 sm:px-6 sm:pt-36 sm:pb-20 lg:px-0 lg:pt-44">
-        <h1 className="mb-8 font-serif text-3xl font-normal text-[#37322F] sm:text-4xl">
+      <div className="w-full max-w-[700px] px-4 pt-24 pb-16 sm:px-6 sm:pt-28 sm:pb-20 lg:px-0 lg:pt-32">
+        <Breadcrumbs items={[{ name: "Privacy Policy", href: "/privacy" }]} />
+        <h1 className="mt-8 mb-8 font-serif text-3xl font-normal text-[#37322F] sm:text-4xl">
           Privacy Policy
         </h1>
         <div className="space-y-6 font-sans text-base leading-7 text-[#605A57]">

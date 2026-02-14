@@ -147,7 +147,7 @@ function CalculatorApp() {
     <div className="flex min-h-screen w-full flex-col items-center">
       <div className="w-full max-w-[1060px] px-4 sm:px-6 lg:px-0">
         {/* Hero */}
-        <section className="flex flex-col items-center pt-28 pb-12 text-center sm:pt-36 sm:pb-16 lg:pt-44">
+        <section className="flex flex-col items-center pt-8 pb-12 text-center sm:pb-16">
           <h1 className="max-w-[700px] font-serif text-3xl leading-[1.1] font-normal text-[#37322F] sm:text-5xl lg:text-6xl">
             Calculate Your Automation ROI
           </h1>
