@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
 import { SITE_URL, SITE_NAME, canonicalUrl } from "@/lib/seo";
 import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 interface BlogPost {
   title: string;
@@ -189,8 +190,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <div className="flex min-h-screen w-full flex-col items-center">
       <div className="w-full max-w-[700px] px-4 sm:px-6 lg:px-0">
+        <div className="pt-24 sm:pt-28 lg:pt-32">
+          <Breadcrumbs
+            items={[
+              { name: "Blog", href: "/blog" },
+              { name: post.title, href: `/blog/${slug}` },
+            ]}
+          />
+        </div>
         {/* Header */}
-        <header className="pt-28 pb-10 sm:pt-36 lg:pt-44">
+        <header className="pt-8 pb-10">
           <div className="mb-4 flex items-center gap-3">
             <span className="font-sans text-xs text-[#605A57]">{post.category}</span>
             <span className="font-sans text-xs text-[#605A57]">{post.date}</span>

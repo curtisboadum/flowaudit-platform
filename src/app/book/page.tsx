@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { canonicalUrl } from "@/lib/seo";
 import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { CalendarCheck, Search, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -37,8 +38,11 @@ export default function BookPage() {
   return (
     <div className="flex min-h-screen w-full flex-col items-center">
       <div className="w-full max-w-[1060px]">
+        <div className="px-4 pt-24 sm:px-6 sm:pt-28 lg:px-0 lg:pt-32">
+          <Breadcrumbs items={[{ name: "Book a Call", href: "/book" }]} />
+        </div>
         {/* Hero */}
-        <section className="flex flex-col items-center px-4 pt-28 pb-12 text-center sm:px-6 sm:pt-36 lg:px-0 lg:pt-44">
+        <section className="flex flex-col items-center px-4 pt-8 pb-12 text-center sm:px-6 lg:px-0">
           <h1 className="max-w-[600px] font-serif text-3xl leading-[1.1] font-normal text-[#37322F] sm:text-5xl lg:text-6xl">
             Book a Free Strategy Call
           </h1>
