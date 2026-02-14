@@ -30,6 +30,38 @@ Patterns discovered, solutions to problems, and general learnings during develop
 - `generateMetadata` on each page enables per-page OpenGraph/Twitter metadata
 - JSON-LD structured data can be injected via `<script type="application/ld+json">` in layout or page components
 
+### Git Push Token Resolution
+
+- Fine-grained PATs (`github_pat_...`) from `GITHUB_TOKEN` env var may have API access but lack `contents:write` permission for `git push`
+- Fix: `GITHUB_TOKEN= gh auth token` falls through to the keyring-stored OAuth token (`gho_...`) which has full `repo` scope
+- Can also pass the keyring token via credential helper override for the push command
+- This is a refinement of the earlier "unset GITHUB_TOKEN" insight — the root cause is PAT scope mismatch
+
+### Next.js App Router Favicon Convention
+
+- Place `icon.svg` in `src/app/` — Next.js auto-serves it at `/icon.svg` with a cache-busted hash query param
+- No `<link>` tag needed in layout — the framework handles it automatically
+- SVG format allows crisp rendering at any size without multiple PNG variants
+
+---
+
+## 2026-02-14 — Chat Widget & Gemini Streaming
+
+### Gemini SSE Streaming Pattern
+
+- Use `model.startChat({ history })` then `chat.sendMessageStream(latestMessage)` for conversational streaming
+- Gemini requires alternating user/model roles — merge consecutive same-role messages before sending
+- Pop the last user message from history array and pass it to `sendMessageStream()` separately
+- SSE format: `data: {"text":"chunk"}\n\n` with `data: [DONE]\n\n` sentinel
+
+### Chat Widget Architecture
+
+- Floating action button (FAB) pattern: fixed-position button in bottom-right, toggles a panel above it
+- Quick questions array provides zero-friction first interaction for visitors
+- Client-side SSE parsing: buffer chunks, split on `\n\n`, parse `data: ` prefix, accumulate assistant content via state updater function
+- Error fallback directs users to book a call — every error state is a lead capture opportunity
+- Rate limiting (in-memory Map with periodic cleanup) is sufficient for Vercel serverless at early traffic scale
+
 ---
 
 ## 2026-02-12 — Deployment

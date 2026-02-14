@@ -29,10 +29,10 @@ function StickySummary({ hours, rate, setupCost, currency, rates }: StickySummar
   const fmt = (usd: number) => formatCurrency(convertCurrency(usd, rates, currency), currency);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-[rgba(55,50,47,0.12)] shadow-[0_-4px_16px_rgba(0,0,0,0.06)]">
-      <div className="max-w-[1060px] mx-auto px-4 sm:px-6 lg:px-0 py-3">
+    <div className="fixed right-0 bottom-0 left-0 z-40 border-t border-[rgba(55,50,47,0.12)] bg-white/95 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] backdrop-blur-xl">
+      <div className="mx-auto max-w-[1060px] px-4 py-3 sm:px-6 lg:px-0">
         <div className="flex items-center justify-between gap-4 overflow-x-auto">
-          <SummaryItem label="Setup Investment" value={fmt(setupCost)} />
+          <SummaryItem label="Build & Deployment Fee" value={fmt(setupCost)} />
           <Divider />
           <SummaryItem label="Annual Savings" value={fmt(annualSavings)} positive />
           <Divider />
@@ -58,8 +58,8 @@ function StickySummary({ hours, rate, setupCost, currency, rates }: StickySummar
           {roiPercent > 200 && (
             <>
               <Divider />
-              <div className="flex flex-col items-center min-w-fit">
-                <div className="text-xs font-semibold font-sans text-emerald-600 whitespace-nowrap animate-pulse">
+              <div className="flex min-w-fit flex-col items-center">
+                <div className="animate-pulse font-sans text-xs font-semibold whitespace-nowrap text-emerald-600">
                   Strong ROI!
                 </div>
               </div>
@@ -68,8 +68,8 @@ function StickySummary({ hours, rate, setupCost, currency, rates }: StickySummar
           {roiPercent > 0 && roiPercent <= 200 && (
             <>
               <Divider />
-              <div className="flex flex-col items-center min-w-fit">
-                <div className="text-xs font-semibold font-sans text-emerald-600 whitespace-nowrap">
+              <div className="flex min-w-fit flex-col items-center">
+                <div className="font-sans text-xs font-semibold whitespace-nowrap text-emerald-600">
                   Looking good!
                 </div>
               </div>
@@ -91,13 +91,13 @@ interface SummaryItemProps {
 
 function SummaryItem({ label, value, positive, negative, bold }: SummaryItemProps) {
   return (
-    <div className="flex flex-col items-center min-w-fit">
-      <div className="text-[10px] sm:text-xs text-[#605A57] font-sans whitespace-nowrap">
+    <div className="flex min-w-fit flex-col items-center">
+      <div className="font-sans text-[10px] whitespace-nowrap text-[#605A57] sm:text-xs">
         {label}
       </div>
       <div
         className={cn(
-          "text-sm sm:text-base font-sans tabular-nums whitespace-nowrap",
+          "font-sans text-sm whitespace-nowrap tabular-nums sm:text-base",
           bold ? "font-bold" : "font-semibold",
           positive ? "text-emerald-600" : negative ? "text-red-500" : "text-[#37322F]",
         )}
@@ -109,7 +109,7 @@ function SummaryItem({ label, value, positive, negative, bold }: SummaryItemProp
 }
 
 function Divider() {
-  return <div className="w-px h-8 bg-[rgba(55,50,47,0.08)] shrink-0 hidden sm:block" />;
+  return <div className="hidden h-8 w-px shrink-0 bg-[rgba(55,50,47,0.08)] sm:block" />;
 }
 
 export { StickySummary };
