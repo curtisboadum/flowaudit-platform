@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { SITE_URL, canonicalUrl } from "@/lib/seo";
 import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { TIERS } from "@/lib/calculator-data";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Zap } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -30,8 +31,11 @@ export default function SolutionsPage() {
   return (
     <div className="flex min-h-screen w-full flex-col items-center">
       <div className="w-full max-w-[1060px]">
+        <div className="px-4 pt-24 sm:px-6 sm:pt-28 lg:px-0 lg:pt-32">
+          <Breadcrumbs items={[{ name: "Solutions", href: "/solutions" }]} />
+        </div>
         {/* Hero */}
-        <section className="flex flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 pt-28 pb-16 text-center sm:px-6 sm:pt-36 sm:pb-20 lg:px-0 lg:pt-44">
+        <section className="flex flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 pt-8 pb-16 text-center sm:px-6 sm:pb-20 lg:px-0">
           <Badge text="Automation Library" />
           <h1 className="mt-4 max-w-[700px] font-serif text-3xl leading-[1.1] font-normal text-[#37322F] sm:text-5xl lg:text-6xl">
             53 Automations. 4 Tiers. One Platform.
