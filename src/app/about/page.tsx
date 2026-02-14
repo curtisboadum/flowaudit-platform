@@ -28,32 +28,32 @@ const teamMembers = [
   },
   {
     name: "Kofi Owusu",
-    title: "CEO / COO & Lawyer",
+    title: "CEO / COO",
     description:
       "Operations and legal strategy. Ensures every deployment is compliant and scalable.",
     initials: "KO",
     isAI: false,
   },
   {
-    name: "Boadum",
+    name: "Lawyer Boadum",
     title: "Sales Advisor",
     description:
       "Client relationships and growth strategy. Connects operators with the right solutions.",
-    initials: "BA",
+    initials: "LB",
     isAI: false,
   },
   {
     name: "Casper",
     title: "AI Agent",
-    description: "Handles workflow automation, data syncing, and client communication tasks.",
+    description:
+      "Manages reporting, analytics, and operational visibility across client workflows.",
     initials: "C",
     isAI: true,
   },
   {
     name: "Klaus",
     title: "AI Agent",
-    description:
-      "Manages reporting, analytics, and operational visibility across client workflows.",
+    description: "Handles workflow automation, data syncing, and client communication tasks.",
     initials: "K",
     isAI: true,
   },
