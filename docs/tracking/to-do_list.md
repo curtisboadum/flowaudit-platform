@@ -18,6 +18,9 @@ Status: `[ ]` pending, `[~]` in progress, `[x]` done, `[-]` dropped
 - [x] UI/SEO/logo overhaul (PR #2 on `feat/ui-seo-logos-overhaul`)
 - [x] Merge PR #2 and verify production deploy
 - [x] Verify SEO: sitemap.xml, robots.txt, JSON-LD in page source
+- [x] AI chat widget — streaming Gemini-powered assistant with rate limiting and system prompt
+- [x] Calculator polish — "Build & Deployment Fee" label, disclaimer, tooltip hover
+- [x] Industry workflow redesign — numbered steps, From/To labels, hover effects
 - [ ] Set up InstantDB app and configure `NEXT_PUBLIC_INSTANT_APP_ID`
 - [ ] Set up OpenClaw account and configure API keys
 - [x] Set up Vercel project linked to GitHub repo

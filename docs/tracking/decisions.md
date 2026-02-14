@@ -100,6 +100,45 @@
 
 ---
 
+## ADR-006: Reusable Breadcrumb Component Pattern
+
+**Date:** 2026-02-14
+**Status:** Accepted
+**Context:** Subpages needed visual breadcrumb navigation for UX. Could use automatic route-based generation in the layout, a global breadcrumb context provider, or a per-page composition approach.
+**Decision:** Single `Breadcrumbs` component accepting an `items` array, imported and configured per-page.
+**Rationale:**
+
+- Composition over global layout injection — each page controls its own breadcrumb hierarchy
+- Dynamic pages (blog, industry) can resolve slugs to human-readable display names at the page level
+- No global state or context provider needed — simple props-based interface
+- Matches the project convention of Server Components by default (no client-side state required for breadcrumbs)
+  **Consequences:**
+- Each page must import `Breadcrumbs` and configure its own items array
+- No automatic breadcrumb generation from route structure — manual maintenance required
+- Adding a new page requires explicitly adding breadcrumb configuration
+
+---
+
+## ADR-007: Gemini 2.0 Flash for Chat Widget
+
+**Date:** 2026-02-14
+**Status:** Accepted
+**Context:** Marketing site needs an AI chat widget for visitor engagement. Could use Claude API (already in stack for core product), OpenAI, or Google Gemini.
+**Decision:** Use Gemini 2.0 Flash via `@google/generative-ai` SDK for the marketing chat widget.
+**Rationale:**
+
+- Significantly lower cost per token than Claude for a high-volume, low-stakes use case (marketing Q&A)
+- Gemini 2.0 Flash has fast response times suitable for real-time chat streaming
+- Keeps Claude API reserved for the core product (moat bots / workflow agents) where quality matters most
+- Native streaming support via `sendMessageStream()` maps cleanly to SSE
+- Free tier generous enough for early traffic
+  **Consequences:**
+- Two AI providers to manage (Gemini for chat, Claude for agents)
+- `GEMINI_API_KEY` env var required in Vercel for chat to work
+- If chat quality needs improve, can swap to Claude API without changing the widget UI (same SSE interface)
+
+---
+
 ## ADR Template
 
 ```markdown

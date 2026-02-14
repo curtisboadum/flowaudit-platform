@@ -4,7 +4,40 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ---
 
-## 2026-02-14
+## 2026-02-14 (Session 3)
+
+### AI Chat Widget
+
+- **Created** `ChatWidget` component — streaming chat UI with quick questions, typing indicators, error handling
+- **Created** `/api/chat` route — Gemini 2.0 Flash SSE endpoint with rate limiting, input sanitization, system prompt
+- **Updated** root layout to mount `<ChatWidget />` site-wide
+- **Added** `@google/generative-ai` dependency and `GEMINI_API_KEY` to `.env.example`
+
+### Industry Workflow Redesign
+
+- **Updated** industry page workflow cards with numbered steps, "From/To" labels, hover effects
+
+### Calculator Polish
+
+- **Updated** "Setup Investment" label → "Build & Deployment Fee"
+- **Updated** package selector with tooltip hover effects
+- **Updated** calculator disclaimer: "\*Based on conservative assumptions"
+- **Refactored** Tailwind class ordering across calculator components
+
+### Footer & Security
+
+- **Updated** LinkedIn URL to real FlowAudit company page
+- **Updated** security section with "Cloudflare DNS" mention
+- **Refactored** Tailwind class ordering in footer
+
+### Misc
+
+- **Updated** `homepage-hero.png` — compressed from 296KB to 171KB
+- **Refactored** Tailwind class ordering across multiple components
+
+---
+
+## 2026-02-14 (Session 2)
 
 ### Logo Grid
 
@@ -38,6 +71,22 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 - **Updated** all page layouts for visual consistency
 - **Committed** `4082cc1` — 29 files changed (1,635 additions, 447 deletions)
 - **Created** PR #2 on `feat/ui-seo-logos-overhaul` branch
+
+### Breadcrumb Navigation
+
+- **Created** `Breadcrumbs` component with animated chevron separators and hover effects
+- **Updated** all 11 subpages to include breadcrumb navigation with per-page hierarchy
+- **Created** dynamic slug resolution for blog and industry pages (slug → display name)
+
+### Favicon
+
+- **Created** `icon.svg` SVG favicon in `src/app/` — auto-served by Next.js with cache-busted hash
+
+### Deployment (PR #3)
+
+- **Committed** `a6e5360` on `fix/breadcrumbs-favicon-todos` branch
+- **Created** PR #3 and squash-merged to `main`
+- **Deployed** to Vercel — verified breadcrumbs and favicon live in production
 
 ---
 
