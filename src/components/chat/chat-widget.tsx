@@ -110,16 +110,23 @@ export function ChatWidget() {
                   return updated;
                 });
               }
-              if (parsed !== null && typeof parsed === "object" && "error" in parsed) {
-                throw new Error("Stream error");
+              if (
+                parsed !== null &&
+                typeof parsed === "object" &&
+                "error" in parsed &&
+                typeof (parsed as Record<string, unknown>).error === "string"
+              ) {
+                throw new Error((parsed as Record<string, string>).error);
               }
             } catch {
               // Skip malformed JSON chunks
             }
           }
         }
-      } catch {
-        setError("Something went wrong. Book a call and we'll help directly.");
+      } catch (err: unknown) {
+        const message =
+          err instanceof Error ? err.message : "Something went wrong. Please try again.";
+        setError(message);
         setMessages((prev) => {
           const last = prev[prev.length - 1];
           if (last && last.role === "assistant" && last.content === "") {

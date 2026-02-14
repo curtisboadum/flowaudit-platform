@@ -247,10 +247,21 @@ export async function POST(request: Request) {
 
         controller.enqueue(encoder.encode("data: [DONE]\n\n"));
         controller.close();
-      } catch {
-        controller.enqueue(
-          encoder.encode(`data: ${JSON.stringify({ error: "Stream error" })}\n\n`),
-        );
+      } catch (err: unknown) {
+        let message = "Something went wrong. Please try again.";
+
+        const status =
+          typeof err === "object" && err !== null && "status" in err
+            ? (err as { status: unknown }).status
+            : undefined;
+
+        if (status === 429) {
+          message = "Chat is busy right now. Try again in a minute, or book a call.";
+        } else if (status === 401 || status === 403) {
+          message = "Chat is temporarily unavailable. Book a call and we'll help directly.";
+        }
+
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: message })}\n\n`));
         controller.close();
       }
     },
