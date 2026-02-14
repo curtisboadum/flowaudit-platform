@@ -135,19 +135,27 @@ function CalculatorApp() {
     setSelectedAddOns(new Set());
   }, []);
 
+  const handleReset = useCallback(() => {
+    setHours(20);
+    setRate(42);
+    setSelectedAutomations(new Set());
+    setSelectedAddOns(new Set());
+    setSelectedPackage(null);
+  }, []);
+
   return (
-    <div className="w-full min-h-screen flex flex-col items-center">
+    <div className="flex min-h-screen w-full flex-col items-center">
       <div className="w-full max-w-[1060px] px-4 sm:px-6 lg:px-0">
         {/* Hero */}
-        <section className="pt-28 sm:pt-36 lg:pt-44 pb-12 sm:pb-16 flex flex-col items-center text-center">
-          <h1 className="text-[#37322F] text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] font-serif max-w-[700px]">
+        <section className="flex flex-col items-center pt-28 pb-12 text-center sm:pt-36 sm:pb-16 lg:pt-44">
+          <h1 className="max-w-[700px] font-serif text-3xl leading-[1.1] font-normal text-[#37322F] sm:text-5xl lg:text-6xl">
             Calculate Your Automation ROI
           </h1>
-          <p className="text-[rgba(55,50,47,0.80)] text-base sm:text-lg font-sans leading-7 mt-6 max-w-[550px]">
-            Let&apos;s find the perfect automation package for your business. Customize your selection
-            and get a detailed ROI breakdown.
+          <p className="mt-6 max-w-[550px] font-sans text-base leading-7 text-[rgba(55,50,47,0.80)] sm:text-lg">
+            Let&apos;s find the perfect automation package for your business. Customize your
+            selection and get a detailed ROI breakdown.
           </p>
-          <p className="text-[rgba(55,50,47,0.40)] text-xs font-sans mt-3">
+          <p className="mt-3 font-sans text-xs text-[rgba(55,50,47,0.40)]">
             Takes 30 seconds. No email required.
           </p>
 
@@ -162,7 +170,7 @@ function CalculatorApp() {
         </section>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-6 lg:gap-8 pb-32">
+        <div className="grid grid-cols-1 gap-6 pb-32 lg:grid-cols-[400px_1fr] lg:gap-8">
           {/* Left: ROI Calculator + PDF */}
           <div className="space-y-6">
             <ROICalculator
@@ -183,6 +191,7 @@ function CalculatorApp() {
               selectedPackage={selectedPackage}
               currency={currency}
               rates={rates}
+              onReset={handleReset}
             />
           </div>
 

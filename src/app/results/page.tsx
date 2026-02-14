@@ -2,11 +2,17 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { JsonLd } from "@/components/seo/json-ld";
+import { canonicalUrl } from "@/lib/seo";
+import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Results — FlowAudit Case Studies",
   description:
     "Proven results across multiple industries. See how teams save 20+ hours per week with FlowAudit.",
+  alternates: {
+    canonical: "/results",
+  },
 };
 
 const metrics = [
@@ -105,81 +111,76 @@ const testimonials = [
 
 export default function ResultsPage() {
   return (
-    <div className="w-full min-h-screen flex flex-col items-center">
+    <div className="flex min-h-screen w-full flex-col items-center">
       <div className="w-full max-w-[1060px]">
         {/* Hero */}
-        <section className="pt-28 sm:pt-36 lg:pt-44 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-0 flex flex-col items-center text-center border-b border-[rgba(55,50,47,0.12)]">
+        <section className="flex flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 pt-28 pb-16 text-center sm:px-6 sm:pt-36 sm:pb-20 lg:px-0 lg:pt-44">
           <Badge text="Case Studies" />
-          <h1 className="text-[#37322F] text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] font-serif max-w-[600px] mt-4">
+          <h1 className="mt-4 max-w-[600px] font-serif text-3xl leading-[1.1] font-normal text-[#37322F] sm:text-5xl lg:text-6xl">
             Proven Results Across Multiple Industries
           </h1>
         </section>
 
         {/* Impact Metrics */}
-        <section className="py-12 px-4 sm:px-6 lg:px-0 border-b border-[rgba(55,50,47,0.12)]">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <section className="border-b border-[rgba(55,50,47,0.12)] px-4 py-12 sm:px-6 lg:px-0">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
             {metrics.map((metric) => (
-              <div key={metric.label} className="text-center p-6">
-                <div className="text-4xl sm:text-5xl text-[#37322F] font-semibold font-sans">
+              <div key={metric.label} className="p-6 text-center">
+                <div className="font-sans text-4xl font-semibold text-[#37322F] sm:text-5xl">
                   {metric.value}
                 </div>
-                <div className="text-sm text-[#37322F] font-semibold font-sans mt-2">
+                <div className="mt-2 font-sans text-sm font-semibold text-[#37322F]">
                   {metric.label}
                 </div>
-                <div className="text-xs text-[#605A57] font-sans mt-1">{metric.sub}</div>
+                <div className="mt-1 font-sans text-xs text-[#605A57]">{metric.sub}</div>
               </div>
             ))}
           </div>
         </section>
 
         {/* Case Studies */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-0 border-b border-[rgba(55,50,47,0.12)]">
-          <h2 className="text-center text-[#49423D] text-2xl sm:text-3xl font-semibold font-sans mb-12">
+        <section className="border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0">
+          <h2 className="mb-12 text-center font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
             Client Success Stories
           </h2>
           <div className="space-y-8">
             {caseStudies.map((study) => (
               <div
                 key={study.client}
-                className="bg-white rounded-xl border border-[rgba(55,50,47,0.08)] p-6 sm:p-8"
+                className="rounded-xl border border-[rgba(55,50,47,0.08)] bg-white p-6 sm:p-8"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[#37322F] flex items-center justify-center">
-                    <span className="text-white text-xs font-bold font-sans">
-                      {study.initials}
-                    </span>
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#37322F]">
+                    <span className="font-sans text-xs font-bold text-white">{study.initials}</span>
                   </div>
                   <div>
-                    <div className="text-[#37322F] text-base font-semibold font-sans">
+                    <div className="font-sans text-base font-semibold text-[#37322F]">
                       {study.client}
                     </div>
-                    <div className="text-[#605A57] text-xs font-sans">{study.industry}</div>
+                    <div className="font-sans text-xs text-[#605A57]">{study.industry}</div>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                   <div>
-                    <div className="text-xs text-[#605A57] font-sans font-medium uppercase tracking-wider mb-2">
+                    <div className="mb-2 font-sans text-xs font-medium tracking-wider text-[#605A57] uppercase">
                       Problem
                     </div>
-                    <p className="text-sm text-[#37322F] font-sans leading-6">{study.problem}</p>
+                    <p className="font-sans text-sm leading-6 text-[#37322F]">{study.problem}</p>
                   </div>
                   <div>
-                    <div className="text-xs text-[#605A57] font-sans font-medium uppercase tracking-wider mb-2">
+                    <div className="mb-2 font-sans text-xs font-medium tracking-wider text-[#605A57] uppercase">
                       Solution
                     </div>
-                    <p className="text-sm text-[#37322F] font-sans leading-6">{study.solution}</p>
+                    <p className="font-sans text-sm leading-6 text-[#37322F]">{study.solution}</p>
                   </div>
                   <div>
-                    <div className="text-xs text-[#605A57] font-sans font-medium uppercase tracking-wider mb-2">
+                    <div className="mb-2 font-sans text-xs font-medium tracking-wider text-[#605A57] uppercase">
                       Results
                     </div>
                     <ul className="space-y-1">
                       {study.results.map((result) => (
-                        <li
-                          key={result}
-                          className="text-sm text-emerald-700 font-medium font-sans"
-                        >
+                        <li key={result} className="font-sans text-sm font-medium text-emerald-700">
                           {result}
                         </li>
                       ))}
@@ -192,26 +193,26 @@ export default function ResultsPage() {
         </section>
 
         {/* Testimonials */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-0 border-b border-[rgba(55,50,47,0.12)]">
-          <h2 className="text-center text-[#49423D] text-2xl sm:text-3xl font-semibold font-sans mb-12">
+        <section className="border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0">
+          <h2 className="mb-12 text-center font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
             What Our Clients Say
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {testimonials.map((t) => (
               <div
                 key={t.name}
-                className="bg-white rounded-xl border border-[rgba(55,50,47,0.08)] p-6"
+                className="rounded-xl border border-[rgba(55,50,47,0.08)] bg-white p-6"
               >
-                <p className="text-[#37322F] text-sm font-serif italic leading-6">
+                <p className="font-serif text-sm leading-6 text-[#37322F] italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 mt-4 pt-4 border-t border-[rgba(55,50,47,0.06)]">
-                  <div className="w-8 h-8 rounded-full bg-[#37322F] flex items-center justify-center">
-                    <span className="text-white text-xs font-sans">{t.initials}</span>
+                <div className="mt-4 flex items-center gap-3 border-t border-[rgba(55,50,47,0.06)] pt-4">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#37322F]">
+                    <span className="font-sans text-xs text-white">{t.initials}</span>
                   </div>
                   <div>
-                    <div className="text-[#37322F] text-xs font-semibold font-sans">{t.name}</div>
-                    <div className="text-[#605A57] text-xs font-sans">{t.title}</div>
+                    <div className="font-sans text-xs font-semibold text-[#37322F]">{t.name}</div>
+                    <div className="font-sans text-xs text-[#605A57]">{t.title}</div>
                   </div>
                 </div>
               </div>
@@ -220,8 +221,8 @@ export default function ResultsPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-0 flex flex-col items-center text-center">
-          <h2 className="text-[#37322F] text-2xl sm:text-3xl font-normal font-serif">
+        <section className="flex flex-col items-center px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-0">
+          <h2 className="font-serif text-2xl font-normal text-[#37322F] sm:text-3xl">
             Get Results Like These
           </h2>
           <Button size="lg" className="mt-6" asChild>
@@ -229,6 +230,12 @@ export default function ResultsPage() {
           </Button>
         </section>
       </div>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", url: canonicalUrl("/") },
+          { name: "Results", url: canonicalUrl("/results") },
+        ])}
+      />
     </div>
   );
 }

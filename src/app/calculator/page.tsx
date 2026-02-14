@@ -1,12 +1,28 @@
 import type { Metadata } from "next";
 import { CalculatorApp } from "@/app/calculator/calculator-app";
+import { JsonLd } from "@/components/seo/json-ld";
+import { canonicalUrl } from "@/lib/seo";
+import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 
 export const metadata: Metadata = {
   title: "ROI Calculator — FlowAudit",
   description:
     "Calculate your automation ROI with FlowAudit. See exactly how much you can save with AI-powered workflow automation, customize packages, and export detailed reports.",
+  alternates: {
+    canonical: "/calculator",
+  },
 };
 
 export default function CalculatorPage() {
-  return <CalculatorApp />;
+  return (
+    <>
+      <CalculatorApp />
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", url: canonicalUrl("/") },
+          { name: "ROI Calculator", url: canonicalUrl("/calculator") },
+        ])}
+      />
+    </>
+  );
 }

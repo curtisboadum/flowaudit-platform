@@ -13,15 +13,17 @@ import { SecuritySection } from "@/components/sections/security-section";
 import { ComparisonSection } from "@/components/sections/comparison-section";
 import { FAQSection } from "@/components/sections/faq-section";
 import { CTASection } from "@/components/sections/cta-section";
+import { JsonLd } from "@/components/seo/json-ld";
+import { SITE_URL, SITE_NAME } from "@/lib/seo";
 
 export default function HomePage() {
   return (
-    <div className="w-full min-h-screen flex flex-col items-center">
-      <div className="w-full max-w-[1060px] relative">
+    <div className="flex min-h-screen w-full flex-col items-center">
+      <div className="relative w-full max-w-[1060px]">
         {/* Left vertical line */}
-        <div className="hidden lg:block w-[1px] h-full absolute left-0 top-0 bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] z-0" />
+        <div className="absolute top-0 left-0 z-0 hidden h-full w-[1px] bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] lg:block" />
         {/* Right vertical line */}
-        <div className="hidden lg:block w-[1px] h-full absolute right-0 top-0 bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] z-0" />
+        <div className="absolute top-0 right-0 z-0 hidden h-full w-[1px] bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] lg:block" />
 
         <HeroSection />
         <LogoGrid />
@@ -39,6 +41,21 @@ export default function HomePage() {
         <FAQSection />
         <CTASection />
       </div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: SITE_NAME,
+          url: SITE_URL,
+          description:
+            "FlowAudit builds AI assistants that handle your repetitive admin — without losing quality, control, or oversight.",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: `${SITE_URL}/blog?q={search_term_string}`,
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
     </div>
   );
 }

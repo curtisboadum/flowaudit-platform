@@ -38,18 +38,76 @@ export const TIERS: Record<string, TierData> = {
     color: "#3b82f6",
     colorClass: "border-l-blue-500",
     automations: [
-      { name: "Lead Capture", price: 400, description: "Automatically captures inbound leads from website forms, ads, and landing pages into your CRM." },
-      { name: "Lead Assignment Router", price: 400, description: "Routes new leads to the right team member based on territory, availability, or round-robin rules." },
-      { name: "Welcome Sequence", price: 400, description: "Sends a personalized welcome email series to new leads or clients automatically." },
-      { name: "Lead Scoring Engine", price: 400, description: "Ranks incoming leads by engagement, fit criteria, and behavioral signals." },
-      { name: "Email Follow-up Sequences", price: 400, description: "Triggers automated follow-up email chains based on prospect activity and timing rules." },
-      { name: "SMS Reminder System", price: 400, description: "Sends automated SMS reminders for appointments, deadlines, and follow-ups." },
-      { name: "Missed Call Auto-Response", price: 400, description: "Automatically texts or emails callers when you miss their call with a personalized response." },
-      { name: "Review Request Automation", price: 400, description: "Sends review requests to clients after project milestones or completed services." },
-      { name: "Task Auto-Assignment", price: 400, description: "Automatically assigns tasks to team members based on workload, role, or project rules." },
-      { name: "Deadline Reminder System", price: 400, description: "Sends automated reminders for upcoming tasks, renewals, and important deadlines." },
-      { name: "Status Update Notifications", price: 400, description: "Posts automated status updates to Slack, email, or project boards when milestones change." },
-      { name: "Daily Digest Reports", price: 400, description: "Generates and delivers daily summary reports of key metrics and activity to your inbox." },
+      {
+        name: "Lead Capture",
+        price: 400,
+        description:
+          "Automatically captures inbound leads from website forms, ads, and landing pages into your CRM.",
+      },
+      {
+        name: "Lead Assignment Router",
+        price: 400,
+        description:
+          "Routes new leads to the right team member based on territory, availability, or round-robin rules.",
+      },
+      {
+        name: "Welcome Sequence",
+        price: 400,
+        description:
+          "Sends a personalized welcome email series to new leads or clients automatically.",
+      },
+      {
+        name: "Lead Scoring Engine",
+        price: 400,
+        description: "Ranks incoming leads by engagement, fit criteria, and behavioral signals.",
+      },
+      {
+        name: "Email Follow-up Sequences",
+        price: 400,
+        description:
+          "Triggers automated follow-up email chains based on prospect activity and timing rules.",
+      },
+      {
+        name: "SMS Reminder System",
+        price: 400,
+        description: "Sends automated SMS reminders for appointments, deadlines, and follow-ups.",
+      },
+      {
+        name: "Missed Call Auto-Response",
+        price: 400,
+        description:
+          "Automatically texts or emails callers when you miss their call with a personalized response.",
+      },
+      {
+        name: "Review Request Automation",
+        price: 400,
+        description:
+          "Sends review requests to clients after project milestones or completed services.",
+      },
+      {
+        name: "Task Auto-Assignment",
+        price: 400,
+        description:
+          "Automatically assigns tasks to team members based on workload, role, or project rules.",
+      },
+      {
+        name: "Deadline Reminder System",
+        price: 400,
+        description:
+          "Sends automated reminders for upcoming tasks, renewals, and important deadlines.",
+      },
+      {
+        name: "Status Update Notifications",
+        price: 400,
+        description:
+          "Posts automated status updates to Slack, email, or project boards when milestones change.",
+      },
+      {
+        name: "Daily Digest Reports",
+        price: 400,
+        description:
+          "Generates and delivers daily summary reports of key metrics and activity to your inbox.",
+      },
     ],
   },
   tier2: {
@@ -57,22 +115,97 @@ export const TIERS: Record<string, TierData> = {
     color: "#06b6d4",
     colorClass: "border-l-cyan-500",
     automations: [
-      { name: "Client Onboarding Workflow", price: 550, description: "Sends welcome emails, collects documents, assigns tasks, and sets up access for new clients." },
-      { name: "Document Collection System", price: 550, description: "Automatically requests, tracks, and organizes required documents from clients." },
-      { name: "Client Portal Access Setup", price: 550, description: "Provisions client portal accounts and permissions when new clients are onboarded." },
-      { name: "Renewal Processing", price: 550, description: "Tracks contract and policy renewal dates and triggers the renewal workflow automatically." },
-      { name: "Quote Generation Engine", price: 550, description: "Generates professional quotes from templates using project details and pricing rules." },
-      { name: "Proposal Builder", price: 550, description: "Creates client proposals from templates, pre-filled with project scope and pricing." },
-      { name: "Quote Follow-up Sequence", price: 550, description: "Sends timed follow-up emails after quotes are sent to improve close rates." },
-      { name: "Pricing Calculator Integration", price: 550, description: "Embeds dynamic pricing calculations into your quoting workflow based on real-time data." },
-      { name: "Invoice Generation & Sending", price: 550, description: "Creates and sends invoices automatically from project or billing data." },
-      { name: "Payment Reminder Workflow", price: 550, description: "Sends automated payment reminders for overdue and upcoming invoices." },
-      { name: "Payment Confirmation System", price: 550, description: "Sends confirmation emails and updates records when payments are received." },
-      { name: "Subscription Billing Automation", price: 550, description: "Manages recurring billing cycles, charges, and payment tracking automatically." },
-      { name: "Data Enrichment Pipeline", price: 550, description: "Enriches contact and company records with data from external sources automatically." },
-      { name: "Duplicate Detection & Merge", price: 550, description: "Identifies and merges duplicate records across your CRM and databases." },
-      { name: "Record Cleanup Automation", price: 550, description: "Standardizes, validates, and cleans data fields across your systems on a schedule." },
-      { name: "Cross-Platform Data Sync", price: 550, description: "Keeps data consistent across CRM, email, accounting, and other platforms in real time." },
+      {
+        name: "Client Onboarding Workflow",
+        price: 550,
+        description:
+          "Sends welcome emails, collects documents, assigns tasks, and sets up access for new clients.",
+      },
+      {
+        name: "Document Collection System",
+        price: 550,
+        description:
+          "Automatically requests, tracks, and organizes required documents from clients.",
+      },
+      {
+        name: "Client Portal Access Setup",
+        price: 550,
+        description:
+          "Provisions client portal accounts and permissions when new clients are onboarded.",
+      },
+      {
+        name: "Renewal Processing",
+        price: 550,
+        description:
+          "Tracks contract and policy renewal dates and triggers the renewal workflow automatically.",
+      },
+      {
+        name: "Quote Generation Engine",
+        price: 550,
+        description:
+          "Generates professional quotes from templates using project details and pricing rules.",
+      },
+      {
+        name: "Proposal Builder",
+        price: 550,
+        description:
+          "Creates client proposals from templates, pre-filled with project scope and pricing.",
+      },
+      {
+        name: "Quote Follow-up Sequence",
+        price: 550,
+        description: "Sends timed follow-up emails after quotes are sent to improve close rates.",
+      },
+      {
+        name: "Pricing Calculator Integration",
+        price: 550,
+        description:
+          "Embeds dynamic pricing calculations into your quoting workflow based on real-time data.",
+      },
+      {
+        name: "Invoice Generation & Sending",
+        price: 550,
+        description: "Creates and sends invoices automatically from project or billing data.",
+      },
+      {
+        name: "Payment Reminder Workflow",
+        price: 550,
+        description: "Sends automated payment reminders for overdue and upcoming invoices.",
+      },
+      {
+        name: "Payment Confirmation System",
+        price: 550,
+        description: "Sends confirmation emails and updates records when payments are received.",
+      },
+      {
+        name: "Subscription Billing Automation",
+        price: 550,
+        description:
+          "Manages recurring billing cycles, charges, and payment tracking automatically.",
+      },
+      {
+        name: "Data Enrichment Pipeline",
+        price: 550,
+        description:
+          "Enriches contact and company records with data from external sources automatically.",
+      },
+      {
+        name: "Duplicate Detection & Merge",
+        price: 550,
+        description: "Identifies and merges duplicate records across your CRM and databases.",
+      },
+      {
+        name: "Record Cleanup Automation",
+        price: 550,
+        description:
+          "Standardizes, validates, and cleans data fields across your systems on a schedule.",
+      },
+      {
+        name: "Cross-Platform Data Sync",
+        price: 550,
+        description:
+          "Keeps data consistent across CRM, email, accounting, and other platforms in real time.",
+      },
     ],
   },
   tier3: {
@@ -80,26 +213,122 @@ export const TIERS: Record<string, TierData> = {
     color: "#a855f7",
     colorClass: "border-l-purple-500",
     automations: [
-      { name: "Multi-Stakeholder Approval Workflow", price: 700, description: "Routes documents and requests through multi-step approval chains with notifications." },
-      { name: "Policy/Service Renewal Engine", price: 700, description: "Manages complex renewal workflows with multi-touch reminders and document generation." },
-      { name: "Claims Processing", price: 700, description: "Automates claims intake, validation, routing, and status updates across stakeholders." },
-      { name: "Commission Calculation Engine", price: 700, description: "Calculates sales commissions based on custom rules, tiers, and deal structures." },
-      { name: "Executive Dashboard Builder", price: 700, description: "Creates live executive dashboards pulling data from all connected systems." },
-      { name: "Automated Performance Reports", price: 700, description: "Generates weekly or monthly performance reports with KPIs, trends, and insights." },
-      { name: "Pipeline Forecasting System", price: 700, description: "Projects revenue based on pipeline data, win rates, and historical trends." },
-      { name: "Client Health Score Monitor", price: 700, description: "Tracks engagement, satisfaction, and risk signals to flag at-risk clients early." },
-      { name: "AMS/CRM Integration Suite", price: 700, description: "Connects your agency management system or CRM with all operational tools." },
-      { name: "Accounting System Integration", price: 700, description: "Syncs invoices, payments, and financial data between your accounting and operational systems." },
-      { name: "Email Platform Integration", price: 700, description: "Connects email marketing platforms with your CRM for seamless campaign automation." },
-      { name: "Calendar Sync & Scheduling", price: 700, description: "Syncs calendars across platforms and automates scheduling based on availability rules." },
-      { name: "Abandoned Quote Recovery", price: 700, description: "Re-engages prospects who received quotes but didn't respond with targeted follow-ups." },
-      { name: "Referral Program Automation", price: 700, description: "Manages referral tracking, rewards, and communications for your referral program." },
-      { name: "Event/Webinar Registration System", price: 700, description: "Handles event registration, reminders, follow-ups, and attendee management." },
-      { name: "Lead Magnet Delivery", price: 700, description: "Automatically delivers lead magnets and triggers nurture sequences on download." },
-      { name: "Compliance Checklist Automation", price: 700, description: "Tracks regulatory requirements and automates compliance checklist completion." },
-      { name: "Audit Trail System", price: 700, description: "Maintains detailed audit logs of all system changes, approvals, and data modifications." },
-      { name: "E-Signature Workflow", price: 700, description: "Routes documents for electronic signature with reminders and status tracking." },
-      { name: "Certificate/License Expiry Tracking", price: 700, description: "Monitors expiration dates and triggers renewal workflows for certificates and licenses." },
+      {
+        name: "Multi-Stakeholder Approval Workflow",
+        price: 700,
+        description:
+          "Routes documents and requests through multi-step approval chains with notifications.",
+      },
+      {
+        name: "Policy/Service Renewal Engine",
+        price: 700,
+        description:
+          "Manages complex renewal workflows with multi-touch reminders and document generation.",
+      },
+      {
+        name: "Claims Processing",
+        price: 700,
+        description:
+          "Automates claims intake, validation, routing, and status updates across stakeholders.",
+      },
+      {
+        name: "Commission Calculation Engine",
+        price: 700,
+        description:
+          "Calculates sales commissions based on custom rules, tiers, and deal structures.",
+      },
+      {
+        name: "Executive Dashboard Builder",
+        price: 700,
+        description: "Creates live executive dashboards pulling data from all connected systems.",
+      },
+      {
+        name: "Automated Performance Reports",
+        price: 700,
+        description:
+          "Generates weekly or monthly performance reports with KPIs, trends, and insights.",
+      },
+      {
+        name: "Pipeline Forecasting System",
+        price: 700,
+        description: "Projects revenue based on pipeline data, win rates, and historical trends.",
+      },
+      {
+        name: "Client Health Score Monitor",
+        price: 700,
+        description:
+          "Tracks engagement, satisfaction, and risk signals to flag at-risk clients early.",
+      },
+      {
+        name: "AMS/CRM Integration Suite",
+        price: 700,
+        description: "Connects your agency management system or CRM with all operational tools.",
+      },
+      {
+        name: "Accounting System Integration",
+        price: 700,
+        description:
+          "Syncs invoices, payments, and financial data between your accounting and operational systems.",
+      },
+      {
+        name: "Email Platform Integration",
+        price: 700,
+        description:
+          "Connects email marketing platforms with your CRM for seamless campaign automation.",
+      },
+      {
+        name: "Calendar Sync & Scheduling",
+        price: 700,
+        description:
+          "Syncs calendars across platforms and automates scheduling based on availability rules.",
+      },
+      {
+        name: "Abandoned Quote Recovery",
+        price: 700,
+        description:
+          "Re-engages prospects who received quotes but didn't respond with targeted follow-ups.",
+      },
+      {
+        name: "Referral Program Automation",
+        price: 700,
+        description:
+          "Manages referral tracking, rewards, and communications for your referral program.",
+      },
+      {
+        name: "Event/Webinar Registration System",
+        price: 700,
+        description: "Handles event registration, reminders, follow-ups, and attendee management.",
+      },
+      {
+        name: "Lead Magnet Delivery",
+        price: 700,
+        description:
+          "Automatically delivers lead magnets and triggers nurture sequences on download.",
+      },
+      {
+        name: "Compliance Checklist Automation",
+        price: 700,
+        description:
+          "Tracks regulatory requirements and automates compliance checklist completion.",
+      },
+      {
+        name: "Audit Trail System",
+        price: 700,
+        description:
+          "Maintains detailed audit logs of all system changes, approvals, and data modifications.",
+      },
+      {
+        name: "E-Signature Workflow",
+        price: 700,
+        description:
+          "Routes documents for electronic signature with reminders and status tracking.",
+      },
+      {
+        name: "Certificate/License Expiry Tracking",
+        price: 700,
+        description:
+          "Monitors expiration dates and triggers renewal workflows for certificates and licenses.",
+      },
     ],
   },
   tier4: {
@@ -107,11 +336,36 @@ export const TIERS: Record<string, TierData> = {
     color: "#f59e0b",
     colorClass: "border-l-amber-500",
     automations: [
-      { name: "Custom API Integration", price: 1000, description: "Connects any system with a custom-built API integration tailored to your workflow." },
-      { name: "AI-Powered Lead Qualification", price: 900, description: "Uses AI to qualify leads based on conversation analysis, behavior, and fit scoring." },
-      { name: "Advanced Reporting with Predictive Analytics", price: 1000, description: "Provides advanced dashboards with trend forecasting and predictive business insights." },
-      { name: "Multi-Channel Campaign Orchestration", price: 850, description: "Coordinates marketing campaigns across email, SMS, social, and ads from one workflow." },
-      { name: "Custom Workflow Builder", price: 0, description: "A bespoke automation designed to your exact specifications — included with any package." },
+      {
+        name: "Custom API Integration",
+        price: 1000,
+        description:
+          "Connects any system with a custom-built API integration tailored to your workflow.",
+      },
+      {
+        name: "AI-Powered Lead Qualification",
+        price: 900,
+        description:
+          "Uses AI to qualify leads based on conversation analysis, behavior, and fit scoring.",
+      },
+      {
+        name: "Advanced Reporting with Predictive Analytics",
+        price: 1000,
+        description:
+          "Provides advanced dashboards with trend forecasting and predictive business insights.",
+      },
+      {
+        name: "Multi-Channel Campaign Orchestration",
+        price: 850,
+        description:
+          "Coordinates marketing campaigns across email, SMS, social, and ads from one workflow.",
+      },
+      {
+        name: "Custom Workflow Builder",
+        price: 0,
+        description:
+          "A bespoke automation designed to your exact specifications — included with any package.",
+      },
     ],
   },
 } as const satisfies Record<string, TierData>;
@@ -169,7 +423,7 @@ export const PACKAGES: Package[] = [
     features: [
       "All Scale automations",
       "Unlimited automations",
-      "Custom AI model training",
+      "Advanced AI configuration",
       "White-label solutions",
       "Quarterly strategy reviews",
       "Custom integrations",
@@ -180,8 +434,24 @@ export const PACKAGES: Package[] = [
 ];
 
 export const ADDONS: AddOn[] = [
-  { name: "Quarterly Optimization", price: 750, description: "Quarterly review and optimization of all active automations." },
-  { name: "Custom Build", price: 0, description: "Bespoke automation built to your exact specifications. Book a call to scope it." },
-  { name: "Extended Support", price: 1200, description: "12-month extended support with priority response times." },
-  { name: "Data Migration", price: 1400, description: "Full data migration from legacy systems to automated workflows." },
+  {
+    name: "Quarterly Optimization",
+    price: 750,
+    description: "Quarterly review and optimization of all active automations.",
+  },
+  {
+    name: "Custom Build",
+    price: 0,
+    description: "Bespoke automation built to your exact specifications. Book a call to scope it.",
+  },
+  {
+    name: "Extended Support",
+    price: 1200,
+    description: "12-month extended support with priority response times.",
+  },
+  {
+    name: "Data Migration",
+    price: 1400,
+    description: "Full data migration from legacy systems to automated workflows.",
+  },
 ];
