@@ -89,37 +89,39 @@ export function ChatWidget() {
             const data = trimmed.slice(6);
             if (data === "[DONE]") continue;
 
+            let parsed: unknown;
             try {
-              const parsed: unknown = JSON.parse(data);
-              if (
-                parsed !== null &&
-                typeof parsed === "object" &&
-                "text" in parsed &&
-                typeof (parsed as Record<string, unknown>).text === "string"
-              ) {
-                assistantContent += (parsed as Record<string, string>).text;
-                setMessages((prev) => {
-                  const updated = [...prev];
-                  const lastMessage = updated[updated.length - 1];
-                  if (lastMessage && lastMessage.role === "assistant") {
-                    updated[updated.length - 1] = {
-                      ...lastMessage,
-                      content: assistantContent,
-                    };
-                  }
-                  return updated;
-                });
-              }
-              if (
-                parsed !== null &&
-                typeof parsed === "object" &&
-                "error" in parsed &&
-                typeof (parsed as Record<string, unknown>).error === "string"
-              ) {
-                throw new Error((parsed as Record<string, string>).error);
-              }
+              parsed = JSON.parse(data);
             } catch {
-              // Skip malformed JSON chunks
+              continue; // Skip malformed JSON chunks
+            }
+
+            if (
+              parsed !== null &&
+              typeof parsed === "object" &&
+              "text" in parsed &&
+              typeof (parsed as Record<string, unknown>).text === "string"
+            ) {
+              assistantContent += (parsed as Record<string, string>).text;
+              setMessages((prev) => {
+                const updated = [...prev];
+                const lastMessage = updated[updated.length - 1];
+                if (lastMessage && lastMessage.role === "assistant") {
+                  updated[updated.length - 1] = {
+                    ...lastMessage,
+                    content: assistantContent,
+                  };
+                }
+                return updated;
+              });
+            }
+            if (
+              parsed !== null &&
+              typeof parsed === "object" &&
+              "error" in parsed &&
+              typeof (parsed as Record<string, unknown>).error === "string"
+            ) {
+              throw new Error((parsed as Record<string, string>).error);
             }
           }
         }
