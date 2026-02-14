@@ -114,6 +114,18 @@ function getClientIp(request: Request): string {
 }
 
 // ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+function extractStatus(err: unknown): number | undefined {
+  if (typeof err === "object" && err !== null && "status" in err) {
+    const s = (err as { status: unknown }).status;
+    return typeof s === "number" ? s : undefined;
+  }
+  return undefined;
+}
+
+// ---------------------------------------------------------------------------
 // POST handler
 // ---------------------------------------------------------------------------
 
@@ -229,41 +241,121 @@ export async function POST(request: Request) {
     ],
   });
 
-  const chat = model.startChat({ history });
-
   const encoder = new TextEncoder();
+  const MAX_RETRIES = 2;
 
   const readable = new ReadableStream({
     async start(controller) {
-      try {
-        const result = await chat.sendMessageStream(latestUserMessage);
+      let lastError: unknown;
 
-        for await (const chunk of result.stream) {
-          const text = chunk.text();
-          if (text) {
-            controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`));
+      // --- Retry loop with exponential backoff ---
+      for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+        try {
+          const chat = model.startChat({ history });
+          const result = await chat.sendMessageStream(latestUserMessage);
+
+          for await (const chunk of result.stream) {
+            const text = chunk.text();
+            if (text) {
+              controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`));
+            }
           }
+
+          controller.enqueue(encoder.encode("data: [DONE]\n\n"));
+          controller.close();
+          return; // Success — exit early
+        } catch (err: unknown) {
+          lastError = err;
+
+          const status = extractStatus(err);
+          const errMsg = err instanceof Error ? err.message : String(err);
+
+          console.error(
+            `[chat] gemini-2.0-flash attempt ${attempt + 1}/${MAX_RETRIES + 1} failed:`,
+            { status, message: errMsg, error: err },
+          );
+
+          if (status === 429 && attempt < MAX_RETRIES) {
+            await new Promise((r) => setTimeout(r, 1000 * (attempt + 1)));
+            continue;
+          }
+
+          break; // Non-retryable or exhausted retries
         }
-
-        controller.enqueue(encoder.encode("data: [DONE]\n\n"));
-        controller.close();
-      } catch (err: unknown) {
-        let message = "Something went wrong. Please try again.";
-
-        const status =
-          typeof err === "object" && err !== null && "status" in err
-            ? (err as { status: unknown }).status
-            : undefined;
-
-        if (status === 429) {
-          message = "Chat is busy right now. Try again in a minute, or book a call.";
-        } else if (status === 401 || status === 403) {
-          message = "Chat is temporarily unavailable. Book a call and we'll help directly.";
-        }
-
-        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: message })}\n\n`));
-        controller.close();
       }
+
+      // --- Fallback model on persistent 429 ---
+      const lastStatus = extractStatus(lastError);
+
+      if (lastStatus === 429) {
+        try {
+          console.error(
+            "[chat] Primary model exhausted retries with 429. Trying gemini-1.5-flash fallback.",
+          );
+
+          const fallbackModel = genAI.getGenerativeModel({
+            model: "gemini-1.5-flash",
+            systemInstruction: SYSTEM_PROMPT,
+            generationConfig: { maxOutputTokens: 512, temperature: 0.7 },
+            safetySettings: [
+              {
+                category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+                threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+              },
+              {
+                category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+                threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+              },
+              {
+                category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+                threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+              },
+              {
+                category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+                threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+              },
+            ],
+          });
+
+          const fallbackChat = fallbackModel.startChat({ history });
+          const fallbackResult = await fallbackChat.sendMessageStream(latestUserMessage);
+
+          for await (const chunk of fallbackResult.stream) {
+            const text = chunk.text();
+            if (text) {
+              controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`));
+            }
+          }
+
+          controller.enqueue(encoder.encode("data: [DONE]\n\n"));
+          controller.close();
+          return; // Fallback succeeded
+        } catch (fallbackErr: unknown) {
+          lastError = fallbackErr;
+          const fbMsg = fallbackErr instanceof Error ? fallbackErr.message : String(fallbackErr);
+          console.error("[chat] Fallback model (gemini-1.5-flash) also failed:", {
+            status: extractStatus(fallbackErr),
+            message: fbMsg,
+            error: fallbackErr,
+          });
+        }
+      }
+
+      // --- All attempts failed — send error to client ---
+      const finalStatus = extractStatus(lastError);
+      const rawMessage = lastError instanceof Error ? lastError.message : String(lastError);
+
+      let message: string;
+      if (finalStatus === 429) {
+        message = `Chat is busy right now. Try again in a minute, or book a call. (${rawMessage})`;
+      } else if (finalStatus === 401 || finalStatus === 403) {
+        message = "Chat is temporarily unavailable. Book a call and we'll help directly.";
+      } else {
+        message = `Something went wrong. Please try again. (${rawMessage})`;
+      }
+
+      controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: message })}\n\n`));
+      controller.close();
     },
   });
 

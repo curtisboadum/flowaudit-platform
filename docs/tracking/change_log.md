@@ -4,6 +4,21 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ---
 
+## 2026-02-14 (Session 4)
+
+### Gemini 429 Rate Limit Fix
+
+- **Fixed** `/api/chat` — added exponential backoff retry (3 attempts, 1s/2s/4s delays) for Gemini API 429 errors
+- **Fixed** `/api/chat` — added fallback from `gemini-2.0-flash` to `gemini-1.5-flash` on persistent rate limits
+- **Fixed** `/api/chat` — added diagnostic logging (model used, retry count, fallback triggered, error details)
+- **Fixed** `ChatWidget` — stream errors now surface specific messages instead of being silently swallowed
+
+### About Page
+
+- **Updated** team member names, titles, and AI agent descriptions (corrected Lawyer Boadum name, CEO/COO title, swapped Casper/Klaus descriptions)
+
+---
+
 ## 2026-02-14 (Session 3)
 
 ### AI Chat Widget

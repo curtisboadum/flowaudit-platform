@@ -6,6 +6,33 @@ _No active session._
 
 ---
 
+## Session 2026-02-14 (Session 4)
+
+**Date:** 2026-02-14
+**Goal:** Fix Gemini 429 rate limit errors — retry logic, fallback model, diagnostic logging, about page updates
+**Status:** Completed
+
+### Context
+
+- Chat widget live in production but Gemini 2.0 Flash returning 429 (rate limit) errors under load
+- Errors were being silently swallowed — users saw generic "Something went wrong" with no diagnostics
+- About page team member names/titles needed corrections
+
+### Blockers
+
+- `GITHUB_TOKEN` PAT lacks `contents:write` scope for `git push` — resolved by unsetting it to fall through to keyring OAuth token
+
+### Notes
+
+- Added exponential backoff retry (3 attempts, 1s/2s/4s delays) to Gemini API calls in `/api/chat`
+- Added fallback from `gemini-2.0-flash` to `gemini-1.5-flash` on persistent 429s
+- Added diagnostic logging: model used, retry count, fallback triggered, error details
+- Fixed stream error handling — errors now surface specific messages instead of being swallowed
+- Updated about page: corrected team member names (Lawyer Boadum), titles (CEO/COO), swapped AI agent descriptions
+- 3 commits on `fix/calendly-chatbot` branch
+
+---
+
 ## Session 2026-02-14 (Session 3)
 
 **Date:** 2026-02-14
