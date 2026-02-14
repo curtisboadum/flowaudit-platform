@@ -27,11 +27,11 @@ function AddonSelector({
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold font-sans text-[#37322F]">Add-On Services</h3>
+        <h3 className="font-sans text-sm font-semibold text-[#37322F]">Add-On Services</h3>
         <button
           onClick={allSelected ? onDeselectAllAddOns : onSelectAllAddOns}
           className={cn(
-            "text-xs font-medium font-sans px-3 py-1 rounded-full transition-colors",
+            "rounded-full px-3 py-1 font-sans text-xs font-medium transition-colors",
             allSelected
               ? "bg-amber-100 text-amber-700 hover:bg-amber-200"
               : "bg-[#F0EDEB] text-[#605A57] hover:bg-[#e8e4e1]",
@@ -41,7 +41,7 @@ function AddonSelector({
         </button>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         {ADDONS.map((addon) => {
           const isSelected = selectedAddOns.has(addon.name);
           return (
@@ -49,15 +49,15 @@ function AddonSelector({
               key={addon.name}
               onClick={() => onToggleAddOn(addon.name)}
               className={cn(
-                "text-left rounded-xl border p-4 transition-all",
+                "rounded-xl border p-5 text-left transition-all",
                 isSelected
-                  ? "bg-amber-50/50 border-amber-300 shadow-sm"
-                  : "bg-white border-[rgba(55,50,47,0.08)] hover:border-[rgba(55,50,47,0.16)]",
+                  ? "border-amber-300 bg-amber-50/50 shadow-sm"
+                  : "border-[rgba(55,50,47,0.08)] bg-white hover:border-[rgba(55,50,47,0.16)]",
               )}
             >
               <div
                 className={cn(
-                  "text-sm font-medium font-sans",
+                  "font-sans text-sm font-medium",
                   isSelected ? "text-amber-800" : "text-[#37322F]",
                 )}
               >
@@ -65,19 +65,19 @@ function AddonSelector({
               </div>
               <div
                 className={cn(
-                  "text-base font-semibold font-sans mt-1",
+                  "mt-1 font-sans text-base font-semibold",
                   isSelected ? "text-amber-700" : "text-[#37322F]",
                 )}
               >
                 {formatCurrency(convertCurrency(addon.price, rates, currency), currency)}
               </div>
-              <div className="text-xs text-[#605A57] font-sans mt-1 leading-relaxed">
+              <div className="mt-1 font-sans text-xs leading-relaxed text-[#605A57]">
                 {addon.description}
               </div>
               {isSelected && (
-                <div className="mt-2 w-4 h-4 bg-amber-500 rounded-full flex items-center justify-center">
+                <div className="mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500">
                   <svg
-                    className="w-2.5 h-2.5 text-white"
+                    className="h-2.5 w-2.5 text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

@@ -15,6 +15,9 @@ Status: `[ ]` pending, `[~]` in progress, `[x]` done, `[-]` dropped
 
 ## P1 — Important
 
+- [x] UI/SEO/logo overhaul (PR #2 on `feat/ui-seo-logos-overhaul`)
+- [ ] Merge PR #2 and verify production deploy
+- [ ] Verify SEO: sitemap.xml, robots.txt, JSON-LD in page source
 - [ ] Set up InstantDB app and configure `NEXT_PUBLIC_INSTANT_APP_ID`
 - [ ] Set up OpenClaw account and configure API keys
 - [x] Set up Vercel project linked to GitHub repo

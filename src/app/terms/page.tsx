@@ -2,36 +2,41 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service — FlowAudit",
+  description:
+    "FlowAudit's terms of service. Review our service agreements, ownership, and payment terms.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsPage() {
   return (
-    <div className="w-full min-h-screen flex flex-col items-center">
-      <div className="w-full max-w-[700px] px-4 sm:px-6 lg:px-0 pt-28 sm:pt-36 lg:pt-44 pb-16 sm:pb-20">
-        <h1 className="text-[#37322F] text-3xl sm:text-4xl font-normal font-serif mb-8">
+    <div className="flex min-h-screen w-full flex-col items-center">
+      <div className="w-full max-w-[700px] px-4 pt-28 pb-16 sm:px-6 sm:pt-36 sm:pb-20 lg:px-0 lg:pt-44">
+        <h1 className="mb-8 font-serif text-3xl font-normal text-[#37322F] sm:text-4xl">
           Terms of Service
         </h1>
-        <div className="space-y-6 text-[#605A57] text-base font-sans leading-7">
+        <div className="space-y-6 font-sans text-base leading-7 text-[#605A57]">
           <p>
             By using FlowAudit&apos;s services, you agree to these terms. Please read them
             carefully.
           </p>
-          <h2 className="text-[#37322F] text-xl font-semibold font-sans pt-4">Services</h2>
+          <h2 className="pt-4 font-sans text-xl font-semibold text-[#37322F]">Services</h2>
           <p>
             FlowAudit provides AI operations assistant deployment services, including workflow
             automation, system integration, and ongoing optimization.
           </p>
-          <h2 className="text-[#37322F] text-xl font-semibold font-sans pt-4">Ownership</h2>
+          <h2 className="pt-4 font-sans text-xl font-semibold text-[#37322F]">Ownership</h2>
           <p>
             You retain full ownership of your data, workflows, and configurations. FlowAudit does
             not claim any rights to your business data.
           </p>
-          <h2 className="text-[#37322F] text-xl font-semibold font-sans pt-4">Payment</h2>
+          <h2 className="pt-4 font-sans text-xl font-semibold text-[#37322F]">Payment</h2>
           <p>
             Deployment fees are one-time charges based on the agreed scope. Optional monthly
             optimization packages are billed monthly.
           </p>
-          <h2 className="text-[#37322F] text-xl font-semibold font-sans pt-4">Contact</h2>
+          <h2 className="pt-4 font-sans text-xl font-semibold text-[#37322F]">Contact</h2>
           <p>For questions about these terms, please contact us through our booking page.</p>
         </div>
       </div>

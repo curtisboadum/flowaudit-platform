@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/json-ld";
+import { canonicalUrl } from "@/lib/seo";
+import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { CalendarCheck, Search, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Book a Call — FlowAudit",
   description:
     "Book a free 30-minute strategy call. See exactly how AI can cut your operational workload.",
+  alternates: {
+    canonical: "/book",
+  },
 };
 
 const CALENDLY_URL = "https://calendly.com/flowaudit/30min";
@@ -29,22 +35,22 @@ const expectations = [
 
 export default function BookPage() {
   return (
-    <div className="w-full min-h-screen flex flex-col items-center">
+    <div className="flex min-h-screen w-full flex-col items-center">
       <div className="w-full max-w-[1060px]">
         {/* Hero */}
-        <section className="pt-28 sm:pt-36 lg:pt-44 pb-12 px-4 sm:px-6 lg:px-0 flex flex-col items-center text-center">
-          <h1 className="text-[#37322F] text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] font-serif max-w-[600px]">
+        <section className="flex flex-col items-center px-4 pt-28 pb-12 text-center sm:px-6 sm:pt-36 lg:px-0 lg:pt-44">
+          <h1 className="max-w-[600px] font-serif text-3xl leading-[1.1] font-normal text-[#37322F] sm:text-5xl lg:text-6xl">
             Book a Free Strategy Call
           </h1>
-          <p className="text-[rgba(55,50,47,0.80)] text-base sm:text-lg font-sans leading-7 mt-6 max-w-[500px]">
+          <p className="mt-6 max-w-[500px] font-sans text-base leading-7 text-[rgba(55,50,47,0.80)] sm:text-lg">
             See exactly how AI can cut your operational workload. 30 minutes. No pressure.
           </p>
         </section>
 
         {/* Calendar Embed */}
-        <section className="px-4 sm:px-6 lg:px-0 pb-16">
-          <div className="w-full max-w-[800px] mx-auto">
-            <div className="bg-white rounded-2xl border border-[rgba(55,50,47,0.08)] overflow-hidden">
+        <section className="px-4 pb-16 sm:px-6 lg:px-0">
+          <div className="mx-auto w-full max-w-[800px]">
+            <div className="overflow-hidden rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white">
               <iframe
                 src={CALENDLY_URL}
                 width="100%"
@@ -55,13 +61,13 @@ export default function BookPage() {
               />
             </div>
             {/* Fallback */}
-            <p className="text-center text-[#605A57] text-sm font-sans mt-4">
+            <p className="mt-4 text-center font-sans text-sm text-[#605A57]">
               Can&apos;t see the calendar?{" "}
               <a
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#37322F] font-medium underline"
+                className="font-medium text-[#37322F] underline"
               >
                 Open scheduling page directly
               </a>
@@ -70,24 +76,22 @@ export default function BookPage() {
         </section>
 
         {/* What to Expect */}
-        <section className="px-4 sm:px-6 lg:px-0 pb-16 sm:pb-20 border-b border-[rgba(55,50,47,0.12)]">
-          <div className="max-w-[800px] mx-auto">
-            <h2 className="text-center text-[#49423D] text-xl sm:text-2xl font-semibold font-sans mb-8">
+        <section className="border-b border-[rgba(55,50,47,0.12)] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-0">
+          <div className="mx-auto max-w-[800px]">
+            <h2 className="mb-8 text-center font-sans text-xl font-semibold text-[#49423D] sm:text-2xl">
               What to Expect
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
               {expectations.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <div key={item.title} className="flex flex-col items-center text-center">
-                    <div className="w-12 h-12 rounded-xl bg-[#F0EDEB] flex items-center justify-center mb-4">
-                      <Icon className="w-5 h-5 text-[#37322F]" />
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F0EDEB]">
+                      <Icon className="h-5 w-5 text-[#37322F]" />
                     </div>
-                    <div className="text-xs text-[#605A57] font-sans mb-1">
-                      Step {index + 1}
-                    </div>
-                    <h3 className="text-[#37322F] text-sm font-semibold font-sans">{item.title}</h3>
-                    <p className="text-[#605A57] text-xs font-sans leading-5 mt-2">
+                    <div className="mb-1 font-sans text-xs text-[#605A57]">Step {index + 1}</div>
+                    <h3 className="font-sans text-sm font-semibold text-[#37322F]">{item.title}</h3>
+                    <p className="mt-2 font-sans text-xs leading-5 text-[#605A57]">
                       {item.description}
                     </p>
                   </div>
@@ -97,6 +101,12 @@ export default function BookPage() {
           </div>
         </section>
       </div>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", url: canonicalUrl("/") },
+          { name: "Book a Call", url: canonicalUrl("/book") },
+        ])}
+      />
     </div>
   );
 }

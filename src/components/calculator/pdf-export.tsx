@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { FileDown, Printer } from "lucide-react";
+import { FileDown, Printer, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Currency, ExchangeRates } from "@/lib/currency";
 import { convertCurrency, formatCurrency } from "@/lib/currency";
@@ -16,6 +16,7 @@ interface PDFExportProps {
   selectedPackage: string | null;
   currency: Currency;
   rates: ExchangeRates;
+  onReset: () => void;
 }
 
 function PDFExport({
@@ -27,6 +28,7 @@ function PDFExport({
   selectedPackage,
   currency,
   rates,
+  onReset,
 }: PDFExportProps) {
   const [companyName, setCompanyName] = useState("");
   const [isExporting, setIsExporting] = useState(false);
@@ -155,7 +157,16 @@ function PDFExport({
         </div>
       </div>
     `;
-  }, [hours, rate, setupCost, selectedAutomations, selectedAddOns, selectedPackage, companyName, fmt]);
+  }, [
+    hours,
+    rate,
+    setupCost,
+    selectedAutomations,
+    selectedAddOns,
+    selectedPackage,
+    companyName,
+    fmt,
+  ]);
 
   const handleExportPDF = useCallback(async () => {
     setIsExporting(true);
@@ -204,31 +215,44 @@ function PDFExport({
   }, [generateHTML]);
 
   return (
-    <div className="bg-white rounded-2xl border border-[rgba(55,50,47,0.08)] p-6">
-      <h3 className="text-sm font-semibold font-sans text-[#37322F] mb-1">Export Report</h3>
-      <p className="text-xs text-[#605A57] font-sans mb-4">Your personalized report, ready to share with your team.</p>
+    <div className="rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white p-6">
+      <h3 className="mb-1 font-sans text-sm font-semibold text-[#37322F]">Export Report</h3>
+      <p className="mb-4 font-sans text-xs text-[#605A57]">
+        Your personalized report, ready to share with your team.
+      </p>
       <div className="space-y-3">
         <input
           type="text"
           placeholder="Company name (optional)"
           value={companyName}
           onChange={(e) => setCompanyName(e.target.value)}
-          className="w-full px-3 py-2 text-sm font-sans border border-[rgba(55,50,47,0.12)] rounded-lg bg-white text-[#37322F] placeholder:text-[#605A57]/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500"
+          className="w-full rounded-lg border border-[rgba(55,50,47,0.12)] bg-white px-3 py-2 font-sans text-sm text-[#37322F] placeholder:text-[#605A57]/50 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/30 focus:outline-none"
         />
         <div className="flex gap-2">
           <Button
             onClick={handleExportPDF}
             disabled={isExporting}
-            className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white"
+            className="flex-1 bg-emerald-600 text-white hover:bg-emerald-700"
           >
-            <FileDown className="w-4 h-4 mr-2" />
+            <FileDown className="mr-2 h-4 w-4" />
             {isExporting ? "Exporting..." : "Export PDF"}
           </Button>
           <Button onClick={handlePrint} variant="secondary" className="flex-1">
-            <Printer className="w-4 h-4 mr-2" />
+            <Printer className="mr-2 h-4 w-4" />
             Print Report
           </Button>
         </div>
+        <Button
+          variant="ghost"
+          className="w-full border border-dashed border-[rgba(55,50,47,0.2)]"
+          onClick={() => {
+            onReset();
+            setCompanyName("");
+          }}
+        >
+          <RotateCcw className="mr-2 h-4 w-4" />
+          Reset Calculator
+        </Button>
       </div>
     </div>
   );

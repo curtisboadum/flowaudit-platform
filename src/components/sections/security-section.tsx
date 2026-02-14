@@ -32,30 +32,30 @@ function SecuritySection() {
   return (
     <section
       id="security"
-      className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col items-center py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-0"
+      className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0 lg:py-24"
     >
       <div className="w-full max-w-[800px]">
-        <div className="bg-white rounded-2xl border border-[rgba(55,50,47,0.08)] p-8 sm:p-10 lg:p-12">
-          <h2 className="text-center text-[#49423D] text-2xl sm:text-3xl font-semibold font-sans mb-2">
+        <div className="rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white p-8 sm:p-10 lg:p-12">
+          <h2 className="mb-2 text-center font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
             Built Securely
           </h2>
-          <p className="text-center text-[#605A57] text-sm font-sans mb-8">
+          <p className="mb-8 text-center font-sans text-sm text-[#605A57]">
             Your data and workflows are protected at every level.
           </p>
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             {securityItems.map((item) => {
               const Icon = item.icon;
               return (
                 <div key={item.title} className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#F0EDEB] flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-[#37322F]" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#F0EDEB]">
+                    <Icon className="h-5 w-5 text-[#37322F]" />
                   </div>
                   <div>
-                    <div className="text-sm text-[#37322F] font-semibold font-sans">
+                    <div className="font-sans text-sm font-semibold text-[#37322F]">
                       {item.title}
                     </div>
-                    <div className="text-sm text-[#605A57] font-sans mt-0.5">
+                    <div className="mt-0.5 font-sans text-sm leading-relaxed text-[#605A57]">
                       {item.description}
                     </div>
                   </div>

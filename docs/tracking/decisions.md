@@ -9,12 +9,13 @@
 **Context:** Need a database for FlowAudit that supports realtime subscriptions for dashboard updates, with minimal backend setup and good TypeScript support.
 **Decision:** Use InstantDB as the primary database.
 **Rationale:**
+
 - Built-in realtime subscriptions (no WebSocket setup needed)
 - TypeScript-first with schema inference
 - Graph-based queries are natural for our entity relationships
 - Built-in auth system
 - No server-side database management needed
-**Consequences:**
+  **Consequences:**
 - Tied to InstantDB's query model and pricing
 - Schema migrations handled differently than traditional SQL
 - Need to design permissions carefully upfront
@@ -28,11 +29,12 @@
 **Context:** FlowAudit's core product is "moat bots" — workflow automation agents. Need a framework for defining, deploying, and managing these agents.
 **Decision:** Use OpenClaw as the agent framework.
 **Rationale:**
+
 - JSON5 config-driven agent definitions
 - Skill-based architecture fits our per-client customization model
 - Gateway provides API access to agents
 - Supports Claude models natively
-**Consequences:**
+  **Consequences:**
 - Dependent on OpenClaw ecosystem and updates
 - Need to build management UI on top of OpenClaw primitives
 - Each client agent is a directory in `openclaw/agents/`
@@ -46,15 +48,55 @@
 **Context:** Next.js supports both App Router and Pages Router. Need to pick one for consistency.
 **Decision:** Use App Router exclusively. Never create a `pages/` directory.
 **Rationale:**
+
 - App Router is the future of Next.js
 - Server Components reduce client bundle size
 - Better data fetching patterns (no getServerSideProps)
 - Route groups allow clean layout separation
 - Streaming and Suspense support
-**Consequences:**
+  **Consequences:**
 - Some libraries may not yet fully support Server Components
 - Team must understand Server vs Client Component boundaries
 - All routing patterns must use App Router conventions
+
+---
+
+## ADR-004: CSS-First Tailwind v4 Configuration
+
+**Date:** 2026-02-14
+**Status:** Accepted
+**Context:** Tailwind v4 introduces a CSS-first configuration model using `@theme inline` in CSS files, replacing the JavaScript-based `tailwind.config.ts` from v3. Need to decide which approach to use.
+**Decision:** Use `@theme inline` in `globals.css` for all Tailwind configuration. Delete `tailwind.config.ts`.
+**Rationale:**
+
+- CSS-first config is the Tailwind v4 standard — aligns with upstream direction
+- Eliminates a config file and simplifies the build pipeline
+- Theme values are colocated with CSS, reducing context switching
+- Avoids issues with Turbopack not resolving v3-style config
+  **Consequences:**
+- All theme customizations live in `globals.css` under `@theme inline`
+- Team must learn CSS-first config syntax instead of JS config
+- Third-party Tailwind plugins may need relative path imports if they don't support the new resolution
+
+---
+
+## ADR-005: SEO via Next.js Built-in Metadata API
+
+**Date:** 2026-02-14
+**Status:** Accepted
+**Context:** Marketing site needs SEO infrastructure — sitemaps, robots directives, structured data, and per-page metadata. Could use `next-seo` package, manual `<head>` tags, or Next.js built-in Metadata API.
+**Decision:** Use Next.js built-in Metadata API (`generateMetadata`, `robots.ts`, `sitemap.ts`) and inline JSON-LD for structured data.
+**Rationale:**
+
+- Zero additional dependencies — built into Next.js 15
+- `robots.ts` and `sitemap.ts` are simple exports with full TypeScript support
+- `generateMetadata` enables per-page OpenGraph/Twitter metadata with type safety
+- JSON-LD structured data injected via `<script>` tags — no library needed
+- App Router native — works with Server Components and streaming
+  **Consequences:**
+- No single package to manage all SEO concerns — each piece is a separate file
+- JSON-LD schemas must be manually constructed (no helper library)
+- Metadata API may not cover every edge case that `next-seo` handles
 
 ---
 
