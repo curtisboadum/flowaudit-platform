@@ -45,6 +45,24 @@ Patterns discovered, solutions to problems, and general learnings during develop
 
 ---
 
+## 2026-02-14 — Gemini API Rate Limit Resilience
+
+### Retry + Fallback Pattern for LLM APIs
+
+- Gemini 2.0 Flash returns HTTP 429 when rate limits are exceeded — common under even moderate traffic on free/low-tier plans
+- Exponential backoff retry (1s → 2s → 4s) handles transient rate limits without overwhelming the API
+- Fallback to a different model (`gemini-1.5-flash`) on persistent 429s ensures users still get a response
+- Diagnostic headers/logging (model used, retry count, fallback triggered) are essential for debugging production LLM issues
+- Never silently swallow streaming errors — surface specific error messages to the client so users know what happened
+
+### Stream Error Handling
+
+- SSE streaming errors were caught but the response was closed without sending error data to the client
+- Fix: write a `data: {"error":"..."}` frame before closing the stream so the client can display a specific message
+- Every error state in a chat widget should direct users toward an alternative action (e.g., "Book a call instead")
+
+---
+
 ## 2026-02-14 — Chat Widget & Gemini Streaming
 
 ### Gemini SSE Streaming Pattern

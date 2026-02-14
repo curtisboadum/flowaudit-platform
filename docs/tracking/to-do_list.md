@@ -21,6 +21,8 @@ Status: `[ ]` pending, `[~]` in progress, `[x]` done, `[-]` dropped
 - [x] AI chat widget — streaming Gemini-powered assistant with rate limiting and system prompt
 - [x] Calculator polish — "Build & Deployment Fee" label, disclaimer, tooltip hover
 - [x] Industry workflow redesign — numbered steps, From/To labels, hover effects
+- [x] Fix Gemini 429 — retry with exponential backoff, fallback model, diagnostic logging
+- [x] About page — correct team member names, titles, and AI agent descriptions
 - [ ] Set up InstantDB app and configure `NEXT_PUBLIC_INSTANT_APP_ID`
 - [ ] Set up OpenClaw account and configure API keys
 - [x] Set up Vercel project linked to GitHub repo
