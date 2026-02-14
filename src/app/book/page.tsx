@@ -4,6 +4,7 @@ import { canonicalUrl } from "@/lib/seo";
 import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { CalendarCheck, Search, FileText } from "lucide-react";
+import { CalendlyEmbed } from "@/components/book/calendly-embed";
 
 export const metadata: Metadata = {
   title: "Book a Call — FlowAudit",
@@ -55,14 +56,7 @@ export default function BookPage() {
         <section className="px-4 pb-16 sm:px-6 lg:px-0">
           <div className="mx-auto w-full max-w-[800px]">
             <div className="overflow-hidden rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white">
-              <iframe
-                src={CALENDLY_URL}
-                width="100%"
-                height="700"
-                frameBorder="0"
-                title="Schedule a call with FlowAudit"
-                className="w-full"
-              />
+              <CalendlyEmbed url={CALENDLY_URL} />
             </div>
             {/* Fallback */}
             <p className="mt-4 text-center font-sans text-sm text-[#605A57]">
