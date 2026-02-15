@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const testimonials = [
   {
     quote:
-      "FlowAudit saved us 15 hours a week on client follow-ups alone. We stopped losing deals to slow responses and our close rate jumped by 20%.",
+      "I was spending 2 hours every evening chasing quotes and doing invoices. FlowAudit_ handles all of it now — I haven't opened a spreadsheet in 3 months. My close rate went up 20% just because quotes get followed up the same day.",
     name: "Marcus Rodriguez",
     title: "Owner, Summit Electrical Services",
     initials: "MR",
@@ -25,6 +25,20 @@ const testimonials = [
     name: "David Okafor",
     title: "Operations Director, Atlas Property Management",
     initials: "DO",
+  },
+  {
+    quote:
+      "I run a small plumbing operation. I figured AI was for big companies. Turns out it's perfect for businesses like mine — it does the office work I never had time for. Best money I've spent on my business.",
+    name: "Tom Walsh",
+    title: "Owner, Walsh Plumbing & Heating",
+    initials: "TW",
+  },
+  {
+    quote:
+      "We tried hiring an office manager twice. Both times it didn't work out. FlowAudit_ costs less than a month of their salary and it never calls in sick. Our quoting is 3x faster now.",
+    name: "Rachel Nguyen",
+    title: "Director, Precision HVAC Solutions",
+    initials: "RN",
   },
 ] as const;
 
@@ -64,53 +78,55 @@ function TestimonialsSection() {
   const active = testimonials[activeIndex];
 
   return (
-    <section className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col items-center py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-0">
-      <div className="w-full max-w-[700px] flex flex-col items-center">
+    <section className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0 lg:py-24">
+      <div className="flex w-full max-w-[700px] flex-col items-center">
         {/* Avatar */}
         {active && (
           <>
             <div
               className={cn(
-                "w-16 h-16 rounded-full bg-[#37322F] flex items-center justify-center mb-8 transition-all duration-500",
-                isTransitioning ? "opacity-60 scale-95" : "opacity-100 scale-100",
+                "mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-[#37322F] transition-all duration-500",
+                isTransitioning ? "scale-95 opacity-60" : "scale-100 opacity-100",
               )}
             >
-              <span className="text-white text-lg font-semibold font-sans">{active.initials}</span>
+              <span className="font-sans text-lg font-semibold text-white">{active.initials}</span>
             </div>
 
             {/* Quote */}
             <blockquote
               className={cn(
                 "text-center transition-all duration-500",
-                isTransitioning ? "opacity-60 blur-[2px] scale-[0.98]" : "opacity-100 blur-0 scale-100",
+                isTransitioning
+                  ? "scale-[0.98] opacity-60 blur-[2px]"
+                  : "blur-0 scale-100 opacity-100",
               )}
             >
-              <p className="text-[#37322F] text-lg sm:text-xl lg:text-2xl font-normal leading-relaxed font-serif italic">
+              <p className="font-serif text-lg leading-relaxed font-normal text-[#37322F] italic sm:text-xl lg:text-2xl">
                 &ldquo;{active.quote}&rdquo;
               </p>
               <footer className="mt-6">
-                <div className="text-[#37322F] text-sm font-semibold font-sans">{active.name}</div>
-                <div className="text-[#605A57] text-sm font-sans mt-1">{active.title}</div>
+                <div className="font-sans text-sm font-semibold text-[#37322F]">{active.name}</div>
+                <div className="mt-1 font-sans text-sm text-[#605A57]">{active.title}</div>
               </footer>
             </blockquote>
           </>
         )}
 
         {/* Navigation */}
-        <div className="flex items-center gap-4 mt-10">
+        <div className="mt-10 flex items-center gap-4">
           <button
             onClick={goToPrev}
-            className="w-10 h-10 rounded-full border border-[rgba(55,50,47,0.12)] flex items-center justify-center hover:bg-white transition-colors"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(55,50,47,0.12)] transition-colors hover:bg-white"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-4 h-4 text-[#37322F]" />
+            <ChevronLeft className="h-4 w-4 text-[#37322F]" />
           </button>
           <div className="flex gap-2">
             {testimonials.map((_, index) => (
               <div
                 key={index}
                 className={cn(
-                  "w-2 h-2 rounded-full transition-colors",
+                  "h-2 w-2 rounded-full transition-colors",
                   activeIndex === index ? "bg-[#37322F]" : "bg-[rgba(55,50,47,0.15)]",
                 )}
               />
@@ -118,10 +134,10 @@ function TestimonialsSection() {
           </div>
           <button
             onClick={goToNext}
-            className="w-10 h-10 rounded-full border border-[rgba(55,50,47,0.12)] flex items-center justify-center hover:bg-white transition-colors"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(55,50,47,0.12)] transition-colors hover:bg-white"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="w-4 h-4 text-[#37322F]" />
+            <ChevronRight className="h-4 w-4 text-[#37322F]" />
           </button>
         </div>
       </div>

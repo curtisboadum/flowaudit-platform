@@ -22,8 +22,8 @@ function ProblemSection() {
             Manual Work Is Quietly Killing Your Margin
           </h2>
           <p className="max-w-[500px] text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
-            Repetitive tasks compound over time. What starts as &ldquo;just 30 minutes&rdquo;
-            becomes a full-time role nobody planned for.
+            What starts as &ldquo;I&apos;ll do it tonight&rdquo; becomes the reason you can&apos;t
+            take on more jobs.
           </p>
         </div>
 
@@ -35,11 +35,26 @@ function ProblemSection() {
         {/* Key Points */}
         <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-5">
           {[
-            { title: "Tasks Compound", desc: "Repetitive tasks grow with your business" },
-            { title: "Manual Scales Up", desc: "Manual duplication scales with growth" },
-            { title: "Hiring Adds Cost", desc: "Hiring permanently increases overhead" },
-            { title: "Admin Steals Time", desc: "Admin steals revenue-generating hours" },
-            { title: "Burnout Rises", desc: "Burnout increases operational risk" },
+            {
+              title: "Tasks Compound",
+              desc: "Every new client means more quoting, invoicing, chasing",
+            },
+            {
+              title: "Manual Scales Up",
+              desc: "More jobs = more paperwork, same hours in the day",
+            },
+            {
+              title: "Hiring Adds Cost",
+              desc: "An office manager costs \u00A330K+ before they save you a penny",
+            },
+            {
+              title: "Admin Steals Time",
+              desc: "Every hour on admin is an hour you're not on a paid job",
+            },
+            {
+              title: "Burnout Rises",
+              desc: "Working evenings and weekends just to stay on top of it",
+            },
           ].map((point) => (
             <div key={point.title} className="px-2 text-center">
               <div className="font-sans text-sm font-semibold text-[#37322F]">{point.title}</div>

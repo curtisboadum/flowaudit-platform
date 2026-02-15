@@ -3,35 +3,35 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { canonicalUrl } from "@/lib/seo";
 import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { CalendarCheck, Search, FileText } from "lucide-react";
-import { CalendlyEmbed } from "@/components/book/calendly-embed";
+import { CalendarCheck, Search, FileText, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Book a Call — FlowAudit",
+  title: "Book a Call — FlowAudit_",
   description:
-    "Book a free 30-minute strategy call. See exactly how AI can cut your operational workload.",
+    "Book a free 30-minute strategy call. See how automation can cut your admin workload — quoting, invoicing, follow-ups, all handled.",
   alternates: {
     canonical: "/book",
   },
 };
 
-const CALENDLY_URL = "https://calendly.com/flowaudit/30min";
-
 const expectations = [
   {
     icon: Search,
-    title: "Workflow Audit",
-    description: "We'll map your current processes and identify the biggest time sinks.",
+    title: "Quick Chat About Your Business",
+    description:
+      "We'll ask about your typical week — what takes up your time, what falls through the cracks.",
   },
   {
     icon: CalendarCheck,
-    title: "Identify Quick Wins",
-    description: "We'll pinpoint 2-3 workflows that can be automated immediately.",
+    title: "Spot the Quick Wins",
+    description:
+      "We'll find 2-3 things that can be automated straight away — usually quoting, invoicing, or follow-ups.",
   },
   {
     icon: FileText,
-    title: "Custom Proposal",
-    description: "You'll get a tailored plan with expected time savings and ROI.",
+    title: "Get a Clear Plan",
+    description:
+      "You'll get a plain-English proposal showing what we'll build, what it costs, and how much time you'll save.",
   },
 ] as const;
 
@@ -48,27 +48,36 @@ export default function BookPage() {
             Book a Free Strategy Call
           </h1>
           <p className="mt-6 max-w-[500px] font-sans text-base leading-7 text-[rgba(55,50,47,0.80)] sm:text-lg">
-            See exactly how AI can cut your operational workload. 30 minutes. No pressure.
+            See how automation can handle your admin. 30 minutes. No jargon. No pressure.
           </p>
         </section>
 
-        {/* Calendar Embed */}
+        {/* Email CTA */}
         <section className="px-4 pb-16 sm:px-6 lg:px-0">
           <div className="mx-auto w-full max-w-[800px]">
-            <div className="overflow-hidden rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white">
-              <CalendlyEmbed url={CALENDLY_URL} />
-            </div>
-            {/* Fallback */}
-            <p className="mt-4 text-center font-sans text-sm text-[#605A57]">
-              Can&apos;t see the calendar?{" "}
+            <div className="flex flex-col items-center gap-6 rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white p-8 text-center sm:p-12">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#F0EDEB]">
+                <Mail className="h-7 w-7 text-[#37322F]" />
+              </div>
+              <div>
+                <h2 className="font-sans text-xl font-semibold text-[#37322F] sm:text-2xl">
+                  Schedule Your Free Strategy Call
+                </h2>
+                <p className="mx-auto mt-3 max-w-[440px] font-sans text-sm leading-relaxed text-[#605A57]">
+                  Email us at hello@flowaudit.co and we&apos;ll find a time that works for you. Or
+                  call us directly.
+                </p>
+              </div>
               <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-[#37322F] underline"
+                href="mailto:hello@flowaudit.co?subject=Strategy%20Call%20Request"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#37322F] px-6 py-3 font-sans text-sm font-semibold text-white transition-colors hover:bg-[#605A57]"
               >
-                Open scheduling page directly
+                <Mail className="h-4 w-4" />
+                Email Us to Book
               </a>
+            </div>
+            <p className="mt-4 text-center font-sans text-sm text-[#605A57]">
+              We respond to all enquiries within 24 hours.
             </p>
           </div>
         </section>

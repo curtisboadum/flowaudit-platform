@@ -10,7 +10,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Zap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Solutions — FlowAudit Automation Library",
+  title: "Solutions — FlowAudit_ Automation Library",
   description:
     "53 automations across 4 tiers. Lead capture, onboarding, invoicing, compliance, AI qualification, and more — all powered by OpenClaw.",
   alternates: {
@@ -148,12 +148,12 @@ export default function SolutionsPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "FlowAudit Automation Library",
+          name: "FlowAudit_ Automation Library",
           description:
             "53 automations across 4 tiers. Lead capture, onboarding, invoicing, compliance, AI qualification, and more.",
           provider: {
             "@type": "Organization",
-            name: "FlowAudit",
+            name: "FlowAudit_",
             url: SITE_URL,
           },
           url: canonicalUrl("/solutions"),
