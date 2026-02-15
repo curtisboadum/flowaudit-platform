@@ -4,6 +4,21 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ---
 
+## 2026-02-15 (Session 7)
+
+### Content Broadening — Inclusive Business Language
+
+- **Updated** `industries/[slug]/page.tsx` — replaced solo-only framing with language covering all business sizes (1–30 people)
+- **Updated** `bento-grid.tsx` — broadened feature descriptions beyond one-person businesses
+- **Updated** `hero-section.tsx` — headline and subheading now address solo operators & small teams
+- **Updated** `comparison-section.tsx` — comparison copy covers full customer range
+- **Updated** `blog/page.tsx` — blog intro language broadened
+- **Updated** `blog/[slug]/page.tsx` — blog post framing updated
+- **Updated** `chat-widget.tsx` — chat system prompt updated for inclusive language
+- 9 text replacements across 7 files total
+
+---
+
 ## 2026-02-15 (Session 6)
 
 ### Chat Provider Refactor

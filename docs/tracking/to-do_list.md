@@ -7,6 +7,8 @@ Status: `[ ]` pending, `[~]` in progress, `[x]` done, `[-]` dropped
 
 ## P0 — Critical
 
+- [ ] Fix git push auth — 403 on `fix/fallback-model-name`, needs `gh auth refresh` or PAT scope update
+- [x] Broaden "one-person business" language across site — commit `32ceff3`
 - [x] Initial project scaffold and configuration
 - [x] Create GitHub repo `curtisboadum/flowaudit-platform`
 - [x] Install dependencies: `pnpm install`

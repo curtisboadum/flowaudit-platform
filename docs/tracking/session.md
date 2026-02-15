@@ -2,6 +2,30 @@
 
 ## Current Session
 
+## Session 2026-02-15 (Session 7)
+
+**Date:** 2026-02-15
+**Goal:** Broaden "one-person business" language across site
+**Status:** Completed
+
+### Context
+
+- Site copy used "one-person business" and solo-only framing that excluded 2–30 person teams — core customers
+- Needed inclusive language that covers solo operators through small teams without alienating either end
+
+### Blockers
+
+- `git push` to origin blocked by 403 auth — `GITHUB_TOKEN` PAT lacks scope, needs manual `gh auth refresh`
+
+### Notes
+
+- 9 text replacements across 7 files: `industries/[slug]/page.tsx`, `bento-grid.tsx`, `hero-section.tsx`, `comparison-section.tsx`, `blog/page.tsx`, `blog/[slug]/page.tsx`, `chat-widget.tsx`
+- Replaced "one-person business" / solo-only framing with "solo operators & small teams" language
+- Commit `32ceff3` on `fix/fallback-model-name` branch
+- 23 uncommitted files remain from prior sessions (screenshots, .playwright-mcp/, etc.)
+
+---
+
 ## Session 2026-02-15 (Session 6)
 
 **Date:** 2026-02-15
