@@ -1,9 +1,4 @@
-import {
-  GoogleGenerativeAI,
-  HarmCategory,
-  HarmBlockThreshold,
-  type Content,
-} from "@google/generative-ai";
+import { streamWithFallback, type ChatMessage } from "@/lib/chat-providers";
 
 // ---------------------------------------------------------------------------
 // System prompt
@@ -37,16 +32,14 @@ Rules:
 // Rate limiter (in-memory, per-IP — fine for Vercel serverless at this scale)
 // ---------------------------------------------------------------------------
 
-const RATE_LIMIT_WINDOW_MS = 60_000; // 1 minute
-const RATE_LIMIT_MAX = 20; // 20 requests per minute per IP
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX = 20;
 
 const requestLog = new Map<string, number[]>();
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const timestamps = requestLog.get(ip) ?? [];
-
-  // Evict entries older than the window
   const recent = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
 
   if (recent.length >= RATE_LIMIT_MAX) {
@@ -59,7 +52,6 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
-// Periodic cleanup to prevent memory leaks (every 5 minutes)
 setInterval(
   () => {
     const now = Date.now();
@@ -114,23 +106,20 @@ function getClientIp(request: Request): string {
 }
 
 // ---------------------------------------------------------------------------
-// Helpers
+// SSE helpers
 // ---------------------------------------------------------------------------
 
-function extractStatus(err: unknown): number | undefined {
-  if (typeof err === "object" && err !== null && "status" in err) {
-    const s = (err as { status: unknown }).status;
-    return typeof s === "number" ? s : undefined;
-  }
-  return undefined;
-}
+const SSE_HEADERS = {
+  "Content-Type": "text/event-stream",
+  "Cache-Control": "no-cache",
+  Connection: "keep-alive",
+} as const;
 
 // ---------------------------------------------------------------------------
 // POST handler
 // ---------------------------------------------------------------------------
 
 export async function POST(request: Request) {
-  // --- Rate limiting ---
   const ip = getClientIp(request);
   if (isRateLimited(ip)) {
     return Response.json(
@@ -139,17 +128,15 @@ export async function POST(request: Request) {
     );
   }
 
-  // --- API key check ---
-  const apiKey = process.env.GEMINI_API_KEY;
-
-  if (!apiKey) {
+  if (!process.env.OPENROUTER_API_KEY && !process.env.DEEPSEEK_API_KEY) {
     return Response.json(
-      { error: "Chat is temporarily unavailable. Book a call and we'll help directly." },
+      {
+        error: "Chat is temporarily unavailable. Book a call and we'll help directly.",
+      },
       { status: 503 },
     );
   }
 
-  // --- Parse body ---
   let body: unknown;
   try {
     body = await request.json();
@@ -170,7 +157,6 @@ export async function POST(request: Request) {
     );
   }
 
-  // --- Conversation length check ---
   if (messages.length > MAX_CONVERSATION_LENGTH) {
     return Response.json(
       { error: "Conversation too long. Please start a new chat." },
@@ -178,192 +164,48 @@ export async function POST(request: Request) {
     );
   }
 
-  // --- Sanitize & validate each message ---
   const sanitized = messages.map((msg) => ({
     role: msg.role,
     content: stripHtml(msg.content).slice(0, MAX_MESSAGE_LENGTH),
   }));
 
-  // --- Build Gemini conversation history ---
-  // Gemini expects alternating user/model turns. Convert our messages format.
-  const history: Content[] = [];
-  let latestUserMessage = "";
+  const chatMessages: ChatMessage[] = [
+    { role: "system", content: SYSTEM_PROMPT },
+    ...sanitized.map((msg) => ({
+      role: (msg.role === "assistant" ? "assistant" : "user") as ChatMessage["role"],
+      content: msg.role === "user" ? `<user_message>${msg.content}</user_message>` : msg.content,
+    })),
+  ];
 
-  for (const msg of sanitized) {
-    const role = msg.role === "assistant" ? "model" : "user";
-    const content = role === "user" ? `<user_message>${msg.content}</user_message>` : msg.content;
-
-    // Gemini requires alternating roles — merge consecutive same-role messages
-    const last = history[history.length - 1];
-    if (last && last.role === role) {
-      last.parts.push({ text: content });
-    } else {
-      history.push({ role, parts: [{ text: content }] });
-    }
-
-    if (role === "user") {
-      latestUserMessage = content;
-    }
-  }
-
-  // Pop the last user message — it goes into sendMessageStream, not history
-  if (history.length > 0 && history[history.length - 1]?.role === "user") {
-    history.pop();
-  }
-
-  // --- Create Gemini client & stream ---
-  const genAI = new GoogleGenerativeAI(apiKey);
-
-  const model = genAI.getGenerativeModel({
-    model: "gemini-2.0-flash",
-    systemInstruction: SYSTEM_PROMPT,
-    generationConfig: {
-      maxOutputTokens: 512,
+  try {
+    const stream = await streamWithFallback(chatMessages, {
+      maxTokens: 512,
       temperature: 0.7,
-    },
-    safetySettings: [
-      {
-        category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+    });
+    return new Response(stream, { headers: SSE_HEADERS });
+  } catch (err: unknown) {
+    const status =
+      typeof err === "object" && err !== null && "status" in err
+        ? (err as { status: unknown }).status
+        : undefined;
+    const raw = err instanceof Error ? err.message : String(err);
+
+    let message: string;
+    if (status === 429) {
+      message = `Chat is busy right now. Try again in a minute, or book a call. (${raw})`;
+    } else if (status === 401 || status === 403) {
+      message = "Chat is temporarily unavailable. Book a call and we'll help directly.";
+    } else {
+      message = `Something went wrong. Please try again. (${raw})`;
+    }
+
+    const encoder = new TextEncoder();
+    const errorStream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: message })}\n\n`));
+        controller.close();
       },
-      {
-        category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-      },
-      {
-        category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-      },
-      {
-        category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-      },
-    ],
-  });
-
-  const encoder = new TextEncoder();
-  const MAX_RETRIES = 2;
-
-  const readable = new ReadableStream({
-    async start(controller) {
-      let lastError: unknown;
-
-      // --- Retry loop with exponential backoff ---
-      for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
-        try {
-          const chat = model.startChat({ history });
-          const result = await chat.sendMessageStream(latestUserMessage);
-
-          for await (const chunk of result.stream) {
-            const text = chunk.text();
-            if (text) {
-              controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`));
-            }
-          }
-
-          controller.enqueue(encoder.encode("data: [DONE]\n\n"));
-          controller.close();
-          return; // Success — exit early
-        } catch (err: unknown) {
-          lastError = err;
-
-          const status = extractStatus(err);
-          const errMsg = err instanceof Error ? err.message : String(err);
-
-          console.error(
-            `[chat] gemini-2.0-flash attempt ${attempt + 1}/${MAX_RETRIES + 1} failed:`,
-            { status, message: errMsg, error: err },
-          );
-
-          if (status === 429 && attempt < MAX_RETRIES) {
-            await new Promise((r) => setTimeout(r, 1000 * (attempt + 1)));
-            continue;
-          }
-
-          break; // Non-retryable or exhausted retries
-        }
-      }
-
-      // --- Fallback model on persistent 429 ---
-      const lastStatus = extractStatus(lastError);
-
-      if (lastStatus === 429) {
-        try {
-          console.error(
-            "[chat] Primary model exhausted retries with 429. Trying gemini-2.0-flash-lite fallback.",
-          );
-
-          const fallbackModel = genAI.getGenerativeModel({
-            model: "gemini-2.0-flash-lite",
-            systemInstruction: SYSTEM_PROMPT,
-            generationConfig: { maxOutputTokens: 512, temperature: 0.7 },
-            safetySettings: [
-              {
-                category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-                threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-              },
-              {
-                category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-                threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-              },
-              {
-                category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-                threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-              },
-              {
-                category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-                threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-              },
-            ],
-          });
-
-          const fallbackChat = fallbackModel.startChat({ history });
-          const fallbackResult = await fallbackChat.sendMessageStream(latestUserMessage);
-
-          for await (const chunk of fallbackResult.stream) {
-            const text = chunk.text();
-            if (text) {
-              controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`));
-            }
-          }
-
-          controller.enqueue(encoder.encode("data: [DONE]\n\n"));
-          controller.close();
-          return; // Fallback succeeded
-        } catch (fallbackErr: unknown) {
-          lastError = fallbackErr;
-          const fbMsg = fallbackErr instanceof Error ? fallbackErr.message : String(fallbackErr);
-          console.error("[chat] Fallback model (gemini-2.0-flash-lite) also failed:", {
-            status: extractStatus(fallbackErr),
-            message: fbMsg,
-            error: fallbackErr,
-          });
-        }
-      }
-
-      // --- All attempts failed — send error to client ---
-      const finalStatus = extractStatus(lastError);
-      const rawMessage = lastError instanceof Error ? lastError.message : String(lastError);
-
-      let message: string;
-      if (finalStatus === 429) {
-        message = `Chat is busy right now. Try again in a minute, or book a call. (${rawMessage})`;
-      } else if (finalStatus === 401 || finalStatus === 403) {
-        message = "Chat is temporarily unavailable. Book a call and we'll help directly.";
-      } else {
-        message = `Something went wrong. Please try again. (${rawMessage})`;
-      }
-
-      controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: message })}\n\n`));
-      controller.close();
-    },
-  });
-
-  return new Response(readable, {
-    headers: {
-      "Content-Type": "text/event-stream",
-      "Cache-Control": "no-cache",
-      Connection: "keep-alive",
-    },
-  });
+    });
+    return new Response(errorStream, { headers: SSE_HEADERS });
+  }
 }

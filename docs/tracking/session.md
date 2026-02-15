@@ -2,6 +2,33 @@
 
 ## Current Session
 
+## Session 2026-02-15 (Session 6)
+
+**Date:** 2026-02-15
+**Goal:** Chat provider refactor (OpenRouter + DeepSeek), domain correction
+**Status:** Completed
+
+### Context
+
+- Gemini chat provider being replaced with OpenRouter (primary) and DeepSeek (fallback) for better reliability and cost
+- Domain references incorrectly using `flowaudit.com` instead of `flowaudit.co.uk`
+- Provider logic tightly coupled in route handler — needed extraction into reusable module
+
+### Blockers
+
+- None
+
+### Notes
+
+- Extracted `src/lib/chat-providers.ts` — OpenRouter/DeepSeek abstraction with retry + exponential backoff + fallback
+- Refactored `/api/chat/route.ts` to use new provider module (simpler, provider-agnostic)
+- Fixed domain references: `flowaudit.com` → `flowaudit.co.uk` in chat-providers HTTP-Referer and pdf-export footer
+- Updated `.env.example` with OpenRouter/DeepSeek env vars
+- Updated `package.json` and `pnpm-lock.yaml` with new dependencies
+- Files changed: 5 modified (`route.ts`, `pdf-export.tsx`, `.env.example`, `package.json`, `pnpm-lock.yaml`) + 1 new (`chat-providers.ts`)
+
+---
+
 ## Session 2026-02-15 (Session 5)
 
 **Date:** 2026-02-15

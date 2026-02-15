@@ -152,7 +152,7 @@ function PDFExport({
 
         <!-- Footer -->
         <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #F0EDEB; text-align: center;">
-          <p style="font-size: 12px; color: #605A57;">FlowAudit &bull; flowaudit.com &bull; AI Operations Assistants</p>
+          <p style="font-size: 12px; color: #605A57;">FlowAudit &bull; flowaudit.co.uk &bull; AI Operations Assistants</p>
           <p style="font-size: 11px; color: #605A57; margin-top: 4px;">This report is an estimate. Actual results may vary based on implementation scope.</p>
         </div>
       </div>
@@ -189,8 +189,24 @@ function PDFExport({
 
       iframeDoc.open();
       iframeDoc.write(`<!DOCTYPE html>
-        <html><head>
+        <html style="color:#37322F;background:#fff;"><head>
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+          <style>
+            /* Reset all colors to simple hex values so html2canvas
+               never encounters lab()/oklch() from browser system colors */
+            *, *::before, *::after {
+              color: inherit;
+              border-color: #F0EDEB;
+              outline-color: #37322F;
+              text-decoration-color: inherit;
+              column-rule-color: inherit;
+              caret-color: auto;
+            }
+            html, body {
+              color: #37322F;
+              background-color: #ffffff;
+            }
+          </style>
         </head><body style="margin:0;padding:0;">
           ${generateHTML()}
         </body></html>`);
@@ -207,7 +223,41 @@ function PDFExport({
           margin: [10, 10, 10, 10],
           filename: `${companyName || "FlowAudit"}-ROI-Report.pdf`,
           image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2 },
+          html2canvas: {
+            scale: 2,
+            backgroundColor: "#ffffff",
+            // Sanitize cloned DOM so html2canvas never encounters
+            // unsupported color functions (lab, oklch) from browser system colors
+            onclone: (clonedDoc: Document) => {
+              const colorProps = [
+                "color",
+                "backgroundColor",
+                "borderColor",
+                "borderTopColor",
+                "borderRightColor",
+                "borderBottomColor",
+                "borderLeftColor",
+                "outlineColor",
+                "textDecorationColor",
+                "columnRuleColor",
+                "caretColor",
+                "accentColor",
+              ] as const;
+              const unsupported = /\b(lab|oklch|lch|oklab)\(/i;
+              for (const el of clonedDoc.querySelectorAll("*")) {
+                const style = clonedDoc.defaultView?.getComputedStyle(el);
+                if (!style) continue;
+                for (const prop of colorProps) {
+                  const val = style[prop];
+                  if (typeof val === "string" && unsupported.test(val)) {
+                    (el as HTMLElement).style[prop] = prop.includes("ackground")
+                      ? "#ffffff"
+                      : "#37322F";
+                  }
+                }
+              }
+            },
+          },
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
         })
         .from(content)

@@ -4,6 +4,22 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ---
 
+## 2026-02-15 (Session 6)
+
+### Chat Provider Refactor
+
+- **Created** `src/lib/chat-providers.ts` — OpenRouter/DeepSeek provider abstraction with retry + exponential backoff + fallback
+- **Refactored** `/api/chat/route.ts` to use new provider module — provider-agnostic streaming interface
+- **Updated** `.env.example` with `OPENROUTER_API_KEY`, `DEEPSEEK_API_KEY` env vars
+- **Updated** `package.json` and `pnpm-lock.yaml` with new provider dependencies
+
+### Domain Fix
+
+- **Fixed** `chat-providers.ts` — HTTP-Referer header uses `flowaudit.co.uk` (not `flowaudit.com`)
+- **Fixed** `pdf-export.tsx` — PDF footer URL uses `flowaudit.co.uk` (not `flowaudit.com`)
+
+---
+
 ## 2026-02-15 (Session 5)
 
 ### Calculator Export & Print Fixes
