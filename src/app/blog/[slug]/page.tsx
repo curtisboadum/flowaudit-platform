@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { SITE_URL, SITE_NAME, canonicalUrl } from "@/lib/seo";
 import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import React from "react";
 
 interface BlogPost {
   title: string;
@@ -16,59 +17,73 @@ interface BlogPost {
   content: string;
 }
 
+function renderInlineMarkdown(text: string): React.ReactNode[] {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-semibold text-[#37322F]">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 const posts: Record<string, BlogPost> = {
   "real-cost-of-manual-work": {
-    title: "The Real Cost of Manual Work",
+    title: "The Real Cost of Doing Everything Manually",
     excerpt:
-      "Most teams underestimate how much repetitive admin costs them. Here's how to calculate the true impact.",
+      "Most tradespeople don't realise how much unpaid admin is costing them. Here's how to work it out.",
     category: "Operations",
     date: "January 15, 2025",
     readTime: "5 min read",
-    content: `Every week, your team spends hours on tasks that don't directly generate revenue. Data entry, follow-up emails, report compilation, status updates — the list goes on.
+    content: `Every week, you spend hours on work that doesn't pay. Quoting jobs, chasing invoices, scheduling callouts, ordering materials, replying to enquiries at 9pm. It all adds up.
 
-Most business owners know this work exists, but few have actually calculated what it costs them. Let's fix that.
+Most tradespeople know this work exists, but few have actually calculated what it costs them. Let's fix that.
 
 ## The Hidden Math
 
-Take a simple example: a 5-person service team where each member spends 3 hours per week on repetitive admin tasks.
+Take a simple example: you're an electrician or plumber billing $120/hour for on-site work. But you're spending 2 hours a day on unpaid admin.
 
-- **15 hours/week** of team capacity consumed
-- **60 hours/month** that could be spent on revenue-generating work
-- At $75/hour average value, that's **$4,500/month** in lost productivity
-- Over a year: **$54,000** — the cost of nearly a full-time hire
+- **10 hours/week** lost to admin you don't get paid for
+- **40 hours/month** that could be spent on billable jobs
+- At $120/hour, that's **$4,800/month** in lost earnings
+- Over a year: **$57,600** you're leaving on the table
 
-And that's a conservative estimate. Most teams we audit are losing 20-30 hours per week to manual work.
+And that's conservative. Most operators we talk to are losing even more when you count evenings spent doing paperwork, weekends quoting jobs, and the mental load of keeping everything in your head.
 
 ## It Gets Worse as You Grow
 
-Here's what most operators miss: manual work scales linearly with your business. Double your clients, double the admin. Triple your team, triple the coordination overhead.
+Here's what most operators miss: admin scales with your business. More clients means more invoices to chase. More jobs means more quotes to write. Hire a second tradie and you're now coordinating two schedules instead of one.
 
-This is why so many growing businesses hit a wall around 10-15 employees. The admin burden becomes unsustainable, but the solution (hiring more admin staff) just adds to the overhead.
+This is why so many trades businesses hit a wall. You're flat out but not making more money. Hiring an office person just adds another wage to cover.
 
 ## The Alternative
 
-AI operations assistants don't scale linearly. They handle the same tasks whether you have 10 clients or 100. The marginal cost of each additional automated workflow is near zero.
+Automation doesn't scale the same way. A system that sends your invoices, follows up on quotes, and books callouts handles the same work whether you have 10 clients or 100. The cost stays the same.
 
-This is why revenue-per-employee is the metric that matters most. It tells you how efficiently your team converts time into revenue.
+That's how you increase the money you take home per job, not by working longer hours, but by cutting the unpaid work that eats into every day.
 
 ## How to Calculate Your Actual Cost
 
-1. **List every repetitive task** your team does weekly
-2. **Estimate hours** spent on each task
-3. **Multiply by your hourly value** (what you could earn doing revenue work instead)
-4. **Add error costs** — mistakes from manual work that cost you clients or money
-5. **Project over 12 months** — this is your annual cost of manual work
+1. **List every task** you do each week that isn't billable work
+2. **Estimate the hours** you spend on each one
+3. **Multiply by your hourly rate** — that's what you could be earning instead
+4. **Add the cost of mistakes** — a missed quote follow-up that loses a $5,000 job, a late invoice that doesn't get paid for 90 days
+5. **Project over 12 months** — this is what doing everything yourself is really costing you
 
-Most teams we work with are shocked by the number. It's almost always higher than they expected.`,
+Most tradespeople we talk to are shocked by the number. It's almost always higher than they expected.`,
   },
   "hire-vs-automate": {
-    title: "Hire vs. Automate: Making the Right Decision",
+    title: "Hire an Office Manager or Automate? How to Decide",
     excerpt:
-      "When should you hire another person and when should you automate? A practical framework.",
+      "When should you hire help and when should you let automation handle it? A practical guide for small operators.",
     category: "Strategy",
     date: "January 8, 2025",
     readTime: "7 min read",
-    content: `The most common question we hear from operators: "Should I hire someone to handle this, or should I automate it?"
+    content: `The most common question we hear from tradespeople and small operators: "Should I hire someone to handle the admin, or should I automate it?"
 
 The answer isn't always automation. But it's automation more often than most people think.
 
@@ -78,82 +93,83 @@ Ask yourself three questions about the task:
 
 ### 1. Is it structured and repetitive?
 
-If the task follows the same steps every time — move data from A to B, send this email when X happens, generate this report every Friday — it's a prime candidate for automation.
+If the task follows the same steps every time — send an invoice after a job, follow up on a quote after 3 days, text the client a booking reminder — it's a prime candidate for automation.
 
-If it requires judgment, creativity, or relationship-building, that's where humans excel.
+If it requires judgment, problem-solving, or a conversation with a real person, that's where humans are better.
 
 ### 2. Does it scale with volume?
 
-Tasks that increase linearly with your client base (data entry per client, follow-ups per deal, invoices per job) are expensive to solve with hiring. Every new client means more admin hours.
+Tasks that increase with every new client — sending quotes, chasing late payments, booking callouts, updating job records — are expensive to solve with hiring. Every new client means more admin hours.
 
-Automation handles volume increases without proportional cost increases.
+Automation handles volume increases without adding cost.
 
 ### 3. What's the error cost?
 
-Manual work introduces errors. A missed follow-up might cost you a $10,000 deal. A data entry mistake might cause a billing dispute. An overlooked renewal might lose a long-term client.
+Manual work introduces mistakes. A follow-up you forgot to send might cost you a $10,000 renovation job. A quote you sent to the wrong client causes embarrassment. An invoice you forgot to chase doesn't get paid for months.
 
 Automated systems don't forget, don't get tired, and don't make copy-paste errors.
 
 ## When to Hire Instead
 
 Hire when the work requires:
-- **Relationship building** — clients want to talk to a person
-- **Complex judgment** — the decision changes based on context every time
-- **Creative problem-solving** — each situation is genuinely unique
-- **Physical presence** — someone needs to be on-site
+- **Meeting a homeowner to assess a job** — clients want to talk to a real person before committing
+- **Diagnosing why a boiler keeps cutting out** — the answer changes every time
+- **Creative problem-solving** — working out how to route plumbing in a tricky renovation
+- **Being on-site to do the actual work** — no robot is replacing you on the tools
 
 ## The Hybrid Approach
 
-The best operators do both: automate the repetitive work, then hire people for the judgment-based work. This means every person you hire spends 100% of their time on high-value activities.
+The best operators do both: automate the repetitive admin, then hire people for the skilled work. This means every person you bring on spends 100% of their time on billable work.
 
-That's how you improve revenue per employee — not by adding more people to do admin, but by removing admin from everyone's plate.`,
+That's how you increase profit per hour worked — not by hiring someone to do your paperwork, but by removing the paperwork entirely.`,
   },
   "revenue-per-employee": {
-    title: "Revenue Per Employee: The Metric That Matters",
-    excerpt: "Why revenue per employee is the single best indicator of operational health.",
+    title: "The One Number That Shows If Your Business Is Healthy",
+    excerpt:
+      "Forget complex dashboards. This single metric tells you whether you're making money or just staying busy.",
     category: "Metrics",
     date: "January 2, 2025",
     readTime: "6 min read",
-    content: `If you could only track one metric for your business, it should be revenue per employee.
+    content: `If you could only track one number for your business, it should be revenue per person.
 
-It tells you more about your operational health than any other single number. Here's why.
+It tells you more about whether your business is actually healthy than any other single metric. Here's why.
 
 ## What It Reveals
 
-Revenue per employee = Total Revenue / Number of Full-Time Employees
+Revenue per person = Total Revenue / Number of People in Your Business
 
 This ratio captures:
-- **Operational efficiency** — how much of your team's time converts to revenue
-- **Scalability** — whether your business model can grow without proportional headcount
-- **Margin health** — higher revenue per employee generally means better margins
-- **Automation opportunity** — low ratios often indicate heavy manual work
+- **How efficient you are** — how much of your time actually converts to money coming in
+- **Whether you can grow** — can your business take on more work without hiring more people
+- **Your margins** — higher revenue per person generally means more profit
+- **Where automation could help** — low numbers often mean too much time spent on unpaid admin
 
-## Benchmarks by Industry
+## Benchmarks for Trades and Small Operators
 
-- **Software companies:** $200K-$500K+ per employee
-- **Professional services:** $150K-$300K per employee
-- **Trades/contractors:** $100K-$200K per employee
-- **Agencies:** $120K-$250K per employee
+- **Solo plumber or electrician:** $150K-$250K potential
+- **Small trades team (2-5 people):** $120K-$200K per person
+- **Contractors with subcontractors:** $100K-$180K per person
+- **Service businesses:** $100K-$200K per person
 
-If you're below these ranges, it usually means your team is spending too much time on non-revenue work.
+A solo plumber billing $120/hr for 30 billable hours a week has a potential of about $187K a year. If you're only doing $120K, the gap is admin eating your time. A 3-person electrical contracting firm billing $130/hr should be pulling in $400K+ combined. If you're at $280K, admin is the gap.
 
 ## How Automation Moves the Needle
 
-When you automate repetitive tasks, you're effectively increasing each employee's revenue-generating capacity without adding headcount.
+When you automate repetitive tasks, you're increasing your earning capacity without adding headcount or working longer hours.
 
-A 5-person team saving 20 hours/week through automation gains the equivalent of a half-time employee — but without the salary, benefits, training, and management overhead.
+A sole operator saving 10 hours a week through automation gains the equivalent of an extra working day. No wages, no super, no management overhead.
 
-Over a year, that 20 hours/week translates to roughly 1,000 hours of recovered capacity. At $75/hour average value, that's $75,000 in potential revenue — from the same 5 people.
+Over a year, that 10 hours a week adds up to roughly 500 hours of recovered capacity. At $120/hour billing rate, that's $60,000 in potential earnings you're currently leaving on the table.
 
 ## The Compounding Effect
 
-The real magic happens over time. As you automate more workflows:
-1. Each employee becomes more productive
-2. You can take on more clients without hiring
-3. Your margins improve because labor costs stay flat
-4. Your business becomes more valuable (buyers love high revenue-per-employee ratios)
+The real benefit builds over time. As you automate more of the admin:
+1. You spend more hours on billable work
+2. You can take on more clients without burning out
+3. Your profit goes up because your costs stay flat
+4. Your business becomes more valuable if you ever want to sell
 
-This is the fundamental advantage of automation over hiring: it improves your unit economics permanently.`,
+This is the fundamental advantage of automation over hiring: it improves your profit per hour permanently.`,
   },
 };
 
@@ -168,9 +184,9 @@ export function generateMetadata({
 }): Promise<Metadata> {
   return params.then(({ slug }) => {
     const post = posts[slug];
-    if (!post) return { title: "Blog — FlowAudit" };
+    if (!post) return { title: "Blog — FlowAudit_" };
     return {
-      title: `${post.title} — FlowAudit Blog`,
+      title: `${post.title} — FlowAudit_ Blog`,
       description: post.excerpt,
       alternates: {
         canonical: `/blog/${slug}`,
@@ -222,14 +238,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   key={i}
                   className="mt-10 mb-4 font-sans text-xl font-semibold text-[#37322F] sm:text-2xl"
                 >
-                  {block.replace("## ", "")}
+                  {renderInlineMarkdown(block.replace("## ", ""))}
                 </h2>
               );
             }
             if (block.startsWith("### ")) {
               return (
                 <h3 key={i} className="mt-8 mb-3 font-sans text-lg font-semibold text-[#37322F]">
-                  {block.replace("### ", "")}
+                  {renderInlineMarkdown(block.replace("### ", ""))}
                 </h3>
               );
             }
@@ -238,7 +254,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <ul key={i} className="my-4 space-y-2">
                   {block.split("\n").map((line, j) => (
                     <li key={j} className="pl-4 font-sans text-base leading-7 text-[#605A57]">
-                      {line.replace("- ", "")}
+                      {renderInlineMarkdown(line.replace("- ", ""))}
                     </li>
                   ))}
                 </ul>
@@ -249,15 +265,49 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <ol key={i} className="my-4 list-inside list-decimal space-y-2">
                   {block.split("\n").map((line, j) => (
                     <li key={j} className="font-sans text-base leading-7 text-[#605A57]">
-                      {line.replace(/^\d+\.\s*/, "")}
+                      {renderInlineMarkdown(line.replace(/^\d+\.\s*/, ""))}
                     </li>
                   ))}
                 </ol>
               );
             }
+            // Handle mixed paragraph + list blocks (single newline before list)
+            const lines = block.split("\n");
+            const listStartIndex = lines.findIndex(
+              (line) => line.startsWith("- ") || /^\d+\.\s/.test(line),
+            );
+            if (listStartIndex > 0) {
+              const textPart = lines.slice(0, listStartIndex).join(" ");
+              const listLines = lines.slice(listStartIndex);
+              const isOrdered = /^\d+\.\s/.test(listLines[0] ?? "");
+              return (
+                <React.Fragment key={i}>
+                  <p className="my-4 font-sans text-base leading-7 text-[#605A57]">
+                    {renderInlineMarkdown(textPart)}
+                  </p>
+                  {isOrdered ? (
+                    <ol className="my-4 list-inside list-decimal space-y-2">
+                      {listLines.map((line, j) => (
+                        <li key={j} className="font-sans text-base leading-7 text-[#605A57]">
+                          {renderInlineMarkdown(line.replace(/^\d+\.\s*/, ""))}
+                        </li>
+                      ))}
+                    </ol>
+                  ) : (
+                    <ul className="my-4 space-y-2">
+                      {listLines.map((line, j) => (
+                        <li key={j} className="pl-4 font-sans text-base leading-7 text-[#605A57]">
+                          {renderInlineMarkdown(line.replace("- ", ""))}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </React.Fragment>
+              );
+            }
             return (
               <p key={i} className="my-4 font-sans text-base leading-7 text-[#605A57]">
-                {block}
+                {renderInlineMarkdown(block)}
               </p>
             );
           })}
@@ -266,10 +316,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* CTA */}
         <div className="flex flex-col items-center border-t border-[rgba(55,50,47,0.12)] pt-10 pb-16 text-center sm:pb-20">
           <h2 className="font-serif text-xl font-normal text-[#37322F] sm:text-2xl">
-            Ready to stop doing repetitive work?
+            Ready to get your evenings back?
           </h2>
           <p className="mt-3 max-w-[400px] font-sans text-sm text-[#605A57]">
-            Book a free strategy call and see exactly how much time your team can save.
+            Book a free call and we&apos;ll show you exactly where your time is going — and how to
+            get it back.
           </p>
           <Button size="lg" className="mt-5" asChild>
             <Link href="/book">Book a Strategy Call</Link>

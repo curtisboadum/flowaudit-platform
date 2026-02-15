@@ -7,18 +7,19 @@ import { cn } from "@/lib/utils";
 
 const workflowDemos = [
   {
-    title: "Task Automation",
-    description: "Auto-sync CRM data, send reminders, and update clients without manual effort.",
+    title: "Quote Follow-up",
+    description: "Auto-chase every quote you send — no more deals falling through the cracks.",
     visual: TaskAutomationVisual,
   },
   {
-    title: "Revenue Protection",
-    description: "Never miss a follow-up, renewal, or payment trigger again.",
+    title: "Job Complete → Invoice",
+    description: "Finish a job, invoice goes out. No more chasing payments weeks later.",
     visual: RevenueProtectionVisual,
   },
   {
-    title: "Operational Visibility",
-    description: "Weekly summaries, status dashboards, and risk flags — automatically.",
+    title: "Weekly Cash Flow Summary",
+    description:
+      "See what's coming in, what's overdue, and what needs chasing — every Monday morning.",
     visual: OperationalVisibilityVisual,
   },
 ] as const;
@@ -52,20 +53,20 @@ function HeroSection() {
   };
 
   return (
-    <section className="pt-24 sm:pt-32 lg:pt-44 pb-0 flex flex-col items-center px-4 sm:px-6 lg:px-0 w-full">
+    <section className="flex w-full flex-col items-center px-4 pt-24 pb-0 sm:px-6 sm:pt-32 lg:px-0 lg:pt-44">
       {/* Headline */}
-      <div className="w-full max-w-[748px] flex flex-col items-center gap-6 sm:gap-8">
-        <h1 className="text-center text-[#37322F] text-3xl sm:text-5xl md:text-6xl lg:text-[80px] font-normal leading-[1.1] font-serif px-2">
-          Turn 10 Hours of Manual Work Into 10 Minutes
+      <div className="flex w-full max-w-[748px] flex-col items-center gap-6 sm:gap-8">
+        <h1 className="px-2 text-center font-serif text-3xl leading-[1.1] font-normal text-[#37322F] sm:text-5xl md:text-6xl lg:text-[80px]">
+          Your Paperwork, Done Automatically
         </h1>
-        <p className="max-w-[506px] text-center text-[rgba(55,50,47,0.80)] text-base sm:text-lg font-medium leading-7 font-sans">
-          FlowAudit builds AI assistants that handle your repetitive admin — without losing quality,
-          control, or oversight.
+        <p className="max-w-[506px] text-center font-sans text-base leading-7 font-medium text-[rgba(55,50,47,0.80)] sm:text-lg">
+          FlowAudit_ handles the admin you hate — quotes, follow-ups, invoicing — so your team can
+          focus on the work that pays.
         </p>
       </div>
 
       {/* CTAs */}
-      <div className="flex items-center gap-4 mt-8 sm:mt-10">
+      <div className="mt-8 flex items-center gap-4 sm:mt-10">
         <Button size="lg" asChild>
           <Link href="/#calculator">Calculate Your Time Savings</Link>
         </Button>
@@ -73,21 +74,19 @@ function HeroSection() {
           <Link href="/#how-it-works">See How It Works</Link>
         </Button>
       </div>
-      <p className="text-[rgba(55,50,47,0.50)] text-xs font-sans mt-4">
+      <p className="mt-4 font-sans text-xs text-[rgba(55,50,47,0.50)]">
         Free strategy call — no commitment, no pressure.
       </p>
 
       {/* Dashboard preview */}
-      <div className="w-full max-w-[960px] mt-12 sm:mt-16">
-        <div className="w-full aspect-[16/9] bg-white shadow-[0px_0px_0px_0.9px_rgba(0,0,0,0.08)] overflow-hidden rounded-lg sm:rounded-xl relative">
+      <div className="mt-12 w-full max-w-[960px] sm:mt-16">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-white shadow-[0px_0px_0px_0.9px_rgba(0,0,0,0.08)] sm:rounded-xl">
           {workflowDemos.map((demo, index) => (
             <div
               key={index}
               className={cn(
-                "absolute inset-0 transition-all duration-500 ease-in-out flex items-center justify-center",
-                activeTab === index
-                  ? "opacity-100 scale-100 blur-0"
-                  : "opacity-0 scale-95 blur-sm",
+                "absolute inset-0 flex items-center justify-center transition-all duration-500 ease-in-out",
+                activeTab === index ? "blur-0 scale-100 opacity-100" : "scale-95 opacity-0 blur-sm",
               )}
             >
               <demo.visual />
@@ -97,30 +96,30 @@ function HeroSection() {
       </div>
 
       {/* Feature tabs */}
-      <div className="w-full max-w-[960px] border-t border-b border-[#E0DEDB] flex flex-col md:flex-row">
+      <div className="flex w-full max-w-[960px] flex-col border-t border-b border-[#E0DEDB] md:flex-row">
         {workflowDemos.map((demo, index) => (
           <button
             key={index}
             onClick={() => handleTabClick(index)}
             className={cn(
-              "flex-1 px-6 py-5 text-left cursor-pointer relative border-b md:border-b-0 md:border-r last:border-r-0 last:border-b-0 border-[#E0DEDB]/80 transition-colors",
+              "relative flex-1 cursor-pointer border-b border-[#E0DEDB]/80 px-6 py-5 text-left transition-colors last:border-r-0 last:border-b-0 md:border-r md:border-b-0",
               activeTab === index
                 ? "bg-white shadow-[0px_0px_0px_0.75px_#E0DEDB_inset]"
                 : "hover:bg-white/50",
             )}
           >
             {activeTab === index && (
-              <div className="absolute top-0 left-0 w-full h-0.5 bg-[rgba(50,45,43,0.08)]">
+              <div className="absolute top-0 left-0 h-0.5 w-full bg-[rgba(50,45,43,0.08)]">
                 <div
                   className="h-full bg-[#322D2B] transition-all duration-100 ease-linear"
                   style={{ width: `${progress}%` }}
                 />
               </div>
             )}
-            <div className="text-[#49423D] text-sm font-semibold leading-6 font-sans">
+            <div className="font-sans text-sm leading-6 font-semibold text-[#49423D]">
               {demo.title}
             </div>
-            <div className="text-[#605A57] text-[13px] font-normal leading-[22px] font-sans mt-1">
+            <div className="mt-1 font-sans text-[13px] leading-[22px] font-normal text-[#605A57]">
               {demo.description}
             </div>
           </button>
@@ -132,27 +131,27 @@ function HeroSection() {
 
 function TaskAutomationVisual() {
   return (
-    <div className="w-full h-full bg-gradient-to-br from-[#F7F5F3] to-white p-6 sm:p-10 flex flex-col justify-center">
-      <div className="max-w-md mx-auto w-full space-y-4">
-        <div className="text-xs text-[#605A57] font-sans uppercase tracking-wider mb-6">
+    <div className="flex h-full w-full flex-col justify-center bg-gradient-to-br from-[#F7F5F3] to-white p-6 sm:p-10">
+      <div className="mx-auto w-full max-w-md space-y-4">
+        <div className="mb-6 font-sans text-xs tracking-wider text-[#605A57] uppercase">
           Live Workflow
         </div>
         {[
-          { label: "CRM Sync", status: "Completed", color: "bg-emerald-500" },
-          { label: "Invoice Reminder", status: "Completed", color: "bg-emerald-500" },
-          { label: "Client Update", status: "Running", color: "bg-amber-500" },
-          { label: "Lead Follow-up", status: "Queued", color: "bg-gray-300" },
-          { label: "Weekly Report", status: "Queued", color: "bg-gray-300" },
+          { label: "Quote Sent to Client", status: "Completed", color: "bg-emerald-500" },
+          { label: "Follow-up: Smith Kitchen Reno", status: "Completed", color: "bg-emerald-500" },
+          { label: "Invoice: 42 Maple Drive Job", status: "Running", color: "bg-amber-500" },
+          { label: "New Lead: Bathroom Refit", status: "Queued", color: "bg-gray-300" },
+          { label: "Weekly Cash Flow Summary", status: "Queued", color: "bg-gray-300" },
         ].map((task) => (
           <div
             key={task.label}
-            className="flex items-center justify-between bg-white rounded-lg border border-[rgba(55,50,47,0.08)] px-4 py-3"
+            className="flex items-center justify-between rounded-lg border border-[rgba(55,50,47,0.08)] bg-white px-4 py-3"
           >
             <div className="flex items-center gap-3">
-              <div className={cn("w-2 h-2 rounded-full", task.color)} />
-              <span className="text-sm text-[#37322F] font-medium font-sans">{task.label}</span>
+              <div className={cn("h-2 w-2 rounded-full", task.color)} />
+              <span className="font-sans text-sm font-medium text-[#37322F]">{task.label}</span>
             </div>
-            <span className="text-xs text-[#605A57] font-sans">{task.status}</span>
+            <span className="font-sans text-xs text-[#605A57]">{task.status}</span>
           </div>
         ))}
       </div>
@@ -162,26 +161,26 @@ function TaskAutomationVisual() {
 
 function RevenueProtectionVisual() {
   return (
-    <div className="w-full h-full bg-gradient-to-br from-[#F7F5F3] to-white p-6 sm:p-10 flex flex-col justify-center">
-      <div className="max-w-md mx-auto w-full space-y-4">
-        <div className="text-xs text-[#605A57] font-sans uppercase tracking-wider mb-6">
+    <div className="flex h-full w-full flex-col justify-center bg-gradient-to-br from-[#F7F5F3] to-white p-6 sm:p-10">
+      <div className="mx-auto w-full max-w-md space-y-4">
+        <div className="mb-6 font-sans text-xs tracking-wider text-[#605A57] uppercase">
           Revenue Protection
         </div>
         {[
-          { label: "Renewal: Johnson HVAC", due: "Due in 3 days", amount: "$4,200" },
-          { label: "Quote Follow-up: Smith Electric", due: "Sent 2 days ago", amount: "$8,750" },
-          { label: "Invoice: Martinez Plumbing", due: "Overdue 5 days", amount: "$2,100" },
-          { label: "Upsell: Davis Construction", due: "Opportunity", amount: "$12,000" },
+          { label: "Quote Follow-up: Johnson HVAC", due: "Sent 3 days ago", amount: "$2,800" },
+          { label: "Quote Follow-up: Smith Electric", due: "Sent 2 days ago", amount: "$6,500" },
+          { label: "Invoice: Martinez Plumbing", due: "Overdue 5 days", amount: "$1,850" },
+          { label: "New Quote: Davis Construction", due: "Requested today", amount: "$4,200" },
         ].map((item) => (
           <div
             key={item.label}
-            className="flex items-center justify-between bg-white rounded-lg border border-[rgba(55,50,47,0.08)] px-4 py-3"
+            className="flex items-center justify-between rounded-lg border border-[rgba(55,50,47,0.08)] bg-white px-4 py-3"
           >
             <div>
-              <div className="text-sm text-[#37322F] font-medium font-sans">{item.label}</div>
-              <div className="text-xs text-[#605A57] font-sans mt-0.5">{item.due}</div>
+              <div className="font-sans text-sm font-medium text-[#37322F]">{item.label}</div>
+              <div className="mt-0.5 font-sans text-xs text-[#605A57]">{item.due}</div>
             </div>
-            <span className="text-sm text-[#37322F] font-semibold font-sans">{item.amount}</span>
+            <span className="font-sans text-sm font-semibold text-[#37322F]">{item.amount}</span>
           </div>
         ))}
       </div>
@@ -191,31 +190,31 @@ function RevenueProtectionVisual() {
 
 function OperationalVisibilityVisual() {
   return (
-    <div className="w-full h-full bg-gradient-to-br from-[#F7F5F3] to-white p-6 sm:p-10 flex flex-col justify-center">
-      <div className="max-w-md mx-auto w-full space-y-5">
-        <div className="text-xs text-[#605A57] font-sans uppercase tracking-wider mb-4">
+    <div className="flex h-full w-full flex-col justify-center bg-gradient-to-br from-[#F7F5F3] to-white p-6 sm:p-10">
+      <div className="mx-auto w-full max-w-md space-y-5">
+        <div className="mb-4 font-sans text-xs tracking-wider text-[#605A57] uppercase">
           Weekly Summary — Auto-Generated
         </div>
         <div className="grid grid-cols-2 gap-3">
           {[
-            { label: "Tasks Completed", value: "47" },
+            { label: "Jobs Invoiced", value: "47" },
             { label: "Hours Saved", value: "12.5" },
-            { label: "Follow-ups Sent", value: "23" },
+            { label: "Quotes Chased", value: "23" },
             { label: "Revenue Protected", value: "$27K" },
           ].map((stat) => (
             <div
               key={stat.label}
-              className="bg-white rounded-lg border border-[rgba(55,50,47,0.08)] p-4"
+              className="rounded-lg border border-[rgba(55,50,47,0.08)] bg-white p-4"
             >
-              <div className="text-2xl text-[#37322F] font-semibold font-sans">{stat.value}</div>
-              <div className="text-xs text-[#605A57] font-sans mt-1">{stat.label}</div>
+              <div className="font-sans text-2xl font-semibold text-[#37322F]">{stat.value}</div>
+              <div className="mt-1 font-sans text-xs text-[#605A57]">{stat.label}</div>
             </div>
           ))}
         </div>
-        <div className="bg-white rounded-lg border border-[rgba(55,50,47,0.08)] p-4">
-          <div className="text-xs text-amber-600 font-medium font-sans">Risk Flag</div>
-          <div className="text-sm text-[#37322F] font-sans mt-1">
-            3 client renewals approaching deadline without confirmation
+        <div className="rounded-lg border border-[rgba(55,50,47,0.08)] bg-white p-4">
+          <div className="font-sans text-xs font-medium text-amber-600">Risk Flag</div>
+          <div className="mt-1 font-sans text-sm text-[#37322F]">
+            2 quotes over 7 days old without a response
           </div>
         </div>
       </div>
