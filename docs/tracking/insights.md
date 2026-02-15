@@ -4,6 +4,33 @@ Patterns discovered, solutions to problems, and general learnings during develop
 
 ---
 
+## 2026-02-15 — Calculator PDF Export & Sunset Models
+
+### html2canvas + Tailwind v4 oklch() Incompatibility
+
+- `html2canvas` (used by `html2pdf.js`) cannot parse CSS `oklch()` color functions
+- Tailwind v4 uses `oklch()` in CSS custom properties by default
+- Appending elements to `document.body` inherits these properties and crashes html2canvas
+- **Solution:** Render inside an `<iframe>` for complete CSS isolation — the iframe has no Tailwind styles
+- `generateHTML()` uses only inline styles, so it renders correctly without Tailwind
+- Always use `finally` for DOM cleanup — prevents orphaned iframes/elements when errors occur
+
+### Sunset Gemini Models
+
+- Google sunsets models from the v1beta API — `gemini-1.5-flash` now returns 404
+- Fallback models must be kept current — `gemini-2.0-flash-lite` is the current lightweight option
+- Check Google AI model deprecation notices periodically
+- When hardcoding model names as fallbacks, add a comment noting when the model was last verified
+
+### Print Popup Blocking
+
+- `window.open()` for Print Reports can be blocked by browser popup blockers
+- Detecting blocked popups: check if the returned window reference is `null`
+- **Fallback:** `window.print()` prints the current page — less ideal but always works
+- User-initiated click events typically bypass popup blockers, but some browsers still block `window.open()` in async callbacks
+
+---
+
 ## 2026-02-14 — UI/SEO Overhaul
 
 ### Git Push with MCP Plugins

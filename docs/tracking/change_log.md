@@ -4,6 +4,28 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ---
 
+## 2026-02-15 (Session 5)
+
+### Calculator Export & Print Fixes
+
+- **Fixed** `pdf-export.tsx` — Export PDF now renders in isolated `<iframe>` to avoid Tailwind v4 `oklch()` crash in html2canvas
+- **Fixed** `pdf-export.tsx` — Print Report falls back to `window.print()` when popup is blocked by browser
+- **Fixed** `pdf-export.tsx` — DOM cleanup moved to `finally` block to prevent orphaned elements on error
+
+### Chatbot Fallback Model
+
+- **Fixed** `/api/chat` — replaced sunset `gemini-1.5-flash` fallback with `gemini-2.0-flash-lite`
+
+### E2E Verification
+
+- **Verified** calculator page, Export PDF, Print Report, and chat widget via Playwright MCP browser — 0 console errors across all pages
+
+### Developer Experience
+
+- **Added** `AskUserQuestion` sound notification hook to `.claude/settings.json`
+
+---
+
 ## 2026-02-14 (Session 4)
 
 ### Gemini 429 Rate Limit Fix

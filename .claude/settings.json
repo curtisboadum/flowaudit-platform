@@ -73,6 +73,15 @@
             "command": "bash /Users/curtis/Documents/FlowAudit_/.claude/hooks/validate-env-files.sh"
           }
         ]
+      },
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Blow.aiff &"
+          }
+        ]
       }
     ],
     "PostToolUse": [

@@ -139,6 +139,25 @@
 
 ---
 
+## ADR-008: iframe Isolation for PDF Export
+
+**Date:** 2026-02-15
+**Status:** Accepted
+**Context:** The calculator's Export PDF feature uses `html2canvas` (via `html2pdf.js`) to render HTML to a canvas. Tailwind v4 uses `oklch()` color functions in CSS custom properties. When the PDF content element is appended to `document.body`, it inherits these properties, and `html2canvas` crashes because it cannot parse `oklch()`.
+**Decision:** Render PDF content inside an invisible `<iframe>` instead of appending to `document.body`.
+**Rationale:**
+
+- Complete CSS isolation — the iframe has no Tailwind styles, so `oklch()` never enters the rendering context
+- `generateHTML()` already uses only inline styles with hex/rgb colors, so it renders correctly without Tailwind
+- No changes needed to the HTML generation logic — only the rendering container changed
+- Standard browser API with universal support
+  **Consequences:**
+- Slight latency (~500ms render wait) for iframe content and fonts to load before html2canvas captures
+- Requires iframe cleanup in a `finally` block to prevent orphaned DOM elements on error
+- If `generateHTML()` ever needs Tailwind classes, this approach would need a Tailwind stylesheet injected into the iframe
+
+---
+
 ## ADR Template
 
 ```markdown
