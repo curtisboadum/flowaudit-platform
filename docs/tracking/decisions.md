@@ -158,6 +158,27 @@
 
 ---
 
+## ADR-009: Multi-Provider Chat Architecture (OpenRouter + DeepSeek)
+
+**Date:** 2026-02-15
+**Status:** Accepted
+**Context:** The marketing chat widget was using Gemini directly, which had 429 rate limit issues and required managing a single provider's SDK. Need a more resilient approach with provider fallback.
+**Decision:** Extract chat providers into `src/lib/chat-providers.ts` with OpenRouter as primary and DeepSeek as fallback, using retry with exponential backoff.
+**Rationale:**
+
+- OpenRouter provides access to multiple models behind a single API — can switch models without code changes
+- DeepSeek as fallback gives a completely independent provider path for resilience
+- Retry with exponential backoff (3 attempts, 1s/2s/4s) handles transient rate limits gracefully
+- Provider abstraction keeps `/api/chat/route.ts` clean and provider-agnostic
+- Both providers are significantly cheaper than Claude for marketing chat use case
+  **Consequences:**
+- Two API keys to manage (`OPENROUTER_API_KEY`, `DEEPSEEK_API_KEY`)
+- Supersedes ADR-007 (Gemini for chat) — Gemini dependency removed
+- If OpenRouter goes down, automatic fallback to DeepSeek with no user-visible impact
+- Provider module is reusable if other chat endpoints are added later
+
+---
+
 ## ADR Template
 
 ```markdown
