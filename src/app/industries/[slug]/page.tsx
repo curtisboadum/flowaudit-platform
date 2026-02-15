@@ -22,31 +22,33 @@ const industries: Record<string, IndustryData> = {
     name: "Trades",
     headline: "Automation Built For Trades",
     description:
-      "Plumbers, electricians, and contractors waste 15-25 hours/week on admin. FlowAudit gives you that time back.",
+      "Plumbers, electricians, and contractors lose 15-25 hours a week to quoting, invoicing, and chasing payments. FlowAudit_ handles it so you can focus on the work that pays.",
     tasks: [
       {
         title: "Quote Follow-ups",
-        description: "Automatically follow up on every sent quote",
+        description:
+          "Automatically chase every quote — works with Jobber, Housecall Pro, or your email",
         hoursSaved: "4-6 hrs/week",
       },
       {
         title: "Job Scheduling",
-        description: "Sync schedules across field teams and office",
+        description:
+          "Sync your calendar across the team — no more double-bookings or missed callouts",
         hoursSaved: "3-5 hrs/week",
       },
       {
         title: "Invoice Generation",
-        description: "Create and send invoices when jobs complete",
+        description: "Job done? Invoice goes out. Connects with QuickBooks, Xero, or FreshBooks",
         hoursSaved: "2-3 hrs/week",
       },
       {
         title: "CRM Updates",
-        description: "Keep your CRM updated without manual data entry",
+        description: "Keep your customer records updated without typing the same info twice",
         hoursSaved: "3-4 hrs/week",
       },
       {
         title: "Permit Tracking",
-        description: "Track permit statuses and deadlines automatically",
+        description: "Track permit statuses and deadlines so nothing slips through",
         hoursSaved: "2-3 hrs/week",
       },
     ],
@@ -57,9 +59,54 @@ const industries: Record<string, IndustryData> = {
       { label: "Days to go live", value: "10" },
     ],
     workflows: [
-      { name: "Job Complete → Invoice", from: "ServiceTitan", to: "QuickBooks" },
-      { name: "New Lead → Assignment", from: "Website Form", to: "CRM + SMS" },
-      { name: "Quote Sent → Follow-up", from: "CRM", to: "Email + SMS" },
+      { name: "Job Complete → Invoice", from: "Jobber / Housecall Pro", to: "QuickBooks / Xero" },
+      { name: "New Lead → Assignment", from: "Website / Google", to: "CRM + SMS" },
+      { name: "Quote Sent → Follow-up", from: "Email / Jobber", to: "SMS + Email" },
+    ],
+  },
+  solopreneurs: {
+    name: "Solopreneurs",
+    headline: "Automation Built For Solo Operators & Small Teams",
+    description:
+      "Whether you're a one-person shop or a small crew, FlowAudit_ gives you a virtual back office — quoting, invoicing, follow-ups, and scheduling handled automatically.",
+    tasks: [
+      {
+        title: "Quote & Invoice",
+        description: "Send professional quotes and invoices without opening a spreadsheet",
+        hoursSaved: "4-6 hrs/week",
+      },
+      {
+        title: "Client Follow-ups",
+        description: "Automatic check-ins and follow-ups so no lead goes cold",
+        hoursSaved: "3-5 hrs/week",
+      },
+      {
+        title: "Booking & Scheduling",
+        description: "Let clients book time with your team — no back-and-forth emails",
+        hoursSaved: "2-3 hrs/week",
+      },
+      {
+        title: "Payment Chasing",
+        description: "Automated reminders for overdue invoices so you don't have to ask",
+        hoursSaved: "2-3 hrs/week",
+      },
+      {
+        title: "Weekly Summary",
+        description:
+          "A Monday morning snapshot of what's coming in, what's overdue, and what needs doing",
+        hoursSaved: "1-2 hrs/week",
+      },
+    ],
+    impacts: [
+      { label: "Hours saved per week", value: "15+" },
+      { label: "Invoices chased automatically", value: "100%" },
+      { label: "Leads followed up", value: "Every one" },
+      { label: "Days to go live", value: "7" },
+    ],
+    workflows: [
+      { name: "Job Done → Invoice Sent", from: "Your Calendar", to: "QuickBooks / Xero" },
+      { name: "Quote Sent → Auto Follow-up", from: "Email", to: "SMS + Email" },
+      { name: "Week Start → Cash Flow Summary", from: "Accounting", to: "Email / WhatsApp" },
     ],
   },
   insurance: {
@@ -295,9 +342,9 @@ export function generateMetadata({
 }): Promise<Metadata> {
   return params.then(({ slug }) => {
     const industry = industries[slug];
-    if (!industry) return { title: "Industry — FlowAudit" };
+    if (!industry) return { title: "Industry — FlowAudit_" };
     return {
-      title: `${industry.name} Automation — FlowAudit`,
+      title: `${industry.name} Automation — FlowAudit_`,
       description: industry.description,
       alternates: {
         canonical: `/industries/${slug}`,
@@ -463,11 +510,11 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          name: `${industry.name} Automation — FlowAudit`,
+          name: `${industry.name} Automation — FlowAudit_`,
           description: industry.description,
           provider: {
             "@type": "Organization",
-            name: "FlowAudit",
+            name: "FlowAudit_",
             url: SITE_URL,
           },
           url: canonicalUrl(`/industries/${slug}`),

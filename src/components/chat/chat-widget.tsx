@@ -153,10 +153,10 @@ export function ChatWidget() {
   };
 
   const quickQuestions = [
-    "What does FlowAudit do?",
+    "How does this work for tradespeople?",
+    "What does setup look like?",
     "How much does it cost?",
-    "How long does setup take?",
-    "Can I see a demo?",
+    "Does this work for small teams?",
   ];
 
   return (
@@ -189,7 +189,7 @@ export function ChatWidget() {
               </svg>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-white">FlowAudit</h3>
+              <h3 className="text-sm font-semibold text-white">FlowAudit_</h3>
               <p className="text-xs text-gray-300">AI Assistant</p>
             </div>
           </div>
@@ -230,8 +230,12 @@ export function ChatWidget() {
                 </svg>
               </div>
               <div>
-                <p className="text-sm font-medium text-[#37322F]">Hi! How can I help?</p>
-                <p className="mt-1 text-xs text-[#605A57]">Ask me anything about FlowAudit</p>
+                <p className="text-sm font-medium text-[#37322F]">
+                  Hi! Got questions about automating your admin?
+                </p>
+                <p className="mt-1 text-xs text-[#605A57]">
+                  I can help with pricing, setup, and what works for your business
+                </p>
               </div>
               <div className="mt-2 flex w-full flex-col gap-2">
                 {quickQuestions.map((question) => (

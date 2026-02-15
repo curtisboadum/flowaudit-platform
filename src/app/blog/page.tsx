@@ -7,7 +7,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Blog — FlowAudit",
+  title: "Blog — FlowAudit_",
   description:
     "Insights on automation, operational efficiency, and growing without adding headcount.",
   alternates: {
@@ -18,27 +18,27 @@ export const metadata: Metadata = {
 const posts = [
   {
     slug: "real-cost-of-manual-work",
-    title: "The Real Cost of Manual Work",
+    title: "The Real Cost of Doing Everything Manually",
     excerpt:
-      "Most teams underestimate how much repetitive admin costs them. Here's how to calculate the true impact on your bottom line.",
+      "Most tradespeople don't realise how much unpaid admin is costing them. Here's how to work it out.",
     category: "Operations",
     date: "2025-01-15",
     readTime: "5 min read",
   },
   {
     slug: "hire-vs-automate",
-    title: "Hire vs. Automate: Making the Right Decision",
+    title: "Hire an Office Manager or Automate? How to Decide",
     excerpt:
-      "When should you hire another person and when should you automate? A practical framework for service businesses.",
+      "When should you hire help and when should you let automation handle it? A practical guide for small operators.",
     category: "Strategy",
     date: "2025-01-08",
     readTime: "7 min read",
   },
   {
     slug: "revenue-per-employee",
-    title: "Revenue Per Employee: The Metric That Matters",
+    title: "The One Number That Shows If Your Business Is Healthy",
     excerpt:
-      "Why revenue per employee is the single best indicator of operational health — and how automation improves it.",
+      "Forget complex dashboards. This single metric tells you whether you're making money or just staying busy.",
     category: "Metrics",
     date: "2025-01-02",
     readTime: "6 min read",
