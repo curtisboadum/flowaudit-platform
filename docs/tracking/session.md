@@ -2,7 +2,32 @@
 
 ## Current Session
 
-_No active session._
+## Session 2026-02-15 (Session 5)
+
+**Date:** 2026-02-15
+**Goal:** Fix calculator Export PDF/Print buttons + chatbot fallback model + E2E testing
+**Status:** Completed
+
+### Context
+
+- Export PDF crashing on Tailwind v4 oklch() colors — html2canvas cannot parse oklch() CSS functions
+- Print Report silently failing when popup is blocked by browser
+- Chatbot returning 404 from sunset `gemini-1.5-flash` fallback model
+- All fixes committed locally on `fix/fallback-model-name` branch
+
+### Blockers
+
+- `GITHUB_TOKEN` PAT lacks `contents:write` scope — `git push` returns 403 (same recurring issue)
+
+### Notes
+
+- Export PDF: iframe isolation approach — renders PDF content inside invisible iframe for complete CSS isolation from Tailwind v4 oklch()
+- Print Report: popup-blocked fallback — catches popup block and falls back to `window.print()`
+- DOM cleanup: moved to `finally` block to prevent orphaned elements on error
+- Chatbot: replaced sunset `gemini-1.5-flash` with `gemini-2.0-flash-lite` as fallback model
+- E2E verified via Playwright MCP browser: calculator page loads clean (0 errors), Export PDF downloads `FlowAudit-ROI-Report.pdf` successfully, Print opens popup window, chat widget calls correct model (`gemini-2.0-flash-lite`), 429 is free tier quota issue not code bug, 0 console errors across all pages
+- Added `AskUserQuestion` sound notification hook for user input prompts
+- 3 commits on `fix/fallback-model-name` branch
 
 ---
 
