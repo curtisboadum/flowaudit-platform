@@ -4,6 +4,17 @@ Patterns discovered, solutions to problems, and general learnings during develop
 
 ---
 
+## 2026-02-15 — Content Framing for Broad Audience
+
+### Inclusive Business Language
+
+- "One-person business" language excludes the 2–30 person teams that are core customers
+- Use "solo operators & small teams" to cover the full range without alienating either end
+- Audit all customer-facing copy for narrowing qualifiers — headlines, CTAs, blog intros, and chatbot system prompts
+- Same principle applies to industry pages: describe the pain points broadly, not just for solopreneurs
+
+---
+
 ## 2026-02-15 — Calculator PDF Export & Sunset Models
 
 ### html2canvas + Tailwind v4 oklch() Incompatibility
