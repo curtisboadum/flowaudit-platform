@@ -9,9 +9,9 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Linkedin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About — FlowAudit",
+  title: "About — FlowAudit_",
   description:
-    "We help operators reclaim time through structured automation. Meet the team behind FlowAudit.",
+    "We help operators reclaim time through structured automation. Meet the team behind FlowAudit_.",
   alternates: {
     canonical: "/about",
   },
@@ -22,7 +22,7 @@ const teamMembers = [
     name: "Curtis Boadum",
     title: "CTO / CEO",
     description:
-      "Systems thinker. Builds the AI infrastructure that powers every FlowAudit assistant.",
+      "Systems thinker. Builds the AI infrastructure that powers every FlowAudit_ assistant.",
     initials: "CB",
     isAI: false,
   },
@@ -67,7 +67,8 @@ const values = [
   },
   {
     title: "Built for Serious Operators",
-    description: "Every feature is designed for people who run real operations — not tech demos.",
+    description:
+      "Every feature is designed for tradespeople, contractors, and small teams who run real businesses — whether you're solo or have 30 people.",
   },
   {
     title: "Practical Implementation",
@@ -93,7 +94,8 @@ export default function AboutPage() {
             We help operators reclaim time through structured automation
           </h1>
           <p className="mt-6 max-w-[500px] font-sans text-base leading-7 text-[rgba(55,50,47,0.80)] sm:text-lg">
-            FlowAudit is the AI assistant layer for teams drowning in repetitive work.
+            FlowAudit_ is the back-office assistant for tradespeople and small businesses drowning
+            in admin.
           </p>
         </section>
 
@@ -102,16 +104,17 @@ export default function AboutPage() {
           <div className="mx-auto max-w-[700px]">
             <Badge text="Our Approach" />
             <h2 className="mt-4 font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
-              Systems thinking meets practical automation
+              We get it — you didn&apos;t start your business to do paperwork
             </h2>
             <p className="mt-4 font-sans text-base leading-7 text-[#605A57]">
-              Most businesses don&apos;t need another SaaS tool. They need someone to look at their
-              operations, identify the repetitive bottlenecks, and build solutions that remove them
-              permanently. That&apos;s what we do.
+              Most tradespeople and small operators don&apos;t need another app. They need someone
+              to look at how they work, find the stuff that eats their time, and fix it permanently.
+              That&apos;s what we do.
             </p>
             <p className="mt-4 font-sans text-base leading-7 text-[#605A57]">
-              We combine AI engineering with operational understanding to build assistants that
-              actually work in real business environments — not just demos.
+              We combine smart automation with an understanding of how real businesses run — the
+              quoting, the invoicing, the follow-ups, the scheduling. We build systems that handle
+              all of it, so you can focus on the work that actually pays.
             </p>
           </div>
         </section>

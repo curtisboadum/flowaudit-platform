@@ -34,7 +34,7 @@ function openRouterProvider(): ProviderConfig | null {
     model: process.env.OPENROUTER_MODEL ?? "deepseek/deepseek-v3.2-20251201",
     extraHeaders: {
       "HTTP-Referer": process.env.NEXT_PUBLIC_APP_URL ?? "https://flowaudit.co.uk",
-      "X-Title": "FlowAudit",
+      "X-Title": "FlowAudit_",
     },
   };
 }
@@ -86,7 +86,7 @@ async function fetchChatStream(
     throw new Error(`${provider.name} returned no response body`);
   }
 
-  // Transform OpenAI SSE stream → FlowAudit SSE format
+  // Transform OpenAI SSE stream → FlowAudit_ SSE format
   const upstream = res.body.getReader();
   const decoder = new TextDecoder();
   const encoder = new TextEncoder();

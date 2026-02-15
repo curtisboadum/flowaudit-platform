@@ -22,7 +22,15 @@ function CalculatorApp() {
 
   // Currency state
   const [currency, setCurrency] = useState<Currency>("USD");
-  const [rates, setRates] = useState<ExchangeRates>({ USD: 1, GBP: 0.79, EUR: 0.92, CAD: 1.35 });
+  const [rates, setRates] = useState<ExchangeRates>({
+    USD: 1,
+    GBP: 0.79,
+    EUR: 0.92,
+    CAD: 1.35,
+    AED: 3.6725,
+    SAR: 3.75,
+    QAR: 3.64,
+  });
   const [rateStatus, setRateStatus] = useState<RateStatus>("fallback");
 
   // Fetch exchange rates on mount

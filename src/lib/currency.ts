@@ -1,15 +1,26 @@
-export type Currency = "USD" | "GBP" | "EUR" | "CAD";
+export type Currency = "USD" | "GBP" | "EUR" | "CAD" | "AED" | "SAR" | "QAR";
 
 export interface ExchangeRates {
   USD: number;
   GBP: number;
   EUR: number;
   CAD: number;
+  AED: number;
+  SAR: number;
+  QAR: number;
 }
 
 export type RateStatus = "live" | "cached" | "stale" | "fallback";
 
-const FALLBACK_RATES: ExchangeRates = { USD: 1, GBP: 0.79, EUR: 0.92, CAD: 1.35 };
+const FALLBACK_RATES: ExchangeRates = {
+  USD: 1,
+  GBP: 0.79,
+  EUR: 0.92,
+  CAD: 1.35,
+  AED: 3.6725,
+  SAR: 3.75,
+  QAR: 3.64,
+};
 const CACHE_KEY = "flowaudit_exchange_rates";
 const CACHE_DURATION = 60 * 60 * 1000; // 1 hour
 
@@ -77,6 +88,9 @@ export async function fetchExchangeRates(): Promise<{
         GBP: rawRates["GBP"] ?? FALLBACK_RATES.GBP,
         EUR: rawRates["EUR"] ?? FALLBACK_RATES.EUR,
         CAD: rawRates["CAD"] ?? FALLBACK_RATES.CAD,
+        AED: 3.6725,
+        SAR: 3.75,
+        QAR: 3.64,
       };
       setCachedRates(rates);
       return { rates, status: "live" };
@@ -106,6 +120,9 @@ export function formatCurrency(amount: number, currency: Currency): string {
     GBP: "en-GB",
     EUR: "de-DE",
     CAD: "en-CA",
+    AED: "ar-AE",
+    SAR: "ar-SA",
+    QAR: "ar-QA",
   };
   return new Intl.NumberFormat(localeMap[currency], {
     style: "currency",
@@ -120,4 +137,7 @@ export const CURRENCY_SYMBOLS: Record<Currency, string> = {
   GBP: "\u00A3",
   EUR: "\u20AC",
   CAD: "C$",
+  AED: "د.إ",
+  SAR: "ر.س",
+  QAR: "ر.ق",
 };

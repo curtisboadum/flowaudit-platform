@@ -24,14 +24,14 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "FlowAudit — AI Operations Assistants for Teams Drowning in Repetitive Work",
+  title: "FlowAudit_ — AI Operations Assistants for Teams Drowning in Repetitive Work",
   description:
-    "FlowAudit builds AI assistants that handle your repetitive admin — without losing quality, control, or oversight. Turn 10 hours of manual work into 10 minutes.",
+    "FlowAudit_ builds AI assistants that handle your repetitive admin — without losing quality, control, or oversight. Turn 10 hours of manual work into 10 minutes.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "FlowAudit — Turn 10 Hours of Manual Work Into 10 Minutes",
+    title: "FlowAudit_ — Turn 10 Hours of Manual Work Into 10 Minutes",
     description:
       "AI operations assistants for operators, trades, service teams, and founders who are tired of doing the same tasks every week.",
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FlowAudit — AI Operations Assistants",
+    title: "FlowAudit_ — AI Operations Assistants",
     description:
       "Turn 10 hours of manual work into 10 minutes with AI assistants built for your workflows.",
   },
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             name: SITE_NAME,
             url: SITE_URL,
             description:
-              "FlowAudit builds AI operations assistants that handle repetitive admin for teams drowning in manual work.",
+              "FlowAudit_ builds AI operations assistants that handle repetitive admin for teams drowning in manual work.",
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "sales",

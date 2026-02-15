@@ -3,29 +3,30 @@ import { Shield, Lock, Eye, Database, User } from "lucide-react";
 const securityItems = [
   {
     icon: Lock,
-    title: "Role-Based Access",
-    description: "Granular permissions ensure the right people see the right data.",
+    title: "Only You See Your Data",
+    description: "We set up permissions so only the right people can access your information.",
   },
   {
     icon: Shield,
-    title: "Secure Hosting",
-    description:
-      "Hosted on enterprise-grade infrastructure with Cloudflare DNS, encryption at rest and in transit.",
+    title: "Bank-Level Security",
+    description: "Your data is encrypted and hosted on the same type of infrastructure banks use.",
   },
   {
     icon: Eye,
-    title: "Audit Logs",
-    description: "Complete visibility into every action your AI assistant takes.",
+    title: "Full Transparency",
+    description:
+      "You can see exactly what your assistant has done — every email sent, every invoice created.",
   },
   {
     icon: Database,
-    title: "No Data Resale",
-    description: "Your data is never sold, shared, or used for training models.",
+    title: "Your Data Stays Yours",
+    description:
+      "We never sell your data, share it with anyone else, or use it for anything other than running your automations.",
   },
   {
     icon: User,
-    title: "You Own Your Workflows",
-    description: "Full ownership of all automations, configurations, and data.",
+    title: "You Own Everything",
+    description: "All your automations, settings, and data belong to you. Always.",
   },
 ] as const;
 
@@ -38,10 +39,10 @@ function SecuritySection() {
       <div className="w-full max-w-[800px]">
         <div className="rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white p-8 sm:p-10 lg:p-12">
           <h2 className="mb-2 text-center font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
-            Built Securely
+            Your Data Is Safe With Us
           </h2>
           <p className="mb-8 text-center font-sans text-sm text-[#605A57]">
-            Your data and workflows are protected at every level.
+            Plain and simple — here&apos;s how we protect your business.
           </p>
 
           <div className="space-y-5">

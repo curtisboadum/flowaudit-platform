@@ -49,7 +49,7 @@ function AddonSelector({
               key={addon.name}
               onClick={() => onToggleAddOn(addon.name)}
               className={cn(
-                "rounded-xl border p-5 text-left transition-all",
+                "flex flex-col rounded-xl border p-5 text-left transition-all",
                 isSelected
                   ? "border-amber-300 bg-amber-50/50 shadow-sm"
                   : "border-[rgba(55,50,47,0.08)] bg-white hover:border-[rgba(55,50,47,0.16)]",
@@ -71,7 +71,7 @@ function AddonSelector({
               >
                 {formatCurrency(convertCurrency(addon.price, rates, currency), currency)}
               </div>
-              <div className="mt-1 font-sans text-xs leading-relaxed text-[#605A57]">
+              <div className="mt-1 flex-grow font-sans text-xs leading-relaxed text-[#605A57]">
                 {addon.description}
               </div>
               {isSelected && (

@@ -9,7 +9,7 @@ interface CurrencySelectorProps {
   rateStatus: RateStatus;
 }
 
-const currencies: Currency[] = ["USD", "GBP", "EUR", "CAD"];
+const currencies: Currency[] = ["USD", "GBP", "EUR", "CAD", "AED", "SAR", "QAR"];
 
 const statusLabels: Record<RateStatus, { label: string; className: string }> = {
   live: { label: "Live rates", className: "text-emerald-600" },
@@ -23,13 +23,13 @@ function CurrencySelector({ currency, onCurrencyChange, rateStatus }: CurrencySe
 
   return (
     <div className="flex items-center gap-3">
-      <div className="flex bg-[#F0EDEB] rounded-lg p-0.5">
+      <div className="flex flex-wrap rounded-lg bg-[#F0EDEB] p-0.5">
         {currencies.map((c) => (
           <button
             key={c}
             onClick={() => onCurrencyChange(c)}
             className={cn(
-              "px-3 py-1.5 text-sm font-medium font-sans rounded-md transition-all",
+              "rounded-md px-3 py-1.5 font-sans text-sm font-medium transition-all",
               currency === c
                 ? "bg-white text-[#37322F] shadow-sm"
                 : "text-[#605A57] hover:text-[#37322F]",
@@ -39,7 +39,7 @@ function CurrencySelector({ currency, onCurrencyChange, rateStatus }: CurrencySe
           </button>
         ))}
       </div>
-      <span className={cn("text-xs font-sans", status.className)}>{status.label}</span>
+      <span className={cn("font-sans text-xs", status.className)}>{status.label}</span>
     </div>
   );
 }

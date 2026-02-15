@@ -9,11 +9,11 @@ function PricingSection() {
   return (
     <section
       id="pricing"
-      className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col items-center py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-0"
+      className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0 lg:py-24"
     >
       <div className="w-full max-w-[1060px]">
         {/* Header */}
-        <div className="flex flex-col items-center gap-4 mb-12 sm:mb-16">
+        <div className="mb-12 flex flex-col items-center gap-4 sm:mb-16">
           <Badge
             icon={
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -32,45 +32,45 @@ function PricingSection() {
             }
             text="Pricing"
           />
-          <h2 className="text-center text-[#49423D] text-2xl sm:text-3xl lg:text-5xl font-semibold leading-tight font-sans tracking-tight">
+          <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
             Simple Deployment Pricing
           </h2>
-          <p className="text-center text-[#605A57] text-sm sm:text-base leading-7 font-sans max-w-[500px]">
-            One-time deployment fee. Optional monthly optimization & monitoring available.
+          <p className="max-w-[500px] text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
+            One-time setup fee. No monthly subscriptions. No surprise charges.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PACKAGES.map((plan) => (
             <div
               key={plan.name}
               className={cn(
-                "rounded-2xl p-6 sm:p-8 flex flex-col",
+                "flex flex-col rounded-2xl p-6 sm:p-8",
                 plan.featured
                   ? "bg-[#37322F] text-white shadow-[0px_4px_16px_rgba(55,50,47,0.2)]"
-                  : "bg-white border border-[rgba(55,50,47,0.08)]",
+                  : "border border-[rgba(55,50,47,0.08)] bg-white",
               )}
             >
               <div className="mb-6">
                 <div className="flex items-center gap-2">
                   <div
                     className={cn(
-                      "text-sm font-semibold font-sans mb-2",
+                      "mb-2 font-sans text-sm font-semibold",
                       plan.featured ? "text-[rgba(255,255,255,0.7)]" : "text-[#605A57]",
                     )}
                   >
                     {plan.name}
                   </div>
                   {plan.featured && (
-                    <span className="mb-2 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-400 text-[#37322F]">
+                    <span className="mb-2 inline-flex items-center rounded-full bg-emerald-400 px-2 py-0.5 text-[10px] font-semibold text-[#37322F]">
                       Most Popular
                     </span>
                   )}
                 </div>
                 <div
                   className={cn(
-                    "text-3xl sm:text-4xl font-semibold font-sans",
+                    "font-sans text-3xl font-semibold sm:text-4xl",
                     plan.featured ? "text-white" : "text-[#37322F]",
                   )}
                 >
@@ -78,7 +78,7 @@ function PricingSection() {
                 </div>
                 <div
                   className={cn(
-                    "text-sm font-sans mt-2",
+                    "mt-2 font-sans text-sm",
                     plan.featured ? "text-[rgba(255,255,255,0.6)]" : "text-[#605A57]",
                   )}
                 >
@@ -86,18 +86,18 @@ function PricingSection() {
                 </div>
               </div>
 
-              <ul className="space-y-3 flex-1 mb-8">
+              <ul className="mb-8 flex-1 space-y-3">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <Check
                       className={cn(
-                        "w-4 h-4 shrink-0 mt-0.5",
+                        "mt-0.5 h-4 w-4 shrink-0",
                         plan.featured ? "text-emerald-400" : "text-[#37322F]",
                       )}
                     />
                     <span
                       className={cn(
-                        "text-sm font-sans",
+                        "font-sans text-sm",
                         plan.featured ? "text-[rgba(255,255,255,0.85)]" : "text-[#605A57]",
                       )}
                     >
@@ -124,7 +124,7 @@ function PricingSection() {
                   className={cn(
                     "w-full text-xs",
                     plan.featured
-                      ? "text-[rgba(255,255,255,0.6)] hover:text-white hover:bg-[rgba(255,255,255,0.1)]"
+                      ? "text-[rgba(255,255,255,0.6)] hover:bg-[rgba(255,255,255,0.1)] hover:text-white"
                       : "text-[#605A57] hover:text-[#37322F]",
                   )}
                   asChild
@@ -136,15 +136,16 @@ function PricingSection() {
           ))}
         </div>
 
-        <p className="text-center text-[#605A57] text-xs font-sans mt-8">
-          100% satisfaction guarantee. Optional optimization & monitoring packages available.
+        <p className="mt-8 text-center font-sans text-xs text-[#605A57]">
+          100% satisfaction guarantee. Pay once, own it forever. Optional support packages
+          available.
         </p>
-        <div className="flex justify-center mt-3">
+        <div className="mt-3 flex justify-center">
           <Link
             href="/book"
-            className="text-emerald-600 hover:text-emerald-700 text-xs font-medium font-sans transition-colors"
+            className="font-sans text-xs font-medium text-emerald-600 transition-colors hover:text-emerald-700"
           >
-            Not sure? Start with a free pilot &rarr;
+            Not sure which package? Start with a free strategy call &rarr;
           </Link>
         </div>
       </div>
