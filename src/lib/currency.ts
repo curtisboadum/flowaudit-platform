@@ -70,27 +70,27 @@ export async function fetchExchangeRates(): Promise<{
   }
 
   try {
-    const response = await fetch(
-      "https://api.frankfurter.dev/v1/latest?base=USD&symbols=GBP,EUR,CAD",
-    );
+    const response = await fetch("https://open.er-api.com/v6/latest/USD");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data: unknown = await response.json();
 
     if (
       typeof data === "object" &&
       data !== null &&
-      "rates" in data &&
-      typeof (data as Record<string, unknown>).rates === "object"
+      "result" in data &&
+      (data as Record<string, unknown>).result === "success" &&
+      "conversion_rates" in data &&
+      typeof (data as Record<string, unknown>).conversion_rates === "object"
     ) {
-      const rawRates = (data as { rates: Record<string, number> }).rates;
+      const rawRates = (data as { conversion_rates: Record<string, number> }).conversion_rates;
       const rates: ExchangeRates = {
         USD: 1,
         GBP: rawRates["GBP"] ?? FALLBACK_RATES.GBP,
         EUR: rawRates["EUR"] ?? FALLBACK_RATES.EUR,
         CAD: rawRates["CAD"] ?? FALLBACK_RATES.CAD,
-        AED: 3.6725,
-        SAR: 3.75,
-        QAR: 3.64,
+        AED: rawRates["AED"] ?? FALLBACK_RATES.AED,
+        SAR: rawRates["SAR"] ?? FALLBACK_RATES.SAR,
+        QAR: rawRates["QAR"] ?? FALLBACK_RATES.QAR,
       };
       setCachedRates(rates);
       return { rates, status: "live" };

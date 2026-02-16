@@ -31,7 +31,7 @@ function openRouterProvider(): ProviderConfig | null {
     name: "OpenRouter",
     baseUrl: "https://openrouter.ai/api/v1",
     apiKey,
-    model: process.env.OPENROUTER_MODEL ?? "deepseek/deepseek-v3.2-20251201",
+    model: process.env.OPENROUTER_MODEL ?? "meta-llama/llama-3.3-70b-instruct:free",
     extraHeaders: {
       "HTTP-Referer": process.env.NEXT_PUBLIC_APP_URL ?? "https://flowaudit.co.uk",
       "X-Title": "FlowAudit_",

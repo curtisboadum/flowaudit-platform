@@ -4,6 +4,44 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ---
 
+## 2026-02-15 (Session 8)
+
+### Brand Rename
+
+- **Updated** all pages, metadata, and SEO config — FlowAudit → FlowAudit\_ across site
+- **Updated** `seo.ts` — site name, OpenGraph, and structured data reflect FlowAudit\_ branding
+- **Updated** `pdf-export.tsx` — PDF header and footer use FlowAudit\_ name
+- **Updated** `chat-providers.ts` — system prompt and HTTP-Referer updated for FlowAudit\_
+
+### Trades-First Copy Rewrite
+
+- **Updated** about, book, problem, security, FAQ, pricing, and testimonials sections — rewritten in plain trades-first language
+- **Updated** chat system prompt — plain language rules, banned jargon list, trades-aware context
+
+### Book Page Overhaul
+
+- **Updated** book page — Calendly embed replaced with email CTA (`hello@flowaudit.co`)
+
+### Calculator: Gulf Currencies
+
+- **Updated** calculator currency types — added AED, SAR, QAR
+- **Updated** fallback exchange rates, formatter, and currency symbols for Gulf currencies
+
+### New Content
+
+- **Added** 2 testimonials — Walsh Plumbing, Precision HVAC
+- **Added** 2 FAQ items — solo operators, non-tech users
+
+### PDF Export Fix
+
+- **Fixed** `pdf-export.tsx` — pre-sanitize iframe DOM for oklch() colors before html2canvas clone
+
+### Tailwind Cleanup
+
+- **Refactored** class ordering normalized across pricing, testimonials, and other sections
+
+---
+
 ## 2026-02-15 (Session 7)
 
 ### Content Broadening — Inclusive Business Language
