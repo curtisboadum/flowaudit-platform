@@ -2,6 +2,38 @@
 
 ## Current Session
 
+## Session 2026-02-15 (Session 8)
+
+**Date:** 2026-02-15
+**Goal:** Rebrand to FlowAudit\_, trades-first copy overhaul, Gulf currencies, commit & push accumulated changes
+**Status:** Completed
+
+### Context
+
+- Brand rename from "FlowAudit" to "FlowAudit\_" needed across all pages, metadata, SEO, PDF export, chat providers
+- Site copy was generic SaaS language — needed rewrite in plain trades-first language
+- Book page used Calendly embed — replaced with direct email CTA (`hello@flowaudit.co`)
+- Calculator missing Gulf currencies (AED, SAR, QAR) for target market
+- Large accumulated changes from sessions 3–8 needed to be committed and pushed
+
+### Blockers
+
+- `git push` blocked by MCP-injected `GITHUB_TOKEN` PAT — resolved with `GITHUB_TOKEN=` workaround
+
+### Notes
+
+- 23 files committed as `bd607cc` on `fix/fallback-model-name`, pushed to origin
+- Brand rename: FlowAudit → FlowAudit\_ across all pages, metadata, `seo.ts`, PDF export, chat providers
+- Trades-first copy rewrite: about, book, problem, security, FAQ, pricing, testimonials sections
+- Book page: Calendly embed replaced with email CTA
+- Calculator: AED, SAR, QAR added to currency types, fallback rates, formatter, symbols
+- New content: 2 testimonials (Walsh Plumbing, Precision HVAC), 2 FAQ items (solo operators, non-tech users)
+- Chat system prompt: plain language rules, banned jargon list, trades-aware context
+- PDF export: pre-sanitize iframe DOM for oklch() before html2canvas clone
+- Tailwind class ordering normalized across pricing, testimonials, and other sections
+
+---
+
 ## Session 2026-02-15 (Session 7)
 
 **Date:** 2026-02-15

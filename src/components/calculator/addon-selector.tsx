@@ -49,12 +49,25 @@ function AddonSelector({
               key={addon.name}
               onClick={() => onToggleAddOn(addon.name)}
               className={cn(
-                "flex flex-col rounded-xl border p-5 text-left transition-all",
+                "relative flex h-full flex-col rounded-xl border p-5 text-left transition-all",
                 isSelected
                   ? "border-amber-300 bg-amber-50/50 shadow-sm"
                   : "border-[rgba(55,50,47,0.08)] bg-white hover:border-[rgba(55,50,47,0.16)]",
               )}
             >
+              {isSelected && (
+                <div className="absolute top-3 right-3 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500">
+                  <svg
+                    className="h-2.5 w-2.5 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={3}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              )}
               <div
                 className={cn(
                   "font-sans text-sm font-medium",
@@ -69,24 +82,13 @@ function AddonSelector({
                   isSelected ? "text-amber-700" : "text-[#37322F]",
                 )}
               >
-                {formatCurrency(convertCurrency(addon.price, rates, currency), currency)}
+                {addon.price > 0
+                  ? formatCurrency(convertCurrency(addon.price, rates, currency), currency)
+                  : "Get a Quote"}
               </div>
-              <div className="mt-1 flex-grow font-sans text-xs leading-relaxed text-[#605A57]">
+              <div className="mt-1 line-clamp-3 flex-grow font-sans text-xs leading-relaxed text-[#605A57]">
                 {addon.description}
               </div>
-              {isSelected && (
-                <div className="mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500">
-                  <svg
-                    className="h-2.5 w-2.5 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-              )}
             </button>
           );
         })}

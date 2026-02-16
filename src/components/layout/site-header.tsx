@@ -23,7 +23,7 @@ function SiteHeader() {
         {/* Logo (left column) */}
         <div className="flex w-[100px] shrink-0 items-center">
           <Link href="/" className="font-serif text-base font-normal text-[#2F3037] sm:text-lg">
-            FlowAudit
+            FlowAudit_
           </Link>
         </div>
 

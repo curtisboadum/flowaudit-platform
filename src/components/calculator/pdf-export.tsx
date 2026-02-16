@@ -32,6 +32,7 @@ function PDFExport({
 }: PDFExportProps) {
   const [companyName, setCompanyName] = useState("");
   const [isExporting, setIsExporting] = useState(false);
+  const [exportError, setExportError] = useState<string | null>(null);
 
   const fmt = useCallback(
     (usd: number) => formatCurrency(convertCurrency(usd, rates, currency), currency),
@@ -170,136 +171,241 @@ function PDFExport({
 
   const handleExportPDF = useCallback(async () => {
     setIsExporting(true);
-    let iframe: HTMLIFrameElement | null = null;
+    setExportError(null);
     try {
-      const html2pdf = (await import("html2pdf.js")).default;
+      const { jsPDF } = await import("jspdf");
+      const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
 
-      // Use an iframe to isolate from Tailwind's oklch() colors
-      // (html2canvas cannot parse oklch, which Tailwind v4 uses)
-      iframe = document.createElement("iframe");
-      iframe.style.position = "fixed";
-      iframe.style.left = "-9999px";
-      iframe.style.top = "-9999px";
-      iframe.style.width = "800px";
-      iframe.style.height = "1200px";
-      document.body.appendChild(iframe);
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const margin = 20;
+      const contentWidth = pageWidth - margin * 2;
+      let y = 20;
 
-      const iframeDoc = iframe.contentDocument;
-      if (!iframeDoc) throw new Error("Could not access iframe document");
+      // --- Compute all values ---
+      const weeklyCost = hours * rate;
+      const annualCost = weeklyCost * 52;
+      const automatedHours = hours * EFFICIENCY;
+      const remainingHours = hours - automatedHours;
+      const annualAfter = remainingHours * rate * 52;
+      const annualSavings = annualCost - annualAfter;
+      const weeklySavings = annualSavings / 52;
+      const breakEvenWeeks = weeklySavings > 0 ? Math.ceil(setupCost / weeklySavings) : Infinity;
+      const yearOneROI = annualSavings - setupCost;
+      const roiPercent = setupCost > 0 ? Math.round((yearOneROI / setupCost) * 100) : 0;
 
-      iframeDoc.open();
-      iframeDoc.write(`<!DOCTYPE html>
-        <html style="color:#37322F;background:#fff;"><head>
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-          <style>
-            /* Reset all colors to simple hex values so html2canvas
-               never encounters lab()/oklch() from browser system colors */
-            *, *::before, *::after {
-              color: inherit;
-              border-color: #F0EDEB;
-              outline-color: #37322F;
-              text-decoration-color: inherit;
-              column-rule-color: inherit;
-              caret-color: auto;
-            }
-            html, body {
-              color: #37322F;
-              background-color: #ffffff;
-            }
-          </style>
-        </head><body style="margin:0;padding:0;">
-          ${generateHTML()}
-        </body></html>`);
-      iframeDoc.close();
-
-      // Allow fonts and content to render
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
-      // Pre-sanitize iframe DOM to replace oklch()/lab() system colors with hex
-      // fallbacks. This MUST run before html2pdf because html2canvas clones the
-      // document and the clone's defaultView may be null, making the onclone
-      // callback's getComputedStyle calls a no-op.
-      const colorProps = [
-        "color",
-        "backgroundColor",
-        "borderColor",
-        "borderTopColor",
-        "borderRightColor",
-        "borderBottomColor",
-        "borderLeftColor",
-        "outlineColor",
-        "textDecorationColor",
-        "columnRuleColor",
-        "caretColor",
-        "accentColor",
-        "fill",
-        "stroke",
-        "floodColor",
-        "lightingColor",
-        "stopColor",
-      ] as const;
-      const unsupported = /\b(lab|oklch|lch|oklab)\(/i;
-      const iframeWin = iframe.contentWindow;
-      if (iframeWin) {
-        for (const el of iframeDoc.querySelectorAll("*")) {
-          const cs = iframeWin.getComputedStyle(el);
-          for (const prop of colorProps) {
-            const val = cs.getPropertyValue(prop.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`));
-            if (typeof val === "string" && unsupported.test(val)) {
-              (el as HTMLElement).style.setProperty(
-                prop.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`),
-                prop.includes("ackground") ? "#ffffff" : "#37322F",
-              );
-            }
+      const selectedAutomationsList = Array.from(selectedAutomations)
+        .map((name) => {
+          for (const tier of Object.values(TIERS)) {
+            const found = tier.automations.find((a) => a.name === name);
+            if (found) return { name: found.name, price: found.price };
           }
+          return null;
+        })
+        .filter(Boolean);
+
+      const selectedAddonsList = ADDONS.filter((a) => selectedAddOns.has(a.name));
+      const pkg = selectedPackage ? PACKAGES.find((p) => p.name === selectedPackage) : null;
+
+      // --- Helper: check if we need a new page ---
+      const checkPage = (needed: number) => {
+        if (y + needed > doc.internal.pageSize.getHeight() - 15) {
+          doc.addPage();
+          y = 20;
         }
+      };
+
+      // --- Header ---
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(22);
+      const title = companyName ? `${companyName} — ROI Report` : "ROI Report";
+      doc.text(title, pageWidth / 2, y, { align: "center" });
+      y += 8;
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      doc.setTextColor(96, 90, 87);
+      doc.text(`Generated by FlowAudit_  •  ${new Date().toLocaleDateString()}`, pageWidth / 2, y, {
+        align: "center",
+      });
+      y += 4;
+
+      doc.setDrawColor(240, 237, 235);
+      doc.setLineWidth(0.5);
+      doc.line(margin, y, pageWidth - margin, y);
+      y += 10;
+
+      // --- ROI Summary table ---
+      doc.setTextColor(55, 50, 47);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(14);
+      doc.text("ROI Summary", margin, y);
+      y += 8;
+
+      const roiRows: [string, string][] = [
+        ["Manual Hours/Week", `${hours} hrs`],
+        ["Hourly Rate", fmt(rate)],
+        ["Annual Cost (Before)", fmt(annualCost)],
+        ["Annual Cost (After)", fmt(annualAfter)],
+        ["Annual Savings", fmt(annualSavings)],
+        ["Setup Investment", fmt(setupCost)],
+        ["Break-Even", breakEvenWeeks === Infinity ? "N/A" : `${breakEvenWeeks} weeks`],
+      ];
+
+      doc.setFontSize(10);
+      for (const [label, value] of roiRows) {
+        checkPage(8);
+        doc.setFont("helvetica", "normal");
+        doc.setTextColor(96, 90, 87);
+        doc.text(label, margin, y);
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(55, 50, 47);
+        doc.text(value, pageWidth - margin, y, { align: "right" });
+        y += 2;
+        doc.setDrawColor(240, 237, 235);
+        doc.line(margin, y, pageWidth - margin, y);
+        y += 6;
       }
 
-      const content = iframeDoc.body.firstElementChild as HTMLElement | null;
-      if (!content) throw new Error("PDF content failed to render");
+      // Year 1 Net ROI (bold, larger)
+      checkPage(12);
+      doc.setDrawColor(55, 50, 47);
+      doc.setLineWidth(0.8);
+      doc.line(margin, y - 2, pageWidth - margin, y - 2);
+      y += 2;
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(55, 50, 47);
+      doc.text("Year 1 Net ROI", margin, y);
+      doc.setTextColor(
+        yearOneROI >= 0 ? 5 : 220,
+        yearOneROI >= 0 ? 150 : 38,
+        yearOneROI >= 0 ? 105 : 38,
+      );
+      doc.text(`${fmt(yearOneROI)} (${roiPercent}%)`, pageWidth - margin, y, { align: "right" });
+      y += 12;
 
-      await html2pdf()
-        .set({
-          margin: [10, 10, 10, 10],
-          filename: `${companyName || "FlowAudit_"}-ROI-Report.pdf`,
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: {
-            scale: 2,
-            backgroundColor: "#ffffff",
-            // Defensive fallback: sanitize cloned DOM in case any oklch() values
-            // were missed by pre-sanitization (e.g. pseudo-elements)
-            onclone: (clonedDoc: Document) => {
-              const win = clonedDoc.defaultView;
-              if (!win) return;
-              for (const el of clonedDoc.querySelectorAll("*")) {
-                const style = win.getComputedStyle(el);
-                for (const prop of colorProps) {
-                  const val = style.getPropertyValue(
-                    prop.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`),
-                  );
-                  if (typeof val === "string" && unsupported.test(val)) {
-                    (el as HTMLElement).style.setProperty(
-                      prop.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`),
-                      prop.includes("ackground") ? "#ffffff" : "#37322F",
-                    );
-                  }
-                }
-              }
-            },
-          },
-          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-        })
-        .from(content)
-        .save();
+      // --- Selected Package or Automations ---
+      if (pkg) {
+        checkPage(20);
+        doc.setTextColor(55, 50, 47);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(14);
+        doc.text(`Selected Package: ${pkg.name}`, margin, y);
+        y += 7;
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(10);
+        doc.setTextColor(96, 90, 87);
+        const descLines = doc.splitTextToSize(
+          `${pkg.description} — ${fmt(pkg.price)}`,
+          contentWidth,
+        );
+        doc.text(descLines, margin, y);
+        y += descLines.length * 5 + 3;
+
+        for (const feature of pkg.features) {
+          checkPage(6);
+          doc.text(`•  ${feature}`, margin + 4, y);
+          y += 5;
+        }
+        y += 5;
+      } else if (selectedAutomationsList.length > 0) {
+        checkPage(20);
+        doc.setTextColor(55, 50, 47);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(14);
+        doc.text(`Selected Automations (${selectedAutomationsList.length})`, margin, y);
+        y += 8;
+
+        doc.setFontSize(10);
+        for (const item of selectedAutomationsList) {
+          if (!item) continue;
+          checkPage(8);
+          doc.setFont("helvetica", "normal");
+          doc.setTextColor(55, 50, 47);
+          doc.text(item.name, margin, y);
+          doc.setTextColor(96, 90, 87);
+          doc.text(fmt(item.price), pageWidth - margin, y, { align: "right" });
+          y += 2;
+          doc.setDrawColor(240, 237, 235);
+          doc.setLineWidth(0.3);
+          doc.line(margin, y, pageWidth - margin, y);
+          y += 5;
+        }
+        y += 3;
+      }
+
+      // --- Add-On Services ---
+      if (selectedAddonsList.length > 0) {
+        checkPage(20);
+        doc.setTextColor(55, 50, 47);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(14);
+        doc.text("Add-On Services", margin, y);
+        y += 8;
+
+        doc.setFontSize(10);
+        for (const addon of selectedAddonsList) {
+          checkPage(8);
+          doc.setFont("helvetica", "normal");
+          doc.setTextColor(55, 50, 47);
+          doc.text(addon.name, margin, y);
+          doc.setTextColor(96, 90, 87);
+          doc.text(addon.price > 0 ? fmt(addon.price) : "Get a Quote", pageWidth - margin, y, {
+            align: "right",
+          });
+          y += 2;
+          doc.setDrawColor(240, 237, 235);
+          doc.setLineWidth(0.3);
+          doc.line(margin, y, pageWidth - margin, y);
+          y += 5;
+        }
+        y += 3;
+      }
+
+      // --- Footer ---
+      checkPage(20);
+      doc.setDrawColor(240, 237, 235);
+      doc.setLineWidth(0.5);
+      doc.line(margin, y, pageWidth - margin, y);
+      y += 8;
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9);
+      doc.setTextColor(96, 90, 87);
+      doc.text("FlowAudit_  •  flowaudit.co.uk  •  AI Operations Assistants", pageWidth / 2, y, {
+        align: "center",
+      });
+      y += 5;
+      doc.setFontSize(8);
+      doc.text(
+        "This report is an estimate. Actual results may vary based on implementation scope.",
+        pageWidth / 2,
+        y,
+        { align: "center" },
+      );
+
+      doc.save(`${companyName || "FlowAudit_"}-ROI-Report.pdf`);
     } catch (error) {
       console.error("PDF export failed:", error);
+      setExportError(
+        error instanceof Error
+          ? error.message
+          : "PDF export failed. Try using Print Report instead.",
+      );
     } finally {
-      if (iframe?.parentNode) {
-        iframe.parentNode.removeChild(iframe);
-      }
       setIsExporting(false);
     }
-  }, [generateHTML, companyName]);
+  }, [
+    hours,
+    rate,
+    setupCost,
+    selectedAutomations,
+    selectedAddOns,
+    selectedPackage,
+    companyName,
+    fmt,
+  ]);
 
   const handlePrint = useCallback(() => {
     const printWindow = window.open("", "_blank");
@@ -352,6 +458,7 @@ function PDFExport({
             Print Report
           </Button>
         </div>
+        {exportError && <p className="font-sans text-xs text-red-600">{exportError}</p>}
         <Button
           variant="ghost"
           className="w-full border border-dashed border-[rgba(55,50,47,0.2)]"
