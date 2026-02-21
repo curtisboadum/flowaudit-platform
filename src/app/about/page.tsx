@@ -52,7 +52,7 @@ const teamMembers = [
     description:
       "Manages reporting, analytics, and operational visibility across client workflows.",
     initials: "C",
-    image: null,
+    image: "/team/casper.svg",
     isAI: true,
   },
   {
@@ -60,7 +60,7 @@ const teamMembers = [
     title: "AI Agent",
     description: "Handles workflow automation, data syncing, and client communication tasks.",
     initials: "K",
-    image: null,
+    image: "/team/klaus.svg",
     isAI: true,
   },
 ] as const;
@@ -142,18 +142,18 @@ export default function AboutPage() {
               >
                 <div className="relative">
                   {member.image ? (
-                    <div className="mb-4 h-20 w-20 overflow-hidden rounded-full bg-[#F0EDEB]">
+                    <div className="mb-4 h-28 w-28 overflow-hidden rounded-full bg-[#F0EDEB]">
                       <Image
                         src={member.image}
                         alt={member.name}
-                        width={80}
-                        height={80}
-                        className="h-full w-full object-cover"
+                        width={112}
+                        height={112}
+                        className="h-full w-full object-cover object-top"
                       />
                     </div>
                   ) : (
-                    <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-[#37322F]">
-                      <span className="font-sans text-xl font-semibold text-white">
+                    <div className="mb-4 flex h-28 w-28 items-center justify-center rounded-full bg-[#37322F]">
+                      <span className="font-sans text-2xl font-semibold text-white">
                         {member.initials}
                       </span>
                     </div>
