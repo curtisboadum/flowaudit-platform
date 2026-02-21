@@ -1,11 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PACKAGES } from "@/lib/calculator-data";
+import { useLocale } from "@/components/providers/locale-provider";
+import { applyAgencyDiscount } from "@/lib/i18n";
 
 function PricingSection() {
+  const { locale, t } = useLocale();
   return (
     <section
       id="pricing"
@@ -33,10 +38,10 @@ function PricingSection() {
             text="Pricing"
           />
           <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
-            Simple Deployment Pricing
+            {t.pricing.headline}
           </h2>
           <p className="max-w-[500px] text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
-            One-time setup fee. No monthly subscriptions. No surprise charges.
+            {t.pricing.subtext}
           </p>
         </div>
 
@@ -74,7 +79,9 @@ function PricingSection() {
                     plan.featured ? "text-white" : "text-[#37322F]",
                   )}
                 >
-                  {plan.displayPrice}
+                  {locale === "es"
+                    ? `$${applyAgencyDiscount(plan.price).toLocaleString()}`
+                    : plan.displayPrice}
                 </div>
                 <div
                   className={cn(
@@ -137,15 +144,14 @@ function PricingSection() {
         </div>
 
         <p className="mt-8 text-center font-sans text-xs text-[#605A57]">
-          100% satisfaction guarantee. Pay once, own it forever. Optional support packages
-          available.
+          {t.pricing.guarantee}
         </p>
         <div className="mt-3 flex justify-center">
           <Link
             href="/book"
             className="font-sans text-xs font-medium text-emerald-600 transition-colors hover:text-emerald-700"
           >
-            Not sure which package? Start with a free strategy call &rarr;
+            {t.pricing.notSure}
           </Link>
         </div>
       </div>

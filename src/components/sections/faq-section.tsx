@@ -1,6 +1,9 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Accordion, type AccordionItemData } from "@/components/ui/accordion";
 import { JsonLd } from "@/components/seo/json-ld";
+import { useLocale } from "@/components/providers/locale-provider";
 
 const faqItems: AccordionItemData[] = [
   {
@@ -69,6 +72,7 @@ const leftItems = faqItems.slice(0, 6);
 const rightItems = faqItems.slice(6);
 
 function FAQSection() {
+  const { t } = useLocale();
   return (
     <section
       id="faq"
@@ -94,10 +98,10 @@ function FAQSection() {
                 </text>
               </svg>
             }
-            text="FAQ"
+            text={t.faq.badge}
           />
           <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
-            Frequently Asked Questions
+            {t.faq.headline}
           </h2>
         </div>
 

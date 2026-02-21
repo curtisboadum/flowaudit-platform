@@ -1,7 +1,11 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
+import { useLocale } from "@/components/providers/locale-provider";
 
 function BentoGrid() {
+  const { t } = useLocale();
   return (
     <section className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)]">
       {/* Header */}
@@ -15,14 +19,13 @@ function BentoGrid() {
               <rect x="7" y="7" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
             </svg>
           }
-          text="Who This Is For"
+          text={t.bento.badge}
         />
         <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
-          If You&apos;re Repeating Work Every Week — This Is For You
+          {t.bento.headline}
         </h2>
         <p className="text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
-          Built for tradespeople, contractors, and small business owners who are tired of doing the
-          same admin every week.
+          {t.bento.subtext}
         </p>
       </div>
 
