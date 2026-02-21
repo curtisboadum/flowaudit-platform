@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
+import { useLocale } from "@/components/providers/locale-provider";
 
 function CalculatorSection() {
+  const { t } = useLocale();
   const [hoursPerWeek, setHoursPerWeek] = useState(15);
   const [hourlyValue, setHourlyValue] = useState(75);
   const [teamSize, setTeamSize] = useState(3);
@@ -40,16 +42,16 @@ function CalculatorSection() {
                 <line x1="5" y1="9" x2="9" y2="9" stroke="#37322F" strokeWidth="1" />
               </svg>
             }
-            text="Calculator"
+            text={t.calc.badge}
           />
           <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
-            What Is Your Time Actually Worth?
+            {t.calc.headline}
           </h2>
           <p className="max-w-[500px] text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
-            See exactly how much repetitive work is costing your business.
+            {t.calc.subtext}
           </p>
           <p className="mt-2 text-center font-sans text-xs text-[rgba(55,50,47,0.40)]">
-            Takes 30 seconds. No email required.
+            {t.calc.note}
           </p>
         </div>
 
@@ -58,15 +60,15 @@ function CalculatorSection() {
           {/* Inputs */}
           <div className="space-y-8 rounded-xl border border-[rgba(55,50,47,0.08)] bg-white p-6 sm:p-8">
             <SliderInput
-              label="Hours per week on repetitive tasks"
+              label={t.calc.slider1}
               value={hoursPerWeek}
               onChange={setHoursPerWeek}
               min={1}
               max={40}
-              unit="hrs"
+              unit={t.calc.hrs}
             />
             <SliderInput
-              label="Average hourly value of your time"
+              label={t.calc.slider2}
               value={hourlyValue}
               onChange={setHourlyValue}
               min={25}
@@ -76,43 +78,42 @@ function CalculatorSection() {
               prefix
             />
             <SliderInput
-              label="Team members affected"
+              label={t.calc.slider3}
               value={teamSize}
               onChange={setTeamSize}
               min={1}
               max={30}
-              unit="people"
+              unit={t.calc.people}
             />
           </div>
 
           {/* Results */}
           <div className="space-y-4">
             <ResultCard
-              label="Monthly Time Value Recovered"
+              label={t.calc.result1}
               value={`$${Math.round(monthlyValue).toLocaleString()}`}
               highlight
             />
             <ResultCard
-              label="Annual Value Recovered"
+              label={t.calc.result2}
               value={`$${Math.round(annualValue).toLocaleString()}`}
             />
             <div className="grid grid-cols-2 gap-4">
               <ResultCard
-                label="Full-Time Hires Avoided"
+                label={t.calc.result3}
                 value={hiringAvoided > 0 ? `${hiringAvoided}` : "< 1"}
               />
               <ResultCard
-                label="Break-Even Timeline"
-                value={`${breakEvenWeeks} week${breakEvenWeeks !== 1 ? "s" : ""}`}
+                label={t.calc.result4}
+                value={`${breakEvenWeeks} ${breakEvenWeeks !== 1 ? t.calc.weeks : t.calc.week}`}
               />
             </div>
 
-            {/* CTA to full calculator */}
             <a
               href="/calculator"
               className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 font-sans text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
             >
-              Get Detailed ROI Analysis
+              {t.calc.cta}
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M3 8h10M9 4l4 4-4 4"
@@ -124,7 +125,7 @@ function CalculatorSection() {
               </svg>
             </a>
             <p className="mt-4 text-center font-sans text-[10px] text-[#605A57]/60">
-              *Based on conservative assumptions.
+              {t.calc.disclaimer}
             </p>
           </div>
         </div>

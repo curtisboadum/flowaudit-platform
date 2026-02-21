@@ -1,4 +1,7 @@
+"use client";
+
 import { Shield, Lock, Eye, Database, User } from "lucide-react";
+import { useLocale } from "@/components/providers/locale-provider";
 
 const securityItems = [
   {
@@ -31,6 +34,7 @@ const securityItems = [
 ] as const;
 
 function SecuritySection() {
+  const { t } = useLocale();
   return (
     <section
       id="security"
@@ -39,10 +43,10 @@ function SecuritySection() {
       <div className="w-full max-w-[800px]">
         <div className="rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white p-8 sm:p-10 lg:p-12">
           <h2 className="mb-2 text-center font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
-            Your Data Is Safe With Us
+            {t.security.headline}
           </h2>
           <p className="mb-8 text-center font-sans text-sm text-[#605A57]">
-            Plain and simple — here&apos;s how we protect your business.
+            {t.security.subtext}
           </p>
 
           <div className="space-y-5">

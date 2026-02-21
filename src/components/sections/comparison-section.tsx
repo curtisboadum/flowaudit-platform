@@ -1,6 +1,9 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { X, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLocale } from "@/components/providers/locale-provider";
 
 const comparisons = [
   { category: "Admin workload", manual: "Grows with revenue", automated: "Stays flat" },
@@ -33,6 +36,7 @@ const comparisons = [
 ] as const;
 
 function ComparisonSection() {
+  const { t } = useLocale();
   return (
     <section className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0 lg:py-24">
       <div className="w-full max-w-[800px]">
@@ -44,13 +48,13 @@ function ComparisonSection() {
                 <path d="M3 7h8M7 3v8" stroke="#37322F" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             }
-            text="Compare"
+            text={t.comparison.badge}
           />
           <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
-            What Happens If You Do Nothing
+            {t.comparison.headline}
           </h2>
           <p className="max-w-[500px] text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
-            Manual work scales with your business. Here&apos;s the 3-year comparison.
+            {t.comparison.subtext}
           </p>
         </div>
 

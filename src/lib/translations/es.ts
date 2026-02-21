@@ -247,6 +247,66 @@ export const es: Translations = {
     ctaButton: "Agenda una Llamada Gratuita",
   },
 
+  // Calculator section
+  calc: {
+    badge: "Calculadora",
+    headline: "¿Cuánto Vale Realmente Tu Tiempo?",
+    subtext: "Descubre exactamente cuánto le cuesta a tu negocio el trabajo repetitivo.",
+    note: "Toma 30 segundos. Sin email requerido.",
+    slider1: "Horas por semana en tareas repetitivas",
+    slider2: "Valor promedio por hora de tu tiempo",
+    slider3: "Miembros del equipo afectados",
+    result1: "Valor Mensual de Tiempo Recuperado",
+    result2: "Valor Anual Recuperado",
+    result3: "Contrataciones Evitadas",
+    result4: "Tiempo de Retorno",
+    cta: "Obtener Análisis Detallado de ROI",
+    disclaimer: "*Basado en estimaciones conservadoras.",
+    week: "semana",
+    weeks: "semanas",
+    hrs: "hrs",
+    people: "personas",
+  },
+
+  // Process section
+  process: {
+    badge: "Cómo Funciona",
+    headline: "De Manual a Automatizado en 10 Días",
+    subtext: "Nosotros hacemos el trabajo pesado — tú solo asistes a una llamada de 30 minutos.",
+    step1: "Llamada de Flujo de Trabajo de 30 Minutos",
+    step1Desc: "Mapeamos tus flujos de trabajo actuales e identificamos los mayores consumidores de tiempo.",
+    step2: "Identificar Tareas Repetitivas",
+    step2Desc: "Señalamos exactamente qué tareas se pueden automatizar para el máximo impacto.",
+    step3: "Construir Tu Asistente de IA",
+    step3Desc: "Configuramos y entrenamos tu asistente de operaciones de IA personalizado.",
+    step4: "Probar con Datos Reales",
+    step4Desc: "Validamos que el asistente funciona correctamente con tus flujos de trabajo reales.",
+    step5: "En Vivo",
+    step5Desc: "Tu asistente comienza a manejar tareas. Empiezas a ahorrar tiempo de inmediato.",
+  },
+
+  // Comparison section
+  comparison: {
+    badge: "Comparar",
+    headline: "¿Qué Pasa Si No Haces Nada?",
+    subtext: "El trabajo manual crece con tu negocio. Aquí está la comparación a 3 años.",
+    manualHeader: "Camino Manual",
+    autoHeader: "Con FlowAudit",
+  },
+
+  // Testimonials
+  testimonials: {
+    badge: "Resultados",
+    headline: "Lo Que Dicen Los Operadores",
+  },
+
+  // Security
+  security: {
+    badge: "Seguridad",
+    headline: "Tus Datos Están Seguros Con Nosotros",
+    subtext: "Simple y claro — así es como protegemos tu negocio.",
+  },
+
   // Careers page
   careers: {
     headline: "Construye el Futuro de la Automatización Empresarial",
