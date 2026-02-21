@@ -1,30 +1,53 @@
 <svg width="224" height="224" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="224" height="224" fill="#F7F5F3"/>
-  <!-- Head — more angular/sharp for Klaus -->
-  <path d="M62 56 L62 120 Q62 132 74 132 L150 132 Q162 132 162 120 L162 56 Q162 44 150 44 L74 44 Q62 44 62 56Z" stroke="#37322F" stroke-width="3" fill="none"/>
-  <!-- Eyes — determined look -->
-  <rect x="80" y="74" width="20" height="12" rx="3" fill="#37322F"/>
-  <rect x="124" y="74" width="20" height="12" rx="3" fill="#37322F"/>
-  <!-- Eye glints -->
-  <circle cx="93" cy="78" r="2.5" fill="#F7F5F3"/>
-  <circle cx="137" cy="78" r="2.5" fill="#F7F5F3"/>
-  <!-- Mouth — straight, focused -->
-  <line x1="92" y1="108" x2="132" y2="108" stroke="#37322F" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Antenna — lightning bolt style -->
-  <path d="M112 44 L108 28 L116 32 L112 16" stroke="#37322F" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-  <!-- Ears/sensors — angular -->
-  <path d="M48 68 L62 68 L62 100 L48 100Z" stroke="#37322F" stroke-width="2" fill="none"/>
-  <path d="M162 68 L176 68 L176 100 L162 100Z" stroke="#37322F" stroke-width="2" fill="none"/>
-  <!-- Body — broader -->
-  <rect x="68" y="136" width="88" height="48" rx="10" stroke="#37322F" stroke-width="3" fill="none"/>
-  <!-- Chest — command center -->
-  <rect x="88" y="146" width="48" height="20" rx="4" stroke="#37322F" stroke-width="1.5" fill="none"/>
-  <circle cx="100" cy="156" r="3" fill="#10b981"/>
-  <circle cx="112" cy="156" r="3" fill="#10b981"/>
-  <circle cx="124" cy="156" r="3" fill="#37322F"/>
+  
+  <!-- Head — angular, sharp jaw, commanding presence -->
+  <path d="M72 52 Q72 40 84 40 L140 40 Q152 40 152 52 L152 108 Q152 124 140 128 L130 132 L112 140 L94 132 L84 128 Q72 124 72 108Z" stroke="#37322F" stroke-width="3" fill="none"/>
+  
+  <!-- Visor / Eyes — single sleek band -->
+  <rect x="80" y="68" width="64" height="18" rx="9" stroke="#37322F" stroke-width="2.5" fill="none"/>
+  <!-- Left eye glow -->
+  <circle cx="97" cy="77" r="5" fill="#37322F"/>
+  <circle cx="99" cy="75" r="1.8" fill="#10b981"/>
+  <!-- Right eye glow -->
+  <circle cx="127" cy="77" r="5" fill="#37322F"/>
+  <circle cx="129" cy="75" r="1.8" fill="#10b981"/>
+  
+  <!-- Nose line -->
+  <line x1="112" y1="90" x2="112" y2="102" stroke="#37322F" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Mouth — confident, slight smirk -->
+  <path d="M98 112 Q105 116 112 114 Q119 112 126 116" stroke="#37322F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Lightning bolt antenna — ⚡ signature -->
+  <path d="M112 40 L108 24 L118 28 L114 12" stroke="#37322F" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="114" cy="10" r="3" fill="#10b981"/>
+  
+  <!-- Side panels — tactical -->
+  <path d="M68 64 L56 68 L56 96 L68 100" stroke="#37322F" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <path d="M156 64 L168 68 L168 96 L156 100" stroke="#37322F" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  
   <!-- Neck -->
-  <line x1="98" y1="132" x2="98" y2="136" stroke="#37322F" stroke-width="2"/>
-  <line x1="126" y1="132" x2="126" y2="136" stroke="#37322F" stroke-width="2"/>
-  <!-- Label -->
-  <text x="112" y="204" text-anchor="middle" fill="#37322F" font-size="11" font-family="system-ui, sans-serif" font-weight="600" letter-spacing="2">KLAUS</text>
+  <line x1="104" y1="140" x2="104" y2="148" stroke="#37322F" stroke-width="2.5"/>
+  <line x1="120" y1="140" x2="120" y2="148" stroke="#37322F" stroke-width="2.5"/>
+  
+  <!-- Body — broad shoulders, command center chest -->
+  <path d="M64 156 Q64 148 76 148 L148 148 Q160 148 160 156 L160 190 Q160 198 148 198 L76 198 Q64 198 64 190Z" stroke="#37322F" stroke-width="3" fill="none"/>
+  
+  <!-- Chest panel — multi-indicator command display -->
+  <rect x="86" y="158" width="52" height="24" rx="5" stroke="#37322F" stroke-width="1.5" fill="none"/>
+  <!-- Status lights — 3 green (active systems) -->
+  <circle cx="98" cy="166" r="3" fill="#10b981"/>
+  <circle cx="112" cy="166" r="3" fill="#10b981"/>
+  <circle cx="126" cy="166" r="3" fill="#10b981"/>
+  <!-- Mini equalizer bars -->
+  <rect x="96" y="173" width="4" height="5" rx="1" fill="#37322F"/>
+  <rect x="103" y="171" width="4" height="7" rx="1" fill="#37322F"/>
+  <rect x="110" y="172" width="4" height="6" rx="1" fill="#37322F"/>
+  <rect x="117" y="170" width="4" height="8" rx="1" fill="#37322F"/>
+  <rect x="124" y="173" width="4" height="5" rx="1" fill="#37322F"/>
+  
+  <!-- Shoulder pads -->
+  <path d="M64 152 L48 158 L48 170 L64 166" stroke="#37322F" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <path d="M160 152 L176 158 L176 170 L160 166" stroke="#37322F" stroke-width="2" fill="none" stroke-linejoin="round"/>
 </svg>
