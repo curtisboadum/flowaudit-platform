@@ -1,0 +1,30 @@
+<svg width="224" height="224" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="224" height="224" fill="#F7F5F3"/>
+  <!-- Head -->
+  <rect x="62" y="48" width="100" height="80" rx="16" stroke="#37322F" stroke-width="3" fill="none"/>
+  <!-- Eyes -->
+  <circle cx="88" cy="82" r="8" fill="#37322F"/>
+  <circle cx="136" cy="82" r="8" fill="#37322F"/>
+  <!-- Eye glints -->
+  <circle cx="91" cy="79" r="2.5" fill="#F7F5F3"/>
+  <circle cx="139" cy="79" r="2.5" fill="#F7F5F3"/>
+  <!-- Mouth — friendly line -->
+  <path d="M92 108 Q112 120 132 108" stroke="#37322F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Antenna -->
+  <line x1="112" y1="48" x2="112" y2="30" stroke="#37322F" stroke-width="2.5"/>
+  <circle cx="112" cy="26" r="5" fill="#37322F"/>
+  <!-- Ears/sensors -->
+  <rect x="48" y="72" width="14" height="24" rx="4" stroke="#37322F" stroke-width="2" fill="none"/>
+  <rect x="162" y="72" width="14" height="24" rx="4" stroke="#37322F" stroke-width="2" fill="none"/>
+  <!-- Body -->
+  <rect x="72" y="132" width="80" height="52" rx="12" stroke="#37322F" stroke-width="3" fill="none"/>
+  <!-- Chest panel -->
+  <rect x="96" y="144" width="32" height="16" rx="4" stroke="#37322F" stroke-width="1.5" fill="none"/>
+  <circle cx="106" cy="152" r="3" fill="#10b981"/>
+  <circle cx="118" cy="152" r="3" fill="#37322F"/>
+  <!-- Neck -->
+  <line x1="100" y1="128" x2="100" y2="132" stroke="#37322F" stroke-width="2"/>
+  <line x1="124" y1="128" x2="124" y2="132" stroke="#37322F" stroke-width="2"/>
+  <!-- Label -->
+  <text x="112" y="204" text-anchor="middle" fill="#37322F" font-size="11" font-family="system-ui, sans-serif" font-weight="600" letter-spacing="2">CASPER</text>
+</svg>

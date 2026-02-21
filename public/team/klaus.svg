@@ -1,0 +1,30 @@
+<svg width="224" height="224" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="224" height="224" fill="#F7F5F3"/>
+  <!-- Head — more angular/sharp for Klaus -->
+  <path d="M62 56 L62 120 Q62 132 74 132 L150 132 Q162 132 162 120 L162 56 Q162 44 150 44 L74 44 Q62 44 62 56Z" stroke="#37322F" stroke-width="3" fill="none"/>
+  <!-- Eyes — determined look -->
+  <rect x="80" y="74" width="20" height="12" rx="3" fill="#37322F"/>
+  <rect x="124" y="74" width="20" height="12" rx="3" fill="#37322F"/>
+  <!-- Eye glints -->
+  <circle cx="93" cy="78" r="2.5" fill="#F7F5F3"/>
+  <circle cx="137" cy="78" r="2.5" fill="#F7F5F3"/>
+  <!-- Mouth — straight, focused -->
+  <line x1="92" y1="108" x2="132" y2="108" stroke="#37322F" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Antenna — lightning bolt style -->
+  <path d="M112 44 L108 28 L116 32 L112 16" stroke="#37322F" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Ears/sensors — angular -->
+  <path d="M48 68 L62 68 L62 100 L48 100Z" stroke="#37322F" stroke-width="2" fill="none"/>
+  <path d="M162 68 L176 68 L176 100 L162 100Z" stroke="#37322F" stroke-width="2" fill="none"/>
+  <!-- Body — broader -->
+  <rect x="68" y="136" width="88" height="48" rx="10" stroke="#37322F" stroke-width="3" fill="none"/>
+  <!-- Chest — command center -->
+  <rect x="88" y="146" width="48" height="20" rx="4" stroke="#37322F" stroke-width="1.5" fill="none"/>
+  <circle cx="100" cy="156" r="3" fill="#10b981"/>
+  <circle cx="112" cy="156" r="3" fill="#10b981"/>
+  <circle cx="124" cy="156" r="3" fill="#37322F"/>
+  <!-- Neck -->
+  <line x1="98" y1="132" x2="98" y2="136" stroke="#37322F" stroke-width="2"/>
+  <line x1="126" y1="132" x2="126" y2="136" stroke="#37322F" stroke-width="2"/>
+  <!-- Label -->
+  <text x="112" y="204" text-anchor="middle" fill="#37322F" font-size="11" font-family="system-ui, sans-serif" font-weight="600" letter-spacing="2">KLAUS</text>
+</svg>
