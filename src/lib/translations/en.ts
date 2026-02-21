@@ -237,6 +237,66 @@ export const en = {
     ctaButton: "Book a Free Call",
   },
 
+  // Calculator section
+  calc: {
+    badge: "Calculator",
+    headline: "What Is Your Time Actually Worth?",
+    subtext: "See exactly how much repetitive work is costing your business.",
+    note: "Takes 30 seconds. No email required.",
+    slider1: "Hours per week on repetitive tasks",
+    slider2: "Average hourly value of your time",
+    slider3: "Team members affected",
+    result1: "Monthly Time Value Recovered",
+    result2: "Annual Value Recovered",
+    result3: "Full-Time Hires Avoided",
+    result4: "Break-Even Timeline",
+    cta: "Get Detailed ROI Analysis",
+    disclaimer: "*Based on conservative assumptions.",
+    week: "week",
+    weeks: "weeks",
+    hrs: "hrs",
+    people: "people",
+  },
+
+  // Process section
+  process: {
+    badge: "How It Works",
+    headline: "From Manual to Automated in 10 Days",
+    subtext: "We do the heavy lifting — you just show up for a 30-minute call.",
+    step1: "30-Minute Workflow Call",
+    step1Desc: "We map your current workflows and identify the biggest time sinks.",
+    step2: "Identify Repetitive Tasks",
+    step2Desc: "We pinpoint exactly which tasks can be automated for maximum impact.",
+    step3: "Build Your AI Assistant",
+    step3Desc: "We configure and train your custom AI operations assistant.",
+    step4: "Test With Real Data",
+    step4Desc: "We validate the assistant works correctly with your actual workflows.",
+    step5: "Go Live",
+    step5Desc: "Your assistant starts handling tasks. You start saving time immediately.",
+  },
+
+  // Comparison section
+  comparison: {
+    badge: "Compare",
+    headline: "What Happens If You Do Nothing",
+    subtext: "Manual work scales with your business. Here's the 3-year comparison.",
+    manualHeader: "Manual Path",
+    autoHeader: "With FlowAudit",
+  },
+
+  // Testimonials
+  testimonials: {
+    badge: "Results",
+    headline: "What Operators Say",
+  },
+
+  // Security
+  security: {
+    badge: "Security",
+    headline: "Your Data Is Safe With Us",
+    subtext: "Plain and simple — here's how we protect your business.",
+  },
+
   // Careers page
   careers: {
     headline: "Build the Future of Business Automation",
