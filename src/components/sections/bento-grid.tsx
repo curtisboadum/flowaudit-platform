@@ -130,7 +130,7 @@ function BentoGrid() {
               The Impact
             </h3>
             <p className="mt-2 font-sans text-sm leading-relaxed text-[#605A57]">
-              Teams using FlowAudit_ see results in the first week.
+              Teams using FlowAudit see results in the first week.
             </p>
           </div>
           <div className="flex flex-1 flex-col items-center justify-center gap-4">

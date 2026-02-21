@@ -57,7 +57,7 @@ function ComparisonSection() {
         {/* Comparison Table */}
         <div className="overflow-hidden rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white">
           {/* Table Header */}
-          <div className="grid grid-cols-3 border-b border-[rgba(55,50,47,0.12)] bg-[#F7F5F3]">
+          <div className="hidden grid-cols-3 border-b border-[rgba(55,50,47,0.12)] bg-[#F7F5F3] sm:grid">
             <div className="p-4 sm:p-5" />
             <div className="border-l border-[rgba(55,50,47,0.12)] p-4 text-center sm:p-5">
               <div className="font-sans text-xs font-medium tracking-wider text-[#605A57] uppercase">
@@ -66,7 +66,7 @@ function ComparisonSection() {
             </div>
             <div className="border-l border-[rgba(55,50,47,0.12)] p-4 text-center sm:p-5">
               <div className="font-sans text-xs font-semibold tracking-wider text-[#37322F] uppercase">
-                With FlowAudit_
+                With FlowAudit
               </div>
             </div>
           </div>
@@ -76,22 +76,36 @@ function ComparisonSection() {
             <div
               key={row.category}
               className={cn(
-                "grid grid-cols-3",
                 index < comparisons.length - 1 && "border-b border-[rgba(55,50,47,0.06)]",
               )}
             >
-              <div className="p-4 sm:p-5">
-                <span className="font-sans text-sm font-medium text-[#37322F]">{row.category}</span>
+              {/* Desktop: 3-column grid */}
+              <div className="hidden grid-cols-3 sm:grid">
+                <div className="p-4 sm:p-5">
+                  <span className="font-sans text-sm font-medium text-[#37322F]">{row.category}</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 border-l border-[rgba(55,50,47,0.06)] p-4 sm:p-5">
+                  <X className="h-3.5 w-3.5 shrink-0 text-red-400" />
+                  <span className="font-sans text-xs text-[#605A57] sm:text-sm">{row.manual}</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 border-l border-[rgba(55,50,47,0.06)] bg-[rgba(16,185,129,0.03)] p-4 sm:p-5">
+                  <Check className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                  <span className="font-sans text-xs font-medium text-[#37322F] sm:text-sm">
+                    {row.automated}
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center justify-center gap-2 border-l border-[rgba(55,50,47,0.06)] p-4 sm:p-5">
-                <X className="h-3.5 w-3.5 shrink-0 text-red-400" />
-                <span className="font-sans text-xs text-[#605A57] sm:text-sm">{row.manual}</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 border-l border-[rgba(55,50,47,0.06)] bg-[rgba(16,185,129,0.03)] p-4 sm:p-5">
-                <Check className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
-                <span className="font-sans text-xs font-medium text-[#37322F] sm:text-sm">
-                  {row.automated}
-                </span>
+              {/* Mobile: stacked layout */}
+              <div className="flex flex-col gap-2 p-4 sm:hidden">
+                <span className="font-sans text-sm font-semibold text-[#37322F]">{row.category}</span>
+                <div className="flex items-start gap-2">
+                  <X className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-400" />
+                  <span className="font-sans text-xs text-[#605A57]">{row.manual}</span>
+                </div>
+                <div className="flex items-start gap-2 rounded-lg bg-[rgba(16,185,129,0.05)] p-2">
+                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                  <span className="font-sans text-xs font-medium text-[#37322F]">{row.automated}</span>
+                </div>
               </div>
             </div>
           ))}

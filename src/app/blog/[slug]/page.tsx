@@ -184,9 +184,9 @@ export function generateMetadata({
 }): Promise<Metadata> {
   return params.then(({ slug }) => {
     const post = posts[slug];
-    if (!post) return { title: "Blog — FlowAudit_" };
+    if (!post) return { title: "Blog — FlowAudit" };
     return {
-      title: `${post.title} — FlowAudit_ Blog`,
+      title: `${post.title} — FlowAudit Blog`,
       description: post.excerpt,
       alternates: {
         canonical: `/blog/${slug}`,

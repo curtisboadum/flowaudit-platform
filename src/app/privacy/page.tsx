@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — FlowAudit_",
+  title: "Privacy Policy — FlowAudit",
   description:
-    "FlowAudit_'s privacy policy. Learn how we collect, use, and protect your information.",
+    "FlowAudit's privacy policy. Learn how we collect, use, and protect your information.",
   alternates: {
     canonical: "/privacy",
   },
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         </h1>
         <div className="space-y-6 font-sans text-base leading-7 text-[#605A57]">
           <p>
-            FlowAudit_ is committed to protecting your privacy. This policy explains how we collect,
+            FlowAudit is committed to protecting your privacy. This policy explains how we collect,
             use, and safeguard your information.
           </p>
           <h2 className="pt-4 font-sans text-xl font-semibold text-[#37322F]">

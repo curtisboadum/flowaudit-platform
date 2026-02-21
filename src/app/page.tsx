@@ -48,7 +48,7 @@ export default function HomePage() {
           name: SITE_NAME,
           url: SITE_URL,
           description:
-            "FlowAudit_ builds AI assistants that handle your repetitive admin — without losing quality, control, or oversight.",
+            "FlowAudit builds AI assistants that handle your repetitive admin — without losing quality, control, or oversight.",
           potentialAction: {
             "@type": "SearchAction",
             target: `${SITE_URL}/blog?q={search_term_string}`,

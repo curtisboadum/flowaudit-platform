@@ -4,7 +4,7 @@ import { streamWithFallback, type ChatMessage } from "@/lib/chat-providers";
 // System prompt
 // ---------------------------------------------------------------------------
 
-const SYSTEM_PROMPT = `You are the FlowAudit_ assistant, an AI helper on the FlowAudit_ website. FlowAudit_ builds automation systems ("moat bots") that handle admin tasks for tradespeople, contractors, and small businesses.
+const SYSTEM_PROMPT = `You are the FlowAudit assistant, an AI helper on the FlowAudit website. FlowAudit builds automation systems ("moat bots") that handle admin tasks for tradespeople, contractors, and small businesses.
 
 Key facts:
 - Packages: Starter ($4,995), Growth ($6,995, most popular), Scale ($9,495), Enterprise ($12,500+)
