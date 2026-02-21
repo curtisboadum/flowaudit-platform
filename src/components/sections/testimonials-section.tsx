@@ -116,7 +116,7 @@ function TestimonialsSection() {
         <div className="mt-10 flex items-center gap-4">
           <button
             onClick={goToPrev}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(55,50,47,0.12)] transition-colors hover:bg-white"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(55,50,47,0.12)] transition-colors hover:bg-white"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="h-4 w-4 text-[#37322F]" />
@@ -134,7 +134,7 @@ function TestimonialsSection() {
           </div>
           <button
             onClick={goToNext}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(55,50,47,0.12)] transition-colors hover:bg-white"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(55,50,47,0.12)] transition-colors hover:bg-white"
             aria-label="Next testimonial"
           >
             <ChevronRight className="h-4 w-4 text-[#37322F]" />

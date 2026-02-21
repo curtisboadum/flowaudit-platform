@@ -25,11 +25,11 @@ function CTASection() {
           you focus on growth.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
-          <Button size="lg" asChild>
+        <div className="flex w-full max-w-[360px] flex-col items-center gap-3 mt-8 sm:w-auto sm:max-w-none sm:flex-row sm:gap-4">
+          <Button size="lg" className="w-full sm:w-auto" asChild>
             <Link href="/book">Book a Call</Link>
           </Button>
-          <Button variant="secondary" size="lg" asChild>
+          <Button variant="secondary" size="lg" className="w-full sm:w-auto" asChild>
             <Link href="/#calculator">Calculate Time Savings</Link>
           </Button>
         </div>

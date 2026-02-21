@@ -31,8 +31,8 @@ function StickySummary({ hours, rate, setupCost, currency, rates }: StickySummar
   return (
     <div className="fixed right-0 bottom-0 left-0 z-40 border-t border-[rgba(55,50,47,0.12)] bg-white/95 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] backdrop-blur-xl">
       <div className="mx-auto max-w-[1060px] px-4 py-3 sm:px-6 lg:px-0">
-        <div className="flex items-center justify-between gap-4 overflow-x-auto">
-          <SummaryItem label="Build & Deployment Fee" value={fmt(setupCost)} />
+        <div className="flex items-center justify-between gap-3 overflow-x-auto sm:gap-4">
+          <SummaryItem label="Setup Fee" value={fmt(setupCost)} />
           <Divider />
           <SummaryItem label="Annual Savings" value={fmt(annualSavings)} positive />
           <Divider />
@@ -108,8 +108,8 @@ function SummaryItem({ label, value, positive, negative, bold }: SummaryItemProp
   );
 }
 
-function Divider() {
-  return <div className="hidden h-8 w-px shrink-0 bg-[rgba(55,50,47,0.08)] sm:block" />;
+function Divider({ className }: { className?: string }) {
+  return <div className={cn("hidden h-8 w-px shrink-0 bg-[rgba(55,50,47,0.08)] sm:block", className)} />;
 }
 
 export { StickySummary };
