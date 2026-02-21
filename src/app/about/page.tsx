@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +25,7 @@ const teamMembers = [
     description:
       "Systems thinker. Builds the AI infrastructure that powers every FlowAudit assistant.",
     initials: "CB",
+    image: "/team/curtis.jpg",
     isAI: false,
   },
   {
@@ -32,6 +34,7 @@ const teamMembers = [
     description:
       "Operations and legal strategy. Ensures every deployment is compliant and scalable.",
     initials: "KO",
+    image: "/team/kofi.jpg",
     isAI: false,
   },
   {
@@ -40,6 +43,7 @@ const teamMembers = [
     description:
       "Client relationships and growth strategy. Connects operators with the right solutions.",
     initials: "LB",
+    image: null,
     isAI: false,
   },
   {
@@ -48,6 +52,7 @@ const teamMembers = [
     description:
       "Manages reporting, analytics, and operational visibility across client workflows.",
     initials: "C",
+    image: null,
     isAI: true,
   },
   {
@@ -55,6 +60,7 @@ const teamMembers = [
     title: "AI Agent",
     description: "Handles workflow automation, data syncing, and client communication tasks.",
     initials: "K",
+    image: null,
     isAI: true,
   },
 ] as const;
@@ -135,11 +141,23 @@ export default function AboutPage() {
                 className="flex flex-col items-center rounded-xl border border-[rgba(55,50,47,0.08)] bg-white p-6 text-center"
               >
                 <div className="relative">
-                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#37322F]">
-                    <span className="font-sans text-lg font-semibold text-white">
-                      {member.initials}
-                    </span>
-                  </div>
+                  {member.image ? (
+                    <div className="mb-4 h-20 w-20 overflow-hidden rounded-full bg-[#F0EDEB]">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={80}
+                        height={80}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-[#37322F]">
+                      <span className="font-sans text-xl font-semibold text-white">
+                        {member.initials}
+                      </span>
+                    </div>
+                  )}
                   {member.isAI && (
                     <span className="absolute -top-1 -right-1 rounded-full bg-emerald-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
                       AI
