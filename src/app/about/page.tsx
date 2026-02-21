@@ -30,7 +30,7 @@ const teamMembers = [
   },
   {
     name: "Ephraim (Kofi) Owusu",
-    title: "Co-founder & CEO",
+    title: "Co-founder, CEO & COO",
     description:
       "Runs the agency and drives marketing strategy. Manages client relationships, campaigns, and business growth.",
     initials: "KO",
