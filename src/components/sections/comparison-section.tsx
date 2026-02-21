@@ -5,38 +5,9 @@ import { X, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocale } from "@/components/providers/locale-provider";
 
-const comparisons = [
-  { category: "Admin workload", manual: "Grows with revenue", automated: "Stays flat" },
-  { category: "Quoting speed", manual: "Hours to prepare", automated: "Minutes" },
-  {
-    category: "Missed quotes",
-    manual: "Deals fall through the cracks",
-    automated: "Every quote gets chased",
-  },
-  {
-    category: "Follow-up speed",
-    manual: "Days (if you remember)",
-    automated: "Same day, automatic",
-  },
-  {
-    category: "Evening/weekend work",
-    manual: "Doing invoices at 10pm",
-    automated: "Done during work hours",
-  },
-  {
-    category: "Money left on the table",
-    manual: "Jobs billed late, quotes forgotten",
-    automated: "Everything tracked and chased",
-  },
-  {
-    category: "Taking on more work",
-    manual: "Can't grow without more staff",
-    automated: "Handle more with the same crew",
-  },
-] as const;
-
 function ComparisonSection() {
   const { t } = useLocale();
+  const comparisons = t.comparison.rows;
   return (
     <section className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0 lg:py-24">
       <div className="w-full max-w-[800px]">

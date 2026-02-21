@@ -303,7 +303,31 @@ export const es: Translations = {
     subtext: "El trabajo manual crece con tu negocio. Aquí está la comparación a 3 años.",
     manualHeader: "Camino Manual",
     autoHeader: "Con FlowAudit",
+    rows: [
+      { category: "Carga administrativa", manual: "Crece con los ingresos", automated: "Se mantiene estable" },
+      { category: "Velocidad de cotización", manual: "Horas para preparar", automated: "Minutos" },
+      { category: "Cotizaciones perdidas", manual: "Negocios se pierden", automated: "Cada cotización recibe seguimiento" },
+      { category: "Velocidad de seguimiento", manual: "Días (si te acuerdas)", automated: "El mismo día, automático" },
+      { category: "Trabajo en noches/fines de semana", manual: "Haciendo facturas a las 10pm", automated: "Listo en horario laboral" },
+      { category: "Dinero sobre la mesa", manual: "Trabajos facturados tarde, cotizaciones olvidadas", automated: "Todo rastreado y cobrado" },
+      { category: "Aceptar más trabajo", manual: "No puedes crecer sin más personal", automated: "Maneja más con el mismo equipo" },
+    ],
   },
+
+  // FAQ items
+  faqItems: [
+    { q: "¿En qué se diferencia de contratar un asistente virtual?", a: "Un asistente virtual es otra persona que gestionar y pagar mensualmente. Nuestro sistema funciona 24/7, no comete errores y tiene un costo único de configuración — no un salario continuo." },
+    { q: "¿Con qué industrias trabajan?", a: "Principalmente oficios (plomeros, electricistas, constructores), contratistas y pequeñas empresas de servicios con 1-30 personas. Si estás copiando información entre apps o persiguiendo facturas, podemos ayudarte." },
+    { q: "Soy un operador individual — ¿vale la pena?", a: "Absolutamente. Ya seas solo o tengas un equipo pequeño, las mayores ganancias vienen de eliminar la administración que consume tu día. Ahorrar 10-15 horas por semana significa más trabajos o recuperar tus noches." },
+    { q: "No soy experto en tecnología — ¿podré usar esto?", a: "Sí. Nosotros manejamos toda la configuración técnica. Tu asistente funciona a través de herramientas que ya usas — email, mensajes de texto, tu software contable." },
+    { q: "¿Cuánto tiempo toma la configuración?", a: "Aproximadamente 10 días desde la primera llamada hasta estar en vivo. Empezamos con una charla de 30 minutos, construimos tus automatizaciones, las probamos con tus datos reales y las activamos." },
+    { q: "¿Qué incluye el piloto?", a: "El piloto es una prueba de 5 días de una automatización. La construimos, la ejecutamos con tus datos reales y te mostramos exactamente cuánto tiempo ahorra." },
+    { q: "¿Mis datos están seguros?", a: "Sí. Usamos controles de acceso basados en roles, hosting encriptado y registros de auditoría completos. Tus datos nunca se venden, comparten o usan para entrenamiento." },
+    { q: "¿Qué pasa si no sé qué flujos de trabajo automatizar?", a: "Para eso es la primera llamada. Revisaremos tu día a día juntos, encontraremos los mayores consumidores de tiempo y recomendaremos por dónde empezar." },
+    { q: "¿Cuál es el modelo de precios?", a: "Pago único basado en lo que necesitas: Starter ($2,854), Growth ($3,997), Scale ($5,426), o Custom ($7,143+). Sin cuotas mensuales para la construcción principal." },
+    { q: "¿Necesito conocimiento técnico?", a: "Para nada. Nosotros manejamos toda la configuración. Interactúas con tu asistente a través de herramientas que ya usas." },
+    { q: "¿Qué tipo de ROI puedo esperar?", a: "La mayoría de los clientes ven un retorno de 5x en su inversión. El negocio promedio ahorra más de 20 horas por semana en administración." },
+  ],
 
   // Testimonials
   testimonials: {
