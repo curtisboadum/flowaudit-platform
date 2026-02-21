@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useLocale } from "@/components/providers/locale-provider";
 
 const workflowDemos = [
   {
@@ -25,6 +26,7 @@ const workflowDemos = [
 ] as const;
 
 function HeroSection() {
+  const { t } = useLocale();
   const [activeTab, setActiveTab] = useState(0);
   const [progress, setProgress] = useState(0);
   const mountedRef = useRef(true);
@@ -57,25 +59,24 @@ function HeroSection() {
       {/* Headline */}
       <div className="flex w-full max-w-[748px] flex-col items-center gap-6 sm:gap-8">
         <h1 className="px-2 text-center font-serif text-3xl leading-[1.1] font-normal text-[#37322F] sm:text-5xl md:text-6xl lg:text-[80px]">
-          Your Paperwork, Done Automatically
+          {t.hero.headline}
         </h1>
         <p className="max-w-[506px] text-center font-sans text-base leading-7 font-medium text-[rgba(55,50,47,0.80)] sm:text-lg">
-          FlowAudit handles the admin you hate — quotes, follow-ups, invoicing — so your team can
-          focus on the work that pays.
+          {t.hero.subtext}
         </p>
       </div>
 
       {/* CTAs */}
       <div className="mt-8 flex w-full max-w-[400px] flex-col items-center gap-3 px-4 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-4 sm:px-0">
         <Button size="lg" className="w-full sm:w-auto" asChild>
-          <Link href="/#calculator">Calculate Your Time Savings</Link>
+          <Link href="/#calculator">{t.hero.ctaPrimary}</Link>
         </Button>
         <Button variant="secondary" size="lg" className="w-full sm:w-auto" asChild>
-          <Link href="/#how-it-works">See How It Works</Link>
+          <Link href="/#how-it-works">{t.hero.ctaSecondary}</Link>
         </Button>
       </div>
       <p className="mt-4 font-sans text-xs text-[rgba(55,50,47,0.50)]">
-        Free strategy call — no commitment, no pressure.
+        {t.hero.ctaNote}
       </p>
 
       {/* Dashboard preview */}
