@@ -293,7 +293,31 @@ export const en = {
     subtext: "Manual work scales with your business. Here's the 3-year comparison.",
     manualHeader: "Manual Path",
     autoHeader: "With FlowAudit",
+    rows: [
+      { category: "Admin workload", manual: "Grows with revenue", automated: "Stays flat" },
+      { category: "Quoting speed", manual: "Hours to prepare", automated: "Minutes" },
+      { category: "Missed quotes", manual: "Deals fall through the cracks", automated: "Every quote gets chased" },
+      { category: "Follow-up speed", manual: "Days (if you remember)", automated: "Same day, automatic" },
+      { category: "Evening/weekend work", manual: "Doing invoices at 10pm", automated: "Done during work hours" },
+      { category: "Money left on the table", manual: "Jobs billed late, quotes forgotten", automated: "Everything tracked and chased" },
+      { category: "Taking on more work", manual: "Can't grow without more staff", automated: "Handle more with the same crew" },
+    ],
   },
+
+  // FAQ items
+  faqItems: [
+    { q: "How is this different from hiring a virtual assistant?", a: "A VA is another person to manage and pay monthly. Our system works 24/7, doesn't make mistakes, and costs a one-time setup fee — not an ongoing salary. It handles the repetitive stuff so you (or your team) can focus on the actual work." },
+    { q: "What industries do you work with?", a: "Mostly trades (plumbers, electricians, HVAC, builders), contractors, and small service businesses with 1-30 people. If you're copying info between apps, chasing invoices, or sending the same follow-up emails every week, we can help." },
+    { q: "I'm a one-person operation — is this still worth it?", a: "Absolutely. Whether you're solo or have a small team, the biggest gains come from removing the admin that eats your day. Even saving 10-15 hours a week means you can take on more jobs or get your evenings back." },
+    { q: "I'm not tech-savvy — will I be able to use this?", a: "Yes. We handle all the technical setup. Your assistant works through tools you already use — email, text messages, your accounting software. If you can check your email, you can use this." },
+    { q: "How long does it take to get set up?", a: "About 10 days from first call to live. We start with a 30-minute chat to understand your business, then build your automations, test them with your real data, and go live." },
+    { q: "What does the pilot include?", a: "The pilot is a 5-day test of one automation. We build it, run it with your real data, and show you exactly how much time it saves. You only move forward if you see clear results." },
+    { q: "Is my data secure?", a: "Yes. We use role-based access controls, encrypted hosting, and full audit logs. Your data is never sold, shared, or used for training. You own everything." },
+    { q: "What if I don't know which workflows to automate?", a: "That's what the first call is for. We'll walk through your day-to-day together, find the biggest time sinks, and recommend where to start." },
+    { q: "What's the pricing model?", a: "One-time deployment fee based on what you need: Starter ($4,995), Growth ($6,995), Scale ($9,495), or Custom ($12,500+). No monthly fees for the core build." },
+    { q: "Do I need any technical knowledge?", a: "None at all. We handle all the setup, wiring, and configuration. You interact with your assistant through tools you already use." },
+    { q: "What kind of ROI can I expect?", a: "Most clients see 5x return on their investment. The average business saves 20+ hours a week on admin. Most people break even within the first few weeks." },
+  ],
 
   // Testimonials
   testimonials: {

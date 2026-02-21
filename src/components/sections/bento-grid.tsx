@@ -35,22 +35,14 @@ function BentoGrid() {
         <div className="flex flex-col gap-6 border-b border-[rgba(55,50,47,0.12)] p-6 sm:p-8 md:border-r lg:p-12">
           <div>
             <h3 className="font-sans text-lg font-semibold text-[#37322F] sm:text-xl">
-              Common Signals
+              {t.bento.signalsTitle}
             </h3>
             <p className="mt-2 font-sans text-sm leading-relaxed text-[#605A57]">
-              If any of these sound familiar, you&apos;re leaving time and money on the table.
+              {t.bento.signalsSubtext}
             </p>
           </div>
           <ul className="space-y-3">
-            {[
-              "Typing the same quote details into 3 different apps",
-              "Forgetting to follow up on a \u00A35,000 quote",
-              "Spending Sunday evening doing invoices",
-              "Losing track of which jobs are paid",
-              "Missing calls because you're on a job",
-              "Chasing the same client for payment 3 times",
-              "Wishing you had an office manager you could actually afford",
-            ].map((signal) => (
+            {t.bento.signals.map((signal) => (
               <li key={signal} className="flex items-start gap-3">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#37322F]" />
                 <span className="font-sans text-sm text-[#605A57]">{signal}</span>
@@ -63,21 +55,14 @@ function BentoGrid() {
         <div className="flex flex-col gap-6 border-b border-[rgba(55,50,47,0.12)] p-6 sm:p-8 lg:p-12">
           <div>
             <h3 className="font-sans text-lg font-semibold text-[#37322F] sm:text-xl">
-              Works Across Industries
+              {t.bento.industriesTitle}
             </h3>
             <p className="mt-2 font-sans text-sm leading-relaxed text-[#605A57]">
-              Any team running on repetitive workflows can benefit.
+              {t.bento.industriesSubtext}
             </p>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            {[
-              { name: "Trades & Contractors", desc: "Plumbers, electricians, HVAC, builders" },
-              { name: "Solopreneurs", desc: "Solo operators & small crews" },
-              { name: "Insurance", desc: "Brokers & financial services" },
-              { name: "Agencies", desc: "Marketing & creative teams" },
-              { name: "Consultants", desc: "Advisory & strategy firms" },
-              { name: "Accounting", desc: "CPA firms & bookkeepers" },
-            ].map((industry) => (
+            {t.bento.industries.map((industry) => (
               <div
                 key={industry.name}
                 className="rounded-lg border border-[rgba(55,50,47,0.08)] bg-white p-4"
@@ -95,20 +80,18 @@ function BentoGrid() {
         <div className="flex flex-col gap-6 border-b border-[rgba(55,50,47,0.12)] p-6 sm:p-8 md:border-r md:border-b-0 lg:p-12">
           <div>
             <h3 className="font-sans text-lg font-semibold text-[#37322F] sm:text-xl">
-              The Hidden Cost
+              {t.bento.hiddenCostTitle}
             </h3>
             <p className="mt-2 font-sans text-sm leading-relaxed text-[#605A57]">
-              Every hour spent on admin is an hour not spent on growth.
+              {t.bento.hiddenCostSubtext}
             </p>
           </div>
           <div className="flex flex-1 items-center justify-center">
             <div className="w-full space-y-3">
-              {[
-                { label: "Quoting & estimating", hours: "6 hrs/week", pct: 60 },
-                { label: "Invoicing & chasing payments", hours: "5 hrs/week", pct: 50 },
-                { label: "Scheduling & coordination", hours: "4 hrs/week", pct: 40 },
-                { label: "Client follow-ups", hours: "3 hrs/week", pct: 30 },
-              ].map((item) => (
+              {t.bento.hiddenCostItems.map((item, idx) => {
+                const pcts = [60, 50, 40, 30];
+                return { ...item, pct: pcts[idx] ?? 30 };
+              }).map((item) => (
                 <div key={item.label} className="space-y-1">
                   <div className="flex justify-between font-sans text-xs">
                     <span className="font-medium text-[#37322F]">{item.label}</span>
@@ -130,27 +113,27 @@ function BentoGrid() {
         <div className="flex flex-col gap-6 p-6 sm:p-8 lg:p-12">
           <div>
             <h3 className="font-sans text-lg font-semibold text-[#37322F] sm:text-xl">
-              The Impact
+              {t.bento.impactTitle}
             </h3>
             <p className="mt-2 font-sans text-sm leading-relaxed text-[#605A57]">
-              Teams using FlowAudit see results in the first week.
+              {t.bento.impactSubtext}
             </p>
           </div>
           <div className="flex flex-1 flex-col items-center justify-center gap-4">
             <div className="text-center">
-              <div className="font-sans text-6xl font-semibold text-[#37322F] sm:text-7xl">20+</div>
+              <div className="font-sans text-6xl font-semibold text-[#37322F] sm:text-7xl">{t.bento.impactHours}</div>
               <div className="mt-2 font-sans text-sm text-[#605A57]">
-                hours saved per week, on average
+                {t.bento.impactHoursLabel}
               </div>
             </div>
             <div className="mt-4 grid w-full grid-cols-2 gap-4">
               <div className="text-center">
-                <div className="font-sans text-2xl font-semibold text-[#37322F]">10 days</div>
-                <div className="mt-1 font-sans text-xs text-[#605A57]">to go live</div>
+                <div className="font-sans text-2xl font-semibold text-[#37322F]">{t.bento.impactDays}</div>
+                <div className="mt-1 font-sans text-xs text-[#605A57]">{t.bento.impactDaysLabel}</div>
               </div>
               <div className="text-center">
-                <div className="font-sans text-2xl font-semibold text-[#37322F]">5x</div>
-                <div className="mt-1 font-sans text-xs text-[#605A57]">typical ROI</div>
+                <div className="font-sans text-2xl font-semibold text-[#37322F]">{t.bento.impactRoi}</div>
+                <div className="mt-1 font-sans text-xs text-[#605A57]">{t.bento.impactRoiLabel}</div>
               </div>
             </div>
           </div>
