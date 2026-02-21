@@ -57,8 +57,8 @@ const teamMembers = [
   },
   {
     name: "Klaus",
-    title: "AI Agent",
-    description: "Handles workflow automation, data syncing, and client communication tasks.",
+    title: "AI Architect & Operator",
+    description: "Strategic orchestrator. Researches, architects, and builds every system from the ground up. Runs the full development pipeline, manages cross-session memory, and coordinates agent teams. Built this website.",
     initials: "K",
     image: "/team/klaus.svg",
     isAI: true,
