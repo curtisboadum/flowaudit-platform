@@ -34,7 +34,7 @@ function openRouterProvider(): ProviderConfig | null {
     model: process.env.OPENROUTER_MODEL ?? "meta-llama/llama-3.3-70b-instruct:free",
     extraHeaders: {
       "HTTP-Referer": process.env.NEXT_PUBLIC_APP_URL ?? "https://flowaudit.co.uk",
-      "X-Title": "FlowAudit_",
+      "X-Title": "FlowAudit",
     },
   };
 }
@@ -86,7 +86,7 @@ async function fetchChatStream(
     throw new Error(`${provider.name} returned no response body`);
   }
 
-  // Transform OpenAI SSE stream → FlowAudit_ SSE format
+  // Transform OpenAI SSE stream → FlowAudit SSE format
   const upstream = res.body.getReader();
   const decoder = new TextDecoder();
   const encoder = new TextEncoder();

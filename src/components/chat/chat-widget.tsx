@@ -189,7 +189,7 @@ export function ChatWidget() {
               </svg>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-white">FlowAudit_</h3>
+              <h3 className="text-sm font-semibold text-white">FlowAudit</h3>
               <p className="text-xs text-gray-300">AI Assistant</p>
             </div>
           </div>

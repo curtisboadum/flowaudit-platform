@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const testimonials = [
   {
     quote:
-      "I was spending 2 hours every evening chasing quotes and doing invoices. FlowAudit_ handles all of it now — I haven't opened a spreadsheet in 3 months. My close rate went up 20% just because quotes get followed up the same day.",
+      "I was spending 2 hours every evening chasing quotes and doing invoices. FlowAudit handles all of it now — I haven't opened a spreadsheet in 3 months. My close rate went up 20% just because quotes get followed up the same day.",
     name: "Marcus Rodriguez",
     title: "Owner, Summit Electrical Services",
     initials: "MR",
@@ -35,7 +35,7 @@ const testimonials = [
   },
   {
     quote:
-      "We tried hiring an office manager twice. Both times it didn't work out. FlowAudit_ costs less than a month of their salary and it never calls in sick. Our quoting is 3x faster now.",
+      "We tried hiring an office manager twice. Both times it didn't work out. FlowAudit costs less than a month of their salary and it never calls in sick. Our quoting is 3x faster now.",
     name: "Rachel Nguyen",
     title: "Director, Precision HVAC Solutions",
     initials: "RN",

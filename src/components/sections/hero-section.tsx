@@ -60,17 +60,17 @@ function HeroSection() {
           Your Paperwork, Done Automatically
         </h1>
         <p className="max-w-[506px] text-center font-sans text-base leading-7 font-medium text-[rgba(55,50,47,0.80)] sm:text-lg">
-          FlowAudit_ handles the admin you hate — quotes, follow-ups, invoicing — so your team can
+          FlowAudit handles the admin you hate — quotes, follow-ups, invoicing — so your team can
           focus on the work that pays.
         </p>
       </div>
 
       {/* CTAs */}
-      <div className="mt-8 flex items-center gap-4 sm:mt-10">
-        <Button size="lg" asChild>
+      <div className="mt-8 flex w-full max-w-[400px] flex-col items-center gap-3 px-4 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-4 sm:px-0">
+        <Button size="lg" className="w-full sm:w-auto" asChild>
           <Link href="/#calculator">Calculate Your Time Savings</Link>
         </Button>
-        <Button variant="secondary" size="lg" asChild>
+        <Button variant="secondary" size="lg" className="w-full sm:w-auto" asChild>
           <Link href="/#how-it-works">See How It Works</Link>
         </Button>
       </div>
@@ -80,7 +80,7 @@ function HeroSection() {
 
       {/* Dashboard preview */}
       <div className="mt-12 w-full max-w-[960px] sm:mt-16">
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-white shadow-[0px_0px_0px_0.9px_rgba(0,0,0,0.08)] sm:rounded-xl">
+        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-white shadow-[0px_0px_0px_0.9px_rgba(0,0,0,0.08)] sm:aspect-[16/9] sm:rounded-xl">
           {workflowDemos.map((demo, index) => (
             <div
               key={index}

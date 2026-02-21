@@ -273,7 +273,7 @@ function LogoGrid() {
           text="Social Proof"
         />
         <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
-          Teams that trust FlowAudit_
+          Teams that trust FlowAudit
         </h2>
         <p className="text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
           Operators across industries reclaim their time with our AI assistants.

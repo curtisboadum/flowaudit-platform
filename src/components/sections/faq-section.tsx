@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 
 const faqItems: AccordionItemData[] = [
   {
-    question: "What exactly does FlowAudit_ do?",
+    question: "What exactly does FlowAudit do?",
     answer:
       "We build a digital assistant that runs your admin in the background. It handles the stuff you do every week — sending quotes, chasing invoices, following up with clients, updating your records. You set it up once and it just runs.",
   },

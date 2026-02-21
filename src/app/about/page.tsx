@@ -9,9 +9,9 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Linkedin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About — FlowAudit_",
+  title: "About — FlowAudit",
   description:
-    "We help operators reclaim time through structured automation. Meet the team behind FlowAudit_.",
+    "We help operators reclaim time through structured automation. Meet the team behind FlowAudit.",
   alternates: {
     canonical: "/about",
   },
@@ -22,7 +22,7 @@ const teamMembers = [
     name: "Curtis Boadum",
     title: "CTO / CEO",
     description:
-      "Systems thinker. Builds the AI infrastructure that powers every FlowAudit_ assistant.",
+      "Systems thinker. Builds the AI infrastructure that powers every FlowAudit assistant.",
     initials: "CB",
     isAI: false,
   },
@@ -94,7 +94,7 @@ export default function AboutPage() {
             We help operators reclaim time through structured automation
           </h1>
           <p className="mt-6 max-w-[500px] font-sans text-base leading-7 text-[rgba(55,50,47,0.80)] sm:text-lg">
-            FlowAudit_ is the back-office assistant for tradespeople and small businesses drowning
+            FlowAudit is the back-office assistant for tradespeople and small businesses drowning
             in admin.
           </p>
         </section>

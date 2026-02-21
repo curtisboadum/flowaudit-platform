@@ -1,37 +1,42 @@
-import Link from "next/link";
+"use client";
 
-const footerLinks = {
-  solutions: {
-    title: "Solutions",
-    links: [
-      { label: "Automation Library", href: "/solutions" },
-      { label: "Industries", href: "/industries/trades" },
-      { label: "Results", href: "/results" },
-      { label: "Pricing", href: "/#pricing" },
-    ],
-  },
-  company: {
-    title: "Company",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
-      { label: "Book a Call", href: "/book" },
-      { label: "Contact", href: "/book" },
-    ],
-  },
-  resources: {
-    title: "Resources",
-    links: [
-      { label: "How It Works", href: "/#how-it-works" },
-      { label: "ROI Calculator", href: "/calculator" },
-      { label: "Time Savings Calculator", href: "/#calculator" },
-      { label: "FAQ", href: "/#faq" },
-      { label: "Security", href: "/#security" },
-    ],
-  },
-} as const;
+import Link from "next/link";
+import { useLocale } from "@/components/providers/locale-provider";
 
 function SiteFooter() {
+  const { t } = useLocale();
+
+  const footerLinks = {
+    solutions: {
+      title: t.footer.solutionsTitle,
+      links: [
+        { label: t.nav.webDesign, href: "/web-design" },
+        { label: "Automation Library", href: "/solutions" },
+        { label: "Industries", href: "/industries/trades" },
+        { label: "Results", href: "/results" },
+        { label: t.nav.pricing, href: "/#pricing" },
+      ],
+    },
+    company: {
+      title: t.footer.companyTitle,
+      links: [
+        { label: t.nav.about, href: "/about" },
+        { label: "Blog", href: "/blog" },
+        { label: t.nav.careers, href: "/careers" },
+        { label: t.nav.bookCall, href: "/book" },
+      ],
+    },
+    resources: {
+      title: t.footer.resourcesTitle,
+      links: [
+        { label: t.nav.howItWorks, href: "/#how-it-works" },
+        { label: t.nav.calculator, href: "/calculator" },
+        { label: "FAQ", href: "/#faq" },
+        { label: "Security", href: "/#security" },
+      ],
+    },
+  };
+
   return (
     <footer className="w-full border-t border-[rgba(55,50,47,0.12)]">
       <div className="mx-auto max-w-[1060px] px-4 sm:px-6 lg:px-0">
@@ -40,15 +45,15 @@ function SiteFooter() {
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="font-serif text-xl font-normal text-[#2F3037]">
-              FlowAudit_
+              FlowAudit
             </Link>
             <p className="mt-3 max-w-[280px] font-sans text-sm leading-6 text-[#605A57]">
-              AI operations assistants for teams drowning in repetitive work.
+              {t.footer.tagline}
             </p>
             {/* Social icons */}
             <div className="mt-5 flex gap-4">
               <a
-                href="https://x.com"
+                href="https://x.com/flowaudit"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#605A57] transition-colors hover:text-[#37322F]"
@@ -106,20 +111,20 @@ function SiteFooter() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-[rgba(55,50,47,0.12)] py-6 sm:flex-row">
           <p className="font-sans text-xs text-[#605A57]">
-            &copy; {new Date().getFullYear()} FlowAudit_. All rights reserved.
+            {t.footer.copyright}
           </p>
           <div className="flex gap-6">
             <Link
               href="/privacy"
               className="font-sans text-xs text-[#605A57] transition-colors hover:text-[#37322F]"
             >
-              Privacy Policy
+              {t.footer.privacy}
             </Link>
             <Link
               href="/terms"
               className="font-sans text-xs text-[#605A57] transition-colors hover:text-[#37322F]"
             >
-              Terms of Service
+              {t.footer.terms}
             </Link>
           </div>
         </div>

@@ -22,7 +22,7 @@ const industries: Record<string, IndustryData> = {
     name: "Trades",
     headline: "Automation Built For Trades",
     description:
-      "Plumbers, electricians, and contractors lose 15-25 hours a week to quoting, invoicing, and chasing payments. FlowAudit_ handles it so you can focus on the work that pays.",
+      "Plumbers, electricians, and contractors lose 15-25 hours a week to quoting, invoicing, and chasing payments. FlowAudit handles it so you can focus on the work that pays.",
     tasks: [
       {
         title: "Quote Follow-ups",
@@ -68,7 +68,7 @@ const industries: Record<string, IndustryData> = {
     name: "Solopreneurs",
     headline: "Automation Built For Solo Operators & Small Teams",
     description:
-      "Whether you're a one-person shop or a small crew, FlowAudit_ gives you a virtual back office — quoting, invoicing, follow-ups, and scheduling handled automatically.",
+      "Whether you're a one-person shop or a small crew, FlowAudit gives you a virtual back office — quoting, invoicing, follow-ups, and scheduling handled automatically.",
     tasks: [
       {
         title: "Quote & Invoice",
@@ -342,9 +342,9 @@ export function generateMetadata({
 }): Promise<Metadata> {
   return params.then(({ slug }) => {
     const industry = industries[slug];
-    if (!industry) return { title: "Industry — FlowAudit_" };
+    if (!industry) return { title: "Industry — FlowAudit" };
     return {
-      title: `${industry.name} Automation — FlowAudit_`,
+      title: `${industry.name} Automation — FlowAudit`,
       description: industry.description,
       alternates: {
         canonical: `/industries/${slug}`,
@@ -510,11 +510,11 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          name: `${industry.name} Automation — FlowAudit_`,
+          name: `${industry.name} Automation — FlowAudit`,
           description: industry.description,
           provider: {
             "@type": "Organization",
-            name: "FlowAudit_",
+            name: "FlowAudit",
             url: SITE_URL,
           },
           url: canonicalUrl(`/industries/${slug}`),

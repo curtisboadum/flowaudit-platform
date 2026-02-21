@@ -7,7 +7,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Blog — FlowAudit_",
+  title: "Blog — FlowAudit",
   description:
     "Insights on automation, operational efficiency, and growing without adding headcount.",
   alternates: {

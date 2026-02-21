@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { CalendarCheck, Search, FileText, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Book a Call — FlowAudit_",
+  title: "Book a Call — FlowAudit",
   description:
     "Book a free 30-minute strategy call. See how automation can cut your admin workload — quoting, invoicing, follow-ups, all handled.",
   alternates: {
