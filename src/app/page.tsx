@@ -1,5 +1,4 @@
 import { HeroSection } from "@/components/sections/hero-section";
-import { LogoGrid } from "@/components/sections/logo-grid";
 import { BentoGrid } from "@/components/sections/bento-grid";
 import { ProblemSection } from "@/components/sections/problem-section";
 import { FeaturesSection } from "@/components/sections/features-section";
@@ -26,7 +25,6 @@ export default function HomePage() {
         <div className="absolute top-0 right-0 z-0 hidden h-full w-[1px] bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] lg:block" />
 
         <HeroSection />
-        <LogoGrid />
         <BentoGrid />
         <ProblemSection />
         <FeaturesSection />
