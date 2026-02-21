@@ -237,6 +237,17 @@ export const en = {
     ctaButton: "Book a Free Call",
   },
 
+  // Problem section
+  problem: {
+    badge: "The Problem",
+    headline: "Manual Work Is Quietly Killing Your Margin",
+    subtext: "What starts as \"I'll do it tonight\" becomes the reason you can't take on more jobs.",
+    chartManual: "Manual Task Hours",
+    chartAI: "With AI Assistant",
+    chartSavings: "Time Savings",
+    chartYears: ["Now", "6 mo", "1 yr", "18 mo", "2 yr", "30 mo", "3 yr"],
+  },
+
   // Calculator section
   calc: {
     badge: "Calculator",

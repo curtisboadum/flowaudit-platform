@@ -247,6 +247,17 @@ export const es: Translations = {
     ctaButton: "Agenda una Llamada Gratuita",
   },
 
+  // Problem section
+  problem: {
+    badge: "El Problema",
+    headline: "El Trabajo Manual Está Matando Tu Margen Silenciosamente",
+    subtext: "Lo que empieza como \"lo hago esta noche\" se convierte en la razón por la que no puedes aceptar más trabajos.",
+    chartManual: "Horas de Tareas Manuales",
+    chartAI: "Con Asistente de IA",
+    chartSavings: "Ahorro de Tiempo",
+    chartYears: ["Ahora", "6 meses", "1 año", "18 meses", "2 años", "30 meses", "3 años"],
+  },
+
   // Calculator section
   calc: {
     badge: "Calculadora",

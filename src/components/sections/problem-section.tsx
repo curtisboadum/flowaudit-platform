@@ -3,8 +3,10 @@
 import { useCallback, useRef, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
+import { useLocale } from "@/components/providers/locale-provider";
 
 function ProblemSection() {
+  const { t } = useLocale();
   return (
     <section className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0 lg:py-24">
       <div className="w-full max-w-[1060px]">
@@ -16,14 +18,13 @@ function ProblemSection() {
                 <path d="M7 1v12M1 7h12" stroke="#37322F" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             }
-            text="The Problem"
+            text={t.problem.badge}
           />
           <h2 className="max-w-[600px] text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
-            Manual Work Is Quietly Killing Your Margin
+            {t.problem.headline}
           </h2>
           <p className="max-w-[500px] text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
-            What starts as &ldquo;I&apos;ll do it tonight&rdquo; becomes the reason you can&apos;t
-            take on more jobs.
+            {t.problem.subtext}
           </p>
         </div>
 
@@ -91,6 +92,7 @@ function interpolateY(dataX: number, path: { x: number; y: number }[]): number {
 }
 
 function GrowthCurveChart() {
+  const { t } = useLocale();
   const svgRef = useRef<SVGSVGElement>(null);
   const [hover, setHover] = useState<HoverState>({
     visible: false,
@@ -133,7 +135,7 @@ function GrowthCurveChart() {
   const manualLine = manualPath.map((p) => `${toX(p.x)},${toY(p.y)}`).join(" ");
   const automatedLine = automatedPath.map((p) => `${toX(p.x)},${toY(p.y)}`).join(" ");
 
-  const years = ["Now", "6 mo", "1 yr", "18 mo", "2 yr", "30 mo", "3 yr"];
+  const years = t.problem.chartYears;
 
   const updateHover = useCallback(
     (clientX: number) => {
@@ -187,11 +189,11 @@ function GrowthCurveChart() {
       <div className="mb-6 flex items-center gap-6">
         <div className="flex items-center gap-2">
           <div className="h-0.5 w-3 bg-[#37322F]" />
-          <span className="font-sans text-xs text-[#605A57]">Manual Task Hours</span>
+          <span className="font-sans text-xs text-[#605A57]">{t.problem.chartManual}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="h-0.5 w-3 bg-emerald-500" />
-          <span className="font-sans text-xs text-[#605A57]">With AI Assistant</span>
+          <span className="font-sans text-xs text-[#605A57]">{t.problem.chartAI}</span>
         </div>
       </div>
       <svg
@@ -273,7 +275,7 @@ function GrowthCurveChart() {
           className="fill-[#605A57] text-[11px] font-medium"
           fontFamily="Inter, sans-serif"
         >
-          Time Savings
+          {t.problem.chartSavings}
         </text>
 
         {/* Interactive hover overlay */}
