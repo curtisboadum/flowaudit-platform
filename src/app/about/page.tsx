@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const teamMembers = [
   {
     name: "Curtis Kusi Boadum",
-    title: "Founder & CEO",
+    title: "Founder, CEO & CTO",
     description:
       "Systems thinker and software engineer. Builds the AI infrastructure that powers every FlowAudit assistant. Designs the architecture, writes the code, and runs the technical vision.",
     initials: "CB",
