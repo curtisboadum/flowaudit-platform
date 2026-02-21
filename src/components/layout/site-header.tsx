@@ -24,7 +24,7 @@ function SiteHeader() {
   };
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 flex items-center justify-center px-4 pt-3 sm:px-6">
+    <header className="fixed top-0 right-0 left-0 z-50 flex items-center justify-center bg-[#F7F5F3] px-4 pb-2 pt-3 sm:px-6">
       {/* Pill-shaped nav bar */}
       <nav className="flex h-11 w-full max-w-[760px] items-center rounded-[50px] bg-[#F7F5F3] px-4 py-1.5 pr-2 shadow-[0px_0px_0px_2px_white,0px_2px_8px_rgba(55,50,47,0.08)] sm:h-12">
         {/* Logo (left column) */}
