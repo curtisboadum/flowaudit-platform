@@ -23,16 +23,16 @@ const teamMembers = [
     name: "Curtis Kusi Boadum",
     title: "Founder & CEO",
     description:
-      "Systems thinker. Builds the AI infrastructure that powers every FlowAudit assistant.",
+      "Systems thinker and software engineer. Builds the AI infrastructure that powers every FlowAudit assistant. Designs the architecture, writes the code, and runs the technical vision.",
     initials: "CB",
     image: "/team/curtis.jpg",
     isAI: false,
   },
   {
     name: "Ephraim (Kofi) Owusu",
-    title: "Co-founder & COO",
+    title: "Co-founder & CEO",
     description:
-      "Operations and legal strategy. Ensures every deployment is compliant and scalable.",
+      "Runs the agency and drives marketing strategy. Manages client relationships, campaigns, and business growth.",
     initials: "KO",
     image: "/team/kofi.jpg",
     isAI: false,
