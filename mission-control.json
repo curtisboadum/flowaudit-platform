@@ -1,9 +1,45 @@
 {
   "project": "flowaudit",
   "created": "2026-02-21",
-  "protocol": "klaus-command-v2",
+  "protocol": "klaus-command-v2.1",
   "totalCompleted": 0,
   "totalFailed": 0,
   "totalTimeMinutes": 0,
-  "tasks": []
+  "tasks": [
+    {
+      "id": "T001",
+      "tier": 3,
+      "status": "implementing",
+      "title": "FlowAudit Complete Overhaul — Web Design Arm + Mobile + i18n + Deploy",
+      "spec": "specs/T001-complete-overhaul-spec.md",
+      "research": "specs/T001-research.md",
+      "branch": "feature/complete-overhaul",
+      "assigned_model": "klaus-direct",
+      "subtasks": [
+        { "id": "T001a", "title": "Mobile-first audit + fix", "status": "implementing", "tier": 2 },
+        { "id": "T001b", "title": "Web design arm page audit + fix", "status": "pending", "tier": 2 },
+        { "id": "T001c", "title": "Careers page audit + fix", "status": "pending", "tier": 1 },
+        { "id": "T001d", "title": "PDF export crash fix", "status": "implementing", "tier": 1 },
+        { "id": "T001e", "title": "i18n system complete", "status": "pending", "tier": 2 },
+        { "id": "T001f", "title": "SEO + Lighthouse + verification", "status": "pending", "tier": 1 }
+      ],
+      "acceptance_criteria": [
+        "Zero horizontal scroll at 375px on any page",
+        "All pages pass Visual QA at 4 breakpoints",
+        "Nielsen heuristics average >= 7.0",
+        "Lighthouse all scores > 90",
+        "Spanish version works with geo-detection",
+        "Web design arm page production-ready",
+        "PDF export doesn't crash",
+        "Zero TypeScript/build errors"
+      ],
+      "depends_on": [],
+      "created": "2026-02-21",
+      "completed": null,
+      "attempts": 1,
+      "time_minutes": null,
+      "failure_reasons": ["First attempt skipped protocol entirely"],
+      "notes": "Research complete. Architecture spec written. Implementing through proper pipeline."
+    }
+  ]
 }
