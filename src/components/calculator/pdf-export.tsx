@@ -64,7 +64,7 @@ function PDFExport({
     const selectedAddonsList = ADDONS.filter((a) => selectedAddOns.has(a.name));
     const pkg = selectedPackage ? PACKAGES.find((p) => p.name === selectedPackage) : null;
 
-    const title = companyName ? `${companyName} — ROI Report` : "ROI Report";
+    const title = companyName ? `${companyName} | ROI Report` : "ROI Report";
 
     return `
       <div style="font-family: 'Inter', -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px; color: #37322F;">
@@ -119,7 +119,7 @@ function PDFExport({
             ? `
           <div style="margin-bottom: 32px;">
             <h2 style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Selected Package: ${pkg.name}</h2>
-            <p style="font-size: 14px; color: #605A57;">${pkg.description} — ${fmt(pkg.price)}</p>
+            <p style="font-size: 14px; color: #605A57;">${pkg.description} | ${fmt(pkg.price)}</p>
             <ul style="margin-top: 8px; padding-left: 20px;">
               ${pkg.features.map((f) => `<li style="font-size: 13px; color: #605A57; margin-bottom: 4px;">${f}</li>`).join("")}
             </ul>
@@ -223,7 +223,7 @@ function PDFExport({
       // --- Header ---
       doc.setFont("helvetica", "bold");
       doc.setFontSize(22);
-      const title = companyName ? `${companyName} — ROI Report` : "ROI Report";
+      const title = companyName ? `${companyName} | ROI Report` : "ROI Report";
       doc.text(title, pageWidth / 2, y, { align: "center" });
       y += 8;
 
@@ -303,7 +303,7 @@ function PDFExport({
         doc.setFontSize(10);
         doc.setTextColor(96, 90, 87);
         const descLines = doc.splitTextToSize(
-          `${pkg.description} — ${fmt(pkg.price)}`,
+          `${pkg.description} | ${fmt(pkg.price)}`,
           contentWidth,
         );
         doc.text(descLines, margin, y);

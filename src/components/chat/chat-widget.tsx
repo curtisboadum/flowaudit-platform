@@ -234,7 +234,7 @@ export function ChatWidget() {
                   Hi! Got questions about automating your admin?
                 </p>
                 <p className="mt-1 text-xs text-[#605A57]">
-                  I can help with pricing, setup, and what works for your business
+                  I help with pricing, setup, and what works for your business
                 </p>
               </div>
               <div className="mt-2 flex w-full flex-col gap-2">

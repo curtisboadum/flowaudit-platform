@@ -15,27 +15,27 @@ export const en = {
   hero: {
     headline: "Your Paperwork, Done Automatically",
     subtext:
-      "FlowAudit handles the admin you hate — quotes, follow-ups, invoicing — so your team can focus on the work that pays.",
+      "FlowAudit handles the admin you hate: quotes, follow-ups, invoicing. Your team focuses on the work paying the bills.",
     ctaPrimary: "Calculate Your Time Savings",
     ctaSecondary: "See How It Works",
-    ctaNote: "Free strategy call — no commitment, no pressure.",
+    ctaNote: "Free strategy call. No commitment, no pressure.",
   },
 
   // Home — Hero tabs
   heroTabs: {
     tab1Title: "Quote Follow-up",
-    tab1Desc: "Auto-chase every quote you send — no more deals falling through the cracks.",
+    tab1Desc: "Auto-chase every quote you send. No more lost deals.",
     tab2Title: "Job Complete → Invoice",
     tab2Desc: "Finish a job, invoice goes out. No more chasing payments weeks later.",
     tab3Title: "Weekly Cash Flow Summary",
     tab3Desc:
-      "See what's coming in, what's overdue, and what needs chasing — every Monday morning.",
+      "See what's coming in, what's overdue, and what needs chasing. Every Monday morning.",
   },
 
   // Home — Bento / Who This Is For
   bento: {
     badge: "Who This Is For",
-    headline: "If You're Repeating Work Every Week — This Is For You",
+    headline: "If You're Repeating Work Every Week, This Is For You",
     subtext:
       "Built for tradespeople, contractors, and small business owners who are tired of doing the same admin every week.",
     signalsTitle: "Common Signals",
@@ -48,10 +48,10 @@ export const en = {
       "Losing track of which jobs are paid",
       "Missing calls because you're on a job",
       "Chasing the same client for payment 3 times",
-      "Wishing you had an office manager you could actually afford",
+      "Wishing you had an office manager you afford",
     ],
     industriesTitle: "Works Across Industries",
-    industriesSubtext: "Any team running on repetitive workflows can benefit.",
+    industriesSubtext: "Any team running on repetitive workflows benefits.",
     industries: [
       { name: "Trades & Contractors", desc: "Plumbers, electricians, HVAC, builders" },
       { name: "Solopreneurs", desc: "Solo operators & small crews" },
@@ -97,7 +97,7 @@ export const en = {
   cta: {
     headline: "Stop Doing Work a Machine Could Handle",
     subtext:
-      "Book a free strategy call. We'll show you exactly which parts of your week can be automated — and what it'll save you.",
+      "Book a free strategy call. We'll show you exactly which parts of your week get automated. And what it'll save you.",
     button: "Book a Free Strategy Call",
     note: "30-minute call. No commitment. No jargon.",
   },
@@ -116,19 +116,19 @@ export const en = {
   // Book page
   book: {
     headline: "Book a Free Strategy Call",
-    subtext: "See how automation can handle your admin. 30 minutes. No jargon. No pressure.",
+    subtext: "See how automation handles your admin. 30 minutes. No jargon. No pressure.",
     scheduleTitle: "Schedule Your Free Strategy Call",
     scheduleSubtext:
-      "Email us at hello@flowaudit.co and we'll find a time that works for you. Or call us directly.",
+      "Email us at hello@flowaudit.co and we'll find a time working for you. Or call us directly.",
     emailButton: "Email Us to Book",
     responseNote: "We respond to all enquiries within 24 hours.",
     expectTitle: "What to Expect",
     step1Title: "Quick Chat About Your Business",
     step1Desc:
-      "We'll ask about your typical week — what takes up your time, what falls through the cracks.",
+      "We'll ask about your typical week. What takes up your time, what falls through the cracks.",
     step2Title: "Spot the Quick Wins",
     step2Desc:
-      "We'll find 2-3 things that can be automated straight away — usually quoting, invoicing, or follow-ups.",
+      "We'll find 2-3 things we automate straight away. Usually quoting, invoicing, or follow-ups.",
     step3Title: "Get a Clear Plan",
     step3Desc:
       "You'll get a plain-English proposal showing what we'll build, what it costs, and how much time you'll save.",
@@ -138,7 +138,7 @@ export const en = {
   webDesign: {
     heroHeadline: "Custom Websites & AI-Powered Tools For Your Business",
     heroSubtext:
-      "We design, build, and maintain your complete online presence — website, AI chatbot, booking system, invoicing — everything your business needs to look professional and capture every lead.",
+      "We design, build, and maintain your complete online presence: website, AI chatbot, booking system, invoicing. Everything your business needs to look professional and capture every lead.",
     heroCta: "Book a Free Call",
     heroCtaSecondary: "See Our Products",
     heroNote: "No templates. Every site is unique to your business.",
@@ -149,13 +149,13 @@ export const en = {
       "We study your industry, competitors, and customers to understand what your website needs to achieve.",
     step2Title: "We Build Your Site",
     step2Desc:
-      "Our team designs and builds a custom website tailored to your business — before you pay anything.",
+      "Our team designs and builds a custom website tailored to your business. Before you pay anything.",
     step3Title: "You Review & Approve",
     step3Desc:
       "See your live demo site. Request changes. Only pay when you're completely happy.",
     step4Title: "We Handle Everything",
     step4Desc:
-      "Hosting, updates, security, support — all included. You focus on your business.",
+      "Hosting, updates, security, support. All included. You focus on your business.",
 
     productsTitle: "Everything Your Business Needs Online",
     productsSubtext:
@@ -201,7 +201,7 @@ export const en = {
     whyUsTitle: "Why Choose Us",
     why1Title: "No Templates",
     why1Desc:
-      "Every website we build is custom-designed for your business. You'll never see another site that looks like yours.",
+      "Every website we build is custom-designed for your business. You'll never see another site looking like yours.",
     why2Title: "You Own Nothing to Worry About",
     why2Desc:
       "We handle hosting, security, updates, and support. If something breaks, we fix it.",
@@ -214,7 +214,7 @@ export const en = {
 
     faq1Q: "What happens if I cancel?",
     faq1A:
-      "After your 12-month term, you can cancel anytime with 30 days notice. If you cancel, your website and all tools go offline as they run on our infrastructure.",
+      "After your 12-month term, you cancel anytime with 30 days notice. If you cancel, your website and all tools go offline as they run on our infrastructure.",
     faq2Q: "Can I buy my website outright?",
     faq2A:
       "Yes, we offer one-time purchase options. Book a call to discuss pricing.",
@@ -223,11 +223,11 @@ export const en = {
       "Most websites are ready within 5-10 business days. Add-on tools are configured within 48 hours of your website going live.",
     faq4Q: "Do I need to provide content?",
     faq4A:
-      "We handle everything — copy, images, design. We just need your business details and we'll do the rest.",
+      "We handle everything: copy, images, design. We need your business details and we'll do the rest.",
     faq5Q: "Can I make changes to my website?",
     faq5A:
       "Yes, you get CMS access to update text, images, and basic content anytime. For design changes, our team handles those.",
-    faq6Q: "What if I just want a website without the add-ons?",
+    faq6Q: "What if I want a website without the add-ons?",
     faq6A:
       "Absolutely. The website at £149/mo is a standalone product. Add tools whenever you're ready.",
 
@@ -240,7 +240,7 @@ export const en = {
   // Problem section
   problem: {
     badge: "The Problem",
-    headline: "Manual Work Is Quietly Killing Your Margin",
+    headline: "Manual Work Is Eating Your Margin",
     subtext: "What starts as \"I'll do it tonight\" becomes the reason you can't take on more jobs.",
     chartManual: "Manual Task Hours",
     chartAI: "With AI Assistant",
@@ -251,14 +251,14 @@ export const en = {
       { title: "Manual Scales Up", desc: "More jobs = more paperwork, same hours in the day" },
       { title: "Hiring Adds Cost", desc: "An office manager costs \u00A330K+ before they save you a penny" },
       { title: "Admin Steals Time", desc: "Every hour on admin is an hour you're not on a paid job" },
-      { title: "Burnout Rises", desc: "Working evenings and weekends just to stay on top of it" },
+      { title: "Burnout Rises", desc: "Working evenings and weekends to stay on top of it" },
     ],
   },
 
   // Logo grid
   logoGrid: {
     badge: "Social Proof",
-    headline: "Teams that trust FlowAudit",
+    headline: "Teams trusting FlowAudit",
     subtext: "Operators across industries reclaim their time with our AI assistants.",
   },
 
@@ -287,11 +287,11 @@ export const en = {
   process: {
     badge: "How It Works",
     headline: "From Manual to Automated in 10 Days",
-    subtext: "We do the heavy lifting — you just show up for a 30-minute call.",
+    subtext: "We do the hard work. You show up for a 30-minute call.",
     step1: "30-Minute Workflow Call",
     step1Desc: "We map your current workflows and identify the biggest time sinks.",
     step2: "Identify Repetitive Tasks",
-    step2Desc: "We pinpoint exactly which tasks can be automated for maximum impact.",
+    step2Desc: "We pinpoint exactly which tasks we automate for maximum impact.",
     step3: "Build Your AI Assistant",
     step3Desc: "We configure and train your custom AI operations assistant.",
     step4: "Test With Real Data",
@@ -320,17 +320,17 @@ export const en = {
 
   // FAQ items
   faqItems: [
-    { q: "How is this different from hiring a virtual assistant?", a: "A VA is another person to manage and pay monthly. Our system works 24/7, doesn't make mistakes, and costs a one-time setup fee — not an ongoing salary. It handles the repetitive stuff so you (or your team) can focus on the actual work." },
-    { q: "What industries do you work with?", a: "Mostly trades (plumbers, electricians, HVAC, builders), contractors, and small service businesses with 1-30 people. If you're copying info between apps, chasing invoices, or sending the same follow-up emails every week, we can help." },
-    { q: "I'm a one-person operation — is this still worth it?", a: "Absolutely. Whether you're solo or have a small team, the biggest gains come from removing the admin that eats your day. Even saving 10-15 hours a week means you can take on more jobs or get your evenings back." },
-    { q: "I'm not tech-savvy — will I be able to use this?", a: "Yes. We handle all the technical setup. Your assistant works through tools you already use — email, text messages, your accounting software. If you can check your email, you can use this." },
+    { q: "How is this different from hiring a virtual assistant?", a: "A VA is another person to manage and pay monthly. Our system works 24/7, doesn't make mistakes, and costs a one-time setup fee. Not an ongoing salary. It handles the repetitive stuff so you (or your team) focus on the actual work." },
+    { q: "What industries do you work with?", a: "Mostly trades (plumbers, electricians, HVAC, builders), contractors, and small service businesses with 1-30 people. If you're copying info between apps, chasing invoices, or sending the same follow-up emails every week, we help." },
+    { q: "I'm a one-person operation. Is this still worth it?", a: "Absolutely. Whether you're solo or have a small team, the biggest gains come from removing the admin eating your day. Even saving 10-15 hours a week means you take on more jobs or get your evenings back." },
+    { q: "I'm not tech-savvy. Will I be able to use this?", a: "Yes. We handle all the technical setup. Your assistant works through tools you already use. Email, text messages, your accounting software. If you check your email, you use this." },
     { q: "How long does it take to get set up?", a: "About 10 days from first call to live. We start with a 30-minute chat to understand your business, then build your automations, test them with your real data, and go live." },
     { q: "What does the pilot include?", a: "The pilot is a 5-day test of one automation. We build it, run it with your real data, and show you exactly how much time it saves. You only move forward if you see clear results." },
     { q: "Is my data secure?", a: "Yes. We use role-based access controls, encrypted hosting, and full audit logs. Your data is never sold, shared, or used for training. You own everything." },
     { q: "What if I don't know which workflows to automate?", a: "That's what the first call is for. We'll walk through your day-to-day together, find the biggest time sinks, and recommend where to start." },
     { q: "What's the pricing model?", a: "One-time deployment fee based on what you need: Starter ($4,995), Growth ($6,995), Scale ($9,495), or Custom ($12,500+). No monthly fees for the core build." },
     { q: "Do I need any technical knowledge?", a: "None at all. We handle all the setup, wiring, and configuration. You interact with your assistant through tools you already use." },
-    { q: "What kind of ROI can I expect?", a: "Most clients see 5x return on their investment. The average business saves 20+ hours a week on admin. Most people break even within the first few weeks." },
+    { q: "What ROI do clients see?", a: "Most clients see 5x return on their investment. The average business saves 20+ hours a week on admin. Most people break even within the first few weeks." },
   ],
 
   // Hero visual demos
@@ -355,7 +355,7 @@ export const en = {
       ],
     },
     weeklySummary: {
-      title: "Weekly Summary — Auto-Generated",
+      title: "Weekly Summary. Auto-Generated",
       stats: [
         { label: "Jobs Invoiced", value: "47" },
         { label: "Hours Saved", value: "12.5" },
@@ -371,10 +371,10 @@ export const en = {
   features: {
     badge: "What We Do",
     headline: "We Build You an AI Operations Assistant",
-    subtext: "Your assistant handles the work you keep doing every week so you can focus on what matters.",
+    subtext: "Your assistant handles the work you keep doing every week so you focus on what matters.",
     feature1Title: "Task Automation",
     feature1Subtitle: "Removes repetitive work",
-    feature1Desc: "Moves data between systems, sends reminders automatically, updates clients, tracks renewals, and follows up on leads — without manual effort.",
+    feature1Desc: "Moves data between systems, sends reminders automatically, updates clients, tracks renewals, and follows up on leads. Without manual effort.",
     feature1Items: ["CRM data syncing", "Automatic reminders", "Client status updates", "Renewal tracking", "Lead follow-ups"],
     feature2Title: "Revenue Protection",
     feature2Subtitle: "Ensures nothing falls through the cracks",
@@ -392,7 +392,7 @@ export const en = {
     headline: "Test One Workflow First",
     subtext: "Not sure if automation is right for you? Start small. Validate with one workflow before committing.",
     items: ["5-day pilot", "One automation", "Measurable results", "Decide after validation"],
-    disclaimer: "No credit card. No commitment. Just results.",
+    disclaimer: "No credit card. No commitment. Only results.",
     button: "Start With a Pilot",
   },
 
@@ -416,10 +416,10 @@ export const en = {
 
   // Testimonial items
   testimonialItems: [
-    { quote: "I was spending 2 hours every evening chasing quotes and doing invoices. FlowAudit handles all of it now — I haven't opened a spreadsheet in 3 months. My close rate went up 20% just because quotes get followed up the same day.", name: "Marcus Rodriguez", title: "Owner, Summit Electrical Services", initials: "MR" },
+    { quote: "I was spending 2 hours every evening chasing quotes and doing invoices. FlowAudit handles all of it now. I haven't opened a spreadsheet in 3 months. My close rate went up 20% because quotes get followed up the same day.", name: "Marcus Rodriguez", title: "Owner, Summit Electrical Services", initials: "MR" },
     { quote: "I was skeptical about AI, but the pilot sold me in 3 days. Now my team focuses on billable work instead of copying data between spreadsheets.", name: "Sarah Chen", title: "Managing Partner, Cascade Insurance Group", initials: "SC" },
     { quote: "We went from manually tracking 200+ renewals to having everything automated. The ROI was obvious within the first month.", name: "David Okafor", title: "Operations Director, Atlas Property Management", initials: "DO" },
-    { quote: "I run a small plumbing operation. I figured AI was for big companies. Turns out it's perfect for businesses like mine — it does the office work I never had time for. Best money I've spent on my business.", name: "Tom Walsh", title: "Owner, Walsh Plumbing & Heating", initials: "TW" },
+    { quote: "I run a small plumbing operation. I figured AI was for big companies. Turns out it's perfect for businesses like mine. It does the office work I never had time for. Best money I've spent on my business.", name: "Tom Walsh", title: "Owner, Walsh Plumbing & Heating", initials: "TW" },
     { quote: "We tried hiring an office manager twice. Both times it didn't work out. FlowAudit costs less than a month of their salary and it never calls in sick. Our quoting is 3x faster now.", name: "Rachel Nguyen", title: "Director, Precision HVAC Solutions", initials: "RN" },
   ],
 
@@ -427,11 +427,11 @@ export const en = {
   security: {
     badge: "Security",
     headline: "Your Data Is Safe With Us",
-    subtext: "Plain and simple — here's how we protect your business.",
+    subtext: "Plain and simple. Here's how we protect your business.",
     items: [
-      { title: "Only You See Your Data", description: "We set up permissions so only the right people can access your information." },
+      { title: "Only You See Your Data", description: "We set up permissions so only the right people access your information." },
       { title: "Bank-Level Security", description: "Your data is encrypted and hosted on the same type of infrastructure banks use." },
-      { title: "Full Transparency", description: "You can see exactly what your assistant has done — every email sent, every invoice created." },
+      { title: "Full Transparency", description: "You see exactly what your assistant has done. Every email sent, every invoice created." },
       { title: "Your Data Stays Yours", description: "We never sell your data, share it with anyone else, or use it for anything other than running your automations." },
       { title: "You Own Everything", description: "All your automations, settings, and data belong to you. Always." },
     ],
@@ -441,7 +441,7 @@ export const en = {
   careers: {
     headline: "Build the Future of Business Automation",
     subtext:
-      "We're a small team with big ambitions. If you're talented, resourceful, and want to work on problems that matter — we'd love to hear from you.",
+      "We're a small team with big ambitions. If you're talented, resourceful, and want to work on problems for real businesses, we'd love to hear from you.",
 
     valuesTitle: "Our Values",
     value1Title: "Move Fast, Ship Often",
@@ -449,10 +449,10 @@ export const en = {
       "We believe in iteration over perfection. Get it live, get feedback, improve.",
     value2Title: "Own Your Work",
     value2Desc:
-      "No micromanagement. You'll have real ownership over real products that real businesses use.",
+      "No micromanagement. You'll have real ownership over real products for real businesses use.",
     value3Title: "Think Like a Founder",
     value3Desc:
-      "We want people who see the bigger picture — not just their task list.",
+      "We want people who see the bigger picture, not their task list.",
     value4Title: "Remote-First",
     value4Desc:
       "Work from anywhere. We care about output, not hours.",

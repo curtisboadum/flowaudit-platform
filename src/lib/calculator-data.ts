@@ -34,7 +34,7 @@ export interface AddOn {
 
 export const TIERS: Record<string, TierData> = {
   tier1: {
-    name: "Tier 1 — Essentials",
+    name: "Tier 1: Essentials",
     color: "#3b82f6",
     colorClass: "border-l-blue-500",
     automations: [
@@ -111,7 +111,7 @@ export const TIERS: Record<string, TierData> = {
     ],
   },
   tier2: {
-    name: "Tier 2 — Growth",
+    name: "Tier 2: Growth",
     color: "#06b6d4",
     colorClass: "border-l-cyan-500",
     automations: [
@@ -209,7 +209,7 @@ export const TIERS: Record<string, TierData> = {
     ],
   },
   tier3: {
-    name: "Tier 3 — Scale",
+    name: "Tier 3: Scale",
     color: "#a855f7",
     colorClass: "border-l-purple-500",
     automations: [
@@ -332,7 +332,7 @@ export const TIERS: Record<string, TierData> = {
     ],
   },
   tier4: {
-    name: "Tier 4 — Enterprise",
+    name: "Tier 4: Enterprise",
     color: "#f59e0b",
     colorClass: "border-l-amber-500",
     automations: [
@@ -364,7 +364,7 @@ export const TIERS: Record<string, TierData> = {
         name: "Custom Workflow Builder",
         price: 0,
         description:
-          "A bespoke automation designed to your exact specifications — included with any package.",
+          "A bespoke automation designed to your exact specifications, included with any package.",
       },
     ],
   },

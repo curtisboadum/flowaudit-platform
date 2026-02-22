@@ -8,7 +8,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Results — FlowAudit Case Studies",
+  title: "Results | FlowAudit Case Studies",
   description:
     "Proven results across multiple industries. See how teams save 20+ hours per week with FlowAudit.",
   alternates: {
@@ -96,7 +96,7 @@ const testimonials = [
   },
   {
     quote:
-      "We tried three different CRMs before realizing the problem wasn't the tool — it was the manual work. FlowAudit solved the actual problem.",
+      "We tried three different CRMs before realizing the problem wasn't the tool. It was the manual work. FlowAudit solved the actual problem.",
     name: "Sarah Chen",
     title: "Managing Partner, Cascade Insurance",
     initials: "SC",

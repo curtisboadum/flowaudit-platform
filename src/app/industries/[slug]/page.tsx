@@ -27,13 +27,13 @@ const industries: Record<string, IndustryData> = {
       {
         title: "Quote Follow-ups",
         description:
-          "Automatically chase every quote — works with Jobber, Housecall Pro, or your email",
+          "Automatically chase every quote, works with Jobber, Housecall Pro, or your email",
         hoursSaved: "4-6 hrs/week",
       },
       {
         title: "Job Scheduling",
         description:
-          "Sync your calendar across the team — no more double-bookings or missed callouts",
+          "Sync your calendar across the team, no more double-bookings or missed callouts",
         hoursSaved: "3-5 hrs/week",
       },
       {
@@ -68,7 +68,7 @@ const industries: Record<string, IndustryData> = {
     name: "Solopreneurs",
     headline: "Automation Built For Solo Operators & Small Teams",
     description:
-      "Whether you're a one-person shop or a small crew, FlowAudit gives you a virtual back office — quoting, invoicing, follow-ups, and scheduling handled automatically.",
+      "Whether you're a one-person shop or a small crew, FlowAudit gives you a virtual back office. Quoting, invoicing, follow-ups, and scheduling handled automatically.",
     tasks: [
       {
         title: "Quote & Invoice",
@@ -82,7 +82,7 @@ const industries: Record<string, IndustryData> = {
       },
       {
         title: "Booking & Scheduling",
-        description: "Let clients book time with your team — no back-and-forth emails",
+        description: "Let clients book time with your team, no back-and-forth emails",
         hoursSaved: "2-3 hrs/week",
       },
       {
@@ -342,9 +342,9 @@ export function generateMetadata({
 }): Promise<Metadata> {
   return params.then(({ slug }) => {
     const industry = industries[slug];
-    if (!industry) return { title: "Industry — FlowAudit" };
+    if (!industry) return { title: "Industry | FlowAudit" };
     return {
-      title: `${industry.name} Automation — FlowAudit`,
+      title: `${industry.name} Automation | FlowAudit`,
       description: industry.description,
       alternates: {
         canonical: `/industries/${slug}`,
@@ -431,7 +431,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             Example Workflows
           </h2>
           <p className="mb-10 text-center font-sans text-sm text-[#605A57]">
-            See how your tools connect — fully automated, end to end.
+            See how your tools connect. Fully automated, end to end.
           </p>
           <div className="mx-auto max-w-[700px] space-y-4">
             {industry.workflows.map((workflow, index) => (
@@ -510,7 +510,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          name: `${industry.name} Automation — FlowAudit`,
+          name: `${industry.name} Automation | FlowAudit`,
           description: industry.description,
           provider: {
             "@type": "Organization",

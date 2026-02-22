@@ -13,33 +13,33 @@ export const es: Translations = {
     careers: "Empleo",
   },
 
-  // Home — Hero
+  // Home. Hero
   hero: {
     headline: "Tu Papeleo, Hecho Automáticamente",
     subtext:
-      "FlowAudit se encarga del trabajo administrativo que odias — presupuestos, seguimientos, facturación — para que tu equipo se enfoque en lo que genera dinero.",
+      "FlowAudit se encarga del trabajo administrativo que odias. presupuestos, seguimientos, facturación. para que tu equipo se enfoque en lo que genera dinero.",
     ctaPrimary: "Calcula Tu Ahorro de Tiempo",
     ctaSecondary: "Mira Cómo Funciona",
-    ctaNote: "Llamada de estrategia gratuita — sin compromiso, sin presión.",
+    ctaNote: "Llamada de estrategia gratuita. sin compromiso, sin presión.",
   },
 
-  // Home — Hero tabs
+  // Home. Hero tabs
   heroTabs: {
     tab1Title: "Seguimiento de Cotización",
     tab1Desc:
-      "Seguimiento automático de cada cotización que envías — no más negocios perdidos.",
+      "Seguimiento automático de cada cotización que envías. no más negocios perdidos.",
     tab2Title: "Trabajo Terminado → Factura",
     tab2Desc:
       "Terminas un trabajo, la factura se envía sola. No más perseguir pagos semanas después.",
     tab3Title: "Resumen Semanal de Flujo de Caja",
     tab3Desc:
-      "Ve qué está entrando, qué está vencido y qué necesita seguimiento — cada lunes por la mañana.",
+      "Ve qué está entrando, qué está vencido y qué necesita seguimiento. cada lunes por la mañana.",
   },
 
-  // Home — Bento / Who This Is For
+  // Home. Bento / Who This Is For
   bento: {
     badge: "Para Quién Es",
-    headline: "Si Repites el Mismo Trabajo Cada Semana — Esto Es Para Ti",
+    headline: "Si Repites el Mismo Trabajo Cada Semana. Esto Es Para Ti",
     subtext:
       "Hecho para profesionales, contratistas y dueños de pequeños negocios cansados de hacer la misma administración cada semana.",
     signalsTitle: "Señales Comunes",
@@ -104,7 +104,7 @@ export const es: Translations = {
   cta: {
     headline: "Deja de Hacer Trabajo Que una Máquina Podría Manejar",
     subtext:
-      "Agenda una llamada de estrategia gratuita. Te mostraremos exactamente qué partes de tu semana se pueden automatizar — y cuánto vas a ahorrar.",
+      "Agenda una llamada de estrategia gratuita. Te mostraremos exactamente qué partes de tu semana se pueden automatizar. y cuánto vas a ahorrar.",
     button: "Agenda una Llamada de Estrategia Gratuita",
     note: "Llamada de 30 minutos. Sin compromiso. Sin tecnicismos.",
   },
@@ -134,10 +134,10 @@ export const es: Translations = {
     expectTitle: "Qué Esperar",
     step1Title: "Conversación Rápida Sobre Tu Negocio",
     step1Desc:
-      "Te preguntaremos sobre tu semana típica — qué te consume tiempo, qué se te escapa.",
+      "Te preguntaremos sobre tu semana típica. qué te consume tiempo, qué se te escapa.",
     step2Title: "Identificar las Oportunidades Rápidas",
     step2Desc:
-      "Encontraremos 2-3 cosas que se pueden automatizar de inmediato — generalmente cotizaciones, facturación o seguimientos.",
+      "Encontraremos 2-3 cosas que se pueden automatizar de inmediato. generalmente cotizaciones, facturación o seguimientos.",
     step3Title: "Obtener un Plan Claro",
     step3Desc:
       "Recibirás una propuesta en lenguaje simple mostrando qué construiremos, cuánto cuesta y cuánto tiempo vas a ahorrar.",
@@ -147,7 +147,7 @@ export const es: Translations = {
   webDesign: {
     heroHeadline: "Sitios Web Personalizados y Herramientas con IA Para Tu Negocio",
     heroSubtext:
-      "Diseñamos, construimos y mantenemos tu presencia online completa — sitio web, chatbot con IA, sistema de reservas, facturación — todo lo que tu negocio necesita para verse profesional y capturar cada cliente potencial.",
+      "Diseñamos, construimos y mantenemos tu presencia online completa. sitio web, chatbot con IA, sistema de reservas, facturación. todo lo que tu negocio necesita para verse profesional y capturar cada cliente potencial.",
     heroCta: "Agenda una Llamada Gratuita",
     heroCtaSecondary: "Ver Nuestros Productos",
     heroNote: "Sin plantillas. Cada sitio es único para tu negocio.",
@@ -158,13 +158,13 @@ export const es: Translations = {
       "Estudiamos tu industria, competidores y clientes para entender qué necesita lograr tu sitio web.",
     step2Title: "Construimos Tu Sitio",
     step2Desc:
-      "Nuestro equipo diseña y construye un sitio web personalizado para tu negocio — antes de que pagues nada.",
+      "Nuestro equipo diseña y construye un sitio web personalizado para tu negocio. antes de que pagues nada.",
     step3Title: "Tú Revisas y Apruebas",
     step3Desc:
       "Ve tu sitio demo en vivo. Solicita cambios. Solo paga cuando estés completamente satisfecho.",
     step4Title: "Nosotros Nos Encargamos de Todo",
     step4Desc:
-      "Hosting, actualizaciones, seguridad, soporte — todo incluido. Tú enfócate en tu negocio.",
+      "Hosting, actualizaciones, seguridad, soporte. todo incluido. Tú enfócate en tu negocio.",
 
     productsTitle: "Todo Lo Que Tu Negocio Necesita Online",
     productsSubtext:
@@ -233,7 +233,7 @@ export const es: Translations = {
       "La mayoría de los sitios web están listos en 5-10 días hábiles. Las herramientas adicionales se configuran dentro de 48 horas después de que tu sitio esté en línea.",
     faq4Q: "¿Necesito proporcionar contenido?",
     faq4A:
-      "Nosotros nos encargamos de todo — textos, imágenes, diseño. Solo necesitamos los detalles de tu negocio y hacemos el resto.",
+      "Nosotros nos encargamos de todo. textos, imágenes, diseño. Solo necesitamos los detalles de tu negocio y hacemos el resto.",
     faq5Q: "¿Puedo hacer cambios en mi sitio web?",
     faq5A:
       "Sí, tienes acceso CMS para actualizar texto, imágenes y contenido básico en cualquier momento. Para cambios de diseño, nuestro equipo se encarga.",
@@ -297,7 +297,7 @@ export const es: Translations = {
   process: {
     badge: "Cómo Funciona",
     headline: "De Manual a Automatizado en 10 Días",
-    subtext: "Nosotros hacemos el trabajo pesado — tú solo asistes a una llamada de 30 minutos.",
+    subtext: "Nosotros hacemos el trabajo pesado. tú solo asistes a una llamada de 30 minutos.",
     step1: "Llamada de Flujo de Trabajo de 30 Minutos",
     step1Desc: "Mapeamos tus flujos de trabajo actuales e identificamos los mayores consumidores de tiempo.",
     step2: "Identificar Tareas Repetitivas",
@@ -330,10 +330,10 @@ export const es: Translations = {
 
   // FAQ items
   faqItems: [
-    { q: "¿En qué se diferencia de contratar un asistente virtual?", a: "Un asistente virtual es otra persona que gestionar y pagar mensualmente. Nuestro sistema funciona 24/7, no comete errores y tiene un costo único de configuración — no un salario continuo." },
+    { q: "¿En qué se diferencia de contratar un asistente virtual?", a: "Un asistente virtual es otra persona que gestionar y pagar mensualmente. Nuestro sistema funciona 24/7, no comete errores y tiene un costo único de configuración. no un salario continuo." },
     { q: "¿Con qué industrias trabajan?", a: "Principalmente oficios (plomeros, electricistas, constructores), contratistas y pequeñas empresas de servicios con 1-30 personas. Si estás copiando información entre apps o persiguiendo facturas, podemos ayudarte." },
-    { q: "Soy un operador individual — ¿vale la pena?", a: "Absolutamente. Ya seas solo o tengas un equipo pequeño, las mayores ganancias vienen de eliminar la administración que consume tu día. Ahorrar 10-15 horas por semana significa más trabajos o recuperar tus noches." },
-    { q: "No soy experto en tecnología — ¿podré usar esto?", a: "Sí. Nosotros manejamos toda la configuración técnica. Tu asistente funciona a través de herramientas que ya usas — email, mensajes de texto, tu software contable." },
+    { q: "Soy un operador individual. ¿vale la pena?", a: "Absolutamente. Ya seas solo o tengas un equipo pequeño, las mayores ganancias vienen de eliminar la administración que consume tu día. Ahorrar 10-15 horas por semana significa más trabajos o recuperar tus noches." },
+    { q: "No soy experto en tecnología. ¿podré usar esto?", a: "Sí. Nosotros manejamos toda la configuración técnica. Tu asistente funciona a través de herramientas que ya usas. email, mensajes de texto, tu software contable." },
     { q: "¿Cuánto tiempo toma la configuración?", a: "Aproximadamente 10 días desde la primera llamada hasta estar en vivo. Empezamos con una charla de 30 minutos, construimos tus automatizaciones, las probamos con tus datos reales y las activamos." },
     { q: "¿Qué incluye el piloto?", a: "El piloto es una prueba de 5 días de una automatización. La construimos, la ejecutamos con tus datos reales y te mostramos exactamente cuánto tiempo ahorra." },
     { q: "¿Mis datos están seguros?", a: "Sí. Usamos controles de acceso basados en roles, hosting encriptado y registros de auditoría completos. Tus datos nunca se venden, comparten o usan para entrenamiento." },
@@ -365,7 +365,7 @@ export const es: Translations = {
       ],
     },
     weeklySummary: {
-      title: "Resumen Semanal — Generado Automáticamente",
+      title: "Resumen Semanal. Generado Automáticamente",
       stats: [
         { label: "Trabajos Facturados", value: "47" },
         { label: "Horas Ahorradas", value: "12.5" },
@@ -384,7 +384,7 @@ export const es: Translations = {
     subtext: "Tu asistente maneja el trabajo que repites cada semana para que te enfoques en lo que importa.",
     feature1Title: "Automatización de Tareas",
     feature1Subtitle: "Elimina el trabajo repetitivo",
-    feature1Desc: "Mueve datos entre sistemas, envía recordatorios automáticamente, actualiza clientes, rastrea renovaciones y da seguimiento a prospectos — sin esfuerzo manual.",
+    feature1Desc: "Mueve datos entre sistemas, envía recordatorios automáticamente, actualiza clientes, rastrea renovaciones y da seguimiento a prospectos. sin esfuerzo manual.",
     feature1Items: ["Sincronización de CRM", "Recordatorios automáticos", "Actualizaciones de clientes", "Rastreo de renovaciones", "Seguimiento de prospectos"],
     feature2Title: "Protección de Ingresos",
     feature2Subtitle: "Asegura que nada se pierda",
@@ -426,10 +426,10 @@ export const es: Translations = {
 
   // Testimonial items
   testimonialItems: [
-    { quote: "Pasaba 2 horas cada noche persiguiendo cotizaciones y haciendo facturas. FlowAudit maneja todo eso ahora — no he abierto una hoja de cálculo en 3 meses. Mi tasa de cierre subió 20% solo porque las cotizaciones se siguen el mismo día.", name: "Marcus Rodriguez", title: "Propietario, Summit Electrical Services", initials: "MR" },
+    { quote: "Pasaba 2 horas cada noche persiguiendo cotizaciones y haciendo facturas. FlowAudit maneja todo eso ahora. no he abierto una hoja de cálculo en 3 meses. Mi tasa de cierre subió 20% solo porque las cotizaciones se siguen el mismo día.", name: "Marcus Rodriguez", title: "Propietario, Summit Electrical Services", initials: "MR" },
     { quote: "Era escéptico sobre la IA, pero el piloto me convenció en 3 días. Ahora mi equipo se enfoca en trabajo facturable en vez de copiar datos entre hojas de cálculo.", name: "Sarah Chen", title: "Socia Gerente, Cascade Insurance Group", initials: "SC" },
     { quote: "Pasamos de rastrear manualmente más de 200 renovaciones a tener todo automatizado. El ROI fue obvio en el primer mes.", name: "David Okafor", title: "Director de Operaciones, Atlas Property Management", initials: "DO" },
-    { quote: "Tengo una operación pequeña de plomería. Pensé que la IA era para empresas grandes. Resulta que es perfecta para negocios como el mío — hace el trabajo de oficina que nunca tuve tiempo de hacer. La mejor inversión que he hecho.", name: "Tom Walsh", title: "Propietario, Walsh Plumbing & Heating", initials: "TW" },
+    { quote: "Tengo una operación pequeña de plomería. Pensé que la IA era para empresas grandes. Resulta que es perfecta para negocios como el mío. hace el trabajo de oficina que nunca tuve tiempo de hacer. La mejor inversión que he hecho.", name: "Tom Walsh", title: "Propietario, Walsh Plumbing & Heating", initials: "TW" },
     { quote: "Intentamos contratar un gerente de oficina dos veces. Las dos no funcionó. FlowAudit cuesta menos que un mes de su salario y nunca se reporta enfermo. Nuestras cotizaciones son 3 veces más rápidas ahora.", name: "Rachel Nguyen", title: "Directora, Precision HVAC Solutions", initials: "RN" },
   ],
 
@@ -437,11 +437,11 @@ export const es: Translations = {
   security: {
     badge: "Seguridad",
     headline: "Tus Datos Están Seguros Con Nosotros",
-    subtext: "Simple y claro — así es como protegemos tu negocio.",
+    subtext: "Simple y claro. así es como protegemos tu negocio.",
     items: [
       { title: "Solo Tú Ves Tus Datos", description: "Configuramos permisos para que solo las personas correctas accedan a tu información." },
       { title: "Seguridad de Nivel Bancario", description: "Tus datos están encriptados y alojados en el mismo tipo de infraestructura que usan los bancos." },
-      { title: "Transparencia Total", description: "Puedes ver exactamente qué ha hecho tu asistente — cada email enviado, cada factura creada." },
+      { title: "Transparencia Total", description: "Puedes ver exactamente qué ha hecho tu asistente. cada email enviado, cada factura creada." },
       { title: "Tus Datos Son Tuyos", description: "Nunca vendemos tus datos, los compartimos con nadie, ni los usamos para nada más que ejecutar tus automatizaciones." },
       { title: "Eres Dueño de Todo", description: "Todas tus automatizaciones, configuraciones y datos te pertenecen. Siempre." },
     ],
@@ -451,7 +451,7 @@ export const es: Translations = {
   careers: {
     headline: "Construye el Futuro de la Automatización Empresarial",
     subtext:
-      "Somos un equipo pequeño con grandes ambiciones. Si eres talentoso, ingenioso y quieres trabajar en problemas que importan — nos encantaría saber de ti.",
+      "Somos un equipo pequeño con grandes ambiciones. Si eres talentoso, ingenioso y quieres trabajar en problemas que importan. nos encantaría saber de ti.",
 
     valuesTitle: "Nuestros Valores",
     value1Title: "Muévete Rápido, Lanza Seguido",
@@ -462,7 +462,7 @@ export const es: Translations = {
       "Sin micromanagement. Tendrás propiedad real sobre productos reales que usan negocios reales.",
     value3Title: "Piensa Como Fundador",
     value3Desc:
-      "Queremos personas que vean el panorama completo — no solo su lista de tareas.",
+      "Queremos personas que vean el panorama completo. no solo su lista de tareas.",
     value4Title: "Remoto Primero",
     value4Desc:
       "Trabaja desde cualquier lugar. Nos importan los resultados, no las horas.",

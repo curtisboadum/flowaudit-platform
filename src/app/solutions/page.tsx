@@ -10,9 +10,9 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Zap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Solutions — FlowAudit Automation Library",
+  title: "Solutions | FlowAudit Automation Library",
   description:
-    "53 automations across 4 tiers. Lead capture, onboarding, invoicing, compliance, AI qualification, and more — all powered by OpenClaw.",
+    "53 automations across 4 tiers. Lead capture, onboarding, invoicing, compliance, AI qualification, and more. All powered by OpenClaw.",
   alternates: {
     canonical: "/solutions",
   },
@@ -134,7 +134,7 @@ export default function SolutionsPage() {
             </Button>
           </div>
           <p className="mt-4 font-sans text-xs text-[#605A57]">
-            Free strategy call — no commitment, no pressure.
+            Free strategy call. No commitment, no pressure.
           </p>
         </section>
       </div>

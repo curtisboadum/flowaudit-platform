@@ -1,28 +1,28 @@
 {
   "project": "flowaudit",
   "created": "2026-02-21",
-  "protocol": "klaus-command-v2.1",
-  "totalCompleted": 0,
+  "protocol": "klaus-command-v3.0",
+  "totalCompleted": 1,
   "totalFailed": 0,
-  "totalTimeMinutes": 0,
+  "totalTimeMinutes": 90,
   "tasks": [
     {
       "id": "T001",
       "tier": 3,
-      "status": "implementing",
+      "status": "done",
       "title": "FlowAudit Complete Overhaul — Web Design Arm + Mobile + i18n + Deploy",
+      "ice": {
+        "impact": 10,
+        "confidence": 7,
+        "ease": 3,
+        "score": 210,
+        "rationale": "Revenue-critical (Curtis making sales calls), high confidence on tech stack, large scope reduced ease"
+      },
       "spec": "specs/T001-complete-overhaul-spec.md",
       "research": "specs/T001-research.md",
       "branch": "feature/complete-overhaul",
-      "assigned_model": "klaus-direct",
-      "subtasks": [
-        { "id": "T001a", "title": "Mobile-first audit + fix", "status": "implementing", "tier": 2 },
-        { "id": "T001b", "title": "Web design arm page audit + fix", "status": "pending", "tier": 2 },
-        { "id": "T001c", "title": "Careers page audit + fix", "status": "pending", "tier": 1 },
-        { "id": "T001d", "title": "PDF export crash fix", "status": "implementing", "tier": 1 },
-        { "id": "T001e", "title": "i18n system complete", "status": "pending", "tier": 2 },
-        { "id": "T001f", "title": "SEO + Lighthouse + verification", "status": "pending", "tier": 1 }
-      ],
+      "assigned_model": "claude-opus-4",
+      "tests_written": 0,
       "acceptance_criteria": [
         "Zero horizontal scroll at 375px on any page",
         "All pages pass Visual QA at 4 breakpoints",
@@ -33,13 +33,86 @@
         "PDF export doesn't crash",
         "Zero TypeScript/build errors"
       ],
+      "files_to_modify": ["Multiple — full site overhaul"],
       "depends_on": [],
       "created": "2026-02-21",
+      "completed": "2026-02-22",
+      "attempts": 2,
+      "time_minutes": 90,
+      "estimated_cost": 15.00,
+      "failure_reasons": ["First attempt skipped protocol entirely — branding errors, incomplete mobile fixes"],
+      "notes": "Research complete. Protocol violation on first attempt caught by Curtis. Second attempt followed protocol properly. Now live at flowaudit.co.uk."
+    },
+    {
+      "id": "T002",
+      "tier": 2,
+      "status": "pending",
+      "title": "Set up CI/CD pipeline + monitoring for FlowAudit",
+      "ice": {
+        "impact": 7,
+        "confidence": 9,
+        "ease": 7,
+        "score": 441,
+        "rationale": "Live site needs monitoring and automated quality gates. High confidence, moderate effort."
+      },
+      "spec": null,
+      "branch": null,
+      "assigned_model": null,
+      "tests_written": 0,
+      "acceptance_criteria": [
+        "GitHub Actions CI runs on push/PR",
+        "Pre-commit hooks installed (husky + lint-staged)",
+        "Sentry configured with Telegram alerts",
+        "UptimeRobot monitoring flowaudit.co.uk",
+        "/api/health endpoint returns 200",
+        "Vercel Analytics enabled"
+      ],
+      "files_to_modify": [
+        ".github/workflows/ci.yml",
+        ".husky/pre-commit",
+        "src/app/api/health/route.ts",
+        "sentry.client.config.ts",
+        "sentry.server.config.ts",
+        "next.config.js"
+      ],
+      "depends_on": [],
+      "created": "2026-02-23",
       "completed": null,
-      "attempts": 1,
+      "attempts": 0,
       "time_minutes": null,
-      "failure_reasons": ["First attempt skipped protocol entirely"],
-      "notes": "Research complete. Architecture spec written. Implementing through proper pipeline."
+      "estimated_cost": null,
+      "failure_reasons": []
+    },
+    {
+      "id": "T003",
+      "tier": 2,
+      "status": "pending",
+      "title": "Translate remaining pages (solutions, blog, about, calculator)",
+      "ice": {
+        "impact": 5,
+        "confidence": 9,
+        "ease": 6,
+        "score": 270,
+        "rationale": "Needed for Paraguay market but not blocking sales calls. Straightforward translation work."
+      },
+      "spec": null,
+      "branch": null,
+      "assigned_model": null,
+      "tests_written": 0,
+      "acceptance_criteria": [
+        "All pages render correctly in Spanish mode",
+        "No English text visible in Spanish mode",
+        "Calculator page fully translated",
+        "About page bios translated",
+        "Testimonial quotes translated"
+      ],
+      "depends_on": [],
+      "created": "2026-02-23",
+      "completed": null,
+      "attempts": 0,
+      "time_minutes": null,
+      "estimated_cost": null,
+      "failure_reasons": []
     }
   ]
 }

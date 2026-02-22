@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { CareersContent } from "./careers-content";
 
 export const metadata: Metadata = {
-  title: "Careers — FlowAudit",
+  title: "Careers | FlowAudit",
   description:
     "Join the FlowAudit team. We're building AI-powered business tools that save businesses thousands of hours. Remote-first, founder-mentality.",
   alternates: { canonical: "/careers" },
