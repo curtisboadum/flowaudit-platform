@@ -39,6 +39,7 @@ export default function HomePage() {
         <FAQSection />
         <CTASection />
       </div>
+      {/* WebSite schema with search */}
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -46,11 +47,75 @@ export default function HomePage() {
           name: SITE_NAME,
           url: SITE_URL,
           description:
-            "FlowAudit builds AI assistants that handle your repetitive admin — without losing quality, control, or oversight.",
+            "FlowAudit builds AI assistants that handle your repetitive admin, without losing quality, control, or oversight.",
           potentialAction: {
             "@type": "SearchAction",
             target: `${SITE_URL}/blog?q={search_term_string}`,
             "query-input": "required name=search_term_string",
+          },
+        }}
+      />
+      {/* ProfessionalService schema */}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: SITE_NAME,
+          url: SITE_URL,
+          logo: `${SITE_URL}/logo.png`,
+          image: `${SITE_URL}/og-image.png`,
+          description:
+            "AI operations assistants that handle repetitive admin for teams drowning in manual work. Turn 10 hours of manual work into 10 minutes.",
+          email: "hello@flowaudit.co",
+          areaServed: [
+            { "@type": "Country", name: "United Kingdom" },
+            { "@type": "Country", name: "Paraguay" },
+          ],
+          serviceType: [
+            "AI Operations Assistants",
+            "Business Process Automation",
+            "Custom Website Design",
+            "AI Chatbots",
+          ],
+          priceRange: "$$",
+          knowsAbout: [
+            "Artificial Intelligence",
+            "Business Automation",
+            "Operations Management",
+            "Web Design",
+          ],
+          sameAs: [
+            "https://www.linkedin.com/company/flowaudit",
+          ],
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "sales",
+            url: `${SITE_URL}/book`,
+            email: "hello@flowaudit.co",
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "FlowAudit Services",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "AI Operations Assistant",
+                  description:
+                    "Custom AI assistant that handles repetitive admin tasks for your team.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Custom Website Design",
+                  description:
+                    "Custom-designed websites and AI-powered business tools from £149/mo.",
+                },
+              },
+            ],
           },
         }}
       />

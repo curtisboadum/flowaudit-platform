@@ -25,14 +25,19 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "FlowAudit — AI Operations Assistants for Teams Drowning in Repetitive Work",
+  title: "FlowAudit | AI Operations Assistants for Teams Drowning in Repetitive Work",
   description:
-    "FlowAudit builds AI assistants that handle your repetitive admin — without losing quality, control, or oversight. Turn 10 hours of manual work into 10 minutes.",
+    "FlowAudit builds AI assistants that handle your repetitive admin, without losing quality, control, or oversight. Turn 10 hours of manual work into 10 minutes.",
   alternates: {
     canonical: "/",
+    languages: {
+      "en": "/",
+      "es": "/?lang=es",
+      "x-default": "/",
+    },
   },
   openGraph: {
-    title: "FlowAudit — Turn 10 Hours of Manual Work Into 10 Minutes",
+    title: "FlowAudit | Turn 10 Hours of Manual Work Into 10 Minutes",
     description:
       "AI operations assistants for operators, trades, service teams, and founders who are tired of doing the same tasks every week.",
     type: "website",
@@ -42,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FlowAudit — AI Operations Assistants",
+    title: "FlowAudit | AI Operations Assistants",
     description:
       "Turn 10 hours of manual work into 10 minutes with AI assistants built for your workflows.",
   },
@@ -64,13 +69,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             "@type": "Organization",
             name: SITE_NAME,
             url: SITE_URL,
+            logo: `${SITE_URL}/logo.png`,
             description:
               "FlowAudit builds AI operations assistants that handle repetitive admin for teams drowning in manual work.",
+            email: "hello@flowaudit.co",
+            sameAs: [
+              "https://www.linkedin.com/company/flowaudit",
+            ],
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "sales",
               url: `${SITE_URL}/book`,
+              email: "hello@flowaudit.co",
             },
+            founder: [
+              {
+                "@type": "Person",
+                name: "Curtis Kusi Boadum",
+                jobTitle: "CEO & CTO",
+              },
+              {
+                "@type": "Person",
+                name: "Ephraim Owusu",
+                jobTitle: "CEO & COO",
+              },
+            ],
           }}
         />
       </body>
