@@ -1,4 +1,7 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
+import { useLocale } from "@/components/providers/locale-provider";
 
 function ApexHvacLogo() {
   return (
@@ -259,6 +262,7 @@ const logos = [
 ] as const;
 
 function LogoGrid() {
+  const { t } = useLocale();
   return (
     <section className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)]">
       {/* Header */}
@@ -270,13 +274,13 @@ function LogoGrid() {
               <rect x="7" y="1" width="4" height="8" stroke="#37322F" strokeWidth="1" fill="none" />
             </svg>
           }
-          text="Social Proof"
+          text={t.logoGrid.badge}
         />
         <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
-          Teams that trust FlowAudit
+          {t.logoGrid.headline}
         </h2>
         <p className="text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
-          Operators across industries reclaim their time with our AI assistants.
+          {t.logoGrid.subtext}
         </p>
       </div>
 

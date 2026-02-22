@@ -1,33 +1,10 @@
-import { Badge } from "@/components/ui/badge";
+"use client";
 
-const metrics = [
-  {
-    value: "20+",
-    unit: "hrs/week",
-    label: "Hours Saved",
-    description: "Average time recovered per team",
-  },
-  {
-    value: "40%",
-    unit: "",
-    label: "Cost Reduction",
-    description: "Operational cost decrease",
-  },
-  {
-    value: "10",
-    unit: "days",
-    label: "Deployment Time",
-    description: "From first call to live assistant",
-  },
-  {
-    value: "5x",
-    unit: "",
-    label: "ROI Multiple",
-    description: "Typical return on investment",
-  },
-] as const;
+import { Badge } from "@/components/ui/badge";
+import { useLocale } from "@/components/providers/locale-provider";
 
 function ImpactMetrics() {
+  const { t } = useLocale();
   return (
     <section className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col items-center py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-0">
       <div className="w-full max-w-[1060px]">
@@ -45,16 +22,16 @@ function ImpactMetrics() {
                 />
               </svg>
             }
-            text="Results"
+            text={t.impact.badge}
           />
           <h2 className="text-center text-[#49423D] text-2xl sm:text-3xl lg:text-5xl font-semibold leading-tight font-sans tracking-tight">
-            More Time. More Margin. Less Chaos.
+            {t.impact.headline}
           </h2>
         </div>
 
         {/* Metric Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {metrics.map((metric) => (
+          {t.impact.metrics.map((metric) => (
             <div
               key={metric.label}
               className="bg-white rounded-xl border border-[rgba(55,50,47,0.08)] p-6 sm:p-8 text-center"

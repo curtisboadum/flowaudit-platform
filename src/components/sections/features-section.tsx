@@ -4,56 +4,37 @@ import { useState, useEffect, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Zap, Shield, Eye } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const features = [
-  {
-    title: "Task Automation",
-    subtitle: "Removes repetitive work",
-    description:
-      "Moves data between systems, sends reminders automatically, updates clients, tracks renewals, and follows up on leads — without manual effort.",
-    icon: Zap,
-    items: [
-      "CRM data syncing",
-      "Automatic reminders",
-      "Client status updates",
-      "Renewal tracking",
-      "Lead follow-ups",
-    ],
-  },
-  {
-    title: "Revenue Protection",
-    subtitle: "Ensures nothing falls through the cracks",
-    description:
-      "Monitors deadlines, triggers payment reminders, flags overdue items, and keeps your pipeline moving so revenue doesn't slip away.",
-    icon: Shield,
-    items: [
-      "Payment triggers",
-      "Overdue alerts",
-      "Pipeline monitoring",
-      "Quote follow-ups",
-      "Upsell reminders",
-    ],
-  },
-  {
-    title: "Operational Visibility",
-    subtitle: "Provides clarity without manual reporting",
-    description:
-      "Builds weekly summaries, flags operational risks, generates status dashboards, and keeps your team informed automatically.",
-    icon: Eye,
-    items: [
-      "Weekly summaries",
-      "Risk flags",
-      "Status dashboards",
-      "Team notifications",
-      "Performance tracking",
-    ],
-  },
-] as const;
+import { useLocale } from "@/components/providers/locale-provider";
 
 function FeaturesSection() {
+  const { t } = useLocale();
   const [activeFeature, setActiveFeature] = useState(0);
   const [progress, setProgress] = useState(0);
   const mountedRef = useRef(true);
+
+  const features = [
+    {
+      title: t.features.feature1Title,
+      subtitle: t.features.feature1Subtitle,
+      description: t.features.feature1Desc,
+      icon: Zap,
+      items: t.features.feature1Items,
+    },
+    {
+      title: t.features.feature2Title,
+      subtitle: t.features.feature2Subtitle,
+      description: t.features.feature2Desc,
+      icon: Shield,
+      items: t.features.feature2Items,
+    },
+    {
+      title: t.features.feature3Title,
+      subtitle: t.features.feature3Subtitle,
+      description: t.features.feature3Desc,
+      icon: Eye,
+      items: t.features.feature3Items,
+    },
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -91,13 +72,13 @@ function FeaturesSection() {
               <path d="M7 4v3l2 2" stroke="#37322F" strokeWidth="1" strokeLinecap="round" />
             </svg>
           }
-          text="What We Do"
+          text={t.features.badge}
         />
         <h2 className="text-center text-[#49423D] text-2xl sm:text-3xl lg:text-5xl font-semibold leading-tight font-sans tracking-tight">
-          We Build You an AI Operations Assistant
+          {t.features.headline}
         </h2>
         <p className="text-center text-[#605A57] text-sm sm:text-base leading-7 font-sans">
-          Your assistant handles the work you keep doing every week so you can focus on what matters.
+          {t.features.subtext}
         </p>
       </div>
 
@@ -109,7 +90,7 @@ function FeaturesSection() {
             const Icon = feature.icon;
             return (
               <button
-                key={feature.title}
+                key={index}
                 onClick={() => handleClick(index)}
                 className={cn(
                   "w-full px-6 sm:px-8 lg:px-12 py-6 flex items-start gap-4 text-left border-b border-[rgba(55,50,47,0.12)] relative transition-colors",

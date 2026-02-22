@@ -35,28 +35,7 @@ function ProblemSection() {
 
         {/* Key Points */}
         <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-5">
-          {[
-            {
-              title: "Tasks Compound",
-              desc: "Every new client means more quoting, invoicing, chasing",
-            },
-            {
-              title: "Manual Scales Up",
-              desc: "More jobs = more paperwork, same hours in the day",
-            },
-            {
-              title: "Hiring Adds Cost",
-              desc: "An office manager costs \u00A330K+ before they save you a penny",
-            },
-            {
-              title: "Admin Steals Time",
-              desc: "Every hour on admin is an hour you're not on a paid job",
-            },
-            {
-              title: "Burnout Rises",
-              desc: "Working evenings and weekends just to stay on top of it",
-            },
-          ].map((point) => (
+          {t.problem.keyPoints.map((point) => (
             <div key={point.title} className="px-2 text-center">
               <div className="font-sans text-sm font-semibold text-[#37322F]">{point.title}</div>
               <div className="mt-1 font-sans text-xs leading-relaxed text-[#605A57]">
