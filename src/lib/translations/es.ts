@@ -256,6 +256,20 @@ export const es: Translations = {
     chartAI: "Con Asistente de IA",
     chartSavings: "Ahorro de Tiempo",
     chartYears: ["Ahora", "6 meses", "1 año", "18 meses", "2 años", "30 meses", "3 años"],
+    keyPoints: [
+      { title: "Las Tareas se Acumulan", desc: "Cada nuevo cliente significa más cotizaciones, facturas, cobranzas" },
+      { title: "Lo Manual Escala", desc: "Más trabajos = más papeleo, las mismas horas en el día" },
+      { title: "Contratar Cuesta", desc: "Un gerente de oficina cuesta $30K+ antes de ahorrarte un centavo" },
+      { title: "La Admin Roba Tiempo", desc: "Cada hora en administración es una hora sin trabajo pagado" },
+      { title: "Aumenta el Agotamiento", desc: "Trabajando noches y fines de semana solo para mantenerte al día" },
+    ],
+  },
+
+  // Logo grid
+  logoGrid: {
+    badge: "Prueba Social",
+    headline: "Equipos que confían en FlowAudit",
+    subtext: "Operadores de todas las industrias recuperan su tiempo con nuestros asistentes de IA.",
   },
 
   // Calculator section
@@ -329,17 +343,108 @@ export const es: Translations = {
     { q: "¿Qué tipo de ROI puedo esperar?", a: "La mayoría de los clientes ven un retorno de 5x en su inversión. El negocio promedio ahorra más de 20 horas por semana en administración." },
   ],
 
+  // Hero visual demos
+  heroVisuals: {
+    liveWorkflow: {
+      title: "Flujo de Trabajo en Vivo",
+      tasks: [
+        { label: "Cotización Enviada al Cliente", status: "Completado" },
+        { label: "Seguimiento: Remodelación Cocina Smith", status: "Completado" },
+        { label: "Factura: Trabajo en 42 Maple Drive", status: "En curso" },
+        { label: "Nuevo Prospecto: Remodelación de Baño", status: "En cola" },
+        { label: "Resumen Semanal de Flujo de Caja", status: "En cola" },
+      ],
+    },
+    revenueProtection: {
+      title: "Protección de Ingresos",
+      items: [
+        { label: "Seguimiento: Johnson HVAC", due: "Enviado hace 3 días", amount: "$2,800" },
+        { label: "Seguimiento: Smith Electric", due: "Enviado hace 2 días", amount: "$6,500" },
+        { label: "Factura: Martínez Plomería", due: "Vencida 5 días", amount: "$1,850" },
+        { label: "Nueva Cotización: Davis Construcción", due: "Solicitada hoy", amount: "$4,200" },
+      ],
+    },
+    weeklySummary: {
+      title: "Resumen Semanal — Generado Automáticamente",
+      stats: [
+        { label: "Trabajos Facturados", value: "47" },
+        { label: "Horas Ahorradas", value: "12.5" },
+        { label: "Cotizaciones Seguidas", value: "23" },
+        { label: "Ingresos Protegidos", value: "$27K" },
+      ],
+      riskTitle: "Alerta de Riesgo",
+      riskDesc: "2 cotizaciones con más de 7 días sin respuesta",
+    },
+  },
+
+  // Features section
+  features: {
+    badge: "Lo Que Hacemos",
+    headline: "Te Construimos un Asistente de Operaciones con IA",
+    subtext: "Tu asistente maneja el trabajo que repites cada semana para que te enfoques en lo que importa.",
+    feature1Title: "Automatización de Tareas",
+    feature1Subtitle: "Elimina el trabajo repetitivo",
+    feature1Desc: "Mueve datos entre sistemas, envía recordatorios automáticamente, actualiza clientes, rastrea renovaciones y da seguimiento a prospectos — sin esfuerzo manual.",
+    feature1Items: ["Sincronización de CRM", "Recordatorios automáticos", "Actualizaciones de clientes", "Rastreo de renovaciones", "Seguimiento de prospectos"],
+    feature2Title: "Protección de Ingresos",
+    feature2Subtitle: "Asegura que nada se pierda",
+    feature2Desc: "Monitorea plazos, activa recordatorios de pago, señala vencidos y mantiene tu pipeline en movimiento para que los ingresos no se escapen.",
+    feature2Items: ["Activadores de pago", "Alertas de vencimiento", "Monitoreo de pipeline", "Seguimiento de cotizaciones", "Recordatorios de upsell"],
+    feature3Title: "Visibilidad Operacional",
+    feature3Subtitle: "Claridad sin reportes manuales",
+    feature3Desc: "Genera resúmenes semanales, señala riesgos operacionales, crea dashboards de estado y mantiene a tu equipo informado automáticamente.",
+    feature3Items: ["Resúmenes semanales", "Alertas de riesgo", "Dashboards de estado", "Notificaciones al equipo", "Seguimiento de rendimiento"],
+  },
+
+  // Pilot section
+  pilot: {
+    badge: "Inicio Sin Riesgo",
+    headline: "Prueba Un Flujo de Trabajo Primero",
+    subtext: "¿No estás seguro si la automatización es para ti? Empieza pequeño. Valida con un flujo de trabajo antes de comprometerte.",
+    items: ["Piloto de 5 días", "Una automatización", "Resultados medibles", "Decide después de validar"],
+    disclaimer: "Sin tarjeta de crédito. Sin compromiso. Solo resultados.",
+    button: "Comienza con un Piloto",
+  },
+
+  // Impact metrics
+  impact: {
+    badge: "Resultados",
+    headline: "Más Tiempo. Más Margen. Menos Caos.",
+    metrics: [
+      { value: "20+", unit: "hrs/semana", label: "Horas Ahorradas", description: "Tiempo promedio recuperado por equipo" },
+      { value: "40%", unit: "", label: "Reducción de Costos", description: "Disminución de costos operacionales" },
+      { value: "10", unit: "días", label: "Tiempo de Implementación", description: "Desde la primera llamada hasta estar en vivo" },
+      { value: "5x", unit: "", label: "Múltiplo de ROI", description: "Retorno típico de inversión" },
+    ],
+  },
+
   // Testimonials
   testimonials: {
     badge: "Resultados",
     headline: "Lo Que Dicen Los Operadores",
   },
 
+  // Testimonial items
+  testimonialItems: [
+    { quote: "Pasaba 2 horas cada noche persiguiendo cotizaciones y haciendo facturas. FlowAudit maneja todo eso ahora — no he abierto una hoja de cálculo en 3 meses. Mi tasa de cierre subió 20% solo porque las cotizaciones se siguen el mismo día.", name: "Marcus Rodriguez", title: "Propietario, Summit Electrical Services", initials: "MR" },
+    { quote: "Era escéptico sobre la IA, pero el piloto me convenció en 3 días. Ahora mi equipo se enfoca en trabajo facturable en vez de copiar datos entre hojas de cálculo.", name: "Sarah Chen", title: "Socia Gerente, Cascade Insurance Group", initials: "SC" },
+    { quote: "Pasamos de rastrear manualmente más de 200 renovaciones a tener todo automatizado. El ROI fue obvio en el primer mes.", name: "David Okafor", title: "Director de Operaciones, Atlas Property Management", initials: "DO" },
+    { quote: "Tengo una operación pequeña de plomería. Pensé que la IA era para empresas grandes. Resulta que es perfecta para negocios como el mío — hace el trabajo de oficina que nunca tuve tiempo de hacer. La mejor inversión que he hecho.", name: "Tom Walsh", title: "Propietario, Walsh Plumbing & Heating", initials: "TW" },
+    { quote: "Intentamos contratar un gerente de oficina dos veces. Las dos no funcionó. FlowAudit cuesta menos que un mes de su salario y nunca se reporta enfermo. Nuestras cotizaciones son 3 veces más rápidas ahora.", name: "Rachel Nguyen", title: "Directora, Precision HVAC Solutions", initials: "RN" },
+  ],
+
   // Security
   security: {
     badge: "Seguridad",
     headline: "Tus Datos Están Seguros Con Nosotros",
     subtext: "Simple y claro — así es como protegemos tu negocio.",
+    items: [
+      { title: "Solo Tú Ves Tus Datos", description: "Configuramos permisos para que solo las personas correctas accedan a tu información." },
+      { title: "Seguridad de Nivel Bancario", description: "Tus datos están encriptados y alojados en el mismo tipo de infraestructura que usan los bancos." },
+      { title: "Transparencia Total", description: "Puedes ver exactamente qué ha hecho tu asistente — cada email enviado, cada factura creada." },
+      { title: "Tus Datos Son Tuyos", description: "Nunca vendemos tus datos, los compartimos con nadie, ni los usamos para nada más que ejecutar tus automatizaciones." },
+      { title: "Eres Dueño de Todo", description: "Todas tus automatizaciones, configuraciones y datos te pertenecen. Siempre." },
+    ],
   },
 
   // Careers page

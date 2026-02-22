@@ -35,7 +35,7 @@ function PricingSection() {
                 </text>
               </svg>
             }
-            text="Pricing"
+            text={t.pricing.badge}
           />
           <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
             {t.pricing.headline}

@@ -246,6 +246,20 @@ export const en = {
     chartAI: "With AI Assistant",
     chartSavings: "Time Savings",
     chartYears: ["Now", "6 mo", "1 yr", "18 mo", "2 yr", "30 mo", "3 yr"],
+    keyPoints: [
+      { title: "Tasks Compound", desc: "Every new client means more quoting, invoicing, chasing" },
+      { title: "Manual Scales Up", desc: "More jobs = more paperwork, same hours in the day" },
+      { title: "Hiring Adds Cost", desc: "An office manager costs \u00A330K+ before they save you a penny" },
+      { title: "Admin Steals Time", desc: "Every hour on admin is an hour you're not on a paid job" },
+      { title: "Burnout Rises", desc: "Working evenings and weekends just to stay on top of it" },
+    ],
+  },
+
+  // Logo grid
+  logoGrid: {
+    badge: "Social Proof",
+    headline: "Teams that trust FlowAudit",
+    subtext: "Operators across industries reclaim their time with our AI assistants.",
   },
 
   // Calculator section
@@ -319,17 +333,108 @@ export const en = {
     { q: "What kind of ROI can I expect?", a: "Most clients see 5x return on their investment. The average business saves 20+ hours a week on admin. Most people break even within the first few weeks." },
   ],
 
+  // Hero visual demos
+  heroVisuals: {
+    liveWorkflow: {
+      title: "Live Workflow",
+      tasks: [
+        { label: "Quote Sent to Client", status: "Completed" },
+        { label: "Follow-up: Smith Kitchen Reno", status: "Completed" },
+        { label: "Invoice: 42 Maple Drive Job", status: "Running" },
+        { label: "New Lead: Bathroom Refit", status: "Queued" },
+        { label: "Weekly Cash Flow Summary", status: "Queued" },
+      ],
+    },
+    revenueProtection: {
+      title: "Revenue Protection",
+      items: [
+        { label: "Quote Follow-up: Johnson HVAC", due: "Sent 3 days ago", amount: "$2,800" },
+        { label: "Quote Follow-up: Smith Electric", due: "Sent 2 days ago", amount: "$6,500" },
+        { label: "Invoice: Martinez Plumbing", due: "Overdue 5 days", amount: "$1,850" },
+        { label: "New Quote: Davis Construction", due: "Requested today", amount: "$4,200" },
+      ],
+    },
+    weeklySummary: {
+      title: "Weekly Summary — Auto-Generated",
+      stats: [
+        { label: "Jobs Invoiced", value: "47" },
+        { label: "Hours Saved", value: "12.5" },
+        { label: "Quotes Chased", value: "23" },
+        { label: "Revenue Protected", value: "$27K" },
+      ],
+      riskTitle: "Risk Flag",
+      riskDesc: "2 quotes over 7 days old without a response",
+    },
+  },
+
+  // Features section
+  features: {
+    badge: "What We Do",
+    headline: "We Build You an AI Operations Assistant",
+    subtext: "Your assistant handles the work you keep doing every week so you can focus on what matters.",
+    feature1Title: "Task Automation",
+    feature1Subtitle: "Removes repetitive work",
+    feature1Desc: "Moves data between systems, sends reminders automatically, updates clients, tracks renewals, and follows up on leads — without manual effort.",
+    feature1Items: ["CRM data syncing", "Automatic reminders", "Client status updates", "Renewal tracking", "Lead follow-ups"],
+    feature2Title: "Revenue Protection",
+    feature2Subtitle: "Ensures nothing falls through the cracks",
+    feature2Desc: "Monitors deadlines, triggers payment reminders, flags overdue items, and keeps your pipeline moving so revenue doesn't slip away.",
+    feature2Items: ["Payment triggers", "Overdue alerts", "Pipeline monitoring", "Quote follow-ups", "Upsell reminders"],
+    feature3Title: "Operational Visibility",
+    feature3Subtitle: "Provides clarity without manual reporting",
+    feature3Desc: "Builds weekly summaries, flags operational risks, generates status dashboards, and keeps your team informed automatically.",
+    feature3Items: ["Weekly summaries", "Risk flags", "Status dashboards", "Team notifications", "Performance tracking"],
+  },
+
+  // Pilot section
+  pilot: {
+    badge: "Risk-Free Start",
+    headline: "Test One Workflow First",
+    subtext: "Not sure if automation is right for you? Start small. Validate with one workflow before committing.",
+    items: ["5-day pilot", "One automation", "Measurable results", "Decide after validation"],
+    disclaimer: "No credit card. No commitment. Just results.",
+    button: "Start With a Pilot",
+  },
+
+  // Impact metrics
+  impact: {
+    badge: "Results",
+    headline: "More Time. More Margin. Less Chaos.",
+    metrics: [
+      { value: "20+", unit: "hrs/week", label: "Hours Saved", description: "Average time recovered per team" },
+      { value: "40%", unit: "", label: "Cost Reduction", description: "Operational cost decrease" },
+      { value: "10", unit: "days", label: "Deployment Time", description: "From first call to live assistant" },
+      { value: "5x", unit: "", label: "ROI Multiple", description: "Typical return on investment" },
+    ],
+  },
+
   // Testimonials
   testimonials: {
     badge: "Results",
     headline: "What Operators Say",
   },
 
+  // Testimonial items
+  testimonialItems: [
+    { quote: "I was spending 2 hours every evening chasing quotes and doing invoices. FlowAudit handles all of it now — I haven't opened a spreadsheet in 3 months. My close rate went up 20% just because quotes get followed up the same day.", name: "Marcus Rodriguez", title: "Owner, Summit Electrical Services", initials: "MR" },
+    { quote: "I was skeptical about AI, but the pilot sold me in 3 days. Now my team focuses on billable work instead of copying data between spreadsheets.", name: "Sarah Chen", title: "Managing Partner, Cascade Insurance Group", initials: "SC" },
+    { quote: "We went from manually tracking 200+ renewals to having everything automated. The ROI was obvious within the first month.", name: "David Okafor", title: "Operations Director, Atlas Property Management", initials: "DO" },
+    { quote: "I run a small plumbing operation. I figured AI was for big companies. Turns out it's perfect for businesses like mine — it does the office work I never had time for. Best money I've spent on my business.", name: "Tom Walsh", title: "Owner, Walsh Plumbing & Heating", initials: "TW" },
+    { quote: "We tried hiring an office manager twice. Both times it didn't work out. FlowAudit costs less than a month of their salary and it never calls in sick. Our quoting is 3x faster now.", name: "Rachel Nguyen", title: "Director, Precision HVAC Solutions", initials: "RN" },
+  ],
+
   // Security
   security: {
     badge: "Security",
     headline: "Your Data Is Safe With Us",
     subtext: "Plain and simple — here's how we protect your business.",
+    items: [
+      { title: "Only You See Your Data", description: "We set up permissions so only the right people can access your information." },
+      { title: "Bank-Level Security", description: "Your data is encrypted and hosted on the same type of infrastructure banks use." },
+      { title: "Full Transparency", description: "You can see exactly what your assistant has done — every email sent, every invoice created." },
+      { title: "Your Data Stays Yours", description: "We never sell your data, share it with anyone else, or use it for anything other than running your automations." },
+      { title: "You Own Everything", description: "All your automations, settings, and data belong to you. Always." },
+    ],
   },
 
   // Careers page

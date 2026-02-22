@@ -3,46 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const testimonials = [
-  {
-    quote:
-      "I was spending 2 hours every evening chasing quotes and doing invoices. FlowAudit handles all of it now — I haven't opened a spreadsheet in 3 months. My close rate went up 20% just because quotes get followed up the same day.",
-    name: "Marcus Rodriguez",
-    title: "Owner, Summit Electrical Services",
-    initials: "MR",
-  },
-  {
-    quote:
-      "I was skeptical about AI, but the pilot sold me in 3 days. Now my team focuses on billable work instead of copying data between spreadsheets.",
-    name: "Sarah Chen",
-    title: "Managing Partner, Cascade Insurance Group",
-    initials: "SC",
-  },
-  {
-    quote:
-      "We went from manually tracking 200+ renewals to having everything automated. The ROI was obvious within the first month.",
-    name: "David Okafor",
-    title: "Operations Director, Atlas Property Management",
-    initials: "DO",
-  },
-  {
-    quote:
-      "I run a small plumbing operation. I figured AI was for big companies. Turns out it's perfect for businesses like mine — it does the office work I never had time for. Best money I've spent on my business.",
-    name: "Tom Walsh",
-    title: "Owner, Walsh Plumbing & Heating",
-    initials: "TW",
-  },
-  {
-    quote:
-      "We tried hiring an office manager twice. Both times it didn't work out. FlowAudit costs less than a month of their salary and it never calls in sick. Our quoting is 3x faster now.",
-    name: "Rachel Nguyen",
-    title: "Director, Precision HVAC Solutions",
-    initials: "RN",
-  },
-] as const;
+import { useLocale } from "@/components/providers/locale-provider";
 
 function TestimonialsSection() {
+  const { t } = useLocale();
+  const testimonials = t.testimonialItems;
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const mountedRef = useRef(true);

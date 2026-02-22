@@ -6,27 +6,26 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useLocale } from "@/components/providers/locale-provider";
 
-const workflowDemos = [
-  {
-    title: "Quote Follow-up",
-    description: "Auto-chase every quote you send — no more deals falling through the cracks.",
-    visual: TaskAutomationVisual,
-  },
-  {
-    title: "Job Complete → Invoice",
-    description: "Finish a job, invoice goes out. No more chasing payments weeks later.",
-    visual: RevenueProtectionVisual,
-  },
-  {
-    title: "Weekly Cash Flow Summary",
-    description:
-      "See what's coming in, what's overdue, and what needs chasing — every Monday morning.",
-    visual: OperationalVisibilityVisual,
-  },
-] as const;
-
 function HeroSection() {
   const { t } = useLocale();
+
+  const workflowDemos = [
+    {
+      title: t.heroTabs.tab1Title,
+      description: t.heroTabs.tab1Desc,
+      visual: TaskAutomationVisual,
+    },
+    {
+      title: t.heroTabs.tab2Title,
+      description: t.heroTabs.tab2Desc,
+      visual: RevenueProtectionVisual,
+    },
+    {
+      title: t.heroTabs.tab3Title,
+      description: t.heroTabs.tab3Desc,
+      visual: OperationalVisibilityVisual,
+    },
+  ];
   const [activeTab, setActiveTab] = useState(0);
   const [progress, setProgress] = useState(0);
   const mountedRef = useRef(true);
@@ -131,25 +130,21 @@ function HeroSection() {
 }
 
 function TaskAutomationVisual() {
+  const { t } = useLocale();
+  const colors = ["bg-emerald-500", "bg-emerald-500", "bg-amber-500", "bg-gray-300", "bg-gray-300"];
   return (
     <div className="flex h-full w-full flex-col justify-center bg-gradient-to-br from-[#F7F5F3] to-white p-6 sm:p-10">
       <div className="mx-auto w-full max-w-md space-y-4">
         <div className="mb-6 font-sans text-xs tracking-wider text-[#605A57] uppercase">
-          Live Workflow
+          {t.heroVisuals.liveWorkflow.title}
         </div>
-        {[
-          { label: "Quote Sent to Client", status: "Completed", color: "bg-emerald-500" },
-          { label: "Follow-up: Smith Kitchen Reno", status: "Completed", color: "bg-emerald-500" },
-          { label: "Invoice: 42 Maple Drive Job", status: "Running", color: "bg-amber-500" },
-          { label: "New Lead: Bathroom Refit", status: "Queued", color: "bg-gray-300" },
-          { label: "Weekly Cash Flow Summary", status: "Queued", color: "bg-gray-300" },
-        ].map((task) => (
+        {t.heroVisuals.liveWorkflow.tasks.map((task, i) => (
           <div
             key={task.label}
             className="flex items-center justify-between rounded-lg border border-[rgba(55,50,47,0.08)] bg-white px-4 py-3"
           >
             <div className="flex items-center gap-3">
-              <div className={cn("h-2 w-2 rounded-full", task.color)} />
+              <div className={cn("h-2 w-2 rounded-full", colors[i])} />
               <span className="font-sans text-sm font-medium text-[#37322F]">{task.label}</span>
             </div>
             <span className="font-sans text-xs text-[#605A57]">{task.status}</span>
@@ -161,18 +156,14 @@ function TaskAutomationVisual() {
 }
 
 function RevenueProtectionVisual() {
+  const { t } = useLocale();
   return (
     <div className="flex h-full w-full flex-col justify-center bg-gradient-to-br from-[#F7F5F3] to-white p-6 sm:p-10">
       <div className="mx-auto w-full max-w-md space-y-4">
         <div className="mb-6 font-sans text-xs tracking-wider text-[#605A57] uppercase">
-          Revenue Protection
+          {t.heroVisuals.revenueProtection.title}
         </div>
-        {[
-          { label: "Quote Follow-up: Johnson HVAC", due: "Sent 3 days ago", amount: "$2,800" },
-          { label: "Quote Follow-up: Smith Electric", due: "Sent 2 days ago", amount: "$6,500" },
-          { label: "Invoice: Martinez Plumbing", due: "Overdue 5 days", amount: "$1,850" },
-          { label: "New Quote: Davis Construction", due: "Requested today", amount: "$4,200" },
-        ].map((item) => (
+        {t.heroVisuals.revenueProtection.items.map((item) => (
           <div
             key={item.label}
             className="flex items-center justify-between rounded-lg border border-[rgba(55,50,47,0.08)] bg-white px-4 py-3"
@@ -190,19 +181,15 @@ function RevenueProtectionVisual() {
 }
 
 function OperationalVisibilityVisual() {
+  const { t } = useLocale();
   return (
     <div className="flex h-full w-full flex-col justify-center bg-gradient-to-br from-[#F7F5F3] to-white p-6 sm:p-10">
       <div className="mx-auto w-full max-w-md space-y-5">
         <div className="mb-4 font-sans text-xs tracking-wider text-[#605A57] uppercase">
-          Weekly Summary — Auto-Generated
+          {t.heroVisuals.weeklySummary.title}
         </div>
         <div className="grid grid-cols-2 gap-3">
-          {[
-            { label: "Jobs Invoiced", value: "47" },
-            { label: "Hours Saved", value: "12.5" },
-            { label: "Quotes Chased", value: "23" },
-            { label: "Revenue Protected", value: "$27K" },
-          ].map((stat) => (
+          {t.heroVisuals.weeklySummary.stats.map((stat) => (
             <div
               key={stat.label}
               className="rounded-lg border border-[rgba(55,50,47,0.08)] bg-white p-4"
@@ -213,9 +200,9 @@ function OperationalVisibilityVisual() {
           ))}
         </div>
         <div className="rounded-lg border border-[rgba(55,50,47,0.08)] bg-white p-4">
-          <div className="font-sans text-xs font-medium text-amber-600">Risk Flag</div>
+          <div className="font-sans text-xs font-medium text-amber-600">{t.heroVisuals.weeklySummary.riskTitle}</div>
           <div className="mt-1 font-sans text-sm text-[#37322F]">
-            2 quotes over 7 days old without a response
+            {t.heroVisuals.weeklySummary.riskDesc}
           </div>
         </div>
       </div>

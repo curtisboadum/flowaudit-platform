@@ -1,37 +1,9 @@
 "use client";
 
-import { Shield, Lock, Eye, Database, User } from "lucide-react";
+import { Shield, Lock, Eye, Database, User, type LucideIcon } from "lucide-react";
 import { useLocale } from "@/components/providers/locale-provider";
 
-const securityItems = [
-  {
-    icon: Lock,
-    title: "Only You See Your Data",
-    description: "We set up permissions so only the right people can access your information.",
-  },
-  {
-    icon: Shield,
-    title: "Bank-Level Security",
-    description: "Your data is encrypted and hosted on the same type of infrastructure banks use.",
-  },
-  {
-    icon: Eye,
-    title: "Full Transparency",
-    description:
-      "You can see exactly what your assistant has done — every email sent, every invoice created.",
-  },
-  {
-    icon: Database,
-    title: "Your Data Stays Yours",
-    description:
-      "We never sell your data, share it with anyone else, or use it for anything other than running your automations.",
-  },
-  {
-    icon: User,
-    title: "You Own Everything",
-    description: "All your automations, settings, and data belong to you. Always.",
-  },
-] as const;
+const icons: LucideIcon[] = [Lock, Shield, Eye, Database, User];
 
 function SecuritySection() {
   const { t } = useLocale();
@@ -50,8 +22,8 @@ function SecuritySection() {
           </p>
 
           <div className="space-y-5">
-            {securityItems.map((item) => {
-              const Icon = item.icon;
+            {t.security.items.map((item, index) => {
+              const Icon = icons[index]!;
               return (
                 <div key={item.title} className="flex items-start gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#F0EDEB]">
