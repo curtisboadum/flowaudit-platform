@@ -1,38 +1,42 @@
 # Progress — FlowAudit
 
 ## Last Updated
-2026-02-21 18:45 UTC by Klaus
+2026-02-22 00:49 UTC by Klaus
 
 ## Current State
-- **Deployed:** https://flowaudit-platform.vercel.app
-- **All pages live:** Home, Web Design (/web-design), Careers (/careers), Calculator, About, Book, Solutions, Blog, Results
-- **i18n:** Hero, CTA, pricing header, bento header, FAQ header wired to translation system. Language toggle (EN/ES) in header. Geo-detection for Paraguay via middleware.
-- **Agency pricing discount:** 42.8571% off for Spanish locale. Web design arm: full price globally.
-- **Mobile:** CTAs stack + full-width, touch targets 44px+, comparison stacked on mobile, overflow-x-hidden
-- **Lighthouse:** Home 99/91/100/100. Web Design 99/94/100/100.
-- **Visual QA:** Passed at 375px, 768px, 1440px. Web design + careers PASS all breakpoints.
+- **LIVE at https://flowaudit.co.uk** — DNS configured via IONOS, SSL active
+- **All core features deployed:** Web design arm, careers, i18n, Calendly, team portraits, AI agent illustrations
+- **i18n:** Full home page + web design + careers + book pages translated (ES). Geo-detection for Paraguay. Language toggle in header.
+- **Lighthouse:** Home 99/91/100/100, Web Design 99/94/100/100
 
-## Completed
-- [x] Web design arm landing page (/web-design)
+## Completed (2026-02-21)
+- [x] Web design arm landing page (/web-design) — 8 products, pricing, FAQ
 - [x] Careers page (/careers)
-- [x] Mobile responsive fixes
+- [x] i18n system + Paraguay geo-detection + language toggle
+- [x] Full Spanish translation of home page (all sections)
+- [x] Agency pricing 42.8571% discount for Spanish locale
 - [x] PDF export crash hardening
-- [x] i18n system + geo-detection + language toggle
-- [x] Agency pricing discount for Spanish locale
-- [x] Hero, CTA, pricing, bento, FAQ wired to translations
-- [x] SEO updated to flowaudit.co.uk
+- [x] Mobile responsive fixes
+- [x] Header transparency fix (fully opaque)
+- [x] Removed fake logo grid
 - [x] Branding corrected (FlowAudit, no underscore)
-- [x] Lighthouse audit passed (all scores >90)
-- [x] Visual QA screenshots at 3 breakpoints
+- [x] Team portraits + AI agent SVG illustrations
+- [x] Calendly embedded on /book page
+- [x] SEO updated to flowaudit.co.uk
+- [x] DNS configured — LIVE on flowaudit.co.uk
+- [x] Visual QA at 375/768/1440px — passed
+- [x] Lighthouse audit — all scores >90
 - [x] Retrospective logged
 
-## Needs Curtis
-- [ ] DNS setup for flowaudit.co.uk (domain registrar access needed)
-- [ ] Review Spanish translations for accuracy
-- [ ] Live test PDF export on deployed site
-- [ ] Review and approve for production domain
+## Still TODO
+- [ ] Translate remaining pages: blog posts, solutions, industry pages, about page bios, testimonials
+- [ ] Translate full calculator page (/calculator)
+- [ ] Curtis to review Spanish translations for accuracy
+- [ ] Live test PDF export on production
+- [ ] Security section detail items need translation
 
-## Known Limitations
-- Some deeper section content (FAQ answers, testimonials, comparison table details, bento grid details) still in English when in Spanish mode — headers are translated
-- About page, book page not yet translated
-- 1024px breakpoint screenshots not yet taken
+## Environment
+- Next.js 15.5.12, Tailwind CSS v4, pnpm
+- Vercel: curtisboadums-projects/flowaudit-platform
+- Domain: flowaudit.co.uk (IONOS)
+- Branch: feature/complete-overhaul
