@@ -6,12 +6,12 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { WebDesignContent } from "./web-design-content";
 
 export const metadata: Metadata = {
-  title: "Custom Websites & AI Tools — FlowAudit",
+  title: "Custom Websites & AI Tools | FlowAudit",
   description:
-    "Custom-designed websites and AI-powered business tools. Website, chatbot, booking, invoicing — everything your business needs online. From £149/mo.",
+    "Custom-designed websites and AI-powered business tools. Website, chatbot, booking, invoicing, everything your business needs online. From £149/mo.",
   alternates: { canonical: "/web-design" },
   openGraph: {
-    title: "Custom Websites & AI Tools — FlowAudit",
+    title: "Custom Websites & AI Tools | FlowAudit",
     description:
       "Custom-designed websites and AI-powered business tools for your business. From £149/mo.",
     type: "website",

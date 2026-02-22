@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — FlowAudit",
+  title: "Terms of Service | FlowAudit",
   description:
     "FlowAudit's terms of service. Review our service agreements, ownership, and payment terms.",
   alternates: {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — FlowAudit",
+  title: "Privacy Policy | FlowAudit",
   description:
     "FlowAudit's privacy policy. Learn how we collect, use, and protect your information.",
   alternates: {

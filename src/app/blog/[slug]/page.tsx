@@ -70,9 +70,9 @@ That's how you increase the money you take home per job, not by working longer h
 
 1. **List every task** you do each week that isn't billable work
 2. **Estimate the hours** you spend on each one
-3. **Multiply by your hourly rate** — that's what you could be earning instead
-4. **Add the cost of mistakes** — a missed quote follow-up that loses a $5,000 job, a late invoice that doesn't get paid for 90 days
-5. **Project over 12 months** — this is what doing everything yourself is really costing you
+3. **Multiply by your hourly rate**. This is what you could be earning instead
+4. **Add the cost of mistakes**. A missed quote follow-up that loses a $5,000 job, a late invoice that doesn't get paid for 90 days
+5. **Project over 12 months**. This is what doing everything yourself is really costing you
 
 Most tradespeople we talk to are shocked by the number. It's almost always higher than they expected.`,
   },
@@ -93,13 +93,13 @@ Ask yourself three questions about the task:
 
 ### 1. Is it structured and repetitive?
 
-If the task follows the same steps every time — send an invoice after a job, follow up on a quote after 3 days, text the client a booking reminder — it's a prime candidate for automation.
+If the task follows the same steps every time. Send an invoice after a job, follow up on a quote after 3 days, text the client a booking reminder. It's a prime candidate for automation.
 
 If it requires judgment, problem-solving, or a conversation with a real person, that's where humans are better.
 
 ### 2. Does it scale with volume?
 
-Tasks that increase with every new client — sending quotes, chasing late payments, booking callouts, updating job records — are expensive to solve with hiring. Every new client means more admin hours.
+Tasks that increase with every new client. Sending quotes, chasing late payments, booking callouts, updating job records. These are expensive to solve with hiring. Every new client means more admin hours.
 
 Automation handles volume increases without adding cost.
 
@@ -112,16 +112,16 @@ Automated systems don't forget, don't get tired, and don't make copy-paste error
 ## When to Hire Instead
 
 Hire when the work requires:
-- **Meeting a homeowner to assess a job** — clients want to talk to a real person before committing
-- **Diagnosing why a boiler keeps cutting out** — the answer changes every time
-- **Creative problem-solving** — working out how to route plumbing in a tricky renovation
-- **Being on-site to do the actual work** — no robot is replacing you on the tools
+- **Meeting a homeowner to assess a job**. Clients want to talk to a real person before committing
+- **Diagnosing why a boiler keeps cutting out**. The answer changes every time
+- **Creative problem-solving**. Working out how to route plumbing in a tricky renovation
+- **Being on-site to do the actual work**. No robot is replacing you on the tools
 
 ## The Hybrid Approach
 
 The best operators do both: automate the repetitive admin, then hire people for the skilled work. This means every person you bring on spends 100% of their time on billable work.
 
-That's how you increase profit per hour worked — not by hiring someone to do your paperwork, but by removing the paperwork entirely.`,
+That's how you increase profit per hour worked. Not by hiring someone to do your paperwork, but by removing the paperwork entirely.`,
   },
   "revenue-per-employee": {
     title: "The One Number That Shows If Your Business Is Healthy",
@@ -139,10 +139,10 @@ It tells you more about whether your business is actually healthy than any other
 Revenue per person = Total Revenue / Number of People in Your Business
 
 This ratio captures:
-- **How efficient you are** — how much of your time actually converts to money coming in
-- **Whether you can grow** — can your business take on more work without hiring more people
-- **Your margins** — higher revenue per person generally means more profit
-- **Where automation could help** — low numbers often mean too much time spent on unpaid admin
+- **How efficient you are**. How much of your time actually converts to money coming in
+- **Whether you can grow**. Does your business take on more work without hiring more people
+- **Your margins**. Higher revenue per person generally means more profit
+- **Where automation could help**. Low numbers often mean too much time spent on unpaid admin
 
 ## Benchmarks for Trades and Small Operators
 
@@ -184,9 +184,9 @@ export function generateMetadata({
 }): Promise<Metadata> {
   return params.then(({ slug }) => {
     const post = posts[slug];
-    if (!post) return { title: "Blog — FlowAudit" };
+    if (!post) return { title: "Blog | FlowAudit" };
     return {
-      title: `${post.title} — FlowAudit Blog`,
+      title: `${post.title} | FlowAudit Blog`,
       description: post.excerpt,
       alternates: {
         canonical: `/blog/${slug}`,
@@ -319,7 +319,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             Ready to get your evenings back?
           </h2>
           <p className="mt-3 max-w-[400px] font-sans text-sm text-[#605A57]">
-            Book a free call and we&apos;ll show you exactly where your time is going — and how to
+            Book a free call and we&apos;ll show you exactly where your time is going. And how to
             get it back.
           </p>
           <Button size="lg" className="mt-5" asChild>

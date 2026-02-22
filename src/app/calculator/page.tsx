@@ -6,7 +6,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "ROI Calculator — FlowAudit",
+  title: "ROI Calculator | FlowAudit",
   description:
     "Calculate your automation savings with FlowAudit. See how much time and money you could save by automating your quoting, invoicing, and admin. Built for trades, contractors, and small businesses.",
   alternates: {
