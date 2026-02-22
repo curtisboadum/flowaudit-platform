@@ -9,6 +9,47 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: "/api/",
       },
+      // Explicitly allow AI crawlers for AEO visibility
+      {
+        userAgent: "GPTBot",
+        allow: "/",
+        disallow: "/api/",
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
+        disallow: "/api/",
+      },
+      {
+        userAgent: "Google-Extended",
+        allow: "/",
+        disallow: "/api/",
+      },
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+        disallow: "/api/",
+      },
+      {
+        userAgent: "Anthropic-AI",
+        allow: "/",
+        disallow: "/api/",
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: "/",
+        disallow: "/api/",
+      },
+      {
+        userAgent: "Bytespider",
+        allow: "/",
+        disallow: "/api/",
+      },
+      {
+        userAgent: "CCBot",
+        allow: "/",
+        disallow: "/api/",
+      },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
