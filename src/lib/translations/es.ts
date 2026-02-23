@@ -128,7 +128,7 @@ export const es: Translations = {
       "Descubre cómo la automatización puede manejar tu administración. 30 minutos. Sin tecnicismos. Sin presión.",
     scheduleTitle: "Agenda Tu Llamada de Estrategia Gratuita",
     scheduleSubtext:
-      "Envíanos un email a hello@flowaudit.co y encontraremos un horario que te funcione. O llámanos directamente.",
+      "Envíanos un email a support@flowaudit.co.uk y encontraremos un horario que te funcione. O llámanos directamente.",
     emailButton: "Envíanos un Email",
     responseNote: "Respondemos todas las consultas dentro de 24 horas.",
     expectTitle: "Qué Esperar",

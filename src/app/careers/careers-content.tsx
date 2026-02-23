@@ -72,7 +72,7 @@ function CareersContent() {
               {c.noOpenings}
             </p>
             <Button asChild>
-              <a href="mailto:hello@flowaudit.co?subject=Career%20Enquiry">
+              <a href="mailto:daniels@flowaudit.co.uk?subject=Career%20Enquiry">
                 <Mail className="mr-2 h-4 w-4" />
                 {c.sendCv}
               </a>

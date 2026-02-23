@@ -66,7 +66,7 @@ export default function HomePage() {
           image: `${SITE_URL}/og-image.png`,
           description:
             "AI operations assistants that handle repetitive admin for teams drowning in manual work. Turn 10 hours of manual work into 10 minutes.",
-          email: "hello@flowaudit.co",
+          email: "support@flowaudit.co.uk",
           areaServed: [
             { "@type": "Country", name: "United Kingdom" },
             { "@type": "Country", name: "Paraguay" },
@@ -91,7 +91,7 @@ export default function HomePage() {
             "@type": "ContactPoint",
             contactType: "sales",
             url: `${SITE_URL}/book`,
-            email: "hello@flowaudit.co",
+            email: "support@flowaudit.co.uk",
           },
           hasOfferCatalog: {
             "@type": "OfferCatalog",

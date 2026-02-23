@@ -119,7 +119,7 @@ export const en = {
     subtext: "See how automation handles your admin. 30 minutes. No jargon. No pressure.",
     scheduleTitle: "Schedule Your Free Strategy Call",
     scheduleSubtext:
-      "Email us at hello@flowaudit.co and we'll find a time working for you. Or call us directly.",
+      "Email us at support@flowaudit.co.uk and we'll find a time working for you. Or call us directly.",
     emailButton: "Email Us to Book",
     responseNote: "We respond to all enquiries within 24 hours.",
     expectTitle: "What to Expect",

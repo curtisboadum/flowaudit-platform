@@ -72,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             logo: `${SITE_URL}/logo.png`,
             description:
               "FlowAudit builds AI operations assistants that handle repetitive admin for teams drowning in manual work.",
-            email: "hello@flowaudit.co",
+            email: "support@flowaudit.co.uk",
             sameAs: [
               "https://www.linkedin.com/company/flowaudit",
             ],
@@ -80,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "ContactPoint",
               contactType: "sales",
               url: `${SITE_URL}/book`,
-              email: "hello@flowaudit.co",
+              email: "support@flowaudit.co.uk",
             },
             founder: [
               {
