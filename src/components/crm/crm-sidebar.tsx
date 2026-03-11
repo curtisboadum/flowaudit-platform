@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { Settings, LogOut, Workflow, Users } from "lucide-react";
 import type { CrmUser } from "@/lib/crm-auth";
 import type { CrmLocale, CrmLocaleCopy } from "@/lib/crm-translations";
 
 interface CrmSidebarProps {
+  activePage: "leads" | "pipeline" | "settings";
   user: CrmUser;
   locale: CrmLocale;
   copy: CrmLocaleCopy;
@@ -21,8 +23,23 @@ function getUserInitials(name: string): string {
   return `${first}${second}`.toUpperCase();
 }
 
-export function CrmSidebar({ user, locale, copy, onLocaleChange, onLogout }: CrmSidebarProps) {
+export function CrmSidebar({
+  activePage,
+  user,
+  locale,
+  copy,
+  onLocaleChange,
+  onLogout,
+}: CrmSidebarProps) {
   const isAdmin = user.role === "admin";
+  const navItemClass = "flex items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition-colors";
+
+  function getNavClass(page: CrmSidebarProps["activePage"], activePage: CrmSidebarProps["activePage"]) {
+    if (page === activePage) {
+      return `${navItemClass} bg-[rgba(55,50,47,0.05)] font-medium text-[#37322F]`;
+    }
+    return `${navItemClass} text-[#7C7571] hover:bg-[rgba(55,50,47,0.04)] hover:text-[#37322F]`;
+  }
 
   return (
     <aside className="w-full border-b border-gray-100 bg-white md:fixed md:top-0 md:left-0 md:h-screen md:w-[220px] md:border-r md:border-b-0">
@@ -32,29 +49,20 @@ export function CrmSidebar({ user, locale, copy, onLocaleChange, onLogout }: Crm
         </div>
 
         <nav className="flex flex-col gap-1">
-          <button
-            type="button"
-            className="flex items-center gap-2 rounded-lg bg-[rgba(55,50,47,0.05)] px-3 py-2 text-left text-sm font-medium text-[#37322F]"
-          >
+          <Link href="/crm" className={getNavClass("leads", activePage)}>
             <Users className="h-4 w-4" />
             {copy.sidebar.leads}
-          </button>
+          </Link>
 
-          <div className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-[#7C7571]">
-            <span className="flex items-center gap-2">
-              <Workflow className="h-4 w-4" />
-              {copy.sidebar.pipeline}
-            </span>
-            <span className="text-[11px]">{copy.sidebar.comingSoon}</span>
-          </div>
+          <Link href="/crm/pipeline" className={getNavClass("pipeline", activePage)}>
+            <Workflow className="h-4 w-4" />
+            {copy.sidebar.pipeline}
+          </Link>
 
-          <div className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-[#7C7571]">
-            <span className="flex items-center gap-2">
-              <Settings className="h-4 w-4" />
-              {copy.sidebar.settings}
-            </span>
-            <span className="text-[11px]">{copy.sidebar.comingSoon}</span>
-          </div>
+          <Link href="/crm/settings" className={getNavClass("settings", activePage)}>
+            <Settings className="h-4 w-4" />
+            {copy.sidebar.settings}
+          </Link>
         </nav>
 
         {isAdmin && (

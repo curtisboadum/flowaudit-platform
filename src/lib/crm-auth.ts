@@ -54,10 +54,16 @@ function safeCompare(left: string, right: string): boolean {
 export function validateCredentials(email: string, pass: string): CrmRole | null {
   const adminEmail = process.env.CRM_ADMIN_EMAIL ?? "";
   const adminPass = process.env.CRM_ADMIN_PASS ?? "";
+  const kofiEmail = process.env.CRM_KOFI_EMAIL ?? "";
+  const kofiPass = process.env.CRM_KOFI_PASS ?? "";
   const estebanEmail = process.env.CRM_ESTEBAN_EMAIL ?? "esteban@flowaudit.co.uk";
   const estebanPass = process.env.CRM_ESTEBAN_PASS ?? "";
 
   if (adminEmail && adminPass && safeCompare(email, adminEmail) && pass === adminPass) {
+    return "admin";
+  }
+
+  if (kofiEmail && kofiPass && safeCompare(email, kofiEmail) && pass === kofiPass) {
     return "admin";
   }
 
@@ -66,6 +72,10 @@ export function validateCredentials(email: string, pass: string): CrmRole | null
   }
 
   return null;
+}
+
+export function getKofiEmail(): string {
+  return (process.env.CRM_KOFI_EMAIL ?? "").trim().toLowerCase();
 }
 
 export async function signToken(payload: CrmUser): Promise<string> {

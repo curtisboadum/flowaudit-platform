@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocale } from "@/components/providers/locale-provider";
@@ -12,6 +12,22 @@ function TestimonialsSection() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const mountedRef = useRef(true);
 
+  const goToNext = useCallback(() => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+      setIsTransitioning(false);
+    }, 300);
+  }, [testimonials.length]);
+
+  const goToPrev = useCallback(() => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+      setIsTransitioning(false);
+    }, 300);
+  }, [testimonials.length]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (!mountedRef.current) return;
@@ -22,23 +38,7 @@ function TestimonialsSection() {
       clearInterval(interval);
       mountedRef.current = false;
     };
-  }, [activeIndex]);
-
-  const goToNext = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonials.length);
-      setIsTransitioning(false);
-    }, 300);
-  };
-
-  const goToPrev = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-      setIsTransitioning(false);
-    }, 300);
-  };
+  }, [goToNext]);
 
   const active = testimonials[activeIndex];
 

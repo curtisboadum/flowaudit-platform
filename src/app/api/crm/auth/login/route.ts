@@ -4,6 +4,7 @@ import {
   CRM_SESSION_COOKIE,
   signToken,
   validateCredentials,
+  getKofiEmail,
   type CrmRole,
   type CrmUser,
 } from "@/lib/crm-auth";
@@ -13,8 +14,10 @@ interface LoginBody {
   password: string;
 }
 
-function roleName(role: CrmRole): string {
-  return role === "admin" ? "Admin" : "Esteban";
+function getDisplayName(role: CrmRole, email: string): string {
+  if (role === "esteban") return "Esteban";
+  if (email === getKofiEmail()) return "Kofi";
+  return "Admin";
 }
 
 export async function POST(request: Request) {
@@ -47,7 +50,7 @@ export async function POST(request: Request) {
   const user: CrmUser = {
     role,
     email,
-    name: roleName(role),
+    name: getDisplayName(role, email),
   };
 
   const token = await signToken(user);

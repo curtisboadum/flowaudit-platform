@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { CrmSidebar } from "@/components/crm/crm-sidebar";
 import { LeadDrawer } from "@/components/crm/lead-drawer";
 import { LeadsTable } from "@/components/crm/leads-table";
+import { ImportModal } from "@/components/crm/import-modal";
 import type { CrmUser } from "@/lib/crm-auth";
 import { getCrmTranslations, type CrmLocale } from "@/lib/crm-translations";
 import type { CreateLeadInput, Lead } from "@/lib/crm-store";
@@ -32,6 +33,7 @@ export default function CrmDashboardPage() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerMode, setDrawerMode] = useState<DrawerMode>("create");
   const [activeLead, setActiveLead] = useState<Lead | null>(null);
+  const [importModalOpen, setImportModalOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState("");
   const [adminLocale, setAdminLocale] = useState<CrmLocale>("en");
@@ -110,6 +112,10 @@ export default function CrmDashboardPage() {
     setDrawerOpen(true);
   }
 
+  function openImportModal() {
+    setImportModalOpen(true);
+  }
+
   async function handleDelete(lead: Lead) {
     const shouldDelete = window.confirm(copy.table.deleteConfirm);
     if (!shouldDelete) return;
@@ -184,6 +190,7 @@ export default function CrmDashboardPage() {
   return (
     <div className="min-h-screen bg-[#F7F5F3]">
       <CrmSidebar
+        activePage="leads"
         user={user}
         locale={currentLocale}
         copy={copy}
@@ -211,6 +218,7 @@ export default function CrmDashboardPage() {
           copy={copy}
           isLoading={leadsLoading}
           onAddLead={openCreateDrawer}
+          onImportCsv={openImportModal}
           onEditLead={openEditDrawer}
           onDeleteLead={handleDelete}
         />
@@ -225,6 +233,13 @@ export default function CrmDashboardPage() {
         isSaving={isSaving}
         onClose={() => setDrawerOpen(false)}
         onSubmit={handleSaveLead}
+      />
+
+      <ImportModal
+        open={importModalOpen}
+        locale={currentLocale}
+        onClose={() => setImportModalOpen(false)}
+        onImported={fetchLeads}
       />
     </div>
   );

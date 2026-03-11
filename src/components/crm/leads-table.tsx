@@ -1,6 +1,6 @@
 "use client";
 
-import { Pencil, Trash2, Plus } from "lucide-react";
+import { Pencil, Trash2, Plus, Upload } from "lucide-react";
 import type { Lead } from "@/lib/crm-store";
 import type { CrmLocale, CrmLocaleCopy } from "@/lib/crm-translations";
 import { StatusBadge } from "@/components/crm/status-badge";
@@ -11,6 +11,7 @@ interface LeadsTableProps {
   copy: CrmLocaleCopy;
   isLoading: boolean;
   onAddLead: () => void;
+  onImportCsv: () => void;
   onEditLead: (lead: Lead) => void;
   onDeleteLead: (lead: Lead) => void;
 }
@@ -33,21 +34,34 @@ export function LeadsTable({
   copy,
   isLoading,
   onAddLead,
+  onImportCsv,
   onEditLead,
   onDeleteLead,
 }: LeadsTableProps) {
+  const importLabel = locale === "es" ? "Importar CSV" : "Import CSV";
+
   return (
     <section className="rounded-xl border border-[rgba(55,50,47,0.12)] bg-white p-4 shadow-[0px_2px_8px_rgba(55,50,47,0.08)]">
       <div className="mb-4 flex items-center justify-between gap-2">
         <h2 className="font-serif text-xl text-[#37322F]">{copy.sidebar.leads}</h2>
-        <button
-          type="button"
-          onClick={onAddLead}
-          className="inline-flex items-center gap-2 rounded-lg bg-[#2F3037] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#24252b]"
-        >
-          <Plus className="h-4 w-4" />
-          {copy.table.addLead}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={onImportCsv}
+            className="inline-flex items-center gap-2 rounded-lg border border-[rgba(55,50,47,0.15)] px-4 py-2 text-sm font-medium text-[#37322F] transition-colors hover:bg-[rgba(55,50,47,0.04)]"
+          >
+            <Upload className="h-4 w-4" />
+            {importLabel}
+          </button>
+          <button
+            type="button"
+            onClick={onAddLead}
+            className="inline-flex items-center gap-2 rounded-lg bg-[#2F3037] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#24252b]"
+          >
+            <Plus className="h-4 w-4" />
+            {copy.table.addLead}
+          </button>
+        </div>
       </div>
 
       <div className="overflow-x-auto">
