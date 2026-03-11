@@ -1,12 +1,13 @@
 "use client";
 
-import { Globe, Pencil, Plus, Trash2 } from "lucide-react";
+import { Globe, Pencil, Plus, Trash2, Upload } from "lucide-react";
 import type { BuildStage, WebLead, WebLeadPriority } from "@/lib/crm-web-store";
 
 interface WebLeadsTableProps {
   leads: WebLead[];
   isLoading: boolean;
   onAddLead: () => void;
+  onImport: () => void;
   onEditLead: (lead: WebLead) => void;
   onDeleteLead: (lead: WebLead) => void;
 }
@@ -54,6 +55,7 @@ export function WebLeadsTable({
   leads,
   isLoading,
   onAddLead,
+  onImport,
   onEditLead,
   onDeleteLead,
 }: WebLeadsTableProps) {
@@ -61,14 +63,24 @@ export function WebLeadsTable({
     <section className="rounded-xl border border-[rgba(55,50,47,0.12)] bg-white p-4 shadow-[0px_2px_8px_rgba(55,50,47,0.08)]">
       <div className="mb-4 flex items-center justify-between gap-2">
         <h2 className="font-serif text-xl text-[#37322F]">Lead Queue</h2>
-        <button
-          type="button"
-          onClick={onAddLead}
-          className="inline-flex items-center gap-2 rounded-lg bg-[#2F3037] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#24252b]"
-        >
-          <Plus className="h-4 w-4" />
-          New Web Lead
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={onImport}
+            className="inline-flex items-center gap-2 rounded-lg border border-[rgba(55,50,47,0.15)] px-4 py-2 text-sm font-medium text-[#37322F] transition-colors hover:bg-[rgba(55,50,47,0.04)]"
+          >
+            <Upload className="h-4 w-4" />
+            Import CSV
+          </button>
+          <button
+            type="button"
+            onClick={onAddLead}
+            className="inline-flex items-center gap-2 rounded-lg bg-[#2F3037] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#24252b]"
+          >
+            <Plus className="h-4 w-4" />
+            New Web Lead
+          </button>
+        </div>
       </div>
 
       <div className="overflow-x-auto">
