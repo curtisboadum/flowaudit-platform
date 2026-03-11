@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { Loader2 } from "lucide-react";
+import { WebBriefDisplay, type GeneratedBrief } from "@/components/crm/web-brief-display";
 import {
   type BrandStyle,
   type BuildStage,
@@ -25,6 +27,12 @@ interface WebLeadDrawerProps {
   isSaving: boolean;
   onClose: () => void;
   onSubmit: (data: CreateWebLeadInput) => void;
+  onBriefGenerated: (lead: WebLead) => void;
+}
+
+interface GenerateBriefResponse {
+  error?: string;
+  lead?: WebLead;
 }
 
 const BUILD_STAGES: BuildStage[] = [
@@ -83,6 +91,10 @@ const TAB_OPTIONS: Array<{ id: DrawerTab; label: string }> = [
   { id: "workflow", label: "AI Workflow" },
 ];
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
 function getInitialValues(): WebLeadFormValues {
   return {
     businessName: "",
@@ -140,12 +152,31 @@ export function WebLeadDrawer({
   isSaving,
   onClose,
   onSubmit,
+  onBriefGenerated,
 }: WebLeadDrawerProps) {
   const [activeTab, setActiveTab] = useState<DrawerTab>("business");
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle");
   const [formValues, setFormValues] = useState<WebLeadFormValues>(() => getInitialValues());
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generateError, setGenerateError] = useState("");
 
   const isWorkflowEditable = isAdmin;
+  const brief = lead?.researchData as GeneratedBrief | null;
+  const hasBrief = Boolean(brief?.sitemap);
+  const generatedAt = typeof brief?.generatedAt === "string" ? brief.generatedAt : undefined;
+  const formattedGeneratedAt = useMemo(() => {
+    if (!generatedAt) return "";
+    const parsed = new Date(generatedAt);
+    return Number.isNaN(parsed.getTime()) ? generatedAt : parsed.toLocaleString();
+  }, [generatedAt]);
+
+  useEffect(() => {
+    if (!open) return;
+    setActiveTab("business");
+    setCopyStatus("idle");
+    setGenerateError("");
+    setIsGenerating(false);
+  }, [open, mode, lead?.id]);
 
   useEffect(() => {
     if (mode === "edit" && lead) {
@@ -195,14 +226,10 @@ export function WebLeadDrawer({
         priority: lead.priority,
         notes: lead.notes,
       });
-      setActiveTab("business");
-      setCopyStatus("idle");
       return;
     }
 
     setFormValues(getInitialValues());
-    setActiveTab("business");
-    setCopyStatus("idle");
   }, [lead, mode, open]);
 
   function updateField<K extends keyof WebLeadFormValues>(key: K, value: WebLeadFormValues[K]) {
@@ -370,6 +397,40 @@ export function WebLeadDrawer({
     } catch {
       setCopyStatus("failed");
       window.setTimeout(() => setCopyStatus("idle"), 1600);
+    }
+  }
+
+  async function handleGenerateBrief() {
+    if (!lead?.id) return;
+    setIsGenerating(true);
+    setGenerateError("");
+
+    try {
+      const response = await fetch(`/api/crm/web-leads/${lead.id}/generate`, { method: "POST" });
+      let data: unknown = null;
+
+      try {
+        data = (await response.json()) as unknown;
+      } catch {
+        data = null;
+      }
+
+      if (!response.ok) {
+        const message =
+          isRecord(data) && typeof data.error === "string" ? data.error : "Generation failed";
+        throw new Error(message);
+      }
+
+      const parsed = isRecord(data) ? (data as GenerateBriefResponse) : null;
+      if (!parsed?.lead) {
+        throw new Error("Generation failed");
+      }
+
+      onBriefGenerated(parsed.lead);
+    } catch (err: unknown) {
+      setGenerateError(err instanceof Error ? err.message : "Generation failed");
+    } finally {
+      setIsGenerating(false);
     }
   }
 
@@ -990,6 +1051,51 @@ export function WebLeadDrawer({
 
             {activeTab === "workflow" && (
               <>
+                {mode === "edit" && lead ? (
+                  <section className="rounded-lg border border-[rgba(55,50,47,0.12)] bg-white p-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div>
+                        <p className="text-sm font-medium text-[#37322F]">
+                          {hasBrief ? "Regenerate Brief" : "Generate Brief"}
+                        </p>
+                        {hasBrief && formattedGeneratedAt && (
+                          <p className="text-xs text-[#7C7571]">Last generated: {formattedGeneratedAt}</p>
+                        )}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => void handleGenerateBrief()}
+                        disabled={isGenerating}
+                        className="inline-flex items-center gap-2 rounded-md bg-[#2F3037] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#24252b] disabled:cursor-not-allowed disabled:opacity-70"
+                      >
+                        {isGenerating && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
+                        {isGenerating
+                          ? "Generating brief..."
+                          : hasBrief
+                            ? "Regenerate Brief"
+                            : "Generate Brief"}
+                      </button>
+                    </div>
+                    {generateError && (
+                      <p className="mt-2 rounded-md border border-red-200 bg-red-50 px-2.5 py-1.5 text-xs text-red-700">
+                        {generateError}
+                      </p>
+                    )}
+                  </section>
+                ) : (
+                  <p className="rounded-md border border-[rgba(55,50,47,0.12)] bg-[#F7F5F3] px-3 py-2 text-xs text-[#605A57]">
+                    Save this lead first to generate an AI brief.
+                  </p>
+                )}
+
+                {hasBrief && brief && (
+                  <WebBriefDisplay
+                    brief={brief}
+                    onRegenerate={() => void handleGenerateBrief()}
+                    isRegenerating={isGenerating}
+                  />
+                )}
+
                 <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-[rgba(55,50,47,0.12)] bg-[rgba(55,50,47,0.03)] px-3 py-2">
                   <p className="text-xs text-[#605A57]">Share full context for manual agent runs.</p>
                   <button

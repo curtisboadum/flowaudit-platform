@@ -40,11 +40,7 @@ export interface WebLeadTeamMember {
   bio: string;
 }
 
-export interface ResearchData {
-  competitors: string[];
-  keywords: string[];
-  insights: string;
-}
+export type ResearchData = Record<string, unknown>;
 
 export interface GeneratedContent {
   headline: string;
@@ -234,15 +230,7 @@ function readTeamMembers(value: unknown): WebLeadTeamMember[] {
 
 function readResearchData(value: unknown): ResearchData | null {
   if (!isRecord(value)) return null;
-  const competitors = readStringArray(value.competitors);
-  const keywords = readStringArray(value.keywords);
-  if (typeof value.insights !== "string") return null;
-
-  return {
-    competitors,
-    keywords,
-    insights: value.insights,
-  };
+  return value;
 }
 
 function readGeneratedContent(value: unknown): GeneratedContent | null {

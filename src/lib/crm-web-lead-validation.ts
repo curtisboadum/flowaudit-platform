@@ -237,17 +237,7 @@ function parseResearchData(value: unknown): ResearchData | null {
 
   const record = asRecord(value);
   if (!record) return null;
-
-  const competitors = parseStringArray(record.competitors);
-  const keywords = parseStringArray(record.keywords);
-  const insights = parseOptionalString(record.insights);
-  if (!competitors || !keywords || insights === null) return null;
-
-  return {
-    competitors,
-    keywords,
-    insights,
-  };
+  return record;
 }
 
 function parseGeneratedContent(value: unknown): GeneratedContent | null {

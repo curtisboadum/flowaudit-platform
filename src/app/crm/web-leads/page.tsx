@@ -200,6 +200,13 @@ export default function CrmWebLeadsPage() {
     router.replace("/crm/login");
   }
 
+  function handleBriefGenerated(updatedLead: WebLead) {
+    setWebLeads((prev) => prev.map((lead) => (lead.id === updatedLead.id ? updatedLead : lead)));
+    if (activeLead?.id === updatedLead.id) {
+      setActiveLead(updatedLead);
+    }
+  }
+
   if (authLoading || !user) {
     return (
       <div className="flex min-h-screen items-center justify-center px-4">
@@ -265,6 +272,7 @@ export default function CrmWebLeadsPage() {
         isSaving={isSaving}
         onClose={() => setDrawerOpen(false)}
         onSubmit={handleSaveLead}
+        onBriefGenerated={handleBriefGenerated}
       />
     </div>
   );
