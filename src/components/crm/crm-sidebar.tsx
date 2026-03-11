@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Settings, LogOut, Workflow, Users } from "lucide-react";
+import { Settings, LogOut, Workflow, Users, Globe } from "lucide-react";
 import type { CrmUser } from "@/lib/crm-auth";
 import type { CrmLocale, CrmLocaleCopy } from "@/lib/crm-translations";
 
 interface CrmSidebarProps {
-  activePage: "leads" | "pipeline" | "settings";
+  activePage: "leads" | "pipeline" | "web-leads" | "settings";
   user: CrmUser;
   locale: CrmLocale;
   copy: CrmLocaleCopy;
@@ -57,6 +57,11 @@ export function CrmSidebar({
           <Link href="/crm/pipeline" className={getNavClass("pipeline", activePage)}>
             <Workflow className="h-4 w-4" />
             {copy.sidebar.pipeline}
+          </Link>
+
+          <Link href="/crm/web-leads" className={getNavClass("web-leads", activePage)}>
+            <Globe className="h-4 w-4" />
+            {copy.sidebar.webLeads}
           </Link>
 
           <Link href="/crm/settings" className={getNavClass("settings", activePage)}>

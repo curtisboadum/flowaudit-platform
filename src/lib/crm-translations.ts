@@ -22,6 +22,7 @@ export interface CrmLocaleCopy {
   sidebar: {
     leads: string;
     pipeline: string;
+    webLeads: string;
     settings: string;
     comingSoon: string;
     language: string;
@@ -95,6 +96,7 @@ export const crmTranslations: CrmTranslations = {
     sidebar: {
       leads: "Leads",
       pipeline: "Pipeline",
+      webLeads: "Web Leads",
       settings: "Settings",
       comingSoon: "Coming soon",
       language: "Language",
@@ -168,6 +170,7 @@ export const crmTranslations: CrmTranslations = {
     sidebar: {
       leads: "Prospectos",
       pipeline: "Pipeline",
+      webLeads: "Leads Web",
       settings: "Configuracion",
       comingSoon: "Proximamente",
       language: "Idioma",
