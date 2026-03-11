@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { ChatWidget } from "@/components/chat/chat-widget";
+import {
+  ConditionalChatWidget,
+  ConditionalSiteFooter,
+  ConditionalSiteHeader,
+} from "@/components/layout/conditional-chrome";
 import { LocaleProvider } from "@/components/providers/locale-provider";
 import { JsonLd } from "@/components/seo/json-ld";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
@@ -58,11 +60,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
       <body className="overflow-x-hidden bg-[#F7F5F3] font-sans text-[#37322F] antialiased">
         <LocaleProvider>
-          <SiteHeader />
+          <ConditionalSiteHeader />
           <main>{children}</main>
-          <SiteFooter />
+          <ConditionalSiteFooter />
         </LocaleProvider>
-        <ChatWidget />
+        <ConditionalChatWidget />
         <JsonLd
           data={{
             "@context": "https://schema.org",

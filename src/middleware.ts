@@ -3,6 +3,20 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // CRM page protection (JWT verification happens in API routes)
+  if (pathname === "/crm/login" || pathname.startsWith("/crm/login/")) {
+    return NextResponse.next();
+  }
+
+  if (pathname === "/crm" || pathname.startsWith("/crm/")) {
+    const sessionCookie = request.cookies.get("CRM_SESSION")?.value;
+    if (!sessionCookie) {
+      const loginUrl = new URL("/crm/login", request.url);
+      return NextResponse.redirect(loginUrl);
+    }
+    return NextResponse.next();
+  }
+
   // Skip API routes, static files, Next.js internals
   if (
     pathname.startsWith("/api") ||
