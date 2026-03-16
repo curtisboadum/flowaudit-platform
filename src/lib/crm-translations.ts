@@ -24,6 +24,7 @@ export interface CrmLocaleCopy {
     pipeline: string;
     webLeads: string;
     settings: string;
+    apiKeys: string;
     comingSoon: string;
     language: string;
     logout: string;
@@ -98,6 +99,7 @@ export const crmTranslations: CrmTranslations = {
       pipeline: "Pipeline",
       webLeads: "Web Leads",
       settings: "Settings",
+      apiKeys: "API Keys",
       comingSoon: "Coming soon",
       language: "Language",
       logout: "Log out",
@@ -172,6 +174,7 @@ export const crmTranslations: CrmTranslations = {
       pipeline: "Pipeline",
       webLeads: "Leads Web",
       settings: "Configuracion",
+      apiKeys: "Claves API",
       comingSoon: "Proximamente",
       language: "Idioma",
       logout: "Cerrar sesion",
