@@ -1,3 +1,10 @@
+/**
+ * @file page.tsx
+ * @description About page — mission, founding team, values, and CTA.
+ * @status Stable.
+ * @issues None.
+ * @todo None.
+ */
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -37,32 +44,6 @@ const teamMembers = [
     image: "/team/kofi.jpg",
     isAI: false,
   },
-  {
-    name: "Lawyer Boadum",
-    title: "Sales Advisor",
-    description:
-      "Client relationships and growth strategy. Connects operators with the right solutions.",
-    initials: "LB",
-    image: null,
-    isAI: false,
-  },
-  {
-    name: "Casper",
-    title: "AI Agent",
-    description:
-      "Manages reporting, analytics, and operational visibility across client workflows.",
-    initials: "C",
-    image: "/team/casper.svg",
-    isAI: true,
-  },
-  {
-    name: "Klaus",
-    title: "AI Architect & Operator",
-    description: "Strategic orchestrator. Researches, architects, and builds every system from the ground up. Runs the full development pipeline and coordinates 5 specialised AI agent teams: 3 architects, 5 builders, 2 reviewers, 1 QA, and 1 verifier. 12 agents shipping in parallel.",
-    initials: "K",
-    image: "/team/klaus.svg",
-    isAI: true,
-  },
 ] as const;
 
 const values = [
@@ -86,6 +67,74 @@ const values = [
       "Every automation is measured by its impact on your bottom line, not vanity metrics.",
   },
 ] as const;
+
+type TeamMember = (typeof teamMembers)[number];
+
+function TeamCard({ member }: { member: TeamMember }) {
+  return (
+    <div className="flex flex-col items-center rounded-xl border border-[rgba(55,50,47,0.08)] bg-white p-6 text-center">
+      <div className="mb-4 h-28 w-28 overflow-hidden rounded-full bg-[#F0EDEB]">
+        <Image
+          src={member.image}
+          alt={member.name}
+          width={112}
+          height={112}
+          className="h-full w-full object-cover object-top"
+        />
+      </div>
+      <h3 className="font-sans text-base font-semibold text-[#37322F]">{member.name}</h3>
+      <p className="mt-1 font-sans text-sm text-[#605A57]">{member.title}</p>
+      <p className="mt-3 font-sans text-xs leading-5 text-[#605A57]">{member.description}</p>
+      <a
+        href="https://linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-4 text-[#605A57] transition-colors hover:text-[#37322F]"
+      >
+        <Linkedin className="h-4 w-4" />
+      </a>
+    </div>
+  );
+}
+
+function TeamSection() {
+  return (
+    <section className="border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0">
+      <div className="mb-12 text-center">
+        <Badge text="Our Team" />
+        <h2 className="mt-4 font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
+          The people behind FlowAudit
+        </h2>
+      </div>
+      <div className="mx-auto grid max-w-[680px] grid-cols-1 gap-6 sm:grid-cols-2">
+        {teamMembers.map((member) => (
+          <TeamCard key={member.name} member={member} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ValuesSection() {
+  return (
+    <section className="border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0">
+      <div className="mb-12 text-center">
+        <Badge text="Our Values" />
+        <h2 className="mt-4 font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
+          What we believe
+        </h2>
+      </div>
+      <div className="mx-auto grid max-w-[800px] grid-cols-1 gap-6 sm:grid-cols-2">
+        {values.map((value) => (
+          <div key={value.title} className="p-6">
+            <h3 className="font-sans text-base font-semibold text-[#37322F]">{value.title}</h3>
+            <p className="mt-2 font-sans text-sm leading-6 text-[#605A57]">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export default function AboutPage() {
   return (
@@ -125,85 +174,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Team */}
-        <section className="border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0">
-          <div className="mb-12 text-center">
-            <Badge text="Our Team" />
-            <h2 className="mt-4 font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
-              Humans + AI, working together
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {teamMembers.map((member) => (
-              <div
-                key={member.name}
-                className="flex flex-col items-center rounded-xl border border-[rgba(55,50,47,0.08)] bg-white p-6 text-center"
-              >
-                <div className="relative">
-                  {member.image ? (
-                    <div className="mb-4 h-28 w-28 overflow-hidden rounded-full bg-[#F0EDEB]">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        width={112}
-                        height={112}
-                        className="h-full w-full object-cover object-top"
-                      />
-                    </div>
-                  ) : (
-                    <div className="mb-4 flex h-28 w-28 items-center justify-center rounded-full bg-[#37322F]">
-                      <span className="font-sans text-2xl font-semibold text-white">
-                        {member.initials}
-                      </span>
-                    </div>
-                  )}
-                  {member.isAI && (
-                    <span className="absolute -top-1 -right-1 rounded-full bg-emerald-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
-                      AI
-                    </span>
-                  )}
-                </div>
-                <h3 className="font-sans text-base font-semibold text-[#37322F]">{member.name}</h3>
-                <p className="mt-1 font-sans text-sm text-[#605A57]">{member.title}</p>
-                <p className="mt-3 font-sans text-xs leading-5 text-[#605A57]">
-                  {member.description}
-                </p>
-                {!member.isAI && (
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 text-[#605A57] transition-colors hover:text-[#37322F]"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Values */}
-        <section className="border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0">
-          <div className="mb-12 text-center">
-            <Badge text="Our Values" />
-            <h2 className="mt-4 font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
-              What we believe
-            </h2>
-          </div>
-
-          <div className="mx-auto grid max-w-[800px] grid-cols-1 gap-6 sm:grid-cols-2">
-            {values.map((value) => (
-              <div key={value.title} className="p-6">
-                <h3 className="font-sans text-base font-semibold text-[#37322F]">{value.title}</h3>
-                <p className="mt-2 font-sans text-sm leading-6 text-[#605A57]">
-                  {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <TeamSection />
+        <ValuesSection />
 
         {/* CTA */}
         <section className="flex flex-col items-center px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-0">

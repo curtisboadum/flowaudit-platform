@@ -1,5 +1,12 @@
 "use client";
 
+/**
+ * @file site-header.tsx
+ * @description Sticky pill nav with locale toggle and mobile menu.
+ * @status Stable.
+ * @issues None.
+ * @todo None.
+ */
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Globe } from "lucide-react";
@@ -14,8 +21,6 @@ function SiteHeader() {
     { label: t.nav.webDesign, href: "/web-design" },
     { label: t.nav.solutions, href: "/solutions" },
     { label: t.nav.howItWorks, href: "/#how-it-works" },
-    { label: t.nav.pricing, href: "/#pricing" },
-    { label: t.nav.calculator, href: "/calculator" },
     { label: t.nav.about, href: "/about" },
   ];
 
