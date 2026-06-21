@@ -55,7 +55,7 @@ const values = [
   {
     title: "Built for Serious Operators",
     description:
-      "Every feature is designed for tradespeople, contractors, and small teams who run real businesses, whether you're solo or have 30 people.",
+      "Every feature is designed for tradespeople, contractors, and small teams who run real businesses, whether you're solo or 30+.",
   },
   {
     title: "Practical Implementation",
