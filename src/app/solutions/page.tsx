@@ -20,7 +20,7 @@ import { Zap } from "lucide-react";
 export const metadata: Metadata = {
   title: "Solutions | FlowAudit Automation Library",
   description:
-    "53 automations across 4 tiers. Lead capture, onboarding, invoicing, compliance, AI qualification, and more. All powered by OpenClaw.",
+    "53 automations across 4 tiers. Lead capture, onboarding, invoicing, compliance, AI qualification, and more. All powered by AI agents.",
   alternates: {
     canonical: "/solutions",
   },
@@ -112,14 +112,14 @@ export default function SolutionsPage() {
             53 Automations. 4 Tiers. One Platform.
           </h1>
           <p className="mt-6 max-w-[550px] font-sans text-base leading-7 text-[rgba(55,50,47,0.80)] sm:text-lg">
-            Every automation is validated against OpenClaw&apos;s 700+ skill library and delivered
-            as a production-ready workflow for your business.
+            Every automation is validated against our AI agents&apos; 700+ skill library and
+            delivered as a production-ready workflow for your business.
           </p>
           <div className="mt-4 flex items-center gap-2">
             <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5">
               <Zap className="h-3.5 w-3.5 text-emerald-600" />
               <span className="font-sans text-xs font-medium text-emerald-700">
-                Powered by OpenClaw
+                Powered by AI agents
               </span>
             </div>
           </div>
