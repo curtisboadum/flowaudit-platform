@@ -19,7 +19,7 @@ export const en = {
     careers: "Careers",
   },
 
-  // Home — Hero
+  // Home, Hero
   hero: {
     headline: "Your Paperwork, Done Automatically",
     subtext:
@@ -29,7 +29,7 @@ export const en = {
     ctaNote: "Free strategy call. No commitment, no pressure.",
   },
 
-  // Home — Hero tabs
+  // Home, Hero tabs
   heroTabs: {
     tab1Title: "Quote Follow-up",
     tab1Desc: "Auto-chase every quote you send. No more lost deals.",
@@ -40,7 +40,7 @@ export const en = {
       "See what's coming in, what's overdue, and what needs chasing. Every Monday morning.",
   },
 
-  // Home — Bento / Who This Is For
+  // Home, Bento / Who This Is For
   bento: {
     badge: "Who This Is For",
     headline: "If You're Repeating Work Every Week, This Is For You",

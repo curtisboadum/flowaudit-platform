@@ -1,6 +1,6 @@
 /**
  * @file page.tsx
- * @description Solutions page — lists the automation library by tier. Prices are
+ * @description Solutions page, lists the automation library by tier. Prices are
  *   no longer shown; CTAs route to a booking call.
  * @status Stable.
  * @issues None.

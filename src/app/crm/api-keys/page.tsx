@@ -102,7 +102,7 @@ export default function ApiKeysPage() {
       setCreateName("");
       await loadKeys();
     } catch {
-      setCreateError("Network error — please try again");
+      setCreateError("Network error, please try again");
     } finally {
       setCreating(false);
     }
@@ -117,7 +117,7 @@ export default function ApiKeysPage() {
       if (!res.ok) throw new Error("Failed to revoke");
       setKeys((prev) => prev.map((k) => k.id === id ? { ...k, isActive: false } : k));
     } catch {
-      setRevokeError("Failed to revoke key — please try again");
+      setRevokeError("Failed to revoke key, please try again");
     } finally {
       setRevoking(null);
     }
@@ -164,7 +164,7 @@ export default function ApiKeysPage() {
             <h1 className="text-2xl font-semibold text-[#37322F]">API Keys</h1>
           </div>
           <p className="ml-12 text-sm text-[#7C7571]">
-            Create keys to authenticate ingest endpoints. Each key is shown once — copy it immediately.
+            Create keys to authenticate ingest endpoints. Each key is shown once, copy it immediately.
           </p>
         </div>
 
@@ -179,7 +179,7 @@ export default function ApiKeysPage() {
               <div key={path} className="flex items-center gap-3 text-sm">
                 <span className="rounded bg-[#EEF2FF] px-2 py-0.5 text-xs font-semibold text-[#4F46E5]">{method}</span>
                 <code className="font-mono text-[#37322F]">{path}</code>
-                <span className="text-[#7C7571]">— {desc}</span>
+                <span className="text-[#7C7571]">{desc}</span>
               </div>
             ))}
           </div>
@@ -193,7 +193,7 @@ export default function ApiKeysPage() {
           <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
             <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-emerald-800">
               <CheckCircle className="h-4 w-4" />
-              API key created — copy it now. It won&apos;t be shown again.
+              API key created, copy it now. It won&apos;t be shown again.
             </div>
             <div className="flex items-center gap-2">
               <div className="relative flex-1">

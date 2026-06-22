@@ -1,6 +1,6 @@
 /**
  * @file page.tsx
- * @description Revenue Recovery Desk landing page — a done-for-you AI accounts-
+ * @description Revenue Recovery Desk landing page, a done-for-you AI accounts-
  *   receivable recovery offer for B2B service businesses. Emits Service,
  *   FAQPage, and Breadcrumb JSON-LD; renders the themed client content.
  * @status Stable.
@@ -18,7 +18,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/breadcrumbs";
 export const metadata: Metadata = {
   title: "Revenue Recovery Desk | FlowAudit",
   description:
-    "We install an AI-powered Revenue Recovery Desk inside your business — it finds overdue invoices, follows up automatically, escalates disputes, and reports recovered cash weekly. No collections-agency aggression. No new hires.",
+    "We install an AI-powered Revenue Recovery Desk inside your business, it finds overdue invoices, follows up automatically, escalates disputes, and reports recovered cash weekly. No collections-agency aggression. No new hires.",
   alternates: {
     canonical: "/revenue-recovery",
   },

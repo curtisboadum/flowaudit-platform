@@ -2,7 +2,7 @@
 
 /**
  * @file site-footer.tsx
- * @description Global footer — link columns, social icons, and legal bottom bar.
+ * @description Global footer, link columns, social icons, and legal bottom bar.
  * @status Stable.
  * @issues None.
  * @todo None.

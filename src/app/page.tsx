@@ -1,6 +1,6 @@
 /**
  * @file page.tsx
- * @description Home page composition — stacks marketing sections and emits
+ * @description Home page composition, stacks marketing sections and emits
  *   WebSite + ProfessionalService JSON-LD. Pricing/calculator sections removed.
  * @status Stable.
  * @issues None.
