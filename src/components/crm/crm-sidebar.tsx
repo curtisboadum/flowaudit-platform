@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Settings, LogOut, Workflow, Users, Globe, KeyRound } from "lucide-react";
+import { Settings, LogOut, Workflow, Users, Globe, Key } from "lucide-react";
 import type { CrmUser } from "@/lib/crm-auth";
 import type { CrmLocale, CrmLocaleCopy } from "@/lib/crm-translations";
 
@@ -69,12 +69,10 @@ export function CrmSidebar({
             {copy.sidebar.settings}
           </Link>
 
-          {isAdmin && (
-            <Link href="/crm/api-keys" className={getNavClass("api-keys", activePage)}>
-              <KeyRound className="h-4 w-4" />
-              {copy.sidebar.apiKeys}
-            </Link>
-          )}
+          <Link href="/crm/api-keys" className={getNavClass("api-keys", activePage)}>
+            <Key className="h-4 w-4" />
+            {copy.sidebar.apiKeys}
+          </Link>
         </nav>
 
         {isAdmin && (

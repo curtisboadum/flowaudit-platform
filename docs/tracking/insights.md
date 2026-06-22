@@ -4,6 +4,80 @@ Patterns discovered, solutions to problems, and general learnings during develop
 
 ---
 
+## 2026-06-22 — Session 11: Production Cache Flush & Source Fragmentation
+
+### Vercel Edge-Cache Bypass Requires Fresh Deploy, Not Query-String Busters
+
+- Prerendered pages cached at Vercel edge with `cache-control: max-age=0, must-revalidate` still return `x-vercel-cache: HIT` for 60+ seconds
+- Query-string cache-busters (e.g., `?cb=bust123`) do NOT bypass Vercel's prerender cache — the CDN ignores query strings on static routes
+- **Only solution:** `vercel --prod --force` to trigger a clean redeploy, which mints new asset hashes and flushes all edge cache entries
+- This is not a bug; it's correct behavior for immutable asset hashing — old hashes stay cached, new hashes bypass the cache
+- If apex homepage looks stale after a source deploy, assume Vercel edge cache, not DNS or browser cache
+
+### Multiple Workspace Copies Create Silent Deploy Source Risk
+
+- Two local directories (`~/workspace/flowaudit-live` and `~/workspace/flowaudit-platform`) both linked to the same Vercel project
+- A `vercel --prod` from the wrong directory silently deploys stale code with zero error signal
+- Symptoms: site "keeps reverting" to old state after fixes, despite code being correct in the one-true-source directory
+- **Mitigation:** ensure only one directory can deploy the project (rename/move extras, or use git-based deploy guards)
+- This is amplified in untracked directories — no commit history to reveal which build deployed
+
+### Browser Tab Context IDs Are Volatile Across Navigation Boundaries
+
+- Tab references from `tabs_context_mcp` become invalid after navigation, extension reload, or tab closure
+- Do NOT cache tab IDs across multiple tool calls — refresh the context before each sequence of browser operations
+- Multi-step flows (navigate → screenshot → verify) require `tabs_context_mcp.createIfEmpty()` refresh between steps
+- Extension flakiness (timeouts, unresponsive state) is independent; refresh_context always succeeds when the extension is up
+
+---
+
+## 2026-06-22 — Session 10: Revenue Recovery Routing & Proxy
+
+### Next.js Rewrites: afterFiles Ordering for Path Preservation
+
+- When proxying sub-paths to an external app, use explicit `rewrites() { afterFiles: [...] }` ordering instead of bare array/beforeFiles
+- `afterFiles` ensures filesystem routes (local pages) are evaluated first and can never be shadowed by rewrite rules
+- Example: `/revenue-recovery/:path*` rewrite won't match bare `/revenue-recovery` if a local page exists, even without explicit path pattern guards
+- Pattern-matching alone (`/:path*` not matching `/`) is fragile — ordering guarantees are explicit and auditable
+
+### Vercel Preview Deployments Block Curl Verification
+
+- Preview deployments return 401 (Vercel Access Protection) on all paths, preventing simple `curl` testing before production
+- **Workaround:** Build locally and run `next start` against the production-built `.next/` directory to validate complex rewrites
+- `next start` honors `next.config.ts` rewrites including external proxies, so local testing is behaviorally equivalent to production
+- This is reliable enough for pre-deploy verification of routing logic without risking production
+
+### Untracked Source Files in ~/workspace
+
+- The Revenue Recovery landing (`src/app/revenue-recovery/page.tsx` + components) exists only in untracked `/Users/curtis/workspace/flowaudit-live`, not in any git repo
+- Future sessions or peers cloning from GitHub won't have this code unless it's committed or synced
+- Risk: a CLI deploy from a different checkout (e.g., `~/Documents/FlowAudit_`) could accidentally drop the landing without any error signal
+- **Mitigation:** Commit the landing to a git repo, or maintain a sync protocol for this local directory
+
+---
+
+## 2026-06-21 — Session 9: Revenue Recovery Page
+
+### macOS Sandbox File Access Blockers
+
+- macOS sandbox in Claude Code blocks read access to `~/Documents/` paths even with `dangerouslyDisableSandbox: true`
+- **Workaround:** Use production deployment as source of truth when local filesystem access fails
+- Vercel API (`vercel ls` → download artifact) provides complete, correct source tree
+
+### Production Vercel Deployment as Source of Truth
+
+- GitHub `main` can lag behind production Vercel deployments (CLI-deployed changes without git push)
+- When in doubt, use `vercel ls` to download the actual deployed source — it's always more current than GitHub
+- This is not a bug; it's a correct reflection of independent deploy pipelines (Vercel ≠ GitHub auto-sync)
+
+### Bilingual Content Isolation from Global Types
+
+- Local copy dict (not global `Translations` type) avoids en/es schema drift during page refactors
+- Global type changes can orphan translations; local dicts are page-scoped and safe to diverge
+- Prefer local copy dicts for new pages that don't need to sync with the global system
+
+---
+
 ## 2026-02-15 — Session 8: Rebrand, Trades Copy, Gulf Currencies
 
 ### GITHUB_TOKEN= Workaround Confirmed

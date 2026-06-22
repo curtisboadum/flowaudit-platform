@@ -1,9 +1,17 @@
+/**
+ * @file es.ts
+ * @description Spanish translation dictionary (structurally matches en.ts).
+ * @status Stable.
+ * @issues None.
+ * @todo None.
+ */
 import type { Translations } from "./en";
 
 export const es: Translations = {
   // Nav
   nav: {
     webDesign: "Diseño Web",
+    revenueRecovery: "Recuperación de Ingresos",
     solutions: "Soluciones",
     howItWorks: "Cómo Funciona",
     pricing: "Precios",
@@ -239,7 +247,7 @@ export const es: Translations = {
       "Sí, tienes acceso CMS para actualizar texto, imágenes y contenido básico en cualquier momento. Para cambios de diseño, nuestro equipo se encarga.",
     faq6Q: "¿Qué pasa si solo quiero un sitio web sin los complementos?",
     faq6A:
-      "Por supuesto. El sitio web a £149/mes es un producto independiente. Agrega herramientas cuando estés listo.",
+      "Por supuesto. El sitio web es un producto independiente. Agrega herramientas cuando estés listo.",
 
     ctaHeadline: "¿Listo Para Ver Cómo Podría Verse Tu Sitio Web?",
     ctaSubtext:
@@ -338,7 +346,7 @@ export const es: Translations = {
     { q: "¿Qué incluye el piloto?", a: "El piloto es una prueba de 5 días de una automatización. La construimos, la ejecutamos con tus datos reales y te mostramos exactamente cuánto tiempo ahorra." },
     { q: "¿Mis datos están seguros?", a: "Sí. Usamos controles de acceso basados en roles, hosting encriptado y registros de auditoría completos. Tus datos nunca se venden, comparten o usan para entrenamiento." },
     { q: "¿Qué pasa si no sé qué flujos de trabajo automatizar?", a: "Para eso es la primera llamada. Revisaremos tu día a día juntos, encontraremos los mayores consumidores de tiempo y recomendaremos por dónde empezar." },
-    { q: "¿Cuál es el modelo de precios?", a: "Pago único basado en lo que necesitas: Starter ($2,854), Growth ($3,997), Scale ($5,426), o Custom ($7,143+). Sin cuotas mensuales para la construcción principal." },
+    { q: "¿Cuál es el modelo de precios?", a: "Cada proyecto se ajusta exactamente a lo que necesitas, así que el precio depende de tu configuración. Te lo explicamos en una llamada estratégica gratuita. Sin cuotas mensuales para la construcción principal." },
     { q: "¿Necesito conocimiento técnico?", a: "Para nada. Nosotros manejamos toda la configuración. Interactúas con tu asistente a través de herramientas que ya usas." },
     { q: "¿Qué tipo de ROI puedo esperar?", a: "La mayoría de los clientes ven un retorno de 5x en su inversión. El negocio promedio ahorra más de 20 horas por semana en administración." },
   ],

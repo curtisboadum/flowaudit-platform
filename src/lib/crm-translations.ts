@@ -174,7 +174,7 @@ export const crmTranslations: CrmTranslations = {
       pipeline: "Pipeline",
       webLeads: "Leads Web",
       settings: "Configuracion",
-      apiKeys: "Claves API",
+      apiKeys: "API Keys",
       comingSoon: "Proximamente",
       language: "Idioma",
       logout: "Cerrar sesion",

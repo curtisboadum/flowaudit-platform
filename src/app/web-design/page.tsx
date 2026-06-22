@@ -1,3 +1,10 @@
+/**
+ * @file page.tsx
+ * @description Web design route wrapper — metadata, breadcrumbs, and content.
+ * @status Stable.
+ * @issues None.
+ * @todo None.
+ */
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { canonicalUrl } from "@/lib/seo";
@@ -8,12 +15,12 @@ import { WebDesignContent } from "./web-design-content";
 export const metadata: Metadata = {
   title: "Custom Websites & AI Tools | FlowAudit",
   description:
-    "Custom-designed websites and AI-powered business tools. Website, chatbot, booking, invoicing, everything your business needs online. From £149/mo.",
+    "Custom-designed websites and AI-powered business tools. Website, chatbot, booking, invoicing, everything your business needs online.",
   alternates: { canonical: "/web-design" },
   openGraph: {
     title: "Custom Websites & AI Tools | FlowAudit",
     description:
-      "Custom-designed websites and AI-powered business tools for your business. From £149/mo.",
+      "Custom-designed websites and AI-powered business tools for your business.",
     type: "website",
     url: "https://flowaudit.co.uk/web-design",
   },

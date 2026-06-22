@@ -29,6 +29,9 @@ Status: `[ ]` pending, `[~]` in progress, `[x]` done, `[-]` dropped
 - [x] Fix calculator Print Report — popup-blocked fallback to `window.print()`
 - [x] Fix chatbot 404 — replace sunset `gemini-1.5-flash` with `gemini-2.0-flash-lite`
 - [x] Push `fix/fallback-model-name` branch — pushed via `GITHUB_TOKEN=` workaround
+- [x] Revenue Recovery page — full FlowAudit-themed rebuild, linked to homepage, live on `/revenue-recovery` (Session 9)
+- [x] Route `/revenue-recovery/*` sub-paths to external sub-app without shadowing landing (Session 10)
+- [ ] [P1] Clean up dual-directory source fragmentation — rename or isolate ~/workspace/flowaudit-platform (stale copy shares Vercel project) to prevent accidental reversion deploys
 - [ ] Set up InstantDB app and configure `NEXT_PUBLIC_INSTANT_APP_ID`
 - [ ] Set up OpenClaw account and configure API keys
 - [x] Set up Vercel project linked to GitHub repo

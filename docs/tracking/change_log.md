@@ -4,6 +4,72 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ---
 
+## 2026-06-22 (Session 11)
+
+### Production Cache Flush & Site Restoration
+
+- **Diagnosed** apex homepage reversion: four routes (`/revenue-recovery/*`) live + correct (200), but `/` serving stale edge-cached prerendered page
+- **Identified root cause**: Vercel edge-cache on prerendered pages with `cache-control: max-age=0` still returns `x-vercel-cache: HIT` (age 62s, old asset hashes)
+- **Discovered source fragmentation**: two local workspace copies pointing to same Vercel project
+  - `flowaudit-live` (good source: banner + landing + rewrite present)
+  - `flowaudit-platform` (stale duplicate: no banner, no rewrite, no .vercel link)
+  - Recent `vercel --prod` from wrong directory deployed old code
+- **Fixed** via `vercel --prod --force` — mints new asset hashes, flushes edge cache, deploys fresh prerendered assets
+  - New deployment `qmzn12kuw` live at flowaudit.co.uk
+  - All routes return 200: `/revenue-recovery`, `/sop-review`, `/readiness`, `/mapping`
+  - Homepage banner restored, stale `/calculator` nav removed, `x-vercel-cache: PRERENDER` (age 0)
+- **Verified** HTML content: banner copy "See Revenue Recovery" present, `/revenue-recovery` nav link present, `/calculator` link absent
+
+---
+
+## 2026-06-22 (Session 10)
+
+### Revenue Recovery Routing & Proxy Setup
+
+- **Updated** `next.config.ts` — added explicit `rewrites()` with `afterFiles` ordering
+  - Routes `/revenue-recovery/:path*` (except bare `/revenue-recovery`) to `https://revenue-recovery-web-ivory.vercel.app/:path*`
+  - Uses `afterFiles` to ensure local `/revenue-recovery` landing page takes precedence and is never shadowed
+  - Safer than relying on pattern-matching alone — filesystem routes always win first
+- **Deployed** via `vercel --prod` (dpl_HMuCa4hC4pczuxM6gmyhSeXcCqV1)
+- **Verified** all six paths live on flowaudit.co.uk:
+  - `/revenue-recovery` → 200, local landing intact ("Revenue Recovery Desk | FlowAudit")
+  - `/revenue-recovery/onboarding` → 200, proxied to sub-app
+  - `/revenue-recovery/vault` → 200, proxied to sub-app
+  - `/revenue-recovery/oauth-start` → 200, proxied to sub-app
+  - `/revenue-recovery/offboard` → 200, proxied to sub-app
+- **Pre-deploy testing** — built locally and ran `next start` on port 3199 to validate rewrite behavior (preview deployments have Vercel Access Protection → 401, preventing curl verification)
+
+---
+
+## 2026-06-21 (Session 9)
+
+### Revenue Recovery Landing Page
+
+- **Created** `/revenue-recovery` page — full FlowAudit-themed rebuild of "Revenue Recovery Desk" reference design
+  - Hero section with stats bar (30–90 days recovery / Zero cost / 100% paid)
+  - Problem statement + "60→90 days" callout
+  - 4-step how-it-works section with numbered cards
+  - 6 audience cards (staffing, cleaning, MSPs, security, logistics, maintenance)
+  - Aligned-pricing narrative (no hard figures, per site-wide pricing removal)
+  - FAQ accordion with 5 common questions
+  - Final CTA routing to `/book` (no new public form)
+- **Created** `revenue-recovery-content.tsx` — component tree with sections, cards, and Breadcrumb/Service/FAQ JSON-LD
+- **Created** `revenue-recovery-copy.ts` — bilingual (en/es) content dict
+- **Created** `revenue-recovery-banner.tsx` — homepage callout section with amber theme accent
+- **Updated** `src/app/page.tsx` — inserted RevenueRecoveryBanner after Features section
+- **Updated** `src/app/sitemap.ts` — added `/revenue-recovery` route
+- **Updated** `src/components/layout/site-footer.tsx` — added "Revenue Recovery" link in Solutions column
+- **Verified** live at https://flowaudit.co.uk/revenue-recovery — 200 response, all CTAs functional
+- **Deployed** via `vercel --prod` (dpl_5zVgvZice77PLkAV6PZ9WrKFzjxV)
+
+### Source-of-Truth Note
+
+- Downloaded live production source from Vercel (dpl*6bQppJYMrZDVN4yNV1pPjcn7WmCb) due to macOS sandbox blocking ~/Documents/FlowAudit*
+- Production deployment is ahead of GitHub main (includes earlier pricing/OpenClaw removals)
+- See REVENUE-RECOVERY-HANDOFF.md for reconciliation steps
+
+---
+
 ## 2026-02-15 (Session 8)
 
 ### Brand Rename

@@ -1,3 +1,10 @@
+/**
+ * @file sitemap.ts
+ * @description Generates the XML sitemap of static, blog, and industry routes.
+ * @status Stable.
+ * @issues None.
+ * @todo None.
+ */
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 
@@ -22,10 +29,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/calculator`,
+      url: `${SITE_URL}/revenue-recovery`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${SITE_URL}/results`,

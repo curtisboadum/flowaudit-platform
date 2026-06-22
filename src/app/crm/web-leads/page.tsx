@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CrmSidebar } from "@/components/crm/crm-sidebar";
+import { WebImportModal } from "@/components/crm/web-import-modal";
 import { WebLeadDrawer } from "@/components/crm/web-lead-drawer";
 import { WebLeadsTable } from "@/components/crm/web-leads-table";
 import type { CrmUser } from "@/lib/crm-auth";
@@ -32,6 +33,7 @@ export default function CrmWebLeadsPage() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerMode, setDrawerMode] = useState<DrawerMode>("create");
   const [activeLead, setActiveLead] = useState<WebLead | null>(null);
+  const [importModalOpen, setImportModalOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState("");
   const [adminLocale, setAdminLocale] = useState<CrmLocale>("en");
@@ -54,7 +56,7 @@ export default function CrmWebLeadsPage() {
     [webLeads],
   );
 
-  const fetchWebLeads = useCallback(async () => {
+  const fetchLeads = useCallback(async () => {
     setLeadsLoading(true);
     setError("");
 
@@ -121,14 +123,18 @@ export default function CrmWebLeadsPage() {
         return;
       }
 
-      void fetchWebLeads();
+      void fetchLeads();
     }
-  }, [authLoading, fetchWebLeads, user]);
+  }, [authLoading, fetchLeads, user]);
 
   function openCreateDrawer() {
     setDrawerMode("create");
     setActiveLead(null);
     setDrawerOpen(true);
+  }
+
+  function openImportModal() {
+    setImportModalOpen(true);
   }
 
   function openEditDrawer(lead: WebLead) {
@@ -259,10 +265,20 @@ export default function CrmWebLeadsPage() {
           leads={webLeads}
           isLoading={leadsLoading}
           onAddLead={openCreateDrawer}
+          onImport={openImportModal}
           onEditLead={openEditDrawer}
           onDeleteLead={handleDelete}
         />
       </main>
+
+      <WebImportModal
+        open={importModalOpen}
+        onClose={() => setImportModalOpen(false)}
+        onComplete={() => {
+          setImportModalOpen(false);
+          void fetchLeads();
+        }}
+      />
 
       <WebLeadDrawer
         open={drawerOpen}

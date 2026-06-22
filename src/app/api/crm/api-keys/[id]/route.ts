@@ -1,21 +1,38 @@
 import { NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/crm-auth";
-import { revokeApiKey } from "@/lib/crm-api-keys";
+import { deleteApiKey, revokeApiKey } from "@/lib/crm-api-key-store";
 
-export async function DELETE(
-  request: Request,
-  { params }: { params: Promise<{ id: string }> },
-) {
+interface RouteParams {
+  params: Promise<{ id: string }>;
+}
+
+export async function DELETE(request: Request, context: RouteParams) {
   const user = await getUserFromRequest(request);
-  if (!user || user.role !== "admin") {
+  if (!user) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { id } = await params;
-  if (!id) {
-    return NextResponse.json({ error: "id is required" }, { status: 400 });
+  if (user.role !== "admin") {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  await revokeApiKey(id);
-  return NextResponse.json({ success: true });
+  const { id } = await context.params;
+  const { searchParams } = new URL(request.url);
+  const action = searchParams.get("action") ?? "revoke";
+
+  if (action !== "revoke" && action !== "delete") {
+    return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+  }
+
+  try {
+    const success = action === "delete" ? await deleteApiKey(id) : await revokeApiKey(id);
+
+    if (!success) {
+      return NextResponse.json({ error: "API key not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({ success: true });
+  } catch {
+    return NextResponse.json({ error: "Failed to update API key" }, { status: 500 });
+  }
 }
