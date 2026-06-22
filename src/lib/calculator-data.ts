@@ -1,7 +1,7 @@
 /** Base monthly fee for automation setup */
 export const BASE_FEE = 3500;
 
-/** Efficiency factor — percentage of hours automated */
+/** Efficiency factor, percentage of hours automated */
 export const EFFICIENCY = 0.6;
 
 export interface AutomationItem {

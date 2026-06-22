@@ -19,14 +19,14 @@ const COPY = {
     eyebrow: "New: Revenue Recovery Desk",
     headline: "Unpaid invoices piling up? We'll collect them for you.",
     subtext:
-      "A done-for-you desk that chases overdue invoices automatically, escalates disputes carefully, and reports recovered cash every week — without you lifting a finger.",
+      "A done-for-you desk that chases overdue invoices automatically, escalates disputes carefully, and reports recovered cash every week, without you lifting a finger.",
     button: "See Revenue Recovery",
   },
   es: {
     eyebrow: "Nuevo: Mesa de Recuperación de Ingresos",
     headline: "¿Facturas sin pagar acumulándose? Las cobramos por ti.",
     subtext:
-      "Una mesa hecha por nosotros que persigue facturas vencidas automáticamente, escala disputas con cuidado y reporta el dinero recuperado cada semana — sin que muevas un dedo.",
+      "Una mesa hecha por nosotros que persigue facturas vencidas automáticamente, escala disputas con cuidado y reporta el dinero recuperado cada semana, sin que muevas un dedo.",
     button: "Ver Recuperación de Ingresos",
   },
 } as const;

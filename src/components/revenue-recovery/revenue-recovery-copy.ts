@@ -83,7 +83,7 @@ export interface RevenueRecoveryCopy {
 const en: RevenueRecoveryCopy = {
   badge: "AI-Powered Revenue Recovery",
   headlineTop: "Your clients owe you.",
-  headlineAccent: "We collect — without you lifting a finger.",
+  headlineAccent: "We collect, without you lifting a finger.",
   subtext:
     "We install a Revenue Recovery Desk inside your business. It finds overdue invoices, follows up automatically, escalates disputes, and sends you a weekly cash-recovered report. No collections-agency aggression. No new hires.",
   ctaPrimary: "Book Your Free Revenue Audit",
@@ -97,7 +97,7 @@ const en: RevenueRecoveryCopy = {
     eyebrow: "The Problem",
     headline: "You're leaving money on the table. Every week.",
     intro:
-      "Unpaid invoices pile up. Your team is too busy doing the actual work to chase payments. You can't justify hiring admin just to send follow-up emails. And a collections agency is too aggressive — it burns relationships you spent years building.",
+      "Unpaid invoices pile up. Your team is too busy doing the actual work to chase payments. You can't justify hiring admin just to send follow-up emails. And a collections agency is too aggressive, it burns relationships you spent years building.",
     bullets: [
       "Your cash flow is strained by money you've already earned",
       "Your team hates sending awkward follow-up emails",
@@ -124,7 +124,7 @@ const en: RevenueRecoveryCopy = {
         number: "02",
         title: "Follow-Up",
         description:
-          "AI sends polite, professional reminders on your behalf — nothing without your approval.",
+          "AI sends polite, professional reminders on your behalf, nothing without your approval.",
       },
       {
         number: "03",
@@ -144,7 +144,7 @@ const en: RevenueRecoveryCopy = {
     eyebrow: "Who It's For",
     headline: "Built for B2B service businesses",
     subtext:
-      "Niches where late payments hurt cash flow most — and where preserving the relationship matters.",
+      "Niches where late payments hurt cash flow most, and where preserving the relationship matters.",
     cards: [
       {
         title: "Staffing Agencies",
@@ -154,7 +154,7 @@ const en: RevenueRecoveryCopy = {
       {
         title: "Cleaning Companies",
         description:
-          "Recurring contracts, recurring late payers. Your team cleans — we collect.",
+          "Recurring contracts, recurring late payers. Your team cleans, we collect.",
       },
       {
         title: "MSPs & IT Firms",
@@ -187,7 +187,7 @@ const en: RevenueRecoveryCopy = {
       {
         title: "Aligned success fee",
         description:
-          "We're rewarded when cash actually hits your account — not before.",
+          "We're rewarded when cash actually hits your account, not before.",
       },
       {
         title: "A fraction of an agency",
@@ -201,7 +201,7 @@ const en: RevenueRecoveryCopy = {
       },
     ],
     contrast:
-      "Collections agencies charge 25–50% and damage the relationship. We keep your clients — and your reputation.",
+      "Collections agencies charge 25–50% and damage the relationship. We keep your clients, and your reputation.",
     cta: "Book Your Free Revenue Audit",
   },
   faq: {
@@ -210,11 +210,11 @@ const en: RevenueRecoveryCopy = {
     items: [
       {
         q: "How is this different from a collections agency?",
-        a: "Agencies are adversarial — they escalate fast, charge 25–50%, and burn the relationship. We follow up the way you would: polite, professional, on-brand. Everything is human-reviewed before it sends.",
+        a: "Agencies are adversarial, they escalate fast, charge 25–50%, and burn the relationship. We follow up the way you would: polite, professional, on-brand. Everything is human-reviewed before it sends.",
       },
       {
         q: "What if a client gets upset at the follow-up?",
-        a: "They won't. Reminders are courteous and sent in your voice. Anything sensitive — a dispute or a non-response — is flagged for a human to handle carefully, not auto-escalated.",
+        a: "They won't. Reminders are courteous and sent in your voice. Anything sensitive, a dispute or a non-response, is flagged for a human to handle carefully, not auto-escalated.",
       },
       {
         q: "How quickly will I see results?",
@@ -226,14 +226,14 @@ const en: RevenueRecoveryCopy = {
       },
       {
         q: "What does it cost?",
-        a: "We scope it to your situation on a free call. The model is aligned: we earn when you get paid — a fraction of what a collections agency would take. No threatening letters, no relationship damage.",
+        a: "We scope it to your situation on a free call. The model is aligned: we earn when you get paid, a fraction of what a collections agency would take. No threatening letters, no relationship damage.",
       },
     ],
   },
   finalCta: {
     headline: "Let's recover what's yours.",
     subtext:
-      "Book a free 30-minute Revenue Recovery Audit. No commitment, no contract — just a clear picture of exactly what's recoverable.",
+      "Book a free 30-minute Revenue Recovery Audit. No commitment, no contract, just a clear picture of exactly what's recoverable.",
     button: "Book My Free Revenue Audit",
     note: "30-minute call. We'll show you exactly what's recoverable.",
   },
@@ -242,7 +242,7 @@ const en: RevenueRecoveryCopy = {
 const es: RevenueRecoveryCopy = {
   badge: "Recuperación de Ingresos con IA",
   headlineTop: "Tus clientes te deben.",
-  headlineAccent: "Nosotros cobramos — sin que muevas un dedo.",
+  headlineAccent: "Nosotros cobramos, sin que muevas un dedo.",
   subtext:
     "Instalamos una Mesa de Recuperación de Ingresos dentro de tu negocio. Encuentra facturas vencidas, hace seguimiento automático, escala disputas y te envía un reporte semanal de lo recuperado. Sin la agresividad de una agencia de cobranza. Sin nuevas contrataciones.",
   ctaPrimary: "Agenda tu Auditoría Gratuita",
@@ -256,7 +256,7 @@ const es: RevenueRecoveryCopy = {
     eyebrow: "El Problema",
     headline: "Estás dejando dinero sobre la mesa. Cada semana.",
     intro:
-      "Las facturas sin pagar se acumulan. Tu equipo está demasiado ocupado con el trabajo real como para perseguir pagos. No puedes justificar contratar a alguien solo para enviar correos de seguimiento. Y una agencia de cobranza es demasiado agresiva — quema relaciones que tardaste años en construir.",
+      "Las facturas sin pagar se acumulan. Tu equipo está demasiado ocupado con el trabajo real como para perseguir pagos. No puedes justificar contratar a alguien solo para enviar correos de seguimiento. Y una agencia de cobranza es demasiado agresiva, quema relaciones que tardaste años en construir.",
     bullets: [
       "Tu flujo de caja sufre por dinero que ya ganaste",
       "Tu equipo odia enviar correos de seguimiento incómodos",
@@ -283,7 +283,7 @@ const es: RevenueRecoveryCopy = {
         number: "02",
         title: "Seguimiento",
         description:
-          "La IA envía recordatorios amables y profesionales en tu nombre — nada sin tu aprobación.",
+          "La IA envía recordatorios amables y profesionales en tu nombre, nada sin tu aprobación.",
       },
       {
         number: "03",
@@ -303,7 +303,7 @@ const es: RevenueRecoveryCopy = {
     eyebrow: "Para Quién Es",
     headline: "Diseñado para negocios de servicios B2B",
     subtext:
-      "Sectores donde los pagos tardíos más golpean el flujo de caja — y donde preservar la relación importa.",
+      "Sectores donde los pagos tardíos más golpean el flujo de caja, y donde preservar la relación importa.",
     cards: [
       {
         title: "Agencias de Personal",
@@ -313,7 +313,7 @@ const es: RevenueRecoveryCopy = {
       {
         title: "Empresas de Limpieza",
         description:
-          "Contratos recurrentes, morosos recurrentes. Tu equipo limpia — nosotros cobramos.",
+          "Contratos recurrentes, morosos recurrentes. Tu equipo limpia, nosotros cobramos.",
       },
       {
         title: "MSP y Empresas de TI",
@@ -346,7 +346,7 @@ const es: RevenueRecoveryCopy = {
       {
         title: "Comisión de éxito alineada",
         description:
-          "Nos pagan cuando el dinero realmente llega a tu cuenta — no antes.",
+          "Nos pagan cuando el dinero realmente llega a tu cuenta, no antes.",
       },
       {
         title: "Una fracción de una agencia",
@@ -360,7 +360,7 @@ const es: RevenueRecoveryCopy = {
       },
     ],
     contrast:
-      "Las agencias cobran 25–50% y dañan la relación. Nosotros conservamos a tus clientes — y tu reputación.",
+      "Las agencias cobran 25–50% y dañan la relación. Nosotros conservamos a tus clientes, y tu reputación.",
     cta: "Agenda tu Auditoría Gratuita",
   },
   faq: {
@@ -369,11 +369,11 @@ const es: RevenueRecoveryCopy = {
     items: [
       {
         q: "¿En qué se diferencia de una agencia de cobranza?",
-        a: "Las agencias son adversariales — escalan rápido, cobran 25–50% y queman la relación. Nosotros hacemos seguimiento como lo harías tú: amable, profesional, acorde a tu marca. Todo se revisa por un humano antes de enviarse.",
+        a: "Las agencias son adversariales, escalan rápido, cobran 25–50% y queman la relación. Nosotros hacemos seguimiento como lo harías tú: amable, profesional, acorde a tu marca. Todo se revisa por un humano antes de enviarse.",
       },
       {
         q: "¿Y si un cliente se molesta por el seguimiento?",
-        a: "No lo hará. Los recordatorios son corteses y enviados con tu voz. Cualquier cosa delicada — una disputa o falta de respuesta — se marca para que un humano la gestione con cuidado, no se auto-escala.",
+        a: "No lo hará. Los recordatorios son corteses y enviados con tu voz. Cualquier cosa delicada, una disputa o falta de respuesta, se marca para que un humano la gestione con cuidado, no se auto-escala.",
       },
       {
         q: "¿Qué tan rápido veré resultados?",
@@ -385,14 +385,14 @@ const es: RevenueRecoveryCopy = {
       },
       {
         q: "¿Cuánto cuesta?",
-        a: "Lo definimos para tu caso en una llamada gratuita. El modelo está alineado: ganamos cuando te pagan — una fracción de lo que tomaría una agencia de cobranza. Sin cartas amenazantes, sin dañar relaciones.",
+        a: "Lo definimos para tu caso en una llamada gratuita. El modelo está alineado: ganamos cuando te pagan, una fracción de lo que tomaría una agencia de cobranza. Sin cartas amenazantes, sin dañar relaciones.",
       },
     ],
   },
   finalCta: {
     headline: "Recuperemos lo que es tuyo.",
     subtext:
-      "Agenda una Auditoría de Recuperación de Ingresos gratuita de 30 minutos. Sin compromiso, sin contrato — solo una imagen clara de exactamente qué es recuperable.",
+      "Agenda una Auditoría de Recuperación de Ingresos gratuita de 30 minutos. Sin compromiso, sin contrato, solo una imagen clara de exactamente qué es recuperable.",
     button: "Agenda mi Auditoría Gratuita",
     note: "Llamada de 30 minutos. Te mostramos exactamente qué es recuperable.",
   },

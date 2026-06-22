@@ -26,7 +26,7 @@ export function setLocaleCookie(locale: Locale) {
 
 /**
  * Agency discount for Spanish locale (Paraguay).
- * 42.8571% off — ONLY for agency products, NOT web design arm.
+ * 42.8571% off, ONLY for agency products, NOT web design arm.
  */
 export const AGENCY_DISCOUNT = 0.428571;
 

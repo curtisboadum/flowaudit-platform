@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Chat provider abstraction — OpenAI-compatible streaming for OpenRouter & DeepSeek
+// Chat provider abstraction, OpenAI-compatible streaming for OpenRouter & DeepSeek
 // ---------------------------------------------------------------------------
 
 export interface ChatMessage {
@@ -166,7 +166,7 @@ function processLine(
       controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`));
     }
   } catch {
-    // Malformed JSON line — skip
+    // Malformed JSON line, skip
   }
 }
 

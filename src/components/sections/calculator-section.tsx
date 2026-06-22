@@ -2,7 +2,7 @@
 
 /**
  * @file calculator-section.tsx
- * @description Homepage ROI value estimator — shows time/value saved. CTA routes
+ * @description Homepage ROI value estimator, shows time/value saved. CTA routes
  *   to booking (the standalone pricing calculator was removed).
  * @status Stable.
  * @issues None.
