@@ -1,7 +1,15 @@
+/**
+ * @file en.ts
+ * @description English translation dictionary and the Translations type source.
+ * @status Stable.
+ * @issues None.
+ * @todo None.
+ */
 export const en = {
   // Nav
   nav: {
     webDesign: "Web Design",
+    revenueRecovery: "Revenue Recovery",
     solutions: "Solutions",
     howItWorks: "How It Works",
     pricing: "Pricing",
@@ -229,7 +237,7 @@ export const en = {
       "Yes, you get CMS access to update text, images, and basic content anytime. For design changes, our team handles those.",
     faq6Q: "What if I want a website without the add-ons?",
     faq6A:
-      "Absolutely. The website at £149/mo is a standalone product. Add tools whenever you're ready.",
+      "Absolutely. The website is a standalone product. Add tools whenever you're ready.",
 
     ctaHeadline: "Ready to See What Your Website Could Look Like?",
     ctaSubtext:
@@ -328,7 +336,7 @@ export const en = {
     { q: "What does the pilot include?", a: "The pilot is a 5-day test of one automation. We build it, run it with your real data, and show you exactly how much time it saves. You only move forward if you see clear results." },
     { q: "Is my data secure?", a: "Yes. We use role-based access controls, encrypted hosting, and full audit logs. Your data is never sold, shared, or used for training. You own everything." },
     { q: "What if I don't know which workflows to automate?", a: "That's what the first call is for. We'll walk through your day-to-day together, find the biggest time sinks, and recommend where to start." },
-    { q: "What's the pricing model?", a: "One-time deployment fee based on what you need: Starter ($4,995), Growth ($6,995), Scale ($9,495), or Custom ($12,500+). No monthly fees for the core build." },
+    { q: "What's the pricing model?", a: "Every build is scoped to exactly what you need, so the price depends on your setup. We walk you through it on a free strategy call. No monthly fees for the core build." },
     { q: "Do I need any technical knowledge?", a: "None at all. We handle all the setup, wiring, and configuration. You interact with your assistant through tools you already use." },
     { q: "What ROI do clients see?", a: "Most clients see 5x return on their investment. The average business saves 20+ hours a week on admin. Most people break even within the first few weeks." },
   ],
