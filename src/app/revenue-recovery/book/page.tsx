@@ -16,14 +16,14 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { RevenueRecoveryBookContent } from "./revenue-recovery-book-content";
 
 export const metadata: Metadata = {
-  title: "Book Your Free Revenue Audit | FlowAudit",
+  title: "Book a Revenue Recovery Call | FlowAudit",
   description:
-    "Book a free 30-minute Revenue Recovery audit. We'll map your overdue invoices and show how much cash we can recover for you — no commitment, no pressure.",
+    "Book a free 30-minute call. See how the done-for-you Revenue Recovery Desk works, whether it's the right fit for your business, and how to start collecting what you're owed.",
   alternates: { canonical: "/revenue-recovery/book" },
   openGraph: {
-    title: "Book Your Free Revenue Audit | FlowAudit",
+    title: "Book a Revenue Recovery Call | FlowAudit",
     description:
-      "Book a free 30-minute Revenue Recovery audit. See how much overdue cash we can recover for you.",
+      "A free 30-minute call to see how the done-for-you Revenue Recovery Desk works and whether it's a fit for your business.",
     url: canonicalUrl("/revenue-recovery/book"),
     type: "website",
   },
