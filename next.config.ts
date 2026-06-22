@@ -1,9 +1,18 @@
 import type { NextConfig } from "next";
 
 const revenueRecoveryDestination = "https://revenue-recovery-web-ivory.vercel.app";
+const revenueRecoveryProxyVersion = "20260622-theme-assets";
 
 const nextConfig: NextConfig = {
   /* typedRoutes requires a build to generate route types - disabled for marketing site */
+  async headers() {
+    return [
+      {
+        source: "/revenue-recovery/:path*",
+        headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }],
+      },
+    ];
+  },
   async rewrites() {
     return {
       afterFiles: [
@@ -24,11 +33,11 @@ const nextConfig: NextConfig = {
           "mapping",
         ].map((path) => ({
           source: `/revenue-recovery/${path}`,
-          destination: `${revenueRecoveryDestination}/${path}`,
+          destination: `${revenueRecoveryDestination}/${path}?rrd_proxy_v=${revenueRecoveryProxyVersion}`,
         })),
         ...["theme.css", "logo.svg", "vault-crypto.js"].map((asset) => ({
           source: `/revenue-recovery/${asset}`,
-          destination: `${revenueRecoveryDestination}/${asset}`,
+          destination: `${revenueRecoveryDestination}/${asset}?rrd_proxy_v=${revenueRecoveryProxyVersion}`,
         })),
         {
           source: "/revenue-recovery/api/:path*",
