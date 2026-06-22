@@ -58,7 +58,7 @@ function HeroBlock({ c }: { c: RevenueRecoveryCopy }) {
       </p>
       <div className="mt-9 flex w-full max-w-[400px] flex-col items-center gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:gap-4">
         <Button size="lg" className="w-full sm:w-auto" asChild>
-          <Link href="/book">
+          <Link href="/revenue-recovery/book">
             {c.ctaPrimary} <ArrowRight className="h-4 w-4" />
           </Link>
         </Button>
@@ -210,7 +210,7 @@ function AlignmentBlock({ c }: { c: RevenueRecoveryCopy }) {
           </p>
           <div className="mt-8 flex justify-center">
             <Button size="lg" asChild>
-              <Link href="/book">
+              <Link href="/revenue-recovery/book">
                 {c.alignment.cta} <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -248,7 +248,7 @@ function FinalCtaBlock({ c }: { c: RevenueRecoveryCopy }) {
         </p>
         <div className="mt-8">
           <Button size="lg" asChild>
-            <Link href="/book">
+            <Link href="/revenue-recovery/book">
               {c.finalCta.button} <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
