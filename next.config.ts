@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const revenueRecoveryDestination = "https://revenue-recovery-web-ivory.vercel.app";
-const revenueRecoveryProxyVersion = "20260622-theme-assets";
+const revenueRecoveryProxyVersion = "20260622-required-mapping";
 
 const nextConfig: NextConfig = {
   /* typedRoutes requires a build to generate route types - disabled for marketing site */
