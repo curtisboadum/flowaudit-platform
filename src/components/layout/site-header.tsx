@@ -1,21 +1,118 @@
 "use client";
 
+/**
+ * @file site-header.tsx
+ * @description Sticky pill nav with locale toggle and mobile menu. Surfaces the
+ *   Revenue Recovery Desk as a featured amber nav action (desktop + mobile).
+ * @status Stable.
+ * @issues None.
+ * @todo None.
+ */
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, Banknote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/components/providers/locale-provider";
+
+type NavLink = { label: string; href: string };
+
+interface DesktopNavProps {
+  links: NavLink[];
+  revenueRecoveryLabel: string;
+}
+
+function DesktopNav({ links, revenueRecoveryLabel }: DesktopNavProps) {
+  return (
+    <div className="hidden min-w-0 flex-1 items-center justify-center gap-2 lg:flex xl:gap-2.5">
+      {links.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className="font-sans text-[12px] leading-[14px] font-medium text-[rgba(49,45,43,0.80)] transition-colors hover:text-[#37322F]"
+        >
+          {link.label}
+        </Link>
+      ))}
+      {/* Featured: Revenue Recovery Desk */}
+      <Link
+        href="/revenue-recovery"
+        className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 font-sans text-[12px] leading-[14px] font-semibold whitespace-nowrap text-amber-700 transition-colors hover:bg-amber-100 hover:text-amber-800"
+      >
+        <Banknote className="h-3.5 w-3.5" />
+        {revenueRecoveryLabel}
+      </Link>
+    </div>
+  );
+}
+
+interface MobileMenuProps {
+  links: NavLink[];
+  isSpanish: boolean;
+  revenueRecoveryLabel: string;
+  bookCallLabel: string;
+  onClose: () => void;
+  onToggleLocale: () => void;
+}
+
+function MobileMenu({
+  links,
+  isSpanish,
+  revenueRecoveryLabel,
+  bookCallLabel,
+  onClose,
+  onToggleLocale,
+}: MobileMenuProps) {
+  return (
+    <div className="fixed inset-0 top-16 z-40 bg-[#F7F5F3]/98 backdrop-blur-md lg:hidden">
+      <div className="flex flex-col items-center gap-6 pt-12">
+        {/* Featured: Revenue Recovery Desk */}
+        <Link
+          href="/revenue-recovery"
+          onClick={onClose}
+          className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-5 py-2 text-lg font-semibold text-amber-700"
+        >
+          <Banknote className="h-5 w-5" />
+          {revenueRecoveryLabel}
+        </Link>
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={onClose}
+            className="text-lg font-medium text-[#37322F]"
+          >
+            {link.label}
+          </Link>
+        ))}
+        {/* Mobile language toggle */}
+        <button
+          onClick={() => {
+            onToggleLocale();
+            onClose();
+          }}
+          className="flex items-center gap-2 text-base font-medium text-[#605A57]"
+        >
+          <Globe className="h-4 w-4" />
+          {isSpanish ? "English" : "Español"}
+        </button>
+        <Button asChild className="mt-4">
+          <Link href="/book" onClick={onClose}>
+            {bookCallLabel}
+          </Link>
+        </Button>
+      </div>
+    </div>
+  );
+}
 
 function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { locale, t, setLocale } = useLocale();
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { label: t.nav.webDesign, href: "/web-design" },
     { label: t.nav.solutions, href: "/solutions" },
     { label: t.nav.howItWorks, href: "/#how-it-works" },
-    { label: t.nav.pricing, href: "/#pricing" },
-    { label: t.nav.calculator, href: "/calculator" },
     { label: t.nav.about, href: "/about" },
   ];
 
@@ -34,18 +131,7 @@ function SiteHeader() {
           </Link>
         </div>
 
-        {/* Nav Links (center column) */}
-        <div className="hidden flex-1 justify-center gap-2.5 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="font-sans text-[12px] leading-[14px] font-medium text-[rgba(49,45,43,0.80)] transition-colors hover:text-[#37322F]"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+        <DesktopNav links={navLinks} revenueRecoveryLabel={t.nav.revenueRecovery} />
 
         {/* CTA + Language + Mobile Toggle (right column) */}
         <div className="ml-auto flex shrink-0 items-center gap-2 lg:ml-0">
@@ -74,36 +160,14 @@ function SiteHeader() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-[#F7F5F3]/98 backdrop-blur-md lg:hidden">
-          <div className="flex flex-col items-center gap-6 pt-12">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium text-[#37322F]"
-              >
-                {link.label}
-              </Link>
-            ))}
-            {/* Mobile language toggle */}
-            <button
-              onClick={() => {
-                toggleLocale();
-                setMobileOpen(false);
-              }}
-              className="flex items-center gap-2 text-base font-medium text-[#605A57]"
-            >
-              <Globe className="h-4 w-4" />
-              {locale === "en" ? "Español" : "English"}
-            </button>
-            <Button asChild className="mt-4">
-              <Link href="/book" onClick={() => setMobileOpen(false)}>
-                {t.nav.bookCall}
-              </Link>
-            </Button>
-          </div>
-        </div>
+        <MobileMenu
+          links={navLinks}
+          isSpanish={locale === "es"}
+          revenueRecoveryLabel={t.nav.revenueRecovery}
+          bookCallLabel={t.nav.bookCall}
+          onClose={() => setMobileOpen(false)}
+          onToggleLocale={toggleLocale}
+        />
       )}
     </header>
   );

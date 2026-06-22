@@ -1,7 +1,15 @@
+/**
+ * @file en.ts
+ * @description English translation dictionary and the Translations type source.
+ * @status Stable.
+ * @issues None.
+ * @todo None.
+ */
 export const en = {
   // Nav
   nav: {
     webDesign: "Web Design",
+    revenueRecovery: "Revenue Recovery",
     solutions: "Solutions",
     howItWorks: "How It Works",
     pricing: "Pricing",

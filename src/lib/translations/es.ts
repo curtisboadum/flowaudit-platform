@@ -1,9 +1,17 @@
+/**
+ * @file es.ts
+ * @description Spanish translation dictionary (structurally matches en.ts).
+ * @status Stable.
+ * @issues None.
+ * @todo None.
+ */
 import type { Translations } from "./en";
 
 export const es: Translations = {
   // Nav
   nav: {
     webDesign: "Diseño Web",
+    revenueRecovery: "Recuperación de Ingresos",
     solutions: "Soluciones",
     howItWorks: "Cómo Funciona",
     pricing: "Precios",
