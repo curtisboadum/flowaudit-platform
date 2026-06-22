@@ -1,16 +1,16 @@
-# Progress — FlowAudit
+# Progress, FlowAudit
 
 ## Last Updated
 2026-02-22 00:49 UTC by Klaus
 
 ## Current State
-- **LIVE at https://flowaudit.co.uk** — DNS configured via IONOS, SSL active
+- **LIVE at https://flowaudit.co.uk**, DNS configured via IONOS, SSL active
 - **All core features deployed:** Web design arm, careers, i18n, Calendly, team portraits, AI agent illustrations
 - **i18n:** Full home page + web design + careers + book pages translated (ES). Geo-detection for Paraguay. Language toggle in header.
 - **Lighthouse:** Home 99/91/100/100, Web Design 99/94/100/100
 
 ## Completed (2026-02-21)
-- [x] Web design arm landing page (/web-design) — 8 products, pricing, FAQ
+- [x] Web design arm landing page (/web-design), 8 products, pricing, FAQ
 - [x] Careers page (/careers)
 - [x] i18n system + Paraguay geo-detection + language toggle
 - [x] Full Spanish translation of home page (all sections)
@@ -23,9 +23,9 @@
 - [x] Team portraits + AI agent SVG illustrations
 - [x] Calendly embedded on /book page
 - [x] SEO updated to flowaudit.co.uk
-- [x] DNS configured — LIVE on flowaudit.co.uk
-- [x] Visual QA at 375/768/1440px — passed
-- [x] Lighthouse audit — all scores >90
+- [x] DNS configured, LIVE on flowaudit.co.uk
+- [x] Visual QA at 375/768/1440px, passed
+- [x] Lighthouse audit, all scores >90
 - [x] Retrospective logged
 
 ## Still TODO

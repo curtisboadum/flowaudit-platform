@@ -5,10 +5,10 @@ Run the full deployment workflow with quality gates.
 ## Steps
 
 1. Run pre-deploy quality checks:
-   - `pnpm typecheck` — TypeScript strict check
-   - `pnpm lint` — ESLint check
-   - `pnpm test` — Run all tests
-   - `pnpm build` — Production build
+   - `pnpm typecheck`, TypeScript strict check
+   - `pnpm lint`, ESLint check
+   - `pnpm test`, Run all tests
+   - `pnpm build`, Production build
 2. If any check fails, stop and report the errors.
 3. Ensure the current branch is ready:
    - If on a feature branch: push and create/update PR

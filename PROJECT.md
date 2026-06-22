@@ -1,7 +1,7 @@
-# PROJECT.md — FlowAudit
+# PROJECT.md, FlowAudit
 
 ## Overview
-FlowAudit — AI agency platform. Sells "moat bots" (workflow automation agents built on OpenClaw) to businesses. Core platform for managing clients, agents, and workflows. Co-founded by Curtis (CTO) and Kofi (CEO).
+FlowAudit, AI agency platform. Sells "moat bots" (workflow automation agents built on OpenClaw) to businesses. Core platform for managing clients, agents, and workflows. Co-founded by Curtis (CTO) and Kofi (CEO).
 
 ## Live URL
 - Production: [Vercel deployment]
@@ -34,6 +34,6 @@ See `~/.openclaw/workspace/memory/procedures/flowaudit-webdesign-plan.md` for fu
 - £712/mo everything stack
 
 ## Key Context
-- FlowAudit is separate from Traqd — different brand, different colors, different identity
+- FlowAudit is separate from Traqd, different brand, different colors, different identity
 - Curtis is CTO, Kofi is CEO
 - Target: businesses needing workflow automation

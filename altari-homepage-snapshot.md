@@ -125,7 +125,7 @@
         - paragraph [ref=e221]: Customer Stories
         - generic [ref=e222]:
           - heading "Proven Results Across Multiple Industries" [level=2] [ref=e224]
-          - paragraph [ref=e226]: Our clients have automated thousands of hours, cut operational costs in half, and unlocked new growth — powered by custom AI infrastructure.
+          - paragraph [ref=e226]: Our clients have automated thousands of hours, cut operational costs in half, and unlocked new growth, powered by custom AI infrastructure.
       - generic [ref=e229]:
         - generic [ref=e230]:
           - generic [ref=e234] [cursor=pointer]:
@@ -195,7 +195,7 @@
           - generic [ref=e398]:
             - heading "Sales Agents" [level=4] [ref=e401]
             - blockquote [ref=e403]:
-              - paragraph [ref=e404]: Research prospects, write messages, and run personalised outreach — all on autopilot.
+              - paragraph [ref=e404]: Research prospects, write messages, and run personalised outreach, all on autopilot.
         - generic [ref=e406]:
           - img [ref=e417]
           - generic [ref=e419]:
@@ -380,7 +380,7 @@
       - paragraph [ref=e1016]: Let's Talk
       - generic [ref=e1017]:
         - heading "Book a Free Strategy Call" [level=2] [ref=e1019]
-        - paragraph [ref=e1021]: See exactly how AI can cut up to 70% of your operational workload and boost revenue — we’ll walk you through real systems already live in other businesses.
+        - paragraph [ref=e1021]: See exactly how AI can cut up to 70% of your operational workload and boost revenue, we’ll walk you through real systems already live in other businesses.
     - generic [ref=e1022]:
       - iframe [ref=e1029]:
         - generic [active] [ref=f1e5]:

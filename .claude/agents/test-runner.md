@@ -37,4 +37,4 @@ Write and run tests for the FlowAudit platform.
    - Any failing tests with error details
 
 6. **Coverage targets:**
-   - `src/lib/` — 80% lines, functions, branches, statements
+   - `src/lib/`, 80% lines, functions, branches, statements

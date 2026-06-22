@@ -1,7 +1,7 @@
 # Research Brief: FlowAudit Complete Overhaul
 
-## Task: T001 — FlowAudit Website Complete Overhaul
-**Tier:** 3 — Epic
+## Task: T001, FlowAudit Website Complete Overhaul
+**Tier:** 3, Epic
 **Research Depth:** Deep (15-30 min)
 **Date:** 2026-02-21
 
@@ -21,7 +21,7 @@ Curtis needs the FlowAudit website production-ready with:
 
 ---
 
-## 2. Domain Research — High-Converting Landing Pages
+## 2. Domain Research, High-Converting Landing Pages
 
 ### Key findings from top-performing pages (2025-2026):
 
@@ -35,20 +35,20 @@ Curtis needs the FlowAudit website production-ready with:
 **UK Agency Patterns (Converted.co.uk, Apexure, FastRanking):**
 - Research-backed design, not template-driven
 - Process/methodology section builds credibility
-- Case studies/portfolio as social proof (we don't have this yet — skip for now)
+- Case studies/portfolio as social proof (we don't have this yet, skip for now)
 - Multiple CTA touchpoints throughout long-form pages
 - Trust badges, awards, accreditations section
 
 **Website Rental/Subscription Model (competitors):**
-- Carpe DM: $150-220/mo — positions as "rent vs buy" decision
-- NorthwoodsWebDesigns: $79/mo single page — emphasizes all-inclusive
+- Carpe DM: $150-220/mo, positions as "rent vs buy" decision
+- NorthwoodsWebDesigns: $79/mo single page, emphasizes all-inclusive
 - Key selling points: no upfront cost, professional design, technical support included, SEO built in
 - FlowAudit's £149/mo is competitive and positioned well with the upsell stack to £712/mo
 
 ### Recommended page structure for web design arm:
 1. Hero with clear value prop + "no templates" differentiator
-2. Social proof section (trust badges, or "trusted by X businesses" — even if aspirational)
-3. How it works (4-step process — research, build, review, maintain)
+2. Social proof section (trust badges, or "trusted by X businesses", even if aspirational)
+3. How it works (4-step process, research, build, review, maintain)
 4. Products & pricing (8 products, monthly only)
 5. Why us / differentiators (4 cards)
 6. FAQ (objection handling)
@@ -56,13 +56,13 @@ Curtis needs the FlowAudit website production-ready with:
 
 ---
 
-## 3. Technical Research — Mobile-First Design
+## 3. Technical Research, Mobile-First Design
 
 ### Key mobile-first principles (Figma, Webstacks, best practices):
 - **Design at 375px first**, then expand to larger breakpoints
 - **Touch targets minimum 44px** (48px preferred)
 - **Thumb zone**: primary actions in bottom 40% of screen
-- **Single-column layouts** on mobile — no horizontal scrolling ever
+- **Single-column layouts** on mobile, no horizontal scrolling ever
 - **Font sizes**: minimum 16px body text on mobile (prevents iOS zoom)
 - **Buttons**: full-width on mobile, stack vertically (never side-by-side on small screens)
 - **Navigation**: hamburger menu on mobile, full nav on desktop (already implemented)
@@ -80,7 +80,7 @@ Curtis needs the FlowAudit website production-ready with:
 
 ---
 
-## 4. Technical Research — i18n Approach
+## 4. Technical Research, i18n Approach
 
 ### Current implementation: Cookie-based with middleware
 - Middleware detects `x-vercel-ip-country` header (Vercel provides this automatically)
@@ -126,7 +126,7 @@ Rather than rebuilding from scratch, audit the existing implementation against t
 5. Add missing pieces (proper i18n coverage, mobile fixes)
 6. Re-verify and deploy
 
-**Why:** The existing code structure is sound — the issues are in execution quality (branding, mobile, visual polish). A full rebuild would waste the work already done.
+**Why:** The existing code structure is sound, the issues are in execution quality (branding, mobile, visual polish). A full rebuild would waste the work already done.
 
 ---
 
@@ -134,8 +134,8 @@ Rather than rebuilding from scratch, audit the existing implementation against t
 
 **Key findings that should shape the architecture:**
 - Web design page needs clear value prop in first viewport, multiple CTA touchpoints, and FAQ for objection handling ✅ (already implemented)
-- Mobile-first means every component must be audited at 375px — buttons full-width, text stacked, no horizontal scroll
+- Mobile-first means every component must be audited at 375px, buttons full-width, text stacked, no horizontal scroll
 - Cookie-based i18n is appropriate for our 2-locale setup
-- The "no templates" differentiator is strong — competitors mostly use templates
+- The "no templates" differentiator is strong, competitors mostly use templates
 - £149/mo pricing is competitive in the UK web design subscription market
 - Trust/credibility section needed even without case studies (numbers, process, guarantees)

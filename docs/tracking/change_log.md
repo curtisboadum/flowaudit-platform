@@ -8,33 +8,33 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ### Brand Rename
 
-- **Updated** all pages, metadata, and SEO config — FlowAudit → FlowAudit\_ across site
-- **Updated** `seo.ts` — site name, OpenGraph, and structured data reflect FlowAudit\_ branding
-- **Updated** `pdf-export.tsx` — PDF header and footer use FlowAudit\_ name
-- **Updated** `chat-providers.ts` — system prompt and HTTP-Referer updated for FlowAudit\_
+- **Updated** all pages, metadata, and SEO config, FlowAudit → FlowAudit\_ across site
+- **Updated** `seo.ts`, site name, OpenGraph, and structured data reflect FlowAudit\_ branding
+- **Updated** `pdf-export.tsx`, PDF header and footer use FlowAudit\_ name
+- **Updated** `chat-providers.ts`, system prompt and HTTP-Referer updated for FlowAudit\_
 
 ### Trades-First Copy Rewrite
 
-- **Updated** about, book, problem, security, FAQ, pricing, and testimonials sections — rewritten in plain trades-first language
-- **Updated** chat system prompt — plain language rules, banned jargon list, trades-aware context
+- **Updated** about, book, problem, security, FAQ, pricing, and testimonials sections, rewritten in plain trades-first language
+- **Updated** chat system prompt, plain language rules, banned jargon list, trades-aware context
 
 ### Book Page Overhaul
 
-- **Updated** book page — Calendly embed replaced with email CTA (`hello@flowaudit.co`)
+- **Updated** book page, Calendly embed replaced with email CTA (`hello@flowaudit.co`)
 
 ### Calculator: Gulf Currencies
 
-- **Updated** calculator currency types — added AED, SAR, QAR
+- **Updated** calculator currency types, added AED, SAR, QAR
 - **Updated** fallback exchange rates, formatter, and currency symbols for Gulf currencies
 
 ### New Content
 
-- **Added** 2 testimonials — Walsh Plumbing, Precision HVAC
-- **Added** 2 FAQ items — solo operators, non-tech users
+- **Added** 2 testimonials, Walsh Plumbing, Precision HVAC
+- **Added** 2 FAQ items, solo operators, non-tech users
 
 ### PDF Export Fix
 
-- **Fixed** `pdf-export.tsx` — pre-sanitize iframe DOM for oklch() colors before html2canvas clone
+- **Fixed** `pdf-export.tsx`, pre-sanitize iframe DOM for oklch() colors before html2canvas clone
 
 ### Tailwind Cleanup
 
@@ -44,15 +44,15 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ## 2026-02-15 (Session 7)
 
-### Content Broadening — Inclusive Business Language
+### Content Broadening, Inclusive Business Language
 
-- **Updated** `industries/[slug]/page.tsx` — replaced solo-only framing with language covering all business sizes (1–30 people)
-- **Updated** `bento-grid.tsx` — broadened feature descriptions beyond one-person businesses
-- **Updated** `hero-section.tsx` — headline and subheading now address solo operators & small teams
-- **Updated** `comparison-section.tsx` — comparison copy covers full customer range
-- **Updated** `blog/page.tsx` — blog intro language broadened
-- **Updated** `blog/[slug]/page.tsx` — blog post framing updated
-- **Updated** `chat-widget.tsx` — chat system prompt updated for inclusive language
+- **Updated** `industries/[slug]/page.tsx`, replaced solo-only framing with language covering all business sizes (1–30 people)
+- **Updated** `bento-grid.tsx`, broadened feature descriptions beyond one-person businesses
+- **Updated** `hero-section.tsx`, headline and subheading now address solo operators & small teams
+- **Updated** `comparison-section.tsx`, comparison copy covers full customer range
+- **Updated** `blog/page.tsx`, blog intro language broadened
+- **Updated** `blog/[slug]/page.tsx`, blog post framing updated
+- **Updated** `chat-widget.tsx`, chat system prompt updated for inclusive language
 - 9 text replacements across 7 files total
 
 ---
@@ -61,15 +61,15 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ### Chat Provider Refactor
 
-- **Created** `src/lib/chat-providers.ts` — OpenRouter/DeepSeek provider abstraction with retry + exponential backoff + fallback
-- **Refactored** `/api/chat/route.ts` to use new provider module — provider-agnostic streaming interface
+- **Created** `src/lib/chat-providers.ts`, OpenRouter/DeepSeek provider abstraction with retry + exponential backoff + fallback
+- **Refactored** `/api/chat/route.ts` to use new provider module, provider-agnostic streaming interface
 - **Updated** `.env.example` with `OPENROUTER_API_KEY`, `DEEPSEEK_API_KEY` env vars
 - **Updated** `package.json` and `pnpm-lock.yaml` with new provider dependencies
 
 ### Domain Fix
 
-- **Fixed** `chat-providers.ts` — HTTP-Referer header uses `flowaudit.co.uk` (not `flowaudit.com`)
-- **Fixed** `pdf-export.tsx` — PDF footer URL uses `flowaudit.co.uk` (not `flowaudit.com`)
+- **Fixed** `chat-providers.ts`, HTTP-Referer header uses `flowaudit.co.uk` (not `flowaudit.com`)
+- **Fixed** `pdf-export.tsx`, PDF footer URL uses `flowaudit.co.uk` (not `flowaudit.com`)
 
 ---
 
@@ -77,17 +77,17 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ### Calculator Export & Print Fixes
 
-- **Fixed** `pdf-export.tsx` — Export PDF now renders in isolated `<iframe>` to avoid Tailwind v4 `oklch()` crash in html2canvas
-- **Fixed** `pdf-export.tsx` — Print Report falls back to `window.print()` when popup is blocked by browser
-- **Fixed** `pdf-export.tsx` — DOM cleanup moved to `finally` block to prevent orphaned elements on error
+- **Fixed** `pdf-export.tsx`, Export PDF now renders in isolated `<iframe>` to avoid Tailwind v4 `oklch()` crash in html2canvas
+- **Fixed** `pdf-export.tsx`, Print Report falls back to `window.print()` when popup is blocked by browser
+- **Fixed** `pdf-export.tsx`, DOM cleanup moved to `finally` block to prevent orphaned elements on error
 
 ### Chatbot Fallback Model
 
-- **Fixed** `/api/chat` — replaced sunset `gemini-1.5-flash` fallback with `gemini-2.0-flash-lite`
+- **Fixed** `/api/chat`, replaced sunset `gemini-1.5-flash` fallback with `gemini-2.0-flash-lite`
 
 ### E2E Verification
 
-- **Verified** calculator page, Export PDF, Print Report, and chat widget via Playwright MCP browser — 0 console errors across all pages
+- **Verified** calculator page, Export PDF, Print Report, and chat widget via Playwright MCP browser, 0 console errors across all pages
 
 ### Developer Experience
 
@@ -99,10 +99,10 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ### Gemini 429 Rate Limit Fix
 
-- **Fixed** `/api/chat` — added exponential backoff retry (3 attempts, 1s/2s/4s delays) for Gemini API 429 errors
-- **Fixed** `/api/chat` — added fallback from `gemini-2.0-flash` to `gemini-1.5-flash` on persistent rate limits
-- **Fixed** `/api/chat` — added diagnostic logging (model used, retry count, fallback triggered, error details)
-- **Fixed** `ChatWidget` — stream errors now surface specific messages instead of being silently swallowed
+- **Fixed** `/api/chat`, added exponential backoff retry (3 attempts, 1s/2s/4s delays) for Gemini API 429 errors
+- **Fixed** `/api/chat`, added fallback from `gemini-2.0-flash` to `gemini-1.5-flash` on persistent rate limits
+- **Fixed** `/api/chat`, added diagnostic logging (model used, retry count, fallback triggered, error details)
+- **Fixed** `ChatWidget`, stream errors now surface specific messages instead of being silently swallowed
 
 ### About Page
 
@@ -114,8 +114,8 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ### AI Chat Widget
 
-- **Created** `ChatWidget` component — streaming chat UI with quick questions, typing indicators, error handling
-- **Created** `/api/chat` route — Gemini 2.0 Flash SSE endpoint with rate limiting, input sanitization, system prompt
+- **Created** `ChatWidget` component, streaming chat UI with quick questions, typing indicators, error handling
+- **Created** `/api/chat` route, Gemini 2.0 Flash SSE endpoint with rate limiting, input sanitization, system prompt
 - **Updated** root layout to mount `<ChatWidget />` site-wide
 - **Added** `@google/generative-ai` dependency and `GEMINI_API_KEY` to `.env.example`
 
@@ -138,7 +138,7 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ### Misc
 
-- **Updated** `homepage-hero.png` — compressed from 296KB to 171KB
+- **Updated** `homepage-hero.png`, compressed from 296KB to 171KB
 - **Refactored** Tailwind class ordering across multiple components
 
 ---
@@ -175,7 +175,7 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 - **Updated** site header layout and navigation
 - **Updated** process section, FAQ section, security section styling
 - **Updated** all page layouts for visual consistency
-- **Committed** `4082cc1` — 29 files changed (1,635 additions, 447 deletions)
+- **Committed** `4082cc1`, 29 files changed (1,635 additions, 447 deletions)
 - **Created** PR #2 on `feat/ui-seo-logos-overhaul` branch
 
 ### Breadcrumb Navigation
@@ -186,13 +186,13 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ### Favicon
 
-- **Created** `icon.svg` SVG favicon in `src/app/` — auto-served by Next.js with cache-busted hash
+- **Created** `icon.svg` SVG favicon in `src/app/`, auto-served by Next.js with cache-busted hash
 
 ### Deployment (PR #3)
 
 - **Committed** `a6e5360` on `fix/breadcrumbs-favicon-todos` branch
 - **Created** PR #3 and squash-merged to `main`
-- **Deployed** to Vercel — verified breadcrumbs and favicon live in production
+- **Deployed** to Vercel, verified breadcrumbs and favicon live in production
 
 ---
 
