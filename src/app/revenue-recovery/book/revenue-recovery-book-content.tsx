@@ -19,24 +19,24 @@ const CALENDLY_URL = "https://calendly.com/flowaudit-info/30min";
 const COPY = {
   en: {
     eyebrow: "Revenue Recovery Desk",
-    headline: "Book your free revenue audit",
+    headline: "Let's recover what's yours",
     subtext:
-      "30 minutes. We'll review your overdue invoices and show exactly how much cash we can recover for you — and how fast. No commitment, no pressure.",
+      "Book a free 30-minute call. We'll show you how the done-for-you Revenue Recovery Desk works, whether it's the right fit for your business, and how fast we can get it running so you start collecting what you're owed. No pressure.",
     points: [
-      "See how much overdue revenue is recoverable",
-      "Walk through how the done-for-you desk works",
-      "Get a clear, no-obligation next step",
+      "See exactly how the done-for-you desk works",
+      "Find out if it's the right fit for your business",
+      "Leave with a clear plan to start recovering cash",
     ],
   },
   es: {
     eyebrow: "Mesa de Recuperación de Ingresos",
-    headline: "Reserva tu auditoría de ingresos gratis",
+    headline: "Recuperemos lo que es tuyo",
     subtext:
-      "30 minutos. Revisaremos tus facturas vencidas y te mostraremos exactamente cuánto dinero podemos recuperar para ti — y qué tan rápido. Sin compromiso, sin presión.",
+      "Agenda una llamada gratuita de 30 minutos. Te mostramos cómo funciona la Mesa de Recuperación de Ingresos hecha por nosotros, si encaja con tu negocio, y qué tan rápido podemos ponerla en marcha para que empieces a cobrar lo que te deben. Sin presión.",
     points: [
-      "Descubre cuántos ingresos vencidos son recuperables",
-      "Conoce cómo funciona la mesa hecha por nosotros",
-      "Obtén un siguiente paso claro y sin compromiso",
+      "Descubre cómo funciona la mesa hecha por nosotros",
+      "Confirma si encaja con tu negocio",
+      "Termina con un plan claro para empezar a recuperar dinero",
     ],
   },
 } as const;
