@@ -1,8 +1,18 @@
 "use client";
 
+/**
+ * @file calculator-section.tsx
+ * @description Homepage ROI value estimator — shows time/value saved. CTA routes
+ *   to booking (the standalone pricing calculator was removed).
+ * @status Stable.
+ * @issues None.
+ * @todo None.
+ */
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { useLocale } from "@/components/providers/locale-provider";
+
+type Dict = ReturnType<typeof useLocale>["t"];
 
 function CalculatorSection() {
   const { t } = useLocale();
@@ -22,42 +32,8 @@ function CalculatorSection() {
       className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)] px-4 py-16 sm:px-6 sm:py-20 lg:px-0 lg:py-24"
     >
       <div className="w-full max-w-[1060px]">
-        {/* Header */}
-        <div className="mb-12 flex flex-col items-center gap-4 sm:mb-16">
-          <Badge
-            icon={
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <rect
-                  x="2"
-                  y="2"
-                  width="10"
-                  height="10"
-                  rx="1"
-                  stroke="#37322F"
-                  strokeWidth="1"
-                  fill="none"
-                />
-                <line x1="5" y1="5" x2="9" y2="5" stroke="#37322F" strokeWidth="1" />
-                <line x1="5" y1="7" x2="9" y2="7" stroke="#37322F" strokeWidth="1" />
-                <line x1="5" y1="9" x2="9" y2="9" stroke="#37322F" strokeWidth="1" />
-              </svg>
-            }
-            text={t.calc.badge}
-          />
-          <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
-            {t.calc.headline}
-          </h2>
-          <p className="max-w-[500px] text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
-            {t.calc.subtext}
-          </p>
-          <p className="mt-2 text-center font-sans text-xs text-[rgba(55,50,47,0.40)]">
-            {t.calc.note}
-          </p>
-        </div>
-
-        {/* Calculator */}
+        <CalculatorHeader t={t} />
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Inputs */}
           <div className="space-y-8 rounded-xl border border-[rgba(55,50,47,0.08)] bg-white p-6 sm:p-8">
             <SliderInput
               label={t.calc.slider1}
@@ -86,51 +62,81 @@ function CalculatorSection() {
               unit={t.calc.people}
             />
           </div>
-
-          {/* Results */}
-          <div className="space-y-4">
-            <ResultCard
-              label={t.calc.result1}
-              value={`$${Math.round(monthlyValue).toLocaleString()}`}
-              highlight
-            />
-            <ResultCard
-              label={t.calc.result2}
-              value={`$${Math.round(annualValue).toLocaleString()}`}
-            />
-            <div className="grid grid-cols-2 gap-4">
-              <ResultCard
-                label={t.calc.result3}
-                value={hiringAvoided > 0 ? `${hiringAvoided}` : "< 1"}
-              />
-              <ResultCard
-                label={t.calc.result4}
-                value={`${breakEvenWeeks} ${breakEvenWeeks !== 1 ? t.calc.weeks : t.calc.week}`}
-              />
-            </div>
-
-            <a
-              href="/calculator"
-              className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 font-sans text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
-            >
-              {t.calc.cta}
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-            <p className="mt-4 text-center font-sans text-[10px] text-[#605A57]/60">
-              {t.calc.disclaimer}
-            </p>
-          </div>
+          <CalculatorResults
+            t={t}
+            monthlyValue={monthlyValue}
+            annualValue={annualValue}
+            hiringAvoided={hiringAvoided}
+            breakEvenWeeks={breakEvenWeeks}
+          />
         </div>
       </div>
     </section>
+  );
+}
+
+function CalculatorHeader({ t }: { t: Dict }) {
+  return (
+    <div className="mb-12 flex flex-col items-center gap-4 sm:mb-16">
+      <Badge
+        icon={
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="2" y="2" width="10" height="10" rx="1" stroke="#37322F" strokeWidth="1" fill="none" />
+            <line x1="5" y1="5" x2="9" y2="5" stroke="#37322F" strokeWidth="1" />
+            <line x1="5" y1="7" x2="9" y2="7" stroke="#37322F" strokeWidth="1" />
+            <line x1="5" y1="9" x2="9" y2="9" stroke="#37322F" strokeWidth="1" />
+          </svg>
+        }
+        text={t.calc.badge}
+      />
+      <h2 className="text-center font-sans text-2xl leading-tight font-semibold tracking-tight text-[#49423D] sm:text-3xl lg:text-5xl">
+        {t.calc.headline}
+      </h2>
+      <p className="max-w-[500px] text-center font-sans text-sm leading-7 text-[#605A57] sm:text-base">
+        {t.calc.subtext}
+      </p>
+      <p className="mt-2 text-center font-sans text-xs text-[rgba(55,50,47,0.40)]">{t.calc.note}</p>
+    </div>
+  );
+}
+
+interface CalculatorResultsProps {
+  t: Dict;
+  monthlyValue: number;
+  annualValue: number;
+  hiringAvoided: number;
+  breakEvenWeeks: number;
+}
+
+function CalculatorResults({
+  t,
+  monthlyValue,
+  annualValue,
+  hiringAvoided,
+  breakEvenWeeks,
+}: CalculatorResultsProps) {
+  return (
+    <div className="space-y-4">
+      <ResultCard label={t.calc.result1} value={`$${Math.round(monthlyValue).toLocaleString()}`} highlight />
+      <ResultCard label={t.calc.result2} value={`$${Math.round(annualValue).toLocaleString()}`} />
+      <div className="grid grid-cols-2 gap-4">
+        <ResultCard label={t.calc.result3} value={hiringAvoided > 0 ? `${hiringAvoided}` : "< 1"} />
+        <ResultCard
+          label={t.calc.result4}
+          value={`${breakEvenWeeks} ${breakEvenWeeks !== 1 ? t.calc.weeks : t.calc.week}`}
+        />
+      </div>
+      <a
+        href="/book"
+        className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 font-sans text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+      >
+        {t.calc.cta}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </a>
+      <p className="mt-4 text-center font-sans text-[10px] text-[#605A57]/60">{t.calc.disclaimer}</p>
+    </div>
   );
 }
 
