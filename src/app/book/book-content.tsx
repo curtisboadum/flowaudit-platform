@@ -1,3 +1,8 @@
+/**
+ * @status stable
+ * @issues none
+ * @todo none
+ */
 "use client";
 
 import { useLocale } from "@/components/providers/locale-provider";
@@ -19,7 +24,7 @@ function BookContent() {
 
       <section className="px-4 pb-16 sm:px-6 lg:px-0">
         <div className="mx-auto w-full max-w-[900px] overflow-hidden rounded-2xl border border-[rgba(55,50,47,0.08)] bg-white">
-          <CalendlyEmbed url="https://calendly.com/daniels-flowaudit/30min" />
+          <CalendlyEmbed url="https://calendly.com/flowaudit-info/30min" />
         </div>
       </section>
     </>
