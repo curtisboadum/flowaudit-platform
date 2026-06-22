@@ -26,6 +26,10 @@ const nextConfig: NextConfig = {
           source: `/revenue-recovery/${path}`,
           destination: `${revenueRecoveryDestination}/${path}`,
         })),
+        ...["theme.css", "logo.svg", "vault-crypto.js"].map((asset) => ({
+          source: `/revenue-recovery/${asset}`,
+          destination: `${revenueRecoveryDestination}/${asset}`,
+        })),
         {
           source: "/revenue-recovery/api/:path*",
           destination: `${revenueRecoveryDestination}/api/:path*`,
