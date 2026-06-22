@@ -1,13 +1,13 @@
-# Spec: T001 — FlowAudit Complete Overhaul
+# Spec: T001, FlowAudit Complete Overhaul
 
-**Tier:** 3 — Epic
+**Tier:** 3, Epic
 **Branch:** `feature/complete-overhaul`
 **Research:** `specs/T001-research.md`
 **Date:** 2026-02-21
 
 ---
 
-## Decomposition — 6 Sub-Tasks
+## Decomposition, 6 Sub-Tasks
 
 | ID | Title | Tier | Dependencies | Files |
 |----|-------|------|--------------|-------|
@@ -37,20 +37,20 @@
 - [ ] No text truncation hiding meaning on any screen size
 
 ### Files to Audit + Fix
-- `src/components/sections/hero-section.tsx` — CTAs, dashboard preview, feature tabs
-- `src/components/sections/comparison-section.tsx` — table → stacked cards on mobile
-- `src/components/sections/pricing-section.tsx` — card grid responsive
-- `src/components/sections/bento-grid.tsx` — grid stacking
-- `src/components/sections/testimonials-section.tsx` — card overflow
-- `src/components/sections/faq-section.tsx` — accordion width
-- `src/components/sections/cta-section.tsx` — button stacking
-- `src/components/layout/site-header.tsx` — mobile menu, nav overflow
-- `src/components/layout/site-footer.tsx` — column stacking
-- `src/app/calculator/calculator-app.tsx` — two-column layout
-- `src/components/calculator/sticky-summary.tsx` — bottom bar
-- `src/app/about/page.tsx` — team cards, content width
-- `src/app/book/page.tsx` — layout
-- `src/app/layout.tsx` — overflow-x-hidden on body (already done)
+- `src/components/sections/hero-section.tsx`, CTAs, dashboard preview, feature tabs
+- `src/components/sections/comparison-section.tsx`, table → stacked cards on mobile
+- `src/components/sections/pricing-section.tsx`, card grid responsive
+- `src/components/sections/bento-grid.tsx`, grid stacking
+- `src/components/sections/testimonials-section.tsx`, card overflow
+- `src/components/sections/faq-section.tsx`, accordion width
+- `src/components/sections/cta-section.tsx`, button stacking
+- `src/components/layout/site-header.tsx`, mobile menu, nav overflow
+- `src/components/layout/site-footer.tsx`, column stacking
+- `src/app/calculator/calculator-app.tsx`, two-column layout
+- `src/components/calculator/sticky-summary.tsx`, bottom bar
+- `src/app/about/page.tsx`, team cards, content width
+- `src/app/book/page.tsx`, layout
+- `src/app/layout.tsx`, overflow-x-hidden on body (already done)
 
 ### Anti-Requirements
 - Do NOT change the visual design or color scheme
@@ -175,8 +175,8 @@ Export button in calculator crashes. Initial fix applied (better jsPDF import ha
 ## T001f: SEO + Lighthouse + Final Verification
 
 ### Checks
-1. `npx tsc --noEmit` — ZERO errors
-2. `npx next build` — ZERO errors, ZERO warnings
+1. `npx tsc --noEmit`, ZERO errors
+2. `npx next build`, ZERO errors, ZERO warnings
 3. Lighthouse audit: Performance > 90, Accessibility > 90, SEO > 90, Best Practices > 90
 4. SITE_URL = `https://flowaudit.co.uk` everywhere
 5. Sitemap includes: /, /web-design, /careers, /calculator, /about, /book, /solutions, /blog, /results, /privacy, /terms
@@ -237,7 +237,7 @@ npx eslint . --max-warnings 0 2>/dev/null || echo "ESLint not configured"
 
 ---
 
-## Design Tokens (reference — DO NOT modify)
+## Design Tokens (reference, DO NOT modify)
 - Background: `#F7F5F3`
 - Dark text: `#37322F`
 - Medium text: `#605A57`

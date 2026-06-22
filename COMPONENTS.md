@@ -1,4 +1,4 @@
-# COMPONENTS.md — FlowAudit
+# COMPONENTS.md, FlowAudit
 
 Component catalog. Check here BEFORE creating new components.
 

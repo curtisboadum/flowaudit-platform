@@ -1,4 +1,4 @@
-# Delight Map — FlowAudit
+# Delight Map, FlowAudit
 
 ## User Journey Moments
 
@@ -24,9 +24,9 @@
 
 ## Error States
 - **Chat error:** "Our AI assistant is taking a quick break. Try again in a moment, or book a call with our team directly."
-- **Calculator error:** "Couldn't calculate that combination — try adjusting your selections."
+- **Calculator error:** "Couldn't calculate that combination, try adjusting your selections."
 - **Page not found:** "This page doesn't exist, but we can still help. Check out our services or chat with us."
 
 ## Empty States
-- **No testimonials loaded:** "Our clients have amazing stories — check back shortly."
+- **No testimonials loaded:** "Our clients have amazing stories, check back shortly."
 - **Calculator initial:** Clear starting state with guidance on what to select first

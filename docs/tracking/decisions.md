@@ -26,7 +26,7 @@
 
 **Date:** 2026-02-11
 **Status:** Accepted
-**Context:** FlowAudit's core product is "moat bots" — workflow automation agents. Need a framework for defining, deploying, and managing these agents.
+**Context:** FlowAudit's core product is "moat bots", workflow automation agents. Need a framework for defining, deploying, and managing these agents.
 **Decision:** Use OpenClaw as the agent framework.
 **Rationale:**
 
@@ -69,7 +69,7 @@
 **Decision:** Use `@theme inline` in `globals.css` for all Tailwind configuration. Delete `tailwind.config.ts`.
 **Rationale:**
 
-- CSS-first config is the Tailwind v4 standard — aligns with upstream direction
+- CSS-first config is the Tailwind v4 standard, aligns with upstream direction
 - Eliminates a config file and simplifies the build pipeline
 - Theme values are colocated with CSS, reducing context switching
 - Avoids issues with Turbopack not resolving v3-style config
@@ -84,17 +84,17 @@
 
 **Date:** 2026-02-14
 **Status:** Accepted
-**Context:** Marketing site needs SEO infrastructure — sitemaps, robots directives, structured data, and per-page metadata. Could use `next-seo` package, manual `<head>` tags, or Next.js built-in Metadata API.
+**Context:** Marketing site needs SEO infrastructure, sitemaps, robots directives, structured data, and per-page metadata. Could use `next-seo` package, manual `<head>` tags, or Next.js built-in Metadata API.
 **Decision:** Use Next.js built-in Metadata API (`generateMetadata`, `robots.ts`, `sitemap.ts`) and inline JSON-LD for structured data.
 **Rationale:**
 
-- Zero additional dependencies — built into Next.js 15
+- Zero additional dependencies, built into Next.js 15
 - `robots.ts` and `sitemap.ts` are simple exports with full TypeScript support
 - `generateMetadata` enables per-page OpenGraph/Twitter metadata with type safety
-- JSON-LD structured data injected via `<script>` tags — no library needed
-- App Router native — works with Server Components and streaming
+- JSON-LD structured data injected via `<script>` tags, no library needed
+- App Router native, works with Server Components and streaming
   **Consequences:**
-- No single package to manage all SEO concerns — each piece is a separate file
+- No single package to manage all SEO concerns, each piece is a separate file
 - JSON-LD schemas must be manually constructed (no helper library)
 - Metadata API may not cover every edge case that `next-seo` handles
 
@@ -108,13 +108,13 @@
 **Decision:** Single `Breadcrumbs` component accepting an `items` array, imported and configured per-page.
 **Rationale:**
 
-- Composition over global layout injection — each page controls its own breadcrumb hierarchy
+- Composition over global layout injection, each page controls its own breadcrumb hierarchy
 - Dynamic pages (blog, industry) can resolve slugs to human-readable display names at the page level
-- No global state or context provider needed — simple props-based interface
+- No global state or context provider needed, simple props-based interface
 - Matches the project convention of Server Components by default (no client-side state required for breadcrumbs)
   **Consequences:**
 - Each page must import `Breadcrumbs` and configure its own items array
-- No automatic breadcrumb generation from route structure — manual maintenance required
+- No automatic breadcrumb generation from route structure, manual maintenance required
 - Adding a new page requires explicitly adding breadcrumb configuration
 
 ---
@@ -147,9 +147,9 @@
 **Decision:** Render PDF content inside an invisible `<iframe>` instead of appending to `document.body`.
 **Rationale:**
 
-- Complete CSS isolation — the iframe has no Tailwind styles, so `oklch()` never enters the rendering context
+- Complete CSS isolation, the iframe has no Tailwind styles, so `oklch()` never enters the rendering context
 - `generateHTML()` already uses only inline styles with hex/rgb colors, so it renders correctly without Tailwind
-- No changes needed to the HTML generation logic — only the rendering container changed
+- No changes needed to the HTML generation logic, only the rendering container changed
 - Standard browser API with universal support
   **Consequences:**
 - Slight latency (~500ms render wait) for iframe content and fonts to load before html2canvas captures
@@ -166,14 +166,14 @@
 **Decision:** Extract chat providers into `src/lib/chat-providers.ts` with OpenRouter as primary and DeepSeek as fallback, using retry with exponential backoff.
 **Rationale:**
 
-- OpenRouter provides access to multiple models behind a single API — can switch models without code changes
+- OpenRouter provides access to multiple models behind a single API, can switch models without code changes
 - DeepSeek as fallback gives a completely independent provider path for resilience
 - Retry with exponential backoff (3 attempts, 1s/2s/4s) handles transient rate limits gracefully
 - Provider abstraction keeps `/api/chat/route.ts` clean and provider-agnostic
 - Both providers are significantly cheaper than Claude for marketing chat use case
   **Consequences:**
 - Two API keys to manage (`OPENROUTER_API_KEY`, `DEEPSEEK_API_KEY`)
-- Supersedes ADR-007 (Gemini for chat) — Gemini dependency removed
+- Supersedes ADR-007 (Gemini for chat), Gemini dependency removed
 - If OpenRouter goes down, automatic fallback to DeepSeek with no user-visible impact
 - Provider module is reusable if other chat endpoints are added later
 

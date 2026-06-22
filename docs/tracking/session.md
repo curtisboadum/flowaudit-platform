@@ -11,14 +11,14 @@
 ### Context
 
 - Brand rename from "FlowAudit" to "FlowAudit\_" needed across all pages, metadata, SEO, PDF export, chat providers
-- Site copy was generic SaaS language — needed rewrite in plain trades-first language
-- Book page used Calendly embed — replaced with direct email CTA (`hello@flowaudit.co`)
+- Site copy was generic SaaS language, needed rewrite in plain trades-first language
+- Book page used Calendly embed, replaced with direct email CTA (`hello@flowaudit.co`)
 - Calculator missing Gulf currencies (AED, SAR, QAR) for target market
 - Large accumulated changes from sessions 3–8 needed to be committed and pushed
 
 ### Blockers
 
-- `git push` blocked by MCP-injected `GITHUB_TOKEN` PAT — resolved with `GITHUB_TOKEN=` workaround
+- `git push` blocked by MCP-injected `GITHUB_TOKEN` PAT, resolved with `GITHUB_TOKEN=` workaround
 
 ### Notes
 
@@ -42,12 +42,12 @@
 
 ### Context
 
-- Site copy used "one-person business" and solo-only framing that excluded 2–30 person teams — core customers
+- Site copy used "one-person business" and solo-only framing that excluded 2–30 person teams, core customers
 - Needed inclusive language that covers solo operators through small teams without alienating either end
 
 ### Blockers
 
-- `git push` to origin blocked by 403 auth — `GITHUB_TOKEN` PAT lacks scope, needs manual `gh auth refresh`
+- `git push` to origin blocked by 403 auth, `GITHUB_TOKEN` PAT lacks scope, needs manual `gh auth refresh`
 
 ### Notes
 
@@ -68,7 +68,7 @@
 
 - Gemini chat provider being replaced with OpenRouter (primary) and DeepSeek (fallback) for better reliability and cost
 - Domain references incorrectly using `flowaudit.com` instead of `flowaudit.co.uk`
-- Provider logic tightly coupled in route handler — needed extraction into reusable module
+- Provider logic tightly coupled in route handler, needed extraction into reusable module
 
 ### Blockers
 
@@ -76,7 +76,7 @@
 
 ### Notes
 
-- Extracted `src/lib/chat-providers.ts` — OpenRouter/DeepSeek abstraction with retry + exponential backoff + fallback
+- Extracted `src/lib/chat-providers.ts`, OpenRouter/DeepSeek abstraction with retry + exponential backoff + fallback
 - Refactored `/api/chat/route.ts` to use new provider module (simpler, provider-agnostic)
 - Fixed domain references: `flowaudit.com` → `flowaudit.co.uk` in chat-providers HTTP-Referer and pdf-export footer
 - Updated `.env.example` with OpenRouter/DeepSeek env vars
@@ -93,19 +93,19 @@
 
 ### Context
 
-- Export PDF crashing on Tailwind v4 oklch() colors — html2canvas cannot parse oklch() CSS functions
+- Export PDF crashing on Tailwind v4 oklch() colors, html2canvas cannot parse oklch() CSS functions
 - Print Report silently failing when popup is blocked by browser
 - Chatbot returning 404 from sunset `gemini-1.5-flash` fallback model
 - All fixes committed locally on `fix/fallback-model-name` branch
 
 ### Blockers
 
-- `GITHUB_TOKEN` PAT lacks `contents:write` scope — `git push` returns 403 (same recurring issue)
+- `GITHUB_TOKEN` PAT lacks `contents:write` scope, `git push` returns 403 (same recurring issue)
 
 ### Notes
 
-- Export PDF: iframe isolation approach — renders PDF content inside invisible iframe for complete CSS isolation from Tailwind v4 oklch()
-- Print Report: popup-blocked fallback — catches popup block and falls back to `window.print()`
+- Export PDF: iframe isolation approach, renders PDF content inside invisible iframe for complete CSS isolation from Tailwind v4 oklch()
+- Print Report: popup-blocked fallback, catches popup block and falls back to `window.print()`
 - DOM cleanup: moved to `finally` block to prevent orphaned elements on error
 - Chatbot: replaced sunset `gemini-1.5-flash` with `gemini-2.0-flash-lite` as fallback model
 - E2E verified via Playwright MCP browser: calculator page loads clean (0 errors), Export PDF downloads `FlowAudit-ROI-Report.pdf` successfully, Print opens popup window, chat widget calls correct model (`gemini-2.0-flash-lite`), 429 is free tier quota issue not code bug, 0 console errors across all pages
@@ -117,25 +117,25 @@
 ## Session 2026-02-14 (Session 4)
 
 **Date:** 2026-02-14
-**Goal:** Fix Gemini 429 rate limit errors — retry logic, fallback model, diagnostic logging, about page updates
+**Goal:** Fix Gemini 429 rate limit errors, retry logic, fallback model, diagnostic logging, about page updates
 **Status:** Completed
 
 ### Context
 
 - Chat widget live in production but Gemini 2.0 Flash returning 429 (rate limit) errors under load
-- Errors were being silently swallowed — users saw generic "Something went wrong" with no diagnostics
+- Errors were being silently swallowed, users saw generic "Something went wrong" with no diagnostics
 - About page team member names/titles needed corrections
 
 ### Blockers
 
-- `GITHUB_TOKEN` PAT lacks `contents:write` scope for `git push` — resolved by unsetting it to fall through to keyring OAuth token
+- `GITHUB_TOKEN` PAT lacks `contents:write` scope for `git push`, resolved by unsetting it to fall through to keyring OAuth token
 
 ### Notes
 
 - Added exponential backoff retry (3 attempts, 1s/2s/4s delays) to Gemini API calls in `/api/chat`
 - Added fallback from `gemini-2.0-flash` to `gemini-1.5-flash` on persistent 429s
 - Added diagnostic logging: model used, retry count, fallback triggered, error details
-- Fixed stream error handling — errors now surface specific messages instead of being swallowed
+- Fixed stream error handling, errors now surface specific messages instead of being swallowed
 - Updated about page: corrected team member names (Lawyer Boadum), titles (CEO/COO), swapped AI agent descriptions
 - 3 commits on `fix/calendly-chatbot` branch
 
@@ -161,7 +161,7 @@
 
 ### Notes
 
-- Built streaming chat widget powered by Gemini 2.0 Flash (chosen over Claude API for cost — marketing chat, not core product)
+- Built streaming chat widget powered by Gemini 2.0 Flash (chosen over Claude API for cost, marketing chat, not core product)
 - Chat endpoint includes rate limiting (20 req/min per IP), input sanitization, HTML stripping, conversation length cap
 - System prompt guides visitors toward booking discovery calls and using the ROI calculator
 - Redesigned industry workflow cards with numbered steps and "From/To" transformation labels
@@ -186,14 +186,14 @@
 
 ### Blockers
 
-- `GITHUB_TOKEN` env var blocked `git push` — resolved by unsetting it and using keyring-stored OAuth token
+- `GITHUB_TOKEN` env var blocked `git push`, resolved by unsetting it and using keyring-stored OAuth token
 
 ### Notes
 
 - Created reusable `Breadcrumbs` component with animated chevron separators
 - Added breadcrumbs to all 11 subpages with per-page hierarchy configuration
 - Dynamic slug resolution for blog and industry pages (e.g., `/blog/ai-automation` → "AI Automation")
-- Created `icon.svg` SVG favicon in `src/app/` — Next.js auto-serves with cache-busted hash
+- Created `icon.svg` SVG favicon in `src/app/`, Next.js auto-serves with cache-busted hash
 - Committed as `a6e5360`, PR #3 created on `fix/breadcrumbs-favicon-todos` branch
 - PR #3 squash-merged to `main`, verified live on Vercel
 
@@ -214,8 +214,8 @@
 
 ### Blockers
 
-- `GITHUB_TOKEN` env var from MCP plugins blocked `git push` — resolved by unsetting it
-- Zsh glob expansion conflicted with git paths containing `[brackets]` — resolved by quoting paths
+- `GITHUB_TOKEN` env var from MCP plugins blocked `git push`, resolved by unsetting it
+- Zsh glob expansion conflicted with git paths containing `[brackets]`, resolved by quoting paths
 
 ### Notes
 
@@ -232,7 +232,7 @@
 ## Session 2026-02-12
 
 **Date:** 2026-02-12
-**Goal:** Deploy to Vercel — git initial commit, GitHub repo creation, Vercel deployment, visual testing
+**Goal:** Deploy to Vercel, git initial commit, GitHub repo creation, Vercel deployment, visual testing
 **Status:** Completed
 
 ### Context
@@ -256,7 +256,7 @@
 ## Session 2026-02-11
 
 **Date:** 2026-02-11
-**Goal:** Initial project setup — Claude Code environment, Next.js scaffold, all configuration
+**Goal:** Initial project setup, Claude Code environment, Next.js scaffold, all configuration
 **Status:** Completed
 
 ### Context

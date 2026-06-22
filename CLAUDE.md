@@ -1,6 +1,6 @@
 # FlowAudit Platform
 
-FlowAudit is an AI agency that sells "moat bots" — workflow automation agents built on OpenClaw — to businesses. This is the core platform for managing clients, agents, and workflows.
+FlowAudit is an AI agency that sells "moat bots", workflow automation agents built on OpenClaw, to businesses. This is the core platform for managing clients, agents, and workflows.
 
 ## Tech Stack
 
@@ -42,10 +42,10 @@ See `docs/architecture/overview.md` for full diagram.
 ## Coding Conventions
 
 ### TypeScript
-- **Strict mode always** — `strict: true`, `noUncheckedIndexedAccess: true`
-- **No `any`** — use `unknown` + type narrowing
+- **Strict mode always**, `strict: true`, `noUncheckedIndexedAccess: true`
+- **No `any`**, use `unknown` + type narrowing
 - **No `eval()`** or dynamic code execution
-- **No non-null assertions (`!`)** — handle nullability properly
+- **No non-null assertions (`!`)**, handle nullability properly
 - **Use `satisfies` operator** for type-safe object literals
 
 ### File & Naming
@@ -64,15 +64,15 @@ See `docs/architecture/overview.md` for full diagram.
 7. Relative imports
 
 ### Components
-- **Server Components by default** — only add `"use client"` when needed
+- **Server Components by default**, only add `"use client"` when needed
 - **Props interface colocated** with component, named `{Component}Props`
-- **No barrel files** (`index.ts` re-exports) — import directly from component files
+- **No barrel files** (`index.ts` re-exports), import directly from component files
 - **Prefer composition** over prop drilling
 
 ### Error Handling
-- **Result pattern** for `src/lib/` functions — use `Result<T, E>` from `@/lib/utils`
-- **HTTP status codes** for API routes — 200, 201, 400, 401, 404, 500
-- **try/catch at boundaries** — API routes and event handlers only
+- **Result pattern** for `src/lib/` functions, use `Result<T, E>` from `@/lib/utils`
+- **HTTP status codes** for API routes, 200, 201, 400, 401, 404, 500
+- **try/catch at boundaries**, API routes and event handlers only
 - **Never swallow errors silently**
 
 ## InstantDB Patterns
@@ -113,7 +113,7 @@ pnpm db:push      # Push InstantDB schema
 
 ## Git Workflow
 
-- **Never commit directly to `main`** — always use feature branches
+- **Never commit directly to `main`**, always use feature branches
 - **Branch naming**: `feat/`, `fix/`, `chore/`, `docs/` prefixes
 - **Conventional commits**: `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:`
 - **Squash merge** PRs into main
@@ -132,8 +132,8 @@ When working in agent teams:
 
 ## Security Constraints
 
-- Never commit secrets or API keys — use environment variables
-- No `any` type — use `unknown` with type guards
+- Never commit secrets or API keys, use environment variables
+- No `any` type, use `unknown` with type guards
 - No `eval()`, `Function()`, or dynamic code execution
 - No `dangerouslySetInnerHTML` without sanitization
 - Validate all user input at API boundaries
@@ -141,13 +141,13 @@ When working in agent teams:
 
 ## Anti-Patterns (Never Do These)
 
-- No `pages/` directory — App Router only
-- No Firebase or Supabase — we use InstantDB
-- No Redux or Zustand — use React state + InstantDB realtime
-- No axios — use native `fetch`
+- No `pages/` directory, App Router only
+- No Firebase or Supabase, we use InstantDB
+- No Redux or Zustand, use React state + InstantDB realtime
+- No axios, use native `fetch`
 - No barrel files (`index.ts` re-exports)
-- No CSS modules or styled-components — Tailwind only
-- No `React.FC` — use function declarations with typed props
+- No CSS modules or styled-components, Tailwind only
+- No `React.FC`, use function declarations with typed props
 
 ## Tracking Files
 

@@ -13,8 +13,8 @@ Review code for TypeScript strictness, security issues, and pattern compliance.
 When reviewing code:
 
 1. **TypeScript Strictness**
-   - Check for `any` types — should use `unknown` with type guards
-   - Check for non-null assertions (`!`) — should handle nullability
+   - Check for `any` types, should use `unknown` with type guards
+   - Check for non-null assertions (`!`), should handle nullability
    - Check for missing return types on exported functions
    - Verify `noUncheckedIndexedAccess` patterns are followed
 

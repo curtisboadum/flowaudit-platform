@@ -70,12 +70,12 @@ test("health endpoint responds", async ({ request }) => {
 ```
 
 ## Commands
-- `pnpm test` — Run all unit/component tests
-- `pnpm test:watch` — Watch mode
-- `pnpm test:coverage` — Run with coverage report
-- `pnpm test:e2e` — Run Playwright E2E tests
+- `pnpm test`, Run all unit/component tests
+- `pnpm test:watch`, Watch mode
+- `pnpm test:coverage`, Run with coverage report
+- `pnpm test:e2e`, Run Playwright E2E tests
 
 ## Coverage Targets
-- `src/lib/` — 80% lines, functions, branches, statements
-- Components — Key user-facing components tested
-- E2E — All critical user flows
+- `src/lib/`, 80% lines, functions, branches, statements
+- Components, Key user-facing components tested
+- E2E, All critical user flows

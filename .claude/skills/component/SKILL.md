@@ -7,11 +7,11 @@ When the user asks to create a new React component.
 
 1. Determine if it should be a Server Component (default) or Client Component.
 2. Choose the correct directory:
-   - `src/components/ui/` — Generic UI primitives (buttons, cards, modals)
-   - `src/components/layout/` — Layout components (header, sidebar, footer)
-   - `src/components/agents/` — Agent-specific components
-   - `src/components/clients/` — Client-specific components
-   - `src/components/shared/` — Shared across features
+   - `src/components/ui/`, Generic UI primitives (buttons, cards, modals)
+   - `src/components/layout/`, Layout components (header, sidebar, footer)
+   - `src/components/agents/`, Agent-specific components
+   - `src/components/clients/`, Client-specific components
+   - `src/components/shared/`, Shared across features
 3. Create the component file using kebab-case: `{component-name}.tsx`.
 4. Follow these patterns:
 
@@ -67,7 +67,7 @@ export function AgentToggle({ agentId, initialActive, onToggle }: AgentTogglePro
 - File names: kebab-case (`agent-card.tsx`)
 - Component names: PascalCase (`AgentCard`)
 - Props interface: `{ComponentName}Props`, colocated in the same file
-- No barrel files — import directly from the component file
-- No `React.FC` — use function declarations
-- Server Components by default — only add `"use client"` when using hooks or event handlers
-- Use Tailwind for styling — no CSS modules
+- No barrel files, import directly from the component file
+- No `React.FC`, use function declarations
+- Server Components by default, only add `"use client"` when using hooks or event handlers
+- Use Tailwind for styling, no CSS modules
