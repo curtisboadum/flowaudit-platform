@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const revenueRecoveryDestination = "https://revenue-recovery-web-ivory.vercel.app";
-const revenueRecoveryProxyVersion = "20260622-go-live-tracker";
+const revenueRecoveryProxyVersion = "20260623-client-dashboard-loginfix";
 
 const nextConfig: NextConfig = {
   /* typedRoutes requires a build to generate route types - disabled for marketing site */
@@ -32,6 +32,8 @@ const nextConfig: NextConfig = {
           "readiness",
           "mapping",
           "go-live",
+          "client",
+          "postal-portal",
         ].map((path) => ({
           source: `/revenue-recovery/${path}`,
           destination: `${revenueRecoveryDestination}/${path}?rrd_proxy_v=${revenueRecoveryProxyVersion}`,
