@@ -254,16 +254,16 @@ function OAuthReviewerBlock() {
           >
             Client login page
             <span className="mt-1 block text-xs font-normal text-[#605A57]">
-              Use the reviewer credentials supplied in the Google Cloud submission; 2FA is disabled for that review account.
+              Use the reviewer credentials supplied in the Google Cloud submission. This account does not use 2FA, so nothing blocks sign-in.
             </span>
           </Link>
           <Link
-            href="/revenue-recovery/oauth-start"
+            href="/revenue-recovery/client?login=1"
             className="rounded-2xl border border-[rgba(55,50,47,0.10)] bg-white p-4 font-sans text-sm font-semibold text-[#37322F] transition-colors hover:border-amber-300 sm:col-span-2"
           >
-            OAuth consent navigation
+            Reach the Google consent screen
             <span className="mt-1 block text-xs font-normal text-[#605A57]">
-              Sign in to the client portal, open Settings / secure setup, choose Connect Google Workspace, then continue on Google&apos;s consent screen. A valid one-time setup link is required for live OAuth connection.
+              After signing in, open Settings and click Connect Google Workspace. You are taken to Google&apos;s own consent screen to grant read-only access. No one-time link or extra step is needed.
             </span>
           </Link>
         </div>
