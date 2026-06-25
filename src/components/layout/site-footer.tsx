@@ -8,7 +8,6 @@
  * @todo None.
  */
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useLocale } from "@/components/providers/locale-provider";
 
 type Dict = ReturnType<typeof useLocale>["t"];
@@ -133,25 +132,18 @@ function PatternBand() {
 }
 
 function FooterBottom({ t }: { t: Dict }) {
-  // On Revenue Recovery Desk pages, link to that product's own (Google-registered)
-  // privacy/terms so the legal pages match the service the visitor is on. Elsewhere
-  // the agency site's privacy/terms apply.
-  const pathname = usePathname();
-  const inRevenueRecovery = pathname?.startsWith("/revenue-recovery") ?? false;
-  const privacyHref = inRevenueRecovery ? "/revenue-recovery/privacy" : "/privacy";
-  const termsHref = inRevenueRecovery ? "/revenue-recovery/terms" : "/terms";
   return (
     <div className="flex flex-col items-center justify-between gap-4 border-t border-[rgba(55,50,47,0.12)] py-6 sm:flex-row">
       <p className="font-sans text-xs text-[#605A57]">{t.footer.copyright}</p>
       <div className="flex gap-6">
         <Link
-          href={privacyHref}
+          href="/privacy"
           className="font-sans text-xs text-[#605A57] transition-colors hover:text-[#37322F]"
         >
           {t.footer.privacy}
         </Link>
         <Link
-          href={termsHref}
+          href="/terms"
           className="font-sans text-xs text-[#605A57] transition-colors hover:text-[#37322F]"
         >
           {t.footer.terms}

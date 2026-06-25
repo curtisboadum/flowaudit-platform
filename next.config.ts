@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      { source: "/revenue-recovery/privacy", destination: "/privacy", permanent: true },
+      { source: "/revenue-recovery/terms", destination: "/terms", permanent: true },
+    ];
+  },
   async rewrites() {
     return {
       afterFiles: [
@@ -24,8 +30,6 @@ const nextConfig: NextConfig = {
           "vault",
           "oauth-start",
           "oauth-callback",
-          "terms",
-          "privacy",
           "offboard",
           "offboarded",
           "sop-review",
