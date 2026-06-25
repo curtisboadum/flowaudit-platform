@@ -38,6 +38,7 @@ function RevenueRecoveryContent() {
         <StepsBlock c={c} />
         <AudienceBlock c={c} />
         <AlignmentBlock c={c} />
+        <OAuthReviewerBlock />
         <FaqBlock c={c} />
         <FinalCtaBlock c={c} />
       </div>
@@ -215,6 +216,56 @@ function AlignmentBlock({ c }: { c: RevenueRecoveryCopy }) {
               </Link>
             </Button>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OAuthReviewerBlock() {
+  return (
+    <section
+      id="oauth-verification"
+      className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)] bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-0"
+    >
+      <div className="w-full max-w-[760px] rounded-3xl border border-amber-200 bg-amber-50/60 p-6 text-left shadow-sm sm:p-8">
+        <div className="font-sans text-xs font-semibold tracking-wider text-amber-700 uppercase">
+          OAuth app verification
+        </div>
+        <h2 className="mt-3 font-sans text-2xl leading-tight font-semibold tracking-tight text-[#37322F]">
+          Google reviewer access and privacy links
+        </h2>
+        <p className="mt-4 font-sans text-sm leading-7 text-[#605A57] sm:text-base">
+          Revenue Recovery Desk connects only when a client starts an OAuth flow from their secure setup link. For review, use the links below to confirm the published privacy policy, login page, and Google consent navigation.
+        </p>
+        <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <Link
+            href="/revenue-recovery/privacy"
+            className="rounded-2xl border border-[rgba(55,50,47,0.10)] bg-white p-4 font-sans text-sm font-semibold text-[#37322F] transition-colors hover:border-amber-300"
+          >
+            Privacy Policy
+            <span className="mt-1 block text-xs font-normal text-[#605A57]">
+              flowaudit.co.uk/revenue-recovery/privacy
+            </span>
+          </Link>
+          <Link
+            href="/revenue-recovery/client?login=1"
+            className="rounded-2xl border border-[rgba(55,50,47,0.10)] bg-white p-4 font-sans text-sm font-semibold text-[#37322F] transition-colors hover:border-amber-300"
+          >
+            Client login page
+            <span className="mt-1 block text-xs font-normal text-[#605A57]">
+              Use the reviewer credentials supplied in the Google Cloud submission; 2FA is disabled for that review account.
+            </span>
+          </Link>
+          <Link
+            href="/revenue-recovery/oauth-start"
+            className="rounded-2xl border border-[rgba(55,50,47,0.10)] bg-white p-4 font-sans text-sm font-semibold text-[#37322F] transition-colors hover:border-amber-300 sm:col-span-2"
+          >
+            OAuth consent navigation
+            <span className="mt-1 block text-xs font-normal text-[#605A57]">
+              Sign in to the client portal, open Settings / secure setup, choose Connect Google Workspace, then continue on Google&apos;s consent screen. A valid one-time setup link is required for live OAuth connection.
+            </span>
+          </Link>
         </div>
       </div>
     </section>
