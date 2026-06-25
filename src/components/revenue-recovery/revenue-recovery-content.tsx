@@ -9,6 +9,7 @@
  */
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Search, Send, ShieldAlert, FileText, Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -23,23 +24,23 @@ import {
 const STEP_ICONS = [Search, Send, ShieldAlert, FileText];
 
 const STACK_LOGOS = [
-  { name: "Google Workspace", domain: "google.com" },
-  { name: "HubSpot", domain: "hubspot.com" },
-  { name: "Whop", domain: "whop.com" },
-  { name: "Stripe", domain: "stripe.com" },
-  { name: "Microsoft 365", domain: "microsoft.com" },
-  { name: "Salesforce", domain: "salesforce.com" },
-  { name: "Zoho", domain: "zoho.com" },
-  { name: "Xero", domain: "xero.com" },
-  { name: "QuickBooks", domain: "quickbooks.intuit.com" },
-  { name: "Pipedrive", domain: "pipedrive.com" },
-  { name: "monday.com", domain: "monday.com" },
-  { name: "Shopify", domain: "shopify.com" },
-  { name: "PayPal", domain: "paypal.com" },
-  { name: "Square", domain: "squareup.com" },
-  { name: "Twilio", domain: "twilio.com" },
-  { name: "FreshBooks", domain: "freshbooks.com" },
-  { name: "GoHighLevel", domain: "gohighlevel.com" },
+  { name: "Google Workspace", src: "/assets/revenue-recovery/logos/google-workspace.png" },
+  { name: "HubSpot", src: "/assets/revenue-recovery/logos/hubspot.png" },
+  { name: "Whop", src: "/assets/revenue-recovery/logos/whop.png" },
+  { name: "Stripe", src: "/assets/revenue-recovery/logos/stripe.png" },
+  { name: "Microsoft 365", src: "/assets/revenue-recovery/logos/microsoft-365.png" },
+  { name: "Salesforce", src: "/assets/revenue-recovery/logos/salesforce.png" },
+  { name: "Zoho", src: "/assets/revenue-recovery/logos/zoho.png" },
+  { name: "Xero", src: "/assets/revenue-recovery/logos/xero.png" },
+  { name: "QuickBooks", src: "/assets/revenue-recovery/logos/quickbooks.png" },
+  { name: "Pipedrive", src: "/assets/revenue-recovery/logos/pipedrive.png" },
+  { name: "monday.com", src: "/assets/revenue-recovery/logos/monday.png" },
+  { name: "Shopify", src: "/assets/revenue-recovery/logos/shopify.png" },
+  { name: "PayPal", src: "/assets/revenue-recovery/logos/paypal.png" },
+  { name: "Square", src: "/assets/revenue-recovery/logos/square.png" },
+  { name: "Twilio", src: "/assets/revenue-recovery/logos/twilio.png" },
+  { name: "FreshBooks", src: "/assets/revenue-recovery/logos/freshbooks.png" },
+  { name: "GoHighLevel", src: "/assets/revenue-recovery/logos/gohighlevel.png" },
 ];
 
 function RevenueRecoveryContent() {
@@ -92,9 +93,11 @@ function HeroBlock({ c }: { c: RevenueRecoveryCopy }) {
 }
 
 function SupportedStackMarquee() {
-  const logos = [...STACK_LOGOS, ...STACK_LOGOS];
   return (
-    <section className="w-full overflow-hidden border-y border-[rgba(55,50,47,0.12)] bg-white/70 py-8">
+    <section
+      aria-labelledby="supported-stack-heading"
+      className="w-full overflow-hidden border-y border-[rgba(55,50,47,0.12)] bg-white/70 py-8"
+    >
       <style>{`
         @keyframes rrd-stack-marquee {
           from { transform: translateX(0); }
@@ -108,38 +111,56 @@ function SupportedStackMarquee() {
         }
         @media (prefers-reduced-motion: reduce) {
           .rrd-stack-marquee-track { animation: none; flex-wrap: wrap; justify-content: center; }
+          .rrd-stack-marquee-copy { display: none; }
         }
       `}</style>
-      <div className="mb-5 px-4 text-center font-sans text-xs font-semibold tracking-[0.18em] text-[#8A817A] uppercase">
+      <div
+        id="supported-stack-heading"
+        className="mb-5 px-4 text-center font-sans text-xs font-semibold tracking-[0.18em] text-[#8A817A] uppercase"
+      >
         Connects to the tools your team already uses
       </div>
       <div className="relative flex overflow-hidden">
         <div className="pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
         <div className="pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
-        <div className="rrd-stack-marquee-track flex min-w-max gap-4 px-4" aria-label="Supported Revenue Recovery Desk integrations">
-          {logos.map((logo, index) => (
-            <div
-              key={`${logo.name}-${index}`}
-              className="flex h-14 min-w-[172px] items-center justify-center gap-3 rounded-2xl border border-[rgba(55,50,47,0.10)] bg-[#F7F5F3] px-5 shadow-sm"
-            >
-              <img
-                src={`https://www.google.com/s2/favicons?domain=${logo.domain}&sz=64`}
-                alt=""
-                aria-hidden="true"
-                className="h-6 w-6 shrink-0 rounded-md"
-                loading="lazy"
-              />
-              <span className="font-sans text-sm font-semibold whitespace-nowrap text-[#37322F]">
-                {logo.name}
-              </span>
-            </div>
-          ))}
+        <div className="rrd-stack-marquee-track flex min-w-max gap-4 px-4">
+          <StackLogoGroup />
+          <StackLogoGroup ariaHidden className="rrd-stack-marquee-copy" />
         </div>
       </div>
       <p className="mt-5 px-4 text-center font-sans text-xs leading-5 text-[#605A57]">
         CRM, accounting, payments, inbox, documents, and recovery operations, wired into one approval-gated desk.
       </p>
     </section>
+  );
+}
+
+function StackLogoGroup({ ariaHidden = false, className = "" }: { ariaHidden?: boolean; className?: string }) {
+  return (
+    <div
+      aria-hidden={ariaHidden ? "true" : undefined}
+      aria-label={ariaHidden ? undefined : "Supported Revenue Recovery Desk integrations"}
+      className={`flex gap-4 ${className}`}
+    >
+      {STACK_LOGOS.map((logo) => (
+        <div
+          key={logo.name}
+          className="flex h-14 min-w-[172px] items-center justify-center gap-3 rounded-2xl border border-[rgba(55,50,47,0.10)] bg-[#F7F5F3] px-5 shadow-sm"
+        >
+          <Image
+            src={logo.src}
+            alt=""
+            aria-hidden="true"
+            width={24}
+            height={24}
+            className="h-6 w-6 shrink-0 rounded-md"
+          />
+          <span className="font-sans text-sm font-semibold whitespace-nowrap text-[#37322F]">
+            {logo.name}
+          </span>
+        </div>
+      ))}
+    </div>
   );
 }
 
