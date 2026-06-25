@@ -22,6 +22,26 @@ import {
 
 const STEP_ICONS = [Search, Send, ShieldAlert, FileText];
 
+const STACK_LOGOS = [
+  { name: "Google Workspace", domain: "google.com" },
+  { name: "HubSpot", domain: "hubspot.com" },
+  { name: "Whop", domain: "whop.com" },
+  { name: "Stripe", domain: "stripe.com" },
+  { name: "Microsoft 365", domain: "microsoft.com" },
+  { name: "Salesforce", domain: "salesforce.com" },
+  { name: "Zoho", domain: "zoho.com" },
+  { name: "Xero", domain: "xero.com" },
+  { name: "QuickBooks", domain: "quickbooks.intuit.com" },
+  { name: "Pipedrive", domain: "pipedrive.com" },
+  { name: "monday.com", domain: "monday.com" },
+  { name: "Shopify", domain: "shopify.com" },
+  { name: "PayPal", domain: "paypal.com" },
+  { name: "Square", domain: "squareup.com" },
+  { name: "Twilio", domain: "twilio.com" },
+  { name: "FreshBooks", domain: "freshbooks.com" },
+  { name: "GoHighLevel", domain: "gohighlevel.com" },
+];
+
 function RevenueRecoveryContent() {
   const { locale } = useLocale();
   const c = getRevenueRecoveryCopy(locale);
@@ -33,6 +53,7 @@ function RevenueRecoveryContent() {
         <div className="absolute top-0 right-0 z-0 hidden h-full w-[1px] bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] lg:block" />
 
         <HeroBlock c={c} />
+        <SupportedStackMarquee />
         <StatsBar c={c} />
         <ProblemBlock c={c} />
         <StepsBlock c={c} />
@@ -66,6 +87,58 @@ function HeroBlock({ c }: { c: RevenueRecoveryCopy }) {
           <Link href="#how-it-works">{c.ctaSecondary}</Link>
         </Button>
       </div>
+    </section>
+  );
+}
+
+function SupportedStackMarquee() {
+  const logos = [...STACK_LOGOS, ...STACK_LOGOS];
+  return (
+    <section className="w-full overflow-hidden border-y border-[rgba(55,50,47,0.12)] bg-white/70 py-8">
+      <style>{`
+        @keyframes rrd-stack-marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .rrd-stack-marquee-track {
+          animation: rrd-stack-marquee 38s linear infinite;
+        }
+        .rrd-stack-marquee-track:hover {
+          animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .rrd-stack-marquee-track { animation: none; flex-wrap: wrap; justify-content: center; }
+        }
+      `}</style>
+      <div className="mb-5 px-4 text-center font-sans text-xs font-semibold tracking-[0.18em] text-[#8A817A] uppercase">
+        Connects to the tools your team already uses
+      </div>
+      <div className="relative flex overflow-hidden">
+        <div className="pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
+        <div className="pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
+        <div className="rrd-stack-marquee-track flex min-w-max gap-4 px-4" aria-label="Supported Revenue Recovery Desk integrations">
+          {logos.map((logo, index) => (
+            <div
+              key={`${logo.name}-${index}`}
+              className="flex h-14 min-w-[172px] items-center justify-center gap-3 rounded-2xl border border-[rgba(55,50,47,0.10)] bg-[#F7F5F3] px-5 shadow-sm"
+            >
+              <img
+                src={`https://www.google.com/s2/favicons?domain=${logo.domain}&sz=64`}
+                alt=""
+                aria-hidden="true"
+                className="h-6 w-6 shrink-0 rounded-md"
+                loading="lazy"
+              />
+              <span className="font-sans text-sm font-semibold whitespace-nowrap text-[#37322F]">
+                {logo.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <p className="mt-5 px-4 text-center font-sans text-xs leading-5 text-[#605A57]">
+        CRM, accounting, payments, inbox, documents, and recovery operations, wired into one approval-gated desk.
+      </p>
     </section>
   );
 }
