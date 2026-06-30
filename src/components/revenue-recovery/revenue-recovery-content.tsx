@@ -55,6 +55,7 @@ function RevenueRecoveryContent() {
 
         <HeroBlock c={c} />
         <SupportedStackMarquee />
+        <GoogleReviewerAccessBlock />
         <StatsBar c={c} />
         <ProblemBlock c={c} />
         <StepsBlock c={c} />
@@ -131,6 +132,49 @@ function SupportedStackMarquee() {
       <p className="mt-5 px-4 text-center font-sans text-xs leading-5 text-[#605A57]">
         CRM, accounting, payments, inbox, documents, and recovery operations, wired into one approval-gated desk.
       </p>
+    </section>
+  );
+}
+
+function GoogleReviewerAccessBlock() {
+  return (
+    <section
+      id="google-oauth-review"
+      aria-labelledby="google-oauth-review-heading"
+      className="flex w-full flex-col items-center border-b border-[rgba(55,50,47,0.12)] bg-[#FFFBEB] px-4 py-10 sm:px-6 lg:px-0"
+    >
+      <div className="w-full max-w-[900px] rounded-2xl border border-amber-200 bg-white p-6 text-left shadow-sm sm:p-8">
+        <div className="font-sans text-xs font-semibold tracking-[0.18em] text-amber-700 uppercase">
+          Google OAuth reviewer access
+        </div>
+        <h2
+          id="google-oauth-review-heading"
+          className="mt-3 font-sans text-2xl leading-tight font-semibold tracking-tight text-[#37322F]"
+        >
+          How to test the Revenue Recovery Desk Google consent flow
+        </h2>
+        <p className="mt-4 font-sans text-sm leading-6 text-[#605A57]">
+          Revenue Recovery Desk is a B2B workflow that a business connects only after onboarding. Google reviewers can use the supplied reviewer credentials to sign in to the client portal, open secure setup, choose Google Workspace, and continue to Google&apos;s OAuth consent screen.
+        </p>
+        <ol className="mt-5 list-decimal space-y-2 pl-5 font-sans text-sm leading-6 text-[#49423D]">
+          <li>
+            Start at the reviewer login: <Link className="font-semibold text-amber-700 underline" href="/revenue-recovery/client?login=1">Client Login</Link>.
+          </li>
+          <li>Sign in with the reviewer account supplied in Google Cloud Console. Two-factor authentication is disabled for that reviewer account.</li>
+          <li>Open Settings / secure setup and select Connect Google Workspace.</li>
+          <li>
+            For a direct technical entry point, open <Link className="font-semibold text-amber-700 underline" href="/revenue-recovery/oauth-start">OAuth setup</Link>. A valid one-time setup token is required for live authorization.
+          </li>
+          <li>Confirm the consent screen requests only read-only Gmail and Drive metadata scopes, then complete the callback.</li>
+        </ol>
+        <div className="mt-5 grid gap-3 rounded-xl bg-[#F7F5F3] p-4 font-sans text-sm leading-6 text-[#49423D] sm:grid-cols-2">
+          <Link className="font-semibold text-amber-700 underline" href="/revenue-recovery/privacy">Revenue Recovery Privacy Policy</Link>
+          <Link className="font-semibold text-amber-700 underline" href="/revenue-recovery/terms">Revenue Recovery Terms</Link>
+        </div>
+        <p className="mt-4 font-sans text-xs leading-5 text-[#605A57]">
+          Requested scopes: gmail.readonly for invoice/payment/customer-reply context and drive.metadata.readonly for file/folder metadata only. The app does not send Gmail, modify Gmail or Drive data, download Drive file contents, sync Drive, or back up Google data.
+        </p>
+      </div>
     </section>
   );
 }

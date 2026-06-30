@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const revenueRecoveryDestination = "https://revenue-recovery-web-ivory.vercel.app";
-const revenueRecoveryProxyVersion = "20260623-client-dashboard-loginfix";
+const revenueRecoveryProxyVersion = "20260630-google-oauth-review";
 
 const nextConfig: NextConfig = {
   /* typedRoutes requires a build to generate route types - disabled for marketing site */
@@ -14,10 +14,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
-    return [
-      { source: "/revenue-recovery/privacy", destination: "/privacy", permanent: true },
-      { source: "/revenue-recovery/terms", destination: "/terms", permanent: true },
-    ];
+    return [];
   },
   async rewrites() {
     return {
