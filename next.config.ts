@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const revenueRecoveryDestination = "https://revenue-recovery-web-ivory.vercel.app";
-const revenueRecoveryProxyVersion = "20260630-google-oauth-review";
+const revenueRecoveryProxyVersion = "20260702-google-reviewer-flow";
 
 const nextConfig: NextConfig = {
   /* typedRoutes requires a build to generate route types - disabled for marketing site */
@@ -35,6 +35,7 @@ const nextConfig: NextConfig = {
           "go-live",
           "client",
           "postal-portal",
+          "reviewer",
         ].map((path) => ({
           source: `/revenue-recovery/${path}`,
           destination: `${revenueRecoveryDestination}/${path}?rrd_proxy_v=${revenueRecoveryProxyVersion}`,
