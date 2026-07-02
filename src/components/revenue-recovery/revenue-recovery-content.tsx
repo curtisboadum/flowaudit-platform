@@ -154,18 +154,16 @@ function GoogleReviewerAccessBlock() {
           How to test the Revenue Recovery Desk Google consent flow
         </h2>
         <p className="mt-4 font-sans text-sm leading-6 text-[#605A57]">
-          Revenue Recovery Desk is a B2B workflow that a business connects only after onboarding. Google reviewers can use the supplied reviewer credentials to sign in to the client portal, open secure setup, choose Google Workspace, and continue to Google&apos;s OAuth consent screen.
+          Revenue Recovery Desk is a B2B workflow that a business connects only after onboarding. Google reviewers can use the dedicated reviewer instructions page plus the one-time Google Workspace connect URL supplied in the verification response to test the exact consent and callback flow.
         </p>
         <ol className="mt-5 list-decimal space-y-2 pl-5 font-sans text-sm leading-6 text-[#49423D]">
           <li>
-            Start at the reviewer login: <Link className="font-semibold text-amber-700 underline" href="/revenue-recovery/client?login=1">Client Login</Link>.
+            Start with the reviewer instructions page: <Link className="font-semibold text-amber-700 underline" href="/revenue-recovery/reviewer">Google OAuth reviewer test flow</Link>.
           </li>
-          <li>Sign in with the reviewer account supplied in Google Cloud Console. Two-factor authentication is disabled for that reviewer account.</li>
-          <li>Open Settings / secure setup and select Connect Google Workspace.</li>
-          <li>
-            For a direct technical entry point, open <Link className="font-semibold text-amber-700 underline" href="/revenue-recovery/oauth-start">OAuth setup</Link>. A valid one-time setup token is required for live authorization.
-          </li>
-          <li>Confirm the consent screen requests only read-only Gmail and Drive metadata scopes, then complete the callback.</li>
+          <li>Open the one-time Google Workspace connect URL supplied by FlowAudit in the Google verification response.</li>
+          <li>Confirm the setup page says Connect Google Workspace for the reviewer account, then click Connect securely.</li>
+          <li>Confirm the Google consent screen requests only read-only Gmail and Drive metadata scopes.</li>
+          <li>Complete the callback and verify the app records Google Workspace as connected for the reviewer business profile.</li>
         </ol>
         <div className="mt-5 grid gap-3 rounded-xl bg-[#F7F5F3] p-4 font-sans text-sm leading-6 text-[#49423D] sm:grid-cols-2">
           <Link className="font-semibold text-amber-700 underline" href="/revenue-recovery/privacy">Revenue Recovery Privacy Policy</Link>
