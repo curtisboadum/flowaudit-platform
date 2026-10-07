@@ -5,7 +5,8 @@ Deliverable: `public/assets/phone-agent/phone-agent-demo.mp4` (the demo video em
 ## Method & Provenance
 
 - **Source:** `/Users/curtis/Desktop/pho/IMG_3206.MOV` · sha256 `a9b619e5b6a3291df80c3cf7a832bbd4b8a4bc58222f20995c176cdbaf72457e` · 20,227,958 bytes · 161.61 s · HEVC 1920x1038 + AAC stereo.
-- **Output:** `public/assets/phone-agent/phone-agent-demo.mp4` · sha256 `26eb292e9a6beab9...` (full hash recorded at encode time) · 10,856,698 bytes · H.264 yuv420p 1920x1038 + AAC 128k, faststart.
+- **Output:** `public/assets/phone-agent/phone-agent-demo.mp4` · sha256 `a9a0b05e2f22cdb4fc7e8db4e4cfa23c367d51d643c01bf02f5a6ed10162d61f` · 10,757,781 bytes · H.264 yuv420p 1920x1038 + AAC 128k, faststart.
+- **Revision 2 (2026-10-07):** a 30fps boundary audit found the details card fades in with a slide (text readable at ~134.80-134.87 s, up to +40 px offset) and fades out until ~157.45 s, outside the original mask window (134.9-157.25). Fixed with a two-stage mask: an opaque full-card cover during both animation windows (134.78-134.93 s and 157.26-157.46 s) plus the original precise line masks (134.88-157.30 s). Re-verified at 30fps across both windows (OCR + independent vision read of the faintest frames: no readable text) and with a full 2 fps sweep (zero sensitive terms in all 323 frames).
 - **Inspected first-hand:** full 2 fps frame sweep (323 frames) OCR'd with tesseract; every sensitive region located by pixel coordinates from OCR TSV output; full audio transcribed end to end with whisper.cpp (base.en) at segment and word level; silence/beep spans verified by isolated transcription and zero-crossing frequency analysis.
 - **Commands used:**
   - Frame sweep: `ffmpeg -i IMG_3206.MOV -vf fps=2 frames/f%04d.png`; `tesseract f.png stdout` (323 frames, OCR grepped for `kedo`, `07942`, `766 304`, `wussworldwide`, `Malachi`).
