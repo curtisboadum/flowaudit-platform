@@ -50,6 +50,17 @@ function deepSeekProvider(): ProviderConfig | null {
   };
 }
 
+function geminiProvider(): ProviderConfig | null {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) return null;
+  return {
+    name: "Gemini",
+    baseUrl: "https://generativelanguage.googleapis.com/v1beta/openai",
+    apiKey,
+    model: process.env.GEMINI_MODEL ?? "gemini-2.5-flash",
+  };
+}
+
 // ---------------------------------------------------------------------------
 // Core streaming fetch for OpenAI-compatible endpoints
 // ---------------------------------------------------------------------------
@@ -190,53 +201,38 @@ export async function streamWithFallback(
   messages: ChatMessage[],
   options: StreamOptions = {},
 ): Promise<ReadableStream<Uint8Array>> {
-  const providers = [openRouterProvider(), deepSeekProvider()].filter(
+  const providers = [openRouterProvider(), geminiProvider(), deepSeekProvider()].filter(
     (p): p is ProviderConfig => p !== null,
   );
 
-  const primary = providers[0];
-  if (!primary) {
+  if (providers.length === 0) {
     throw new Error("No chat providers configured");
   }
 
-  const fallback = providers[1];
   const MAX_RETRIES = 2;
   let lastError: unknown;
 
-  // --- Try primary with retries ---
-  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
-    try {
-      return await fetchChatStream(primary, messages, options);
-    } catch (err: unknown) {
-      lastError = err;
-      const status = extractStatus(err);
-      const errMsg = err instanceof Error ? err.message : String(err);
+  for (const provider of providers) {
+    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+      try {
+        return await fetchChatStream(provider, messages, options);
+      } catch (err: unknown) {
+        lastError = err;
+        const status = extractStatus(err);
+        const errMsg = err instanceof Error ? err.message : String(err);
 
-      console.error(`[chat] ${primary.name} attempt ${attempt + 1}/${MAX_RETRIES + 1} failed:`, {
-        status,
-        message: errMsg,
-      });
+        console.error(`[chat] ${provider.name} attempt ${attempt + 1}/${MAX_RETRIES + 1} failed:`, {
+          status,
+          message: errMsg,
+        });
 
-      // Non-retryable errors (400, 401, 403) skip straight to fallback
-      if (!isRetryable(status)) break;
+        // Non-retryable errors (400, 401, 402, 403) skip straight to the next provider
+        if (!isRetryable(status)) break;
 
-      if (attempt < MAX_RETRIES) {
-        await new Promise((r) => setTimeout(r, 1000 * (attempt + 1)));
+        if (attempt < MAX_RETRIES) {
+          await new Promise((r) => setTimeout(r, 1000 * (attempt + 1)));
+        }
       }
-    }
-  }
-
-  // --- Try fallback (single attempt, last resort) ---
-  if (fallback) {
-    try {
-      console.error(`[chat] ${primary.name} exhausted. Trying ${fallback.name} fallback.`);
-      return await fetchChatStream(fallback, messages, options);
-    } catch (err: unknown) {
-      lastError = err;
-      const errMsg = err instanceof Error ? err.message : String(err);
-      console.error(`[chat] ${fallback.name} fallback also failed:`, {
-        message: errMsg,
-      });
     }
   }
 
