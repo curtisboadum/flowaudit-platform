@@ -174,13 +174,6 @@ function PhoneAgentContent() {
             poster="/assets/phone-agent/phone-agent-demo-poster.jpg"
           >
             <source src="/assets/phone-agent/phone-agent-demo.mp4" type="video/mp4" />
-            <track
-              kind="captions"
-              src="/assets/phone-agent/phone-agent-demo.en.vtt"
-              srcLang="en"
-              label="English"
-              default
-            />
             Your browser does not support the video tag.
           </video>
         </div>

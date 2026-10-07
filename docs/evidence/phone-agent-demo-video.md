@@ -1,43 +1,54 @@
 # Demo video re-edit: Method, redactions, and verification
 
-Deliverable: `public/assets/phone-agent/phone-agent-demo.mp4` (the demo video embedded on the phone-agent offer page), plus poster and caption track.
+Deliverable: `public/assets/phone-agent/phone-agent-demo.mp4` (the demo video embedded on the phone-agent offer page), plus poster.
 
 ## Method & Provenance
 
 - **Source:** `/Users/curtis/Desktop/pho/IMG_3206.MOV` · sha256 `a9b619e5b6a3291df80c3cf7a832bbd4b8a4bc58222f20995c176cdbaf72457e` · 20,227,958 bytes · 161.61 s · HEVC 1920x1038 + AAC stereo.
-- **Output:** `public/assets/phone-agent/phone-agent-demo.mp4` · sha256 `a9a0b05e2f22cdb4fc7e8db4e4cfa23c367d51d643c01bf02f5a6ed10162d61f` · 10,757,781 bytes · H.264 yuv420p 1920x1038 + AAC 128k, faststart.
-- **Revision 2 (2026-10-07):** a 30fps boundary audit found the details card fades in with a slide (text readable at ~134.80-134.87 s, up to +40 px offset) and fades out until ~157.45 s, outside the original mask window (134.9-157.25). Fixed with a two-stage mask: an opaque full-card cover during both animation windows (134.78-134.93 s and 157.26-157.46 s) plus the original precise line masks (134.88-157.30 s). Re-verified at 30fps across both windows (OCR + independent vision read of the faintest frames: no readable text) and with a full 2 fps sweep (zero sensitive terms in all 323 frames).
-- **Inspected first-hand:** full 2 fps frame sweep (323 frames) OCR'd with tesseract; every sensitive region located by pixel coordinates from OCR TSV output; full audio transcribed end to end with whisper.cpp (base.en) at segment and word level; silence/beep spans verified by isolated transcription and zero-crossing frequency analysis.
+- **Output:** `public/assets/phone-agent/phone-agent-demo.mp4` · sha256 `53f4b657c37b0d5359b9706065f38075e1b34d1a5091adefbf41b5792ba02317` · 10,721,716 bytes · H.264 yuv420p 1920x1038 + AAC 128 kbps stereo 44.1 kHz, faststart (moov before mdat).
+- **Revision 3 (2026-10-07):** a deeper first-hand sweep (5 fps whole-video + 10 fps focus windows + 30 fps boundary audits, full-frame and caption-band TSV OCR, plus Codex `gpt-6.1-sol` vision and moondream reads) found two sensitive renderings the earlier 2 fps full-sequence sweep missed: (1) the left-panel kinetic caption band renders the phone number one large digit at a time at t≈69.1-72.9 s and t≈139.9-144.5 s (x≈400-450, y≈770-838); (2) the opening setup panel shows the hint line "KedoLabs." at x=172-234, y=732-742, visible t=0-6.0 s. Revision 3 adds three mask boxes to the Revision 2 chain: a band mask over the left caption area during both number windows (x=0 y=745 w=930 h=120, colour 0x0B0D0F, t=68.8-73.2 and t=139.8-144.9) and an opaque box over the hint line (x=164 y=724 w=80 h=26, colour 0x101010, t=0-6.3). The audio chain is unchanged and the output audio stream is byte-identical to Revision 2 (stream md5 `89350556e253708f6d0e902fbc6d4c90`). The caption track (`.en.vtt`) and its `<track>` element were removed in revision 3 (the burned-in captions carry all on-screen text; the separate track added no value and previously repeated "[phone number hidden]").
+- **Revision 2 (2026-10-07):** a 30 fps boundary audit found the details card fades in with a slide (text readable at ~134.80-134.87 s, up to +40 px offset) and fades out until ~157.45 s, outside the original mask window (134.9-157.25). Fixed with a two-stage mask: an opaque full-card cover during both animation windows (134.78-134.93 s and 157.26-157.46 s) plus the original precise line masks (134.88-157.30 s).
+- **Revision 1 (2026-10-07):** masked the details-card lines "Booked by KedoLabs…" → "Booked by the FlowAudit phone agent", "Practice: KedoLabs Dental (demo)" → "Practice: Ace Dentists (demo)", "Phone: 07942 766 304" → "Phone: hidden for this demo", "Kedo testing" → "urgent dental triage", "Created by: info@wussworldwide.io" → "Created by the FlowAudit phone agent", and replaced both spoken number mentions with a quiet 1 kHz beep (spans 69.6-74.6 s and 140.9-144.85 s).
+- **Inspected first-hand:** full 5 fps frame sweep of the delivered file (808 frames) OCR'd full-frame and in the caption-band crop; 10 fps frame sweeps of 60-80 s and 130-150 s with TSV boxes (400 frames); 30 fps boundary audits of both number windows (68.5-73.5 s, 139.5-145.2 s) and the setup panel (0-6.6 s); exact-frame source-vs-deliverable comparisons at 30 fps around every mask edge; full audio transcribed end to end (word-level timings) with isolated-span re-transcription and zero-crossing spectral checks on the delivered file; card region re-OCR'd at 145.5 s; adversarial vision reads of the faintest/boundary frames with Codex `gpt-6.1-sol` (`codex exec --skip-git-repo-check -m gpt-6.1-sol -s read-only -i …`, read-only) and moondream spot-checks.
 - **Commands used:**
-  - Frame sweep: `ffmpeg -i IMG_3206.MOV -vf fps=2 frames/f%04d.png`; `tesseract f.png stdout` (323 frames, OCR grepped for `kedo`, `07942`, `766 304`, `wussworldwide`, `Malachi`).
-  - Card timing: pixel sampling of the detail-panel region frame by frame (panel present from t=135.0 s to t=157.0 s).
-  - Word timings: `whisper-cli -m ggml-base.en.bin -f audio.wav -ml 1 -osrt`.
-  - Mask + redact: `ffmpeg-libass -i IMG_3206.MOV -f lavfi -i sine=frequency=1000 ... -filter_complex "$(cat finalfilter.txt)" -c:v libx264 -preset slow -crf 21 -movflags +faststart -c:a aac -b:a 128k final-masked.mp4`.
-  - Verification: OCR of masked frames (negative and positive checks), isolated transcription of both redaction spans, zero-crossing check (≈1000 Hz beep), full-file re-transcription.
-- **First-hand artifacts produced from the source (on disk):**
-  - Frame sweep + OCR log: `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/` (frames/, ocr-hits.txt, finalcheck2.txt, isolated span transcripts).
-  - Final deliverable assets: `public/assets/phone-agent/phone-agent-demo.mp4` + `-poster.jpg` + `.en.vtt`.
-- **NOT inspected (explicit):** no playback-by-eye review (no video vision in this session); QA is OCR + transcription + pixel/spectral checks. Frames between sampled points at 2 fps were not OCR'd individually (37.5 ms between frames is below any readable text change rate at this cut cadence; the card is a static pop-in/pop-out confirmed by pixel sampling).
-- **Method limits / perception gaps:** OCR can miss sub-pixel or motion-blurred text; the negative checks are therefore paired with a full-frame diff for the panel's presence window and with the audio-isolated checks. Whisper full-pass transcription hallucinates a phone-shaped number after the beep (context completion); the isolated-span transcripts and the spectral check prove the audio contains only the 1 kHz beep.
+  - Frame sweeps: `~/.local/bin/ffmpeg-libass -v error -i IMG_3206.MOV -vf fps=5 …` and focus windows at 10 fps and 30 fps; OCR `tesseract f.png stdout --psm 11 tsv` (full frame) and `--psm 6 tsv` (caption-band crop x0-930 y650-1038), digit checks by region-filtered TSV.
+  - Render (revision 3, same command shape as revision 2): `~/.local/bin/ffmpeg-libass -v error -i ~/Desktop/pho/IMG_3206.MOV -f lavfi -t 161.61 -i sine=frequency=1000:sample_rate=44100 -filter_complex "$(cat finalfilter-v3.txt)" -map "[vout]" -map "[aout]" -c:v libx264 -preset slow -crf 21 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k final-masked-v3.mp4 -y`.
+  - Determinism proof: the identical command with `finalfilter-v2.txt` reproduces the previously deployed revision-2 file byte-for-byte (sha256 `a9a0b05e2f22cdb4fc7e8db4e4cfa23c367d51d643c01bf02f5a6ed10162d61f`).
+  - Audio checks: `whisper-cli -m ggml-base.en.bin -f span.wav -nt` on isolated spans; zero-crossing count on 16 kHz mono extracts.
+- **First-hand artifacts produced from the source and final file (on disk):**
+  - Filters and renders: `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/finalfilter-v3.txt`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/final-masked-v3.mp4`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/repro-v2c.mp4`.
+  - Verification sweeps: `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/qa/tsv5-full.txt`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/qa/band5-ocr.txt`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/qa/tsv30-w1-30.txt`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/qa/tsv30-w2-30.txt`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/qa/tsv30-hint-30.txt`.
+  - Source discovery: `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/tsv10-60-80.txt`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/tsv10-130-150.txt`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/caption-ocr-w1.txt`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/caption-ocr-w2.txt`.
+  - Audio artifacts: `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/qa/audio/w1beepF3.wav`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/qa/audio/w2beepF3.wav`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/words.srt` (word-level timings from the source).
+  - Frame evidence: `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/qa/card-145.5-crop.png`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/qa/exact/dbg-v3-140.05.png`, `/var/folders/1l/b5kt0nlx1_98zzv0dg98c71w0000gn/T/opencode/video-sweep/v3/qa/cmp/`.
+- **NOT inspected (explicit):** no playback-by-eye review (no human video review); QA is OCR + adversarial machine-vision reads + transcription + pixel/spectral checks. Frames between sampled points were covered at 30 fps inside the two number windows and the setup window, 5-10 fps elsewhere; the rest of the video is static screencast UI outside the two windows, so sub-5 fps gaps there are below any readable text change rate.
+- **Method limits / perception gaps:** OCR can miss sub-pixel or motion-blurred text; the negative checks are paired with region crops, exact-frame source-vs-deliverable comparisons at every mask edge, and adversarial vision reads. Whisper hallucinates number-shaped completions when a span is cut mid-phrase (e.g. "That's zero se…" at a span edge and "079" after a beep onset); the isolated-span transcripts and the 1000 Hz spectral check on the delivered file are the authoritative audio negative. The adversarial vision pass noted the flat-fill mask regions differ from their surroundings by at most 1 gray level (13/255 vs 12-13/255 dither in the source); measured as invisible in playback.
 - **Second-party material used:** none.
 
 ## What was changed
 
 | Region (1920x1038 coordinates) | Original | Replacement |
 | --- | --- | --- |
-| y 426-462, x 1100-1450 | "Booked by KedoLabs voice agent." | "Booked by the FlowAudit phone agent" |
-| y 512-546, x 1100-1450 | "Practice: KedoLabs Dental (demo)" | "Practice: Ace Dentists (demo)" |
-| y 566-602, x 1100-1440 | "Phone: 07942 766 304" | "Phone: hidden for this demo" |
-| y 836-866, x 1100-1270 | "Kedo testing" | "urgent dental triage" |
-| y 864-900, x 1100-1450 | "Created by: info@wussworldwide.io" | "Created by the FlowAudit phone agent" |
+| Card: y 426-462, x 1100-1450 | "Booked by KedoLabs voice agent." | "Booked by the FlowAudit phone agent" |
+| Card: y 512-546, x 1100-1450 | "Practice: KedoLabs Dental (demo)" | "Practice: Ace Dentists (demo)" |
+| Card: y 566-602, x 1100-1440 | "Phone: 07942 766 304" | "Phone: hidden for this demo" |
+| Card: y 836-866, x 1100-1270 | "Kedo testing" | "urgent dental triage" |
+| Card: y 864-900, x 1100-1450 | "Created by: info@wussworldwide.io" | "Created by the FlowAudit phone agent" |
+| Left caption band, t 68.8-73.2 s and 139.8-144.9 s | Kinetic captions rendering the phone number digit-by-digit | Black band mask (x 0-930, y 745-865, colour 0x0B0D0F) |
+| Setup panel hint, t 0-6.3 s: x 164-244, y 724-750 | "KedoLabs." | Black box mask (colour 0x101010) |
 | Audio 69.6-74.6 s and 140.9-144.85 s | Spoken UK phone number, both mentions | 1 kHz beep at -23 dB (speech muted, call continuity preserved) |
 
-Masks apply only while the details panel is visible (t = 134.9-157.25 s), verified in/out by frame sampling.
+Card masks apply only while the details panel is visible (t = 134.88-157.30 s, plus full-card covers 134.78-134.93 s and 157.26-157.46 s); caption-band masks apply only during the two number windows; the hint mask applies only while the setup panel is on screen.
 
 ## Verification results
 
-- OCR negative scan on masked frames (t = 136, 145, 155 s): zero matches for `kedo`, `07942`, `766`, `wussworldwide`.
-- OCR positive scan: replacement lines present and aligned within 2 px of the original text baselines.
-- Audio: isolated spans transcribe as "(beep)"/"[BEEP]"; zero-crossing analysis ≈ 1000 Hz; adjacent speech (for example the emergency call-out surcharge line, and "Is that all correct?") intact.
-- Container: duration 161.61 s, H.264 + AAC, faststart, 10.9 MB.
-- Caption track (`.en.vtt`): both phone mentions rendered as "[phone number hidden]"; zero digit sequences for the number remain.
+- Full-file 5 fps OCR sweep of the delivered video (808 frames, 47,000 tokens): zero matches for `kedo`, `wuss`, `079`, and any number-like digit token in the left caption band; the only digit-bearing caption tokens anywhere are appointment times ("9:30", "10", "10:30") and "6TH" — all outside the masked windows.
+- 30 fps boundary audit: caption band contains zero digits inside both masked windows; the w1 mask engages exactly at frame 68.800 (first source digit frame 69.067); the w2 mask engages at frame 139.833 (one timebase round-off frame after 139.800, which contains only the word "IS"; first source digit frame 139.933); all source digit frames are covered. Post-mask frames continue the caption naturally ("IS THAT ALL CORRECT?" from 144.9 s).
+- Setup window audit (198 frames, 0-6.6 s): "KedoLabs." absent from all frames; the surrounding helper text, ringtone selector, and green call button render normally.
+- Exact-frame source-vs-deliverable comparison at every mask edge confirms no unmasked digit frames and no frame showing on-screen text inside the masked regions other than sub-visible fill.
+- Card positive scan at t=145.5 s: all five replacement lines present; negative scan for `kedo|wuss|07942|766 304` returns zero.
+- Audio: both beep spans on the delivered file transcribe as "(beep)" in isolation and measure exactly 1000 Hz by zero-crossing; adjacent speech intact ("Do you have a preference for that?", "Yep, that's …"); audio stream of revision 3 is byte-identical to revision 2 (md5 `89350556e253708f6d0e902fbc6d4c90`).
+- Container: H.264 yuv420p 1920x1038 + AAC 128 kbps stereo, duration 161.61 s, faststart confirmed (moov at byte 36, before mdat).
+- Adversarial vision (Codex gpt-6.1-sol, 6 frames incl. both mask edges and masked interiors; moondream spot-checks): no digits, no readable text in the masked regions; no rendering artifacts beyond the measured ≤1 gray-level fill difference.
+- Poster (`phone-agent-demo-poster.jpg`, t≈145 s frame) unchanged; re-read shows no phone number or sensitive term — it shows only the word "ALL" in the caption band.
+- Render determinism: re-running the exact revision-2 command reproduces the deployed revision-2 sha256 byte-for-byte, so the revision-3 output is a controlled delta of a known-good pipeline.

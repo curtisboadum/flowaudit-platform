@@ -10,7 +10,7 @@
 - **Auth / authz:** untouched. No changes to middleware, CRM routes, or session handling.
 - **External links:** one outbound link added (`https://calendar.app.google/XJudFiv57KNUpWuJ8`, trusted Google domain) on `/book` and `/revenue-recovery/book`; both use `target="_blank"` with `rel="noopener noreferrer"`.
 - **Supply chain / third-party surface:** the Calendly embed (external CSS + JS from assets.calendly.com) was removed, reducing third-party script surface. No new third-party scripts added.
-- **Static assets:** the new video, poster, and VTT ship from `/public` and were verified first-hand for PII (KedoLabs branding and a phone number masked/bleeped; caption text redacts the number). Method and evidence: `docs/evidence/phone-agent-demo-video.md` (first_hand_check PASS).
+- **Static assets:** the new video and poster ship from `/public` and were verified first-hand for PII (KedoLabs branding and a phone number masked/bleeped; the separate caption track was removed in video revision 3). Method and evidence: `docs/evidence/phone-agent-demo-video.md` (first_hand_check PASS).
 - **Data handling:** no analytics, tracking, or storage added by this diff.
 - **Redirects:** `/results` now redirects to `/` (removed fabricated content). No open-redirect patterns introduced (static target).
 
