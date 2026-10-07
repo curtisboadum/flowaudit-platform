@@ -1,7 +1,7 @@
 /**
  * @file book-content.tsx
- * @description Booking page content. Links to the Google Calendar appointment
- *   schedule, which generates a Google Meet link for every booking.
+ * @description Booking page content. Renders the cal.com inline booking
+ *   calendar (Cal Video link on confirmation) with an email fallback.
  * @status Stable.
  * @issues None.
  * @todo None.
@@ -10,8 +10,8 @@
 
 import { useLocale } from "@/components/providers/locale-provider";
 import { Button } from "@/components/ui/button";
+import { CalEmbed } from "@/components/booking/cal-embed";
 import { CalendarCheck, Mail } from "lucide-react";
-import { BOOKING_URL } from "@/lib/booking";
 
 function BookContent() {
   const { t } = useLocale();
@@ -44,12 +44,10 @@ function BookContent() {
           <p className="mx-auto mt-3 max-w-[480px] font-sans text-sm leading-7 text-[#605A57]">
             {t.book.scheduleSubtext}
           </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button size="lg" className="w-full sm:w-auto" asChild>
-              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-                {t.book.scheduleTitle}
-              </a>
-            </Button>
+          <div className="mt-6 text-left">
+            <CalEmbed />
+          </div>
+          <div className="mt-6 flex flex-col items-center justify-center">
             <Button variant="secondary" size="lg" className="w-full sm:w-auto" asChild>
               <a href="mailto:support@flowaudit.co.uk">
                 <Mail className="mr-2 h-4 w-4" />

@@ -8,7 +8,7 @@ import { BookContent } from "./book-content";
 export const metadata: Metadata = {
   title: "Book a Call | FlowAudit",
   description:
-    "Book a free 30-minute strategy call. See how automation can cut your admin workload: quoting, invoicing, follow-ups, all handled.",
+    "Book a free 15-minute strategy call. See how automation can cut your admin workload: quoting, invoicing, follow-ups, all handled.",
   alternates: { canonical: "/book" },
 };
 

@@ -233,9 +233,9 @@ const en: RevenueRecoveryCopy = {
   finalCta: {
     headline: "Let's recover what's yours.",
     subtext:
-      "Book a free 30-minute Revenue Recovery Audit. No commitment, no contract, just a clear picture of exactly what's recoverable.",
+      "Book a free 15-minute Revenue Recovery Audit. No commitment, no contract, just a clear picture of exactly what's recoverable.",
     button: "Book My Free Revenue Audit",
-    note: "30-minute call. We'll show you exactly what's recoverable.",
+    note: "15-minute call. We'll show you exactly what's recoverable.",
   },
 };
 
@@ -392,9 +392,9 @@ const es: RevenueRecoveryCopy = {
   finalCta: {
     headline: "Recuperemos lo que es tuyo.",
     subtext:
-      "Agenda una Auditoría de Recuperación de Ingresos gratuita de 30 minutos. Sin compromiso, sin contrato, solo una imagen clara de exactamente qué es recuperable.",
+      "Agenda una Auditoría de Recuperación de Ingresos gratuita de 15 minutos. Sin compromiso, sin contrato, solo una imagen clara de exactamente qué es recuperable.",
     button: "Agenda mi Auditoría Gratuita",
-    note: "Llamada de 30 minutos. Te mostramos exactamente qué es recuperable.",
+    note: "Llamada de 15 minutos. Te mostramos exactamente qué es recuperable.",
   },
 };
 

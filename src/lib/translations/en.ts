@@ -97,7 +97,7 @@ export const en = {
     subtext:
       "Book a free strategy call. We'll show you exactly which parts of your week get automated. And what it'll save you.",
     button: "Book a Free Strategy Call",
-    note: "30-minute call. No commitment. No jargon.",
+    note: "15-minute call. No commitment. No jargon.",
   },
 
   // Footer
@@ -115,12 +115,12 @@ export const en = {
   book: {
     headline: "Book a call",
     subtext:
-      "Pick a time that works and your confirmation includes a Google Meet link. 30 minutes, no jargon, no pressure.",
+      "Pick a time that works and your confirmation includes a Cal Video link. 15 minutes, no jargon, no pressure.",
     scheduleTitle: "Pick a time",
     scheduleSubtext:
       "Choose a slot on the calendar. Prefer email? Write to support@flowaudit.co.uk and we will reply with times.",
     emailButton: "Email us instead",
-    responseNote: "Your booking confirmation includes a Google Meet link.",
+    responseNote: "Your booking confirmation includes a Cal Video link.",
     expectTitle: "What to Expect",
     step1Title: "Quick Chat About Your Business",
     step1Desc:
@@ -141,7 +141,7 @@ export const en = {
       subtext:
         "The FlowAudit AI phone agent answers your practice phone, asks the right questions, handles urgent cases with care, and books the appointment straight into the calendar your team already uses.",
       ctaPrimary: "Watch the demo call",
-      ctaSecondary: "Book a 30-minute walkthrough",
+      ctaSecondary: "Book a 15-minute walkthrough",
       note: "See the full call, from first ring to booked appointment.",
     },
     leak: {
@@ -288,9 +288,9 @@ export const en = {
     cta: {
       headline: "Hear it on your own practice's calls",
       subtext:
-        "Book a 30-minute walkthrough. We will show the live console, answer your questions, and map what setup would look like for your practice.",
-      button: "Book a 30-minute walkthrough",
-      note: "Your booking confirmation includes a Google Meet link.",
+        "Book a 15-minute walkthrough. We will show the live console, answer your questions, and map what setup would look like for your practice.",
+      button: "Book a 15-minute walkthrough",
+      note: "Your booking confirmation includes a Cal Video link.",
     },
   },
 
@@ -430,8 +430,8 @@ export const en = {
   process: {
     badge: "How It Works",
     headline: "From Manual Work to Automated",
-    subtext: "We do the hard work. You show up for a 30-minute call.",
-    step1: "30-Minute Workflow Call",
+    subtext: "We do the hard work. You show up for a 15-minute call.",
+    step1: "15-Minute Workflow Call",
     step1Desc: "We map your current workflows and identify the biggest time sinks.",
     step2: "Identify Repetitive Tasks",
     step2Desc: "We pinpoint exactly which tasks we automate for maximum impact.",

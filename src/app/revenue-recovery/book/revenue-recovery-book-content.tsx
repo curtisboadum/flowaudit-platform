@@ -1,8 +1,8 @@
 /**
  * @file revenue-recovery-book-content.tsx
  * @description Client content for the Revenue Recovery booking page. Warm RR
- *   styling (amber accent, serif headline) with a short reassurance list and a
- *   link to the Google Calendar appointment schedule (Google Meet on booking).
+ *   styling (amber accent, serif headline) with a short reassurance list and the
+ *   cal.com inline booking calendar (Cal Video link on confirmation).
  * @status Stable.
  * @issues None.
  * @todo None.
@@ -11,15 +11,15 @@
 
 import { Banknote, CalendarCheck, Check, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CalEmbed } from "@/components/booking/cal-embed";
 import { useLocale } from "@/components/providers/locale-provider";
-import { BOOKING_URL } from "@/lib/booking";
 
 const COPY = {
   en: {
     eyebrow: "Revenue Recovery Desk",
     headline: "Let's recover what's yours",
     subtext:
-      "Book a free 30-minute call. We'll show you how the done-for-you Revenue Recovery Desk works, whether it's the right fit for your business, and how fast we can get it running so you start collecting what you're owed. No pressure.",
+      "Book a free 15-minute call. We'll show you how the done-for-you Revenue Recovery Desk works, whether it's the right fit for your business, and how fast we can get it running so you start collecting what you're owed. No pressure.",
     points: [
       "See exactly how the done-for-you desk works",
       "Find out if it's the right fit for your business",
@@ -30,7 +30,7 @@ const COPY = {
     eyebrow: "Mesa de Recuperación de Ingresos",
     headline: "Recuperemos lo que es tuyo",
     subtext:
-      "Agenda una llamada gratuita de 30 minutos. Te mostramos cómo funciona la Mesa de Recuperación de Ingresos hecha por nosotros, si encaja con tu negocio, y qué tan rápido podemos ponerla en marcha para que empieces a cobrar lo que te deben. Sin presión.",
+      "Agenda una llamada gratuita de 15 minutos. Te mostramos cómo funciona la Mesa de Recuperación de Ingresos hecha por nosotros, si encaja con tu negocio, y qué tan rápido podemos ponerla en marcha para que empieces a cobrar lo que te deben. Sin presión.",
     points: [
       "Descubre cómo funciona la mesa hecha por nosotros",
       "Confirma si encaja con tu negocio",
@@ -76,15 +76,13 @@ function RevenueRecoveryBookContent() {
           </h2>
           <p className="mx-auto mt-3 max-w-[460px] font-sans text-sm leading-7 text-[#605A57]">
             {locale === "es"
-              ? "Reserva un hueco en el calendario. Tu confirmación incluye un enlace de Google Meet. ¿Prefieres email? Escribe a support@flowaudit.co.uk."
-              : "Choose a slot on the calendar. Your confirmation includes a Google Meet link. Prefer email? Write to support@flowaudit.co.uk."}
+              ? "Reserva un hueco en el calendario. Tu confirmación incluye un enlace de Cal Video. ¿Prefieres email? Escribe a support@flowaudit.co.uk."
+              : "Choose a slot on the calendar. Your confirmation includes a Cal Video link. Prefer email? Write to support@flowaudit.co.uk."}
           </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button size="lg" className="w-full sm:w-auto" asChild>
-              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-                {locale === "es" ? "Elige un horario" : "Pick a time"}
-              </a>
-            </Button>
+          <div className="mt-6 text-left">
+            <CalEmbed brandColor="#B45309" />
+          </div>
+          <div className="mt-6 flex flex-col items-center justify-center">
             <Button variant="secondary" size="lg" className="w-full sm:w-auto" asChild>
               <a href="mailto:support@flowaudit.co.uk">
                 <Mail className="mr-2 h-4 w-4" />
@@ -94,8 +92,8 @@ function RevenueRecoveryBookContent() {
           </div>
           <p className="mt-4 font-sans text-xs text-[rgba(55,50,47,0.50)]">
             {locale === "es"
-              ? "Tu confirmación de reserva incluye un enlace de Google Meet."
-              : "Your booking confirmation includes a Google Meet link."}
+              ? "Tu confirmación de reserva incluye un enlace de Cal Video."
+              : "Your booking confirmation includes a Cal Video link."}
           </p>
         </div>
       </section>

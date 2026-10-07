@@ -103,7 +103,7 @@ export const es: Translations = {
     subtext:
       "Agenda una llamada de estrategia gratuita. Te mostraremos exactamente qué partes de tu semana se pueden automatizar. y cuánto vas a ahorrar.",
     button: "Agenda una Llamada de Estrategia Gratuita",
-    note: "Llamada de 30 minutos. Sin compromiso. Sin tecnicismos.",
+    note: "Llamada de 15 minutos. Sin compromiso. Sin tecnicismos.",
   },
 
   // Footer
@@ -122,12 +122,12 @@ export const es: Translations = {
   book: {
     headline: "Agenda una llamada",
     subtext:
-      "Elige un horario y tu confirmación incluye un enlace de Google Meet. 30 minutos, sin tecnicismos, sin presión.",
+      "Elige un horario y tu confirmación incluye un enlace de Cal Video. 15 minutos, sin tecnicismos, sin presión.",
     scheduleTitle: "Elige un horario",
     scheduleSubtext:
       "Reserva un hueco en el calendario. ¿Prefieres email? Escribe a support@flowaudit.co.uk y te responderemos con horarios.",
     emailButton: "Escribir por email",
-    responseNote: "Tu confirmación de reserva incluye un enlace de Google Meet.",
+    responseNote: "Tu confirmación de reserva incluye un enlace de Cal Video.",
     expectTitle: "Qué Esperar",
     step1Title: "Conversación Rápida Sobre Tu Negocio",
     step1Desc:
@@ -148,7 +148,7 @@ export const es: Translations = {
       subtext:
         "El agente telefónico con IA de FlowAudit contesta el teléfono de tu clínica, hace las preguntas correctas, maneja los casos urgentes con cuidado y agenda la cita directamente en el calendario que tu equipo ya usa.",
       ctaPrimary: "Ver la llamada de demostración",
-      ctaSecondary: "Agendar una sesión de 30 minutos",
+      ctaSecondary: "Agendar una sesión de 15 minutos",
       note: "Mira la llamada completa, desde el primer tono hasta la cita reservada.",
     },
     leak: {
@@ -296,9 +296,9 @@ export const es: Translations = {
     cta: {
       headline: "Escúchalo en las llamadas de tu propia clínica",
       subtext:
-        "Agenda una sesión de 30 minutos. Te mostraremos la consola real, responderemos tus preguntas y veremos cómo sería la puesta en marcha en tu clínica.",
-      button: "Agendar una sesión de 30 minutos",
-      note: "Tu confirmación de reserva incluye un enlace de Google Meet.",
+        "Agenda una sesión de 15 minutos. Te mostraremos la consola real, responderemos tus preguntas y veremos cómo sería la puesta en marcha en tu clínica.",
+      button: "Agendar una sesión de 15 minutos",
+      note: "Tu confirmación de reserva incluye un enlace de Cal Video.",
     },
   },
 
@@ -439,8 +439,8 @@ export const es: Translations = {
   process: {
     badge: "Cómo Funciona",
     headline: "Del Trabajo Manual al Automatizado",
-    subtext: "Nosotros hacemos el trabajo pesado. tú solo asistes a una llamada de 30 minutos.",
-    step1: "Llamada de Flujo de Trabajo de 30 Minutos",
+    subtext: "Nosotros hacemos el trabajo pesado. tú solo asistes a una llamada de 15 minutos.",
+    step1: "Llamada de Flujo de Trabajo de 15 Minutos",
     step1Desc: "Mapeamos tus flujos de trabajo actuales e identificamos los mayores consumidores de tiempo.",
     step2: "Identificar Tareas Repetitivas",
     step2Desc: "Señalamos exactamente qué tareas se pueden automatizar para el máximo impacto.",
