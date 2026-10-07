@@ -35,10 +35,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/results`,
+      url: `${SITE_URL}/phone-agent`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
+      changeFrequency: "weekly",
+      priority: 1.0,
     },
     {
       url: `${SITE_URL}/book`,

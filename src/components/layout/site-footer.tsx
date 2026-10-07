@@ -24,7 +24,6 @@ function SiteFooter() {
         { label: "Automation Library", href: "/solutions" },
         { label: "Revenue Recovery", href: "/revenue-recovery" },
         { label: "Industries", href: "/industries/trades" },
-        { label: "Results", href: "/results" },
       ],
     },
     company: {

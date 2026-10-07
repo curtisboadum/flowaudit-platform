@@ -3,15 +3,14 @@
 /**
  * @file site-header.tsx
  * @description Sticky pill nav with locale toggle and mobile menu. Surfaces the
- *   Revenue Recovery Desk as a featured amber nav action (desktop + mobile).
+ *   AI Phone Agent as the featured amber nav action (desktop + mobile).
  * @status Stable.
  * @issues None.
  * @todo None.
  */
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X, Globe, Banknote } from "lucide-react";
+import { Menu, X, Globe, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/components/providers/locale-provider";
 
@@ -19,38 +18,29 @@ type NavLink = { label: string; href: string };
 
 interface DesktopNavProps {
   links: NavLink[];
-  revenueRecoveryLabel: string;
-  showClientLogin: boolean;
+  phoneAgentLabel: string;
 }
 
-function DesktopNav({ links, revenueRecoveryLabel, showClientLogin }: DesktopNavProps) {
+function DesktopNav({ links, phoneAgentLabel }: DesktopNavProps) {
   return (
     <div className="hidden min-w-0 flex-1 items-center justify-center gap-2 lg:flex xl:gap-2.5">
       {links.map((link) => (
         <Link
           key={link.href}
           href={link.href}
-          className="font-sans text-[12px] leading-[14px] font-medium text-[rgba(49,45,43,0.80)] transition-colors hover:text-[#37322F]"
+          className="font-sans text-[12px] leading-[14px] font-medium whitespace-nowrap text-[rgba(49,45,43,0.80)] transition-colors hover:text-[#37322F]"
         >
           {link.label}
         </Link>
       ))}
-      {/* Featured: Revenue Recovery Desk */}
+      {/* Featured: AI Phone Agent */}
       <Link
-        href="/revenue-recovery"
+        href="/phone-agent"
         className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 font-sans text-[12px] leading-[14px] font-semibold whitespace-nowrap text-amber-700 transition-colors hover:bg-amber-100 hover:text-amber-800"
       >
-        <Banknote className="h-3.5 w-3.5" />
-        {revenueRecoveryLabel}
+        <PhoneCall className="h-3.5 w-3.5" />
+        {phoneAgentLabel}
       </Link>
-      {showClientLogin && (
-        <Link
-          href="/revenue-recovery/client?login=1"
-          className="inline-flex items-center rounded-full border border-[rgba(55,50,47,0.12)] bg-white px-2.5 py-1 font-sans text-[12px] leading-[14px] font-semibold whitespace-nowrap text-[#37322F] transition-colors hover:border-amber-200 hover:bg-amber-50"
-        >
-          Client Login
-        </Link>
-      )}
     </div>
   );
 }
@@ -58,9 +48,8 @@ function DesktopNav({ links, revenueRecoveryLabel, showClientLogin }: DesktopNav
 interface MobileMenuProps {
   links: NavLink[];
   isSpanish: boolean;
-  revenueRecoveryLabel: string;
+  phoneAgentLabel: string;
   bookCallLabel: string;
-  showClientLogin: boolean;
   onClose: () => void;
   onToggleLocale: () => void;
 }
@@ -68,33 +57,23 @@ interface MobileMenuProps {
 function MobileMenu({
   links,
   isSpanish,
-  revenueRecoveryLabel,
+  phoneAgentLabel,
   bookCallLabel,
-  showClientLogin,
   onClose,
   onToggleLocale,
 }: MobileMenuProps) {
   return (
     <div className="fixed inset-0 top-16 z-40 bg-[#F7F5F3]/98 backdrop-blur-md lg:hidden">
       <div className="flex flex-col items-center gap-6 pt-12">
-        {/* Featured: Revenue Recovery Desk */}
+        {/* Featured: AI Phone Agent */}
         <Link
-          href="/revenue-recovery"
+          href="/phone-agent"
           onClick={onClose}
           className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-5 py-2 text-lg font-semibold text-amber-700"
         >
-          <Banknote className="h-5 w-5" />
-          {revenueRecoveryLabel}
+          <PhoneCall className="h-5 w-5" />
+          {phoneAgentLabel}
         </Link>
-        {showClientLogin && (
-          <Link
-            href="/revenue-recovery/client?login=1"
-            onClick={onClose}
-            className="inline-flex items-center rounded-full border border-[rgba(55,50,47,0.12)] bg-white px-5 py-2 text-base font-semibold text-[#37322F]"
-          >
-            Client Login
-          </Link>
-        )}
         {links.map((link) => (
           <Link
             key={link.href}
@@ -128,7 +107,6 @@ function MobileMenu({
 
 function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const pathname = usePathname();
   const { locale, t, setLocale } = useLocale();
 
   const navLinks: NavLink[] = [
@@ -136,12 +114,12 @@ function SiteHeader() {
     { label: t.nav.solutions, href: "/solutions" },
     { label: t.nav.howItWorks, href: "/#how-it-works" },
     { label: t.nav.about, href: "/about" },
+    { label: t.nav.revenueRecovery, href: "/revenue-recovery" },
   ];
 
   const toggleLocale = () => {
     setLocale(locale === "en" ? "es" : "en");
   };
-  const showClientLogin = pathname === "/revenue-recovery" || pathname?.startsWith("/revenue-recovery/") === true;
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50 flex items-center justify-center bg-[#F7F5F3] px-4 pb-2 pt-3 sm:px-6">
@@ -154,7 +132,7 @@ function SiteHeader() {
           </Link>
         </div>
 
-        <DesktopNav links={navLinks} revenueRecoveryLabel={t.nav.revenueRecovery} showClientLogin={showClientLogin} />
+        <DesktopNav links={navLinks} phoneAgentLabel={t.nav.phoneAgent} />
 
         {/* CTA + Language + Mobile Toggle (right column) */}
         <div className="ml-auto flex shrink-0 items-center gap-2 lg:ml-0">
@@ -186,9 +164,8 @@ function SiteHeader() {
         <MobileMenu
           links={navLinks}
           isSpanish={locale === "es"}
-          revenueRecoveryLabel={t.nav.revenueRecovery}
+          phoneAgentLabel={t.nav.phoneAgent}
           bookCallLabel={t.nav.bookCall}
-          showClientLogin={showClientLogin}
           onClose={() => setMobileOpen(false)}
           onToggleLocale={toggleLocale}
         />
