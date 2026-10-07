@@ -18,7 +18,16 @@ export const metadata: Metadata = {
   },
 };
 
-const teamMembers = [
+interface TeamMember {
+  name: string;
+  title: string;
+  description: string;
+  initials: string;
+  image: string | null;
+  isAI: boolean;
+}
+
+const teamMembers: TeamMember[] = [
   {
     name: "Curtis Kusi Boadum",
     title: "Founder, CEO & CTO",
@@ -37,39 +46,13 @@ const teamMembers = [
     image: "/team/kofi.jpg",
     isAI: false,
   },
-  {
-    name: "Lawyer Boadum",
-    title: "Sales Advisor",
-    description:
-      "Client relationships and growth strategy. Connects operators with the right solutions.",
-    initials: "LB",
-    image: null,
-    isAI: false,
-  },
-  {
-    name: "Casper",
-    title: "AI Agent",
-    description:
-      "Manages reporting, analytics, and operational visibility across client workflows.",
-    initials: "C",
-    image: "/team/casper.svg",
-    isAI: true,
-  },
-  {
-    name: "Klaus",
-    title: "AI Architect & Operator",
-    description: "Strategic orchestrator. Researches, architects, and builds every system from the ground up. Runs the full development pipeline and coordinates 5 specialised AI agent teams: 3 architects, 5 builders, 2 reviewers, 1 QA, and 1 verifier. 12 agents shipping in parallel.",
-    initials: "K",
-    image: "/team/klaus.svg",
-    isAI: true,
-  },
-] as const;
+];
 
 const values = [
   {
     title: "No Enterprise Bloat",
     description:
-      "We don't sell 6-month implementation cycles. We deploy working assistants in 10 days.",
+      "We don't sell 6-month implementation cycles. We configure, test, and launch with you.",
   },
   {
     title: "Built for Serious Operators",
@@ -130,7 +113,7 @@ export default function AboutPage() {
           <div className="mb-12 text-center">
             <Badge text="Our Team" />
             <h2 className="mt-4 font-sans text-2xl font-semibold text-[#49423D] sm:text-3xl">
-              Humans + AI, working together
+              The people behind FlowAudit
             </h2>
           </div>
 

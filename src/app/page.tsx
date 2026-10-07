@@ -14,8 +14,6 @@ import { RevenueRecoveryBanner } from "@/components/sections/revenue-recovery-ba
 import { CalculatorSection } from "@/components/sections/calculator-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { PilotSection } from "@/components/sections/pilot-section";
-import { ImpactMetrics } from "@/components/sections/impact-metrics";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { SecuritySection } from "@/components/sections/security-section";
 import { ComparisonSection } from "@/components/sections/comparison-section";
 import { FAQSection } from "@/components/sections/faq-section";
@@ -113,8 +111,6 @@ export default function HomePage() {
         <CalculatorSection />
         <ProcessSection />
         <PilotSection />
-        <ImpactMetrics />
-        <TestimonialsSection />
         <SecuritySection />
         <ComparisonSection />
         <FAQSection />

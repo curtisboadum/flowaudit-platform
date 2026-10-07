@@ -89,7 +89,7 @@ const en: RevenueRecoveryCopy = {
   ctaPrimary: "Book Your Free Revenue Audit",
   ctaSecondary: "See how it works",
   stats: [
-    { value: "30–90 days", label: "Full AR clean-up timeline" },
+    { value: "30-90 days", label: "Full AR clean-up timeline" },
     { value: "Zero", label: "Additional headcount required" },
     { value: "100%", label: "Human-reviewed before it sends" },
   ],
@@ -101,7 +101,7 @@ const en: RevenueRecoveryCopy = {
     bullets: [
       "Your cash flow is strained by money you've already earned",
       "Your team hates sending awkward follow-up emails",
-      "Collections agencies damage relationships and charge 25–50%",
+      "Collections agencies damage relationships and charge 25-50%",
       "Every week an invoice ages, the odds of collection drop",
     ],
     calloutValue: "60 → 90 days",
@@ -192,7 +192,7 @@ const en: RevenueRecoveryCopy = {
       {
         title: "A fraction of an agency",
         description:
-          "Traditional collections agencies charge 25–50% of what they recover. We don't.",
+          "Traditional collections agencies charge 25-50% of what they recover. We don't.",
       },
       {
         title: "No threatening letters",
@@ -201,7 +201,7 @@ const en: RevenueRecoveryCopy = {
       },
     ],
     contrast:
-      "Collections agencies charge 25–50% and damage the relationship. We keep your clients, and your reputation.",
+      "Collections agencies charge 25-50% and damage the relationship. We keep your clients, and your reputation.",
     cta: "Book Your Free Revenue Audit",
   },
   faq: {
@@ -210,7 +210,7 @@ const en: RevenueRecoveryCopy = {
     items: [
       {
         q: "How is this different from a collections agency?",
-        a: "Agencies are adversarial, they escalate fast, charge 25–50%, and burn the relationship. We follow up the way you would: polite, professional, on-brand. Everything is human-reviewed before it sends.",
+        a: "Agencies are adversarial, they escalate fast, charge 25-50%, and burn the relationship. We follow up the way you would: polite, professional, on-brand. Everything is human-reviewed before it sends.",
       },
       {
         q: "What if a client gets upset at the follow-up?",
@@ -218,7 +218,7 @@ const en: RevenueRecoveryCopy = {
       },
       {
         q: "How quickly will I see results?",
-        a: "Most businesses see recovered cash within the first few weeks, with a full AR clean-up over 30–90 days depending on how aged the invoices are.",
+        a: "Most businesses see recovered cash within the first few weeks, with a full AR clean-up over 30-90 days depending on how aged the invoices are.",
       },
       {
         q: "What software or tools do I need?",
@@ -248,7 +248,7 @@ const es: RevenueRecoveryCopy = {
   ctaPrimary: "Agenda tu Auditoría Gratuita",
   ctaSecondary: "Cómo funciona",
   stats: [
-    { value: "30–90 días", label: "Para limpiar toda tu cartera vencida" },
+    { value: "30-90 días", label: "Para limpiar toda tu cartera vencida" },
     { value: "Cero", label: "Personal adicional necesario" },
     { value: "100%", label: "Revisado por humanos antes de enviarse" },
   ],
@@ -260,7 +260,7 @@ const es: RevenueRecoveryCopy = {
     bullets: [
       "Tu flujo de caja sufre por dinero que ya ganaste",
       "Tu equipo odia enviar correos de seguimiento incómodos",
-      "Las agencias dañan relaciones y cobran 25–50%",
+      "Las agencias dañan relaciones y cobran 25-50%",
       "Cada semana que envejece una factura, baja la probabilidad de cobro",
     ],
     calloutValue: "60 → 90 días",
@@ -351,7 +351,7 @@ const es: RevenueRecoveryCopy = {
       {
         title: "Una fracción de una agencia",
         description:
-          "Las agencias de cobranza tradicionales cobran 25–50% de lo que recuperan. Nosotros no.",
+          "Las agencias de cobranza tradicionales cobran 25-50% de lo que recuperan. Nosotros no.",
       },
       {
         title: "Sin cartas amenazantes",
@@ -360,7 +360,7 @@ const es: RevenueRecoveryCopy = {
       },
     ],
     contrast:
-      "Las agencias cobran 25–50% y dañan la relación. Nosotros conservamos a tus clientes, y tu reputación.",
+      "Las agencias cobran 25-50% y dañan la relación. Nosotros conservamos a tus clientes, y tu reputación.",
     cta: "Agenda tu Auditoría Gratuita",
   },
   faq: {
@@ -369,7 +369,7 @@ const es: RevenueRecoveryCopy = {
     items: [
       {
         q: "¿En qué se diferencia de una agencia de cobranza?",
-        a: "Las agencias son adversariales, escalan rápido, cobran 25–50% y queman la relación. Nosotros hacemos seguimiento como lo harías tú: amable, profesional, acorde a tu marca. Todo se revisa por un humano antes de enviarse.",
+        a: "Las agencias son adversariales, escalan rápido, cobran 25-50% y queman la relación. Nosotros hacemos seguimiento como lo harías tú: amable, profesional, acorde a tu marca. Todo se revisa por un humano antes de enviarse.",
       },
       {
         q: "¿Y si un cliente se molesta por el seguimiento?",
@@ -377,7 +377,7 @@ const es: RevenueRecoveryCopy = {
       },
       {
         q: "¿Qué tan rápido veré resultados?",
-        a: "La mayoría de los negocios ve dinero recuperado en las primeras semanas, con una limpieza completa de cartera en 30–90 días según la antigüedad de las facturas.",
+        a: "La mayoría de los negocios ve dinero recuperado en las primeras semanas, con una limpieza completa de cartera en 30-90 días según la antigüedad de las facturas.",
       },
       {
         q: "¿Qué software o herramientas necesito?",

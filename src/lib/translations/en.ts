@@ -12,8 +12,7 @@ export const en = {
     revenueRecovery: "Revenue Recovery",
     solutions: "Solutions",
     howItWorks: "How It Works",
-    pricing: "Pricing",
-    calculator: "Calculator",
+    phoneAgent: "AI Phone Agent",
     about: "About",
     bookCall: "Book a Call",
     careers: "Careers",
@@ -71,28 +70,19 @@ export const en = {
     hiddenCostTitle: "The Hidden Cost",
     hiddenCostSubtext: "Every hour spent on admin is an hour not spent on growth.",
     hiddenCostItems: [
-      { label: "Quoting & estimating", hours: "6 hrs/week" },
-      { label: "Invoicing & chasing payments", hours: "5 hrs/week" },
-      { label: "Scheduling & coordination", hours: "4 hrs/week" },
-      { label: "Client follow-ups", hours: "3 hrs/week" },
+      { label: "Quoting & estimating", hours: "Handled" },
+      { label: "Invoicing & chasing payments", hours: "Chased" },
+      { label: "Scheduling & coordination", hours: "Coordinated" },
+      { label: "Client follow-ups", hours: "Followed up" },
     ],
-    impactTitle: "The Impact",
-    impactSubtext: "Teams using FlowAudit see results in the first week.",
-    impactHours: "20+",
-    impactHoursLabel: "hours saved per week, on average",
-    impactDays: "10 days",
-    impactDaysLabel: "to go live",
-    impactRoi: "5x",
-    impactRoiLabel: "typical ROI",
-  },
-
-  // Pricing
-  pricing: {
-    badge: "Pricing",
-    headline: "Simple Deployment Pricing",
-    subtext: "One-time setup fee. No monthly subscriptions. No surprise charges.",
-    guarantee: "100% satisfaction guarantee. Pay once, own it forever. Optional support packages available.",
-    notSure: "Not sure which package? Start with a free strategy call →",
+    impactTitle: "What Changes",
+    impactSubtext: "The assistant takes the repetitive work off your plate, and every action is logged.",
+    impactHours: "24/7",
+    impactHoursLabel: "the assistant does not sleep or take leave",
+    impactDays: "Human",
+    impactDaysLabel: "approval where it matters",
+    impactRoi: "Logged",
+    impactRoiLabel: "every action recorded with a summary",
   },
 
   // FAQ
@@ -123,23 +113,185 @@ export const en = {
 
   // Book page
   book: {
-    headline: "Book a Free Strategy Call",
-    subtext: "See how automation handles your admin. 30 minutes. No jargon. No pressure.",
-    scheduleTitle: "Schedule Your Free Strategy Call",
+    headline: "Book a call",
+    subtext:
+      "Pick a time that works and your confirmation includes a Google Meet link. 30 minutes, no jargon, no pressure.",
+    scheduleTitle: "Pick a time",
     scheduleSubtext:
-      "Email us at support@flowaudit.co.uk and we'll find a time working for you. Or call us directly.",
-    emailButton: "Email Us to Book",
-    responseNote: "We respond to all enquiries within 24 hours.",
+      "Choose a slot on the calendar. Prefer email? Write to support@flowaudit.co.uk and we will reply with times.",
+    emailButton: "Email us instead",
+    responseNote: "Your booking confirmation includes a Google Meet link.",
     expectTitle: "What to Expect",
     step1Title: "Quick Chat About Your Business",
     step1Desc:
       "We'll ask about your typical week. What takes up your time, what falls through the cracks.",
     step2Title: "Spot the Quick Wins",
     step2Desc:
-      "We'll find 2-3 things we automate straight away. Usually quoting, invoicing, or follow-ups.",
+      "We'll find 2-3 things we can automate straight away. Usually quoting, invoicing, or follow-ups.",
     step3Title: "Get a Clear Plan",
     step3Desc:
-      "You'll get a plain-English proposal showing what we'll build, what it costs, and how much time you'll save.",
+      "You'll get a plain-English plan showing what we'll build and how it will work.",
+  },
+
+  // Phone Agent page
+  phoneAgent: {
+    hero: {
+      badge: "For dental practices",
+      headline: "Every call answered. Every patient booked.",
+      subtext:
+        "The FlowAudit AI phone agent answers your practice phone, asks the right questions, handles urgent cases with care, and books the appointment straight into the calendar your team already uses.",
+      ctaPrimary: "Watch the demo call",
+      ctaSecondary: "Book a 30-minute walkthrough",
+      note: "See the full call, from first ring to booked appointment.",
+    },
+    leak: {
+      badge: "The leak",
+      headline: "The calls you never hear about",
+      subtext: "Most callers who reach voicemail never leave a message. They just call the next practice.",
+      moments: [
+        {
+          title: "While the team is chairside",
+          desc: "A patient calls during a filling. The phone rings out. That caller does not wait.",
+        },
+        {
+          title: "At lunch and at the school run",
+          desc: "Peak call times land exactly when the front desk is at its busiest.",
+        },
+        {
+          title: "After close",
+          desc: "Evening pain and weekend emergencies call anyway. Voicemail answers none of them.",
+        },
+      ],
+      stat: "In one MGMA review, some clinics had more than half of incoming calls going to voicemail. Every one of those callers had to go somewhere else.",
+      statSource: "MGMA, March 2026",
+    },
+    handles: {
+      badge: "What it handles",
+      headline: "A front desk that never misses a ring",
+      items: [
+        {
+          title: "Answers in about two rings",
+          desc: "Every call, day and night, including weekends. No hold music, no voicemail.",
+        },
+        {
+          title: "Qualifies the caller",
+          desc: "New or returning patient, reason for the visit, urgency, and the right contact details.",
+        },
+        {
+          title: "Triages urgent cases safely",
+          desc: "Swelling, bleeding, trauma, or trouble breathing are checked first, then escalated by your rules.",
+        },
+        {
+          title: "Books the appointment",
+          desc: "Real availability from your calendar, offered on the call, then confirmed out loud.",
+        },
+        {
+          title: "Sends you a summary",
+          desc: "A short note and transcript after every call, so the team knows exactly what happened.",
+        },
+        {
+          title: "Hands off when it should",
+          desc: "Complex or clinical questions go to your team with a full summary, not a dropped call.",
+        },
+      ],
+    },
+    demo: {
+      badge: "The demo",
+      headline: "Watch a real call, start to finish",
+      subtext:
+        "A parent calls about a child with toothache. Watch the agent triage, check the calendar, offer an emergency slot, and confirm the booking. The phone number is hidden in this demo recording.",
+      note: "2 minutes 41 seconds, recorded from the live product console.",
+    },
+    how: {
+      badge: "How it works",
+      headline: "Configured with you, then live",
+      steps: [
+        {
+          title: "Tell us about the practice",
+          desc: "Services, hours, locations, and the questions your callers actually ask.",
+        },
+        {
+          title: "We configure the agent",
+          desc: "Your greeting, your voice, and your rules for urgent calls and handoffs.",
+        },
+        {
+          title: "Connect your calendar",
+          desc: "The agent books only real slots from the calendar you already use.",
+        },
+        {
+          title: "Test calls, then go live",
+          desc: "You listen to real calls, approve them, and the agent starts answering.",
+        },
+      ],
+    },
+    guardrails: {
+      badge: "Guardrails",
+      headline: "What the agent never does",
+      items: [
+        "Never invents availability or books a slot that is not real",
+        "Never quotes prices or estimates treatment costs",
+        "Never gives clinical advice or a diagnosis",
+        "Never claims to be human when asked",
+        "Never leaves an urgent case without an escalation path",
+        "Never goes live on a number you are not ready to forward",
+      ],
+    },
+    audience: {
+      badge: "Who it is for",
+      headline: "Built for dental teams",
+      items: [
+        {
+          title: "Single-location practices",
+          desc: "Cover lunch, busy periods, and every call after close.",
+        },
+        {
+          title: "Multi-location groups and DSOs",
+          desc: "One number or many, each with its own rules and calendar.",
+        },
+        {
+          title: "Ortho, implant, and emergency clinics",
+          desc: "High-value and urgent callers get answered first, with the right questions.",
+        },
+      ],
+      markets: "Tuned for practices in the United States, United Kingdom, and Canada.",
+    },
+    faqItems: [
+      {
+        q: "Will patients know they are talking to AI?",
+        a: "Listen to the demo call and judge for yourself. If a patient asks directly, the agent says plainly that it is an AI assistant for the practice, and they can ask for a person.",
+      },
+      {
+        q: "What happens with emergencies?",
+        a: "Urgent symptoms are checked first, following the practice's own triage rules. The agent can offer emergency slots, apply the emergency surcharge your practice uses, and alert your team immediately.",
+      },
+      {
+        q: "Does it work with our current number and team?",
+        a: "Yes. It answers alongside your existing number and front desk. You choose when it picks up: overflow, after hours, or every call.",
+      },
+      {
+        q: "Where do bookings land?",
+        a: "In the calendar you already use. The agent sees real availability, books the slot, and confirms the details out loud on the call.",
+      },
+      {
+        q: "How is call recording handled?",
+        a: "Recording and consent are configured to the practice's policy and local rules, including any disclosure your jurisdiction requires.",
+      },
+      {
+        q: "How long does setup take?",
+        a: "Most of the work is configuration, not code. We build the call flow, connect the calendar, run test calls with you, and go live when you approve.",
+      },
+      {
+        q: "What does it cost?",
+        a: "Pricing is covered on the walkthrough call, where we can match the setup to the practice. We do not publish a rate card.",
+      },
+    ],
+    cta: {
+      headline: "Hear it on your own practice's calls",
+      subtext:
+        "Book a 30-minute walkthrough. We will show the live console, answer your questions, and map what setup would look like for your practice.",
+      button: "Book a 30-minute walkthrough",
+      note: "Your booking confirmation includes a Google Meet link.",
+    },
   },
 
   // Web Design page
@@ -169,40 +321,29 @@ export const en = {
     productsSubtext:
       "Start with a website. Add tools as your business grows. Cancel anytime after your 12-month term.",
     everythingLabel: "Everything",
-    everythingPrice: "£712/mo",
-    everythingDesc: "All 8 products included",
-    priceNote: "12-month contracts. 15% loyalty discount on renewal. All prices exclude VAT.",
+    everythingDesc: "All 8 tools included",
 
     product1: "Custom Website",
-    product1Price: "£149/mo",
     product1Desc:
       "Unique design, mobile-optimised, CMS access, hosting & SSL included.",
     product2: "AI Chatbot",
-    product2Price: "£129/mo",
     product2Desc:
       "24/7 AI assistant trained on your business. Captures leads while you sleep.",
     product3: "After-Hours AI",
-    product3Price: "£99/mo",
     product3Desc:
       "Handles calls and texts outside your working hours. Never miss a lead again.",
     product4: "Missed Call Text-Back",
-    product4Price: "£89/mo",
     product4Desc:
       "Automatically texts customers back within seconds when you miss their call.",
     product5: "Booking System",
-    product5Price: "£79/mo",
     product5Desc:
       "Let customers book appointments online. Sends reminders automatically.",
     product6: "Automated Invoicing",
-    product6Price: "£69/mo",
     product6Desc:
       "Send professional invoices by text. Track payments. Chase overdue automatically.",
     product7: "Quote Request System",
-    product7Price: "£49/mo",
-    product7Desc:
-      "Capture quote requests from your website. Get notified instantly.",
+    product7Desc: "Capture quote requests from your website. Get notified instantly.",
     product8: "Testimonial Collector",
-    product8Price: "£49/mo",
     product8Desc:
       "Automatically collect reviews from happy customers and display them on your site.",
 
@@ -225,7 +366,7 @@ export const en = {
       "After your 12-month term, you cancel anytime with 30 days notice. If you cancel, your website and all tools go offline as they run on our infrastructure.",
     faq2Q: "Can I buy my website outright?",
     faq2A:
-      "Yes, we offer one-time purchase options. Book a call to discuss pricing.",
+      "We will walk you through the available ownership options on a call and put the recommended scope in writing before anything starts.",
     faq3Q: "How long does it take to build my website?",
     faq3A:
       "Most websites are ready within 5-10 business days. Add-on tools are configured within 48 hours of your website going live.",
@@ -263,12 +404,6 @@ export const en = {
     ],
   },
 
-  // Logo grid
-  logoGrid: {
-    badge: "Social Proof",
-    headline: "Teams trusting FlowAudit",
-    subtext: "Operators across industries reclaim their time with our AI assistants.",
-  },
 
   // Calculator section
   calc: {
@@ -294,7 +429,7 @@ export const en = {
   // Process section
   process: {
     badge: "How It Works",
-    headline: "From Manual to Automated in 10 Days",
+    headline: "From Manual Work to Automated",
     subtext: "We do the hard work. You show up for a 30-minute call.",
     step1: "30-Minute Workflow Call",
     step1Desc: "We map your current workflows and identify the biggest time sinks.",
@@ -328,17 +463,17 @@ export const en = {
 
   // FAQ items
   faqItems: [
-    { q: "How is this different from hiring a virtual assistant?", a: "A VA is another person to manage and pay monthly. Our system works 24/7, doesn't make mistakes, and costs a one-time setup fee. Not an ongoing salary. It handles the repetitive stuff so you (or your team) focus on the actual work." },
+    { q: "How is this different from hiring a virtual assistant?", a: "A VA is another person to manage, train, and cover for. Our system works 24/7, follows your process exactly, and handles the repetitive work so you (or your team) focus on the actual job." },
     { q: "What industries do you work with?", a: "Mostly trades (plumbers, electricians, HVAC, builders), contractors, and small service businesses with 1-30 people. If you're copying info between apps, chasing invoices, or sending the same follow-up emails every week, we help." },
     { q: "I'm a one-person operation. Is this still worth it?", a: "Absolutely. Whether you're solo or have a small team, the biggest gains come from removing the admin eating your day. Even saving 10-15 hours a week means you take on more jobs or get your evenings back." },
     { q: "I'm not tech-savvy. Will I be able to use this?", a: "Yes. We handle all the technical setup. Your assistant works through tools you already use. Email, text messages, your accounting software. If you check your email, you use this." },
-    { q: "How long does it take to get set up?", a: "About 10 days from first call to live. We start with a 30-minute chat to understand your business, then build your automations, test them with your real data, and go live." },
-    { q: "What does the pilot include?", a: "The pilot is a 5-day test of one automation. We build it, run it with your real data, and show you exactly how much time it saves. You only move forward if you see clear results." },
-    { q: "Is my data secure?", a: "Yes. We use role-based access controls, encrypted hosting, and full audit logs. Your data is never sold, shared, or used for training. You own everything." },
+    { q: "How long does it take to get set up?", a: "Setup is mostly configuration. We start with a call to map the work, build and test with your real data, and go live when you approve." },
+    { q: "What does the pilot include?", a: "The pilot is a short test of one automation. We build it, run it with your real data, and show you exactly what it did. You only move forward if it earns its place." },
+    { q: "Is my data secure?", a: "We set up access controls and keep a log of what the assistant does. Your data is not sold or shared, and you own it." },
     { q: "What if I don't know which workflows to automate?", a: "That's what the first call is for. We'll walk through your day-to-day together, find the biggest time sinks, and recommend where to start." },
-    { q: "What's the pricing model?", a: "Every build is scoped to exactly what you need, so the price depends on your setup. We walk you through it on a free strategy call. No monthly fees for the core build." },
+    { q: "How do I get a price?", a: "Book a free call and we will scope the work with you, then put the full scope and the figure in writing before anything starts. Every build is different, so we do not publish a rate card." },
     { q: "Do I need any technical knowledge?", a: "None at all. We handle all the setup, wiring, and configuration. You interact with your assistant through tools you already use." },
-    { q: "What ROI do clients see?", a: "Most clients see 5x return on their investment. The average business saves 20+ hours a week on admin. Most people break even within the first few weeks." },
+    { q: "How do you measure whether it works?", a: "We agree on what we are trying to move before we start, and the assistant logs what it does so the change is visible. We do not promise revenue, hours, or rankings up front." },
   ],
 
   // Hero visual demos
@@ -399,37 +534,13 @@ export const en = {
     badge: "Risk-Free Start",
     headline: "Test One Workflow First",
     subtext: "Not sure if automation is right for you? Start small. Validate with one workflow before committing.",
-    items: ["5-day pilot", "One automation", "Measurable results", "Decide after validation"],
-    disclaimer: "No credit card. No commitment. Only results.",
+    items: ["Short pilot", "One automation", "Clear reporting", "Decide after validation"],
+    disclaimer: "No credit card. No commitment.",
     button: "Start With a Pilot",
   },
 
-  // Impact metrics
-  impact: {
-    badge: "Results",
-    headline: "More Time. More Margin. Less Chaos.",
-    metrics: [
-      { value: "20+", unit: "hrs/week", label: "Hours Saved", description: "Average time recovered per team" },
-      { value: "40%", unit: "", label: "Cost Reduction", description: "Operational cost decrease" },
-      { value: "10", unit: "days", label: "Deployment Time", description: "From first call to live assistant" },
-      { value: "5x", unit: "", label: "ROI Multiple", description: "Typical return on investment" },
-    ],
-  },
 
-  // Testimonials
-  testimonials: {
-    badge: "Results",
-    headline: "What Operators Say",
-  },
 
-  // Testimonial items
-  testimonialItems: [
-    { quote: "I was spending 2 hours every evening chasing quotes and doing invoices. FlowAudit handles all of it now. I haven't opened a spreadsheet in 3 months. My close rate went up 20% because quotes get followed up the same day.", name: "Marcus Rodriguez", title: "Owner, Summit Electrical Services", initials: "MR" },
-    { quote: "I was skeptical about AI, but the pilot sold me in 3 days. Now my team focuses on billable work instead of copying data between spreadsheets.", name: "Sarah Chen", title: "Managing Partner, Cascade Insurance Group", initials: "SC" },
-    { quote: "We went from manually tracking 200+ renewals to having everything automated. The ROI was obvious within the first month.", name: "David Okafor", title: "Operations Director, Atlas Property Management", initials: "DO" },
-    { quote: "I run a small plumbing operation. I figured AI was for big companies. Turns out it's perfect for businesses like mine. It does the office work I never had time for. Best money I've spent on my business.", name: "Tom Walsh", title: "Owner, Walsh Plumbing & Heating", initials: "TW" },
-    { quote: "We tried hiring an office manager twice. Both times it didn't work out. FlowAudit costs less than a month of their salary and it never calls in sick. Our quoting is 3x faster now.", name: "Rachel Nguyen", title: "Director, Precision HVAC Solutions", initials: "RN" },
-  ],
 
   // Security
   security: {
@@ -438,7 +549,7 @@ export const en = {
     subtext: "Plain and simple. Here's how we protect your business.",
     items: [
       { title: "Only You See Your Data", description: "We set up permissions so only the right people access your information." },
-      { title: "Bank-Level Security", description: "Your data is encrypted and hosted on the same type of infrastructure banks use." },
+      { title: "Secure by Default", description: "We use encrypted connections and established hosting providers." },
       { title: "Full Transparency", description: "You see exactly what your assistant has done. Every email sent, every invoice created." },
       { title: "Your Data Stays Yours", description: "We never sell your data, share it with anyone else, or use it for anything other than running your automations." },
       { title: "You Own Everything", description: "All your automations, settings, and data belong to you. Always." },

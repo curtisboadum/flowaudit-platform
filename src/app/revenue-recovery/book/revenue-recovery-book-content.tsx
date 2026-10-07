@@ -1,20 +1,18 @@
 /**
  * @file revenue-recovery-book-content.tsx
  * @description Client content for the Revenue Recovery booking page. Warm RR
- *   styling (amber accent, serif headline) with a short reassurance list and the
- *   shared Calendly inline widget. Bilingual via the active locale, mirroring the
- *   inline-copy pattern used by revenue-recovery-banner.tsx.
+ *   styling (amber accent, serif headline) with a short reassurance list and a
+ *   link to the Google Calendar appointment schedule (Google Meet on booking).
  * @status Stable.
  * @issues None.
  * @todo None.
  */
 "use client";
 
-import { Banknote, Check } from "lucide-react";
-import { CalendlyEmbed } from "@/components/book/calendly-embed";
+import { Banknote, CalendarCheck, Check, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useLocale } from "@/components/providers/locale-provider";
-
-const CALENDLY_URL = "https://calendly.com/flowaudit-info/30min";
+import { BOOKING_URL } from "@/lib/booking";
 
 const COPY = {
   en: {
@@ -69,8 +67,36 @@ function RevenueRecoveryBookContent() {
       </section>
 
       <section className="px-4 pb-16 sm:px-6 lg:px-0">
-        <div className="mx-auto w-full max-w-[900px] overflow-hidden rounded-2xl border border-amber-200 bg-white">
-          <CalendlyEmbed url={CALENDLY_URL} />
+        <div className="mx-auto w-full max-w-[720px] rounded-2xl border border-amber-200 bg-white p-6 text-center sm:p-10">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50">
+            <CalendarCheck className="h-5 w-5 text-amber-600" />
+          </div>
+          <h2 className="font-sans text-xl font-semibold text-[#37322F] sm:text-2xl">
+            {locale === "es" ? "Elige un horario" : "Pick a time"}
+          </h2>
+          <p className="mx-auto mt-3 max-w-[460px] font-sans text-sm leading-7 text-[#605A57]">
+            {locale === "es"
+              ? "Reserva un hueco en el calendario. Tu confirmación incluye un enlace de Google Meet. ¿Prefieres email? Escribe a support@flowaudit.co.uk."
+              : "Choose a slot on the calendar. Your confirmation includes a Google Meet link. Prefer email? Write to support@flowaudit.co.uk."}
+          </p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button size="lg" className="w-full sm:w-auto" asChild>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+                {locale === "es" ? "Elige un horario" : "Pick a time"}
+              </a>
+            </Button>
+            <Button variant="secondary" size="lg" className="w-full sm:w-auto" asChild>
+              <a href="mailto:support@flowaudit.co.uk">
+                <Mail className="mr-2 h-4 w-4" />
+                {locale === "es" ? "Escribir por email" : "Email us instead"}
+              </a>
+            </Button>
+          </div>
+          <p className="mt-4 font-sans text-xs text-[rgba(55,50,47,0.50)]">
+            {locale === "es"
+              ? "Tu confirmación de reserva incluye un enlace de Google Meet."
+              : "Your booking confirmation includes a Google Meet link."}
+          </p>
         </div>
       </section>
     </>
