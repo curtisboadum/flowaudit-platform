@@ -126,7 +126,6 @@ export const es: Translations = {
     scheduleTitle: "Elige un horario",
     scheduleSubtext:
       "Reserva un hueco en el calendario. ¿Prefieres email? Escribe a support@flowaudit.co.uk y te responderemos con horarios.",
-    emailButton: "Escribir por email",
     responseNote: "Tu confirmación de reserva incluye un enlace de Cal Video.",
     expectTitle: "Qué Esperar",
     step1Title: "Conversación Rápida Sobre Tu Negocio",

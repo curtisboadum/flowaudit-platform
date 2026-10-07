@@ -119,7 +119,6 @@ export const en = {
     scheduleTitle: "Pick a time",
     scheduleSubtext:
       "Choose a slot on the calendar. Prefer email? Write to support@flowaudit.co.uk and we will reply with times.",
-    emailButton: "Email us instead",
     responseNote: "Your booking confirmation includes a Cal Video link.",
     expectTitle: "What to Expect",
     step1Title: "Quick Chat About Your Business",

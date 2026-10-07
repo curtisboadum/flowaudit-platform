@@ -16,7 +16,7 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 - **Updated** `src/lib/booking.ts` to cal.com constants (FlowAudit Call, 15 minutes)
 - **Created** `src/components/booking/cal-embed.tsx`, official embed.js inline calendar (light theme, month view, per-page brand color, idempotent init, fallback link)
-- **Updated** `/book` and `/revenue-recovery/book` to render the inline cal.com embed; email fallbacks kept
+- **Updated** `/book` and `/revenue-recovery/book` to render the inline cal.com embed; the "Email us instead" fallback buttons were removed after owner review (`d13481d`)
 - **Updated** EN/ES copy: Google Meet references → Cal Video; call-duration copy 30 → 15 minutes (book pages, phone-agent CTAs, process section, RR copy, metadata)
 - **Configured** cal.com: event "FlowAudit Call" (`flowaudit-call`), Cal Video, Mon-Fri 14:00-19:00 Europe/London schedule, 15/15 buffers, 4h notice, 30-day rolling window, FlowAudit display name + avatar, brand color `#37322F`
 

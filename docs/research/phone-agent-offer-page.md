@@ -85,7 +85,7 @@ Observed gaps FlowAudit can own:
 9. **Certainty and risk reversal.** State what the agent never does in plain terms. Named guardrails reduce perceived risk more than a guarantee would.
 10. **Cialdini unity before persuasion.** Frame the reader as a practice owner who cares for patients, not as a lead to be captured. Shared identity: "your front desk, always on."
 11. **Authority through demonstration.** Show the pipeline and the calendar, not badges. The video carries the authority.
-12. **Commitment ladder.** Primary CTA is a low-commitment demonstration ("Watch the full call", then "Book a 30-minute walkthrough"). One primary action per screen.
+12. **Commitment ladder.** Primary CTA is a low-commitment demonstration ("Watch the full call", then "Book a 15-minute walkthrough"). One primary action per screen.
 13. **Processing ease for objections.** FAQ answers in the visitor's words, first line answers the question, second line adds the nuance.
 14. **No fabricated social proof.** No invented testimonials, no logos of practices we have not served. The demonstration plus honest claims policy is the proof.
 15. **Anchoring without prices.** The page never shows a number for our service (site policy). Value framing uses the patient's time and the practice's own calendar, not fake math.

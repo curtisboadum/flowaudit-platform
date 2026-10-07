@@ -33,7 +33,7 @@ Notes: cal.com's global "daily booking cap" is gated to organizations with 15+ m
 
 - `src/lib/booking.ts` — cal.com constants (`BOOKING_URL`, `CAL_LINK`, `CAL_NAMESPACE`, `CAL_ORIGIN`).
 - `src/components/booking/cal-embed.tsx` — new inline embed using the official embed.js with the official queue proxy; light theme, month view, per-page brand color, idempotent init, and a "open in a new tab" fallback link.
-- `/book` and `/revenue-recovery/book` — schedule buttons replaced by the inline embed; email fallback buttons kept (`support@flowaudit.co.uk`). RR embed uses its amber accent (`#B45309`).
+- `/book` and `/revenue-recovery/book` — schedule buttons replaced by the inline embed; the "Email us instead" buttons were later removed after owner review (commit `d13481d`; the mailto route remains mentioned in the page copy). RR embed uses its amber accent (`#B45309`).
 - Copy scrub (EN + ES): all "Google Meet" booking references replaced with "Cal Video"; all call-duration copy updated from 30 to 15 minutes (book pages, phone-agent walkthrough CTAs, process section, RR landing copy, metadata descriptions). Product-level Google Workspace mentions (privacy/terms/RR integrations) were intentionally left.
 - Gates: `tsc --noEmit`, `next lint`, `next build` all pass; committed and pushed to PR #19.
 

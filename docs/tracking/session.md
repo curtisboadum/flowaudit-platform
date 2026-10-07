@@ -18,7 +18,7 @@
 
 - Video revision 3: audio stream byte-identical to revision 2 (stream md5 match); new sha256 `53f4b657…`; render command reproduces the revision-2 live hash byte-for-byte as a determinism proof
 - cal.com: event `curtis-salesos/flowaudit-call` (FlowAudit Call, 15 min, Cal Video), dedicated "FlowAudit Call hours" schedule Mon-Fri 14:00-19:00 UK (default schedule untouched so outreach 15-min event is unchanged), 15/15 buffers, 4 h notice, 30-day rolling window; profile display name set to FlowAudit with avatar
-- Site: new `cal-embed.tsx` uses the official embed.js queue proxy; per-page brand color (`#37322F` on /book, `#B45309` on RR); fallback link kept; EN/ES copy scrubbed of Google Meet and 30-minute references
+- Site: new `cal-embed.tsx` uses the official embed.js queue proxy; per-page brand color (`#37322F` on /book, `#B45309` on RR); embed fallback link kept; EN/ES copy scrubbed of Google Meet and 30-minute references; the "Email us instead" buttons were later removed from both booking pages after owner review (`d13481d`)
 - E2E on production: booked Thu 8 Oct 14:00 UK with curtisboadum@gmail.com, quoted the confirmation email (Cal Video link), confirmed in the cal.com app, cancelled, quoted the cancellation email, and verified no upcoming bookings remain
 - The separate `cal.com/flowaudit` account (different account, similar events) is not used; the Google appointment schedule stays online but unlinked
 - Evidence: `docs/evidence/calcom-migration.md` and `docs/evidence/phone-agent-demo-video.md` (both first_hand_check PASS)
