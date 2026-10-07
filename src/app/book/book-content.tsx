@@ -1,7 +1,7 @@
 /**
  * @file book-content.tsx
  * @description Booking page content. Renders the cal.com inline booking
- *   calendar (Cal Video link on confirmation) with an email fallback.
+ *   calendar (Cal Video link on confirmation).
  * @status Stable.
  * @issues None.
  * @todo None.
