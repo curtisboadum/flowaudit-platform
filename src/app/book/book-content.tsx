@@ -9,9 +9,8 @@
 "use client";
 
 import { useLocale } from "@/components/providers/locale-provider";
-import { Button } from "@/components/ui/button";
 import { CalEmbed } from "@/components/booking/cal-embed";
-import { CalendarCheck, Mail } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 
 function BookContent() {
   const { t } = useLocale();
@@ -46,14 +45,6 @@ function BookContent() {
           </p>
           <div className="mt-6 text-left">
             <CalEmbed />
-          </div>
-          <div className="mt-6 flex flex-col items-center justify-center">
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto" asChild>
-              <a href="mailto:support@flowaudit.co.uk">
-                <Mail className="mr-2 h-4 w-4" />
-                {t.book.emailButton}
-              </a>
-            </Button>
           </div>
           <p className="mt-4 font-sans text-xs text-[rgba(55,50,47,0.50)]">{t.book.responseNote}</p>
         </div>

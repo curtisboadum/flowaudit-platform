@@ -9,8 +9,7 @@
  */
 "use client";
 
-import { Banknote, CalendarCheck, Check, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Banknote, CalendarCheck, Check } from "lucide-react";
 import { CalEmbed } from "@/components/booking/cal-embed";
 import { useLocale } from "@/components/providers/locale-provider";
 
@@ -81,14 +80,6 @@ function RevenueRecoveryBookContent() {
           </p>
           <div className="mt-6 text-left">
             <CalEmbed brandColor="#B45309" />
-          </div>
-          <div className="mt-6 flex flex-col items-center justify-center">
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto" asChild>
-              <a href="mailto:support@flowaudit.co.uk">
-                <Mail className="mr-2 h-4 w-4" />
-                {locale === "es" ? "Escribir por email" : "Email us instead"}
-              </a>
-            </Button>
           </div>
           <p className="mt-4 font-sans text-xs text-[rgba(55,50,47,0.50)]">
             {locale === "es"
