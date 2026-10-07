@@ -10,7 +10,6 @@
  */
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Menu, X, Globe, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/components/providers/locale-provider";
@@ -20,10 +19,9 @@ type NavLink = { label: string; href: string };
 interface DesktopNavProps {
   links: NavLink[];
   phoneAgentLabel: string;
-  showClientLogin: boolean;
 }
 
-function DesktopNav({ links, phoneAgentLabel, showClientLogin }: DesktopNavProps) {
+function DesktopNav({ links, phoneAgentLabel }: DesktopNavProps) {
   return (
     <div className="hidden min-w-0 flex-1 items-center justify-center gap-2 lg:flex xl:gap-2.5">
       {links.map((link) => (
@@ -43,14 +41,6 @@ function DesktopNav({ links, phoneAgentLabel, showClientLogin }: DesktopNavProps
         <PhoneCall className="h-3.5 w-3.5" />
         {phoneAgentLabel}
       </Link>
-      {showClientLogin && (
-        <Link
-          href="/revenue-recovery/client?login=1"
-          className="inline-flex items-center rounded-full border border-[rgba(55,50,47,0.12)] bg-white px-2.5 py-1 font-sans text-[12px] leading-[14px] font-semibold whitespace-nowrap text-[#37322F] transition-colors hover:border-amber-200 hover:bg-amber-50"
-        >
-          Client Login
-        </Link>
-      )}
     </div>
   );
 }
@@ -60,7 +50,6 @@ interface MobileMenuProps {
   isSpanish: boolean;
   phoneAgentLabel: string;
   bookCallLabel: string;
-  showClientLogin: boolean;
   onClose: () => void;
   onToggleLocale: () => void;
 }
@@ -70,7 +59,6 @@ function MobileMenu({
   isSpanish,
   phoneAgentLabel,
   bookCallLabel,
-  showClientLogin,
   onClose,
   onToggleLocale,
 }: MobileMenuProps) {
@@ -86,15 +74,6 @@ function MobileMenu({
           <PhoneCall className="h-5 w-5" />
           {phoneAgentLabel}
         </Link>
-        {showClientLogin && (
-          <Link
-            href="/revenue-recovery/client?login=1"
-            onClick={onClose}
-            className="inline-flex items-center rounded-full border border-[rgba(55,50,47,0.12)] bg-white px-5 py-2 text-base font-semibold text-[#37322F]"
-          >
-            Client Login
-          </Link>
-        )}
         {links.map((link) => (
           <Link
             key={link.href}
@@ -128,7 +107,6 @@ function MobileMenu({
 
 function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const pathname = usePathname();
   const { locale, t, setLocale } = useLocale();
 
   const navLinks: NavLink[] = [
@@ -142,7 +120,6 @@ function SiteHeader() {
   const toggleLocale = () => {
     setLocale(locale === "en" ? "es" : "en");
   };
-  const showClientLogin = pathname === "/revenue-recovery" || pathname?.startsWith("/revenue-recovery/") === true;
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50 flex items-center justify-center bg-[#F7F5F3] px-4 pb-2 pt-3 sm:px-6">
@@ -155,7 +132,7 @@ function SiteHeader() {
           </Link>
         </div>
 
-        <DesktopNav links={navLinks} phoneAgentLabel={t.nav.phoneAgent} showClientLogin={showClientLogin} />
+        <DesktopNav links={navLinks} phoneAgentLabel={t.nav.phoneAgent} />
 
         {/* CTA + Language + Mobile Toggle (right column) */}
         <div className="ml-auto flex shrink-0 items-center gap-2 lg:ml-0">
@@ -189,7 +166,6 @@ function SiteHeader() {
           isSpanish={locale === "es"}
           phoneAgentLabel={t.nav.phoneAgent}
           bookCallLabel={t.nav.bookCall}
-          showClientLogin={showClientLogin}
           onClose={() => setMobileOpen(false)}
           onToggleLocale={toggleLocale}
         />
