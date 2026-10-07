@@ -4,6 +4,28 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ---
 
+## 2026-10-07 (Video revision 3 + cal.com booking migration)
+
+### Demo Video (revision 3)
+
+- **Updated** `public/assets/phone-agent/phone-agent-demo.mp4`, revision 3 adds masks for the left-panel kinetic phone-number captions (t 68.8-73.2 s and 139.8-144.9 s) and the setup-panel "KedoLabs." hint (t 0-6.3 s); audio stream is byte-identical to revision 2; new sha256 `53f4b657…`
+- **Removed** `public/assets/phone-agent/phone-agent-demo.en.vtt` and the `<track>` element on the phone-agent page (burned-in captions carry all on-screen text)
+- **Updated** `docs/evidence/phone-agent-demo-video.md`, revision 3 with method, provenance, and verification results (first_hand_check PASS)
+
+### Booking: Google Calendar → cal.com
+
+- **Updated** `src/lib/booking.ts` to cal.com constants (FlowAudit Call, 15 minutes)
+- **Created** `src/components/booking/cal-embed.tsx`, official embed.js inline calendar (light theme, month view, per-page brand color, idempotent init, fallback link)
+- **Updated** `/book` and `/revenue-recovery/book` to render the inline cal.com embed; email fallbacks kept
+- **Updated** EN/ES copy: Google Meet references → Cal Video; call-duration copy 30 → 15 minutes (book pages, phone-agent CTAs, process section, RR copy, metadata)
+- **Configured** cal.com: event "FlowAudit Call" (`flowaudit-call`), Cal Video, Mon-Fri 14:00-19:00 Europe/London schedule, 15/15 buffers, 4h notice, 30-day rolling window, FlowAudit display name + avatar, brand color `#37322F`
+
+### Deployed
+
+- **Deployed** production via `vercel --prod`, aliased `https://flowaudit.co.uk`; live mp4 sha256 verified equal to the new local hash; live 5 fps OCR sweep clean; E2E booking on the live site verified (book → confirmation email → cancel → cancellation email → no upcoming bookings)
+
+---
+
 ## 2026-02-15 (Session 8)
 
 ### Brand Rename
