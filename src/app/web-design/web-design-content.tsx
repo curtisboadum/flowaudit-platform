@@ -231,7 +231,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
     <div className="overflow-hidden rounded-xl border border-[rgba(55,50,47,0.08)] bg-white">
       <button
+        type="button"
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         className="flex w-full items-center justify-between px-5 py-4 text-left"
       >
         <span className="font-sans text-sm font-semibold text-[#37322F]">{question}</span>
