@@ -13,42 +13,70 @@ import { BOOKING_URL, CAL_LINK, CAL_NAMESPACE, CAL_ORIGIN } from "@/lib/booking"
 
 type CalInstruction = (...args: unknown[]) => void;
 
+type CalNamespaceApi = CalInstruction & { q?: unknown[] };
+
 type CalApi = CalInstruction & {
-  ns: Record<string, CalInstruction>;
+  ns: Record<string, CalNamespaceApi>;
   loaded?: boolean;
   q?: unknown[];
 };
 
 const EMBED_SCRIPT_SRC = `${CAL_ORIGIN}/embed/embed.js`;
+const CAL_INIT_INSTRUCTION = "init";
 
 const initializedNamespaces = new Set<string>();
-const readyCallbacks: Array<() => void> = [];
-let embedScriptRequested = false;
 
 function getCal(): CalApi | undefined {
   return (window as Window & { Cal?: CalApi }).Cal;
 }
 
-function onEmbedReady(callback: () => void): void {
-  if (getCal()) {
-    callback();
-    return;
-  }
+function createCalProxy(): CalApi {
+  const cal = ((...args: unknown[]) => {
+    if (!cal.loaded) {
+      cal.ns = {};
+      cal.q = [];
+      const script = document.createElement("script");
+      script.src = EMBED_SCRIPT_SRC;
+      script.async = true;
+      document.head.appendChild(script);
+      cal.loaded = true;
+    }
 
-  readyCallbacks.push(callback);
+    cal.q = cal.q ?? [];
 
-  if (!embedScriptRequested) {
-    embedScriptRequested = true;
-    const script = document.createElement("script");
-    script.src = EMBED_SCRIPT_SRC;
-    script.async = true;
-    script.onload = () => {
-      readyCallbacks.splice(0).forEach((fn) => {
-        fn();
-      });
-    };
-    document.head.appendChild(script);
+    if (args[0] === CAL_INIT_INSTRUCTION) {
+      const namespace = args[1];
+      if (typeof namespace === "string") {
+        const api = ((...apiArgs: unknown[]) => {
+          api.q = api.q ?? [];
+          api.q.push(apiArgs);
+        }) as CalNamespaceApi;
+        const nsApi = cal.ns[namespace] ?? api;
+        cal.ns[namespace] = nsApi;
+        nsApi(...args);
+        cal.q.push(["initNamespace", namespace]);
+      } else {
+        cal.q.push(args);
+      }
+      return;
+    }
+
+    cal.q.push(args);
+  }) as CalApi;
+
+  cal.ns = {};
+  cal.q = [];
+  return cal;
+}
+
+function ensureCal(): CalApi {
+  const existing = getCal();
+  if (existing) {
+    return existing;
   }
+  const proxy = createCalProxy();
+  (window as Window & { Cal?: CalApi }).Cal = proxy;
+  return proxy;
 }
 
 interface CalEmbedProps {
@@ -67,38 +95,33 @@ function CalEmbed({ brandColor = "#37322F", className }: CalEmbedProps) {
     }
     initialized.current = true;
 
-    onEmbedReady(() => {
-      const cal = getCal();
-      if (!cal) {
-        return;
-      }
+    const cal = ensureCal();
 
-      if (!initializedNamespaces.has(CAL_NAMESPACE)) {
-        cal("init", CAL_NAMESPACE, { origin: CAL_ORIGIN });
-        initializedNamespaces.add(CAL_NAMESPACE);
-      }
+    if (!initializedNamespaces.has(CAL_NAMESPACE)) {
+      cal("init", CAL_NAMESPACE, { origin: CAL_ORIGIN });
+      initializedNamespaces.add(CAL_NAMESPACE);
+    }
 
-      const namespaced = cal.ns[CAL_NAMESPACE];
-      if (!namespaced) {
-        return;
-      }
+    const namespaced = cal.ns[CAL_NAMESPACE];
+    if (!namespaced) {
+      return;
+    }
 
-      namespaced("inline", {
-        elementOrSelector: `#${containerId}`,
-        config: {
-          layout: "month_view",
-          useSlotsViewOnSmallScreen: "true",
-          theme: "light",
-        },
-        calLink: CAL_LINK,
-      });
-
-      namespaced("ui", {
-        theme: "light",
-        cssVarsPerTheme: { light: { "cal-brand": brandColor } },
-        hideEventTypeDetails: false,
+    namespaced("inline", {
+      elementOrSelector: `#${containerId}`,
+      config: {
         layout: "month_view",
-      });
+        useSlotsViewOnSmallScreen: "true",
+        theme: "light",
+      },
+      calLink: CAL_LINK,
+    });
+
+    namespaced("ui", {
+      theme: "light",
+      cssVarsPerTheme: { light: { "cal-brand": brandColor } },
+      hideEventTypeDetails: false,
+      layout: "month_view",
     });
   }, [brandColor, containerId]);
 
