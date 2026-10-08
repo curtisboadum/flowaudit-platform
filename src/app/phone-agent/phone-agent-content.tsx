@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { SdrBeacon } from "@/components/sdr-beacon";
 import { useLocale } from "@/components/providers/locale-provider";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -48,6 +49,7 @@ function PhoneAgentContent() {
 
   return (
     <>
+      <SdrBeacon />
       {/* Hero */}
       <section className="flex flex-col items-center px-4 pt-8 pb-16 text-center sm:px-6 sm:pb-20 lg:px-0">
         <Badge
