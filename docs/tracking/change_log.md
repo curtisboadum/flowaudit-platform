@@ -251,6 +251,20 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 
 ---
 
+## 2026-10-08
+
+### SDR funnel tracking
+
+- **Created** `src/lib/sdr-tracking.ts` pure validation: ref parsing (`fa-sdr-*`), beacon events (open, video_25/50/75, cta_click, book_click), Cal.com trigger mapping, HMAC signature verification
+- **Created** `src/lib/sdr-event-store.ts` best-effort Supabase store (never throws; degrades to logged no-op)
+- **Created** `/api/track` beacon endpoint (per-IP rate limit 60/min, always answers well-formed beacons)
+- **Created** `/api/cal/webhook` Cal.com receiver (HMAC verified, 503 until `CAL_WEBHOOK_SECRET` is set)
+- **Created** `src/components/sdr-beacon.tsx` and mounted it on the phone-agent page (fires open, video depth, book click)
+- **Created** `tests/unit/sdr-tracking.test.ts` (8 tests, all pass)
+- **Note** Production deploy attempted and stalled at status UNKNOWN on the Vercel side (prebuilt included); local build and tests are green. See flowaudit-sdr `docs/TRACKING.md` for activation steps.
+
+---
+
 ## Change Log Template
 
 ```markdown
