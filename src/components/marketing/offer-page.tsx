@@ -11,7 +11,7 @@ import {
   Process,
   SectionHeading,
 } from "./primitives";
-import { EvidenceArt } from "./evidence-art";
+import { PhoneBuyerDetails } from "./phone-buyer-details";
 import { MediaPlayer } from "./media-player";
 import { WorkflowExplorer } from "./workflow-explorer";
 
@@ -22,7 +22,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
   const phone = service === "phone-agent";
   return (
     <>
-      <section className={`fa-container fa-hero ${phone ? "" : "fa-offer-hero"}`}>
+      <section className={`fa-container fa-hero ${phone ? "fa-phone-hero" : "fa-offer-hero"}`}>
         <div className="fa-hero-copy">
           <Eyebrow>
             <Link href="/services">{text(locale, c("Services", "Servicios"))}</Link>
@@ -37,7 +37,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
             </BookLink>
             {phone && (
               <a href="#demo" className="fa-text-link">
-                {text(locale, c("Hear the call", "Escuchar la llamada"))}
+                {text(locale, c("See the evidence", "Ver la evidencia"))}
                 <Arrow diagonal />
               </a>
             )}
@@ -45,7 +45,9 @@ export function OfferPage({ service }: { service: ServiceId }) {
           <p className="fa-small">{text(locale, offer.note)}</p>
         </div>
         {phone ? (
-          <EvidenceArt />
+          <div id="demo">
+            <MediaPlayer film="main" switchable compact />
+          </div>
         ) : (
           <div className="fa-offer-index">
             <span className="fa-eyebrow">FlowAudit / {text(locale, offer.label)}</span>
@@ -77,7 +79,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
       </section>
       {phone && (
         <>
-          <section className="fa-services-band" id="demo">
+          <section className="fa-services-band">
             <div className="fa-container fa-section">
               <SectionHeading
                 number="01"
@@ -87,11 +89,11 @@ export function OfferPage({ service }: { service: ServiceId }) {
                   "Escucha cómo funciona.\nDespués pregunta lo importante.",
                 )}
                 body={c(
-                  "Start with the routine demonstration, or watch the five-minute walkthrough to understand configuration, scope and the next step.",
-                  "Empieza con la demostración habitual o mira la explicación de cinco minutos sobre configuración, alcance y siguiente paso.",
+                  "A new-patient enquiry, available appointment times and a confirmed Google Calendar booking are visible in the recording. Privacy beeps and edited demonstration labels are disclosed. This is recorded product evidence, not a customer result.",
+                  "La grabación muestra una consulta de un paciente nuevo, horarios disponibles y una reserva confirmada en Google Calendar. Se indican los pitidos de privacidad y las etiquetas editadas. Es evidencia grabada del producto, no un resultado de cliente.",
                 )}
               />
-              <MediaPlayer switchable />
+
               <div className="fa-media-cta">
                 <p>
                   {text(
@@ -217,7 +219,8 @@ export function OfferPage({ service }: { service: ServiceId }) {
             ))}
         </section>
       )}
-      <Process compact />
+      {phone && <PhoneBuyerDetails />}
+      <Process compact number={phone ? "05" : "03"} />
       <FaqSection items={offer.faq} />
       <Closing service={service} />
     </>

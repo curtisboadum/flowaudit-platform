@@ -44,8 +44,8 @@ export const offers: Offer[] = [
       "Cuando un paciente llama, ofrece un siguiente paso claro.",
     ),
     intro: c(
-      "See a recorded appointment-booking conversation. Then explore how a phone-handling system could fit your practice, your team and your appointment rules.",
-      "Mira una conversación grabada de reserva de cita. Después explora cómo adaptar la atención telefónica a tu clínica, tu equipo y tus reglas de citas.",
+      "Support your front desk with an AI phone agent configured around agreed call workflows. See the recorded booking, then assess the fit for your practice.",
+      "Apoya a recepción con un agente telefónico IA configurado para procesos acordados. Mira la reserva grabada y evalúa si encaja con tu clínica.",
     ),
     note: c(
       "For dental practices, multi-location groups and DSOs. US first, with UK and Canada enquiries welcome.",

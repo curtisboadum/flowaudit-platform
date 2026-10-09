@@ -1859,3 +1859,127 @@ select {
     bottom: 16px;
   }
 }
+
+/* Campaign destination: portrait evidence at the first decision point. */
+.fa-phone-hero {
+  align-items: start;
+}
+.fa-phone-hero #demo {
+  min-width: 0;
+  scroll-margin-top: 110px;
+}
+.fa-media-compact .fa-media-layout {
+  display: block;
+  max-width: 420px;
+}
+.fa-media-compact .fa-player-frame {
+  max-width: 280px;
+  margin-inline: auto;
+}
+.fa-media-compact .fa-media-tabs {
+  margin-bottom: 20px;
+  gap: 4px;
+}
+.fa-media-compact .fa-media-tabs button {
+  padding: 8px;
+  gap: 6px;
+  flex: 1;
+  text-align: left;
+}
+.fa-media-compact .fa-media-context {
+  padding-top: 18px;
+  font-size: 13px;
+}
+.fa-media-compact .fa-media-context > p {
+  margin-bottom: 12px;
+}
+.fa-chapters button {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  text-align: left;
+  min-height: 44px;
+  width: 100%;
+}
+.fa-chapters button span {
+  font-variant-numeric: tabular-nums;
+  color: var(--fa-muted);
+  min-width: 36px;
+}
+.fa-buyer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+.fa-buyer-grid article {
+  border-top: 1px solid #c9bdb1;
+  padding-top: 24px;
+}
+.fa-buyer-grid h3 {
+  font-size: 21px;
+  margin-bottom: 14px;
+}
+.fa-buyer-grid p {
+  color: var(--fa-muted);
+}
+.fa-book-context {
+  margin-bottom: 28px;
+  border-block: 1px solid #c9bdb1;
+  padding-block: 16px;
+}
+.fa-book-context summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.fa-book-context form {
+  padding-top: 16px;
+}
+.fa-book-context .fa-field {
+  margin-bottom: 16px;
+}
+.fa-context-status {
+  margin-block: 12px;
+}
+@media (max-width: 767px) {
+  .fa-buyer-grid {
+    grid-template-columns: 1fr;
+  }
+  .fa-media-compact .fa-media-tabs button {
+    font-size: 11px;
+  }
+  .fa-media-compact .fa-player-frame {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 767px) {
+  .fa-phone-hero {
+    gap: 24px;
+    padding-top: 32px;
+  }
+  .fa-phone-hero h1 {
+    font-size: 44px;
+    margin-bottom: 20px;
+  }
+  .fa-phone-hero .fa-hero-actions {
+    margin-top: 24px;
+    gap: 8px;
+  }
+  .fa-phone-hero .fa-hero-copy > .fa-small {
+    margin-top: 18px;
+  }
+  .fa-media-compact .fa-media-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .fa-media-compact .fa-media-tabs button {
+    display: block;
+    font-size: 10px;
+  }
+  .fa-media-compact .fa-media-tabs button span {
+    display: block;
+    margin-top: 4px;
+  }
+}

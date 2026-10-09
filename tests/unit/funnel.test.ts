@@ -1,6 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { parseFunnel } from "@/lib/funnel-validation";
-import { coveredSeconds, recordEvent, CONSENT_KEY } from "@/lib/funnel-client";
+import {
+  coveredSeconds,
+  recordEvent,
+  recordEventOnce,
+  watchedCoverage,
+  resetWatchBaseline,
+  CONSENT_KEY,
+} from "@/lib/funnel-client";
 import { mapCalWebhook, verifyCalSignature } from "@/lib/sdr-tracking";
 const valid = {
   id: "bc901051-345d-4e40-a330-42f721d3cc3a",
@@ -84,4 +91,71 @@ it("maps documented flat meeting payloads by event type ID", () => {
   });
   expect(e?.eventTypeId).toBe(7);
   expect(e?.normalized).toBe("call_held");
+});
+
+it("accepts qualification starts without keeping form answers", () => {
+  expect(
+    parseFunnel({ ...valid, event: "qualification_start", practice: "private" }),
+  ).not.toHaveProperty("practice");
+  expect(parseFunnel({ ...valid, event: "qualification_start" })?.event).toBe(
+    "qualification_start",
+  );
+});
+
+it("deduplicates video starts across resume, but starts a new journey after withdrawal", () => {
+  localStorage.setItem(CONSENT_KEY, "accepted");
+  const fetch = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("{}"));
+  recordEventOnce("video_start", { mediaId: "main", service: "phone-agent" });
+  recordEventOnce("video_start", { mediaId: "main", service: "phone-agent" });
+  expect(fetch).toHaveBeenCalledTimes(1);
+  localStorage.setItem(CONSENT_KEY, "declined");
+  recordEventOnce("video_start", { mediaId: "routine", service: "phone-agent" });
+  expect(fetch).toHaveBeenCalledTimes(1);
+  sessionStorage.removeItem("fa-journey");
+  localStorage.setItem(CONSENT_KEY, "accepted");
+  recordEventOnce("video_start", { mediaId: "main", service: "phone-agent" });
+  expect(fetch).toHaveBeenCalledTimes(2);
+});
+it("counts actual watched intervals, excludes large and small seeks, and deduplicates milestones", () => {
+  localStorage.setItem(CONSENT_KEY, "accepted");
+  const fetch = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("{}"));
+  let wall = 0;
+  vi.spyOn(performance, "now").mockImplementation(() => wall);
+  const video = {
+    currentTime: 0,
+    duration: 100,
+    paused: false,
+    seeking: false,
+    playbackRate: 1,
+  } as HTMLVideoElement;
+  watchedCoverage(video, "main", "phone-agent");
+  wall = 250;
+  video.currentTime = 90;
+  watchedCoverage(video, "main", "phone-agent");
+  expect(fetch).not.toHaveBeenCalled();
+  // Many short seeks cannot be mistaken for continuous watching.
+  for (let i = 0; i < 30; i++) {
+    wall += 250;
+    video.currentTime = i;
+    resetWatchBaseline(video);
+    watchedCoverage(video, "main", "phone-agent");
+  }
+  expect(fetch).not.toHaveBeenCalled();
+  video.currentTime = 0;
+  resetWatchBaseline(video);
+  for (let i = 1; i <= 25; i++) {
+    wall += 1000;
+    video.currentTime = i;
+    watchedCoverage(video, "main", "phone-agent");
+  }
+  expect(fetch).toHaveBeenCalledOnce();
+  expect(JSON.parse(String(fetch.mock.calls[0]?.[1]?.body)).event).toBe("video_25");
+  video.currentTime = 0;
+  resetWatchBaseline(video);
+  for (let i = 1; i <= 25; i++) {
+    wall += 1000;
+    video.currentTime = i;
+    watchedCoverage(video, "main", "phone-agent");
+  }
+  expect(fetch).toHaveBeenCalledOnce();
 });

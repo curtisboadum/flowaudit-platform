@@ -55,7 +55,13 @@ export function SiteHeader() {
           >
             {locale === "en" ? "ES" : "EN"}
           </button>
-          <Link href="/book?service=general" className="fa-nav-book" data-cta="general">
+          <Link
+            href={
+              pathname === "/phone-agent" ? "/book?service=phone-agent" : "/book?service=general"
+            }
+            className="fa-nav-book"
+            data-cta={pathname === "/phone-agent" ? "phone-agent" : "general"}
+          >
             {text(locale, c("Let’s talk", "Hablemos"))}
             <Arrow diagonal />
           </Link>

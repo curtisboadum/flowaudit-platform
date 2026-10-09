@@ -64,6 +64,48 @@
   },
   "suites": [
     {
+      "title": "live-calendar.spec.ts",
+      "file": "live-calendar.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Live Cal event and calendar screenshots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4023,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:31.651Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b4d0fc7df609f98aea09-025846c2624c99131338",
+          "file": "live-calendar.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
       "title": "marketing.spec.ts",
       "file": "marketing.spec.ts",
       "column": 0,
@@ -82,15 +124,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 567,
+                  "duration": 400,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:25.997Z",
+                  "startTime": "2026-10-09T11:48:31.652Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -116,15 +158,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 475,
+                  "duration": 431,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:25.999Z",
+                  "startTime": "2026-10-09T11:48:31.654Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -150,15 +192,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 511,
+                  "duration": 236,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:25.996Z",
+                  "startTime": "2026-10-09T11:48:32.620Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -184,15 +226,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 313,
+                  "duration": 214,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.062Z",
+                  "startTime": "2026-10-09T11:48:32.648Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -218,15 +260,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 367,
+                  "duration": 205,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.103Z",
+                  "startTime": "2026-10-09T11:48:32.862Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -252,15 +294,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 398,
+                  "duration": 198,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.139Z",
+                  "startTime": "2026-10-09T11:48:32.867Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -286,15 +328,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 284,
+                  "duration": 201,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.391Z",
+                  "startTime": "2026-10-09T11:48:33.077Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -320,15 +362,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 267,
+                  "duration": 194,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.480Z",
+                  "startTime": "2026-10-09T11:48:33.077Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -354,15 +396,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 234,
+                  "duration": 194,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.550Z",
+                  "startTime": "2026-10-09T11:48:33.277Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -388,15 +430,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 222,
+                  "duration": 204,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.688Z",
+                  "startTime": "2026-10-09T11:48:33.283Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -422,15 +464,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 228,
+                  "duration": 200,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.758Z",
+                  "startTime": "2026-10-09T11:48:33.476Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -456,15 +498,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 233,
+                  "duration": 205,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.795Z",
+                  "startTime": "2026-10-09T11:48:33.493Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -493,12 +535,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 245,
+                  "duration": 199,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.923Z",
+                  "startTime": "2026-10-09T11:48:33.684Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -527,12 +569,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 409,
+                  "duration": 359,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:27.997Z",
+                  "startTime": "2026-10-09T11:48:33.704Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -546,7 +588,7 @@
           "column": 5
         },
         {
-          "title": "Booking bypass and edited qualification retain service and context",
+          "title": "Calendar is immediate; optional context retains drafts and attribution",
           "ok": true,
           "tags": [],
           "tests": [
@@ -558,15 +600,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 420,
+                  "duration": 1667,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:28.037Z",
+                  "startTime": "2026-10-09T11:48:33.892Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -574,7 +616,7 @@
               "status": "expected"
             }
           ],
-          "id": "4c3e36aab13a1592a9d5-53b3b44b8c2ae7e0560e",
+          "id": "4c3e36aab13a1592a9d5-3a4b4241d292d81b4728",
           "file": "marketing.spec.ts",
           "line": 41,
           "column": 5
@@ -592,15 +634,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 780,
+                  "duration": 262,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:28.178Z",
+                  "startTime": "2026-10-09T11:48:34.070Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -610,7 +652,7 @@
           ],
           "id": "4c3e36aab13a1592a9d5-49470cc2528e42349ab5",
           "file": "marketing.spec.ts",
-          "line": 59,
+          "line": 61,
           "column": 5
         },
         {
@@ -629,12 +671,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 343,
+                  "duration": 339,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:28.416Z",
+                  "startTime": "2026-10-09T11:48:34.339Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -644,7 +686,7 @@
           ],
           "id": "4c3e36aab13a1592a9d5-8210ee532c2dfca30ece",
           "file": "marketing.spec.ts",
-          "line": 73,
+          "line": 75,
           "column": 5
         },
         {
@@ -660,15 +702,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 248,
+                  "duration": 217,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-09T02:51:28.464Z",
+                  "startTime": "2026-10-09T11:48:34.683Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -678,7 +720,449 @@
           ],
           "id": "4c3e36aab13a1592a9d5-8c6d23d210ab4b0156dd",
           "file": "marketing.spec.ts",
-          "line": 93,
+          "line": 95,
+          "column": 5
+        },
+        {
+          "title": "Phone funnel responsive and accessible: /phone-agent at 360",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 866,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:34.906Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-d2be5728c06a7fde2320",
+          "file": "marketing.spec.ts",
+          "line": 109,
+          "column": 9
+        },
+        {
+          "title": "Phone funnel responsive and accessible: /book?service=phone-agent at 360",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 622,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:35.568Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-a16fc8a311f8a076f767",
+          "file": "marketing.spec.ts",
+          "line": 109,
+          "column": 9
+        },
+        {
+          "title": "Phone funnel responsive and accessible: /phone-agent at 390",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 807,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:35.777Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-ed22b075e5e0947e1f96",
+          "file": "marketing.spec.ts",
+          "line": 109,
+          "column": 9
+        },
+        {
+          "title": "Phone funnel responsive and accessible: /book?service=phone-agent at 390",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 615,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:36.198Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-272bf76819b80db3694f",
+          "file": "marketing.spec.ts",
+          "line": 109,
+          "column": 9
+        },
+        {
+          "title": "Phone funnel responsive and accessible: /phone-agent at 768",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 881,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:36.247Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-e60fa89b84edebca5d3d",
+          "file": "marketing.spec.ts",
+          "line": 109,
+          "column": 9
+        },
+        {
+          "title": "Phone funnel responsive and accessible: /book?service=phone-agent at 768",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 602,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:36.591Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-720004be5806e2ce47a5",
+          "file": "marketing.spec.ts",
+          "line": 109,
+          "column": 9
+        },
+        {
+          "title": "Phone funnel responsive and accessible: /phone-agent at 1024",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 833,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:36.819Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-c0efa9354ca4ce767596",
+          "file": "marketing.spec.ts",
+          "line": 109,
+          "column": 9
+        },
+        {
+          "title": "Phone funnel responsive and accessible: /book?service=phone-agent at 1024",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 634,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:37.134Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-5b65e519114efeab9079",
+          "file": "marketing.spec.ts",
+          "line": 109,
+          "column": 9
+        },
+        {
+          "title": "Phone funnel responsive and accessible: /phone-agent at 1440",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 892,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:37.205Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-e1eac84ab095e54dc53d",
+          "file": "marketing.spec.ts",
+          "line": 109,
+          "column": 9
+        },
+        {
+          "title": "Phone funnel responsive and accessible: /book?service=phone-agent at 1440",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 622,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:37.660Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-1a16d74aa99037d4d36e",
+          "file": "marketing.spec.ts",
+          "line": 109,
+          "column": 9
+        },
+        {
+          "title": "The approved VSL decodes and plays; chapters do not assert watched milestones",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2475,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:37.780Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-37b3b488b7165323f9ac",
+          "file": "marketing.spec.ts",
+          "line": 133,
+          "column": 5
+        },
+        {
+          "title": "Provider readiness and booking status are distinct; no client booking conversion is emitted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 285,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:38.106Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-60c4852b3e6e45f5c14e",
+          "file": "marketing.spec.ts",
+          "line": 170,
+          "column": 5
+        },
+        {
+          "title": "Unavailable video and calendar expose recovery options",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 11220,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T11:48:38.290Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c3e36aab13a1592a9d5-ccb69dd80b3a0bf81ee0",
+          "file": "marketing.spec.ts",
+          "line": 229,
           "column": 5
         }
       ]
@@ -686,9 +1170,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-09T02:51:25.517Z",
-    "duration": 3600.908,
-    "expected": 18,
+    "startTime": "2026-10-09T11:48:31.133Z",
+    "duration": 18568.017,
+    "expected": 32,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

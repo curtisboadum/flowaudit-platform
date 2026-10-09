@@ -2,7 +2,7 @@
 
 The public Cal event is `curtis-salesos/flowaudit-call`, 15 minutes. Inline embed and direct-link fallback preserve service, optional context and allowed referral labels. The film is optional. No real prospect booking was made during QA.
 
-`CAL_WEBHOOK_SECRET` is empty in the existing production environment. `/api/cal/webhook` intentionally fails closed with 503 until a matching secret is configured at Cal and Vercel. Cal settings currently require account sign-in; this was requested during implementation. Do not label booking tracking complete until a signed delivery is observed and durably stored. The public calendar works independently.
+`CAL_WEBHOOK_SECRET` is empty and `CAL_EVENT_TYPE_IDS` is absent in the freshly pulled production environment. The redesign receiver intentionally returns 503 without a configured secret; the older deployed production endpoint currently returns 401 to an unsigned probe. Production has not been released from this branch. Cal settings currently require account sign-in. Do not label booking tracking complete until a signed delivery is observed and durably stored. The public calendar works independently.
 
 The existing revenue-recovery upstream `https://revenue-recovery-web-ivory.vercel.app` returns HTTP 402 and `DEPLOYMENT_DISABLED`. The current Vercel account cannot inspect that deployment. Existing client proxy paths remain unchanged. Marketing links now go through a client-access page which checks availability and offers support when unavailable. Restoring the upstream requires its owning account; no financial or billing changes were attempted.
 
@@ -10,8 +10,10 @@ The CRM remains authenticated through existing Next API routes. Its database acc
 
 Analytics is optional and disabled before consent. It records page/service/media/campaign context and a random session identifier, not form answers, patient data or messages. Event validation rejects CRM paths and foreign origins. Booking lifecycle data is necessary operational data and independent of optional website analytics. No-show updates are labelled `no_show_updated` until an explicit attendance value is verified. Meeting-end events retain the legacy `call_held` label; that provider event does not establish attendance, conversion, revenue or sales outcome.
 
-Completed films were integrated from the separate production task. Its QA summary passes automated media checks but human listening/viewing approval is pending. Keep final public release gated on that review.
+Completed films were integrated from the separate production task. Its earlier QA summary recorded human review as pending. The user subsequently confirmed that the VSL is ready in the redesign handoff and this funnel request, superseding that historical approval gate. The film is preserved; this task does not claim a fresh human end-to-end listening review. Production website release remains subject to final release approval.
 
-Optional chat live response test: Gemini returned 403 with a leaked-key rejection; DeepSeek returned 402 insufficient balance. Chat is disabled by default via CHAT_ENABLED, and its integration remains available after provider restoration. Do not expose the assistant based only on key presence. Durable rate limits now protect chat and CRM sign-in.
+Optional chat live response test: Gemini returned 403 with a leaked-key rejection; DeepSeek returned 402 insufficient balance. The redesign disables chat by default via CHAT_ENABLED (currently absent). The older live production endpoint returned 400 to an empty request, so the branch default must not be confused with a verified live disabled state. Its integration remains available after provider restoration. Do not expose the assistant based only on key presence. Durable rate limits now protect chat and CRM sign-in.
 
 Preview analytics storage was verified on the Git-connected branch deployment with duplicate tagged QA delivery and a single database row. Manual worktree CLI deployment did not inherit branch-scoped variables, so use the Git-connected preview alias for review.
+
+Current phone-funnel implementation, verification and release requirements: [handoff](phone-agent/HANDOFF.md). Sanitized current provider probes: [integration evidence](evidence/phone-funnel-integrations.json).

@@ -9,6 +9,7 @@ export type FunnelEvent =
   | "video_75"
   | "video_complete"
   | "media_select"
+  | "qualification_start"
   | "qualification_complete"
   | "calendar_ready";
 export const CONSENT_KEY = "fa-analytics-consent";
@@ -70,7 +71,11 @@ export function recordEvent(event: FunnelEvent, context: EventContext = {}): voi
       id: crypto.randomUUID(),
       event,
       journeyId,
-      service: context.service ?? serviceId(new URLSearchParams(location.search).get("service")),
+      service:
+        context.service ??
+        (location.pathname === "/phone-agent"
+          ? "phone-agent"
+          : serviceId(new URLSearchParams(location.search).get("service"))),
       mediaId: context.mediaId,
       path: location.pathname,
       attribution: attribution(),
@@ -90,6 +95,23 @@ export function recordEvent(event: FunnelEvent, context: EventContext = {}): voi
       });
   } catch {
     console.warn("[funnel] Event creation unavailable");
+  }
+}
+/** Consent-scoped deduplication survives player switches and pause/resume. */
+export function recordEventOnce(event: FunnelEvent, context: EventContext = {}): void {
+  if (!analyticsAllowed()) return;
+  try {
+    let journey = sessionStorage.getItem("fa-journey");
+    if (!journey) {
+      journey = crypto.randomUUID();
+      sessionStorage.setItem("fa-journey", journey);
+    }
+    const key = `fa-once:${journey}:${event}:${context.service ?? "general"}:${context.mediaId ?? ""}`;
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, "1");
+    recordEvent(event, context);
+  } catch {
+    // Optional measurement must never interrupt playback or booking.
   }
 }
 export function coveredSeconds(intervals: readonly (readonly [number, number])[]): number {
@@ -114,6 +136,14 @@ interface CoverageState {
   fired: Set<string>;
 }
 const coverage = new WeakMap<HTMLVideoElement, CoverageState>();
+/** Reset at playback boundaries, including small seeks between timeupdate events. */
+export function resetWatchBaseline(video: HTMLVideoElement): void {
+  const state = coverage.get(video);
+  if (state) {
+    state.last = video.currentTime;
+    state.wall = performance.now();
+  }
+}
 export function watchedCoverage(
   video: HTMLVideoElement,
   mediaId: string,
@@ -125,6 +155,12 @@ export function watchedCoverage(
   if (!state) {
     state = { last: current, wall: now, intervals: [], fired: new Set() };
     coverage.set(video, state);
+    return;
+  }
+  if (!analyticsAllowed()) {
+    state.intervals = [];
+    state.last = current;
+    state.wall = now;
     return;
   }
   const delta = current - state.last;
@@ -150,7 +186,7 @@ export function watchedCoverage(
   ] as const) {
     if (percent >= threshold && !state.fired.has(event) && analyticsAllowed()) {
       state.fired.add(event);
-      recordEvent(event, { mediaId, service });
+      recordEventOnce(event, { mediaId, service });
     }
   }
 }

@@ -1,9 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
 import { c, text } from "@/lib/marketing-copy";
 import { mediaTranscripts } from "@/lib/media-transcripts";
-import { recordEvent, watchedCoverage } from "@/lib/funnel-client";
+import {
+  recordEvent,
+  recordEventOnce,
+  resetWatchBaseline,
+  watchedCoverage,
+} from "@/lib/funnel-client";
 
 const films = {
   routine: { label: c("Booking demonstration", "Demostración de reserva"), duration: "1:31" },
@@ -15,23 +20,37 @@ export type Film = keyof typeof films;
 export function MediaPlayer({
   film = "routine",
   switchable = false,
+  compact = false,
 }: {
   film?: Film;
   switchable?: boolean;
+  compact?: boolean;
 }) {
   const { locale } = useLocale();
   const [active, setActive] = useState<Film>(film);
   const [error, setError] = useState(false);
+  const [buffering, setBuffering] = useState(false);
+  const [slow, setSlow] = useState(false);
+  useEffect(() => {
+    if (!buffering) {
+      setSlow(false);
+      return;
+    }
+    const timer = window.setTimeout(() => setSlow(true), 8000);
+    return () => window.clearTimeout(timer);
+  }, [buffering]);
   const current = films[active];
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const keys = (compact ? ["main", "routine", "summary"] : Object.keys(films)) as Film[];
   return (
-    <div className="fa-media-shell">
+    <div className={`fa-media-shell ${compact ? "fa-media-compact" : ""}`}>
       {switchable && (
         <div
           className="fa-media-tabs"
           role="tablist"
           aria-label={text(locale, c("Choose a film", "Elegir un vídeo"))}
         >
-          {(Object.keys(films) as Film[]).map((key, i) => (
+          {keys.map((key, i) => (
             <button
               id={`tab-${key}`}
               role="tab"
@@ -42,10 +61,10 @@ export function MediaPlayer({
               onClick={() => {
                 setActive(key);
                 setError(false);
+                setBuffering(false);
                 recordEvent("media_select", { mediaId: key, service: "phone-agent" });
               }}
               onKeyDown={(e) => {
-                const keys = Object.keys(films) as Film[];
                 if (["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)) {
                   e.preventDefault();
                   const next =
@@ -58,6 +77,7 @@ export function MediaPlayer({
                   if (key) {
                     setActive(key);
                     setError(false);
+                    setBuffering(false);
                     document.getElementById(`tab-${key}`)?.focus();
                   }
                 }
@@ -77,6 +97,9 @@ export function MediaPlayer({
       >
         <div className="fa-player-frame">
           <video
+            ref={videoRef}
+            width={1080}
+            height={1920}
             key={active}
             controls
             playsInline
@@ -84,11 +107,30 @@ export function MediaPlayer({
             poster={`/media/${active}.jpg`}
             aria-label={`${text(locale, current.label)} · ${current.duration}`}
             data-media-id={active}
-            onError={() => setError(true)}
-            onPlay={() => recordEvent("video_start", { mediaId: active, service: "phone-agent" })}
+            onError={() => {
+              setError(true);
+              setBuffering(false);
+            }}
+            onWaiting={() => setBuffering(true)}
+            onStalled={() => setBuffering(true)}
+            onPlaying={() => setBuffering(false)}
+            onPlay={(e) => {
+              resetWatchBaseline(e.currentTarget);
+              recordEventOnce("video_start", { mediaId: active, service: "phone-agent" });
+            }}
+            onPause={(e) => resetWatchBaseline(e.currentTarget)}
+            onSeeking={(e) => resetWatchBaseline(e.currentTarget)}
+            onSeeked={(e) => resetWatchBaseline(e.currentTarget)}
             onTimeUpdate={(event) => watchedCoverage(event.currentTarget, active, "phone-agent")}
           >
-            <source src={`/media/${active}.mp4`} type="video/mp4" />
+            <source
+              src={`/media/${active}.mp4`}
+              type="video/mp4"
+              onError={() => {
+                setError(true);
+                setBuffering(false);
+              }}
+            />
             {text(
               locale,
               c(
@@ -103,14 +145,19 @@ export function MediaPlayer({
             {text(locale, c("Recorded evidence", "Evidencia grabada"))}{" "}
             <span>{current.duration}</span>
           </p>
-          <h3>
-            {text(
-              locale,
-              active === "routine"
-                ? c("From an enquiry\nto a booking.", "De una consulta\na una reserva.")
-                : c("Understand the offer.\nThen decide.", "Entiende la oferta.\nDespués decide."),
-            )}
-          </h3>
+          {!compact && (
+            <h3>
+              {text(
+                locale,
+                active === "routine"
+                  ? c("From an enquiry\nto a booking.", "De una consulta\na una reserva.")
+                  : c(
+                      "Understand the offer.\nThen decide.",
+                      "Entiende la oferta.\nDespués decide.",
+                    ),
+              )}
+            </h3>
+          )}
           <p>
             {text(
               locale,
@@ -120,15 +167,17 @@ export function MediaPlayer({
               ),
             )}
           </p>
-          <p className="fa-small">
-            {text(
-              locale,
-              c(
-                "Privacy beeps and edited labels are disclosed. The urgent excerpt in the full film does not establish clinical validation or a completed emergency handoff.",
-                "Se incluyen pitidos de privacidad y etiquetas editadas. El extracto urgente del vídeo completo no acredita validación clínica ni un traspaso de emergencia completado.",
-              ),
-            )}
-          </p>
+          {!compact && (
+            <p className="fa-small">
+              {text(
+                locale,
+                c(
+                  "Privacy beeps and edited labels are disclosed. The urgent excerpt in the full film does not establish clinical validation or a completed emergency handoff.",
+                  "Se incluyen pitidos de privacidad y etiquetas editadas. El extracto urgente del vídeo completo no acredita validación clínica ni un traspaso de emergencia completado.",
+                ),
+              )}
+            </p>
+          )}
           <div className="fa-media-links">
             <a href={`/media/${active}.mp4`}>{text(locale, c("Open video", "Abrir vídeo"))}</a>
             <a href={`/media/${active}.vtt`} download>
@@ -144,6 +193,17 @@ export function MediaPlayer({
               ),
             )}
           </p>
+          {slow && !error && (
+            <p role="status">
+              {text(
+                locale,
+                c(
+                  "Video loading slowly. You can read the transcript or book while it loads.",
+                  "El vídeo tarda en cargar. Puedes leer la transcripción o reservar mientras carga.",
+                ),
+              )}
+            </p>
+          )}
           {error && (
             <p role="alert">
               {text(
@@ -154,6 +214,42 @@ export function MediaPlayer({
                 ),
               )}
             </p>
+          )}
+          {active === "main" && (
+            <details className="fa-transcript fa-chapters">
+              <summary>{text(locale, c("Jump to a chapter", "Ir a un capítulo"))}</summary>
+              <ol>
+                {[
+                  [0, c("The offer", "La oferta")],
+                  [51.533333, c("Illustrative value", "Valor ilustrativo")],
+                  [92, c("Recorded booking", "Reserva grabada")],
+                  [182.833333, c("Compatibility limits", "Límites de compatibilidad")],
+                  [200.333333, c("Urgent-call boundaries", "Límites ante urgencias")],
+                  [244.5, c("Payment, testing and approval", "Pago, pruebas y aprobación")],
+                  [267.133333, c("Your 15-minute call", "Tu llamada de 15 minutos")],
+                ].map(([seconds, label]) => (
+                  <li key={String(seconds)}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const video = videoRef.current;
+                        if (video) {
+                          video.currentTime = Number(seconds);
+                          resetWatchBaseline(video);
+                          video.focus();
+                        }
+                      }}
+                    >
+                      <span>
+                        {Math.floor(Number(seconds) / 60)}:
+                        {String(Math.floor(Number(seconds) % 60)).padStart(2, "0")}
+                      </span>
+                      {text(locale, label as ReturnType<typeof c>)}
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            </details>
           )}
           <details className="fa-transcript">
             <summary>

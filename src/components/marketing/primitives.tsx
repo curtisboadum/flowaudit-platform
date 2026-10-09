@@ -66,7 +66,15 @@ export function SectionHeading({
     </div>
   );
 }
-export function FaqSection({ items, id = "faq" }: { items: Faq[]; id?: string }) {
+export function FaqSection({
+  items,
+  id = "faq",
+  title,
+}: {
+  items: Faq[];
+  id?: string;
+  title?: Copy;
+}) {
   const { locale } = useLocale();
   return (
     <section className="fa-container fa-section fa-faq" id={id}>
@@ -75,7 +83,7 @@ export function FaqSection({ items, id = "faq" }: { items: Faq[]; id?: string })
         <h2>
           {text(
             locale,
-            c("Good questions.\nClear answers.", "Buenas preguntas.\nRespuestas claras."),
+            title ?? c("Good questions.\nClear answers.", "Buenas preguntas.\nRespuestas claras."),
           )}
         </h2>
         <p>
@@ -102,7 +110,13 @@ export function FaqSection({ items, id = "faq" }: { items: Faq[]; id?: string })
     </section>
   );
 }
-export function Process({ compact = false }: { compact?: boolean }) {
+export function Process({
+  compact = false,
+  number = "03",
+}: {
+  compact?: boolean;
+  number?: string;
+}) {
   const { locale } = useLocale();
   const steps = [
     [
@@ -140,7 +154,7 @@ export function Process({ compact = false }: { compact?: boolean }) {
       id="how-it-works"
     >
       <SectionHeading
-        number="03"
+        number={number}
         label={c("The working relationship", "La forma de trabajar")}
         title={c(
           "See it work. Approve it.\nThen activate it.",
@@ -177,7 +191,15 @@ export function Closing({ service = "general" }: { service?: ServiceId }) {
           <h2>
             {text(
               locale,
-              c("Show us where\nthe work gets stuck.", "Muéstranos dónde\nse atasca el trabajo."),
+              service === "phone-agent"
+                ? c(
+                    "Your questions.\nA clear buying decision.",
+                    "Tus preguntas.\nUna decisión clara.",
+                  )
+                : c(
+                    "Show us where\nthe work gets stuck.",
+                    "Muéstranos dónde\nse atasca el trabajo.",
+                  ),
             )}
           </h2>
           <aside>
@@ -185,8 +207,12 @@ export function Closing({ service = "general" }: { service?: ServiceId }) {
               {text(
                 locale,
                 c(
-                  "15 minutes to explore the problem, see a relevant example and agree whether there is a useful next step.",
-                  "15 minutos para explorar el problema, ver un ejemplo relevante y acordar si hay un siguiente paso útil.",
+                  service === "phone-agent"
+                    ? "15 minutes to discuss your requirements, remaining questions, scope and investment. Invite the person who approves the purchase."
+                    : "15 minutes to explore the problem, see a relevant example and agree whether there is a useful next step.",
+                  service === "phone-agent"
+                    ? "15 minutos para comentar requisitos, dudas, alcance e inversión. Invita a quien aprueba la compra."
+                    : "15 minutos para explorar el problema, ver un ejemplo relevante y acordar si hay un siguiente paso útil.",
                 ),
               )}
             </p>

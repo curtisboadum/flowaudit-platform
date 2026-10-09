@@ -11,3 +11,9 @@
 Run `npm ci`, `npm run build`, `npm run lint`, `npm run typecheck`, `npm run test`, then `npm run test:e2e`. Browser tests start the production server automatically when needed. Extended visual/axe checks: `node scripts/qa.mjs` against a running production server on 3016. Lighthouse: `node scripts/lighthouse.mjs`. Both can be repeated when changes justify it; generated evidence should be reviewed and committed deliberately.
 
 Use `.env.example` as a names-only guide. Server CRM/event credentials remain private. Optional chat is disabled by default: restore a valid provider/model, verify a response and then set CHAT_ENABLED=true. The applied migration is versioned under `supabase/migrations`; do not reapply ad hoc destructive schema changes. No public testimonials or performance proof were created. Human film review and provider signing remain release gates.
+
+## Dental phone-agent campaign follow-through
+
+- [Evidence, lead aggregates and funnel decisions](phone-agent/EVIDENCE-AND-STRATEGY.md)
+- [Buyer-question and objection matrix](phone-agent/BUYER-QUESTION-MATRIX.md)
+- [Implementation QA and release handoff](phone-agent/HANDOFF.md)

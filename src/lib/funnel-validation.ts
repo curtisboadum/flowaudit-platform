@@ -9,6 +9,7 @@ const events = new Set([
   "video_75",
   "video_complete",
   "media_select",
+  "qualification_start",
   "qualification_complete",
   "calendar_ready",
 ]);

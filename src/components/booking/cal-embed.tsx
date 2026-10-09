@@ -10,7 +10,8 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
-import { recordEvent } from "@/lib/funnel-client";
+import { recordEventOnce } from "@/lib/funnel-client";
+import type { ServiceId } from "@/lib/marketing-copy";
 import { BOOKING_URL, CAL_LINK, CAL_NAMESPACE, CAL_ORIGIN } from "@/lib/booking";
 
 type CalInstruction = (...args: unknown[]) => void;
@@ -85,14 +86,21 @@ interface CalEmbedProps {
   brandColor?: string;
   className?: string;
   config?: Record<string, string>;
+  service?: ServiceId;
 }
 
-function CalEmbed({ brandColor = "#37322F", className, config = {} }: CalEmbedProps) {
+function CalEmbed({
+  brandColor = "#37322F",
+  className,
+  config = {},
+  service = "general",
+}: CalEmbedProps) {
   const reactId = useId();
   const containerId = `cal-inline-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const { locale } = useLocale();
   const [ready, setReady] = useState(false);
   const [delayed, setDelayed] = useState(false);
+  const [bookingStatus, setBookingStatus] = useState<"confirmed" | "requested" | null>(null);
   const prefill = useRef(config);
   const bookingUrl = new URL(BOOKING_URL);
   for (const [key, value] of Object.entries(prefill.current))
@@ -128,32 +136,83 @@ function CalEmbed({ brandColor = "#37322F", className, config = {} }: CalEmbedPr
       hideEventTypeDetails: false,
       layout: "month_view",
     });
+    let active = true;
+    // Public Cal embed events, not internal iframe lifecycle messages.
+    namespaced("on", {
+      action: "linkReady",
+      callback: () => {
+        if (active) setReady(true);
+      },
+    });
+    namespaced("on", {
+      action: "bookerReady",
+      callback: () => {
+        if (active) {
+          setReady(true);
+          recordEventOnce("calendar_ready", { service });
+        }
+      },
+    });
+    namespaced("on", {
+      action: "linkFailed",
+      callback: () => {
+        if (active) {
+          setReady(false);
+          setDelayed(true);
+        }
+      },
+    });
+    namespaced("on", {
+      action: "bookingSuccessfulV2",
+      callback: (event: {
+        detail?: { data?: { uid?: string; status?: string; paymentRequired?: boolean } };
+      }) => {
+        const data = event.detail?.data;
+        if (active && typeof data?.uid === "string" && data.uid) {
+          setBookingStatus(
+            data.status === "ACCEPTED" && !data.paymentRequired ? "confirmed" : "requested",
+          );
+        }
+        // UI only. Signed server deliveries remain the source of booking measurement.
+      },
+    });
     const container = document.getElementById(containerId);
     const attach = () => {
       const frame = container?.querySelector("iframe");
       if (!frame) return;
       frame.title = "Book a 15-minute FlowAudit call";
-      frame.addEventListener(
-        "load",
-        () => {
-          setReady(true);
-          recordEvent("calendar_ready");
-        },
-        { once: true },
-      );
     };
     const observer = new MutationObserver(attach);
     if (container) observer.observe(container, { childList: true, subtree: true });
     attach();
     const timeout = window.setTimeout(() => setDelayed(true), 10000);
     return () => {
+      active = false;
       observer.disconnect();
       window.clearTimeout(timeout);
     };
-  }, [brandColor, containerId]);
+  }, [brandColor, containerId, service]);
 
   return (
     <div className={className}>
+      {bookingStatus && (
+        <div role="status" className="fa-calendar-ready">
+          <h3>
+            {locale === "es"
+              ? bookingStatus === "confirmed"
+                ? "Reserva confirmada por Cal"
+                : "Solicitud recibida por Cal"
+              : bookingStatus === "confirmed"
+                ? "Booking confirmed by Cal"
+                : "Booking request received by Cal"}
+          </h3>
+          <p>
+            {locale === "es"
+              ? "Revisa la confirmación de Cal para el estado, enlace, zona horaria y opciones de cambio."
+              : "Check Cal’s confirmation for the booking status, meeting link, timezone and rescheduling options."}
+          </p>
+        </div>
+      )}
       {!ready && (
         <p role="status" className="fa-calendar-ready">
           {delayed
@@ -166,7 +225,7 @@ function CalEmbed({ brandColor = "#37322F", className, config = {} }: CalEmbedPr
         </p>
       )}
       <div id={containerId} className="min-h-[600px] w-full" />
-      <p className="mt-3 font-sans text-xs text-[rgba(55,50,47,0.50)]">
+      <p className="mt-3 font-sans text-xs text-[#605A57]">
         {locale === "es" ? "¿No carga el calendario? " : "Calendar not loading? "}
         <a
           className="underline underline-offset-2 hover:text-[#37322F]"

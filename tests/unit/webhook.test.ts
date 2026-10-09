@@ -65,3 +65,9 @@ it("accepts a signed flat meeting only for a registered event ID", async () => {
   });
   expect((await POST(r)).status).toBe(200);
 });
+
+it("fails closed before parsing when the webhook secret is empty", async () => {
+  vi.stubEnv("CAL_WEBHOOK_SECRET", "");
+  expect((await POST(request())).status).toBe(503);
+  expect(insertSdrEvent).not.toHaveBeenCalled();
+});
