@@ -1,9 +1,11 @@
 {
   "baseline": {
     "O04_take_end": 46.72,
-    "next_take_start": 77,
-    "intertake_gap_seconds": 2.92,
+    "O05_take_start": 50,
+    "O04_to_O05_intertake_gap_seconds": 3.28,
     "O06_take_end": 74.08,
+    "O07_take_start": 77,
+    "O06_to_O07_intertake_gap_seconds": 2.92,
     "O07_detected_pause": [
       78.669125,
       78.918625
