@@ -64,7 +64,13 @@ export function SiteHeader() {
                   : "/book?service=general"
             }
             className="fa-nav-book"
-            data-cta={pathname === "/phone-agent" ? "phone-agent" : "general"}
+            data-cta={
+              pathname === "/book"
+                ? undefined
+                : pathname === "/phone-agent"
+                  ? "phone-agent"
+                  : "general"
+            }
           >
             {text(locale, c("Let’s talk", "Hablemos"))}
             <Arrow diagonal />

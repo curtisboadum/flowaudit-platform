@@ -61,6 +61,17 @@ test("Calendar is immediate; optional context retains drafts and attribution", a
   await page.getByText("Add context for the call (optional)", { exact: true }).click();
   await expect(page.getByLabel("Business or practice name (optional)")).toHaveValue("QA practice");
   await expect(page.locator("form [required]")).toHaveCount(0);
+  const events: { event: string; service: string }[] = [];
+  await page.route("**/api/events", (r) => {
+    events.push(JSON.parse(r.request().postData() ?? "{}"));
+    return r.fulfill({ status: 200, body: '{"stored":true}' });
+  });
+  await page.getByRole("button", { name: "Allow analytics" }).click();
+  await page.getByRole("link", { name: "Let’s talk", exact: true }).click();
+  await expect
+    .poll(() => events.some((e) => e.event === "book_click" && e.service === "phone-agent"))
+    .toBe(true);
+  await expect(page.locator("h1")).toContainText("your practice");
 });
 test("Video is user initiated and film tabs support keyboard", async ({ page }) => {
   await page.goto("/phone-agent");
