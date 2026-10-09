@@ -44,11 +44,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
           </div>
           <p className="fa-small">{text(locale, offer.note)}</p>
         </div>
-        {phone ? (
-          <div id="demo">
-            <MediaPlayer film="main" switchable compact />
-          </div>
-        ) : (
+        {!phone && (
           <div className="fa-offer-index">
             <span className="fa-eyebrow">FlowAudit / {text(locale, offer.label)}</span>
             <h2>
@@ -79,7 +75,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
       </section>
       {phone && (
         <>
-          <section className="fa-services-band">
+          <section className="fa-services-band" id="demo">
             <div className="fa-container fa-section">
               <SectionHeading
                 number="01"
@@ -94,6 +90,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
                 )}
               />
 
+              <MediaPlayer film="main" switchable compact />
               <div className="fa-media-cta">
                 <p>
                   {text(

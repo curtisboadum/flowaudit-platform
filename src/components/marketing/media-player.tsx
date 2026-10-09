@@ -10,6 +10,16 @@ import {
   watchedCoverage,
 } from "@/lib/funnel-client";
 
+const chapters = [
+  [0, c("The offer", "La oferta")],
+  [51.533333, c("Illustrative value", "Valor ilustrativo")],
+  [92, c("Recorded booking", "Reserva grabada")],
+  [182.833333, c("Compatibility limits", "Límites de compatibilidad")],
+  [200.333333, c("Urgent-call boundaries", "Límites ante urgencias")],
+  [244.5, c("Payment, testing and approval", "Pago, pruebas y aprobación")],
+  [267.133333, c("Your 15-minute call", "Tu llamada de 15 minutos")],
+] as const;
+
 const films = {
   routine: { label: c("Booking demonstration", "Demostración de reserva"), duration: "1:31" },
   main: { label: c("The full walkthrough", "La explicación completa"), duration: "5:00" },
@@ -28,6 +38,7 @@ export function MediaPlayer({
 }) {
   const { locale } = useLocale();
   const [active, setActive] = useState<Film>(film);
+  const [position, setPosition] = useState(0);
   const [error, setError] = useState(false);
   const [buffering, setBuffering] = useState(false);
   const [slow, setSlow] = useState(false);
@@ -60,6 +71,7 @@ export function MediaPlayer({
               key={key}
               onClick={() => {
                 setActive(key);
+                setPosition(0);
                 setError(false);
                 setBuffering(false);
                 recordEvent("media_select", { mediaId: key, service: "phone-agent" });
@@ -76,6 +88,7 @@ export function MediaPlayer({
                   const key = keys[next];
                   if (key) {
                     setActive(key);
+                    setPosition(0);
                     setError(false);
                     setBuffering(false);
                     document.getElementById(`tab-${key}`)?.focus();
@@ -121,7 +134,10 @@ export function MediaPlayer({
             onPause={(e) => resetWatchBaseline(e.currentTarget)}
             onSeeking={(e) => resetWatchBaseline(e.currentTarget)}
             onSeeked={(e) => resetWatchBaseline(e.currentTarget)}
-            onTimeUpdate={(event) => watchedCoverage(event.currentTarget, active, "phone-agent")}
+            onTimeUpdate={(event) => {
+              setPosition(event.currentTarget.currentTime);
+              watchedCoverage(event.currentTarget, active, "phone-agent");
+            }}
           >
             <source
               src={`/media/${active}.mp4`}
@@ -180,6 +196,9 @@ export function MediaPlayer({
           )}
           <div className="fa-media-links">
             <a href={`/media/${active}.mp4`}>{text(locale, c("Open video", "Abrir vídeo"))}</a>
+            <a href={`/media/${active}.mp4`} download>
+              {text(locale, c("Download video", "Descargar vídeo"))}
+            </a>
             <a href={`/media/${active}.vtt`} download>
               {text(locale, c("Download captions", "Descargar subtítulos"))}
             </a>
@@ -216,25 +235,36 @@ export function MediaPlayer({
             </p>
           )}
           {active === "main" && (
-            <details className="fa-transcript fa-chapters">
-              <summary>{text(locale, c("Jump to a chapter", "Ir a un capítulo"))}</summary>
+            <nav
+              className="fa-chapters"
+              aria-label={text(locale, c("Film chapters", "Capítulos del vídeo"))}
+            >
+              <h3>{text(locale, c("Jump to a chapter", "Ir a un capítulo"))}</h3>
+              <p className="fa-small">
+                {text(
+                  locale,
+                  c(
+                    "Choose the topic you care about. Watching is optional.",
+                    "Elige el tema que te interesa. Ver el vídeo es opcional.",
+                  ),
+                )}
+              </p>
               <ol>
-                {[
-                  [0, c("The offer", "La oferta")],
-                  [51.533333, c("Illustrative value", "Valor ilustrativo")],
-                  [92, c("Recorded booking", "Reserva grabada")],
-                  [182.833333, c("Compatibility limits", "Límites de compatibilidad")],
-                  [200.333333, c("Urgent-call boundaries", "Límites ante urgencias")],
-                  [244.5, c("Payment, testing and approval", "Pago, pruebas y aprobación")],
-                  [267.133333, c("Your 15-minute call", "Tu llamada de 15 minutos")],
-                ].map(([seconds, label]) => (
+                {chapters.map(([seconds, label], index) => (
                   <li key={String(seconds)}>
                     <button
                       type="button"
+                      aria-current={
+                        position >= seconds && position < (chapters[index + 1]?.[0] ?? Infinity)
+                          ? "true"
+                          : undefined
+                      }
                       onClick={() => {
                         const video = videoRef.current;
                         if (video) {
+                          resetWatchBaseline(video);
                           video.currentTime = Number(seconds);
+                          setPosition(Number(seconds));
                           resetWatchBaseline(video);
                           video.focus();
                         }
@@ -249,7 +279,7 @@ export function MediaPlayer({
                   </li>
                 ))}
               </ol>
-            </details>
+            </nav>
           )}
           <details className="fa-transcript">
             <summary>

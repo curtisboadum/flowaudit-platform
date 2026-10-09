@@ -165,7 +165,7 @@ export function BookingPage({ initialService = "general" }: { initialService?: S
               if (contextRef.current) contextRef.current.open = false;
             }}
           >
-            {!phone && (
+            {initialService !== "phone-agent" && (
               <label className="fa-field">
                 {text(locale, c("I’m interested in", "Me interesa"))}
                 <select
@@ -295,7 +295,7 @@ export function BookingPage({ initialService = "general" }: { initialService?: S
             )}
           </p>
         )}
-        {config ? (
+        {config && config["metadata[service]"] === service ? (
           <CalEmbed key={`${service}-${revision}`} config={config} service={service} />
         ) : (
           <p role="status">

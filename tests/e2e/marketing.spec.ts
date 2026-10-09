@@ -168,7 +168,7 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   await video.evaluate((node: HTMLVideoElement) => node.pause());
   await video.evaluate((node: HTMLVideoElement) => node.play());
   await expect.poll(() => events.filter((event) => event === "video_start").length).toBe(1);
-  await page.getByText("Jump to a chapter", { exact: true }).click();
+  await expect(page.getByRole("navigation", { name: "Film chapters" })).toBeVisible();
   await page.getByRole("button", { name: /Your 15-minute call/ }).click();
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
@@ -254,4 +254,75 @@ test("Unavailable video and calendar expose recovery options", async ({ page }) 
   await page.goto("/book?service=phone-agent");
   await expect(page.getByRole("link", { name: /Open the booking page/ })).toBeVisible();
   await expect(page.getByRole("status")).toContainText("taking longer", { timeout: 15000 });
+});
+
+test("Portrait evidence uses comfortable viewing width across breakpoints", async ({ page }) => {
+  await page.goto("/phone-agent");
+  for (const width of [360, 390, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    const box = await page.locator("video").boundingBox();
+    expect(box).not.toBeNull();
+    expect(box!.width).toBeGreaterThanOrEqual(width < 768 ? width - 44 : width < 1024 ? 350 : 378);
+    expect(box!.height / box!.width).toBeCloseTo(16 / 9, 2);
+    await expect(page.getByRole("navigation", { name: "Film chapters" })).toBeVisible();
+    expect(await page.locator("video").evaluate((node) => getComputedStyle(node).objectFit)).toBe(
+      "contain",
+    );
+  }
+});
+
+test("Generic booking keeps service editable after selecting the phone offer", async ({ page }) => {
+  await page.route("**/cal.com/embed.js", (route) => route.abort());
+  await page.goto("/book");
+  await page.getByText("Add context for the call (optional)", { exact: true }).click();
+  const select = page.getByRole("combobox", { name: "I’m interested in", exact: true });
+  for (const service of [
+    "phone-agent",
+    "automation",
+    "revenue-recovery",
+    "web-design",
+    "general",
+  ]) {
+    await select.selectOption(service);
+    await expect(select).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "Open the booking page in a new tab" }),
+    ).toHaveAttribute("href", new RegExp(`metadata%5Bservice%5D=${service}`));
+  }
+});
+
+test("Chapters preserve paused state and work before first playback", async ({ page }) => {
+  await page.goto("/phone-agent");
+  await page.getByRole("button", { name: "Keep analytics off" }).click();
+  const video = page.locator("video");
+  await page.getByRole("button", { name: /Recorded booking/ }).click();
+  expect(await video.evaluate((node: HTMLVideoElement) => node.paused)).toBe(true);
+  await video.evaluate((node: HTMLVideoElement) => {
+    node.muted = true;
+    return node.play();
+  });
+  await expect
+    .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
+    .toBeGreaterThan(92);
+  await video.evaluate((node: HTMLVideoElement) => node.pause());
+  await page.getByRole("button", { name: /Illustrative value/ }).click();
+  await expect
+    .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
+    .toBeCloseTo(51.533333, 1);
+  expect(await video.evaluate((node: HTMLVideoElement) => node.paused)).toBe(true);
+  await expect(page.locator('.fa-chapters button[aria-current="true"]')).toContainText(
+    "Illustrative value",
+  );
+});
+
+test("Slow media offers transcript and optional booking recovery", async ({ page }) => {
+  await page.goto("/phone-agent");
+  await page.getByRole("button", { name: "Keep analytics off" }).click();
+  await page.clock.install();
+  await page.locator("video").dispatchEvent("waiting");
+  await page.clock.fastForward(8100);
+  await expect(page.getByRole("status")).toContainText("Video loading slowly");
+  await page.getByText("Read the full transcript (English)", { exact: true }).click();
+  await expect(page.locator(".fa-media-context .fa-transcript div")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Book a demo & fit assessment" })).toBeVisible();
 });
