@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3016",
-  "at": "2026-10-09T02:36:52.787Z",
+  "at": "2026-10-09T02:36:57.591Z",
   "rows": [
     {
       "route": "/",
@@ -473,6 +473,24 @@
       "route": "/web-design",
       "width": 1920,
       "overflow": false
+    },
+    {
+      "check": "Media keyboard tabs",
+      "selected": "Executive overview\n1:08"
+    },
+    {
+      "check": "Cal embed",
+      "frames": 1,
+      "fallback": "https://cal.com/curtis-salesos/flowaudit-call?metadata%5Bservice%5D=phone-agent&notes=Service%3A+phone-agent%0ABusiness%3A+FlowAudit+QA%0AWebsite%3A+%0ARole%3A+Owner+%2F+partner%0APriority%3A+Review+booking+setup%0ALocations%3A+%3B+call+volume%3A+&metadata%5Bref%5D=fa-sdr-qa&utm_source=qa&metadata%5Butm_source%5D=qa"
+    },
+    {
+      "check": "Spanish locale",
+      "lang": "es",
+      "headline": "Atiende las llamadas.\nConecta el trabajo.\nMantén el control."
+    },
+    {
+      "check": "404",
+      "status": 404
     }
   ],
   "linkResults": [
