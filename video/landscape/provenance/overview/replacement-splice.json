@@ -1,0 +1,13 @@
+{
+  "original_take": "O02.wav",
+  "replacement_sentence": "O02-replacement-sentence.wav",
+  "corrected_take": "O02-corrected.wav",
+  "splice_seconds": 5.35,
+  "old_second_sentence_onset_seconds": 5.6,
+  "replacement_duration_seconds": 5.28,
+  "padding_seconds": 0.07,
+  "speed": 1.0,
+  "time_stretch": false,
+  "retained_tail": "original samples from 5.35 seconds onward",
+  "human_listening_review": false
+}

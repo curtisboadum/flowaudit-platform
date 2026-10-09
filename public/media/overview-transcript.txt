@@ -2,7 +2,7 @@ FlowAudit · 90-second overview · English
 
 When your dental front desk is busy or closed, an appointment enquiry can end before anyone helps.
 
-Flow Audit is an AI phone agent supporting your team through agreed workflows. The separate recording below shows an enquiry, available times and a Google Calendar booking, with privacy beeps and edited labels. It's demonstration evidence, not customer results.
+FlowAudit builds AI phone agents that support your team through agreed workflows. The separate recording below shows an enquiry, available times and a Google Calendar booking, with privacy beeps and edited labels. It's demonstration evidence, not customer results.
 
 Published US exam, cleaning and X-ray costs range from fifty to three hundred fifty dollars. That's a fee benchmark, not a revenue forecast. Use your own attendance, collections and costs. Missed calls aren't automatically lost patients.
 

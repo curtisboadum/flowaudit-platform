@@ -2084,3 +2084,19 @@ select {
     column-gap: 32px;
   }
 }
+
+/* Reserve native-control space below the primary film, including on mobile. */
+.fa-overview-frame { container-type: inline-size; }
+.fa-overview-frame video {
+  aspect-ratio: auto;
+  height: calc(56.25cqw + 64px);
+  object-fit: contain;
+  object-position: center top;
+  background: var(--fa-paper);
+}
+.fa-overview-frame video:fullscreen {
+  height: 100%;
+  padding-bottom: 64px;
+  box-sizing: border-box;
+  background: #101112;
+}

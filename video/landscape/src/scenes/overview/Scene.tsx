@@ -14,6 +14,6 @@ export default function OverviewScene(input:Partial<OverviewProps>){
  {p.benchmark?<div style={box(1)}><div style={{fontFamily:s.fonts.serif,fontSize:o.numberSize}}>$50–$350</div><div style={{fontSize:o.itemSize,lineHeight:1.2}}>Exam, cleaning &amp; X-rays</div><div style={{fontSize:o.noteSize,marginTop:o.cardGap,color:s.muted}}>Published US patient costs<br/>CareCredit · 2023 study</div></div>:p.items.map((item,i)=><div key={item} style={{...box(i+1),fontSize:o.itemSize,lineHeight:1.15,background:p.cta&&i===p.items.length-1?s.ink:s.paper,color:p.cta&&i===p.items.length-1?s.paper:s.ink}}>{item}</div>)}
  </div>
  <div style={{position:'absolute',left:s.stage.margin,right:s.stage.margin,top:o.noteTop,fontSize:o.noteSize,color:s.muted,lineHeight:1.25}}>{p.note}</div>
- {p.caption?<div style={{position:'absolute',left:s.stage.margin,right:s.stage.margin,top:o.captionTop,height:o.captionHeight,display:'flex',alignItems:'center',justifyContent:'center',textAlign:'center',fontSize:o.captionSize,lineHeight:1.04,fontWeight:500,background:s.paper,border:`1px solid ${s.line}`,borderRadius:s.radius.card,padding:o.cardPadding,boxSizing:'border-box'}}>{p.caption}</div>:null}
+ {p.caption?<div style={{position:'absolute',left:(s.stage.width-p.captionWidth)/2,width:p.captionWidth,bottom:p.captionBottom,minHeight:o.captionHeight,display:'flex',alignItems:'flex-end',justifyContent:'center',textAlign:'center',fontSize:p.captionSize,lineHeight:o.captionLineHeight,fontWeight:o.captionWeight,whiteSpace:'pre-line',color:s.ink}}>{p.caption}</div>:null}
  </Stage>
 }

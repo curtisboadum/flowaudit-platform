@@ -119,7 +119,7 @@ export function MediaPlayer({
         id={switchable ? `${playerId}-film-panel` : undefined}
         aria-labelledby={switchable ? `${playerId}-tab-${active}` : undefined}
       >
-        <div className="fa-player-frame">
+        <div className={`fa-player-frame ${active === "overview" ? "fa-overview-frame" : ""}`}>
           <video
             ref={videoRef}
             width={1920}
@@ -225,6 +225,11 @@ export function MediaPlayer({
             <a href={`/media/${active}.vtt`} download>
               {text(locale, c("Download captions", "Descargar subtítulos"))}
             </a>
+            {active === "overview" && (
+              <a href="/media/overview.srt" download>
+                {text(locale, c("Captions (SRT)", "Subtítulos (SRT)"))}
+              </a>
+            )}
           </div>
           <p className="fa-small">
             {text(

@@ -13,7 +13,7 @@ The component library tool reported no configured external library roots. Existi
 
 ## 90-second primary overview · 9 October 2026
 
-`Overview90` is a separate 1920×1080 / 30fps / 2700-frame composition. Original compositions, evidence pixels and approved exports are unchanged. `src/overview.json` holds the seven natural-speed voice starts, scene windows and 32 script-aligned caption cues. `beats-overview.md` records coverage. The original timeline is not rewritten.
+`Overview90` is a separate 1920×1080 / 30fps / 2700-frame composition. Original compositions, evidence pixels and approved exports are unchanged. `src/overview.json` holds the seven natural-speed voice starts, scene windows and 30 script-aligned caption cues. `beats-overview.md` records coverage. The original timeline is not rewritten.
 
 Run `npm ci` and `npm run render:overview`. FFmpeg/FFprobe must be on PATH. Seven saved VoiceStudio Qwen3 Base takes and the approved original score are committed under `public/audio/overview/`; the ignored mix is rebuilt from those sources. Remotion renders the visuals, then FFmpeg muxes the new 48kHz AAC mix to exactly 90 seconds. No old MainVSL audio is used, no time stretching occurs, and no voice provider is contacted by rendering. Run `npm run studio` to edit; `OverviewScene` is also exposed standalone. Render outputs remain under ignored `out/`.
 
@@ -22,3 +22,6 @@ The saved The Explainer profile, original model/license records, request setting
 Captions are baked once in a top band above the principal graphics. Manual mobile inspection found the original lower band overlapped native controls; the overview was re-rendered with the safe top band. VTT/SRT are sidecars, not a second visible player track. Film graphics retain the existing warm stage/type system.
 
 The $50–$350 card is published US patient-cost context from CareCredit's 2023 study, not practice collections or FlowAudit results. Complete source research and the substantive coverage matrix are in `../../docs/redesign/phone-agent/`. The 31-second evidence/value sample was rendered and technically reviewed before the first full render; the delivered sample reflects the subsequent mobile-caption correction. Human end-to-end listening approval and physical-device testing are not claimed.
+
+## Primary overview revision · 9 October 2026
+The primary overview identifies FlowAudit as the company building AI phone agents. Only the replacement sentence was generated locally with the saved Explainer reference at speed 1.0; `O02.wav` remains intact. `O02-corrected.wav` combines the new sentence, 70ms silence and the original tail from 5.35s. All other takes and the original score are unchanged. See `provenance/overview/replacement-*` for the request, ASR and splice record. `render:overview` uses the corrected saved take and makes no generation request. Bottom subtitles are regular-weight Inter with semantic line breaks; the website reserves 64px below the primary film for native controls. Human listening approval remains outstanding.

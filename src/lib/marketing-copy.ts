@@ -44,8 +44,8 @@ export const offers: Offer[] = [
       "Cuando un paciente llama, ofrece un siguiente paso claro.",
     ),
     intro: c(
-      "Support your front desk with an AI phone agent configured around agreed call workflows. See the recorded booking, then assess the fit for your practice.",
-      "Apoya a recepción con un agente telefónico IA configurado para procesos acordados. Mira la reserva grabada y evalúa si encaja con tu clínica.",
+      "FlowAudit builds AI phone agents that support your team through agreed workflows. See the recorded booking, then assess the fit for your practice.",
+      "FlowAudit desarrolla agentes telefónicos IA que apoyan a tu equipo mediante procesos acordados. Mira la reserva grabada y evalúa si encaja con tu clínica.",
     ),
     note: c(
       "For dental practices, multi-location groups and DSOs. US first, with UK and Canada enquiries welcome.",

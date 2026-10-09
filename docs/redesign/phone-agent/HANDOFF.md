@@ -1,3 +1,15 @@
+## Primary overview correction · 9 October 2026
+
+The primary overview now says “FlowAudit builds AI phone agents that support your team through agreed workflows.” Only that sentence was generated through the saved local Explainer profile at speed 1.0. Original takes and score remain intact; O02's tail from 5.35 seconds is sample-identical. See `video/landscape/provenance/overview/replacement-*`.
+
+The overview uses 30 regular-weight bottom subtitle cues without a white card or border. Its website player reserves 64px below the 16:9 picture for native controls. The replacement sentence and benchmark qualification were inspected at actual 390px viewport size before the full render, including visible/hidden controls and desktop fullscreen. VTT, SRT, inline transcript and EN/ES offer copy match. Older film assets and matching transcripts remain unchanged.
+
+Final encode: exactly 1920×1080, 30fps, 2700 frames, 90.000 seconds. Full decode passes; −16.35 LUFS, −1.13 dBTP. Required Node 24 production build, lint, TypeScript, Remotion checks, 30 unit tests and 36 browser tests pass (one opt-in live test skipped). The browser tests verify the actual mobile control reserve and matching downloads. Evidence: `docs/redesign/evidence/overview-revision/`.
+
+Audio cannot be heard with the available tools. ASR confirms the correction but does not establish pronunciation, naturalness or music balance; human listening and physical-device review remain outstanding. Protected deployment and final commit verification are recorded in the new chat's delivery report. No production release, protection change, provider activation, paid generation, real booking or notification is part of this revision.
+
+---
+
 # Phone-agent campaign funnel handoff · 9 October 2026
 
 Review in [PR #20](https://github.com/curtisboadum/flowaudit-platform/pull/20), branch `feat/premium-redesign`. Protected Git-connected preview: https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/phone-agent (Vercel sign-in may be required). Production release has not been performed.

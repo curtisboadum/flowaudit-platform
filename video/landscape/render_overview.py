@@ -8,7 +8,7 @@ root=Path(__file__).resolve().parent
 data=json.loads((root/'src/overview.json').read_text());audio=root/'public/audio/overview'
 filters=[];cmd=['ffmpeg','-v','error','-y']
 for i,seg in enumerate(data['segments']):
- source=audio/f'O{i+1:02}.wav'
+ source=audio/seg.get('voiceTake',f'O{i+1:02}.wav')
  duration=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',str(source)]))
  end=seg['voiceFrom']+duration
  boundary=(data['segments'][i+1]['from']/30 if i+1<len(data['segments']) else 90)

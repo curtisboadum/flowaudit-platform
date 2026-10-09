@@ -1,3 +1,4 @@
-export type OverviewProps={eyebrow:string;headline:string;items:string[];note:string;benchmark:boolean;cta:boolean;caption:string;enterFrames:number;staggerFrames:number;};
-export const defaults:OverviewProps={eyebrow:'WHEN PATIENTS CALL',headline:'Give them a clear next step.',items:['Busy at the desk','Another call','After closing'],note:'Support for your front desk',benchmark:false,cta:false,caption:'',enterFrames:0,staggerFrames:12};
+import {system as s} from '../../system/sceneSystem';
+export type OverviewProps={eyebrow:string;headline:string;items:string[];note:string;benchmark:boolean;cta:boolean;caption:string;enterFrames:number;staggerFrames:number;captionBottom:number;captionSize:number;captionWidth:number;};
+export const defaults:OverviewProps={eyebrow:'WHEN PATIENTS CALL',headline:'Give them a clear next step.',items:['Busy at the desk','Another call','After closing'],note:'Support for your front desk',benchmark:false,cta:false,caption:'',enterFrames:0,staggerFrames:12,captionBottom:s.overview.captionBottom,captionSize:s.overview.captionSize,captionWidth:s.overview.captionWidth};
 export const schema=Object.fromEntries(Object.entries(defaults).map(([key,value])=>[key,{type:typeof value==='number'?'number':typeof value==='boolean'?'toggle':'text',default:value}]));

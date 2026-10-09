@@ -25,7 +25,7 @@
       "from": 210,
       "duration": 495,
       "voiceFrom": 7,
-      "text": "Flow Audit is an AI phone agent supporting your team through agreed workflows. The separate recording below shows an enquiry, available times and a Google Calendar booking, with privacy beeps and edited labels. It's demonstration evidence, not customer results.",
+      "text": "FlowAudit builds AI phone agents that support your team through agreed workflows. The separate recording below shows an enquiry, available times and a Google Calendar booking, with privacy beeps and edited labels. It's demonstration evidence, not customer results.",
       "visual": {
         "eyebrow": "THE OFFER & THE EVIDENCE",
         "headline": "Support for your team.",
@@ -35,7 +35,8 @@
           "Create the agreed booking"
         ],
         "note": "Watch the separate booking recording on this page \u00b7 Demonstration, not customer results"
-      }
+      },
+      "voiceTake": "O02-corrected.wav"
     },
     {
       "from": 705,
@@ -118,39 +119,39 @@
   ],
   "captions": [
     {
-      "from": 0,
-      "to": 106,
-      "text": "When your dental front desk is busy or closed, an"
+      "from": 6,
+      "to": 105,
+      "text": "When your dental front desk\nis busy or closed,"
     },
     {
-      "from": 106,
+      "from": 105,
       "to": 191,
-      "text": "appointment enquiry can end before anyone helps."
+      "text": "an appointment enquiry can end\nbefore anyone helps."
     },
     {
-      "from": 226,
-      "to": 325,
-      "text": "Flow Audit is an AI phone agent supporting your team"
+      "from": 212,
+      "to": 285,
+      "text": "FlowAudit builds AI phone agents"
     },
     {
-      "from": 325,
-      "to": 356,
-      "text": "through agreed workflows."
+      "from": 285,
+      "to": 358,
+      "text": "that support your team\nthrough agreed workflows."
     },
     {
       "from": 378,
       "to": 436,
-      "text": "The separate recording below shows an enquiry,"
+      "text": "The separate recording below\nshows an enquiry,"
     },
     {
       "from": 458,
-      "to": 539,
-      "text": "available times and a Google Calendar booking, with"
+      "to": 532,
+      "text": "available times and\na Google Calendar booking,"
     },
     {
-      "from": 539,
+      "from": 532,
       "to": 586,
-      "text": "privacy beeps and edited labels."
+      "text": "with privacy beeps\nand edited labels."
     },
     {
       "from": 610,
@@ -165,7 +166,7 @@
     {
       "from": 711,
       "to": 806,
-      "text": "Published US exam, cleaning and X-ray costs range from"
+      "text": "Published US exam, cleaning\nand X-ray costs range from"
     },
     {
       "from": 806,
@@ -175,32 +176,27 @@
     {
       "from": 859,
       "to": 959,
-      "text": "That's a fee benchmark, not a revenue forecast."
+      "text": "That's a fee benchmark,\nnot a revenue forecast."
     },
     {
       "from": 979,
       "to": 1043,
-      "text": "Use your own attendance, collections and costs."
+      "text": "Use your own attendance, collections\nand costs."
     },
     {
       "from": 1063,
       "to": 1124,
-      "text": "Missed calls aren't automatically lost patients."
+      "text": "Missed calls aren't automatically lost\npatients."
     },
     {
       "from": 1141,
-      "to": 1199,
-      "text": "Your scheduling system, appointment types and"
-    },
-    {
-      "from": 1199,
       "to": 1233,
-      "text": "forwarding need checking."
+      "text": "Your scheduling system, appointment types\nand forwarding need checking."
     },
     {
       "from": 1246,
       "to": 1335,
-      "text": "Compatibility, patient-data and security requirements"
+      "text": "Compatibility, patient-data and\nsecurity requirements"
     },
     {
       "from": 1335,
@@ -210,7 +206,7 @@
     {
       "from": 1507,
       "to": 1592,
-      "text": "Urgent calls follow practice-approved escalation and"
+      "text": "Urgent calls follow practice-approved\nescalation and"
     },
     {
       "from": 1592,
@@ -220,17 +216,17 @@
     {
       "from": 1620,
       "to": 1720,
-      "text": "The recorded question doesn't establish validated"
+      "text": "The recorded question doesn't\nestablish validated"
     },
     {
       "from": 1720,
       "to": 1804,
-      "text": "clinical triage or a completed emergency handoff."
+      "text": "clinical triage or a completed\nemergency handoff."
     },
     {
       "from": 1819,
       "to": 1877,
-      "text": "Clinical judgment stays with your team."
+      "text": "Clinical judgment stays with your\nteam."
     },
     {
       "from": 1917,
@@ -240,7 +236,7 @@
     {
       "from": 1988,
       "to": 2056,
-      "text": "Agreement and initial payment start configuration,"
+      "text": "Agreement and initial payment start\nconfiguration,"
     },
     {
       "from": 2084,
@@ -250,12 +246,12 @@
     {
       "from": 2146,
       "to": 2212,
-      "text": "Practice approval comes before activation."
+      "text": "Practice approval comes before\nactivation."
     },
     {
       "from": 2301,
       "to": 2389,
-      "text": "Book a 15-minute demo and fit assessment."
+      "text": "Book a 15-minute demo and fit\nassessment."
     },
     {
       "from": 2389,
@@ -265,17 +261,12 @@
     {
       "from": 2477,
       "to": 2537,
-      "text": "Groups should include relevant approvers."
+      "text": "Groups should include relevant\napprovers."
     },
     {
       "from": 2555,
-      "to": 2638,
-      "text": "We'll discuss requirements, investment and the next"
-    },
-    {
-      "from": 2638,
       "to": 2668,
-      "text": "decision."
+      "text": "We'll discuss requirements, investment\nand the next decision."
     }
   ]
 }

@@ -163,6 +163,11 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   await page.getByRole("button", { name: "Allow analytics" }).click();
   const video = page.locator('video[data-media-id="overview"]');
   await expect(video).toHaveAttribute("data-media-id", "overview");
+  await page.setViewportSize({ width: 390, height: 844 });
+  const player = await video.boundingBox();
+  expect(player).not.toBeNull();
+  // Native controls need their own area below the 16:9 picture on narrow screens.
+  expect(player!.height - (player!.width * 9) / 16).toBeGreaterThanOrEqual(60);
   await video.evaluate((node: HTMLVideoElement) => {
     node.muted = true;
     return node.play();
@@ -188,6 +193,27 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   await expect(
     page.locator("#demo").getByRole("link", { name: "Download captions" }),
   ).toHaveAttribute("href", "/media/overview.vtt");
+  await expect(page.locator("#demo").getByRole("link", { name: "Captions (SRT)" })).toHaveAttribute(
+    "href",
+    "/media/overview.srt",
+  );
+  await page
+    .locator("#demo")
+    .getByText("Read the full transcript (English)", { exact: true })
+    .click();
+  await expect(page.locator("#demo")).toContainText(
+    "FlowAudit builds AI phone agents that support your team through agreed workflows.",
+  );
+  for (const extension of ["vtt", "srt", "-transcript.txt"]) {
+    const path = extension.startsWith("-")
+      ? `/media/overview${extension}`
+      : `/media/overview.${extension}`;
+    const response = await page.request.get(path);
+    expect(response.ok()).toBe(true);
+    const contents = (await response.text()).replace(/\s+/g, " ");
+    expect(contents).toContain("FlowAudit builds AI phone agents");
+    expect(contents).not.toContain("Flow Audit is an AI phone agent");
+  }
 });
 
 test("Provider readiness and booking status are distinct; no client booking conversion is emitted", async ({
@@ -274,7 +300,7 @@ test("Landscape evidence uses comfortable viewing width across breakpoints", asy
     const box = await page.locator('video[data-media-id="overview"]').boundingBox();
     expect(box).not.toBeNull();
     expect(box!.width).toBeGreaterThanOrEqual(width < 768 ? width - 44 : width < 1024 ? 650 : 900);
-    expect(box!.height / box!.width).toBeCloseTo(9 / 16, 2);
+    expect((box!.height - 64) / box!.width).toBeCloseTo(9 / 16, 2);
     await expect(page.getByRole("navigation", { name: "Film chapters" })).toBeVisible();
     expect(
       await page

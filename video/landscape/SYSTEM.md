@@ -1,2 +1,4 @@
 # FlowAudit landscape reformat
 User requested true horizontal on 9 October 2026. Established Remotion route, warm-neutral data-clean identity and supplied audio remain. Stage 1920×1080, 30fps. Same segment/caption timing; one visible caption layer at 74px in a dedicated bottom band above native controls. Source evidence uses the same approved real-pixel crops as portrait, arranged across the landscape stage. No source kinetic captions included, no added subtitle track, no generated narration or music. Originals are retained in prior production outputs. Colors, fonts, motion and layout constants live in sceneSystem.ts.
+
+Primary Overview90 revision: bottom subtitles at 64px regular Inter, maximum two lines, bottom margin 80px and width 1760px. No caption card or border. Overview graphics begin at y230, headlines at y300 and explanatory notes at y700 to reserve the subtitle area. Older compositions retain their existing layout.
