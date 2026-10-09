@@ -48,3 +48,20 @@ it("rejects unsigned requests", async () => {
   ).toBe(401);
   expect(insertSdrEvent).not.toHaveBeenCalled();
 });
+
+it("accepts a signed flat meeting only for a registered event ID", async () => {
+  vi.stubEnv("CAL_EVENT_TYPE_IDS", "7");
+  vi.mocked(insertSdrEvent).mockResolvedValue(true);
+  const raw = JSON.stringify({
+    triggerEvent: "MEETING_ENDED",
+    uid: "qa",
+    eventTypeId: 7,
+    startTime: "2026-10-10T15:00:00Z",
+  });
+  const r = new Request("https://flowaudit.co.uk/api/cal/webhook", {
+    method: "POST",
+    body: raw,
+    headers: { "x-cal-signature-256": createHmac("sha256", "qa-secret").update(raw).digest("hex") },
+  });
+  expect((await POST(r)).status).toBe(200);
+});

@@ -6,7 +6,7 @@ Preview: https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects
 
 ## Verified
 
-- Optimized Next 15.5.27 production build, strict typecheck, lint and 22 unit tests pass.
+- Optimized Next 15.5.27 production build, strict typecheck, lint and 25 unit tests pass.
 - 18 Playwright regression tests pass. They cover public pages/metadata, bilingual persistence, mobile menu/Escape, editable qualification, direct-calendar bypass, referral context, keyboard film tabs, transcripts, consent and CRM/404 recovery.
 - 28 public routes checked at 390 and 1440px: zero WCAG 2 A/AA, 2.1 AA and 2.2 AA tagged axe violations, zero detected horizontal overflow, no page errors. Four core journeys also checked at 360/768/1024/1920. Total report contains 76 checks. All 33 discovered first-party links returned successful responses. Client access uses its availability-aware support path.
 - A 720px layout at a nominal 1440px viewport verifies 200% reflow-equivalent behaviour: no overflow or axe violations. This is a reflow check, not a claim of assistive-technology certification or exhaustive native browser zoom testing.
@@ -37,7 +37,7 @@ Reviewed full-page desktop homepage and mobile phone-agent compositions plus boo
 ## Remaining release dependencies and limits
 
 1. **Films:** the separate production handoff explicitly marks human listening/viewing approval pending. Review the finished main, overview, teaser and routine recording before final public release.
-2. **Cal signing:** existing production `CAL_WEBHOOK_SECRET` is empty and the account settings require sign-in. Match a secret in Cal and Vercel, then verify a signed delivery, storage, cancellation/rescheduling and retry. Until then, the public calendar works but booking lifecycle tracking is not complete. No fake booking was made to imply verification.
+2. **Cal signing:** existing production `CAL_WEBHOOK_SECRET` is empty and the account settings require sign-in. Match a secret in Cal and Vercel, register verified CAL_EVENT_TYPE_IDS for flat scheduled-meeting payloads, then verify a signed delivery, storage, cancellation/rescheduling and retry. Until then, the public calendar works but booking lifecycle tracking is not complete. No fake booking was made to imply verification.
 3. **Revenue Recovery upstream:** its existing host returns HTTP 402 `DEPLOYMENT_DISABLED`. Current account cannot manage that deployment. Proxy contracts remain unchanged; public client access gives a support fallback. Owner restoration is required for operational client journeys.
 4. **Development advisory:** the complete audit flags five packages in the same unpatched `braces` lint-tool chain (stack-exhaustion from deeply nested glob patterns). They are development dependencies; no runtime advisory remains. Do not feed untrusted glob expressions into development lint tooling. The registry did not provide a patched braces release at audit time.
 5. **Chat providers:** Google explicitly rejected the Gemini key as “reported as leaked”; replace/revoke it in its owning Google account. DeepSeek rejected the request for insufficient balance. No OpenRouter provider was configured in the checked production environment. The redesign keeps chat disabled by default; set `CHAT_ENABLED=true` only after a valid provider/model is verified. The API/component is preserved and the rest of the conversion journey is independent. No billing or credential rotation was attempted.

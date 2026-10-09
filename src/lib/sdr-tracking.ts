@@ -43,6 +43,7 @@ export const CAL_TRIGGER_MAP: Record<string, string> = {
 export interface CalEvent {
   normalized: string;
   eventType: string;
+  eventTypeId?: number;
   primary: boolean;
   attendeeEmail: string;
   startTime: string;
@@ -77,15 +78,18 @@ export function mapCalWebhook(payload: unknown): CalEvent | null {
   if (typeof trigger !== "string") return null;
   const normalized = CAL_TRIGGER_MAP[trigger];
   if (!normalized) return null;
-  if (
-    typeof record.payload !== "object" ||
-    record.payload === null ||
-    Array.isArray(record.payload)
-  )
-    return null;
-  const inner = record.payload as Record<string, unknown>;
+  const nested =
+    typeof record.payload === "object" && record.payload !== null && !Array.isArray(record.payload);
+  const flatMeeting = trigger === "MEETING_STARTED" || trigger === "MEETING_ENDED";
+  if (!nested && !flatMeeting) return null;
+  const inner = nested ? (record.payload as Record<string, unknown>) : record;
   const eventTypeObj = (inner.eventType ?? {}) as Record<string, unknown>;
-  const eventType = typeof eventTypeObj.slug === "string" ? eventTypeObj.slug : "";
+  const eventType =
+    typeof inner.type === "string"
+      ? inner.type
+      : typeof eventTypeObj.slug === "string"
+        ? eventTypeObj.slug
+        : "";
   const attendees = Array.isArray(inner.attendees) ? inner.attendees : [];
   const first =
     typeof attendees[0] === "object" && attendees[0] !== null
@@ -105,6 +109,10 @@ export function mapCalWebhook(payload: unknown): CalEvent | null {
     normalized,
     attribution,
     eventType,
+    eventTypeId:
+      typeof inner.eventTypeId === "number" && Number.isInteger(inner.eventTypeId)
+        ? inner.eventTypeId
+        : undefined,
     primary: eventType === CAL_PRIMARY_EVENT,
     attendeeEmail,
     startTime: typeof inner.startTime === "string" ? inner.startTime : "",

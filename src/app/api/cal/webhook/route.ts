@@ -1,13 +1,4 @@
-/**
- * @file route.ts
- * @description Cal.com webhook receiver: HMAC-verified server truth for
- *   bookings, cancellations, reschedules, meeting end, and no-shows. The
- *   site's /book embeds the flowaudit-call event (primary); 15min is also
- *   registered.
- * @status Stable.
- * @issues None.
- * @todo None.
- */
+/** Signed booking lifecycle receiver. Scheduled meeting events do not prove attendance. */
 import { createHash } from "crypto";
 import { NextResponse } from "next/server";
 import { mapCalWebhook, verifyCalSignature } from "@/lib/sdr-tracking";
@@ -39,8 +30,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Unhandled trigger" }, { status: 400 });
   }
 
-  if (!event.uid || !event.eventType || !["flowaudit-call", "15min"].includes(event.eventType))
-    return NextResponse.json({ error: "Invalid booking" }, { status: 400 });
+  const allowedIds = (process.env.CAL_EVENT_TYPE_IDS ?? "")
+    .split(",")
+    .map((x) => x.trim())
+    .filter((x) => /^\d+$/.test(x));
+  const knownSlug = ["flowaudit-call", "15min"].includes(event.eventType);
+  const knownId = event.eventTypeId !== undefined && allowedIds.includes(String(event.eventTypeId));
+  if (!event.uid || (!knownSlug && !knownId))
+    return NextResponse.json({ error: "Invalid or unregistered booking type" }, { status: 400 });
 
   const stored = await insertSdrEvent({
     event_id: `cal-${createHash("sha256").update(`${event.uid}:${event.normalized}:${event.startTime}`).digest("hex")}`,
@@ -49,6 +46,8 @@ export async function POST(request: Request) {
     event: event.normalized,
     payload: {
       eventType: event.eventType,
+      eventTypeId: event.eventTypeId,
+      scheduledTimeEvent: ["call_started", "call_held"].includes(event.normalized),
       primary: event.primary,
       startTime: event.startTime,
       uid: event.uid,

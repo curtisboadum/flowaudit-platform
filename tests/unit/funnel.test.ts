@@ -65,3 +65,23 @@ describe("Privacy and funnel validation", () => {
     expect(verifyCalSignature("{}", "ff".repeat(32) + "junk", "secret")).toBe(false);
   });
 });
+
+it("maps the documented nested Cal type slug", () => {
+  const e = mapCalWebhook({
+    triggerEvent: "BOOKING_CREATED",
+    payload: { type: "flowaudit-call", uid: "qa", attendees: [] },
+  });
+  expect(e?.eventType).toBe("flowaudit-call");
+  expect(e?.primary).toBe(true);
+});
+it("maps documented flat meeting payloads by event type ID", () => {
+  const e = mapCalWebhook({
+    triggerEvent: "MEETING_ENDED",
+    uid: "qa",
+    eventTypeId: 7,
+    startTime: "2026-10-10T15:00:00Z",
+    attendees: [],
+  });
+  expect(e?.eventTypeId).toBe(7);
+  expect(e?.normalized).toBe("call_held");
+});
