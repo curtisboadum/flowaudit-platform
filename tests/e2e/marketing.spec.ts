@@ -43,6 +43,10 @@ test("Calendar is immediate; optional context retains drafts and attribution", a
     r.fulfill({ body: "", contentType: "application/javascript" }),
   );
   await page.goto("/book?service=phone-agent&ref=fa-sdr-qa&utm_source=qa");
+  await expect(page.getByRole("link", { name: "Let’s talk", exact: true })).toHaveAttribute(
+    "href",
+    "#booking-calendar",
+  );
   const fallback = page.getByRole("link", { name: /Open the booking page/ });
   await expect(fallback).toBeVisible();
   await expect(fallback).toHaveAttribute("href", /metadata%5Bservice%5D=phone-agent/);

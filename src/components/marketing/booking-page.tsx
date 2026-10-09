@@ -120,7 +120,7 @@ export function BookingPage({ initialService = "general" }: { initialService?: S
           </a>
         </p>
       </section>
-      <section className="fa-book-card">
+      <section className="fa-book-card" id="booking-calendar">
         <h2>{text(locale, c("Choose your time", "Elige tu horario"))}</h2>
         <p className="fa-small mb-6">
           {text(locale, offer?.label ?? c("General fit assessment", "Evaluación general"))} · 15 min

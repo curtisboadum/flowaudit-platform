@@ -57,7 +57,11 @@ export function SiteHeader() {
           </button>
           <Link
             href={
-              pathname === "/phone-agent" ? "/book?service=phone-agent" : "/book?service=general"
+              pathname === "/book"
+                ? "#booking-calendar"
+                : pathname === "/phone-agent"
+                  ? "/book?service=phone-agent"
+                  : "/book?service=general"
             }
             className="fa-nav-book"
             data-cta={pathname === "/phone-agent" ? "phone-agent" : "general"}
