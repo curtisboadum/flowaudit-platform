@@ -165,6 +165,9 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
     .toBeGreaterThan(1);
   expect(await video.evaluate((node: HTMLVideoElement) => node.duration)).toBeCloseTo(300, 0);
+  expect(
+    await video.evaluate((node: HTMLVideoElement) => [node.videoWidth, node.videoHeight]),
+  ).toEqual([1920, 1080]);
   await video.evaluate((node: HTMLVideoElement) => node.pause());
   await video.evaluate((node: HTMLVideoElement) => node.play());
   await expect.poll(() => events.filter((event) => event === "video_start").length).toBe(1);
@@ -256,19 +259,27 @@ test("Unavailable video and calendar expose recovery options", async ({ page }) 
   await expect(page.getByRole("status")).toContainText("taking longer", { timeout: 15000 });
 });
 
-test("Portrait evidence uses comfortable viewing width across breakpoints", async ({ page }) => {
+test("Landscape evidence uses comfortable viewing width across breakpoints", async ({ page }) => {
   await page.goto("/phone-agent");
   for (const width of [360, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     const box = await page.locator("video").boundingBox();
     expect(box).not.toBeNull();
-    expect(box!.width).toBeGreaterThanOrEqual(width < 768 ? width - 44 : width < 1024 ? 350 : 378);
-    expect(box!.height / box!.width).toBeCloseTo(16 / 9, 2);
+    expect(box!.width).toBeGreaterThanOrEqual(width < 768 ? width - 44 : width < 1024 ? 650 : 900);
+    expect(box!.height / box!.width).toBeCloseTo(9 / 16, 2);
     await expect(page.getByRole("navigation", { name: "Film chapters" })).toBeVisible();
     expect(await page.locator("video").evaluate((node) => getComputedStyle(node).objectFit)).toBe(
       "contain",
     );
   }
+  await page.goto("/");
+  const poster = page.locator(".fa-art-screen img");
+  await expect(poster).toHaveAttribute("width", "1920");
+  await expect
+    .poll(() => poster.evaluate((node: HTMLImageElement) => node.naturalWidth))
+    .toBeGreaterThan(0);
+  const posterBox = await poster.boundingBox();
+  expect(posterBox!.height / posterBox!.width).toBeCloseTo(9 / 16, 2);
 });
 
 test("Generic booking keeps service editable after selecting the phone offer", async ({ page }) => {

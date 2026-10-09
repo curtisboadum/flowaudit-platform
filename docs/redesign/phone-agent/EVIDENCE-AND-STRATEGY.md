@@ -23,7 +23,7 @@ The final story is: a busy front desk creates an unanswered-enquiry problem; an 
 
 The urgent excerpt is a configured question, not validated clinical triage or a demonstrated emergency transfer. Replacement practice and attribution labels must never be used as original product proof. The financial example is explicitly hypothetical gross appointment value before costs, not a case study or forecast.
 
-## Final asset lock
+## Original approved asset lock (before horizontal correction)
 
 Source root: `/Users/curtis/Documents/Codex/2026-10-08/complete-my-flowaudit-vsl-production-using/outputs`.
 
@@ -69,3 +69,7 @@ Existing messages promise every call answered 24/7 and no voicemail; the recordi
 > I built an AI phone agent configured around a dental practice's agreed call workflows. This recorded example shows an appointment enquiry and a Google Calendar booking. Here is the walkthrough; it explains what is demonstrated, what needs checking and how setup works. If it looks relevant, you can book 15 minutes to discuss your practice and the investment.
 
 Use generic campaign labels, not names, emails or phone numbers, in UTM values. No outreach or campaign records were changed. The supplied founder pricing reference is a framework, not approval to publish prices; actual delivery costs are still needed before making a margin claim.
+
+## User-approved horizontal reformat · 9 October 2026
+
+The user corrected the orientation requirement to horizontal and confirmed the actual film reformat. The four website films now use a native 1920×1080 layout with the same content/timing, exact approved encoded audio packets, one baked English caption layer, and unchanged VTT/transcripts. Source footage uses the same approved genuine panels arranged horizontally; no new product pixels, dialogue, claims or music were generated. Original portrait exports are retained in the separate handoff. See [encoded media checks](../evidence/customer-audit/landscape-media-checks.json) and the source at `video/landscape/`.

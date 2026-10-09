@@ -13,7 +13,9 @@
           "duration": "300.000000"
         }
       ]
-    }
+    },
+    "phase": "Original portrait baseline before user-confirmed horizontal reformat",
+    "current_landscape_checks": "landscape-media-checks.json"
   },
   {
     "film": "summary",
@@ -29,7 +31,9 @@
           "duration": "67.500000"
         }
       ]
-    }
+    },
+    "phase": "Original portrait baseline before user-confirmed horizontal reformat",
+    "current_landscape_checks": "landscape-media-checks.json"
   },
   {
     "film": "teaser",
@@ -45,7 +49,9 @@
           "duration": "30.000000"
         }
       ]
-    }
+    },
+    "phase": "Original portrait baseline before user-confirmed horizontal reformat",
+    "current_landscape_checks": "landscape-media-checks.json"
   },
   {
     "film": "routine",
@@ -61,6 +67,8 @@
           "duration": "90.833333"
         }
       ]
-    }
+    },
+    "phase": "Original portrait baseline before user-confirmed horizontal reformat",
+    "current_landscape_checks": "landscape-media-checks.json"
   }
 ]

@@ -3294,5 +3294,65 @@
     "method": "Agent-operated real browser",
     "id": "M308",
     "evidence": "evidence/customer-audit/manual.json entry 308"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "control": "Initial landscape playback and commercial chapter",
+    "expected": "Native landscape decoding, playing chapter preserves state",
+    "observed": "Decoded 1920\u00d71080; chapter reached 244.5 seconds while playing; native Space paused.",
+    "gap": "Native controls overlapped the lowest caption line; corrected re-render pending verification.",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M309"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "control": "Browser zoom keyboard shortcut",
+    "expected": "Browser page zoom changes without overflow",
+    "observed": "Command-plus attempts left 1280\u00d7720 page dimensions unchanged; Command-zero sent to reset.",
+    "gap": "Actual browser zoom could not be verified in this in-app browser; reduced-viewport and overflow checks are separate.",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M310"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Paused native mobile captions at 390",
+    "expected": "Baked captions remain readable with controls shown",
+    "observed": "The native mobile controls obscured the caption band.",
+    "gap": "Fix in progress: reserve a separate native-control area below the film.",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M311"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Final mobile captions and native keyboard scrub",
+    "expected": "Paused multiline captions remain above controls; scrubbing preserves pause",
+    "observed": "At 390px, decoded 1920\u00d71080. Five ArrowRight presses moved 51.533\u219266.533 seconds while paused. Multiline captions visibly clear of buttons/seek bar.",
+    "gap": "Fine recorded UI details still need fullscreen on narrow mobile.",
+    "evidence": "local-landscape-mobile-captions.jpg",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M312"
   }
 ]

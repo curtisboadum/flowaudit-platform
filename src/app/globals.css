@@ -859,7 +859,7 @@ html {
 .fa-player-frame video {
   display: block;
   width: 100%;
-  aspect-ratio: 9/16;
+  aspect-ratio: 16/9;
   border-radius: 3px;
 }
 .fa-media-context {
@@ -1860,7 +1860,7 @@ select {
   }
 }
 
-/* Campaign destination: portrait evidence at the first decision point. */
+/* Campaign destination and compact film controls. */
 .fa-phone-hero {
   align-items: start;
 }
@@ -1984,7 +1984,7 @@ select {
   }
 }
 
-/* Dedicated portrait evidence: use viewing width rather than a hero thumbnail. */
+/* Dedicated landscape evidence uses the available viewing width. */
 .fa-phone-hero {
   display: block;
 }
@@ -1996,7 +1996,7 @@ select {
 }
 .fa-media-compact .fa-media-layout {
   display: grid;
-  grid-template-columns: minmax(380px, 440px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   max-width: 1040px;
   gap: 64px;
 }
@@ -2034,7 +2034,7 @@ select {
 }
 @media (max-width: 1023px) {
   .fa-media-compact .fa-media-layout {
-    grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 32px;
   }
 }
@@ -2045,7 +2045,7 @@ select {
   }
   .fa-media-compact .fa-player-frame {
     width: 100%;
-    max-width: 440px;
+    max-width: none;
   }
   .fa-media-compact .fa-media-context {
     display: flex;
@@ -2054,5 +2054,33 @@ select {
   .fa-media-compact .fa-chapters {
     order: -1;
     margin-top: 0;
+  }
+}
+
+/* All public film choices are native 16:9 landscape exports. */
+.fa-media-layout {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1040px;
+  gap: 24px;
+}
+.fa-player-frame {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+.fa-media-layout .fa-media-context {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+}
+.fa-chapters {
+  order: -1;
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  .fa-chapters ol {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 32px;
   }
 }

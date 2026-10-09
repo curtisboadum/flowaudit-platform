@@ -111,13 +111,13 @@ export function MediaPlayer({
         <div className="fa-player-frame">
           <video
             ref={videoRef}
-            width={1080}
-            height={1920}
+            width={1920}
+            height={1080}
             key={active}
             controls
             playsInline
             preload="none"
-            poster={`/media/${active}.jpg`}
+            poster={`/media/${active}.jpg?v=landscape-20261009`}
             aria-label={`${text(locale, current.label)} · ${current.duration}`}
             data-media-id={active}
             onError={() => {
@@ -207,8 +207,8 @@ export function MediaPlayer({
             {text(
               locale,
               c(
-                "English captions are already visible in the films. Transcripts are provided below.",
-                "Los vídeos ya incluyen subtítulos visibles en inglés. Las transcripciones están debajo.",
+                "English captions are already visible in the films. Use fullscreen for a larger view. Transcripts are provided below.",
+                "Los vídeos ya incluyen subtítulos visibles en inglés. Usa la pantalla completa para ampliar la vista. Las transcripciones están debajo.",
               ),
             )}
           </p>

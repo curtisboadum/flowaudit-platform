@@ -1,0 +1,19 @@
+{
+  "status": "landscape-reformat-agent-reviewed",
+  "family": "data-clean",
+  "accent": "#37322F",
+  "background": "#F7F5F3",
+  "duotone": [
+    "#37322F",
+    "#F7F5F3"
+  ],
+  "margin": 80,
+  "stroke_offset": [
+    0,
+    0
+  ],
+  "halftone_dot": 0,
+  "halftone_spacing": 0,
+  "width": 1920,
+  "height": 1080
+}

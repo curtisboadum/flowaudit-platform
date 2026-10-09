@@ -46,7 +46,7 @@ export function EvidenceArt() {
         </div>
         <div className="fa-art-screen">
           <Image
-            src="/media/routine.jpg"
+            src="/media/routine.jpg?v=landscape-20261009"
             alt={text(
               locale,
               c(
@@ -54,8 +54,8 @@ export function EvidenceArt() {
                 "Conversación grabada con su ejemplo de reserva en Google Calendar",
               ),
             )}
-            width={1080}
-            height={1920}
+            width={1920}
+            height={1080}
             priority
             sizes="(max-width: 600px) 210px, 260px"
           />
