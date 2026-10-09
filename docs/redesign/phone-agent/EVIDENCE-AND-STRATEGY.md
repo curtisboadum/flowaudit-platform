@@ -73,3 +73,8 @@ Use generic campaign labels, not names, emails or phone numbers, in UTM values. 
 ## User-approved horizontal reformat · 9 October 2026
 
 The user corrected the orientation requirement to horizontal and confirmed the actual film reformat. The four website films now use a native 1920×1080 layout with the same content/timing, exact approved encoded audio packets, one baked English caption layer, and unchanged VTT/transcripts. Source footage uses the same approved genuine panels arranged horizontally; no new product pixels, dialogue, claims or music were generated. Original portrait exports are retained in the separate handoff. See [encoded media checks](../evidence/customer-audit/landscape-media-checks.json) and the source at `video/landscape/`.
+
+
+## Approved 90-second treatment
+
+Owners remain the primary audience, with concise group approval relevance. The user approved replacing the old hypothetical arithmetic with a sourced US exam/cleaning/X-ray patient-cost range, explicitly distinguished from collections, profit and FlowAudit results. The complete routine demonstration is separate; the optional five-minute walkthrough retains the configured-question excerpt. The overview states all critical compatibility, data/security, urgent-call and commercial-sequence limits. See the adjacent coverage matrix for exactly what is condensed or relocated; do not claim it contains the original demonstration dialogue.

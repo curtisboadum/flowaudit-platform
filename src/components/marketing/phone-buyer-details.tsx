@@ -92,7 +92,7 @@ export function PhoneBuyerDetails() {
     <>
       <section className="fa-container fa-section">
         <SectionHeading
-          number="04"
+          number="05"
           label={c("Built around your decision", "En torno a tu decisión")}
           title={c(
             "The right questions,\nfor the people doing the work.",

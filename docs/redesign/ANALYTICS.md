@@ -30,3 +30,8 @@ Cal payload shapes were checked against the [official webhook documentation](htt
 Cal bookingSuccessfulV2 is used only for UI feedback: a nonempty booking UID with ACCEPTED status and no required payment shows provider-confirmed wording; other statuses are described as requests. This browser event never writes a booked conversion. Signed server delivery and durable storage remain required for booking measurement. Cal documents that a successful booking event may still be unconfirmed: https://cal.com/help/embedding/embed-events.
 
 Chapter controls are now always visible. Selecting a chapter resets the watched-coverage sampling baseline before and after seeking and preserves playback state. Highlighting the current chapter does not emit a conversion or change the event interface.
+
+
+## 90-second overview
+
+`overview` is a distinct allowed media identity. `main` continues to identify the preserved five-minute walkthrough; historical starts/milestones are not re-labelled. Three overview chapters seek to 0/38/64 seconds and reset watched sampling without counting the jump. Native playback of one film pauses other page films; collapsing the optional detail section pauses its film. Existing consent, interval-union coverage and 95% completion semantics remain unchanged. Public client booking events still do not establish a confirmed booking, attendance or revenue.

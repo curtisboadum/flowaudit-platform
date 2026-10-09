@@ -21,3 +21,8 @@ Current phone-funnel implementation, verification and release requirements: [han
 Customer UI audit follow-up: [control register](CUSTOMER-JOURNEY-AUDIT.md), [fresh sanitized provider probes](evidence/customer-audit/integrations.json). Real Cal date, timezone and slot selection reached attendee details without submission; synthetic optional context was visible in direct Cal notes. This proves observable forwarding, not receipt in a durable booking record. Cal account settings required sign-in. No notifications or bookings were created.
 
 The user corrected the film-format requirement to horizontal and confirmed a true 16:9 reformat. Four public films now render at 1920×1080 using the established Remotion route. Approved audio packets, timing, transcripts and caption content are preserved. Portrait evidence remains historical; replacement landscape checks are in the customer audit.
+
+
+## Overview replacement
+
+The primary phone-agent film is now a separate 90-second `overview` asset. The genuine routine recording and five-minute walkthrough retain their media identities and source integrity. This change does not configure calendar webhooks, CRM delivery, provider credentials, communications or production activation. Previously recorded external integration gaps remain open; no booking has been submitted to resolve them.

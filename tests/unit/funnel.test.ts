@@ -33,6 +33,15 @@ beforeEach(() => {
   }
 });
 describe("Privacy and funnel validation", () => {
+  it("keeps overview analytics distinct from the historical walkthrough", () => {
+    expect(parseFunnel({ ...valid, event: "video_start", mediaId: "overview" })?.mediaId).toBe(
+      "overview",
+    );
+    expect(parseFunnel({ ...valid, event: "video_start", mediaId: "main" })?.mediaId).toBe("main");
+    expect(
+      parseFunnel({ ...valid, event: "video_start", mediaId: "unknown" })?.mediaId,
+    ).toBeUndefined();
+  });
   it("drops unapproved attribution fields and rejects internal paths", () => {
     expect(parseFunnel(valid)?.attribution).toEqual({ utm_source: "test" });
     expect(parseFunnel({ ...valid, path: "/crm" })).toBeNull();

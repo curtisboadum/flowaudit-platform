@@ -45,3 +45,8 @@ Named accessible Codex, ChatGPT and local OpenCode sources are listed in the evi
 The user subsequently corrected the VSL requirement to horizontal and confirmed the reformat. The established Remotion source now renders true 1920×1080 films, rather than stretching or enclosing portrait films in a wide player. Source panels are the previously approved genuine pixel crops, rearranged horizontally. Captions sit above the native-control area, and the same VTT/transcript/chapter timings remain. Encoded audio packets match the approved originals exactly. [Media checks](../evidence/customer-audit/landscape-media-checks.json) and [editable source](../../../video/landscape/README.md).
 
 The player uses full available content width, with visible chapters immediately below and a two-column chapter list on desktop. Fullscreen remains available. At narrow mobile widths captions are approximately 12–13px; fine demonstration UI details benefit from fullscreen, and the full transcript remains available. No production release or real booking was performed.
+
+
+## 90-second primary overview · superseding media arrangement
+
+The approved `Overview90` composition replaces the five-minute film as the primary introduction. `main` remains the optional detailed walkthrough; `routine` is a separate full recording at `/phone-agent#booking-recording`; `summary` remains available under More detail. The primary stays at `#demo`. See `OVERVIEW-COVERAGE.md` and `APPOINTMENT-VALUE-RESEARCH.md`. Runtime labels, primary transcript/VTT/poster, VideoObject duration and English/Spanish interface copy have been updated. Source and reproducible rendering remain in `video/landscape/`; original masters are unchanged. Human listening review remains an explicit limitation.

@@ -1,0 +1,20 @@
+FlowAudit · 90-second overview · English
+
+When your dental front desk is busy or closed, an appointment enquiry can end before anyone helps.
+
+Flow Audit is an AI phone agent supporting your team through agreed workflows. The separate recording below shows an enquiry, available times and a Google Calendar booking, with privacy beeps and edited labels. It's demonstration evidence, not customer results.
+
+Published US exam, cleaning and X-ray costs range from fifty to three hundred fifty dollars. That's a fee benchmark, not a revenue forecast. Use your own attendance, collections and costs. Missed calls aren't automatically lost patients.
+
+Your scheduling system, appointment types and forwarding need checking. Compatibility, patient-data and security requirements must be resolved before proceeding.
+
+Urgent calls follow practice-approved escalation and human-handoff rules. The recorded question doesn't establish validated clinical triage or a completed emergency handoff. Clinical judgment stays with your team.
+
+Agree scope and investment first. Agreement and initial payment start configuration, followed by testing with your team. Practice approval comes before activation.
+
+Book a fifteen-minute demo and fit assessment. Bring your purchasing decision-maker. Groups should include relevant approvers. We'll discuss requirements, investment and the next decision.
+
+Source note: The $50–$350 range is published US patient-cost context for a routine exam with cleaning and X-rays, from CareCredit's 2023 Synchrony/ASQ360 study. It is not a measure of practice collections, profit, future treatment or FlowAudit results, and is not a 2026 price survey. Actual fees vary by provider, location and included services. Use your practice's attended visits, collections and costs.
+Source: https://www.carecredit.com/dentistry/costs/
+
+The genuine booking recording is separate: /phone-agent#booking-recording. The configured urgent-call question is in the optional detailed walkthrough. Neither proves clinical validation or a completed emergency handoff.

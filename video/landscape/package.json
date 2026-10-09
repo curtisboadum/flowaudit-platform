@@ -5,7 +5,8 @@
     "studio": "remotion studio",
     "typecheck": "tsc --noEmit",
     "prepare:audio": "python3 prepare.py",
-    "render": "python3 render.py"
+    "render": "python3 render.py",
+    "render:overview": "python3 render_overview.py"
   },
   "dependencies": {
     "@remotion/cli": "4.0.534",

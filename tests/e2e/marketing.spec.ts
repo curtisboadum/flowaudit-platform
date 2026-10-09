@@ -75,8 +75,9 @@ test("Calendar is immediate; optional context retains drafts and attribution", a
 });
 test("Video is user initiated and film tabs support keyboard", async ({ page }) => {
   await page.goto("/phone-agent");
-  await expect(page.locator("video")).toHaveAttribute("preload", "none");
-  expect(await page.locator("video").getAttribute("autoplay")).toBeNull();
+  await expect(page.locator('video[data-media-id="overview"]')).toHaveAttribute("preload", "none");
+  expect(await page.locator('video[data-media-id="overview"]').getAttribute("autoplay")).toBeNull();
+  await page.getByText("More detail: walkthrough and executive overview", { exact: true }).click();
   const first = page.getByRole("tab", { name: /full walkthrough/ });
   await first.focus();
   await first.press("End");
@@ -84,8 +85,13 @@ test("Video is user initiated and film tabs support keyboard", async ({ page }) 
     "aria-selected",
     "true",
   );
-  await page.getByText("Read the full transcript (English)").click();
-  await expect(page.locator(".fa-media-context .fa-transcript div")).toBeVisible();
+  await page
+    .locator('video[data-media-id="summary"]')
+    .locator("..")
+    .locator("..")
+    .getByText("Read the full transcript (English)")
+    .click();
+  await expect(page.locator(".fa-media-context .fa-transcript div:visible")).toHaveCount(1);
 });
 test("Optional analytics sends nothing before consent and stops after decline", async ({
   page,
@@ -155,8 +161,8 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   });
   await page.goto("/phone-agent");
   await page.getByRole("button", { name: "Allow analytics" }).click();
-  const video = page.locator("video");
-  await expect(video).toHaveAttribute("data-media-id", "main");
+  const video = page.locator('video[data-media-id="overview"]');
+  await expect(video).toHaveAttribute("data-media-id", "overview");
   await video.evaluate((node: HTMLVideoElement) => {
     node.muted = true;
     return node.play();
@@ -164,7 +170,7 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
     .toBeGreaterThan(1);
-  expect(await video.evaluate((node: HTMLVideoElement) => node.duration)).toBeCloseTo(300, 0);
+  expect(await video.evaluate((node: HTMLVideoElement) => node.duration)).toBeCloseTo(90, 0);
   expect(
     await video.evaluate((node: HTMLVideoElement) => [node.videoWidth, node.videoHeight]),
   ).toEqual([1920, 1080]);
@@ -172,17 +178,16 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   await video.evaluate((node: HTMLVideoElement) => node.play());
   await expect.poll(() => events.filter((event) => event === "video_start").length).toBe(1);
   await expect(page.getByRole("navigation", { name: "Film chapters" })).toBeVisible();
-  await page.getByRole("button", { name: /Your 15-minute call/ }).click();
+  await page.getByRole("button", { name: /Setup and your next step/ }).click();
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
-    .toBeGreaterThan(267);
+    .toBeGreaterThan(63.9);
   expect(events.filter((event) => /^video_(25|50|75|complete)$/.test(event))).toEqual([]);
   await video.evaluate((node: HTMLVideoElement) => node.pause());
   await expect(video.locator("track")).toHaveCount(0);
-  await expect(page.getByRole("link", { name: "Download captions" })).toHaveAttribute(
-    "href",
-    "/media/main.vtt",
-  );
+  await expect(
+    page.locator("#demo").getByRole("link", { name: "Download captions" }),
+  ).toHaveAttribute("href", "/media/overview.vtt");
 });
 
 test("Provider readiness and booking status are distinct; no client booking conversion is emitted", async ({
@@ -248,11 +253,14 @@ test("Unavailable video and calendar expose recovery options", async ({ page }) 
   await page.route("**/media/*.mp4", (r) => r.abort());
   await page.goto("/phone-agent");
   await page
-    .locator("video")
+    .locator('video[data-media-id="overview"]')
     .evaluate((node: HTMLVideoElement) => void node.play().catch(() => {}));
   await expect(page.locator(".fa-media-context [role=alert]")).toContainText("Video unavailable");
-  await page.getByText("Read the full transcript (English)", { exact: true }).click();
-  await expect(page.locator(".fa-media-context .fa-transcript div")).toBeVisible();
+  await page
+    .locator("#demo")
+    .getByText("Read the full transcript (English)", { exact: true })
+    .click();
+  await expect(page.locator(".fa-media-context .fa-transcript div:visible")).toHaveCount(1);
   await page.route("**/embed/embed.js", (r) => r.abort());
   await page.goto("/book?service=phone-agent");
   await expect(page.getByRole("link", { name: /Open the booking page/ })).toBeVisible();
@@ -263,14 +271,16 @@ test("Landscape evidence uses comfortable viewing width across breakpoints", asy
   await page.goto("/phone-agent");
   for (const width of [360, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    const box = await page.locator("video").boundingBox();
+    const box = await page.locator('video[data-media-id="overview"]').boundingBox();
     expect(box).not.toBeNull();
     expect(box!.width).toBeGreaterThanOrEqual(width < 768 ? width - 44 : width < 1024 ? 650 : 900);
     expect(box!.height / box!.width).toBeCloseTo(9 / 16, 2);
     await expect(page.getByRole("navigation", { name: "Film chapters" })).toBeVisible();
-    expect(await page.locator("video").evaluate((node) => getComputedStyle(node).objectFit)).toBe(
-      "contain",
-    );
+    expect(
+      await page
+        .locator('video[data-media-id="overview"]')
+        .evaluate((node) => getComputedStyle(node).objectFit),
+    ).toBe("contain");
   }
   await page.goto("/");
   const poster = page.locator(".fa-art-screen img");
@@ -305,8 +315,8 @@ test("Generic booking keeps service editable after selecting the phone offer", a
 test("Chapters preserve paused state and work before first playback", async ({ page }) => {
   await page.goto("/phone-agent");
   await page.getByRole("button", { name: "Keep analytics off" }).click();
-  const video = page.locator("video");
-  await page.getByRole("button", { name: /Recorded booking/ }).click();
+  const video = page.locator('video[data-media-id="overview"]');
+  await page.getByRole("button", { name: /Requirements and boundaries/ }).click();
   expect(await video.evaluate((node: HTMLVideoElement) => node.paused)).toBe(true);
   await video.evaluate((node: HTMLVideoElement) => {
     node.muted = true;
@@ -314,15 +324,15 @@ test("Chapters preserve paused state and work before first playback", async ({ p
   });
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
-    .toBeGreaterThan(92);
+    .toBeGreaterThan(38);
   await video.evaluate((node: HTMLVideoElement) => node.pause());
-  await page.getByRole("button", { name: /Illustrative value/ }).click();
+  await page.getByRole("button", { name: /Offer and evidence/ }).click();
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
-    .toBeCloseTo(51.533333, 1);
+    .toBeCloseTo(0, 1);
   expect(await video.evaluate((node: HTMLVideoElement) => node.paused)).toBe(true);
-  await expect(page.locator('.fa-chapters button[aria-current="true"]')).toContainText(
-    "Illustrative value",
+  await expect(page.locator('#demo .fa-chapters button[aria-current="true"]')).toContainText(
+    "Offer and evidence",
   );
 });
 
@@ -330,10 +340,49 @@ test("Slow media offers transcript and optional booking recovery", async ({ page
   await page.goto("/phone-agent");
   await page.getByRole("button", { name: "Keep analytics off" }).click();
   await page.clock.install();
-  await page.locator("video").dispatchEvent("waiting");
+  await page.locator('video[data-media-id="overview"]').dispatchEvent("waiting");
   await page.clock.fastForward(8100);
   await expect(page.getByRole("status")).toContainText("Video loading slowly");
-  await page.getByText("Read the full transcript (English)", { exact: true }).click();
-  await expect(page.locator(".fa-media-context .fa-transcript div")).toBeVisible();
+  await page
+    .locator("#demo")
+    .getByText("Read the full transcript (English)", { exact: true })
+    .click();
+  await expect(page.locator(".fa-media-context .fa-transcript div:visible")).toHaveCount(1);
   await expect(page.getByRole("link", { name: "Book a demo & fit assessment" })).toBeVisible();
+});
+
+test("Overview and genuine demo have reciprocal links, independent playback and unique IDs", async ({
+  page,
+}) => {
+  await page.goto("/phone-agent");
+  await page.getByRole("button", { name: "Keep analytics off" }).click();
+  const overview = page.locator('video[data-media-id="overview"]');
+  const routine = page.locator('video[data-media-id="routine"]');
+  await page.getByRole("link", { name: "Watch the genuine booking recording" }).click();
+  await expect(page).toHaveURL(/#booking-recording$/);
+  await routine.evaluate((v: HTMLVideoElement) => {
+    v.muted = true;
+    return v.play();
+  });
+  await expect
+    .poll(() => routine.evaluate((v: HTMLVideoElement) => v.currentTime))
+    .toBeGreaterThan(0);
+  await page.getByRole("link", { name: "Back to the 90-second overview" }).click();
+  await expect(page).toHaveURL(/#demo$/);
+  await overview.evaluate((v: HTMLVideoElement) => {
+    v.muted = true;
+    return v.play();
+  });
+  await expect.poll(() => routine.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+  await overview.evaluate((v: HTMLVideoElement) => v.pause());
+  await page.getByText("More detail: walkthrough and executive overview", { exact: true }).click();
+  await expect(page.getByRole("button", { name: /Recorded booking/ })).toBeVisible();
+  const ids = await page.locator("[id]").evaluateAll((nodes) => nodes.map((n) => n.id));
+  expect(ids.length).toBe(new Set(ids).size);
+  for (const media of ["overview", "routine", "main"]) {
+    const response = await page.request.get(`/media/${media}.vtt`);
+    expect(response.ok()).toBe(true);
+    expect(await response.text()).toContain("WEBVTT");
+    expect((await page.request.get(`/media/${media}-transcript.txt`)).ok()).toBe(true);
+  }
 });

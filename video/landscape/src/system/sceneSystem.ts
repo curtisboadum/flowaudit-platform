@@ -1,4 +1,5 @@
 export const system = {
+ overview:{headlineSize:94,headlineTop:420,eyebrowTop:350,headlineWidth:800,graphicTop:350,cardPadding:22,cardGap:14,itemSize:50,numberSize:100,noteSize:38,noteTop:790,captionTop:160,captionHeight:150,captionSize:70,entryDistance:45,ctaSize:54},
  bg:'#F7F5F3',ink:'#37322F',muted:'#605A57',paper:'#FFFFFF',surface:'#F0EDEB',line:'rgba(55,50,47,0.14)',dark:'#101112',
  fonts:{sans:'FlowInter',serif:'FlowSerif'},
  type:{brand:54,eyebrow:28,headline:104,headlineWeight:400,body:46,label:30,data:90,caption:74,disclosure:22},

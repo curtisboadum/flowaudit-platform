@@ -79,18 +79,18 @@ export function OfferPage({ service }: { service: ServiceId }) {
             <div className="fa-container fa-section">
               <SectionHeading
                 number="01"
-                label={c("See the evidence", "Ver la evidencia")}
+                label={c("The offer in 90 seconds", "La oferta en 90 segundos")}
                 title={c(
-                  "Hear it work.\nThen ask the right questions.",
-                  "Escucha cómo funciona.\nDespués pregunta lo importante.",
+                  "Understand the offer.\nSee if it fits.",
+                  "Entiende la oferta.\nValora si encaja.",
                 )}
                 body={c(
-                  "A new-patient enquiry, available appointment times and a confirmed Google Calendar booking are visible in the recording. Privacy beeps and edited demonstration labels are disclosed. This is recorded product evidence, not a customer result.",
-                  "La grabación muestra una consulta de un paciente nuevo, horarios disponibles y una reserva confirmada en Google Calendar. Se indican los pitidos de privacidad y las etiquetas editadas. Es evidencia grabada del producto, no un resultado de cliente.",
+                  "Start with the 90-second overview: what FlowAudit does, what needs checking and how to proceed. The genuine booking demonstration is in its own section below.",
+                  "Empieza con el resumen de 90 segundos: qué hace FlowAudit, qué hay que comprobar y cómo avanzar. La demostración real de reserva tiene su propia sección más abajo.",
                 )}
               />
 
-              <MediaPlayer film="main" switchable compact />
+              <MediaPlayer film="overview" compact />
               <div className="fa-media-cta">
                 <p>
                   {text(
@@ -105,9 +105,45 @@ export function OfferPage({ service }: { service: ServiceId }) {
               </div>
             </div>
           </section>
-          <section className="fa-container fa-section">
+          <section className="fa-container fa-section" id="booking-recording">
             <SectionHeading
               number="02"
+              label={c("The genuine recording", "La grabación real")}
+              title={c(
+                "Hear the call.\nExamine the booking.",
+                "Escucha la llamada.\nExamina la reserva.",
+              )}
+              body={c(
+                "The complete recorded routine demonstration: a new-patient enquiry, appointment choices and a Google Calendar booking. Privacy beeps and edited labels are retained. This is product evidence, not a customer result.",
+                "La demostración habitual completa: una consulta de paciente nuevo, horarios disponibles y una reserva en Google Calendar. Se conservan los pitidos de privacidad y las etiquetas editadas. Es evidencia del producto, no un resultado de cliente.",
+              )}
+            />
+            <MediaPlayer film="routine" compact />
+            <div className="fa-media-cta">
+              <BookLink service="phone-agent" />
+            </div>
+            <details
+              className="fa-transcript"
+              onToggle={(event) => {
+                if (!event.currentTarget.open)
+                  event.currentTarget.querySelectorAll("video").forEach((video) => video.pause());
+              }}
+            >
+              <summary>
+                {text(
+                  locale,
+                  c(
+                    "More detail: walkthrough and executive overview",
+                    "Más detalles: explicación completa y resumen ejecutivo",
+                  ),
+                )}
+              </summary>
+              <MediaPlayer film="main" switchable compact choices={["main", "summary"]} />
+            </details>
+          </section>
+          <section className="fa-container fa-section">
+            <SectionHeading
+              number="03"
               label={c("Follow the call", "Seguir la llamada")}
               title={c(
                 "A visible path\nfrom enquiry to confirmation.",
@@ -166,7 +202,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
       )}
       <section className="fa-container fa-section">
         <SectionHeading
-          number={phone ? "03" : "01"}
+          number={phone ? "04" : "01"}
           label={c("What the engagement involves", "Qué implica el trabajo")}
           title={c(
             "A defined scope.\nAn accountable next step.",
@@ -217,7 +253,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
         </section>
       )}
       {phone && <PhoneBuyerDetails />}
-      <Process compact number={phone ? "05" : "03"} />
+      <Process compact number={phone ? "06" : "03"} />
       <FaqSection items={offer.faq} />
       <Closing service={service} />
     </>

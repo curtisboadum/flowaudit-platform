@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
 import { c, text } from "@/lib/marketing-copy";
 import { mediaTranscripts } from "@/lib/media-transcripts";
@@ -10,7 +10,7 @@ import {
   watchedCoverage,
 } from "@/lib/funnel-client";
 
-const chapters = [
+const detailedChapters = [
   [0, c("The offer", "La oferta")],
   [51.533333, c("Illustrative value", "Valor ilustrativo")],
   [92, c("Recorded booking", "Reserva grabada")],
@@ -20,7 +20,13 @@ const chapters = [
   [267.133333, c("Your 15-minute call", "Tu llamada de 15 minutos")],
 ] as const;
 
+const overviewChapters = [
+  [0, c("Offer and evidence", "Oferta y evidencia")],
+  [38, c("Requirements and boundaries", "Requisitos y límites")],
+  [64, c("Setup and your next step", "Configuración y siguiente paso")],
+] as const;
 const films = {
+  overview: { label: c("The 90-second overview", "Resumen de 90 segundos"), duration: "1:30" },
   routine: { label: c("Booking demonstration", "Demostración de reserva"), duration: "1:31" },
   main: { label: c("The full walkthrough", "La explicación completa"), duration: "5:00" },
   summary: { label: c("Executive overview", "Resumen ejecutivo"), duration: "1:08" },
@@ -31,12 +37,15 @@ export function MediaPlayer({
   film = "routine",
   switchable = false,
   compact = false,
+  choices,
 }: {
   film?: Film;
   switchable?: boolean;
   compact?: boolean;
+  choices?: Film[];
 }) {
   const { locale } = useLocale();
+  const playerId = useId().replace(/:/g, "");
   const [active, setActive] = useState<Film>(film);
   const [position, setPosition] = useState(0);
   const [error, setError] = useState(false);
@@ -52,7 +61,9 @@ export function MediaPlayer({
   }, [buffering]);
   const current = films[active];
   const videoRef = useRef<HTMLVideoElement>(null);
-  const keys = (compact ? ["main", "routine", "summary"] : Object.keys(films)) as Film[];
+  const keys = choices ?? (Object.keys(films) as Film[]);
+  const chapters =
+    active === "overview" ? overviewChapters : active === "main" ? detailedChapters : [];
   return (
     <div className={`fa-media-shell ${compact ? "fa-media-compact" : ""}`}>
       {switchable && (
@@ -63,10 +74,10 @@ export function MediaPlayer({
         >
           {keys.map((key, i) => (
             <button
-              id={`tab-${key}`}
+              id={`${playerId}-tab-${key}`}
               role="tab"
               aria-selected={active === key}
-              aria-controls="film-panel"
+              aria-controls={`${playerId}-film-panel`}
               tabIndex={active === key ? 0 : -1}
               key={key}
               onClick={() => {
@@ -91,7 +102,7 @@ export function MediaPlayer({
                     setPosition(0);
                     setError(false);
                     setBuffering(false);
-                    document.getElementById(`tab-${key}`)?.focus();
+                    document.getElementById(`${playerId}-tab-${key}`)?.focus();
                   }
                 }
               }}
@@ -105,8 +116,8 @@ export function MediaPlayer({
       <div
         className="fa-media-layout"
         role={switchable ? "tabpanel" : undefined}
-        id={switchable ? "film-panel" : undefined}
-        aria-labelledby={switchable ? `tab-${active}` : undefined}
+        id={switchable ? `${playerId}-film-panel` : undefined}
+        aria-labelledby={switchable ? `${playerId}-tab-${active}` : undefined}
       >
         <div className="fa-player-frame">
           <video
@@ -128,6 +139,9 @@ export function MediaPlayer({
             onStalled={() => setBuffering(true)}
             onPlaying={() => setBuffering(false)}
             onPlay={(e) => {
+              document.querySelectorAll("video").forEach((other) => {
+                if (other !== e.currentTarget) other.pause();
+              });
               resetWatchBaseline(e.currentTarget);
               recordEventOnce("video_start", { mediaId: active, service: "phone-agent" });
             }}
@@ -158,7 +172,12 @@ export function MediaPlayer({
         </div>
         <div className="fa-media-context">
           <p className="fa-eyebrow">
-            {text(locale, c("Recorded evidence", "Evidencia grabada"))}{" "}
+            {text(
+              locale,
+              active === "overview"
+                ? c("The offer in 90 seconds", "La oferta en 90 segundos")
+                : c("Recorded evidence", "Evidencia grabada"),
+            )}{" "}
             <span>{current.duration}</span>
           </p>
           {!compact && (
@@ -178,8 +197,12 @@ export function MediaPlayer({
             {text(
               locale,
               c(
-                "The routine example shows a conversation, offered appointment times and a Google Calendar booking. It is a demonstration, not a customer result.",
-                "El ejemplo habitual muestra una conversación, horarios disponibles y una reserva en Google Calendar. Es una demostración, no un resultado de cliente.",
+                active === "overview"
+                  ? "The offer, evidence limits, requirements and buying decision. Examine the genuine booking in the separate recording below."
+                  : "The routine example shows a conversation, offered appointment times and a Google Calendar booking. It is a demonstration, not a customer result.",
+                active === "overview"
+                  ? "La oferta, los límites de la evidencia, los requisitos y la decisión de compra. Examina la reserva real en la grabación separada de abajo."
+                  : "El ejemplo habitual muestra una conversación, horarios disponibles y una reserva en Google Calendar. Es una demostración, no un resultado de cliente.",
               ),
             )}
           </p>
@@ -234,7 +257,7 @@ export function MediaPlayer({
               )}
             </p>
           )}
-          {active === "main" && (
+          {chapters.length > 0 && (
             <nav
               className="fa-chapters"
               aria-label={text(locale, c("Film chapters", "Capítulos del vídeo"))}
@@ -281,6 +304,26 @@ export function MediaPlayer({
               </ol>
             </nav>
           )}
+          <div className="fa-media-links">
+            {active === "overview" ? (
+              <a href="/phone-agent#booking-recording">
+                {text(
+                  locale,
+                  c("Watch the genuine booking recording", "Ver la grabación real de la reserva"),
+                )}
+              </a>
+            ) : active === "routine" ? (
+              <a href="/phone-agent#demo">
+                {text(
+                  locale,
+                  c("Back to the 90-second overview", "Volver al resumen de 90 segundos"),
+                )}
+              </a>
+            ) : null}
+            <a href={`/media/${active}-transcript.txt`} download>
+              {text(locale, c("Download transcript (English)", "Descargar transcripción (inglés)"))}
+            </a>
+          </div>
           <details className="fa-transcript">
             <summary>
               {text(

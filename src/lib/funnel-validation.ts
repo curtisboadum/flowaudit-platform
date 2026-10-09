@@ -43,7 +43,8 @@ export function parseFunnel(body: unknown) {
         attribution[key] = value;
     }
   const mediaId =
-    typeof r.mediaId === "string" && ["routine", "main", "summary", "teaser"].includes(r.mediaId)
+    typeof r.mediaId === "string" &&
+    ["overview", "routine", "main", "summary", "teaser"].includes(r.mediaId)
       ? r.mediaId
       : undefined;
   return {

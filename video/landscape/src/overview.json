@@ -1,0 +1,281 @@
+{
+  "duration": 2700,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "audio": "audio/overview/mix.wav",
+  "segments": [
+    {
+      "from": 0,
+      "duration": 210,
+      "voiceFrom": 0.2,
+      "text": "When your dental front desk is busy or closed, an appointment enquiry can end before anyone helps.",
+      "visual": {
+        "eyebrow": "WHEN PATIENTS CALL",
+        "headline": "Give them a clear next step.",
+        "items": [
+          "Busy at the desk",
+          "Another call",
+          "After closing"
+        ],
+        "note": "Use your own call records: enquiries \u2192 bookings \u2192 attendance"
+      }
+    },
+    {
+      "from": 210,
+      "duration": 495,
+      "voiceFrom": 7,
+      "text": "Flow Audit is an AI phone agent supporting your team through agreed workflows. The separate recording below shows an enquiry, available times and a Google Calendar booking, with privacy beeps and edited labels. It's demonstration evidence, not customer results.",
+      "visual": {
+        "eyebrow": "THE OFFER & THE EVIDENCE",
+        "headline": "Support for your team.",
+        "items": [
+          "New-patient enquiry",
+          "Offer available times",
+          "Create the agreed booking"
+        ],
+        "note": "Watch the separate booking recording on this page \u00b7 Demonstration, not customer results"
+      }
+    },
+    {
+      "from": 705,
+      "duration": 435,
+      "voiceFrom": 23.5,
+      "text": "Published US exam, cleaning and X-ray costs range from fifty to three hundred fifty dollars. That's a fee benchmark, not a revenue forecast. Use your own attendance, collections and costs. Missed calls aren't automatically lost patients.",
+      "visual": {
+        "eyebrow": "ASSESS YOUR OPPORTUNITY",
+        "headline": "Use your own figures.",
+        "benchmark": true,
+        "items": [],
+        "note": "Actual value depends on attendance, treatment and collections, before costs"
+      }
+    },
+    {
+      "from": 1140,
+      "duration": 360,
+      "voiceFrom": 38,
+      "text": "Your scheduling system, appointment types and forwarding need checking. Compatibility, patient-data and security requirements must be resolved before proceeding.",
+      "visual": {
+        "eyebrow": "BEFORE PROCEEDING",
+        "headline": "Check the fit first.",
+        "items": [
+          "Scheduling & appointment types",
+          "Phone forwarding",
+          "Patient data & security"
+        ],
+        "note": "Compatibility is assessed for your practice; every system is not promised."
+      }
+    },
+    {
+      "from": 1500,
+      "duration": 420,
+      "voiceFrom": 50,
+      "text": "Urgent calls follow practice-approved escalation and human-handoff rules. The recorded question doesn't establish validated clinical triage or a completed emergency handoff. Clinical judgment stays with your team.",
+      "visual": {
+        "eyebrow": "RULES & BOUNDARIES",
+        "headline": "Your team approves the rules.",
+        "items": [
+          "Practice-approved escalation",
+          "Agreed human handoffs",
+          "Clinical judgment stays human"
+        ],
+        "note": "Question excerpt in the detailed walkthrough: not validated triage or a completed emergency handoff"
+      }
+    },
+    {
+      "from": 1920,
+      "duration": 390,
+      "voiceFrom": 64,
+      "text": "Agree scope and investment first. Agreement and initial payment start configuration, followed by testing with your team. Practice approval comes before activation.",
+      "visual": {
+        "eyebrow": "WHAT PURCHASING INVOLVES",
+        "headline": "Agree. Configure. Test. Approve.",
+        "items": [
+          "Agreement & initial payment",
+          "Configuration \u2192 team testing",
+          "Practice approval \u2192 activation"
+        ],
+        "note": "Confirm deliverable scope, requirements and investment before proceeding"
+      }
+    },
+    {
+      "from": 2310,
+      "duration": 390,
+      "voiceFrom": 77,
+      "text": "Book a fifteen-minute demo and fit assessment. Bring your purchasing decision-maker. Groups should include relevant approvers. We'll discuss requirements, investment and the next decision.",
+      "visual": {
+        "eyebrow": "YOUR NEXT STEP",
+        "headline": "Book a 15-minute demo & fit assessment.",
+        "items": [
+          "Bring the purchasing decision-maker",
+          "Groups: include relevant approvers",
+          "flowaudit.co.uk/book \u2197"
+        ],
+        "cta": true,
+        "note": "Requirements \u00b7 Scope \u00b7 Implementation \u00b7 Investment \u00b7 The next decision"
+      }
+    }
+  ],
+  "captions": [
+    {
+      "from": 0,
+      "to": 106,
+      "text": "When your dental front desk is busy or closed, an"
+    },
+    {
+      "from": 106,
+      "to": 191,
+      "text": "appointment enquiry can end before anyone helps."
+    },
+    {
+      "from": 226,
+      "to": 325,
+      "text": "Flow Audit is an AI phone agent supporting your team"
+    },
+    {
+      "from": 325,
+      "to": 356,
+      "text": "through agreed workflows."
+    },
+    {
+      "from": 378,
+      "to": 436,
+      "text": "The separate recording below shows an enquiry,"
+    },
+    {
+      "from": 458,
+      "to": 539,
+      "text": "available times and a Google Calendar booking, with"
+    },
+    {
+      "from": 539,
+      "to": 586,
+      "text": "privacy beeps and edited labels."
+    },
+    {
+      "from": 610,
+      "to": 640,
+      "text": "It's demonstration evidence,"
+    },
+    {
+      "from": 661,
+      "to": 691,
+      "text": "not customer results."
+    },
+    {
+      "from": 711,
+      "to": 806,
+      "text": "Published US exam, cleaning and X-ray costs range from"
+    },
+    {
+      "from": 806,
+      "to": 859,
+      "text": "$50 to $350."
+    },
+    {
+      "from": 859,
+      "to": 959,
+      "text": "That's a fee benchmark, not a revenue forecast."
+    },
+    {
+      "from": 979,
+      "to": 1043,
+      "text": "Use your own attendance, collections and costs."
+    },
+    {
+      "from": 1063,
+      "to": 1124,
+      "text": "Missed calls aren't automatically lost patients."
+    },
+    {
+      "from": 1141,
+      "to": 1199,
+      "text": "Your scheduling system, appointment types and"
+    },
+    {
+      "from": 1199,
+      "to": 1233,
+      "text": "forwarding need checking."
+    },
+    {
+      "from": 1246,
+      "to": 1335,
+      "text": "Compatibility, patient-data and security requirements"
+    },
+    {
+      "from": 1335,
+      "to": 1391,
+      "text": "must be resolved before proceeding."
+    },
+    {
+      "from": 1507,
+      "to": 1592,
+      "text": "Urgent calls follow practice-approved escalation and"
+    },
+    {
+      "from": 1592,
+      "to": 1620,
+      "text": "human-handoff rules."
+    },
+    {
+      "from": 1620,
+      "to": 1720,
+      "text": "The recorded question doesn't establish validated"
+    },
+    {
+      "from": 1720,
+      "to": 1804,
+      "text": "clinical triage or a completed emergency handoff."
+    },
+    {
+      "from": 1819,
+      "to": 1877,
+      "text": "Clinical judgment stays with your team."
+    },
+    {
+      "from": 1917,
+      "to": 1970,
+      "text": "Agree scope and investment first."
+    },
+    {
+      "from": 1988,
+      "to": 2056,
+      "text": "Agreement and initial payment start configuration,"
+    },
+    {
+      "from": 2084,
+      "to": 2128,
+      "text": "followed by testing with your team."
+    },
+    {
+      "from": 2146,
+      "to": 2212,
+      "text": "Practice approval comes before activation."
+    },
+    {
+      "from": 2301,
+      "to": 2389,
+      "text": "Book a 15-minute demo and fit assessment."
+    },
+    {
+      "from": 2389,
+      "to": 2458,
+      "text": "Bring your purchasing decision-maker."
+    },
+    {
+      "from": 2477,
+      "to": 2537,
+      "text": "Groups should include relevant approvers."
+    },
+    {
+      "from": 2555,
+      "to": 2638,
+      "text": "We'll discuss requirements, investment and the next"
+    },
+    {
+      "from": 2638,
+      "to": 2668,
+      "text": "decision."
+    }
+  ]
+}

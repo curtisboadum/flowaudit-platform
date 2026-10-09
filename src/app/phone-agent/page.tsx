@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { canonicalUrl } from "@/lib/seo";
 export const metadata = pageMetadata(
   "AI receptionist for dental practices",
-  "Watch the five-minute dental AI phone-agent walkthrough. Review booking evidence, setup requirements and investment, then book a 15-minute demo and fit assessment.",
+  "Watch the 90-second dental AI phone-agent overview. Review booking evidence, setup requirements and investment, then book a 15-minute demo and fit assessment.",
   "/phone-agent",
 );
 export default function Page() {
@@ -15,13 +15,13 @@ export default function Page() {
         data={{
           "@context": "https://schema.org",
           "@type": "VideoObject",
-          name: "FlowAudit dental phone-agent walkthrough",
+          name: "FlowAudit dental phone-agent 90-second overview",
           description:
-            "A recorded Google Calendar appointment-booking demonstration, implementation requirements and the next step for dental practices.",
-          thumbnailUrl: canonicalUrl("/media/main.jpg"),
-          contentUrl: canonicalUrl("/media/main.mp4"),
-          uploadDate: "2026-10-09T03:36:53+01:00",
-          duration: "PT5M",
+            "The offer, separate booking recording, evidence limits, implementation requirements and next step for dental practices.",
+          thumbnailUrl: canonicalUrl("/media/overview.jpg"),
+          contentUrl: canonicalUrl("/media/overview.mp4"),
+          uploadDate: "2026-10-09T15:08:57Z",
+          duration: "PT1M30S",
           inLanguage: "en",
         }}
       />
@@ -31,7 +31,7 @@ export default function Page() {
           "@type": "Service",
           name: "AI receptionist for dental practices",
           description:
-            "Watch the five-minute dental AI phone-agent walkthrough. Review booking evidence, setup requirements and investment, then book a 15-minute demo and fit assessment.",
+            "Watch the 90-second dental AI phone-agent overview. Review booking evidence, setup requirements and investment, then book a 15-minute demo and fit assessment.",
           url: canonicalUrl("/phone-agent"),
           provider: { "@type": "Organization", name: "FlowAudit", url: canonicalUrl("/") },
         }}

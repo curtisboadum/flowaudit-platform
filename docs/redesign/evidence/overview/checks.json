@@ -1,0 +1,21 @@
+{
+  "build": "pass",
+  "lint": "pass",
+  "host_typecheck": "pass",
+  "production_typecheck": "pass",
+  "unit_tests": {
+    "passed": 30
+  },
+  "browser": {
+    "startTime": "2026-10-09T15:16:22.538Z",
+    "duration": 17755.129,
+    "expected": 36,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "original_media_unchanged": true,
+  "timeline_sync": "7 beats, zero errors/warnings",
+  "human_listening_review": false,
+  "physical_device_test": false
+}
