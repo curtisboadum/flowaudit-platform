@@ -1,6 +1,6 @@
 # Phone-agent campaign funnel handoff · 9 October 2026
 
-Review in [PR #20](https://github.com/curtisboadum/flowaudit-platform/pull/20), branch `feat/premium-redesign`. Protected Git-connected preview: https://flowaudit-platform-git-feat-premium-redesign-curtisboadums-projects.vercel.app/phone-agent (Vercel sign-in may be required). Production release has not been performed.
+Review in [PR #20](https://github.com/curtisboadum/flowaudit-platform/pull/20), branch `feat/premium-redesign`. Protected Git-connected preview: https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/phone-agent (Vercel sign-in may be required). Production release has not been performed.
 
 ## Delivered
 
