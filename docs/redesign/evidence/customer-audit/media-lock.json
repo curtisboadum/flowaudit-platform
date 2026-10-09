@@ -1,0 +1,66 @@
+[
+  {
+    "film": "main",
+    "sha256": "bcd80c64f211e29f9188a09bdf46b35744fefc6a26ab8fefc964ba47b96b8fb9",
+    "approved_export_matches": true,
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1080,
+          "height": 1920,
+          "duration": "300.000000"
+        }
+      ]
+    }
+  },
+  {
+    "film": "summary",
+    "sha256": "47f51149e5838b6e6b386d411790c20ad1b0ca45a92c138b5993a66e8a8d1678",
+    "approved_export_matches": true,
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1080,
+          "height": 1920,
+          "duration": "67.500000"
+        }
+      ]
+    }
+  },
+  {
+    "film": "teaser",
+    "sha256": "67e495e83baa792a86840f0354d022e6b3dd69a8e48de89b5d91bf5e22929cd3",
+    "approved_export_matches": true,
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1080,
+          "height": 1920,
+          "duration": "30.000000"
+        }
+      ]
+    }
+  },
+  {
+    "film": "routine",
+    "sha256": "95254ab2a994ff8ccc2752b242e6adcf0fd9dda5aace07d593af3178f31cea02",
+    "approved_export_matches": true,
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1080,
+          "height": 1920,
+          "duration": "90.833333"
+        }
+      ]
+    }
+  }
+]

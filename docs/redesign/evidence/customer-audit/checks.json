@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-09T13:30:43.152028+00:00",
+  "build": "pass",
+  "lint": "pass",
+  "typecheck": "pass",
+  "unit": {
+    "passed": 29
+  },
+  "browser_deterministic": {
+    "passed": 35,
+    "live_smoke_skipped": 1
+  },
+  "accessibility": "Axe host offer and booking UI at 360,390,768,1024,1440: no violations; provider iframe excluded",
+  "simulations": [
+    "Cal callback readiness/request/accepted states",
+    "unavailable media and provider",
+    "slow video via waiting event and controlled clock"
+  ],
+  "unverified": [
+    "Real booking submission",
+    "Signed live webhook and durable booking storage",
+    "Attendance",
+    "Physical iOS/Safari/Android",
+    "Fresh end-to-end human audio listening review"
+  ]
+}
