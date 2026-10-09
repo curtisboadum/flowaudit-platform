@@ -37,7 +37,7 @@ export const CAL_TRIGGER_MAP: Record<string, string> = {
   BOOKING_RESCHEDULED: "rescheduled",
   MEETING_STARTED: "call_started",
   MEETING_ENDED: "call_held",
-  BOOKING_NO_SHOW_UPDATED: "no_show",
+  BOOKING_NO_SHOW_UPDATED: "no_show_updated",
 };
 
 export interface CalEvent {
@@ -47,6 +47,7 @@ export interface CalEvent {
   attendeeEmail: string;
   startTime: string;
   uid: string;
+  attribution: Record<string, string>;
 }
 
 export function parseSdrRef(ref: unknown): string | null {
@@ -76,14 +77,33 @@ export function mapCalWebhook(payload: unknown): CalEvent | null {
   if (typeof trigger !== "string") return null;
   const normalized = CAL_TRIGGER_MAP[trigger];
   if (!normalized) return null;
-  const inner = (record.payload ?? {}) as Record<string, unknown>;
+  if (
+    typeof record.payload !== "object" ||
+    record.payload === null ||
+    Array.isArray(record.payload)
+  )
+    return null;
+  const inner = record.payload as Record<string, unknown>;
   const eventTypeObj = (inner.eventType ?? {}) as Record<string, unknown>;
   const eventType = typeof eventTypeObj.slug === "string" ? eventTypeObj.slug : "";
   const attendees = Array.isArray(inner.attendees) ? inner.attendees : [];
-  const first = (attendees[0] ?? {}) as Record<string, unknown>;
+  const first =
+    typeof attendees[0] === "object" && attendees[0] !== null
+      ? (attendees[0] as Record<string, unknown>)
+      : {};
+  const metadata =
+    typeof inner.metadata === "object" && inner.metadata !== null
+      ? (inner.metadata as Record<string, unknown>)
+      : {};
+  const attribution: Record<string, string> = {};
+  for (const key of ["ref", "utm_source", "utm_medium", "utm_campaign", "service", "journeyId"]) {
+    const value = metadata[key];
+    if (typeof value === "string" && /^[a-zA-Z0-9_-]{1,100}$/.test(value)) attribution[key] = value;
+  }
   const attendeeEmail = typeof first.email === "string" ? first.email : "";
   return {
     normalized,
+    attribution,
     eventType,
     primary: eventType === CAL_PRIMARY_EVENT,
     attendeeEmail,
@@ -92,8 +112,12 @@ export function mapCalWebhook(payload: unknown): CalEvent | null {
   };
 }
 
-export function verifyCalSignature(rawBody: string, signatureHex: string | null, secret: string): boolean {
-  if (!signatureHex || !secret) return false;
+export function verifyCalSignature(
+  rawBody: string,
+  signatureHex: string | null,
+  secret: string,
+): boolean {
+  if (!signatureHex || !secret || !/^[a-f0-9]{64}$/i.test(signatureHex.trim())) return false;
   const expected = createHmac("sha256", secret).update(rawBody, "utf8").digest("hex");
   const a = Buffer.from(expected, "hex");
   const b = Buffer.from(signatureHex.trim(), "hex");

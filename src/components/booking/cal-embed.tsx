@@ -8,7 +8,9 @@
  */
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import { useLocale } from "@/components/providers/locale-provider";
+import { recordEvent } from "@/lib/funnel-client";
 import { BOOKING_URL, CAL_LINK, CAL_NAMESPACE, CAL_ORIGIN } from "@/lib/booking";
 
 type CalInstruction = (...args: unknown[]) => void;
@@ -82,19 +84,21 @@ function ensureCal(): CalApi {
 interface CalEmbedProps {
   brandColor?: string;
   className?: string;
+  config?: Record<string, string>;
 }
 
-function CalEmbed({ brandColor = "#37322F", className }: CalEmbedProps) {
+function CalEmbed({ brandColor = "#37322F", className, config = {} }: CalEmbedProps) {
   const reactId = useId();
   const containerId = `cal-inline-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const initialized = useRef(false);
+  const { locale } = useLocale();
+  const [ready, setReady] = useState(false);
+  const [delayed, setDelayed] = useState(false);
+  const prefill = useRef(config);
+  const bookingUrl = new URL(BOOKING_URL);
+  for (const [key, value] of Object.entries(prefill.current))
+    bookingUrl.searchParams.set(key, value);
 
   useEffect(() => {
-    if (initialized.current) {
-      return;
-    }
-    initialized.current = true;
-
     const cal = ensureCal();
 
     if (!initializedNamespaces.has(CAL_NAMESPACE)) {
@@ -113,6 +117,7 @@ function CalEmbed({ brandColor = "#37322F", className }: CalEmbedProps) {
         layout: "month_view",
         useSlotsViewOnSmallScreen: "true",
         theme: "light",
+        ...prefill.current,
       },
       calLink: CAL_LINK,
     });
@@ -123,20 +128,55 @@ function CalEmbed({ brandColor = "#37322F", className }: CalEmbedProps) {
       hideEventTypeDetails: false,
       layout: "month_view",
     });
+    const container = document.getElementById(containerId);
+    const attach = () => {
+      const frame = container?.querySelector("iframe");
+      if (!frame) return;
+      frame.title = "Book a 15-minute FlowAudit call";
+      frame.addEventListener(
+        "load",
+        () => {
+          setReady(true);
+          recordEvent("calendar_ready");
+        },
+        { once: true },
+      );
+    };
+    const observer = new MutationObserver(attach);
+    if (container) observer.observe(container, { childList: true, subtree: true });
+    attach();
+    const timeout = window.setTimeout(() => setDelayed(true), 10000);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timeout);
+    };
   }, [brandColor, containerId]);
 
   return (
     <div className={className}>
+      {!ready && (
+        <p role="status" className="fa-calendar-ready">
+          {delayed
+            ? locale === "es"
+              ? "El calendario está tardando. Puedes usar el enlace directo de abajo."
+              : "The calendar is taking longer than usual. You can use the direct booking link below."
+            : locale === "es"
+              ? "Cargando calendario…"
+              : "Loading the booking calendar…"}
+        </p>
+      )}
       <div id={containerId} className="min-h-[600px] w-full" />
       <p className="mt-3 font-sans text-xs text-[rgba(55,50,47,0.50)]">
-        Calendar not loading?{" "}
+        {locale === "es" ? "¿No carga el calendario? " : "Calendar not loading? "}
         <a
           className="underline underline-offset-2 hover:text-[#37322F]"
-          href={BOOKING_URL}
+          href={bookingUrl.toString()}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Open the booking page in a new tab
+          {locale === "es"
+            ? "Abrir reservas en otra pestaña"
+            : "Open the booking page in a new tab"}
         </a>
         .
       </p>

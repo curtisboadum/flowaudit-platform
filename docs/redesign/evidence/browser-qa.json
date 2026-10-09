@@ -1,0 +1,613 @@
+{
+  "base": "http://localhost:3016",
+  "at": "2026-10-09T02:36:52.787Z",
+  "rows": [
+    {
+      "route": "/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/services",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/phone-agent",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/solutions",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/web-design",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/revenue-recovery",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/demos",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/how-it-works",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/about",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/careers",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/book?service=phone-agent",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/revenue-recovery/book",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/privacy",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/terms",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/revenue-recovery/privacy",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/revenue-recovery/terms",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/revenue-recovery/access",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/blog",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/blog/real-cost-of-manual-work",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/blog/hire-vs-automate",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/blog/revenue-per-employee",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/trades",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/solopreneurs",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/insurance",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/agencies",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/accounting",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/legal",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/consultants",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/services",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/phone-agent",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/solutions",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/web-design",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/revenue-recovery",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/demos",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/how-it-works",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/about",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/careers",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/book?service=phone-agent",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/revenue-recovery/book",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/privacy",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/terms",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/revenue-recovery/privacy",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/revenue-recovery/terms",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/revenue-recovery/access",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/blog",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/blog/real-cost-of-manual-work",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/blog/hire-vs-automate",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/blog/revenue-per-employee",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/trades",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/solopreneurs",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/insurance",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/agencies",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/accounting",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/legal",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/consultants",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/phone-agent",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/book?service=phone-agent",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/web-design",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/phone-agent",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/book?service=phone-agent",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/web-design",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/phone-agent",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/book?service=phone-agent",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/web-design",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/phone-agent",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/book?service=phone-agent",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/web-design",
+      "width": 1920,
+      "overflow": false
+    }
+  ],
+  "linkResults": [
+    {
+      "href": "/",
+      "status": 200
+    },
+    {
+      "href": "/services",
+      "status": 200
+    },
+    {
+      "href": "/demos",
+      "status": 200
+    },
+    {
+      "href": "/how-it-works",
+      "status": 200
+    },
+    {
+      "href": "/about",
+      "status": 200
+    },
+    {
+      "href": "/book?service=general",
+      "status": 200
+    },
+    {
+      "href": "/phone-agent",
+      "status": 200
+    },
+    {
+      "href": "/solutions",
+      "status": 200
+    },
+    {
+      "href": "/revenue-recovery",
+      "status": 200
+    },
+    {
+      "href": "/web-design",
+      "status": 200
+    },
+    {
+      "href": "/blog",
+      "status": 200
+    },
+    {
+      "href": "/careers",
+      "status": 200
+    },
+    {
+      "href": "/book",
+      "status": 200
+    },
+    {
+      "href": "/industries/trades",
+      "status": 200
+    },
+    {
+      "href": "/industries/solopreneurs",
+      "status": 200
+    },
+    {
+      "href": "/industries/insurance",
+      "status": 200
+    },
+    {
+      "href": "/industries/agencies",
+      "status": 200
+    },
+    {
+      "href": "/industries/accounting",
+      "status": 200
+    },
+    {
+      "href": "/industries/legal",
+      "status": 200
+    },
+    {
+      "href": "/industries/consultants",
+      "status": 200
+    },
+    {
+      "href": "/privacy",
+      "status": 200
+    },
+    {
+      "href": "/terms",
+      "status": 200
+    },
+    {
+      "href": "/book?service=phone-agent",
+      "status": 200
+    },
+    {
+      "href": "/media/routine.mp4",
+      "status": 200
+    },
+    {
+      "href": "/media/routine.vtt",
+      "status": 200
+    },
+    {
+      "href": "/book?service=automation",
+      "status": 200
+    },
+    {
+      "href": "/book?service=web-design",
+      "status": 200
+    },
+    {
+      "href": "/book?service=revenue-recovery",
+      "status": 200
+    },
+    {
+      "href": "/revenue-recovery/access",
+      "status": 200
+    },
+    {
+      "href": "/revenue-recovery/terms",
+      "status": 200
+    },
+    {
+      "href": "/blog/real-cost-of-manual-work",
+      "status": 200
+    },
+    {
+      "href": "/blog/hire-vs-automate",
+      "status": 200
+    },
+    {
+      "href": "/blog/revenue-per-employee",
+      "status": 200
+    }
+  ],
+  "errors": []
+}

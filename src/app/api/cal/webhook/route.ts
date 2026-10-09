@@ -8,6 +8,7 @@
  * @issues None.
  * @todo None.
  */
+import { createHash } from "crypto";
 import { NextResponse } from "next/server";
 import { mapCalWebhook, verifyCalSignature } from "@/lib/sdr-tracking";
 import { insertSdrEvent } from "@/lib/sdr-event-store";
@@ -19,6 +20,8 @@ export async function POST(request: Request) {
   }
 
   const rawBody = await request.text();
+  if (rawBody.length > 100_000)
+    return NextResponse.json({ error: "Payload too large" }, { status: 413 });
   const signature = request.headers.get("x-cal-signature-256");
   if (!verifyCalSignature(rawBody, signature, secret)) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
@@ -36,7 +39,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Unhandled trigger" }, { status: 400 });
   }
 
+  if (!event.uid || !event.eventType || !["flowaudit-call", "15min"].includes(event.eventType))
+    return NextResponse.json({ error: "Invalid booking" }, { status: 400 });
+
   const stored = await insertSdrEvent({
+    event_id: `cal-${createHash("sha256").update(`${event.uid}:${event.normalized}:${event.startTime}`).digest("hex")}`,
     kind: "cal",
     lead_ref: event.attendeeEmail || event.uid,
     event: event.normalized,
@@ -45,8 +52,12 @@ export async function POST(request: Request) {
       primary: event.primary,
       startTime: event.startTime,
       uid: event.uid,
+      attribution: event.attribution,
     },
   });
 
-  return NextResponse.json({ ok: true, normalized: event.normalized, stored });
+  return NextResponse.json(
+    { ok: stored, normalized: event.normalized, stored },
+    { status: stored ? 200 : 503 },
+  );
 }
