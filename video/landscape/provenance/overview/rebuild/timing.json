@@ -196,7 +196,10 @@
         ],
         "duration": 282,
         "eventFrames": [
-          243
+          91,
+          121,
+          166,
+          256
         ],
         "sourceFrom": 42.7,
         "crop": "call"
@@ -215,11 +218,19 @@
         "kind": "calendar",
         "headline": "See the booking.",
         "kicker": "RECORDED DEMO",
-        "items": [],
+        "items": [
+          "New-patient check-up",
+          "Wednesday, 7 October",
+          "3 pm"
+        ],
         "duration": 127,
-        "eventFrames": [],
+        "eventFrames": [
+          0,
+          0
+        ],
         "sourceFrom": 78.4,
-        "crop": "confirmation"
+        "crop": "confirmation",
+        "sourceStill": "demo/overview-calendar-still.png"
       }
     },
     {
@@ -235,11 +246,19 @@
         "kind": "calendar",
         "headline": "See the booking.",
         "kicker": "RECORDED DEMO",
-        "items": [],
+        "items": [
+          "New-patient check-up",
+          "Wednesday, 7 October",
+          "3 pm"
+        ],
         "duration": 207,
-        "eventFrames": [],
+        "eventFrames": [
+          95,
+          167
+        ],
         "sourceFrom": 75.75,
-        "crop": "confirmation"
+        "crop": "confirmation",
+        "sourceStill": "demo/overview-calendar-still.png"
       }
     },
     {
@@ -260,7 +279,11 @@
           "Your team keeps helping patients"
         ],
         "duration": 272,
-        "eventFrames": [],
+        "eventFrames": [
+          121,
+          159,
+          180
+        ],
         "sourceFrom": 43.36,
         "crop": "call"
       }
@@ -309,7 +332,10 @@
         "duration": 452,
         "eventFrames": [
           139,
-          198
+          198,
+          254,
+          339,
+          403
         ],
         "sourceFrom": 43.36,
         "crop": "call"
@@ -339,5 +365,6 @@
   "end_reading_frames": 41,
   "intertake_gap_frames": 3,
   "speech_speed": 1.0,
-  "no_time_stretch": true
+  "no_time_stretch": true,
+  "final_shot_cues": true
 }
