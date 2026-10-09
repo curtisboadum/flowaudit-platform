@@ -50,3 +50,8 @@ The player uses full available content width, with visible chapters immediately 
 ## 90-second primary overview · superseding media arrangement
 
 The approved `Overview90` composition replaces the five-minute film as the primary introduction. `main` remains the optional detailed walkthrough; `routine` is a separate full recording at `/phone-agent#booking-recording`; `summary` remains available under More detail. The primary stays at `#demo`. See `OVERVIEW-COVERAGE.md` and `APPOINTMENT-VALUE-RESEARCH.md`. Runtime labels, primary transcript/VTT/poster, VideoObject duration and English/Spanish interface copy have been updated. Source and reproducible rendering remain in `video/landscape/`; original masters are unchanged. Human listening review remains an explicit limitation.
+
+
+### Protected overview preview verification · 2026-10-09
+
+Commit `0bfe94f917c364129da429260453098314b97d02` deployed READY as `dpl_G1CTSQuQ1nmPD8xYXrhR9RwoxP95`. Manual browser checks at 390×844, 768×1024 and1440×1000 exercised chapters, native playback/seek/fullscreen, exclusive players, the secondary selector, reciprocal links, English transcript/downloads, Spanish interface and immediate booking navigation. The overview completed unmuted playback with played range0–90 and ended=true; this is playback evidence, not human listening approval. No booking was submitted. See `evidence/overview/manual-preview-checks.json` and adjacent screenshots for the detailed action/limitation record. Protection remains enabled.
