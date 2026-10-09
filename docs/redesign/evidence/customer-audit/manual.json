@@ -3354,5 +3354,304 @@
     "method": "Agent-operated real browser; landscape follow-up",
     "phase": "landscape-final",
     "id": "M312"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Chapter: The offer",
+    "expected": "Correct approved time; preserve pause",
+    "observed": "{\"paused\":true,\"time\":0}",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M313"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Chapter: Illustrative value",
+    "expected": "Correct approved time; preserve pause",
+    "observed": "{\"paused\":true,\"time\":51.533333}",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M314"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Chapter: Recorded booking",
+    "expected": "Correct approved time; preserve pause",
+    "observed": "{\"paused\":true,\"time\":92}",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M315"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Chapter: Compatibility limits",
+    "expected": "Correct approved time; preserve pause",
+    "observed": "{\"paused\":true,\"time\":182.833333}",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M316"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Chapter: Urgent-call boundaries",
+    "expected": "Correct approved time; preserve pause",
+    "observed": "{\"paused\":true,\"time\":200.333333}",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M317"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Chapter: Payment, testing and approval",
+    "expected": "Correct approved time; preserve pause",
+    "observed": "{\"paused\":true,\"time\":244.5}",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M318"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Chapter: Your 15-minute call",
+    "expected": "Correct approved time; preserve pause",
+    "observed": "{\"paused\":true,\"time\":267.133333}",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M319"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Routine landscape playback",
+    "expected": "Native decoding and pause",
+    "observed": "{\"duration\":90.833333,\"height\":1080,\"paused\":true,\"width\":1920}",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M320"
+  },
+  {
+    "route": "http://localhost:3016/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Routine video/caption downloads",
+    "expected": "Download controls activate and files can be saved",
+    "observed": "Both links clicked; browser download helper saved routine.mp4 and routine.vtt.",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M321"
+  },
+  {
+    "route": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/phone-agent#demo",
+    "viewport": {
+      "height": 1000,
+      "width": 1440
+    },
+    "control": "Protected desktop landscape playback and chapter seek",
+    "expected": "1920\u00d71080; native playback; paused chapter seek; readable captions and visible chapters",
+    "observed": {
+      "intrinsic": {
+        "height": 1080,
+        "paused": true,
+        "time": 247.5,
+        "width": 1920
+      },
+      "commit": "dd83a2e"
+    },
+    "gap": "",
+    "evidence": "landscape-player-1440.jpg",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M322"
+  },
+  {
+    "route": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/phone-agent#demo",
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "control": "Protected tablet player and chapter list",
+    "expected": "Full 16:9 frame and visible accessible chapters",
+    "observed": "704px video width; full frame and seven chapters visible",
+    "gap": "",
+    "evidence": "landscape-player-768.jpg",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M323"
+  },
+  {
+    "route": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Protected mobile landscape captions and chapters",
+    "expected": "Readable baked captions above native controls; full-width frame; no duplicate caption track",
+    "observed": {
+      "height": 1080,
+      "paused": true,
+      "renderedWidth": 348,
+      "tracks": 0,
+      "width": 1920
+    },
+    "gap": "Small source calendar details require fullscreen; physical devices untested",
+    "evidence": "landscape-player-390.jpg",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M324"
+  },
+  {
+    "route": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Protected native fullscreen",
+    "expected": "Native fullscreen opens and exits",
+    "observed": "Native video-only fullscreen AX tree appeared, then exited to page. Screenshot captured during transition and does not prove expanded fullscreen geometry.",
+    "gap": "Expanded fullscreen visual geometry not captured reliably in IAB; native state transition verified",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M325"
+  },
+  {
+    "route": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Protected routine film tab and play/pause",
+    "expected": "Native landscape playback after switching",
+    "observed": "1920\u00d71080 routine film loaded and played; pause via Space",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M326"
+  },
+  {
+    "route": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Protected executive overview and transcript",
+    "expected": "Landscape film plays; transcript opens",
+    "observed": "1920\u00d71080, 67.5s; playback then paused; English transcript expanded",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M327"
+  },
+  {
+    "route": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/phone-agent#demo",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "control": "Protected film and caption download",
+    "expected": "Saved files match current approved landscape assets",
+    "observed": "Browser download helper saved /Users/curtis/Downloads/summary.mp4 and summary (1).vtt; hashes checked separately",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M328"
+  },
+  {
+    "route": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/book?service=phone-agent#booking-calendar",
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "control": "Protected live date and slot selection",
+    "expected": "Date then slot opens attendee form; stop before Confirm",
+    "observed": "Selected October 12 14:00 Europe/London; attendee fields, notes, Add guests, Back and Confirm visible. Confirm untouched",
+    "gap": "No booking, notification, webhook or durable receipt verified",
+    "evidence": "booking-calendar-768.jpg",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M329"
+  },
+  {
+    "route": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/book?service=phone-agent#booking-calendar",
+    "viewport": {
+      "height": 1000,
+      "width": 1440
+    },
+    "control": "Protected booking responsive screenshots",
+    "expected": "Legible calendar details, fallback, preparation and no forced film completion",
+    "observed": "390/768/1440 layouts visually reviewed; live attendee form and direct fallback available. No submit.",
+    "gap": "Full-page capture omits offscreen cross-origin iframe rendering; viewport calendar screenshots are authoritative",
+    "evidence": "booking-calendar-1440.jpg",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M330"
+  },
+  {
+    "route": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/demos",
+    "viewport": {
+      "height": 1000,
+      "width": 1440
+    },
+    "control": "Protected teaser switching and native playback",
+    "expected": "Fourth film loads 16:9 and plays",
+    "observed": "1920\u00d71080,30 seconds; native playback and pause verified",
+    "gap": "",
+    "evidence": "",
+    "method": "Agent-operated real browser; landscape follow-up",
+    "phase": "landscape-final",
+    "id": "M331"
   }
 ]

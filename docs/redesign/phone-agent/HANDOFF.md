@@ -40,7 +40,7 @@ Named accessible Codex, ChatGPT and local OpenCode sources are listed in the evi
 
 ## Customer audit follow-up
 
-[308 recorded browser interactions](../CUSTOMER-JOURNEY-AUDIT.md) distinguish manual actions, inspected links, automated checks, simulated failures and external gaps. Generic booking service selection now stays editable after choosing the phone agent, and the calendar waits for matching service context before mounting, preventing stale service metadata.
+[331 recorded browser interactions and inspections](../CUSTOMER-JOURNEY-AUDIT.md) distinguish manual actions, inspected links, automated checks, simulated failures and external gaps. Generic booking service selection now stays editable after choosing the phone agent, and the calendar waits for matching service context before mounting, preventing stale service metadata.
 
 The user subsequently corrected the VSL requirement to horizontal and confirmed the reformat. The established Remotion source now renders true 1920×1080 films, rather than stretching or enclosing portrait films in a wide player. Source panels are the previously approved genuine pixel crops, rearranged horizontally. Captions sit above the native-control area, and the same VTT/transcript/chapter timings remain. Encoded audio packets match the approved originals exactly. [Media checks](../evidence/customer-audit/landscape-media-checks.json) and [editable source](../../../video/landscape/README.md).
 
