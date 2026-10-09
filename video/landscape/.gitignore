@@ -2,3 +2,5 @@ public/audio/*
 !public/audio/overview/
 public/audio/overview/mix.wav
 /node_modules
+
+public/audio/overview/rebuild/mix.wav

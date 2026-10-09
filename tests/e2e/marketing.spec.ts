@@ -204,6 +204,10 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   await expect(page.locator("#demo")).toContainText(
     "FlowAudit builds AI phone agents that support your team through agreed workflows.",
   );
+  const transcriptDownload = await page.request.get("/media/overview-transcript.txt");
+  const inlineTranscript = await page.locator('#demo .fa-transcript [lang="en"]').textContent();
+  expect(inlineTranscript?.trim()).toBe((await transcriptDownload.text()).trim());
+  expect(inlineTranscript).not.toContain("It's demonstration evidence, not customer results.");
   for (const extension of ["vtt", "srt", "-transcript.txt"]) {
     const path = extension.startsWith("-")
       ? `/media/overview${extension}`
@@ -342,7 +346,7 @@ test("Chapters preserve paused state and work before first playback", async ({ p
   await page.goto("/phone-agent");
   await page.getByRole("button", { name: "Keep analytics off" }).click();
   const video = page.locator('video[data-media-id="overview"]');
-  await page.getByRole("button", { name: /Requirements and boundaries/ }).click();
+  await page.getByRole("button", { name: /Recorded demo/ }).click();
   expect(await video.evaluate((node: HTMLVideoElement) => node.paused)).toBe(true);
   await video.evaluate((node: HTMLVideoElement) => {
     node.muted = true;
@@ -350,15 +354,15 @@ test("Chapters preserve paused state and work before first playback", async ({ p
   });
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
-    .toBeGreaterThan(38);
+    .toBeGreaterThan(21.5);
   await video.evaluate((node: HTMLVideoElement) => node.pause());
-  await page.getByRole("button", { name: /Offer and evidence/ }).click();
+  await page.getByRole("button", { name: /Busy desk and after hours/ }).click();
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
     .toBeCloseTo(0, 1);
   expect(await video.evaluate((node: HTMLVideoElement) => node.paused)).toBe(true);
   await expect(page.locator('#demo .fa-chapters button[aria-current="true"]')).toContainText(
-    "Offer and evidence",
+    "Busy desk and after hours",
   );
 });
 

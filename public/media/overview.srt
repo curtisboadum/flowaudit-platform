@@ -1,140 +1,204 @@
 1
-00:00:00,200 --> 00:00:03,500
-When your dental front desk
-is busy or closed,
+00:00:00,000 --> 00:00:01,700
+Your receptionist is
+helping a patient.
 
 2
-00:00:03,500 --> 00:00:06,367
-an appointment enquiry can end
-before anyone helps.
+00:00:02,100 --> 00:00:02,500
+The phone rings.
 
 3
-00:00:07,067 --> 00:00:09,500
-FlowAudit builds AI phone agents
+00:00:02,500 --> 00:00:03,833
+Later, the practice closes.
 
 4
-00:00:09,500 --> 00:00:11,933
-that support your team
-through agreed workflows.
+00:00:04,233 --> 00:00:04,900
+Someone else calls.
 
 5
-00:00:12,600 --> 00:00:14,533
-The separate recording below
-shows an enquiry,
+00:00:04,900 --> 00:00:06,433
+What happens to those enquiries?
 
 6
-00:00:15,267 --> 00:00:17,733
-available times and
-a Google Calendar booking,
+00:00:07,067 --> 00:00:08,533
+Watch how a call
+can reach a booking,
 
 7
-00:00:17,733 --> 00:00:19,533
-with privacy beeps
-and edited labels.
+00:00:08,533 --> 00:00:10,600
+while your team stays in control.
 
 8
-00:00:20,333 --> 00:00:21,333
-It's demonstration evidence,
+00:00:10,867 --> 00:00:14,200
+FlowAudit builds AI phone
+agents that support your team
 
 9
-00:00:22,033 --> 00:00:23,033
-not customer results.
+00:00:14,200 --> 00:00:15,567
+through agreed workflows.
 
 10
-00:00:23,700 --> 00:00:26,867
-Published US exam, cleaning
-and X-ray costs range from
+00:00:15,900 --> 00:00:17,500
+You agree when calls are forwarded,
 
 11
-00:00:26,867 --> 00:00:28,633
-$50 to $350.
+00:00:17,867 --> 00:00:19,433
+which appointments
+the agent can handle,
 
 12
-00:00:28,633 --> 00:00:31,967
-That's a fee benchmark,
-not a revenue forecast.
+00:00:19,667 --> 00:00:21,300
+and when a person needs to step in.
 
 13
-00:00:32,633 --> 00:00:34,767
-Use your own attendance, collections
-and costs.
+00:00:21,533 --> 00:00:22,700
+Here’s a recorded demo.
 
 14
-00:00:35,433 --> 00:00:37,467
-Missed calls aren't automatically lost
-patients.
+00:00:22,933 --> 00:00:24,933
+A new patient asks for a check-up.
 
 15
-00:00:38,033 --> 00:00:41,100
-Your scheduling system, appointment types
-and forwarding need checking.
+00:00:25,267 --> 00:00:27,167
+Hiya, I just wanted to ring
+in and book an appointment.
 
 16
-00:00:41,533 --> 00:00:44,500
-Compatibility, patient-data and
-security requirements
+00:00:27,733 --> 00:00:29,267
+The agent offers available times.
 
 17
-00:00:44,500 --> 00:00:46,367
-must be resolved before proceeding.
+00:00:29,733 --> 00:00:32,233
+The first available
+appointment this afternoon
 
 18
-00:00:50,233 --> 00:00:53,067
-Urgent calls follow practice-approved
-escalation and
+00:00:32,233 --> 00:00:34,533
+is at 2:30 or three in the afternoon
 
 19
-00:00:53,067 --> 00:00:54,000
-human-handoff rules.
+00:00:34,533 --> 00:00:35,800
+or 3:30.
 
 20
-00:00:54,000 --> 00:00:57,333
-The recorded question doesn't
-establish validated
+00:00:36,333 --> 00:00:37,333
+Which one works for you?
 
 21
-00:00:57,333 --> 00:01:00,133
-clinical triage or a completed
-emergency handoff.
+00:00:37,767 --> 00:00:38,700
+Can we do three o’clock?
 
 22
-00:01:00,633 --> 00:01:02,567
-Clinical judgment stays with your
-team.
+00:00:39,067 --> 00:00:40,400
+The caller chooses three o’clock.
 
 23
-00:01:03,900 --> 00:01:05,667
-Agree scope and investment first.
+00:00:40,400 --> 00:00:42,900
+And here is the booking
+in Google Calendar.
 
 24
-00:01:06,267 --> 00:01:08,533
-Agreement and initial payment start
-configuration,
+00:00:43,433 --> 00:00:45,500
+Your new patient
+check-up appointment
 
 25
-00:01:09,467 --> 00:01:10,933
-followed by testing with your team.
+00:00:45,500 --> 00:00:46,833
+is booked for Wednesday,
 
 26
-00:01:11,533 --> 00:01:13,733
-Practice approval comes before
-activation.
+00:00:47,333 --> 00:00:48,300
+the 7th of October
 
 27
-00:01:16,700 --> 00:01:19,633
-Book a 15-minute demo and fit
-assessment.
+00:00:48,300 --> 00:00:49,767
+at three in the afternoon.
 
 28
-00:01:19,633 --> 00:01:21,933
-Bring your purchasing decision-maker.
+00:00:50,200 --> 00:00:51,433
+That’s the workflow to assess:
 
 29
-00:01:22,567 --> 00:01:24,567
-Groups should include relevant
-approvers.
+00:00:51,900 --> 00:00:53,700
+give routine enquiries
+a clear next step,
 
 30
-00:01:25,167 --> 00:01:28,933
-We'll discuss requirements, investment
-and the next decision.
+00:00:53,700 --> 00:00:56,200
+during busy periods and after hours,
+
+31
+00:00:56,200 --> 00:00:58,600
+without pulling your team
+away from the patient in front
+
+32
+00:00:58,600 --> 00:00:59,067
+of them.
+
+33
+00:00:59,267 --> 00:01:00,567
+Start with your own call records.
+
+34
+00:01:01,167 --> 00:01:02,533
+Which enquiries need a reply,
+
+35
+00:01:03,000 --> 00:01:04,700
+and which can your team
+already handle?
+
+36
+00:01:05,033 --> 00:01:05,633
+Before setup,
+
+37
+00:01:05,967 --> 00:01:08,333
+we check your scheduling,
+forwarding and patient-data
+
+38
+00:01:08,333 --> 00:01:08,867
+requirements.
+
+39
+00:01:09,667 --> 00:01:11,167
+Clinical judgment
+stays with your team.
+
+40
+00:01:11,633 --> 00:01:13,033
+You agree scope and investment.
+
+41
+00:01:13,500 --> 00:01:15,800
+Agreement and initial
+payment start configuration,
+
+42
+00:01:16,333 --> 00:01:17,967
+followed by testing with your team.
+
+43
+00:01:18,467 --> 00:01:19,767
+Activation follows your approval.
+
+44
+00:01:20,100 --> 00:01:22,467
+Book a fifteen-minute
+demo and fit assessment.
+
+45
+00:01:23,000 --> 00:01:24,767
+Bring the person who
+approves the purchase.
+
+46
+00:01:25,300 --> 00:01:27,500
+We’ll look at your call
+workflows and decide whether
+
+47
+00:01:27,500 --> 00:01:28,600
+there’s a useful fit.

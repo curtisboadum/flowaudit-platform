@@ -1,0 +1,16 @@
+{
+  "threshold_db": -40,
+  "minimum_seconds": 0.5,
+  "speech_only_stem": true,
+  "gaps": [
+    {
+      "start": 88.542229,
+      "end": 90.0,
+      "duration": 1.457770999999994,
+      "segment": "R09",
+      "purpose": "Closing CTA reading beat"
+    }
+  ],
+  "music_excluded": true,
+  "audio_heard": false
+}

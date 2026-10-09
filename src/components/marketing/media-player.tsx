@@ -21,9 +21,9 @@ const detailedChapters = [
 ] as const;
 
 const overviewChapters = [
-  [0, c("Offer and evidence", "Oferta y evidencia")],
-  [38, c("Requirements and boundaries", "Requisitos y límites")],
-  [64, c("Setup and your next step", "Configuración y siguiente paso")],
+  [0, c("Busy desk and after hours", "Recepción ocupada y fuera de horario")],
+  [21.533333, c("Recorded demo", "Demo grabada")],
+  [65.033333, c("Setup and your next step", "Configuración y siguiente paso")],
 ] as const;
 const films = {
   overview: { label: c("The 90-second overview", "Resumen de 90 segundos"), duration: "1:30" },
@@ -128,7 +128,7 @@ export function MediaPlayer({
             controls
             playsInline
             preload="none"
-            poster={`/media/${active}.jpg?v=landscape-20261009`}
+            poster={`/media/${active}.jpg?v=${active === "overview" ? "sales-rebuild-20261009" : "landscape-20261009"}`}
             aria-label={`${text(locale, current.label)} · ${current.duration}`}
             data-media-id={active}
             onError={() => {
@@ -198,10 +198,10 @@ export function MediaPlayer({
               locale,
               c(
                 active === "overview"
-                  ? "The offer, evidence limits, requirements and buying decision. Examine the genuine booking in the separate recording below."
+                  ? "See how agreed call workflows can support your team during busy periods and after hours. Watch the complete recorded demo below."
                   : "The routine example shows a conversation, offered appointment times and a Google Calendar booking. It is a demonstration, not a customer result.",
                 active === "overview"
-                  ? "La oferta, los límites de la evidencia, los requisitos y la decisión de compra. Examina la reserva real en la grabación separada de abajo."
+                  ? "Descubre cómo los flujos de llamadas acordados pueden apoyar a tu equipo en horas de mucho trabajo y fuera de horario. Mira la demo grabada completa abajo."
                   : "El ejemplo habitual muestra una conversación, horarios disponibles y una reserva en Google Calendar. Es una demostración, no un resultado de cliente.",
               ),
             )}

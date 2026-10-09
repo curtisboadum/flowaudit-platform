@@ -85,8 +85,8 @@ export function OfferPage({ service }: { service: ServiceId }) {
                   "Entiende la oferta.\nValora si encaja.",
                 )}
                 body={c(
-                  "Start with the 90-second overview: what FlowAudit does, what needs checking and how to proceed. The genuine booking demonstration is in its own section below.",
-                  "Empieza con el resumen de 90 segundos: qué hace FlowAudit, qué hay que comprobar y cómo avanzar. La demostración real de reserva tiene su propia sección más abajo.",
+                  "When the desk is busy or the practice is closed, what happens to the next caller? See the workflow and recorded demo in 90 seconds.",
+                  "Cuando la recepción está ocupada o la clínica está cerrada, ¿qué ocurre con la siguiente llamada? Mira el flujo y la demo grabada en 90 segundos.",
                 )}
               />
 

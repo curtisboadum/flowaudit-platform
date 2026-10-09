@@ -1,20 +1,35 @@
 FlowAudit · 90-second overview · English
 
-When your dental front desk is busy or closed, an appointment enquiry can end before anyone helps.
+Your receptionist is helping a patient. The phone rings. Later, the practice closes. Someone else calls. What happens to those enquiries?
 
-FlowAudit builds AI phone agents that support your team through agreed workflows. The separate recording below shows an enquiry, available times and a Google Calendar booking, with privacy beeps and edited labels. It's demonstration evidence, not customer results.
+Watch how a call can reach a booking, while your team stays in control.
 
-Published US exam, cleaning and X-ray costs range from fifty to three hundred fifty dollars. That's a fee benchmark, not a revenue forecast. Use your own attendance, collections and costs. Missed calls aren't automatically lost patients.
+FlowAudit builds AI phone agents that support your team through agreed workflows.
 
-Your scheduling system, appointment types and forwarding need checking. Compatibility, patient-data and security requirements must be resolved before proceeding.
+You agree when calls are forwarded, which appointments the agent can handle, and when a person needs to step in.
 
-Urgent calls follow practice-approved escalation and human-handoff rules. The recorded question doesn't establish validated clinical triage or a completed emergency handoff. Clinical judgment stays with your team.
+Here’s a recorded demo. A new patient asks for a check-up.
 
-Agree scope and investment first. Agreement and initial payment start configuration, followed by testing with your team. Practice approval comes before activation.
+[Recorded demo excerpt]
+Hiya, I just wanted to ring in and book an appointment.
 
-Book a fifteen-minute demo and fit assessment. Bring your purchasing decision-maker. Groups should include relevant approvers. We'll discuss requirements, investment and the next decision.
+The agent offers available times.
 
-Source note: The $50–$350 range is published US patient-cost context for a routine exam with cleaning and X-rays, from CareCredit's 2023 Synchrony/ASQ360 study. It is not a measure of practice collections, profit, future treatment or FlowAudit results, and is not a 2026 price survey. Actual fees vary by provider, location and included services. Use your practice's attended visits, collections and costs.
-Source: https://www.carecredit.com/dentistry/costs/
+[Recorded demo excerpt]
+The first available appointment this afternoon is at 2:30 or three in the afternoon or 3:30. Which one works for you? Can we do three o’clock?
 
-The genuine booking recording is separate: /phone-agent#booking-recording. The configured urgent-call question is in the optional detailed walkthrough. Neither proves clinical validation or a completed emergency handoff.
+The caller chooses three o’clock. And here is the booking in Google Calendar.
+
+[Recorded demo excerpt]
+Your new patient check-up appointment is booked for Wednesday, the 7th of October at three in the afternoon.
+
+That’s the workflow to assess: give routine enquiries a clear next step, during busy periods and after hours, without pulling your team away from the patient in front of them.
+
+Start with your own call records. Which enquiries need a reply, and which can your team already handle?
+
+Before setup, we check your scheduling, forwarding and patient-data requirements. Clinical judgment stays with your team. You agree scope and investment. Agreement and initial payment start configuration, followed by testing with your team. Activation follows your approval.
+
+Book a fifteen-minute demo and fit assessment. Bring the person who approves the purchase. We’ll look at your call workflows and decide whether there’s a useful fit.
+
+Supporting detail: The excerpts are from the recorded product demo, not measured customer outcomes. Source edits retain privacy beeps and edited demonstration labels; the overview excerpts omit the contact-detail section. Source recording times: 9.24–11.60s, 42.70–52.00s and 75.75–82.55s. The displayed booking is in Google Calendar; compatibility with a practice’s scheduling system requires assessment. The complete recording remains at /phone-agent#booking-recording. Urgent-call escalation and human handoffs must follow practice-approved rules; the optional walkthrough’s question does not demonstrate validated clinical triage or a completed emergency handoff.
+Visual edit: The calendar booking is a still from the same recording at 76.45s, with explanatory appointment labels revealed alongside the original confirmation audio. Moving call excerpts remain from the recorded demo.
