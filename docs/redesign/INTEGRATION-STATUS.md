@@ -11,3 +11,7 @@ The CRM remains authenticated through existing Next API routes. Its database acc
 Analytics is optional and disabled before consent. It records page/service/media/campaign context and a random session identifier, not form answers, patient data or messages. Event validation rejects CRM paths and foreign origins. Booking lifecycle data is necessary operational data and independent of optional website analytics. No-show updates are labelled `no_show_updated` until an explicit attendance value is verified. Meeting-end events retain the legacy `call_held` label; that provider event does not establish attendance, conversion, revenue or sales outcome.
 
 Completed films were integrated from the separate production task. Its QA summary passes automated media checks but human listening/viewing approval is pending. Keep final public release gated on that review.
+
+Optional chat live response test: Gemini returned 403 with a leaked-key rejection; DeepSeek returned 402 insufficient balance. Chat is disabled by default via CHAT_ENABLED, and its integration remains available after provider restoration. Do not expose the assistant based only on key presence. Durable rate limits now protect chat and CRM sign-in.
+
+Preview analytics storage was verified on the Git-connected branch deployment with duplicate tagged QA delivery and a single database row. Manual worktree CLI deployment did not inherit branch-scoped variables, so use the Git-connected preview alias for review.

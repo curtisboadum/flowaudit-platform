@@ -1,3 +1,4 @@
+import { takeRateLimit } from "@/lib/durable-rate-limit";
 import { NextResponse } from "next/server";
 import {
   getSessionCookieOptions,
@@ -21,10 +22,26 @@ function getDisplayName(role: CrmRole, email: string): string {
 }
 
 export async function POST(request: Request) {
+  const origin = request.headers.get("origin");
+  if (origin && origin !== new URL(request.url).origin)
+    return NextResponse.json({ error: "Foreign origin" }, { status: 403 });
+  const allowed = await takeRateLimit(request, "crm-login", 5);
+  if (allowed !== true)
+    return NextResponse.json(
+      {
+        error:
+          allowed === false
+            ? "Too many attempts. Try again shortly."
+            : "Authentication temporarily unavailable.",
+      },
+      { status: allowed === false ? 429 : 503 },
+    );
+  const raw = await request.text();
+  if (raw.length > 2048) return NextResponse.json({ error: "Payload too large" }, { status: 413 });
   let body: unknown;
 
   try {
-    body = await request.json();
+    body = JSON.parse(raw);
   } catch {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }

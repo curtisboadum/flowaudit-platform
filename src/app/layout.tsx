@@ -53,9 +53,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main-content">{children}</main>
           <ConditionalSiteFooter />
           <FunnelProvider />
-          {(process.env.OPENROUTER_API_KEY ||
-            process.env.GEMINI_API_KEY ||
-            process.env.DEEPSEEK_API_KEY) && <ConditionalChatWidget />}
+          {process.env.CHAT_ENABLED === "true" &&
+            (process.env.OPENROUTER_API_KEY ||
+              process.env.GEMINI_API_KEY ||
+              process.env.DEEPSEEK_API_KEY) && <ConditionalChatWidget />}
         </LocaleProvider>
 
         <JsonLd
