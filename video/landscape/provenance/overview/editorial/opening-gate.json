@@ -1,0 +1,22 @@
+{
+  "viewport": 390,
+  "player_width": 348,
+  "player_height": 259.75,
+  "controls": true,
+  "duration": 18,
+  "continuous_played": [
+    0,
+    18
+  ],
+  "ended": true,
+  "media_error": null,
+  "visual_review": {
+    "busy_desk": true,
+    "after_hours": true,
+    "unresolved_caller": true,
+    "workflow_motion": true,
+    "captions_and_control_clearance": true
+  },
+  "audio_listening_approved": false,
+  "notes": "Reviewed continuous playback and captured frames in actual website player; technical playback does not establish audio naturalness or music balance."
+}

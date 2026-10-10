@@ -3,531 +3,500 @@
   "fps": 30,
   "width": 1920,
   "height": 1080,
-  "audio": "audio/overview/rebuild/mix.wav",
+  "audio": "audio/overview/editorial/mix.wav",
   "segments": [
     {
-      "id": "R01",
+      "id": "E01",
       "from": 0,
-      "duration": 212,
+      "duration": 182,
       "voiceFrom": 0.0,
-      "audioFile": "audio/overview/rebuild/R01-edit.wav",
+      "audioFile": "audio/overview/editorial/E01-edit.wav",
       "audioStart": 0,
-      "audioDuration": 6.940333,
-      "text": "Your receptionist is helping a patient. The phone rings. Later, the practice closes. Someone else calls. What happens to those enquiries?",
-      "visual": {
-        "kind": "hook",
-        "headline": "Who helps the caller?",
-        "kicker": "DURING CLINIC. AFTER CLOSING.",
-        "items": ["Desk occupied", "Practice closed"],
-        "duration": 212,
-        "eventFrames": [75, 147],
-        "sourceFrom": 43.36,
-        "crop": "call",
-        "titles": [
-          "A patient at the desk.",
-          "After closing, another call.",
-          "Who helps the caller?"
-        ]
-      }
+      "audioDuration": 4.89,
+      "text": "Your receptionist is helping a patient. The phone rings. Later, the practice closes. Someone else calls.",
+      "kind": "hook"
     },
     {
-      "id": "R02",
-      "from": 212,
-      "duration": 114,
-      "voiceFrom": 7.066666666666666,
-      "audioFile": "audio/overview/rebuild/R02-edit.wav",
+      "id": "E02",
+      "from": 182,
+      "duration": 167,
+      "voiceFrom": 6.066666666666666,
+      "audioFile": "audio/overview/editorial/E02-edit.wav",
       "audioStart": 0,
-      "audioDuration": 3.669792,
-      "text": "Watch how a call can reach a booking, while your team stays in control.",
-      "visual": {
-        "kind": "promise",
-        "headline": "From a call to a clear next step.",
-        "kicker": "WATCH THE WORKFLOW",
-        "items": ["Enquiry", "Agreed next step"],
-        "duration": 114,
-        "eventFrames": [],
-        "sourceFrom": 43.36,
-        "crop": "call"
-      }
+      "audioDuration": 4.026917,
+      "text": "Your team can\u2019t be in two places at once. But the caller still needs a next step.",
+      "kind": "hook"
     },
     {
-      "id": "R03",
-      "from": 326,
-      "duration": 151,
-      "voiceFrom": 10.866666666666667,
-      "audioFile": "audio/overview/rebuild/R03-edit.wav",
+      "id": "E03",
+      "from": 349,
+      "duration": 157,
+      "voiceFrom": 11.633333333333333,
+      "audioFile": "audio/overview/editorial/E03-edit.wav",
       "audioStart": 0,
-      "audioDuration": 4.91025,
-      "text": "FlowAudit builds AI phone agents that support your team through agreed workflows.",
-      "visual": {
-        "kind": "agent",
-        "headline": "Built by FlowAudit.",
-        "kicker": "THE COMPANY BUILDING THE AGENTS",
-        "items": ["Support for your team.", "Configured around agreed workflows."],
-        "duration": 151,
-        "eventFrames": [118, 81],
-        "sourceFrom": 43.36,
-        "crop": "call"
-      }
+      "audioDuration": 4.703,
+      "text": "FlowAudit builds AI phone agents that support staff through agreed workflows.",
+      "kind": "route"
     },
     {
-      "id": "R04",
-      "from": 477,
-      "duration": 169,
-      "voiceFrom": 15.9,
-      "audioFile": "audio/overview/rebuild/R04-edit.wav",
+      "id": "E04",
+      "from": 506,
+      "duration": 146,
+      "voiceFrom": 16.866666666666667,
+      "audioFile": "audio/overview/editorial/E04-edit.wav",
       "audioStart": 0,
-      "audioDuration": 5.513458,
-      "text": "You agree when calls are forwarded, which appointments the agent can handle, and when a person needs to step in.",
-      "visual": {
-        "kind": "routing",
-        "headline": "Your practice sets the route.",
-        "kicker": "AGREED WORKFLOWS",
-        "items": ["Your appointment types.", "Practice-approved human handoffs."],
-        "duration": 169,
-        "eventFrames": [136, 91],
-        "sourceFrom": 43.36,
-        "crop": "call"
-      }
+      "audioDuration": 4.24,
+      "text": "You agree which calls and appointments it handles, and when a person steps in.",
+      "kind": "route"
     },
     {
-      "id": "R05a",
-      "from": 646,
-      "duration": 107,
-      "voiceFrom": 21.533333333333335,
-      "audioFile": "audio/overview/rebuild/R05-edit.wav",
+      "id": "E05",
+      "from": 652,
+      "duration": 64,
+      "voiceFrom": 21.733333333333334,
+      "audioFile": "audio/overview/editorial/E05-edit.wav",
       "audioStart": 0,
-      "audioDuration": 3.443917,
-      "text": "Here\u2019s a recorded demo. A new patient asks for a check-up.",
-      "visual": {
-        "kind": "demo",
-        "headline": "Hear the call.",
-        "kicker": "RECORDED DEMO",
-        "items": ["New-patient enquiry", "Check-up appointment"],
-        "duration": 107,
-        "eventFrames": [],
-        "sourceFrom": 9.24,
-        "crop": "call"
-      }
+      "audioDuration": 1.922625,
+      "text": "Here\u2019s a recorded new-patient enquiry.",
+      "kind": "evidence"
     },
     {
       "id": "D01",
-      "from": 753,
-      "duration": 74,
-      "voiceFrom": 25.1,
+      "from": 716,
+      "duration": 608,
+      "voiceFrom": 23.866666666666667,
       "audioFile": "audio/RoutineDemonstration.m4a",
       "audioStart": 9.24,
-      "audioDuration": 2.3599999999999994,
+      "audioDuration": 20.159999999999997,
       "text": "",
-      "visual": {
-        "kind": "demo",
-        "headline": "Hear the call.",
-        "kicker": "RECORDED DEMO",
-        "items": ["New-patient enquiry", "Check-up appointment"],
-        "duration": 74,
-        "eventFrames": [],
-        "sourceFrom": 9.24,
-        "crop": "call"
-      }
-    },
-    {
-      "id": "R05b",
-      "from": 827,
-      "duration": 63,
-      "voiceFrom": 27.566666666666666,
-      "audioFile": "audio/overview/rebuild/R05-edit.wav",
-      "audioStart": 3.443917,
-      "audioDuration": 1.9953750000000001,
-      "text": "The agent offers available times.",
-      "visual": {
-        "kind": "demo",
-        "headline": "Hear the call.",
-        "kicker": "RECORDED DEMO",
-        "items": ["2:30 pm", "3:00 pm", "3:30 pm"],
-        "duration": 63,
-        "eventFrames": [],
-        "sourceFrom": 9.24,
-        "crop": "call"
-      }
+      "kind": "evidence"
     },
     {
       "id": "D02",
-      "from": 890,
-      "duration": 282,
-      "voiceFrom": 29.666666666666668,
+      "from": 1324,
+      "duration": 285,
+      "voiceFrom": 44.13333333333333,
       "audioFile": "audio/RoutineDemonstration.m4a",
       "audioStart": 42.7,
       "audioDuration": 9.299999999999997,
       "text": "",
-      "visual": {
-        "kind": "demo",
-        "headline": "Hear the call.",
-        "kicker": "RECORDED DEMO",
-        "items": ["2:30 pm", "3:00 pm", "3:30 pm"],
-        "duration": 282,
-        "eventFrames": [91, 121, 166, 256],
-        "sourceFrom": 42.7,
-        "crop": "call"
-      }
+      "kind": "evidence"
     },
     {
-      "id": "R06",
-      "from": 1172,
-      "duration": 127,
-      "voiceFrom": 39.06666666666667,
-      "audioFile": "audio/overview/rebuild/R06-edit.wav",
+      "id": "E06",
+      "from": 1609,
+      "duration": 64,
+      "voiceFrom": 53.63333333333333,
+      "audioFile": "audio/overview/editorial/E06-edit.wav",
       "audioStart": 0,
-      "audioDuration": 4.115542,
-      "text": "The caller chooses three o\u2019clock. And here is the booking in Google Calendar.",
-      "visual": {
-        "kind": "calendar",
-        "headline": "See the booking.",
-        "kicker": "RECORDED DEMO",
-        "items": ["New-patient check-up", "Wednesday, 7 October", "3 pm"],
-        "duration": 127,
-        "eventFrames": [0, 0],
-        "sourceFrom": 78.4,
-        "crop": "confirmation",
-        "sourceStill": "demo/overview-calendar-still.png"
-      }
+      "audioDuration": 1.928333,
+      "text": "And here\u2019s the booking in Google Calendar.",
+      "kind": "calendar"
     },
     {
       "id": "D03",
-      "from": 1299,
-      "duration": 207,
-      "voiceFrom": 43.3,
+      "from": 1673,
+      "duration": 228,
+      "voiceFrom": 55.766666666666666,
       "audioFile": "audio/RoutineDemonstration.m4a",
       "audioStart": 75.75,
       "audioDuration": 6.799999999999997,
       "text": "",
+      "kind": "calendar"
+    },
+    {
+      "id": "E07",
+      "from": 1901,
+      "duration": 188,
+      "voiceFrom": 63.36666666666667,
+      "audioFile": "audio/overview/editorial/E07-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 5.458667,
+      "text": "A clear next step for the caller. Support for your team when the desk is busy, or the practice is closed.",
+      "kind": "return"
+    },
+    {
+      "id": "E08",
+      "from": 2089,
+      "duration": 291,
+      "voiceFrom": 69.63333333333334,
+      "audioFile": "audio/overview/editorial/E08-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 8.870708,
+      "text": "We assess your scheduling, phone forwarding and patient-data requirements. Then configure and test the agreed workflow with your team. Activation follows your approval.",
+      "kind": "approval"
+    },
+    {
+      "id": "E09",
+      "from": 2380,
+      "duration": 320,
+      "voiceFrom": 79.33333333333333,
+      "audioFile": "audio/overview/editorial/E09-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 8.642083,
+      "text": "Book a fifteen-minute demo and fit assessment. Bring the person who approves the purchase. We\u2019ll look at your call workflows and see whether FlowAudit fits.",
+      "kind": "cta"
+    }
+  ],
+  "shots": [
+    {
+      "id": "opening",
+      "from": 0,
+      "duration": 349,
       "visual": {
-        "kind": "calendar",
-        "headline": "See the booking.",
-        "kicker": "RECORDED DEMO",
-        "items": ["New-patient check-up", "Wednesday, 7 October", "3 pm"],
-        "duration": 207,
-        "eventFrames": [95, 167],
-        "sourceFrom": 75.75,
-        "crop": "confirmation",
-        "sourceStill": "demo/overview-calendar-still.png"
+        "kind": "hook",
+        "duration": 349,
+        "eventFrames": [82, 249],
+        "transferFrames": 52
       }
     },
     {
-      "id": "R07",
-      "from": 1506,
-      "duration": 272,
-      "voiceFrom": 50.2,
-      "audioFile": "audio/overview/rebuild/R07-edit.wav",
-      "audioStart": 0,
-      "audioDuration": 8.947083,
-      "text": "That\u2019s the workflow to assess: give routine enquiries a clear next step, during busy periods and after hours, without pulling your team away from the patient in front of them.",
+      "id": "workflow",
+      "from": 349,
+      "duration": 303,
       "visual": {
-        "kind": "value",
-        "headline": "Help the caller. Support the team.",
-        "kicker": "BUSY PERIODS + AFTER HOURS",
-        "items": ["A next step for the caller", "Your team keeps helping patients"],
-        "duration": 272,
-        "eventFrames": [121, 159, 180],
-        "sourceFrom": 43.36,
-        "crop": "call"
+        "kind": "route",
+        "duration": 303,
+        "eventFrames": [157, 254],
+        "callTravelFrames": 100
       }
     },
     {
-      "id": "R10",
-      "from": 1778,
-      "duration": 173,
-      "voiceFrom": 59.266666666666666,
-      "audioFile": "audio/overview/rebuild/R10-edit.wav",
-      "audioStart": 0,
-      "audioDuration": 5.641375,
-      "text": "Start with your own call records. Which enquiries need a reply, and which can your team already handle?",
+      "id": "E05",
+      "from": 652,
+      "duration": 64,
       "visual": {
-        "kind": "assess",
-        "headline": "Where would support be useful?",
-        "kicker": "USE YOUR OWN CALL RECORDS",
-        "items": ["Enquiries needing a reply", "Calls your team can handle"],
-        "duration": 173,
+        "kind": "evidence",
+        "duration": 64,
+        "sourceMode": "call",
+        "sourceFrom": 9.24,
+        "label": "Narration",
         "eventFrames": [],
-        "sourceFrom": 43.36,
-        "crop": "call"
+        "phase": -1
       }
     },
     {
-      "id": "R08",
-      "from": 1951,
-      "duration": 452,
-      "voiceFrom": 65.03333333333333,
-      "audioFile": "audio/overview/rebuild/R08-edit.wav",
-      "audioStart": 0,
-      "audioDuration": 14.944083,
-      "text": "Before setup, we check your scheduling, forwarding and patient-data requirements. Clinical judgment stays with your team. You agree scope and investment. Agreement and initial payment start configuration, followed by testing with your team. Activation follows your approval.",
+      "id": "D01",
+      "from": 716,
+      "duration": 608,
       "visual": {
-        "kind": "fit",
-        "headline": "Check the fit for your practice.",
-        "kicker": "BEFORE ACTIVATION",
-        "items": ["Scheduling", "Phone forwarding", "Patient data"],
-        "duration": 452,
-        "eventFrames": [139, 198, 254, 339, 403],
-        "sourceFrom": 43.36,
-        "crop": "call"
+        "kind": "evidence",
+        "duration": 608,
+        "sourceMode": "call",
+        "sourceFrom": 9.24,
+        "label": "",
+        "eventFrames": [281, 528]
       }
     },
     {
-      "id": "R09",
-      "from": 2403,
-      "duration": 297,
-      "voiceFrom": 80.1,
-      "audioFile": "audio/overview/rebuild/R09-edit.wav",
-      "audioStart": 0,
-      "audioDuration": 8.514,
-      "text": "Book a fifteen-minute demo and fit assessment. Bring the person who approves the purchase. We\u2019ll look at your call workflows and decide whether there\u2019s a useful fit.",
+      "id": "D02",
+      "from": 1324,
+      "duration": 285,
+      "visual": {
+        "kind": "evidence",
+        "duration": 285,
+        "sourceMode": "call",
+        "sourceFrom": 42.7,
+        "label": "",
+        "eventFrames": [91, 121, 166, 256]
+      }
+    },
+    {
+      "id": "E06",
+      "from": 1609,
+      "duration": 64,
+      "visual": {
+        "kind": "evidence",
+        "duration": 64,
+        "sourceMode": "calendar",
+        "sourceFrom": 9.24,
+        "label": "Narration",
+        "eventFrames": [],
+        "phase": -1
+      }
+    },
+    {
+      "id": "D03",
+      "from": 1673,
+      "duration": 228,
+      "visual": {
+        "kind": "evidence",
+        "duration": 228,
+        "sourceMode": "calendar",
+        "sourceFrom": 75.75,
+        "label": "",
+        "eventFrames": []
+      }
+    },
+    {
+      "id": "resolution",
+      "from": 1901,
+      "duration": 188,
+      "visual": {
+        "kind": "return",
+        "duration": 188,
+        "eventFrames": [116, 0],
+        "transferFrames": 90
+      }
+    },
+    {
+      "id": "approval",
+      "from": 2089,
+      "duration": 291,
+      "visual": {
+        "kind": "approval",
+        "duration": 291,
+        "eventFrames": [18, 45, 68, 117, 216],
+        "callTravelFrames": 90
+      }
+    },
+    {
+      "id": "invitation",
+      "from": 2380,
+      "duration": 320,
       "visual": {
         "kind": "cta",
-        "headline": "See what fits your practice.",
-        "kicker": "YOUR NEXT STEP",
-        "items": [],
-        "duration": 297,
+        "duration": 320,
         "eventFrames": [],
-        "sourceFrom": 43.36,
-        "crop": "call"
+        "callTravelFrames": 80
       }
     }
   ],
   "captions": [
     {
       "from": 0,
-      "to": 51,
+      "to": 52,
       "text": "Your receptionist is\nhelping a patient."
     },
     {
-      "from": 63,
-      "to": 75,
+      "from": 62,
+      "to": 82,
       "text": "The phone rings."
     },
     {
-      "from": 75,
-      "to": 115,
+      "from": 82,
+      "to": 118,
       "text": "Later, the practice closes."
     },
     {
       "from": 127,
-      "to": 147,
+      "to": 149,
       "text": "Someone else calls."
     },
     {
-      "from": 147,
-      "to": 193,
-      "text": "What happens to those enquiries?"
+      "from": 182,
+      "to": 243,
+      "text": "Your team can\u2019t be in\ntwo places at once."
     },
     {
-      "from": 212,
-      "to": 256,
-      "text": "Watch how a call\ncan reach a booking,"
+      "from": 249,
+      "to": 305,
+      "text": "But the caller still\nneeds a next step."
     },
     {
-      "from": 256,
-      "to": 318,
-      "text": "while your team stays in control."
+      "from": 349,
+      "to": 435,
+      "text": "FlowAudit builds AI\nphone agents that support"
     },
     {
-      "from": 326,
-      "to": 426,
-      "text": "FlowAudit builds AI phone\nagents that support your team"
+      "from": 435,
+      "to": 480,
+      "text": "staff through agreed workflows."
     },
     {
-      "from": 426,
-      "to": 467,
-      "text": "through agreed workflows."
+      "from": 506,
+      "to": 563,
+      "text": "You agree which calls\nand appointments it"
     },
     {
-      "from": 477,
-      "to": 525,
-      "text": "You agree when calls are forwarded,"
+      "from": 563,
+      "to": 577,
+      "text": "handles,"
     },
     {
-      "from": 536,
-      "to": 583,
-      "text": "which appointments\nthe agent can handle,"
+      "from": 594,
+      "to": 633,
+      "text": "and when a person steps in."
     },
     {
-      "from": 590,
-      "to": 639,
-      "text": "and when a person needs to step in."
+      "from": 652,
+      "to": 702,
+      "text": "Here\u2019s a recorded\nnew-patient enquiry."
     },
     {
-      "from": 646,
-      "to": 681,
-      "text": "Here\u2019s a recorded demo."
+      "from": 721,
+      "to": 735,
+      "text": "Hiya."
     },
     {
-      "from": 688,
-      "to": 748,
-      "text": "A new patient asks for a check-up."
+      "from": 738,
+      "to": 774,
+      "text": "I just wanted to ring\nin and book an"
     },
     {
-      "from": 758,
-      "to": 815,
-      "text": "Hiya, I just wanted to ring\nin and book an appointment."
+      "from": 774,
+      "to": 781,
+      "text": "appointment."
     },
     {
-      "from": 832,
-      "to": 878,
-      "text": "The agent offers available times."
+      "from": 880,
+      "to": 894,
+      "text": "Thanks."
     },
     {
-      "from": 892,
-      "to": 967,
-      "text": "The first available\nappointment this afternoon"
+      "from": 907,
+      "to": 963,
+      "text": "Can you please tell me\nif this is for you or"
     },
     {
-      "from": 967,
-      "to": 1036,
-      "text": "is at 2:30 or three in the afternoon"
+      "from": 963,
+      "to": 981,
+      "text": "someone else?"
     },
     {
-      "from": 1036,
-      "to": 1074,
+      "from": 997,
+      "to": 1015,
+      "text": "It's for me."
+    },
+    {
+      "from": 1021,
+      "to": 1050,
+      "text": "I'm a new in the area."
+    },
+    {
+      "from": 1060,
+      "to": 1115,
+      "text": "I want to, you know,\nregister with the dentist"
+    },
+    {
+      "from": 1115,
+      "to": 1161,
+      "text": "and then get checked up as well."
+    },
+    {
+      "from": 1244,
+      "to": 1263,
+      "text": "Got it."
+    },
+    {
+      "from": 1267,
+      "to": 1309,
+      "text": "Are you looking for\na new patient check-up"
+    },
+    {
+      "from": 1309,
+      "to": 1319,
+      "text": "appointment?"
+    },
+    {
+      "from": 1326,
+      "to": 1401,
+      "text": "The first available appointment\nthis afternoon"
+    },
+    {
+      "from": 1401,
+      "to": 1470,
+      "text": "is at 2:30 or three\nin the afternoon"
+    },
+    {
+      "from": 1470,
+      "to": 1508,
       "text": "or 3:30."
     },
     {
-      "from": 1090,
-      "to": 1120,
+      "from": 1524,
+      "to": 1554,
       "text": "Which one works for you?"
     },
     {
-      "from": 1133,
-      "to": 1161,
+      "from": 1567,
+      "to": 1595,
       "text": "Can we do three o\u2019clock?"
     },
     {
-      "from": 1172,
-      "to": 1212,
-      "text": "The caller chooses three o\u2019clock."
+      "from": 1609,
+      "to": 1662,
+      "text": "And here\u2019s the booking\nin Google Calendar."
     },
     {
-      "from": 1212,
-      "to": 1287,
-      "text": "And here is the booking\nin Google Calendar."
-    },
-    {
-      "from": 1303,
-      "to": 1365,
+      "from": 1677,
+      "to": 1739,
       "text": "Your new patient\ncheck-up appointment"
     },
     {
-      "from": 1365,
-      "to": 1405,
+      "from": 1739,
+      "to": 1779,
       "text": "is booked for Wednesday,"
     },
     {
-      "from": 1420,
-      "to": 1449,
+      "from": 1794,
+      "to": 1823,
       "text": "the 7th of October"
     },
     {
-      "from": 1449,
-      "to": 1493,
+      "from": 1823,
+      "to": 1867,
       "text": "at three in the afternoon."
     },
     {
-      "from": 1506,
-      "to": 1543,
-      "text": "That\u2019s the workflow to assess:"
+      "from": 1901,
+      "to": 1948,
+      "text": "A clear next step for the caller."
     },
     {
-      "from": 1557,
-      "to": 1611,
-      "text": "give routine enquiries\na clear next step,"
+      "from": 1960,
+      "to": 2017,
+      "text": "Support for your team\nwhen the desk is busy,"
     },
     {
-      "from": 1611,
-      "to": 1686,
-      "text": "during busy periods and after hours,"
+      "from": 2017,
+      "to": 2061,
+      "text": "or the practice is closed."
     },
     {
-      "from": 1686,
-      "to": 1758,
-      "text": "without pulling your team\naway from the patient in front"
+      "from": 2089,
+      "to": 2157,
+      "text": "We assess your scheduling,\nphone forwarding and"
     },
     {
-      "from": 1758,
-      "to": 1772,
-      "text": "of them."
+      "from": 2157,
+      "to": 2193,
+      "text": "patient-data requirements."
     },
     {
-      "from": 1778,
-      "to": 1817,
-      "text": "Start with your own call records."
+      "from": 2206,
+      "to": 2271,
+      "text": "Then configure and test\nthe agreed workflow with"
     },
     {
-      "from": 1835,
-      "to": 1876,
-      "text": "Which enquiries need a reply,"
+      "from": 2271,
+      "to": 2284,
+      "text": "your team."
     },
     {
-      "from": 1890,
-      "to": 1941,
-      "text": "and which can your team\nalready handle?"
-    },
-    {
-      "from": 1951,
-      "to": 1969,
-      "text": "Before setup,"
-    },
-    {
-      "from": 1979,
-      "to": 2050,
-      "text": "we check your scheduling,\nforwarding and patient-data"
-    },
-    {
-      "from": 2050,
-      "to": 2066,
-      "text": "requirements."
-    },
-    {
-      "from": 2090,
-      "to": 2135,
-      "text": "Clinical judgment\nstays with your team."
-    },
-    {
-      "from": 2149,
-      "to": 2191,
-      "text": "You agree scope and investment."
-    },
-    {
-      "from": 2205,
-      "to": 2274,
-      "text": "Agreement and initial\npayment start configuration,"
-    },
-    {
-      "from": 2290,
-      "to": 2339,
-      "text": "followed by testing with your team."
-    },
-    {
-      "from": 2354,
-      "to": 2393,
+      "from": 2305,
+      "to": 2350,
       "text": "Activation follows your approval."
     },
     {
-      "from": 2403,
-      "to": 2474,
+      "from": 2380,
+      "to": 2454,
       "text": "Book a fifteen-minute\ndemo and fit assessment."
     },
     {
-      "from": 2490,
-      "to": 2543,
+      "from": 2467,
+      "to": 2523,
       "text": "Bring the person who\napproves the purchase."
     },
     {
-      "from": 2559,
-      "to": 2625,
-      "text": "We\u2019ll look at your call\nworkflows and decide whether"
+      "from": 2534,
+      "to": 2596,
+      "text": "We\u2019ll look at your call\nworkflows and see"
     },
     {
-      "from": 2625,
-      "to": 2658,
-      "text": "there\u2019s a useful fit."
+      "from": 2596,
+      "to": 2633,
+      "text": "whether FlowAudit fits."
     }
   ]
 }

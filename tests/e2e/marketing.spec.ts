@@ -202,7 +202,7 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
     .getByText("Read the full transcript (English)", { exact: true })
     .click();
   await expect(page.locator("#demo")).toContainText(
-    "FlowAudit builds AI phone agents that support your team through agreed workflows.",
+    "FlowAudit builds AI phone agents that support staff through agreed workflows.",
   );
   const transcriptDownload = await page.request.get("/media/overview-transcript.txt");
   const inlineTranscript = await page.locator('#demo .fa-transcript [lang="en"]').textContent();

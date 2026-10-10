@@ -1,45 +1,36 @@
 import { system as s } from "../../system/sceneSystem";
-export type OverviewProps = {
-  kind: string;
-  titles: string[];
-  headline: string;
-  kicker: string;
-  items: string[];
-  caption: string;
-  source: string;
-  sourceStill: string;
-  sourceFrom: number;
-  crop: string;
-  eventFrames: number[];
-  enterFrames: number;
-  staggerFrames: number;
-  captionBottom: number;
-  captionSize: number;
-  captionWidth: number;
-  duration: number;
-};
-export const defaults: OverviewProps = {
+export const defaults = {
   kind: "hook",
-  titles: ["A patient at the desk.", "After closing, another call.", "Who helps the caller?"],
-  headline: "Who helps the caller?",
-  kicker: "DURING CLINIC. AFTER CLOSING.",
-  items: ["Desk occupied", "Practice closed"],
   caption: "",
+  duration: 540,
+  eventFrames: [75, 150, 230],
+  sourceFrom: 9.24,
   source: "demo/routine-landscape-panels.mp4",
   sourceStill: "demo/overview-calendar-still.png",
-  sourceFrom: 43.36,
-  crop: "call",
-  eventFrames: [65, 140],
-  enterFrames: 0,
-  staggerFrames: s.sales.staggerFrames,
-  captionBottom: s.sales.captionBottom,
-  captionSize: s.sales.captionSize,
-  captionWidth: s.sales.captionWidth,
-  duration: 240,
+  sourceMode: "call",
+  sourceProgress: 0,
+  phase: 0,
+  sceneOffset: 0,
+  label: "",
+  captionSize: s.editorial.captionSize,
+  captionBottom: s.editorial.captionBottom,
+  captionWidth: s.editorial.captionWidth,
+  transferFrames: s.editorial.transferFrames,
+  transitionFrames: s.editorial.transitionFrames,
+  callTravelFrames: s.editorial.callTravelFrames,
+  phoneX: s.editorial.phoneX,
+  phoneY: s.editorial.phoneY,
+};
+export type OverviewProps = {
+  [K in keyof typeof defaults]: (typeof defaults)[K] extends number ? number : (typeof defaults)[K];
 };
 export const schema = Object.fromEntries(
   Object.entries(defaults).map(([key, value]) => [
     key,
-    { type: typeof value === "number" ? "number" : "text", default: value },
+    {
+      type: typeof value === "number" ? "number" : Array.isArray(value) ? "array" : "text",
+      default: value,
+      label: key,
+    },
   ]),
 );

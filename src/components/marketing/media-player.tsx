@@ -22,8 +22,8 @@ const detailedChapters = [
 
 const overviewChapters = [
   [0, c("Busy desk and after hours", "Recepción ocupada y fuera de horario")],
-  [21.533333, c("Recorded demo", "Demo grabada")],
-  [65.033333, c("Setup and your next step", "Configuración y siguiente paso")],
+  [21.733333333333334, c("Recorded demo", "Demo grabada")],
+  [69.63333333333334, c("Setup and your next step", "Configuración y siguiente paso")],
 ] as const;
 const films = {
   overview: { label: c("The 90-second overview", "Resumen de 90 segundos"), duration: "1:30" },
@@ -128,7 +128,7 @@ export function MediaPlayer({
             controls
             playsInline
             preload="none"
-            poster={`/media/${active}.jpg?v=${active === "overview" ? "sales-rebuild-20261009" : "landscape-20261009"}`}
+            poster={`/media/${active}.jpg?v=${active === "overview" ? "editorial-20261010" : "landscape-20261009"}`}
             aria-label={`${text(locale, current.label)} · ${current.duration}`}
             data-media-id={active}
             onError={() => {

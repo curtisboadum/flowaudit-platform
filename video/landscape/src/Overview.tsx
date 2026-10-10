@@ -3,13 +3,13 @@ import { Sequence, Audio, staticFile, useCurrentFrame } from "remotion";
 import OverviewScene from "./scenes/overview/Scene";
 import data from "./overview.json";
 export const Overview: React.FC = () => {
-  const frame = useCurrentFrame();
-  const cue = data.captions.find((c) => frame >= c.from && frame < c.to);
+  const f = useCurrentFrame();
+  const cue = data.captions.find((c) => f >= c.from && f < c.to);
   return (
     <>
-      {data.segments.map((seg) => (
-        <Sequence key={seg.id} from={seg.from} durationInFrames={seg.duration}>
-          <OverviewScene {...seg.visual} caption={cue?.text ?? ""} />
+      {data.shots.map((shot) => (
+        <Sequence key={shot.id} from={shot.from} durationInFrames={shot.duration}>
+          <OverviewScene {...shot.visual} caption={cue?.text ?? ""} />
         </Sequence>
       ))}
       <Audio src={staticFile(data.audio)} />

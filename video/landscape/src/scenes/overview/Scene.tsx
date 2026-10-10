@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  spring,
   interpolate,
+  spring,
   useCurrentFrame,
   useVideoConfig,
   OffthreadVideo,
@@ -11,710 +11,569 @@ import {
 import { system as s } from "../../system/sceneSystem";
 import { Stage } from "../../system/Stage";
 import { defaults, OverviewProps } from "./schema";
-const a = s.sales;
-const Person: React.FC<{ x: number; y: number; patient?: boolean }> = ({
+const a = s.editorial;
+const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
+const progress = (f: number, start: number, end: number) =>
+  interpolate(f, [start, Math.max(start + 1, end)], [0, 1], clamp);
+const Label: React.FC<{
+  x: number;
+  y: number;
+  children: React.ReactNode;
+  size?: number;
+  fill?: string;
+  anchor?: "start" | "middle" | "end";
+}> = ({ x, y, children, size = a.labelSize, fill = s.ink, anchor = "start" }) => (
+  <text x={x} y={y} fontFamily={s.fonts.sans} fontSize={size} fill={fill} textAnchor={anchor}>
+    {children}
+  </text>
+);
+const Tick: React.FC<{ x: number; y: number; scale?: number }> = ({ x, y, scale = 1 }) => (
+  <path
+    d="M-20 0L-5 15L26-21"
+    transform={`translate(${x} ${y}) scale(${scale})`}
+    fill="none"
+    stroke={a.sage}
+    strokeWidth={a.stroke + 2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+);
+const Phone: React.FC<{ x: number; y: number; ring: number; scale?: number }> = ({
   x,
   y,
-  patient = false,
+  ring,
+  scale = 1,
 }) => (
-  <g transform={`translate(${x} ${y})`}>
-    <circle
-      cx="0"
-      cy="0"
-      r="29"
-      fill={patient ? s.bg : a.avatarFill}
-      stroke={s.ink}
-      strokeWidth={a.lineWidth}
+  <g transform={`translate(${x} ${y}) scale(${scale})`}>
+    <ellipse cx="0" cy="82" rx="90" ry="15" fill={a.paperShadow} />
+    <rect x="-53" y="-66" width="106" height="148" rx="20" fill={s.ink} />
+    <rect x="-44" y="-53" width="88" height="113" rx="12" fill={s.paper} />
+    <path d="M-15-15Q-23 9 13 26L25 8L9-2L1 7L-8-4L-3-14Z" fill={a.clay} />
+    <rect x="-12" y="68" width="24" height="4" rx="2" fill={s.bg} />
+    {[0, 1].map((i) => (
+      <path
+        key={i}
+        d={`M${-73 - i * 19} -28Q${-96 - i * 18} 4 ${-73 - i * 19} 35M${73 + i * 19} -28Q${96 + i * 18} 4 ${73 + i * 19} 35`}
+        fill="none"
+        stroke={a.clay}
+        strokeWidth={a.stroke}
+        strokeLinecap="round"
+        opacity={ring * (0.75 - i * 0.25)}
+      />
+    ))}
+  </g>
+);
+const Person: React.FC<{
+  x: number;
+  y: number;
+  patient?: boolean;
+  arm: number;
+  present: number;
+}> = ({ x, y, patient = false, arm, present }) => (
+  <g transform={`translate(${x} ${y + 80 * (1 - present)})`} opacity={present}>
+    <path d="M-83 244Q-96 111-43 94L41 94Q89 112 83 244" fill={patient ? a.clay : a.sage} />
+    <path d="M-39 98L0 148L39 98" fill={s.bg} />
+    <rect x="-20" y="72" width="40" height="42" rx="15" fill={patient ? a.skinLight : a.skin} />
+    <ellipse cx="0" cy="26" rx="50" ry="64" fill={patient ? a.skinLight : a.skin} />
+    <path
+      d={
+        patient
+          ? "M-48 20Q-66-45 4-45Q61-41 48 26L29-8Q-10 12-47-2Z"
+          : "M-50 26Q-74-47-7-46Q56-48 52 15L33-16Q-2 15-47-2Z"
+      }
+      fill={s.ink}
     />
     <path
-      d="M-55 126 L-48 70 Q-43 38 0 38 Q43 38 48 70 L55 126"
-      fill={patient ? s.bg : a.avatarFill}
+      d="M-35 17L-30 36M27 17L30 36M-9 64Q2 69 14 60"
+      fill="none"
       stroke={s.ink}
-      strokeWidth={a.lineWidth}
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
+    {!patient && (
+      <g>
+        <path d="M-35 20Q-64 10-58 55" fill="none" stroke={s.ink} strokeWidth={a.stroke} />
+        <path d="M-57 54Q-50 69-28 64" fill="none" stroke={s.ink} strokeWidth="3" />
+        <rect x="-64" y="30" width="15" height="28" rx="7" fill={a.clay} />
+      </g>
+    )}
+    <path
+      d={
+        patient
+          ? `M-65 146Q-125 193 ${-205 + 55 * arm} ${225 - 20 * arm}`
+          : `M63 146Q112 206 ${215 - 40 * arm} ${225 - 20 * arm}`
+      }
+      fill="none"
+      stroke={patient ? a.clay : a.sage}
+      strokeWidth="39"
+      strokeLinecap="round"
+    />
+    <circle
+      cx={patient ? -205 + 55 * arm : 215 - 40 * arm}
+      cy={225 - 20 * arm}
+      r="21"
+      fill={patient ? a.skinLight : a.skin}
     />
   </g>
 );
-const Clinic: React.FC<{ closed?: boolean; progress: number }> = ({ closed = false, progress }) => (
-  <svg viewBox="0 0 800 330" width="100%" height="100%" aria-hidden="true">
-    {closed ? (
-      <g>
-        <rect
-          x="100"
-          y="35"
-          width="340"
-          height="265"
-          rx="2"
-          fill={s.surface}
-          stroke={s.ink}
-          strokeWidth={a.lineWidth}
-        />
-        <path d="M270 35V300M100 115H440" fill="none" stroke={s.line} strokeWidth={a.lineWidth} />
-        <circle cx="298" cy="181" r="7" fill={s.ink} />
-        <rect x="160" y="130" width="220" height="70" fill={s.bg} />
-        <text
-          x="270"
-          y="177"
-          textAnchor="middle"
-          fontSize={a.labelSize}
-          fill={s.ink}
-          fontFamily={s.fonts.sans}
-        >
-          Closed
-        </text>
-        <path
-          d="M630 55A60 60 0 1 0 695 120A51 51 0 0 1 630 55"
-          fill={a.accentSoft}
-          stroke={a.accent}
-          strokeWidth={a.lineWidth}
-        />
-      </g>
-    ) : (
-      <g>
-        <Person x={220} y={85} />
-        <Person x={460} y={100} patient />
-        <path d="M100 220H540V300H100Z" fill={s.surface} stroke={s.ink} strokeWidth={a.lineWidth} />
-        <path d="M262 192L340 175L370 209" fill="none" stroke={s.ink} strokeWidth={a.lineWidth} />
-        <path d="M500 174L450 200L370 209" fill="none" stroke={s.ink} strokeWidth={a.lineWidth} />
-        <rect
-          x="130"
-          y="148"
-          width="58"
-          height="52"
-          fill={s.bg}
-          stroke={s.ink}
-          strokeWidth={a.lineWidth}
-        />
-      </g>
-    )}
-    <g transform="translate(640 245)">
-      <rect
-        x="-49"
-        y="-74"
-        width="98"
-        height="148"
-        rx="17"
-        fill={s.bg}
-        stroke={a.accent}
+const Reception: React.FC<{ f: number; p: OverviewProps; resolved?: boolean }> = ({
+  f,
+  p,
+  resolved = false,
+}) => {
+  const close = p.eventFrames[0] ?? 75;
+  const dark = progress(f, close, close + p.transitionFrames);
+  const split = progress(
+    f,
+    p.eventFrames[1] ?? 150,
+    (p.eventFrames[1] ?? 150) + p.transitionFrames,
+  );
+  const transfer = progress(f, 0, p.transferFrames);
+  const reach = Math.sin(transfer * Math.PI);
+  const ring = (Math.sin(f * 0.52) + 1) / 2;
+  return (
+    <>
+      <svg viewBox="0 0 1720 650" width="100%" height="100%">
+        <defs>
+          <clipPath id="room">
+            <rect x="0" y="0" width="1720" height="640" rx={a.roomRadius} />
+          </clipPath>
+        </defs>
+        <g clipPath="url(#room)">
+          <rect width="1720" height="640" fill={a.claySoft} />
+          <path d="M0 480L1720 400V650H0Z" fill={s.surface} />
+          <rect x="84" y="70" width="340" height="348" rx="160" fill={s.bg} />
+          <path d="M254 72V418M84 247H424" stroke={a.claySoft} strokeWidth="12" />
+          <g opacity={1 - dark}>
+            <circle cx="302" cy="145" r="43" fill={a.gold} />
+            <path d="M90 342L220 265L424 350V420H90Z" fill={a.sageSoft} />
+          </g>
+          <rect x="0" y="0" width="1720" height="650" fill={a.night} opacity={dark} />
+          <g opacity={dark}>
+            <rect x="84" y="70" width="340" height="348" rx="160" fill={a.nightSoft} />
+            <path d="M254 72V418M84 247H424" stroke={a.night} strokeWidth="12" />
+            <path d="M315 116A45 45 0 1 0 354 183A39 39 0 0 1 315 116" fill={a.gold} />
+          </g>
+          <g opacity={1 - dark}>
+            <path d="M690 0V55M1120 0V55" stroke={s.ink} strokeWidth="6" />
+            <path d="M625 105Q690-10 755 105ZM1055 105Q1120-10 1185 105Z" fill={s.bg} />
+            <Person x={620} y={110} arm={reach} present={1} />
+            <Person x={1180} y={110} patient arm={reach} present={1} />
+          </g>
+          <ellipse cx="920" cy="612" rx="610" ry="24" fill={a.paperShadow} />
+          <path d="M420 382H1430L1510 430H340Z" fill={s.paper} />
+          <path d="M340 430H1510V620H340Z" fill={dark > 0.5 ? a.nightSoft : a.sage} />
+          <path d="M365 455H1485" stroke={s.bg} strokeWidth="4" opacity=".35" />
+          <g
+            opacity={1 - dark}
+            transform={`translate(${interpolate(transfer, [0, 1], [1030, 795])} ${354 - Math.sin(transfer * Math.PI) * 18}) rotate(${-9 + 18 * transfer})`}
+          >
+            <rect
+              x="-75"
+              y="-40"
+              width="150"
+              height="90"
+              rx="5"
+              fill={a.paperShadow}
+              transform="translate(5 8)"
+            />
+            <rect
+              x="-75"
+              y="-40"
+              width="150"
+              height="90"
+              rx="5"
+              fill={s.paper}
+              stroke={a.clay}
+              strokeWidth="3"
+            />
+            <path d="M-45-13H40M-45 6H10M-45 25H27" stroke={a.claySoft} strokeWidth="6" />
+          </g>
+          <Phone
+            x={p.phoneX}
+            y={p.phoneY}
+            ring={resolved ? (1 - progress(f, 0, p.callTravelFrames)) * ring : ring}
+          />
+          <g transform="translate(1510 132)">
+            <circle r="62" fill={s.bg} />
+            <path
+              d={`M0 0L${Math.sin(dark * Math.PI) * 32} ${-36 + dark * 66}M0 0L${36 - dark * 18} ${dark * 18}`}
+              stroke={s.ink}
+              strokeWidth="5"
+              strokeLinecap="round"
+            />
+          </g>
+          <Label x={70} y={590} fill={dark > 0.5 ? s.bg : s.ink}>
+            {dark > 0.5 ? "After hours" : "Busy desk"}
+          </Label>
+        </g>
+        {resolved && (
+          <path
+            d="M985 340H1320"
+            stroke={a.sage}
+            strokeWidth={a.lineWidth}
+            pathLength="1"
+            strokeDasharray="1"
+            strokeDashoffset={1 - progress(f, 0, p.callTravelFrames)}
+          />
+        )}
+        {split > 0 && (
+          <g transform={`translate(${1320 + 230 * (1 - split)} 320)`}>
+            <circle
+              r="102"
+              fill={s.bg}
+              stroke={resolved ? a.sage : a.clay}
+              strokeWidth={a.stroke}
+            />
+            {resolved ? (
+              <Tick
+                x={0}
+                y={0}
+                scale={2 * progress(f, p.callTravelFrames - 10, p.callTravelFrames + 10)}
+              />
+            ) : (
+              <>
+                <path d="M-28-22Q-43 17 16 42L36 14L12-2L0 12L-17-6L-8-22Z" fill={a.clay} />
+                <path
+                  d="M-24-124Q90-150 124-43"
+                  fill="none"
+                  stroke={a.clay}
+                  strokeWidth="5"
+                  strokeDasharray="12 12"
+                />
+              </>
+            )}
+          </g>
+        )}
+      </svg>
+    </>
+  );
+};
+const Route: React.FC<{ f: number; p: OverviewProps }> = ({ f, p }) => {
+  const journey = progress(f, 12, p.callTravelFrames + 12);
+  const branch = progress(
+    f,
+    p.eventFrames[0] ?? 100,
+    (p.eventFrames[0] ?? 100) + p.transitionFrames,
+  );
+  return (
+    <svg viewBox="0 0 1720 650" width="100%" height="100%">
+      <Label x={860} y={74} anchor="middle" size={a.smallSize}>
+        EXPLANATORY WORKFLOW
+      </Label>
+      <path
+        d="M270 340H720M1000 340H1150Q1220 340 1220 270V200H1450M1220 340V480H1450"
+        fill="none"
+        stroke={s.line}
         strokeWidth={a.lineWidth}
       />
-      <path d="M-15 -15Q-28 10 10 30L22 12L8 2L0 10L-9 -1L-5 -10Z" fill={a.accent} />
-      {[0, 1, 2].map((i) => (
-        <circle
-          key={i}
-          r={65 + i * 17}
+      <path
+        d="M270 340H720"
+        fill="none"
+        stroke={a.clay}
+        strokeWidth={a.lineWidth}
+        pathLength="1"
+        strokeDasharray="1"
+        strokeDashoffset={1 - journey}
+      />
+      <Phone x={250} y={330} ring={(1 - journey) * 0.6} />
+      <rect x="690" y="205" width="310" height="270" rx="135" fill={a.sageSoft} />
+      <path
+        d="M758 300H935M758 340H875M758 380H920"
+        stroke={a.sage}
+        strokeWidth="10"
+        strokeLinecap="round"
+      />
+      <Label x={845} y={550} anchor="middle">
+        Agreed workflow
+      </Label>
+      <circle
+        cx={270 + journey * 430}
+        cy="340"
+        r={18 * (1 - progress(f, p.callTravelFrames, p.callTravelFrames + 18))}
+        fill={a.clay}
+      />
+      <g opacity={branch}>
+        <path
+          d="M1000 340H1150Q1220 340 1220 270V200H1450"
           fill="none"
-          stroke={a.accent}
-          strokeWidth={a.lineWidth / 2}
-          opacity={Math.max(0, progress - i * 0.22) * (0.4 - i * 0.08)}
+          stroke={a.sage}
+          strokeWidth={a.lineWidth}
+          pathLength="1"
+          strokeDasharray="1"
+          strokeDashoffset={1 - branch}
         />
-      ))}
-    </g>
-  </svg>
-);
+        <rect
+          x="1400"
+          y="130"
+          width="180"
+          height="150"
+          rx="16"
+          fill={s.paper}
+          stroke={a.sage}
+          strokeWidth={a.stroke}
+        />
+        <path d="M1400 175H1580M1440 115V144M1540 115V144" stroke={a.sage} strokeWidth={a.stroke} />
+        <Tick x={1490} y={221} />
+        <Label x={1490} y={340} anchor="middle">
+          Appointment
+        </Label>
+      </g>
+      <path
+        d="M1150 340H1220V480H1420"
+        fill="none"
+        stroke={a.clay}
+        strokeWidth={a.lineWidth}
+        pathLength="1"
+        strokeDasharray="1"
+        strokeDashoffset={
+          1 - progress(f, p.eventFrames[1] ?? 150, (p.eventFrames[1] ?? 150) + p.transitionFrames)
+        }
+      />
+      <g>
+        <circle cx="1490" cy="459" r="35" fill={a.skin} />
+        <path d="M1420 570Q1418 500 1490 500Q1562 500 1560 570" fill={a.sage} />
+        <Label x={1490} y={625} anchor="middle">
+          Your team
+        </Label>
+      </g>
+    </svg>
+  );
+};
+const Approval: React.FC<{ f: number; p: OverviewProps }> = ({ f, p }) => {
+  const events = p.eventFrames;
+  const phase = events.filter((v) => f >= v).length;
+  const review = progress(f, events[3] ?? 60, (events[3] ?? 60) + p.callTravelFrames);
+  const approve = progress(f, events[4] ?? 200, (events[4] ?? 200) + p.transitionFrames);
+  return (
+    <svg viewBox="0 0 1720 650" width="100%" height="100%">
+      <path d="M250 320H1470" stroke={s.line} strokeWidth={a.lineWidth} />
+      <g transform={`translate(${250 + review * 600} 320)`}>
+        <rect
+          x="-270"
+          y="-210"
+          width="540"
+          height="430"
+          rx="20"
+          fill={a.paperShadow}
+          transform="translate(10 15)"
+        />
+        <rect
+          x="-270"
+          y="-210"
+          width="540"
+          height="430"
+          rx="20"
+          fill={s.paper}
+          stroke={s.line}
+          strokeWidth="3"
+        />
+        <Label x={0} y={-125} anchor="middle" size={a.smallSize}>
+          YOUR WORKFLOW
+        </Label>
+        {["Scheduling", "Forwarding", "Patient data"].map((t, i) => (
+          <g key={t}>
+            <circle cx="-133" cy={-45 + i * 80} r="15" fill={i < phase ? a.sage : a.claySoft} />
+            <Label x={-96} y={-32 + i * 80} size={a.smallSize}>
+              {t}
+            </Label>
+          </g>
+        ))}
+      </g>
+      <g transform="translate(1180 320)">
+        <path d="M0-220V220" stroke={a.sage} strokeWidth="12" />
+        <rect x="-75" y="-40" width="150" height="80" rx="40" fill={s.bg} />
+        <Tick x={0} y={0} scale={approve} />
+      </g>
+      <g opacity={approve}>
+        <circle cx="1500" cy="320" r="90" fill={a.sageSoft} />
+        <Tick x={1500} y={320} scale={2} />
+      </g>
+      <Label x={850} y={615} anchor="middle">
+        {approve > 0.5
+          ? "Activation follows approval"
+          : review > 0.5
+            ? "Test with your team"
+            : "Assess the fit"}
+      </Label>
+    </svg>
+  );
+};
 export default function OverviewScene(input: Partial<OverviewProps>) {
   const p = { ...defaults, ...input };
-  const f = useCurrentFrame();
+  const local = useCurrentFrame();
+  const f = local + p.sceneOffset;
   const { fps } = useVideoConfig();
-  const enter = (delay = 0) =>
-    spring({ frame: f - p.enterFrames - delay, fps, config: s.springs.settle });
-  const motion = (delay = 0): React.CSSProperties => ({
-    transform: `translateY(${(1 - enter(delay)) * a.entryDistance}px)`,
-    opacity: enter(delay),
-  });
-  const reveal = (start = 0, end = start + 30) =>
-    interpolate(f, [start, end], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const phase = p.eventFrames.filter((t) => f >= t).length;
-  const label: React.CSSProperties = {
-    fontSize: a.labelSize,
-    lineHeight: a.labelLineHeight,
-    color: s.muted,
-  };
-  const title: React.CSSProperties = {
-    fontFamily: s.fonts.serif,
-    fontSize: a.titleSize,
-    fontWeight: s.type.headlineWeight,
-    lineHeight: a.titleLineHeight,
-    margin: 0,
-  };
-  const isHook = p.kind === "hook";
+  const settle = spring({ frame: local, fps, config: s.springs.settle });
   return (
     <Stage section="">
       <div
-        style={{
-          position: "absolute",
-          left: a.left,
-          top: a.top,
-          fontSize: a.smallSize,
-          letterSpacing: ".08em",
-          color: s.muted,
-        }}
+        style={{ position: "absolute", left: a.left, top: a.top, width: a.width, height: a.height }}
       >
-        {p.kicker}
-      </div>
-      {isHook ? (
-        <>
-          <h1
-            style={{
-              ...title,
-              position: "absolute",
-              left: a.left,
-              top: 260,
-              fontSize: a.largeTitleSize,
-              ...motion(),
-            }}
-          >
-            {p.titles[Math.min(phase, p.titles.length - 1)]}
-          </h1>
-          <div
-            style={{
-              position: "absolute",
-              left: a.left,
-              top: 430,
-              width: a.panelWidth,
-              height: 340,
-              ...motion(),
-            }}
-          >
-            <div style={label}>{p.items[0]}</div>
-            <Clinic progress={reveal(8, 35)} />
-          </div>
-          <div
-            style={{
-              position: "absolute",
-              left: 1000,
-              top: 430,
-              width: a.panelWidth,
-              height: 340,
-              ...motion(p.eventFrames[0] ?? 60),
-            }}
-          >
-            <div style={label}>{p.items[1]}</div>
-            <Clinic
-              closed
-              progress={reveal(p.eventFrames[0] ?? 60, (p.eventFrames[0] ?? 60) + 30)}
-            />
-          </div>
-        </>
-      ) : p.kind === "promise" ? (
-        <>
-          <h1
-            style={{
-              ...title,
-              fontSize: a.largeTitleSize,
-              position: "absolute",
-              left: a.left,
-              top: 290,
-              width: a.width,
-              ...motion(),
-            }}
-          >
-            {p.headline}
-          </h1>
-          <svg
-            viewBox="0 0 1720 220"
-            style={{ position: "absolute", left: a.left, top: 550, width: a.width, height: 220 }}
-          >
-            <path d="M10 100H1700" stroke={s.line} strokeWidth={a.lineWidth} />
-            <path
-              d="M10 100H1700"
-              stroke={a.accent}
-              strokeWidth={a.lineWidth}
-              pathLength="1"
-              strokeDasharray="1"
-              strokeDashoffset={1 - reveal(8, p.eventFrames[0] ?? 90)}
-            />
-            {p.items.map((t, i) => (
-              <g key={t} opacity={enter(i * p.staggerFrames)}>
-                <circle cx={30 + i * 810} cy="100" r="12" fill={a.accent} />
-                <text
-                  x={i * 810}
-                  y="180"
-                  fontFamily={s.fonts.sans}
-                  fontSize={a.bodySize}
-                  fill={s.ink}
-                >
-                  {t}
-                </text>
-              </g>
-            ))}
-          </svg>
-        </>
-      ) : p.kind === "agent" || p.kind === "routing" ? (
-        <>
-          <h1 style={{ ...title, position: "absolute", left: a.left, top: 265, ...motion() }}>
-            {p.headline}
-          </h1>
-          <svg
-            viewBox="0 0 1720 350"
-            style={{ position: "absolute", left: a.left, top: 425, width: a.width, height: 350 }}
-          >
-            <path
-              d="M370 90H630V175H730M370 260H630V175M1020 175H1160V90H1260M1160 175V260H1260"
-              fill="none"
-              stroke={s.line}
-              strokeWidth={a.lineWidth}
-            />
-            <path
-              d="M370 90H630V175H730M370 260H630V175M1020 175H1160V90H1260M1160 175V260H1260"
-              fill="none"
-              stroke={a.accent}
-              strokeWidth={a.lineWidth}
-              pathLength="1"
-              strokeDasharray="1"
-              strokeDashoffset={1 - reveal(10, p.eventFrames[0] ?? 110)}
-            />
-            <circle
-              cx="875"
-              cy="175"
-              r="128"
-              fill={a.accentSoft}
-              stroke={a.accent}
-              strokeWidth={a.lineWidth}
-            />
-            <text
-              x="875"
-              y="164"
-              textAnchor="middle"
-              fontSize={a.bodySize}
-              fontFamily={s.fonts.serif}
-              fill={s.ink}
-            >
-              AI phone
-            </text>
-            <text
-              x="875"
-              y="222"
-              textAnchor="middle"
-              fontSize={a.bodySize}
-              fontFamily={s.fonts.serif}
-              fill={s.ink}
-            >
-              agent
-            </text>
-            {["Desk busy", "After hours", "Routine booking", "Your team"].map((t, i) => (
-              <g key={t} opacity={enter(i * p.staggerFrames)}>
-                <text
-                  x={i < 2 ? 0 : 1290}
-                  y={i % 2 === 0 ? 105 : 275}
-                  fontSize={a.bodySize}
-                  fontFamily={s.fonts.sans}
-                  fill={s.ink}
-                >
-                  {t}
-                </text>
-              </g>
-            ))}
-          </svg>
-          <div
-            style={{
-              ...label,
-              position: "absolute",
-              left: a.left,
-              top: 790,
-              ...motion(p.eventFrames[1] ?? 60),
-            }}
-          >
-            {p.items[Math.min(phase, p.items.length - 1)] ??
-              "Agreed workflows. Practice-approved handoffs."}
-          </div>
-        </>
-      ) : p.kind === "demo" || p.kind === "calendar" ? (
-        <>
-          <h1 style={{ ...title, position: "absolute", left: a.left, top: 260, ...motion() }}>
-            {p.headline}
-          </h1>
-          {p.kind === "calendar" ? (
+        {p.kind === "hook" || p.kind === "return" ? (
+          <Reception f={f} p={p} resolved={p.kind === "return"} />
+        ) : p.kind === "route" ? (
+          <Route f={f} p={p} />
+        ) : p.kind === "approval" ? (
+          <Approval f={f} p={p} />
+        ) : p.kind === "evidence" ? (
+          <>
             <div
               style={{
                 position: "absolute",
-                left: a.left,
-                top: 425,
-                width: a.width,
-                height: 330,
-                overflow: "hidden",
-                borderRadius: s.radius.card,
+                left: 0,
+                top: 0,
+                fontSize: a.smallSize,
+                color: s.muted,
               }}
             >
-              <Img
-                src={staticFile(p.sourceStill)}
-                style={{
-                  position: "absolute",
-                  width: (a.width * 1920) / 630,
-                  height: (580 * a.width) / 630,
-                  left: (-1210 * a.width) / 630,
-                  top: (-365 * a.width) / 630,
-                }}
-              />
+              RECORDED DEMO{p.sourceMode === "calendar" ? " · GOOGLE CALENDAR BOOKING STILL" : ""}
             </div>
-          ) : (
-            <>
-              <div
-                style={{
-                  position: "absolute",
-                  left: a.left,
-                  top: 415,
-                  width: 560,
-                  height: 340,
-                  overflow: "hidden",
-                  borderRadius: s.radius.card,
-                  background: s.dark,
-                }}
-              >
+            <div
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 72,
+                width: a.width,
+                height: 500,
+                overflow: "hidden",
+                borderRadius: a.roomRadius,
+                background: s.dark,
+              }}
+            >
+              {p.sourceMode === "calendar" ? (
+                <Img
+                  src={staticFile(p.sourceStill)}
+                  style={{
+                    position: "absolute",
+                    width: (1920 * a.width) / 630,
+                    height: (580 * a.width) / 630,
+                    left: (-1210 * a.width) / 630,
+                    top: (-330 * a.width) / 630,
+                  }}
+                />
+              ) : (
                 <OffthreadVideo
                   muted
                   src={staticFile(p.source)}
                   startFrom={Math.round(p.sourceFrom * fps)}
-                  style={{ position: "absolute", width: 1920, height: 580, left: -220, top: -220 }}
-                />
-              </div>
-              <div style={{ position: "absolute", left: 760, top: 440, width: 1050 }}>
-                {p.items.map((t, i) => (
-                  <div
-                    key={t}
-                    style={{
-                      fontFamily: s.fonts.serif,
-                      fontSize: a.ctaSize,
-                      lineHeight: 1.15,
-                      marginBottom: 24,
-                      color: phase >= 4 && i === 1 ? a.teal : s.ink,
-                      ...motion(
-                        p.eventFrames.length === 4 ? p.eventFrames[i] : i * p.staggerFrames,
-                      ),
-                    }}
-                  >
-                    {t}
-                    {phase >= 4 && i === 1 ? " ✓" : ""}
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-          {p.kind === "calendar" ? (
-            <div
-              style={{
-                position: "absolute",
-                left: a.left,
-                top: 375,
-                fontSize: a.labelSize,
-                color: a.teal,
-                ...motion(),
-              }}
-            >
-              {p.items[Math.min(phase, p.items.length - 1)]}
-              <svg width={a.width} height="8" style={{ display: "block", marginTop: 18 }}>
-                <path
-                  d="M0 4H1720"
-                  stroke={a.teal}
-                  strokeWidth={a.lineWidth}
-                  pathLength="1"
-                  strokeDasharray="1"
-                  strokeDashoffset={1 - reveal(10, p.duration - 15)}
-                />
-              </svg>
-            </div>
-          ) : null}
-          <div
-            style={{
-              position: "absolute",
-              left: a.left,
-              top: 790,
-              fontSize: a.smallSize,
-              color: s.muted,
-            }}
-          >
-            Recorded demo ·{" "}
-            {p.crop === "confirmation"
-              ? "booking still + original call audio"
-              : p.kind === "calendar"
-                ? "Google Calendar booking"
-                : "appointment conversation"}
-          </div>
-        </>
-      ) : p.kind === "value" ? (
-        <>
-          <h1
-            style={{
-              ...title,
-              position: "absolute",
-              left: a.left,
-              top: 270,
-              width: a.width,
-              ...motion(),
-            }}
-          >
-            {p.headline}
-          </h1>
-          <div
-            style={{
-              position: "absolute",
-              left: a.left,
-              top: 440,
-              width: 760,
-              height: 240,
-              ...motion(),
-            }}
-          >
-            <Clinic progress={reveal(p.eventFrames[0] ?? 0, (p.eventFrames[0] ?? 0) + 30)} />
-          </div>
-          <div
-            style={{
-              position: "absolute",
-              left: 1000,
-              top: 440,
-              width: 760,
-              height: 240,
-              ...motion(p.eventFrames[1] ?? p.staggerFrames),
-            }}
-          >
-            <Clinic
-              closed
-              progress={reveal(p.eventFrames[1] ?? 30, (p.eventFrames[1] ?? 30) + 30)}
-            />
-          </div>
-          <svg
-            viewBox="0 0 1720 100"
-            style={{ position: "absolute", left: a.left, top: 685, width: a.width, height: 100 }}
-          >
-            <path d="M30 50H1690" fill="none" stroke={s.line} strokeWidth={a.lineWidth} />
-            <path
-              d="M30 50H1690"
-              fill="none"
-              stroke={a.teal}
-              strokeWidth={a.lineWidth}
-              pathLength="1"
-              strokeDasharray="1"
-              strokeDashoffset={1 - reveal(15, p.eventFrames[2] ?? 180)}
-            />
-            <circle
-              cx="1690"
-              cy="50"
-              r={12 * reveal(p.eventFrames[2] ?? 180, (p.eventFrames[2] ?? 180) + 25)}
-              fill={a.teal}
-            />
-          </svg>
-          <svg
-            viewBox="0 0 1720 100"
-            style={{ position: "absolute", left: a.left, top: 685, width: a.width, height: 100 }}
-          >
-            <path d="M30 50H1690" fill="none" stroke={s.line} strokeWidth={a.lineWidth} />
-            <path
-              d="M30 50H1690"
-              fill="none"
-              stroke={a.teal}
-              strokeWidth={a.lineWidth}
-              pathLength="1"
-              strokeDasharray="1"
-              strokeDashoffset={1 - reveal(15, p.eventFrames[2] ?? 180)}
-            />
-            <circle
-              cx="1690"
-              cy="50"
-              r={12 * reveal(p.eventFrames[2] ?? 180, (p.eventFrames[2] ?? 180) + 25)}
-              fill={a.teal}
-            />
-          </svg>
-          <div
-            style={{
-              position: "absolute",
-              left: a.left,
-              top: 790,
-              width: a.width,
-              display: "flex",
-              justifyContent: "space-between",
-              fontSize: a.labelSize,
-              color: a.teal,
-            }}
-          >
-            {p.items.map((t, i) => (
-              <span key={t} style={motion(i * p.staggerFrames)}>
-                {t}
-              </span>
-            ))}
-          </div>
-        </>
-      ) : p.kind === "assess" ? (
-        <>
-          <h1
-            style={{
-              ...title,
-              fontSize: a.largeTitleSize,
-              position: "absolute",
-              left: a.left,
-              top: 290,
-              width: 1250,
-              ...motion(),
-            }}
-          >
-            {p.headline}
-          </h1>
-          <div
-            style={{
-              position: "absolute",
-              left: a.left,
-              top: 590,
-              width: a.width,
-              borderTop: `${a.lineWidth}px solid ${s.line}`,
-              paddingTop: 40,
-              display: "flex",
-              gap: 100,
-            }}
-          >
-            {p.items.map((t, i) => (
-              <div key={t} style={{ fontSize: a.bodySize, ...motion(i * p.staggerFrames) }}>
-                <span style={{ color: a.accent, fontSize: a.smallSize }}>0{i + 1}</span>
-                <br />
-                {t}
-              </div>
-            ))}
-          </div>
-        </>
-      ) : p.kind === "fit" ? (
-        <>
-          <h1
-            style={{
-              ...title,
-              position: "absolute",
-              left: a.left,
-              top: 270,
-              width: a.width,
-              ...motion(),
-            }}
-          >
-            {phase === 0
-              ? p.headline
-              : phase === 1
-                ? "Clinical judgment stays with your team."
-                : "Agree. Configure. Test. Approve."}
-          </h1>
-          {phase < 2 ? (
-            <div
-              style={{
-                position: "absolute",
-                left: a.left,
-                top: 495,
-                width: a.width,
-                display: "flex",
-                gap: 85,
-              }}
-            >
-              {p.items.map((t, i) => (
-                <div
-                  key={t}
                   style={{
-                    width: 500,
-                    borderTop: `${a.lineWidth}px solid ${a.accent}`,
-                    paddingTop: 35,
-                    fontSize: a.bodySize,
-                    ...motion(i * p.staggerFrames),
+                    position: "absolute",
+                    width: (1920 * a.width) / 1000,
+                    height: (580 * a.width) / 1000,
+                    left: (-80 * a.width) / 1000,
+                    top: (-245 * a.width) / 1000,
                   }}
-                >
-                  {t}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div style={{ position: "absolute", left: a.left, top: 480, width: a.width }}>
-              <svg width="1720" height="80">
-                <path d="M20 40H1690" stroke={s.line} strokeWidth={a.lineWidth} />
-                <path
-                  d="M20 40H1690"
-                  stroke={a.teal}
-                  strokeWidth={a.lineWidth}
-                  pathLength="1"
-                  strokeDasharray="1"
-                  strokeDashoffset={1 - reveal(p.eventFrames[1], p.duration - 25)}
                 />
-              </svg>
-              <div
-                style={{ display: "flex", justifyContent: "space-between", fontSize: a.bodySize }}
-              >
-                {["Scope & investment", "Initial payment", "Team testing", "Approval"].map(
-                  (t, i) => (
-                    <div
-                      key={t}
-                      style={{
-                        width: 370,
-                        ...motion(p.eventFrames[i + 1] ?? p.eventFrames[1] + i * p.staggerFrames),
-                      }}
-                    >
-                      {t}
-                    </div>
-                  ),
-                )}
-              </div>
+              )}
             </div>
-          )}
-        </>
-      ) : (
-        <>
-          <h1
-            style={{
-              ...title,
-              fontSize: a.largeTitleSize,
-              position: "absolute",
-              left: a.left,
-              top: 280,
-              width: 1550,
-              ...motion(),
-            }}
-          >
-            {p.headline}
-          </h1>
-          <div
-            style={{
-              position: "absolute",
-              left: a.left,
-              top: a.ctaTop,
-              fontSize: a.ctaSize,
-              fontFamily: s.fonts.serif,
-              ...motion(p.staggerFrames),
-            }}
-          >
-            15-minute demo &amp; fit assessment
-          </div>
-          <div
-            style={{
-              position: "absolute",
-              left: a.left,
-              top: 700,
-              fontSize: a.ctaSize,
-              color: a.accent,
-              ...motion(p.staggerFrames * 2),
-            }}
-          >
-            flowaudit.co.uk/book ↗
             <div
               style={{
-                height: a.lineWidth,
-                width: `${reveal(20, p.duration - 20) * 100}%`,
-                background: a.accent,
+                position: "absolute",
+                left: 0,
+                right: 0,
+                top: 595,
+                fontSize: a.smallSize,
+                color: s.muted,
+                display: "flex",
+                justifyContent: "space-between",
               }}
+            >
+              <span>
+                {p.phase < 0
+                  ? "Original recording pixels"
+                  : p.sourceMode === "calendar"
+                    ? "Original confirmation audio"
+                    : "Original call audio"}
+              </span>
+              <span>
+                {p.label ||
+                  (p.sourceMode === "calendar"
+                    ? ""
+                    : p.eventFrames.length === 4
+                      ? f > p.eventFrames[3]
+                        ? "3:00 pm ✓"
+                        : p.eventFrames
+                            .map((t, i) => (f >= t ? ["2:30", "3:00", "3:30", ""][i] : ""))
+                            .filter(Boolean)
+                            .join(" · ")
+                      : p.eventFrames.length === 2
+                        ? f > p.eventFrames[1]
+                          ? "New-patient check-up"
+                          : f > p.eventFrames[0]
+                            ? "New patient"
+                            : ""
+                        : "")}
+              </span>
+            </div>
+          </>
+        ) : (
+          <svg viewBox="0 0 1720 650" width="100%" height="100%">
+            <circle cx="315" cy="290" r={160 * settle} fill={a.sageSoft} />
+            <g transform={`translate(315 290) scale(${settle})`}>
+              <rect
+                x="-94"
+                y="-96"
+                width="188"
+                height="190"
+                rx="20"
+                fill={s.paper}
+                stroke={a.sage}
+                strokeWidth={a.stroke}
+              />
+              <path d="M-94-42H94M-45-115V-78M45-115V-78" stroke={a.sage} strokeWidth={a.stroke} />
+              <text
+                y="50"
+                textAnchor="middle"
+                fontFamily={s.fonts.serif}
+                fontSize="112"
+                fill={s.ink}
+              >
+                15
+              </text>
+            </g>
+            <text x="580" y="250" fontFamily={s.fonts.serif} fontSize={a.titleSize} fill={s.ink}>
+              A useful fit?
+            </text>
+            <Label x={580} y={350}>
+              15-minute demo &amp; fit assessment
+            </Label>
+            <Label x={580} y={465} fill={a.clay}>
+              flowaudit.co.uk/book ↗
+            </Label>
+            <path
+              d="M580 490H1540"
+              stroke={a.clay}
+              strokeWidth={a.stroke}
+              pathLength="1"
+              strokeDasharray="1"
+              strokeDashoffset={1 - progress(f, 15, p.callTravelFrames)}
             />
-          </div>
-        </>
-      )}
-      {p.caption ? (
+          </svg>
+        )}
+      </div>
+      {p.caption && (
         <div
           style={{
             position: "absolute",
             left: (s.stage.width - p.captionWidth) / 2,
             width: p.captionWidth,
             bottom: p.captionBottom,
-            minHeight: a.captionHeight,
+            minHeight: 160,
             display: "flex",
             alignItems: "flex-end",
             justifyContent: "center",
             textAlign: "center",
             fontSize: p.captionSize,
-            lineHeight: s.overview.captionLineHeight,
-            fontWeight: s.overview.captionWeight,
+            lineHeight: 1.16,
+            fontWeight: 500,
             whiteSpace: "pre-line",
             color: s.ink,
           }}
         >
           {p.caption}
         </div>
-      ) : null}
+      )}
     </Stage>
   );
 }
