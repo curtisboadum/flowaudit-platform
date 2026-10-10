@@ -17,12 +17,16 @@
     }
   ],
   "motion": {
-    "ring": 52,
-    "close": 84,
-    "secondCall": 125,
-    "gather": 180,
-    "zoom": 227,
-    "resolve": 332
+    "ring": 50,
+    "paperBlock": 66,
+    "close": 82,
+    "secondCall": 124,
+    "gather": 183,
+    "zoom": 238,
+    "resolve": 329,
+    "gateOpen": 426,
+    "arrival": 467,
+    "hold": 486
   },
   "captions": [
     {

@@ -1,4 +1,23 @@
 export const system = {
+  bold: {
+    ink: "#101827",
+    white: "#F9FAFC",
+    blue: "#234BFF",
+    coral: "#FF6B5D",
+    green: "#8CE0B2",
+    paper: "#D5DFFF",
+    shade: "#293B60",
+    muted: "#A5B5DA",
+    labelSize: 60,
+    captionSize: 66,
+    captionBottom: 140,
+    routeWidth: 22,
+    tokenRadius: 37,
+    springs: {
+      snap: { damping: 17, stiffness: 180, mass: 0.8 },
+      weight: { damping: 24, stiffness: 110, mass: 1.5 },
+    },
+  },
   editorial: {
     top: 165,
     left: 100,
