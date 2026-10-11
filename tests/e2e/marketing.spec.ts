@@ -369,10 +369,8 @@ test("Chapters preserve paused state and work before first playback", async ({ p
 test("Slow media offers transcript and optional booking recovery", async ({ page }) => {
   await page.goto("/phone-agent");
   await page.getByRole("button", { name: "Keep analytics off" }).click();
-  await page.clock.install();
   await page.locator('video[data-media-id="overview"]').dispatchEvent("waiting");
-  await page.clock.fastForward(8100);
-  await expect(page.getByRole("status")).toContainText("Video loading slowly");
+  await expect(page.getByRole("status")).toContainText("Video loading slowly", { timeout: 12000 });
   await page
     .locator("#demo")
     .getByText("Read the full transcript (English)", { exact: true })

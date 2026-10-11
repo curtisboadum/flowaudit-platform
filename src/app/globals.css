@@ -2100,3 +2100,29 @@ select {
   box-sizing: border-box;
   background: #101112;
 }
+
+/* The film is the first substantial content of the phone-agent journey. */
+.fa-vsl-top { padding-block: 28px 48px; }
+.fa-vsl-heading { max-width: 880px; margin-bottom: 24px; }
+.fa-vsl-heading h1 { font-size: clamp(28px, 3.5vw, 48px); line-height: 1.08; }
+.fa-vsl-heading .fa-eyebrow { margin-bottom: 12px; }
+.fa-vsl-top .fa-media-layout { gap: 0; }
+.fa-vsl-top .fa-media-context { margin-top: 24px; }
+.fa-vsl-intro { max-width: 700px; margin-top: 32px; }
+.fa-seen-enough-slot { min-height: 88px; padding-block: 16px; }
+.fa-seen-enough { min-height: 56px; background: #234bff; color: #fff; animation: fa-cta-reveal 180ms ease-out; }
+.fa-seen-enough:hover { background: #1738ca; }
+.fa-seen-enough:focus-visible, .fa-radio-option:has(input:focus-visible), .fa-qualification-back:focus-visible { outline: 3px solid #234bff; outline-offset: 4px; }
+.fa-qualification { max-width: 680px; padding-block: 40px 80px; }
+.fa-qualification h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.1; margin-block: 16px; }
+.fa-qualification fieldset { margin-block: 28px; }
+.fa-qualification legend { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+.fa-radio-option { display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 12px 16px; border: 1px solid #c9cbd1; border-radius: 6px; margin-block: 8px; cursor: pointer; }
+.fa-radio-option:has(input:checked) { border-color: #234bff; background: #eef1ff; }
+.fa-radio-option input { width: 20px; height: 20px; flex-shrink: 0; accent-color: #234bff; }
+.fa-qualification form > .fa-small { margin-bottom: 24px; }
+.fa-qualification-back { display: inline-block; margin-bottom: 24px; padding-block: 8px; }
+@keyframes fa-cta-reveal { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 767px) { .fa-seen-enough { width: 100%; justify-content: space-between; } .fa-vsl-top { padding-top: 20px; } }
+@media (prefers-reduced-motion: reduce) { .fa-seen-enough { animation: none; } }
+.fa-vsl-actions { margin-top: 24px; }

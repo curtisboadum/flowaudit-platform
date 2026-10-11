@@ -7,13 +7,25 @@ import { c, text, offers, serviceId, type ServiceId } from "@/lib/marketing-copy
 import { analyticsAllowed, attribution, recordEventOnce } from "@/lib/funnel-client";
 import { Eyebrow } from "./primitives";
 
-export function BookingPage({ initialService = "general" }: { initialService?: ServiceId }) {
+export function BookingPage({
+  initialService = "general",
+  initialNotes = "",
+  onBack,
+}: {
+  initialService?: ServiceId;
+  initialNotes?: string;
+  onBack?: () => void;
+}) {
   const { locale } = useLocale();
   const [service, setService] = useState(initialService);
   const [config, setConfig] = useState<Record<string, string> | null>(null);
   const [revision, setRevision] = useState(0);
   const [draft, setDraft] = useState<Record<string, string>>({});
   const [status, setStatus] = useState(false);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (initialNotes) headingRef.current?.focus();
+  }, [initialNotes]);
   const contextRef = useRef<HTMLDetailsElement>(null);
   const phone = service === "phone-agent";
   const offer = offers.find((x) => x.id === service);
@@ -35,7 +47,7 @@ export function BookingPage({ initialService = "general" }: { initialService?: S
     return next;
   };
   useEffect(() => {
-    setConfig(bookingConfig(""));
+    setConfig(bookingConfig(initialNotes));
     setStatus(false);
     const refreshConsent = () => {
       setConfig((prior) => bookingConfig(prior?.notes ?? ""));
@@ -45,7 +57,7 @@ export function BookingPage({ initialService = "general" }: { initialService?: S
     return () => window.removeEventListener("fa-consent-change", refreshConsent);
     // A service change intentionally starts a new calendar, without form answers.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [service]);
+  }, [service, initialNotes]);
   const groups = ["Practice manager", "Operations leader", "Group executive"].includes(
     draft.role ?? "",
   );
@@ -56,7 +68,7 @@ export function BookingPage({ initialService = "general" }: { initialService?: S
           {text(locale, c("Demo & fit assessment", "Demo y evaluación"))}
           <span>15 min</span>
         </Eyebrow>
-        <h1>
+        <h1 ref={headingRef} tabIndex={initialNotes ? -1 : undefined}>
           {text(
             locale,
             phone
@@ -126,164 +138,174 @@ export function BookingPage({ initialService = "general" }: { initialService?: S
           {text(locale, offer?.label ?? c("General fit assessment", "Evaluación general"))} · 15 min
           · Cal Video
         </p>
-        <details ref={contextRef} className="fa-book-context">
-          <summary>
-            {text(
-              locale,
-              c(
-                "Add context for the call (optional)",
-                "Añadir contexto para la llamada (opcional)",
-              ),
-            )}
-          </summary>
-          <p className="fa-small">
-            {text(
-              locale,
-              c(
-                "Book directly below, or add context first. Applying context reloads the calendar, so choose your time afterwards. Name and email are collected once by Cal.",
-                "Reserva abajo o añade contexto primero. Aplicarlo recarga el calendario; elige tu horario después. Cal solicita nombre y correo una sola vez.",
-              ),
-            )}
-          </p>
-          <form
-            onChange={() => recordEventOnce("qualification_start", { service })}
-            onSubmit={(e) => {
-              e.preventDefault();
-              const form = new FormData(e.currentTarget);
-              const values = Object.fromEntries(
-                [...form.entries()].map(([key, value]) => [key, String(value).trim()]),
-              );
-              setDraft(values);
-              const notes = Object.entries(values)
-                .filter(([key, value]) => key !== "service" && value)
-                .map(([key, value]) => `${key}: ${value}`)
-                .join("\n");
-              setConfig(bookingConfig(notes));
-              setRevision((v) => v + 1);
-              setStatus(Boolean(notes));
-              if (notes) recordEventOnce("qualification_complete", { service });
-              if (contextRef.current) contextRef.current.open = false;
-            }}
-          >
-            {initialService !== "phone-agent" && (
-              <label className="fa-field">
-                {text(locale, c("I’m interested in", "Me interesa"))}
-                <select
-                  name="service"
-                  value={service}
-                  onChange={(e) => setService(serviceId(e.target.value))}
-                >
-                  <option value="general">
-                    {text(locale, c("Explore the fit", "Explorar si encaja"))}
-                  </option>
-                  {offers.map((o) => (
-                    <option key={o.id} value={o.id}>
-                      {text(locale, o.label)}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            )}
-            <label className="fa-field">
-              {text(
-                locale,
-                c("Business or practice name (optional)", "Nombre de empresa o clínica (opcional)"),
-              )}
-              <input
-                name="practice"
-                value={draft.practice ?? ""}
-                onChange={(e) => setDraft({ ...draft, practice: e.target.value })}
-                maxLength={120}
-                autoComplete="organization"
-              />
-            </label>
-            <label className="fa-field">
-              {text(locale, c("Your role (optional)", "Tu función (opcional)"))}
-              <select
-                name="role"
-                value={draft.role ?? ""}
-                onChange={(e) => setDraft({ ...draft, role: e.target.value })}
-              >
-                <option value="">
-                  {text(locale, c("Select if useful", "Elige si lo deseas"))}
-                </option>
-                {[
-                  ["Owner / partner", "Propietario / socio"],
-                  ["Practice manager", "Responsable de clínica"],
-                  ["Operations leader", "Responsable de operaciones"],
-                  ["Group executive", "Directivo de grupo"],
-                  ["Team member / other", "Miembro del equipo / otro"],
-                ].map(([en, es]) => (
-                  <option key={en} value={en}>
-                    {locale === "es" ? es : en}
-                  </option>
-                ))}
-              </select>
-            </label>
-            {phone && (
-              <label className="fa-field">
-                {text(locale, c("Scheduling system (optional)", "Sistema de citas (opcional)"))}
-                <input
-                  name="scheduling"
-                  value={draft.scheduling ?? ""}
-                  onChange={(e) => setDraft({ ...draft, scheduling: e.target.value })}
-                  maxLength={120}
-                  placeholder={text(
-                    locale,
-                    c("System name, or not sure", "Nombre del sistema, o no lo sé"),
-                  )}
-                />
-              </label>
-            )}
-            <label className="fa-field">
+        {onBack && (
+          <button className="fa-text-link fa-qualification-back" type="button" onClick={onBack}>
+            {text(locale, c("← Back to questions", "← Volver a las preguntas"))}
+          </button>
+        )}
+        {!onBack && (
+          <details ref={contextRef} className="fa-book-context">
+            <summary>
               {text(
                 locale,
                 c(
-                  "What would you like to improve? (optional)",
-                  "¿Qué te gustaría mejorar? (opcional)",
+                  "Add context for the call (optional)",
+                  "Añadir contexto para la llamada (opcional)",
                 ),
               )}
-              <textarea
-                name="priority"
-                value={draft.priority ?? ""}
-                onChange={(e) => setDraft({ ...draft, priority: e.target.value })}
-                maxLength={500}
-              />
-            </label>
-            {phone && groups && (
-              <label className="fa-field">
-                {text(locale, c("Locations (optional)", "Ubicaciones (opcional)"))}
-                <select
-                  name="locations"
-                  value={draft.locations ?? ""}
-                  onChange={(e) => setDraft({ ...draft, locations: e.target.value })}
-                >
-                  <option value="">
-                    {text(locale, c("Select if known", "Elige si lo sabes"))}
-                  </option>
-                  {["1", "2–5", "6–20", "21+", "Not sure"].map((v) => (
-                    <option key={v} value={v}>
-                      {v === "Not sure" ? text(locale, c(v, "No lo sé")) : v}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            )}
-            <p className="fa-small mb-5">
+            </summary>
+            <p className="fa-small">
               {text(
                 locale,
                 c(
-                  "Business context only. Do not include patient or confidential personal details. Applying context shares it with our Cal.com booking provider, not website analytics.",
-                  "Solo contexto empresarial. No incluyas datos de pacientes ni personales confidenciales. Aplicarlo comparte el contexto con Cal.com, no con la analítica del sitio.",
+                  "Book directly below, or add context first. Applying context reloads the calendar, so choose your time afterwards. Name and email are collected once by Cal.",
+                  "Reserva abajo o añade contexto primero. Aplicarlo recarga el calendario; elige tu horario después. Cal solicita nombre y correo una sola vez.",
                 ),
               )}
             </p>
-            <button className="fa-button" type="submit">
-              {text(locale, c("Use this context", "Usar este contexto"))}
-              <span aria-hidden="true">→</span>
-            </button>
-          </form>
-        </details>
+            <form
+              onChange={() => recordEventOnce("qualification_start", { service })}
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = new FormData(e.currentTarget);
+                const values = Object.fromEntries(
+                  [...form.entries()].map(([key, value]) => [key, String(value).trim()]),
+                );
+                setDraft(values);
+                const notes = Object.entries(values)
+                  .filter(([key, value]) => key !== "service" && value)
+                  .map(([key, value]) => `${key}: ${value}`)
+                  .join("\n");
+                setConfig(bookingConfig(notes));
+                setRevision((v) => v + 1);
+                setStatus(Boolean(notes));
+                if (notes) recordEventOnce("qualification_complete", { service });
+                if (contextRef.current) contextRef.current.open = false;
+              }}
+            >
+              {initialService !== "phone-agent" && (
+                <label className="fa-field">
+                  {text(locale, c("I’m interested in", "Me interesa"))}
+                  <select
+                    name="service"
+                    value={service}
+                    onChange={(e) => setService(serviceId(e.target.value))}
+                  >
+                    <option value="general">
+                      {text(locale, c("Explore the fit", "Explorar si encaja"))}
+                    </option>
+                    {offers.map((o) => (
+                      <option key={o.id} value={o.id}>
+                        {text(locale, o.label)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
+              <label className="fa-field">
+                {text(
+                  locale,
+                  c(
+                    "Business or practice name (optional)",
+                    "Nombre de empresa o clínica (opcional)",
+                  ),
+                )}
+                <input
+                  name="practice"
+                  value={draft.practice ?? ""}
+                  onChange={(e) => setDraft({ ...draft, practice: e.target.value })}
+                  maxLength={120}
+                  autoComplete="organization"
+                />
+              </label>
+              <label className="fa-field">
+                {text(locale, c("Your role (optional)", "Tu función (opcional)"))}
+                <select
+                  name="role"
+                  value={draft.role ?? ""}
+                  onChange={(e) => setDraft({ ...draft, role: e.target.value })}
+                >
+                  <option value="">
+                    {text(locale, c("Select if useful", "Elige si lo deseas"))}
+                  </option>
+                  {[
+                    ["Owner / partner", "Propietario / socio"],
+                    ["Practice manager", "Responsable de clínica"],
+                    ["Operations leader", "Responsable de operaciones"],
+                    ["Group executive", "Directivo de grupo"],
+                    ["Team member / other", "Miembro del equipo / otro"],
+                  ].map(([en, es]) => (
+                    <option key={en} value={en}>
+                      {locale === "es" ? es : en}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {phone && (
+                <label className="fa-field">
+                  {text(locale, c("Scheduling system (optional)", "Sistema de citas (opcional)"))}
+                  <input
+                    name="scheduling"
+                    value={draft.scheduling ?? ""}
+                    onChange={(e) => setDraft({ ...draft, scheduling: e.target.value })}
+                    maxLength={120}
+                    placeholder={text(
+                      locale,
+                      c("System name, or not sure", "Nombre del sistema, o no lo sé"),
+                    )}
+                  />
+                </label>
+              )}
+              <label className="fa-field">
+                {text(
+                  locale,
+                  c(
+                    "What would you like to improve? (optional)",
+                    "¿Qué te gustaría mejorar? (opcional)",
+                  ),
+                )}
+                <textarea
+                  name="priority"
+                  value={draft.priority ?? ""}
+                  onChange={(e) => setDraft({ ...draft, priority: e.target.value })}
+                  maxLength={500}
+                />
+              </label>
+              {phone && groups && (
+                <label className="fa-field">
+                  {text(locale, c("Locations (optional)", "Ubicaciones (opcional)"))}
+                  <select
+                    name="locations"
+                    value={draft.locations ?? ""}
+                    onChange={(e) => setDraft({ ...draft, locations: e.target.value })}
+                  >
+                    <option value="">
+                      {text(locale, c("Select if known", "Elige si lo sabes"))}
+                    </option>
+                    {["1", "2–5", "6–20", "21+", "Not sure"].map((v) => (
+                      <option key={v} value={v}>
+                        {v === "Not sure" ? text(locale, c(v, "No lo sé")) : v}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
+              <p className="fa-small mb-5">
+                {text(
+                  locale,
+                  c(
+                    "Business context only. Do not include patient or confidential personal details. Applying context shares it with our Cal.com booking provider, not website analytics.",
+                    "Solo contexto empresarial. No incluyas datos de pacientes ni personales confidenciales. Aplicarlo comparte el contexto con Cal.com, no con la analítica del sitio.",
+                  ),
+                )}
+              </p>
+              <button className="fa-button" type="submit">
+                {text(locale, c("Use this context", "Usar este contexto"))}
+                <span aria-hidden="true">→</span>
+              </button>
+            </form>
+          </details>
+        )}
         {status && (
           <p role="status" className="fa-small fa-context-status">
             {text(

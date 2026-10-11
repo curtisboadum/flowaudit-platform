@@ -38,11 +38,15 @@ export function MediaPlayer({
   switchable = false,
   compact = false,
   choices,
+  onPositionChange,
+  afterPlayer,
 }: {
   film?: Film;
   switchable?: boolean;
   compact?: boolean;
   choices?: Film[];
+  afterPlayer?: React.ReactNode;
+  onPositionChange?: (seconds: number, film: Film) => void;
 }) {
   const { locale } = useLocale();
   const playerId = useId().replace(/:/g, "");
@@ -147,9 +151,13 @@ export function MediaPlayer({
             }}
             onPause={(e) => resetWatchBaseline(e.currentTarget)}
             onSeeking={(e) => resetWatchBaseline(e.currentTarget)}
-            onSeeked={(e) => resetWatchBaseline(e.currentTarget)}
+            onSeeked={(e) => {
+              resetWatchBaseline(e.currentTarget);
+              onPositionChange?.(e.currentTarget.currentTime, active);
+            }}
             onTimeUpdate={(event) => {
               setPosition(event.currentTarget.currentTime);
+              onPositionChange?.(event.currentTarget.currentTime, active);
               watchedCoverage(event.currentTarget, active, "phone-agent");
             }}
           >
@@ -170,6 +178,7 @@ export function MediaPlayer({
             )}
           </video>
         </div>
+        {afterPlayer}
         <div className="fa-media-context">
           <p className="fa-eyebrow">
             {text(

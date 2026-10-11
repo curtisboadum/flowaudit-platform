@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
+import { recordEvent } from "@/lib/funnel-client";
 import { useLocale } from "@/components/providers/locale-provider";
 import { offers, c, text, type ServiceId } from "@/lib/marketing-copy";
 import {
@@ -17,92 +19,120 @@ import { WorkflowExplorer } from "./workflow-explorer";
 
 export function OfferPage({ service }: { service: ServiceId }) {
   const { locale } = useLocale();
+  const [seenEnough, setSeenEnough] = useState(false);
   const offer = offers.find((x) => x.id === service);
   if (!offer) return null;
   const phone = service === "phone-agent";
   return (
     <>
-      <section className={`fa-container fa-hero ${phone ? "fa-phone-hero" : "fa-offer-hero"}`}>
-        <div className="fa-hero-copy">
-          <Eyebrow>
-            <Link href="/services">{text(locale, c("Services", "Servicios"))}</Link>
-            <span>/</span>
-            {text(locale, offer.label)}
-          </Eyebrow>
-          <h1>{text(locale, offer.headline)}</h1>
-          <p className="fa-lead">{text(locale, offer.intro)}</p>
-          <div className="fa-hero-actions">
-            <BookLink service={service}>
-              {text(locale, c("Book a demo & fit assessment", "Reservar demo y evaluación"))}
-            </BookLink>
-            {phone && (
-              <a href="#demo" className="fa-text-link">
-                {text(locale, c("See the evidence", "Ver la evidencia"))}
-                <Arrow diagonal />
-              </a>
-            )}
+      {!phone && (
+        <section className={`fa-container fa-hero ${phone ? "fa-phone-hero" : "fa-offer-hero"}`}>
+          <div className="fa-hero-copy">
+            <Eyebrow>
+              <Link href="/services">{text(locale, c("Services", "Servicios"))}</Link>
+              <span>/</span>
+              {text(locale, offer.label)}
+            </Eyebrow>
+            <h1>{text(locale, offer.headline)}</h1>
+            <p className="fa-lead">{text(locale, offer.intro)}</p>
+            <div className="fa-hero-actions">
+              <BookLink service={service}>
+                {text(locale, c("Book a demo & fit assessment", "Reservar demo y evaluación"))}
+              </BookLink>
+              {phone && (
+                <a href="#demo" className="fa-text-link">
+                  {text(locale, c("See the evidence", "Ver la evidencia"))}
+                  <Arrow diagonal />
+                </a>
+              )}
+            </div>
+            <p className="fa-small">{text(locale, offer.note)}</p>
           </div>
-          <p className="fa-small">{text(locale, offer.note)}</p>
-        </div>
-        {!phone && (
-          <div className="fa-offer-index">
-            <span className="fa-eyebrow">FlowAudit / {text(locale, offer.label)}</span>
-            <h2>
-              {text(
-                locale,
-                service === "web-design"
-                  ? c("Structure.\nExperience.\nLaunch.", "Estructura.\nExperiencia.\nLanzamiento.")
-                  : service === "revenue-recovery"
+          {!phone && (
+            <div className="fa-offer-index">
+              <span className="fa-eyebrow">FlowAudit / {text(locale, offer.label)}</span>
+              <h2>
+                {text(
+                  locale,
+                  service === "web-design"
                     ? c(
-                        "Review.\nApprove.\nFollow through.",
-                        "Revisar.\nAprobar.\nDar seguimiento.",
+                        "Structure.\nExperience.\nLaunch.",
+                        "Estructura.\nExperiencia.\nLanzamiento.",
                       )
-                    : c("Enquiry.\nAction.\nVisibility.", "Consulta.\nAcción.\nVisibilidad."),
-              )}
-            </h2>
-            <p>
-              {text(
-                locale,
-                c(
-                  "The scope follows the business need. The next step stays clear.",
-                  "El alcance sigue la necesidad de la empresa. El siguiente paso permanece claro.",
-                ),
-              )}
-            </p>
-            <Arrow diagonal />
-          </div>
-        )}
-      </section>
+                    : service === "revenue-recovery"
+                      ? c(
+                          "Review.\nApprove.\nFollow through.",
+                          "Revisar.\nAprobar.\nDar seguimiento.",
+                        )
+                      : c("Enquiry.\nAction.\nVisibility.", "Consulta.\nAcción.\nVisibilidad."),
+                )}
+              </h2>
+              <p>
+                {text(
+                  locale,
+                  c(
+                    "The scope follows the business need. The next step stays clear.",
+                    "El alcance sigue la necesidad de la empresa. El siguiente paso permanece claro.",
+                  ),
+                )}
+              </p>
+              <Arrow diagonal />
+            </div>
+          )}
+        </section>
+      )}
       {phone && (
         <>
-          <section className="fa-services-band" id="demo">
-            <div className="fa-container fa-section">
-              <SectionHeading
-                number="01"
-                label={c("The offer in 90 seconds", "La oferta en 90 segundos")}
-                title={c(
-                  "Understand the offer.\nSee if it fits.",
-                  "Entiende la oferta.\nValora si encaja.",
+          <section className="fa-container fa-vsl-top" id="demo">
+            <div className="fa-vsl-heading">
+              <Eyebrow>
+                {text(
+                  locale,
+                  c(
+                    "AI phone agents for dental practices",
+                    "Agentes telefónicos para clínicas dentales",
+                  ),
                 )}
-                body={c(
-                  "When the desk is busy or the practice is closed, what happens to the next caller? See the workflow and recorded demo in 90 seconds.",
-                  "Cuando la recepción está ocupada o la clínica está cerrada, ¿qué ocurre con la siguiente llamada? Mira el flujo y la demo grabada en 90 segundos.",
+              </Eyebrow>
+              <h1>
+                {text(
+                  locale,
+                  c(
+                    "Support your team. Keep the next step clear.",
+                    "Apoya a tu equipo. Aclara el siguiente paso.",
+                  ),
                 )}
-              />
-
-              <MediaPlayer film="overview" compact />
-              <div className="fa-media-cta">
-                <p>
-                  {text(
-                    locale,
-                    c(
-                      "Ready to discuss your practice? You can book without finishing the video.",
-                      "¿Quieres hablar de tu clínica? Puedes reservar sin terminar el vídeo.",
-                    ),
+              </h1>
+            </div>
+            <MediaPlayer
+              film="overview"
+              compact
+              onPositionChange={(seconds, active) => {
+                if (active === "overview" && seconds >= 30) setSeenEnough(true);
+              }}
+              afterPlayer={
+                <div className="fa-seen-enough-slot">
+                  {seenEnough && (
+                    <Link
+                      href="/book?service=phone-agent&entry=vsl"
+                      className="fa-button fa-seen-enough"
+                      data-cta="phone-agent"
+                      onClick={() =>
+                        recordEvent("cta_click", { service: "phone-agent", mediaId: "overview" })
+                      }
+                    >
+                      Seen enough <Arrow />
+                    </Link>
                   )}
-                </p>
-                <BookLink service="phone-agent" />
-              </div>
+                </div>
+              }
+            />
+            <p className="fa-vsl-intro">{text(locale, offer.intro)}</p>
+            <p className="fa-small">{text(locale, offer.note)}</p>
+            <div className="fa-vsl-actions">
+              <BookLink service="phone-agent">
+                {text(locale, c("Book a demo & fit assessment", "Reservar demo y evaluación"))}
+              </BookLink>
             </div>
           </section>
           <section className="fa-container fa-section" id="booking-recording">
