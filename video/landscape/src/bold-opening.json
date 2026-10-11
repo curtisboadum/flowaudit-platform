@@ -22,12 +22,19 @@
     "close": 82,
     "secondCall": 124,
     "gather": 183,
-    "zoom": 205,
+    "paperTurn": 195,
+    "paperDock": 233,
+    "shutterLift": 190,
+    "queueMove": 214,
+    "queueDock": 276,
+    "shutterDock": 279,
+    "assemblyEnd": 310,
     "resolve": 329,
     "gateOpen": 426,
-    "arrival": 472,
-    "hold": 480,
-    "ringPoseFrames": [44, 50, 54, 59, 64, 70, 78]
+    "arrival": 470,
+    "hold": 486,
+    "ringPoseFrames": [44, 50, 54, 59, 64, 70, 78],
+    "queueDrop": 235
   },
   "captions": [
     {

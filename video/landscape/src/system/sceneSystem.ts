@@ -1,4 +1,24 @@
 export const system = {
+  openingRebuild: {
+    headingSize: 64,
+    labelSize: 65,
+    routeStroke: 26,
+    paperPrintStroke: 19,
+    border: 16,
+    corner: 25,
+    endpointStroke: 12,
+    captionSize: 64,
+    captionBottom: 126,
+    captionInset: 55,
+    captionPadding: "14px 26px",
+    captionRadius: 10,
+    springs: {
+      caller: { damping: 19, stiffness: 210, mass: 0.7 },
+      paper: { damping: 23, stiffness: 155, mass: 1.2 },
+      shutter: { damping: 31, stiffness: 130, mass: 2 },
+      latch: { damping: 24, stiffness: 190, mass: 1.4 },
+    },
+  },
   bold: {
     ink: "#101827",
     white: "#F9FAFC",
