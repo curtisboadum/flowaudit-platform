@@ -22,35 +22,23 @@ const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const mix = (a: number, b: number, p: number) => a + (b - a) * p;
 const ease = (f: number, a: number, b: number) =>
   interpolate(f, [a, b], [0, 1], { ...clamp, easing: Easing.inOut(Easing.cubic) });
-const settle = (f: number, start: number, heavy = false) =>
-  spring({
-    frame: Math.max(0, f - start),
-    fps: 30,
-    config: heavy ? C.springs.weight : C.springs.snap,
-  });
 const handset =
   "M-132-24 Q-126-66-91-74 L-58-70 Q-45-68-45-51 L-50-16 Q-52-4-70 0 L-83 3 Q-47 65 26 75 L34 60 Q41 46 54 50 L89 63 Q101 67 99 81 L93 110 Q88 133 63 134 Q-79 119-128 9 Q-139-13-132-24Z";
 const Handset = ({
-  x,
-  y,
+  x = 0,
+  y = 0,
   scale = 1,
-  rotation = -35,
   fill = C.ink,
 }: {
-  x: number;
-  y: number;
+  x?: number;
+  y?: number;
   scale?: number;
-  rotation?: number;
   fill?: string;
 }) => (
-  <path
-    d={handset}
-    fill={fill}
-    transform={`translate(${x} ${y}) rotate(${rotation}) scale(${scale})`}
-  />
+  <path d={handset} fill={fill} transform={`translate(${x} ${y}) rotate(-35) scale(${scale})`} />
 );
 
-/** Persistent objects change function; no wall-clock animation or simulated product UI. */
+/** Every pose is a function of the absolute composition frame. Objects never swap identities. */
 export const BoldOpening: React.FC<BoldOpeningProps> = (props) => {
   const { motion: t, layout: l } = { ...defaults, ...props };
   const f = useCurrentFrame();
@@ -67,241 +55,302 @@ export const BoldOpening: React.FC<BoldOpeningProps> = (props) => {
       })
       .catch(cancelRender);
   }, [fontHandle]);
+  const weight = (start: number) =>
+    spring({ frame: Math.max(0, f - start), fps: 30, config: C.springs.weight });
+  const snap = (start: number) =>
+    spring({ frame: Math.max(0, f - start), fps: 30, config: C.springs.snap });
   const gather = ease(f, t.gather, t.gather + l.gatherFrames);
-  const resolve = ease(f, t.resolve, t.resolve + 65);
-  const open = settle(f, t.gateOpen, true);
-  const travel = ease(f, t.gateOpen + 8, t.arrival);
+  const paperGather = ease(f, t.gather, t.gather + l.gatherFrames - l.gatherStagger);
+  const shutterGather = ease(f, t.gather + l.gatherStagger, t.gather + l.gatherFrames);
+  const resolve = ease(f, t.resolve, t.resolve + l.resolveFrames);
+  const open = weight(t.gateOpen);
+  const travel = ease(f, t.gateOpen + l.travelDelay, t.arrival);
   const anticipation =
-    22 * ease(f, t.gateOpen - 7, t.gateOpen + 1) * (1 - ease(f, t.gateOpen + 6, t.gateOpen + 15));
-  const paperDrop = settle(f, t.paperBlock, true);
-  const close = settle(f, t.close, true);
-  const ring = interpolate(f, [44, 50, 54, 59, 64, 70, 78], [0, -5, 7, -5, 3, -1, 0], clamp);
-  const callOne = ease(f, t.ring, t.ring + 28);
-  const callTwo = ease(f, t.secondCall, t.secondCall + 30);
-  const camera = mix(1, l.cameraScale, ease(f, t.zoom, t.zoom + 68));
-  const phone1 = { x: l.sourceX, y: mix(300, l.sourceTopY, gather) };
-  const phone2 = { x: mix(1685, l.sourceX, gather), y: mix(440, l.sourceBottomY, gather) };
-  const px = mix(l.paperX, l.gateX, gather);
-  const py = mix(l.paperY - 160 * (1 - paperDrop), 360, gather) - l.openingTravel * open;
-  const sx = mix(l.shutterX, l.gateX, gather);
-  const sy = mix(l.shutterY, 670, gather) + l.openingTravel * open;
-  const first = { x: mix(mix(260, 485, callOne), l.waitingX, gather), y: l.routeY };
+    l.anticipation *
+    ease(f, t.gateOpen - l.anticipationFrames, t.gateOpen) *
+    (1 - ease(f, t.gateOpen + l.travelDelay, t.gateOpen + l.travelDelay + l.anticipationFrames));
+  const firstEntry = Math.min(1, snap(t.ring));
+  const secondEntry = Math.min(1, snap(t.secondCall));
+  const firstApproach = ease(f, t.ring, t.paperBlock + l.approachFrames);
+  const secondApproach = ease(f, t.secondCall, t.secondCall + l.approachFrames);
+  const paperLand = weight(t.paperBlock);
+  const shutterClose = Math.min(1, weight(t.close));
+  const ring = interpolate(f, t.ringPoseFrames, l.ringAngles, clamp);
+  const impact = interpolate(
+    f,
+    [t.paperBlock + 10, t.paperBlock + 14, t.paperBlock + 20, t.paperBlock + 28],
+    [0, -l.impactRecoil, l.impactRecoil / 4, 0],
+    clamp,
+  );
+  const routeY = mix(l.initialRouteY, l.routeY, gather);
+  const phone1 = {
+    x: l.sourceX,
+    y: mix(l.deskY, l.sourceTopY, gather),
+    scale: mix(1, l.originScale, gather),
+  };
+  const paper = {
+    x: mix(l.paperX, l.mechanismX, paperGather),
+    y:
+      mix(
+        l.paperY - l.dropDistance * (1 - paperLand),
+        l.routeY - l.boundaryHeight / 2,
+        paperGather,
+      ) -
+      l.openingTravel * open,
+    w: mix(l.paperWidth, l.mechanismWidth, paperGather),
+    h: mix(l.paperHeight, l.boundaryHeight, paperGather),
+  };
+  const shutterLift = ease(f, t.gather, t.gather + l.shutterLiftFrames);
+  const shutterDock = ease(f, t.gather + l.shutterDockDelay, t.gather + l.gatherFrames);
+  const queueMove = ease(
+    f,
+    t.gather + l.queueMoveDelay,
+    t.gather + l.queueMoveDelay + l.queueMoveFrames,
+  );
+  const phone2 = {
+    x: mix(l.afterSourceX, l.sourceX, queueMove),
+    y: mix(mix(l.afterY, l.originTravelY, shutterLift), l.sourceBottomY, shutterDock),
+    scale: mix(1, l.originScale, shutterLift),
+  };
+  const shutter = {
+    x: mix(l.shutterX, l.mechanismX, shutterGather),
+    y:
+      mix(
+        mix(l.shutterY, l.shutterLiftY, shutterLift),
+        l.routeY + l.boundaryHeight / 2,
+        shutterDock,
+      ) +
+      l.openingTravel * open,
+    w: mix(l.shutterWidth, l.mechanismWidth, shutterDock),
+    h: mix(mix(l.shutterHeight, l.shutterLiftHeight, shutterLift), l.boundaryHeight, shutterDock),
+  };
+  const first = {
+    x: mix(
+      mix(l.sourceX, l.paperX - l.paperWidth / 2 - l.callRadius - l.collisionGap, firstApproach) +
+        impact,
+      l.waitingX,
+      gather,
+    ),
+    y: routeY,
+  };
   const second = {
-    x: mix(mix(1670, 1515, callTwo), l.queuedX, gather),
-    y: mix(l.routeY, 660, gather),
+    x: mix(
+      mix(
+        l.afterSourceX,
+        l.shutterX + l.shutterWidth / 2 + l.callRadius + l.collisionGap,
+        secondApproach,
+      ),
+      l.queuedX,
+      queueMove,
+    ),
+    y: mix(l.initialRouteY, l.queueY, shutterLift),
   };
-  const shell = {
-    x: mix(960, 800, gather),
-    y: mix(0, 220, gather),
-    w: mix(960, 980, gather),
-    h: mix(1080, 560, gather),
-    r: mix(0, 80, gather),
-  };
+  const firstX = mix(first.x - anticipation, l.destinationX, travel);
+  const end = ease(f, t.arrival, t.arrival + l.endpointSettleFrames);
   const cue = timing.captions.find((c) => f >= c.from && f < c.to);
-  const path1 = `M${phone1.x} ${phone1.y + 120} V${l.routeY} H${mix(l.paperX, l.gateX, gather)}`;
-  const path2 = `M${phone2.x} ${phone2.y + 80} V${second.y} H${mix(1310, 660, gather)} Q${mix(1310, 755, gather)} ${second.y} ${mix(1310, 755, gather)} ${mix(l.routeY, 590, gather)} V${l.routeY} H${mix(l.shutterX, l.gateX, gather)}`;
+  const clockX = mix(l.clockX, l.originClockX, queueMove);
+  const clockY = mix(mix(l.clockY, l.clockTravelY, shutterLift), l.originClockY, shutterDock);
+  const clockR = mix(l.clockRadius, l.originClockRadius, shutterLift);
+  const firstRoute = `M${phone1.x} ${phone1.y + 95 * phone1.scale} V${routeY} H${mix(l.paperX - l.paperWidth / 2, l.mechanismX - l.mechanismWidth / 2, gather)}`;
+  const secondRoute = `M${phone2.x} ${phone2.y + 70 * phone2.scale} V${second.y} H${mix(l.shutterX + l.shutterWidth / 2, l.mechanismX - l.mechanismWidth / 2, gather)}`;
+  const routeStyle = {
+    fill: "none",
+    stroke: C.coral,
+    strokeWidth: C.openingRouteWidth,
+    strokeLinejoin: "round" as const,
+    strokeLinecap: "round" as const,
+  };
   return (
     <AbsoluteFill
       style={{ background: C.white, fontFamily: system.fonts.sans, overflow: "hidden" }}
     >
-      <style>{`@font-face{font-family:FlowInter;src:url('${staticFile("fonts/inter.woff2")}');font-weight:100 900;}`}</style>
       <svg width="1920" height="1080" viewBox="0 0 1920 1080" style={{ position: "absolute" }}>
         <defs>
-          <clipPath id="workflow-shell">
-            <rect x={shell.x} y={shell.y} width={shell.w} height={shell.h} rx={shell.r} />
-          </clipPath>
-          <clipPath id="paper-aperture">
-            <rect x="800" y="245" width="325" height="535" rx="25" />
+          <clipPath id="opening-shutter">
+            <rect
+              x={-shutter.w / 2 + C.boundaryStroke}
+              y={-shutter.h / 2 + C.boundaryStroke}
+              width={shutter.w - C.boundaryStroke * 2}
+              height={shutter.h - C.boundaryStroke * 2}
+              rx={C.objectRadius / 2}
+            />
           </clipPath>
         </defs>
-        {/* The after-hours field contracts into the physical workflow housing. */}
-        <rect x={shell.x} y={shell.y} width={shell.w} height={shell.h} rx={shell.r} fill={C.ink} />
-        <rect
-          x={shell.x}
-          y={shell.y}
-          width={shell.w}
-          height={shell.h}
-          rx={shell.r}
-          fill={C.blue}
-          opacity={resolve}
-        />
-        <g opacity={1 - gather}>
-          <text x="95" y="118" fontSize={C.openingHeadingSize} fontWeight="750" fill={C.ink}>
+        {/* The night field recedes; it is not substituted for the original obstructions. */}
+        <rect x={mix(960, 1920, gather)} width={960} height={1080} fill={C.ink} />
+        <g opacity={1 - ease(f, t.gather - l.headingExitFrames, t.gather)}>
+          <text x="80" y="118" fontSize={C.openingHeadingSize} fontWeight="750" fill={C.ink}>
             BUSY DESK
           </text>
-          <text x="1055" y="118" fontSize={C.openingHeadingSize} fontWeight="750" fill={C.white}>
+          <text x="1030" y="118" fontSize={C.openingHeadingSize} fontWeight="750" fill={C.white}>
             AFTER HOURS
           </text>
         </g>
-        <g transform={`translate(980 500) scale(${camera}) translate(-980 -500)`}>
-          {/* Both original connections remain; the shell clips the interior to white. */}
+        <path d={firstRoute} {...routeStyle} />
+        <path d={secondRoute} {...routeStyle} />
+        {/* A single approved corridor, revealed only as the real boundaries separate. */}
+        <path
+          d={`M${l.mechanismX - l.mechanismWidth / 2} ${l.routeY} H${l.destinationX}`}
+          fill="none"
+          stroke={C.blue}
+          strokeWidth={C.openingRouteWidth}
+          opacity={open * resolve}
+        />
+        <g
+          transform={`translate(${phone1.x} ${phone1.y}) rotate(${ring * (1 - gather)}) scale(${phone1.scale})`}
+        >
+          <rect x="-170" y="-130" width="340" height="260" rx={C.objectRadius} fill={C.blue} />
+          <Handset x={20} y={-28} scale={1.18} fill={C.white} />
+          {[0, 1, 2].map((i) => (
+            <rect key={i} x={-75 + 65 * i} y="80" width="32" height="18" rx="5" fill={C.white} />
+          ))}
+        </g>
+        <g transform={`translate(${phone2.x} ${phone2.y}) scale(${phone2.scale})`}>
+          <Handset x={20} y={-28} scale={1.18} fill={C.blue} />
+        </g>
+        <g transform={`translate(${clockX} ${clockY}) scale(${clockR / l.clockRadius})`}>
+          <circle r={l.clockRadius} fill={C.white} stroke={C.ink} strokeWidth={C.clockStroke} />
           <path
-            d={path1}
-            stroke={C.coral}
-            strokeWidth={C.openingRouteWidth}
-            strokeLinejoin="round"
-            fill="none"
+            d="M0-82V-70 M82 0H70 M0 82V70 M-82 0H-70"
+            stroke={C.ink}
+            strokeWidth={C.clockStroke}
           />
           <path
-            d={path2}
-            stroke={C.coral}
-            strokeWidth={C.openingRouteWidth}
-            strokeLinejoin="round"
-            fill="none"
+            d="M0 0V-65"
+            stroke={C.blue}
+            strokeWidth={C.clockHandStroke}
+            strokeLinecap="round"
+            transform={`rotate(${mix(-50, 95, shutterClose)})`}
           />
-          <g clipPath="url(#workflow-shell)">
-            <path
-              d={path1}
-              stroke={C.white}
-              strokeWidth={C.openingRouteWidth}
-              strokeLinejoin="round"
-              fill="none"
-            />
-            <path
-              d={path2}
-              stroke={C.white}
-              strokeWidth={C.openingRouteWidth}
-              strokeLinejoin="round"
-              fill="none"
-            />
-          </g>
-          <path
-            d={`M${l.gateX} ${l.routeY} H${l.destinationX}`}
-            stroke={C.white}
-            strokeWidth={C.openingRouteWidth}
-            opacity={resolve}
-            fill="none"
-          />
-          <g opacity={1 - gather}>
-            <path d="M95 740H825 M1095 740H1825" stroke={C.muted} strokeWidth="10" />
-          </g>
-          {/* Desk telephone stays substantial; its casing folds away around its handset. */}
-          <g transform={`translate(${phone1.x} ${phone1.y}) rotate(${ring * (1 - gather)})`}>
+          <path d="M0 0H40" stroke={C.ink} strokeWidth={C.clockHandStroke} strokeLinecap="round" />
+          <circle r="10" fill={C.ink} />
+        </g>
+        {/* The paper itself stretches into the upper boundary. Printed marks stay attached. */}
+        <g
+          transform={`translate(${paper.x} ${paper.y}) rotate(${mix(l.paperAngle, 0, paperGather)})`}
+        >
+          <g
+            transform={`translate(${-l.paperStackOffset * (1 - paperGather)} ${-l.paperStackOffset * (1 - paperGather)}) rotate(${l.paperStackAngle * (1 - paperGather)})`}
+          >
             <rect
-              x={-170 * (1 - gather)}
-              y={-130 * (1 - gather)}
-              width={340 * (1 - gather)}
-              height={260 * (1 - gather)}
-              rx="45"
-              fill={C.blue}
+              x={-paper.w / 2}
+              y={-paper.h / 2}
+              width={paper.w}
+              height={paper.h}
+              rx={C.objectRadius / 2}
+              fill={C.ink}
             />
-            <Handset
-              x={20}
-              y={-28}
-              scale={mix(1.18, 0.78, gather)}
-              fill={gather > 0.85 ? C.ink : C.white}
-            />
-            <g opacity={1 - gather}>
-              {[0, 1, 2].map((i) => (
-                <rect
+          </g>
+          <rect
+            x={-paper.w / 2}
+            y={-paper.h / 2}
+            width={paper.w}
+            height={paper.h}
+            rx={C.objectRadius / 2}
+            fill={C.paper}
+            stroke={C.blue}
+            strokeWidth={mix(C.paperStroke, C.boundaryStroke, resolve)}
+          />
+          <path
+            d={`M${-paper.w * 0.3} ${-paper.h * 0.29}H${paper.w * 0.25} M${-paper.w * 0.3} ${-paper.h * 0.08}H${paper.w * 0.3} M${-paper.w * 0.3} ${paper.h * 0.13}H${paper.w * 0.05}`}
+            stroke={C.ink}
+            strokeWidth={C.paperPrintStroke}
+          />
+          <rect
+            x={-paper.w * 0.3}
+            y={paper.h * 0.3}
+            width={paper.w * 0.38}
+            height={C.paperTabHeight}
+            rx="5"
+            fill={C.blue}
+          />
+        </g>
+        {/* The original slats become the lower boundary, and never retract out of view. */}
+        <g transform={`translate(${shutter.x} ${shutter.y})`}>
+          <rect
+            x={-shutter.w / 2}
+            y={-shutter.h / 2}
+            width={shutter.w}
+            height={shutter.h}
+            rx={C.objectRadius / 2}
+            fill={C.white}
+            stroke={gather < 0.5 ? C.white : C.blue}
+            strokeWidth={mix(C.paperStroke, C.boundaryStroke, resolve)}
+          />
+          <g clipPath="url(#opening-shutter)">
+            <g transform={`translate(0 ${-shutter.h * (1 - shutterClose)})`}>
+              <rect
+                x={-shutter.w / 2}
+                y={-shutter.h / 2}
+                width={shutter.w}
+                height={shutter.h}
+                fill={C.muted}
+              />
+              {Array.from({ length: l.slatCount }, (_, i) => (
+                <path
                   key={i}
-                  x={-75 + 65 * i}
-                  y="80"
-                  width="32"
-                  height="18"
-                  rx="5"
-                  fill={C.white}
+                  d={`M${-shutter.w / 2} ${-shutter.h / 2 + ((i + 0.5) * shutter.h) / l.slatCount}H${shutter.w / 2}`}
+                  stroke={C.ink}
+                  strokeWidth={C.slatStroke}
                 />
               ))}
+              <rect
+                x={-C.shutterHandleWidth / 2}
+                y={shutter.h / 2 - C.shutterHandleInset}
+                width={C.shutterHandleWidth}
+                height={C.shutterHandleHeight}
+                rx="5"
+                fill={C.ink}
+              />
             </g>
           </g>
-          <Handset
-            x={phone2.x}
-            y={phone2.y}
-            scale={mix(1.05, 0.78, gather)}
-            fill={gather > 0.84 ? C.ink : C.white}
+        </g>
+        {/* Circle and square are durable identities, not transient state decorations. */}
+        <g transform={`translate(${firstX} ${first.y}) scale(${firstEntry})`}>
+          <circle r={l.callRadius} fill={travel >= 1 ? C.green : C.coral} />
+          <Handset x={4} y={-8} scale={l.callerIconScale} />
+        </g>
+        <g transform={`translate(${second.x} ${second.y}) scale(${secondEntry})`}>
+          <rect
+            x={-l.callRadius}
+            y={-l.callRadius}
+            width={l.callRadius * 2}
+            height={l.callRadius * 2}
+            rx={C.waitingCorner}
+            fill={C.coral}
           />
-          {/* Paperwork keeps its printed marks; shutter keeps its slats, even in the mechanism. */}
-          <g clipPath={gather > 0.99 ? "url(#paper-aperture)" : undefined}>
-            <g transform={`translate(${px} ${py}) rotate(${mix(-8, 0, gather)})`}>
-              <g
-                transform={`translate(${-28 * (1 - gather)} ${-28 * (1 - gather)}) rotate(${-9 * (1 - gather)})`}
-              >
-                <rect x="-124" y="-168" width="248" height="336" rx="15" fill={C.ink} />
-                <path d="M-74-102H65 M-74-53H74" stroke={C.white} strokeWidth="12" />
-              </g>
-              <g
-                transform={`translate(${-13 * (1 - gather)} ${-12 * (1 - gather)}) rotate(${6 * (1 - gather)})`}
-              >
-                <rect x="-124" y="-168" width="248" height="336" rx="15" fill={C.blue} />
-              </g>
-              <rect x="-124" y="-168" width="248" height="336" rx="15" fill={C.paper} />
-              <path d="M-74-102H65 M-74-53H74 M-74-4H35" stroke={C.ink} strokeWidth="17" />
-              <rect x="-74" y="85" width="108" height="34" rx="5" fill={C.blue} />
-            </g>
-            <g transform={`translate(${sx} ${sy})`}>
-              <rect x="-124" y="-168" width="248" height="336" rx="15" fill={C.white} />
-              <svg
-                x="-111"
-                y="-155"
-                width="222"
-                height="310"
-                viewBox="0 0 222 310"
-                overflow="hidden"
-              >
-                <g transform={`translate(0 ${-315 + 315 * close})`}>
-                  <rect width="222" height="315" fill={C.muted} />
-                  {Array.from({ length: 6 }, (_, i) => (
-                    <path key={i} d={`M0 ${i * 50 + 18}H222`} stroke={C.ink} strokeWidth="12" />
-                  ))}
-                  <rect x="78" y="280" width="66" height="12" rx="4" fill={C.ink} />
-                </g>
-              </svg>
-            </g>
-          </g>
-          <g opacity={1 - gather} transform="translate(1700 265)">
-            <circle r="110" fill={C.white} />
-            <path d="M0-82V-70 M82 0H70 M0 82V70 M-82 0H-70" stroke={C.ink} strokeWidth="10" />
-            <path
-              d="M0 0V-65"
-              stroke={C.blue}
-              strokeWidth="14"
-              strokeLinecap="round"
-              transform={`rotate(${mix(-50, 95, Math.min(1, close))})`}
-            />
-            <path d="M0 0H40" stroke={C.ink} strokeWidth="14" strokeLinecap="round" />
-            <circle r="10" fill={C.ink} />
-          </g>
-          <g
-            transform={`translate(${mix(first.x - anticipation, l.destinationX, travel)} ${first.y}) scale(${callOne})`}
+          <Handset x={4} y={-8} scale={l.callerIconScale} />
+        </g>
+        <circle
+          cx={l.destinationX}
+          cy={l.routeY}
+          r={mix(l.callRadius + l.endpointInset, l.callRadius + l.endpointGap, end)}
+          fill="none"
+          stroke={travel >= 1 ? C.green : C.blue}
+          strokeWidth={C.endpointStroke}
+          opacity={resolve}
+        />
+        <g transform={`translate(0 ${-l.labelTravel * (1 - snap(t.resolve))})`}>
+          <text
+            x={l.mechanismX}
+            y={l.labelY}
+            textAnchor="middle"
+            fontSize={C.openingWorkflowSize}
+            fontWeight="650"
+            fill={C.blue}
           >
-            <circle r={l.callRadius} fill={travel >= 1 ? C.green : C.coral} />
-            <Handset x={4} y={-8} scale={0.38} />
-          </g>
-          <g transform={`translate(${second.x} ${second.y}) scale(${callTwo})`}>
-            <circle r={l.callRadius} fill={C.coral} />
-            <Handset x={4} y={-8} scale={0.38} />
-          </g>
-          <g opacity={resolve}>
-            <circle
-              cx={l.destinationX}
-              cy={l.routeY}
-              r="104"
-              fill="none"
-              stroke={travel >= 1 ? C.green : C.white}
-              strokeWidth="12"
-            />
-            <text
-              x="1390"
-              y="315"
-              textAnchor="middle"
-              fontSize={C.openingWorkflowSize}
-              fontWeight="650"
-              fill={C.white}
-            >
-              Agreed workflow
-            </text>
-          </g>
+            {l.workflowLabel}
+          </text>
         </g>
       </svg>
       <div
         style={{
           position: "absolute",
-          left: 90,
-          top: 55,
-          width: 460,
-          height: 130,
-          transform: `translateY(${-230 * (1 - settle(f, t.resolve + 6))}px)`,
+          left: l.markX,
+          top: l.markY,
+          width: l.markWidth,
+          height: l.markHeight,
+          transform: `translateY(${-l.markTravel * (1 - snap(t.resolve + l.markDelay))}px)`,
         }}
       >
         <Img src={staticFile("brand.svg")} style={{ width: "100%", height: "100%" }} />
@@ -310,8 +359,8 @@ export const BoldOpening: React.FC<BoldOpeningProps> = (props) => {
         <div
           style={{
             position: "absolute",
-            left: 60,
-            right: 60,
+            left: C.captionInset,
+            right: C.captionInset,
             bottom: C.captionBottom,
             display: "flex",
             justifyContent: "center",
@@ -321,13 +370,13 @@ export const BoldOpening: React.FC<BoldOpeningProps> = (props) => {
             style={{
               background: C.ink,
               color: C.white,
-              padding: "16px 28px",
-              borderRadius: 10,
+              padding: C.captionPadding,
+              borderRadius: C.captionRadius,
               fontSize: C.captionSize,
               fontWeight: 570,
               lineHeight: 1.17,
               textAlign: "center",
-              maxWidth: 1760,
+              maxWidth: C.captionWidth,
             }}
           >
             {cue.text}
