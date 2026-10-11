@@ -1,3 +1,7 @@
+# Superseded assessment
+
+This assessment describes the rejected 874c07b opening. The current collage revision and corrected late-reference observations are documented in provenance/overview/collage-opening-20261011/reference-assessment.md. No visual/motion approval is implied.
+
 # Reference evidence and assessment
 Primary reference: [Motion piece by @anjmaxx](https://motionpromptgallery.com/p/motion-piece-by-anjmaxx-anjmaxx/). [Actual hosted MP4](https://motionpromptgallery.com/videos/motion-piece-by-anjmaxx-anjmaxx.mp4). [Supplied gallery repository](https://github.com/mikenevermiss/motionpromptgallery), inspected at commit `e5d3f7bf669bda357b9606e42bde647336e6296b`.
 
