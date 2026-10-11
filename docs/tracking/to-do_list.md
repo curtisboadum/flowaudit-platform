@@ -49,6 +49,8 @@ Status: `[ ]` pending, `[~]` in progress, `[x]` done, `[-]` dropped
 
 - [x] Add visible breadcrumb UI component to subpages
 - [x] Add favicon to `src/app/`
+- [ ] Retire the legacy Google Calendar appointment schedule once confirmed unused (`calendar.app.google/XJudFiv57KNUpWuJ8`)
+- [ ] Decide the fate of the separate `cal.com/flowaudit` account (not used by the site)
 - [ ] Add dark mode support
 - [ ] Set up monitoring/analytics
 - [ ] Add agent run history visualization

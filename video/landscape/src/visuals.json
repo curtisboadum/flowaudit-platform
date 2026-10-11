@@ -1,0 +1,108 @@
+[
+  {
+    "mode": "opening",
+    "eyebrow": "WHEN PATIENTS CALL",
+    "headline": "Give them a clear next step.",
+    "items": [
+      "Busy at the desk",
+      "Another call",
+      "After closing"
+    ],
+    "footer": "Support for your front desk"
+  },
+  {
+    "mode": "flow",
+    "eyebrow": "A PRACTICAL NEXT STEP",
+    "headline": "Configured around your practice.",
+    "items": [
+      "Clarify the appointment inquiry",
+      "Offer available times",
+      "Create the agreed booking"
+    ],
+    "footer": "Recorded Google Calendar workflow"
+  },
+  {
+    "mode": "flow",
+    "eyebrow": "ASSESS YOUR OPPORTUNITY",
+    "headline": "Different steps. Different measures.",
+    "items": [
+      "Inquiry",
+      "Booking",
+      "Attendance"
+    ],
+    "footer": "Collected revenue is a separate measure"
+  },
+  {
+    "mode": "value",
+    "eyebrow": "POTENTIAL VALUE",
+    "headline": "Use your own figures.",
+    "items": [],
+    "footer": "Illustration only \u00b7 Hypothetical inputs \u00b7 Not a forecast",
+    "graphicY": 750
+  },
+  {
+    "mode": "opening",
+    "eyebrow": "WATCH THE WORKFLOW",
+    "headline": "From inquiry to appointment.",
+    "items": [
+      "Listen to the request",
+      "Hear the available times",
+      "See the selected booking"
+    ],
+    "footer": "Recorded demonstration \u00b7 Privacy & label edits"
+  },
+  {
+    "mode": "limits",
+    "eyebrow": "WHAT THE EVIDENCE SHOWS",
+    "headline": "One demonstrated booking workflow.",
+    "items": [
+      "Google Calendar booking",
+      "Assess your scheduling system",
+      "Test your practice\u2019s requirements"
+    ],
+    "footer": "Compatibility is assessed and tested"
+  },
+  {
+    "mode": "opening",
+    "eyebrow": "CALLS THAT NEED ANOTHER PATH",
+    "headline": "A configured question.",
+    "items": [
+      "Genuine question",
+      "Complete caller answer"
+    ],
+    "footer": "Recorded demonstration \u00b7 Configured question"
+  },
+  {
+    "mode": "limits",
+    "eyebrow": "RULES AND BOUNDARIES",
+    "headline": "Your team approves the rules.",
+    "items": [
+      "Practice-approved escalation",
+      "Human handoffs",
+      "Patient-data and security review"
+    ],
+    "footer": "Supports your team within agreed rules"
+  },
+  {
+    "mode": "steps",
+    "eyebrow": "WHAT PURCHASING INVOLVES",
+    "headline": "Agree. Configure. Test. Approve.",
+    "items": [
+      "Confirm scope & investment",
+      "Agreement & initial payment",
+      "Configure the workflow",
+      "Test with your team",
+      "Practice approval \u2192 activate"
+    ],
+    "footer": "Payment starts agreed work; approval precedes activation",
+    "graphicY": 780
+  },
+  {
+    "mode": "cta",
+    "eyebrow": "THE DECISION CALL",
+    "headline": "Book a 15-minute FlowAudit walkthrough.",
+    "items": [],
+    "footer": "https://flowaudit.co.uk/book",
+    "graphicY": 830
+  }
+]

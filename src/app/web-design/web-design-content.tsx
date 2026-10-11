@@ -30,14 +30,14 @@ function WebDesignContent() {
   const wd = t.webDesign;
 
   const products = [
-    { name: wd.product1, price: wd.product1Price, desc: wd.product1Desc },
-    { name: wd.product2, price: wd.product2Price, desc: wd.product2Desc },
-    { name: wd.product3, price: wd.product3Price, desc: wd.product3Desc },
-    { name: wd.product4, price: wd.product4Price, desc: wd.product4Desc },
-    { name: wd.product5, price: wd.product5Price, desc: wd.product5Desc },
-    { name: wd.product6, price: wd.product6Price, desc: wd.product6Desc },
-    { name: wd.product7, price: wd.product7Price, desc: wd.product7Desc },
-    { name: wd.product8, price: wd.product8Price, desc: wd.product8Desc },
+    { name: wd.product1, desc: wd.product1Desc },
+    { name: wd.product2, desc: wd.product2Desc },
+    { name: wd.product3, desc: wd.product3Desc },
+    { name: wd.product4, desc: wd.product4Desc },
+    { name: wd.product5, desc: wd.product5Desc },
+    { name: wd.product6, desc: wd.product6Desc },
+    { name: wd.product7, desc: wd.product7Desc },
+    { name: wd.product8, desc: wd.product8Desc },
   ];
 
   const steps: { icon: LucideIcon; title: string; desc: string }[] = [
@@ -145,7 +145,6 @@ function WebDesignContent() {
           <div className="mb-1 font-sans text-sm font-semibold text-emerald-400">
             {wd.everythingLabel}
           </div>
-          <div className="font-sans text-4xl font-semibold sm:text-5xl">{wd.everythingPrice}</div>
           <div className="mt-2 font-sans text-sm text-[rgba(255,255,255,0.6)]">
             {wd.everythingDesc}
           </div>
@@ -167,9 +166,6 @@ function WebDesignContent() {
                   <Icon className="h-5 w-5 text-[#37322F]" />
                 </div>
                 <h3 className="font-sans text-sm font-semibold text-[#37322F]">{product.name}</h3>
-                <div className="mt-1 font-sans text-xl font-semibold text-[#37322F]">
-                  {product.price}
-                </div>
                 <p className="mt-2 flex-1 font-sans text-xs leading-5 text-[#605A57]">
                   {product.desc}
                 </p>
@@ -177,8 +173,6 @@ function WebDesignContent() {
             );
           })}
         </div>
-
-        <p className="mt-6 text-center font-sans text-xs text-[#605A57]">{wd.priceNote}</p>
       </section>
 
       {/* Why Us */}
@@ -237,7 +231,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
     <div className="overflow-hidden rounded-xl border border-[rgba(55,50,47,0.08)] bg-white">
       <button
+        type="button"
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         className="flex w-full items-center justify-between px-5 py-4 text-left"
       >
         <span className="font-sans text-sm font-semibold text-[#37322F]">{question}</span>

@@ -1,100 +1,29 @@
-/**
- * @file sitemap.ts
- * @description Generates the XML sitemap of static, blog, and industry routes.
- * @status Stable.
- * @issues None.
- * @todo None.
- */
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
-
+import { industries, posts } from "@/lib/editorial-copy";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: SITE_URL,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${SITE_URL}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/solutions`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/revenue-recovery`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/results`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/book`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/terms`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/web-design`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/careers`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
+  const paths = [
+    "",
+    "/services",
+    "/solutions",
+    "/phone-agent",
+    "/web-design",
+    "/revenue-recovery",
+    "/demos",
+    "/how-it-works",
+    "/about",
+    "/book",
+    "/blog",
+    "/careers",
+    "/privacy",
+    "/terms",
+    ...Object.keys(industries).map((s) => `/industries/${s}`),
+    ...Object.keys(posts).map((s) => `/blog/${s}`),
   ];
-
-  const blogSlugs = ["real-cost-of-manual-work", "hire-vs-automate", "revenue-per-employee"];
-
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: `${SITE_URL}/blog/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
+  return paths.map((path) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified: new Date("2026-10-09"),
+    changeFrequency: path.startsWith("/blog/") ? "monthly" : "weekly",
+    priority: path === "" ? 1 : path === "/phone-agent" ? 0.9 : 0.7,
   }));
-
-  const industrySlugs = ["trades", "insurance", "agencies", "accounting", "legal", "consultants"];
-
-  const industryPages: MetadataRoute.Sitemap = industrySlugs.map((slug) => ({
-    url: `${SITE_URL}/industries/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
-  return [...staticPages, ...blogPages, ...industryPages];
 }

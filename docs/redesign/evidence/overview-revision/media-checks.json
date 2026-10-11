@@ -1,0 +1,74 @@
+{
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1",
+        "duration": "90.000000",
+        "nb_read_frames": "2700"
+      },
+      {
+        "codec_type": "audio",
+        "avg_frame_rate": "0/0",
+        "duration": "90.000000",
+        "nb_read_frames": "4219"
+      }
+    ],
+    "format": {
+      "duration": "90.000000"
+    }
+  },
+  "full_decode": "passed; no decoding errors",
+  "encoded_loudness": {
+    "input_i": "-16.35",
+    "input_tp": "-1.13",
+    "input_lra": "4.10",
+    "input_thresh": "-27.37",
+    "output_i": "-16.07",
+    "output_tp": "-1.50",
+    "output_lra": "3.90",
+    "output_thresh": "-27.04",
+    "normalization_type": "dynamic",
+    "target_offset": "0.07"
+  },
+  "caption_cues": 30,
+  "speech_speed": 1.0,
+  "replacement_only_generation": true,
+  "original_media_sha256": {
+    "public/media/main.mp4": "39206da3aeb6aefca5f5d16861ec0c8f683aa9c8fbaaba9397bf0407a76f2612",
+    "public/media/main.jpg": "67fe9f801c861f326bf76f6444c859ba627787c00ec8e9e980183847b9bf0bfd",
+    "public/media/main.vtt": "efa09d640edffd0a41e375528beaeacd43af055677f64a388e631abef09d93a8",
+    "public/media/routine.mp4": "1adf0b141dd33e4d7a5765414c54c4f385c35fb514079afb43e89421210a937a",
+    "public/media/routine.jpg": "f14c1d37916b1cde72819c47f560733fc73b1b46162a998ad7bae5d1dc039cb7",
+    "public/media/routine.vtt": "ef9fc0a80d1c31f50ba0940487aa4415cff46300962a9a61873a50858cefb43f",
+    "public/media/summary.mp4": "ecb5dcf82ebde84c1ff15e6a0a1144c4abfc13d1f190fc56164d3207dc5cb0b8",
+    "public/media/summary.jpg": "20edcf128b18933906b63bdb785711ec438e92d41dfccb626f1f42db72d1a867",
+    "public/media/summary.vtt": "a9a1707f578ea37e9a2dc9017db4a4b4d724bf9ffa61a6c93da69917a89ae2a0",
+    "public/media/teaser.mp4": "11cac8310d367981d81fa57d14e26282c58e1337e5cab141f9e5ead06cce328e",
+    "public/media/teaser.jpg": "e642ce774a31d13dd714010cd41345839eeace0cbb34b9dc1092742abc7654d2",
+    "public/media/teaser.vtt": "63dae6094c966e71aad3fd3b14477dd0a1332b0086ba315a7e2d9d153386db01"
+  },
+  "original_takes_and_score_sha256": {
+    "O01.wav": "22876f72151ecefb1cad6bddc0ddc01ae0922b654a5f18d274b0ffe989c639f9",
+    "O02.wav": "5282380542f0a003bac9abddb6908059872003c0d14ea422fad7f2648812b4e2",
+    "O03.wav": "987cb8d9357736dc43f539ec53eb8264ad9a9b1657951c3199043002fd802e12",
+    "O04.wav": "c5ea1cf8ed4bd39f2973fdfcbd8c53fc5870be207ba1082a2123a08c4b150214",
+    "O05.wav": "31114a07ce82ca2c912f10c44de4ab2f058cb8be09e01692f302d83b4f1dc23f",
+    "O06.wav": "0ad3c047724e241e0363e81f7e93593910ca00d77908f1596bf41a1120d991c5",
+    "O07.wav": "f4179ba53aeb5f84d325ee58bb38edc3d8372d36be556c21327aea924b3861e8",
+    "original-score.wav": "f8f6d7b60d2067342d2d5bc6d730f7a0d715e3ceb19af8db485b0f4bf3b79297"
+  },
+  "original_media_unchanged": true,
+  "original_takes_and_score_unchanged": true,
+  "preserved_O02_tail_sample_identical": true,
+  "film_sha256": "ec9aa12ae14fbfdc3929116e41e1d67635e02907d24201791029f7e19321781e",
+  "single_baked_caption_layer": true,
+  "download_tracks_only": true,
+  "closing_cta_final_frame": "visually inspected; retained through frame 2699",
+  "audio_review_limit": "Cannot hear audio with available tools. ASR and loudness are not listening approval.",
+  "asr_notes": "Replacement sentence confirmed independently and in full mix. Unchanged O05 has ASR variation (Clinical judgments / The process stays with your team); old source samples are identical, not regenerated. Human listening remains outstanding."
+}

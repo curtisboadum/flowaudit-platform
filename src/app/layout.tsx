@@ -8,6 +8,7 @@ import {
 import { LocaleProvider } from "@/components/providers/locale-provider";
 import { JsonLd } from "@/components/seo/json-ld";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
+import { FunnelProvider } from "@/components/marketing/funnel-provider";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,32 +28,17 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "FlowAudit | AI Operations Assistants for Teams Drowning in Repetitive Work",
+  title: "FlowAudit | AI systems for established service businesses",
   description:
-    "FlowAudit builds AI assistants that handle your repetitive admin, without losing quality, control, or oversight. Turn 10 hours of manual work into 10 minutes.",
-  alternates: {
-    canonical: "/",
-    languages: {
-      "en": "/",
-      "es": "/?lang=es",
-      "x-default": "/",
-    },
-  },
+    "Phone handling, operations automation, revenue recovery and websites, with clear scope and approval before activation.",
   openGraph: {
-    title: "FlowAudit | Turn 10 Hours of Manual Work Into 10 Minutes",
-    description:
-      "AI operations assistants for operators, trades, service teams, and founders who are tired of doing the same tasks every week.",
+    title: "FlowAudit | Better systems. Clearer next steps.",
+    description: "AI systems built around your business, with clear scope and your approval.",
     type: "website",
-    url: SITE_URL,
     siteName: SITE_NAME,
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "FlowAudit | AI Operations Assistants",
-    description:
-      "Turn 10 hours of manual work into 10 minutes with AI assistants built for your workflows.",
-  },
+  twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -61,23 +47,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="overflow-x-hidden bg-[#F7F5F3] font-sans text-[#37322F] antialiased">
         <LocaleProvider>
           <ConditionalSiteHeader />
-          <main>{children}</main>
+          <a className="fa-skip" href="#main-content">
+            Skip to content
+          </a>
+          <main id="main-content">{children}</main>
           <ConditionalSiteFooter />
+          <FunnelProvider />
+          {process.env.CHAT_ENABLED === "true" &&
+            (process.env.OPENROUTER_API_KEY ||
+              process.env.GEMINI_API_KEY ||
+              process.env.DEEPSEEK_API_KEY) && <ConditionalChatWidget />}
         </LocaleProvider>
-        <ConditionalChatWidget />
+
         <JsonLd
           data={{
             "@context": "https://schema.org",
             "@type": "Organization",
             name: SITE_NAME,
             url: SITE_URL,
-            logo: `${SITE_URL}/logo.png`,
+            logo: `${SITE_URL}/brand.svg`,
             description:
-              "FlowAudit builds AI operations assistants that handle repetitive admin for teams drowning in manual work.",
+              "Phone handling, operations automation, revenue recovery and websites with clear scope and approval.",
             email: "support@flowaudit.co.uk",
-            sameAs: [
-              "https://www.linkedin.com/company/flowaudit",
-            ],
+            sameAs: ["https://www.linkedin.com/company/flowaudit"],
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "sales",

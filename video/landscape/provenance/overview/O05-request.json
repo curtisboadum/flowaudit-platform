@@ -1,0 +1,13 @@
+{
+  "text": "Urgent calls follow practice-approved escalation and human-handoff rules. The recorded question doesn't establish validated clinical triage or a completed emergency handoff. Clinical judgment stays with your team.",
+  "language": "Auto",
+  "profile_id": "185daf92",
+  "seed": 42,
+  "speed": 1.0,
+  "engine": "mlx-audio",
+  "effect_preset": "raw",
+  "postprocess_output": "false",
+  "denoise": "false",
+  "max_chunk_chars": 0,
+  "wav_bits": "24"
+}

@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-10-09T11:43:58.610846+00:00",
+  "production_env": {
+    "CAL_WEBHOOK_SECRET": "empty",
+    "CAL_EVENT_TYPE_IDS": "absent",
+    "CHAT_ENABLED": "absent; disabled by default"
+  },
+  "providers": {
+    "Gemini": {
+      "http_status": 403,
+      "result": "leaked-key rejection"
+    },
+    "DeepSeek": {
+      "http_status": 402,
+      "result": "insufficient balance"
+    }
+  },
+  "cal_settings": "sign-in required; no active session in in-app browser",
+  "signed_provider_delivery": "unverified",
+  "real_booking": "not created; no notifications authorised",
+  "revenue_recovery": {
+    "http_status": 402,
+    "result": "DEPLOYMENT_DISABLED"
+  },
+  "live_cal/webhook": {
+    "http_status": 401
+  },
+  "live_chat": {
+    "http_status": 400
+  }
+}

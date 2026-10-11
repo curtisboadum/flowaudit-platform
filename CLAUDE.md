@@ -1,6 +1,6 @@
 # FlowAudit Platform
 
-FlowAudit is an AI agency that sells "moat bots", workflow automation agents built on OpenClaw, to businesses. This is the core platform for managing clients, agents, and workflows.
+FlowAudit serves established service businesses with phone handling, operations automation, revenue recovery and managed websites. Dental is the flagship. Verify claims against docs/redesign/STRATEGY.md.
 
 ## Tech Stack
 
@@ -9,18 +9,18 @@ FlowAudit is an AI agency that sells "moat bots", workflow automation agents bui
 | Runtime | Node.js | 22+ |
 | Language | TypeScript | Strict mode |
 | Framework | Next.js (App Router only) | 15+ |
-| Database | InstantDB | Latest |
+| Database | Supabase, server-only CRM and events | Existing project |
 | AI Agents | OpenClaw | Latest |
 | AI Models | Claude API (Anthropic SDK) | Latest |
 | Styling | Tailwind CSS + shadcn/ui | v4 |
-| Package Manager | pnpm | Latest |
+| Package Manager | npm (package-lock.json authoritative) | Current |
 | Testing | Vitest + Playwright | Latest |
 | Hosting | Vercel | Latest |
 
 ## Architecture
 
 ```
-Browser → Next.js (Vercel) → InstantDB + OpenClaw + Claude API
+Browser → Next.js (Vercel) → server-only Supabase CRM/events; Cal.com booking; separate revenue-recovery proxy
 ```
 
 See `docs/architecture/overview.md` for full diagram.
@@ -75,13 +75,12 @@ See `docs/architecture/overview.md` for full diagram.
 - **try/catch at boundaries**, API routes and event handlers only
 - **Never swallow errors silently**
 
-## InstantDB Patterns
+## Data access
 
-- Schema defined in `instant.schema.ts` at project root
-- Permissions in `instant.perms.ts`
-- Client initialized in `src/lib/instant.ts`
-- Use `useQuery()` for reads, `transact()` for writes
-- All entities are typed via schema inference
+- CRM and funnel events use server-side Supabase service-role credentials.
+- Never expose these credentials to the browser. RLS is enabled on CRM and event tables.
+- Public telemetry requires explicit optional analytics consent; never record patient data or form answers.
+- The unused InstantDB scaffolding was removed; Git history preserves it.
 
 ## OpenClaw Patterns
 
@@ -108,7 +107,7 @@ pnpm typecheck    # TypeScript strict check
 pnpm test         # Run Vitest tests
 pnpm test:e2e     # Run Playwright tests
 pnpm format       # Format with Prettier
-pnpm db:push      # Push InstantDB schema
+npm run test:e2e # Browser regression tests
 ```
 
 ## Git Workflow
@@ -137,13 +136,13 @@ When working in agent teams:
 - No `eval()`, `Function()`, or dynamic code execution
 - No `dangerouslySetInnerHTML` without sanitization
 - Validate all user input at API boundaries
-- Use parameterized queries (InstantDB handles this)
+- Use validated inputs and parameterized database queries
 
 ## Anti-Patterns (Never Do These)
 
 - No `pages/` directory, App Router only
-- No Firebase or Supabase, we use InstantDB
-- No Redux or Zustand, use React state + InstantDB realtime
+- Preserve the actual Supabase server architecture; do not reintroduce unused database scaffolding
+- Use React state unless a verified feature needs more
 - No axios, use native `fetch`
 - No barrel files (`index.ts` re-exports)
 - No CSS modules or styled-components, Tailwind only

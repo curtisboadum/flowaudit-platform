@@ -1,0 +1,184 @@
+{
+  "privacy": [
+    {
+      "title": "1. Who we are",
+      "paragraphs": [
+        "FlowAudit provides AI operations, workflow automation, and revenue recovery services for businesses. You can contact us through the booking or support channels on this website."
+      ]
+    },
+    {
+      "title": "2. Information we collect for the main FlowAudit site",
+      "paragraphs": [
+        "We collect information you provide directly, such as your name, email address, company name, phone number, booking details, form responses, and messages you send to us.",
+        "We may also collect basic usage and device information, such as pages visited, browser type, approximate location, timestamps, and referral source, to keep the site secure and improve our services."
+      ]
+    },
+    {
+      "title": "Optional website analytics",
+      "paragraphs": [
+        "Optional analytics is off until you choose Allow analytics. With consent, we measure page views, booking-link clicks and video engagement using a random session identifier, page path, selected service, media identifier, timestamp and limited campaign or referral labels. These events do not include form answers, names, email addresses, patient details or chat messages. You can change your choice using Privacy choices in the footer. Declining clears the analytics session identifier and attribution storage. URL campaign labels can still accompany a booking link.",
+        "Booking details and optional business context are sent to Cal.com when you continue to the calendar. Server-side booking lifecycle events support booking administration. Necessary language and privacy preferences are stored locally. Hosting providers may process request information for delivery and security; the abuse limiter stores a keyed hash rather than a raw IP address."
+      ]
+    },
+    {
+      "title": "3. Revenue Recovery Desk data",
+      "paragraphs": [
+        "Revenue Recovery Desk helps clients identify overdue accounts, prepare recovery communications, manage approvals, and track recovery activity. To provide that service, we may process client-authorized business data such as customer contact details, invoice data, account balances, payment status, CRM records, support notes, and recovery history.",
+        "If a client connects Google Workspace, Microsoft 365, a CRM, accounting platform, payment provider, or document system, we access only the data needed for the recovery workflow and only according to the scopes and permissions authorized by the client."
+      ]
+    },
+    {
+      "title": "4. Google Workspace data",
+      "paragraphs": [
+        "If a client authorizes Google Workspace access, Revenue Recovery Desk may use read-only Gmail or Drive metadata permissions to understand customer replies, disputes, promises to pay, bounced messages, recovery context, document locations, or client-provided recovery files.",
+        "We do not sell Google user data. We do not use Google user data for advertising. We do not transfer Google user data to third parties except as necessary to provide or secure the service, comply with law, or with the client's explicit direction.",
+        "Google Workspace access can be revoked by the client from their Google account security settings or by contacting FlowAudit support."
+      ]
+    },
+    {
+      "title": "5. How we use information",
+      "paragraphs": [
+        "We use information to provide and improve our services, respond to enquiries, operate Revenue Recovery Desk, prepare draft recovery actions, route approvals, maintain audit records, prevent abuse, secure our systems, and meet legal or contractual obligations."
+      ]
+    },
+    {
+      "title": "6. Human approval and client control",
+      "paragraphs": [
+        "Revenue Recovery Desk is designed around client authorization and human approval. Sensitive actions such as outreach, letters, payment-plan changes, settlements, and account escalations are gated by the agreed client policy and approval process."
+      ]
+    },
+    {
+      "title": "7. Sharing and processors",
+      "paragraphs": [
+        "We may use trusted service providers for hosting, authentication, email delivery, secure storage, automation, logging, payment processing, and postal-letter delivery. These providers process data only as needed to provide their services to us and our clients.",
+        "We do not sell personal data."
+      ]
+    },
+    {
+      "title": "8. Security",
+      "paragraphs": [
+        "We use safeguards such as encryption in transit, restricted access, audit logging, least-privilege connector scopes where practical, approval gates, credential isolation, and secure vault workflows for sensitive integration keys."
+      ]
+    },
+    {
+      "title": "9. Retention",
+      "paragraphs": [
+        "We keep information only as long as needed to provide services, maintain audit and legal records, resolve disputes, meet contractual obligations, and comply with law. Revenue Recovery Desk client records may be retained for the agreed legal retention period after offboarding, while live credentials are destroyed during offboarding."
+      ]
+    },
+    {
+      "title": "10. Your choices",
+      "paragraphs": [
+        "You may request access, correction, deletion, or restriction of personal information where applicable. Clients can disconnect integrations, revoke OAuth access, request offboarding, or ask us to update business contact details."
+      ]
+    },
+    {
+      "title": "11. Changes to this policy",
+      "paragraphs": [
+        "We may update this policy as our services evolve. The latest version will be available at this page."
+      ]
+    },
+    {
+      "title": "12. Contact",
+      "paragraphs": [
+        "For privacy-related questions, contact FlowAudit through the booking or support channels on this website."
+      ]
+    }
+  ],
+  "terms": [
+    {
+      "title": "1. Services",
+      "paragraphs": [
+        "FlowAudit provides AI operations assistant deployment, workflow automation, system integration, process improvement, and related advisory services. Revenue Recovery Desk is a FlowAudit service for accounts-receivable recovery support."
+      ]
+    },
+    {
+      "title": "2. Revenue Recovery Desk",
+      "paragraphs": [
+        "Revenue Recovery Desk helps clients identify overdue accounts, prepare recovery communications, manage approval workflows, track outcomes, and coordinate recovery activity across connected systems.",
+        "The service is not a collections agency, law firm, credit bureau, or regulated debt-collection substitute. Clients remain responsible for their customer relationships, commercial decisions, legal compliance, and final approval of recovery actions."
+      ]
+    },
+    {
+      "title": "3. Client authorization and approvals",
+      "paragraphs": [
+        "Clients authorize FlowAudit to access agreed business systems only for the approved service scope. Recovery actions are governed by the client's configured policy, approval model, and guardrails.",
+        "Sensitive actions, including customer outreach, physical letters, settlement offers, payment-plan changes, or escalation steps, may require human approval before sending or execution."
+      ]
+    },
+    {
+      "title": "4. Integrations and access",
+      "paragraphs": [
+        "Clients may connect systems such as Google Workspace, Microsoft 365, CRM platforms, accounting tools, payment processors, document systems, and postal-letter providers. The client is responsible for confirming that they have authority to grant access to those systems.",
+        "FlowAudit uses connector scopes and credentials only to provide the agreed service. Clients should revoke access or request offboarding when the service ends."
+      ]
+    },
+    {
+      "title": "5. Client responsibilities",
+      "paragraphs": [
+        "Clients are responsible for providing accurate onboarding information, confirming recovery policies, reviewing drafts and approvals, maintaining lawful customer data, responding to disputes, and ensuring that recovery actions comply with their contracts, local laws, and industry rules."
+      ]
+    },
+    {
+      "title": "6. Fees and billing",
+      "paragraphs": [
+        "FlowAudit service fees, setup fees, retainers, success fees, pass-through costs, or other charges are agreed separately in the relevant order form, proposal, statement of work, or payment terms.",
+        "Revenue Recovery Desk may involve pass-through costs for services such as postal letters, messaging, payment processing, or third-party provider usage where agreed or authorized."
+      ]
+    },
+    {
+      "title": "Project sequence and managed websites",
+      "paragraphs": [
+        "Phone-agent agreement and initial payment begin configuration; testing and your approval precede activation. Website projects begin with a bounded custom demo before payment. Managed website agreements have a 12-month term, with cancellation after that term according to the agreement. Scope, dependencies, usage allowances, support and third-party costs are defined in writing."
+      ]
+    },
+    {
+      "title": "7. Ownership and data",
+      "paragraphs": [
+        "Clients retain ownership of their business data, workflows, customer records, invoices, and connected-system content. FlowAudit retains ownership of its software, automation patterns, templates, processes, and service materials unless otherwise agreed in writing."
+      ]
+    },
+    {
+      "title": "8. Acceptable use",
+      "paragraphs": [
+        "Clients must not use FlowAudit services for unlawful, abusive, misleading, harassing, discriminatory, or unauthorized activity. Clients must not provide credentials, data, or instructions that they are not authorized to provide."
+      ]
+    },
+    {
+      "title": "9. No guarantee of recovery or results",
+      "paragraphs": [
+        "FlowAudit works to improve operations and revenue recovery outcomes, but does not guarantee that any specific invoice, customer balance, payment, or commercial result will be recovered."
+      ]
+    },
+    {
+      "title": "10. Service availability and changes",
+      "paragraphs": [
+        "Services may depend on third-party systems, APIs, OAuth providers, email platforms, payment processors, postal services, hosting providers, and client systems. Availability may be affected by those providers or by changes to their policies and APIs."
+      ]
+    },
+    {
+      "title": "11. Liability",
+      "paragraphs": [
+        "To the maximum extent permitted by law, FlowAudit is not liable for indirect, consequential, incidental, special, punitive, or loss-of-profit damages. Any liability is limited to the amount paid for the relevant service during the period stated in the applicable agreement, unless law requires otherwise."
+      ]
+    },
+    {
+      "title": "12. Termination and offboarding",
+      "paragraphs": [
+        "Either party may end services according to the applicable agreement. During Revenue Recovery Desk offboarding, FlowAudit will disable live access, destroy live credentials where applicable, and retain records only as needed for legal, audit, or contractual purposes."
+      ]
+    },
+    {
+      "title": "13. Privacy",
+      "paragraphs": [
+        "Our handling of personal data and connected-system information is described in the FlowAudit Privacy Policy at /privacy."
+      ]
+    },
+    {
+      "title": "14. Contact",
+      "paragraphs": [
+        "For questions about these terms, contact FlowAudit through the booking or support channels on this website."
+      ]
+    }
+  ]
+}

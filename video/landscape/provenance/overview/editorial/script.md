@@ -1,0 +1,32 @@
+# FlowAudit — final spoken script
+
+FlowAudit · 90-second overview · English
+
+Your receptionist is helping a patient. The phone rings. Later, the practice closes. Someone else calls.
+
+Your team can’t be in two places at once. But the caller still needs a next step.
+
+FlowAudit builds AI phone agents that support staff through agreed workflows.
+
+You agree which calls and appointments it handles, and when a person steps in.
+
+Here’s a recorded new-patient enquiry.
+
+[Recorded demo excerpt]
+Hiya. I just wanted to ring in and book an appointment. Thanks. Can you please tell me if this is for you or someone else? It's for me. I'm a new in the area. I want to, you know, register with the dentist and then get checked up as well. Got it. Are you looking for a new patient check-up appointment?
+
+[Recorded demo excerpt]
+The first available appointment this afternoon is at 2:30 or three in the afternoon or 3:30. Which one works for you? Can we do three o’clock?
+
+And here’s the booking in Google Calendar.
+
+[Recorded demo excerpt]
+Your new patient check-up appointment is booked for Wednesday, the 7th of October at three in the afternoon.
+
+A clear next step for the caller. Support for your team when the desk is busy, or the practice is closed.
+
+We assess your scheduling, phone forwarding and patient-data requirements. Then configure and test the agreed workflow with your team. Activation follows your approval.
+
+Book a fifteen-minute demo and fit assessment. Bring the person who approves the purchase. We’ll look at your call workflows and see whether FlowAudit fits.
+
+Supporting detail: This is a recorded demonstration, not a measured customer outcome. Excerpts use original call audio and recording pixels; the Google Calendar evidence is a genuine still from the recording at 76.45s, labelled as a still with original confirmation audio. Source excerpt times: 9.24–29.40s, 42.70–52.00s and 75.75–82.55s. The complete recording retains privacy beeps and edited demonstration labels at /phone-agent#booking-recording. Overview excerpts omit contact details. Explanatory reception and workflow illustrations are not product screens or customer results. Scheduling compatibility, forwarding and patient-data requirements must be assessed and tested. Clinical judgment remains with the practice. Scope and investment are agreed before configuration; agreement and initial payment start configuration, followed by testing and practice approval before activation. Urgent-call illustrations elsewhere do not establish validated clinical triage or a completed emergency handoff.

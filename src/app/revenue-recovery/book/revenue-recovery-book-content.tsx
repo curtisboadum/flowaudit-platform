@@ -2,26 +2,23 @@
  * @file revenue-recovery-book-content.tsx
  * @description Client content for the Revenue Recovery booking page. Warm RR
  *   styling (amber accent, serif headline) with a short reassurance list and the
- *   shared Calendly inline widget. Bilingual via the active locale, mirroring the
- *   inline-copy pattern used by revenue-recovery-banner.tsx.
+ *   cal.com inline booking calendar (Cal Video link on confirmation).
  * @status Stable.
  * @issues None.
  * @todo None.
  */
 "use client";
 
-import { Banknote, Check } from "lucide-react";
-import { CalendlyEmbed } from "@/components/book/calendly-embed";
+import { Banknote, CalendarCheck, Check } from "lucide-react";
+import { CalEmbed } from "@/components/booking/cal-embed";
 import { useLocale } from "@/components/providers/locale-provider";
-
-const CALENDLY_URL = "https://calendly.com/flowaudit-info/30min";
 
 const COPY = {
   en: {
     eyebrow: "Revenue Recovery Desk",
     headline: "Let's recover what's yours",
     subtext:
-      "Book a free 30-minute call. We'll show you how the done-for-you Revenue Recovery Desk works, whether it's the right fit for your business, and how fast we can get it running so you start collecting what you're owed. No pressure.",
+      "Book a free 15-minute call. We'll show you how the done-for-you Revenue Recovery Desk works, whether it's the right fit for your business, and how fast we can get it running so you start collecting what you're owed. No pressure.",
     points: [
       "See exactly how the done-for-you desk works",
       "Find out if it's the right fit for your business",
@@ -32,7 +29,7 @@ const COPY = {
     eyebrow: "Mesa de Recuperación de Ingresos",
     headline: "Recuperemos lo que es tuyo",
     subtext:
-      "Agenda una llamada gratuita de 30 minutos. Te mostramos cómo funciona la Mesa de Recuperación de Ingresos hecha por nosotros, si encaja con tu negocio, y qué tan rápido podemos ponerla en marcha para que empieces a cobrar lo que te deben. Sin presión.",
+      "Agenda una llamada gratuita de 15 minutos. Te mostramos cómo funciona la Mesa de Recuperación de Ingresos hecha por nosotros, si encaja con tu negocio, y qué tan rápido podemos ponerla en marcha para que empieces a cobrar lo que te deben. Sin presión.",
     points: [
       "Descubre cómo funciona la mesa hecha por nosotros",
       "Confirma si encaja con tu negocio",
@@ -69,8 +66,26 @@ function RevenueRecoveryBookContent() {
       </section>
 
       <section className="px-4 pb-16 sm:px-6 lg:px-0">
-        <div className="mx-auto w-full max-w-[900px] overflow-hidden rounded-2xl border border-amber-200 bg-white">
-          <CalendlyEmbed url={CALENDLY_URL} />
+        <div className="mx-auto w-full max-w-[720px] rounded-2xl border border-amber-200 bg-white p-6 text-center sm:p-10">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50">
+            <CalendarCheck className="h-5 w-5 text-amber-600" />
+          </div>
+          <h2 className="font-sans text-xl font-semibold text-[#37322F] sm:text-2xl">
+            {locale === "es" ? "Elige un horario" : "Pick a time"}
+          </h2>
+          <p className="mx-auto mt-3 max-w-[460px] font-sans text-sm leading-7 text-[#605A57]">
+            {locale === "es"
+              ? "Reserva un hueco en el calendario. Tu confirmación incluye un enlace de Cal Video. ¿Prefieres email? Escribe a support@flowaudit.co.uk."
+              : "Choose a slot on the calendar. Your confirmation includes a Cal Video link. Prefer email? Write to support@flowaudit.co.uk."}
+          </p>
+          <div className="mt-6 text-left">
+            <CalEmbed brandColor="#B45309" />
+          </div>
+          <p className="mt-4 font-sans text-xs text-[rgba(55,50,47,0.50)]">
+            {locale === "es"
+              ? "Tu confirmación de reserva incluye un enlace de Cal Video."
+              : "Your booking confirmation includes a Cal Video link."}
+          </p>
         </div>
       </section>
     </>

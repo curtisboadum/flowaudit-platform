@@ -1,0 +1,1323 @@
+{
+  "MainVSL": {
+    "duration": 9000,
+    "segments": [
+      {
+        "kind": "narration",
+        "id": "N01",
+        "duration": 425,
+        "visual": {
+          "mode": "opening",
+          "eyebrow": "WHEN PATIENTS CALL",
+          "headline": "Give them a clear next step.",
+          "items": [
+            "Busy at the desk",
+            "Another call",
+            "After closing"
+          ],
+          "footer": "Support for your front desk",
+          "graphicY": 190
+        },
+        "scene": "01-call",
+        "from": 0
+      },
+      {
+        "kind": "narration",
+        "id": "N02",
+        "duration": 696,
+        "visual": {
+          "mode": "flow",
+          "eyebrow": "A PRACTICAL NEXT STEP",
+          "headline": "Configured around your practice.",
+          "items": [
+            "Clarify the appointment inquiry",
+            "Offer available times",
+            "Create the agreed booking"
+          ],
+          "footer": "Recorded Google Calendar workflow",
+          "graphicY": 190
+        },
+        "scene": "02-solution",
+        "from": 425
+      },
+      {
+        "kind": "narration",
+        "id": "N03",
+        "duration": 425,
+        "visual": {
+          "mode": "flow",
+          "eyebrow": "ASSESS YOUR OPPORTUNITY",
+          "headline": "Different steps. Different measures.",
+          "items": [
+            "Inquiry",
+            "Booking",
+            "Attendance"
+          ],
+          "footer": "Collected revenue is a separate measure",
+          "graphicY": 190
+        },
+        "scene": "03-opportunity",
+        "from": 1121
+      },
+      {
+        "kind": "narration",
+        "id": "N04",
+        "duration": 701,
+        "visual": {
+          "mode": "value",
+          "eyebrow": "POTENTIAL VALUE",
+          "headline": "Use your own figures.",
+          "items": [],
+          "footer": "Illustration only \u00b7 Hypothetical inputs \u00b7 Not a forecast",
+          "graphicY": 190
+        },
+        "scene": "04-value",
+        "from": 1546
+      },
+      {
+        "kind": "narration",
+        "id": "N05",
+        "duration": 513,
+        "visual": {
+          "mode": "opening",
+          "eyebrow": "WATCH THE WORKFLOW",
+          "headline": "From inquiry to appointment.",
+          "items": [
+            "Listen to the request",
+            "Hear the available times",
+            "See the selected booking"
+          ],
+          "footer": "Recorded demonstration \u00b7 Privacy & label edits",
+          "graphicY": 190
+        },
+        "scene": "05-watch",
+        "from": 2247
+      },
+      {
+        "kind": "routine",
+        "sourceFrom": 0,
+        "duration": 2725,
+        "visual": {
+          "headline": "From inquiry to booked appointment.",
+          "kind": "routine",
+          "source": "demo/routine-landscape-panels.mp4",
+          "disclosure": "Recorded demonstration \u00b7 Google Calendar\nPrivacy beeps and redrawn labels; not customer proof."
+        },
+        "scene": "06-routine",
+        "from": 2760
+      },
+      {
+        "kind": "narration",
+        "id": "N06",
+        "duration": 525,
+        "visual": {
+          "mode": "limits",
+          "eyebrow": "WHAT THE EVIDENCE SHOWS",
+          "headline": "One demonstrated booking workflow.",
+          "items": [
+            "Google Calendar booking",
+            "Assess your scheduling system",
+            "Test your practice\u2019s requirements"
+          ],
+          "footer": "Compatibility is assessed and tested",
+          "graphicY": 190
+        },
+        "scene": "07-evidence-limits",
+        "from": 5485
+      },
+      {
+        "kind": "narration",
+        "id": "N07",
+        "duration": 237,
+        "visual": {
+          "mode": "opening",
+          "eyebrow": "CALLS THAT NEED ANOTHER PATH",
+          "headline": "A configured question.",
+          "items": [
+            "Genuine question",
+            "Complete caller answer"
+          ],
+          "footer": "Recorded demonstration \u00b7 Configured question",
+          "graphicY": 190
+        },
+        "scene": "08-other-paths",
+        "from": 6010
+      },
+      {
+        "kind": "urgent",
+        "sourceFrom": 0,
+        "duration": 474,
+        "visual": {
+          "headline": "A configured question.",
+          "kind": "urgent",
+          "source": "demo/question-landscape-panels.mp4",
+          "disclosure": "Recorded example \u00b7 Question and complete caller answer\nNot validated clinical triage or a completed handoff."
+        },
+        "scene": "09-question",
+        "from": 6247
+      },
+      {
+        "kind": "narration",
+        "id": "N08",
+        "duration": 614,
+        "visual": {
+          "mode": "limits",
+          "eyebrow": "RULES AND BOUNDARIES",
+          "headline": "Your team approves the rules.",
+          "items": [
+            "Practice-approved escalation",
+            "Human handoffs",
+            "Patient-data and security review"
+          ],
+          "footer": "Supports your team within agreed rules",
+          "graphicY": 190
+        },
+        "scene": "10-team-rules",
+        "from": 6721
+      },
+      {
+        "kind": "narration",
+        "id": "N09",
+        "duration": 679,
+        "visual": {
+          "mode": "steps",
+          "eyebrow": "WHAT PURCHASING INVOLVES",
+          "headline": "Agree. Configure. Test. Approve.",
+          "items": [
+            "Confirm scope & investment",
+            "Agreement & initial payment",
+            "Configure the workflow",
+            "Test with your team",
+            "Practice approval \u2192 activate"
+          ],
+          "footer": "Payment starts agreed work; approval precedes activation",
+          "graphicY": 190
+        },
+        "scene": "11-implementation",
+        "from": 7335
+      },
+      {
+        "kind": "narration",
+        "id": "N10",
+        "duration": 986,
+        "visual": {
+          "mode": "cta",
+          "eyebrow": "THE DECISION CALL",
+          "headline": "Book a 15-minute FlowAudit walkthrough.",
+          "items": [],
+          "footer": "https://flowaudit.co.uk/book",
+          "graphicY": 190
+        },
+        "scene": "12-decision",
+        "from": 8014
+      }
+    ],
+    "captions": [
+      {
+        "from": 0,
+        "to": 81,
+        "text": "When a patient calls your practice, your team may"
+      },
+      {
+        "from": 81,
+        "to": 161,
+        "text": "already be helping someone at the desk, taking another"
+      },
+      {
+        "from": 161,
+        "to": 214,
+        "text": "call, or finishing for the evening."
+      },
+      {
+        "from": 229,
+        "to": 275,
+        "text": "The patient still needs an answer."
+      },
+      {
+        "from": 284,
+        "to": 365,
+        "text": "And an appointment inquiry can end before anyone has"
+      },
+      {
+        "from": 365,
+        "to": 404,
+        "text": "had a useful conversation."
+      },
+      {
+        "from": 425,
+        "to": 518,
+        "text": "Flow Audit is an AI phone agent configured around"
+      },
+      {
+        "from": 518,
+        "to": 535,
+        "text": "your practice."
+      },
+      {
+        "from": 555,
+        "to": 631,
+        "text": "In the recorded demonstration you'll see, it handles an"
+      },
+      {
+        "from": 631,
+        "to": 727,
+        "text": "appointment inquiry, offers available times, and creates a"
+      },
+      {
+        "from": 727,
+        "to": 763,
+        "text": "booking in a connected calendar."
+      },
+      {
+        "from": 797,
+        "to": 865,
+        "text": "It supports your front desk with agreed call workflows"
+      },
+      {
+        "from": 865,
+        "to": 894,
+        "text": "and human handoffs."
+      },
+      {
+        "from": 909,
+        "to": 970,
+        "text": "If that could help your practice, book a fifteen-minute"
+      },
+      {
+        "from": 970,
+        "to": 986,
+        "text": "walkthrough."
+      },
+      {
+        "from": 1003,
+        "to": 1074,
+        "text": "We'll discuss your requirements, the investment, and whether"
+      },
+      {
+        "from": 1074,
+        "to": 1107,
+        "text": "you're ready to move forward."
+      },
+      {
+        "from": 1121,
+        "to": 1176,
+        "text": "Start with your own call records."
+      },
+      {
+        "from": 1195,
+        "to": 1262,
+        "text": "What happens during busy periods, at lunch, and after"
+      },
+      {
+        "from": 1262,
+        "to": 1275,
+        "text": "closing?"
+      },
+      {
+        "from": 1293,
+        "to": 1362,
+        "text": "How many callers are reached later, how many book,"
+      },
+      {
+        "from": 1362,
+        "to": 1396,
+        "text": "and how many attend?"
+      },
+      {
+        "from": 1409,
+        "to": 1439,
+        "text": "Those are different measures."
+      },
+      {
+        "from": 1461,
+        "to": 1529,
+        "text": "A missed call is not automatically a lost patient."
+      },
+      {
+        "from": 1546,
+        "to": 1648,
+        "text": "For illustration only, suppose five additional appointments were"
+      },
+      {
+        "from": 1648,
+        "to": 1737,
+        "text": "attended, each with an assumed gross value of one"
+      },
+      {
+        "from": 1737,
+        "to": 1769,
+        "text": "hundred and fifty dollars."
+      },
+      {
+        "from": 1769,
+        "to": 1845,
+        "text": "That's seven hundred and fifty dollars in gross appointment"
+      },
+      {
+        "from": 1845,
+        "to": 1893,
+        "text": "value, before costs."
+      },
+      {
+        "from": 1907,
+        "to": 1997,
+        "text": "These are hypothetical inputs, not Flow Audit's results or"
+      },
+      {
+        "from": 1997,
+        "to": 2010,
+        "text": "a forecast."
+      },
+      {
+        "from": 2025,
+        "to": 2122,
+        "text": "Actual revenue depends on attendance, treatment, collection and"
+      },
+      {
+        "from": 2122,
+        "to": 2154,
+        "text": "your practice's circumstances."
+      },
+      {
+        "from": 2180,
+        "to": 2231,
+        "text": "Use your own figures to judge the opportunity."
+      },
+      {
+        "from": 2247,
+        "to": 2326,
+        "text": "Here's a recorded demonstration using Google Calendar."
+      },
+      {
+        "from": 2348,
+        "to": 2408,
+        "text": "A new patient wants to register and arrange a"
+      },
+      {
+        "from": 2408,
+        "to": 2433,
+        "text": "checkup."
+      },
+      {
+        "from": 2433,
+        "to": 2531,
+        "text": "Listen as the agent clarifies the request, offers appointment"
+      },
+      {
+        "from": 2531,
+        "to": 2605,
+        "text": "times, and confirms the selected booking."
+      },
+      {
+        "from": 2621,
+        "to": 2707,
+        "text": "This recording includes short privacy beeps and edited"
+      },
+      {
+        "from": 2707,
+        "to": 2743,
+        "text": "demonstration labels."
+      },
+      {
+        "from": 2760,
+        "to": 2840,
+        "text": "[Phone ringing]"
+      },
+      {
+        "from": 2915,
+        "to": 2937,
+        "text": "Thanks for"
+      },
+      {
+        "from": 2937,
+        "to": 2975,
+        "text": "[Privacy beep]"
+      },
+      {
+        "from": 2984,
+        "to": 3047,
+        "text": "I'm Liv, how can I help?"
+      },
+      {
+        "from": 3047,
+        "to": 3131,
+        "text": "Hiya, I just wanted to ring in and book an appointment."
+      },
+      {
+        "from": 3208,
+        "to": 3256,
+        "text": "Thanks, can you please tell me"
+      },
+      {
+        "from": 3256,
+        "to": 3322,
+        "text": "if this is for you or someone else?"
+      },
+      {
+        "from": 3322,
+        "to": 3377,
+        "text": "It's for me, I'm new in the area,"
+      },
+      {
+        "from": 3377,
+        "to": 3448,
+        "text": "I want to register with the dentist"
+      },
+      {
+        "from": 3448,
+        "to": 3496,
+        "text": "and then get checked up as well."
+      },
+      {
+        "from": 3574,
+        "to": 3606,
+        "text": "Got it, are you looking for"
+      },
+      {
+        "from": 3606,
+        "to": 3662,
+        "text": "a new patient check-up appointment?"
+      },
+      {
+        "from": 3662,
+        "to": 3750,
+        "text": "Also, do you have a day or time that suits you best?"
+      },
+      {
+        "from": 3750,
+        "to": 3805,
+        "text": "Ideally today, if we could do later on today,"
+      },
+      {
+        "from": 3805,
+        "to": 3847,
+        "text": "that'd be great and yeah,"
+      },
+      {
+        "from": 3847,
+        "to": 3906,
+        "text": "this would be a new patient check-up."
+      },
+      {
+        "from": 4061,
+        "to": 4126,
+        "text": "The first available appointment this afternoon"
+      },
+      {
+        "from": 4126,
+        "to": 4245,
+        "text": "is at 2.30 or three in the afternoon or 3.30."
+      },
+      {
+        "from": 4245,
+        "to": 4289,
+        "text": "Which one works for you?"
+      },
+      {
+        "from": 4289,
+        "to": 4326,
+        "text": "Can we do three o'clock?"
+      },
+      {
+        "from": 4420,
+        "to": 4475,
+        "text": "Thanks, may I have your full name"
+      },
+      {
+        "from": 4475,
+        "to": 4547,
+        "text": "and the best phone number to reach you on please?"
+      },
+      {
+        "from": 4547,
+        "to": 4608,
+        "text": "Yeah, my name is Tristan Adams"
+      },
+      {
+        "from": 4608,
+        "to": 4698,
+        "text": "and the best number to reach me on is this one."
+      },
+      {
+        "from": 4704,
+        "to": 4772,
+        "text": "[Contact detail privacy beep]"
+      },
+      {
+        "from": 4785,
+        "to": 4847,
+        "text": "[Contact detail privacy beep]"
+      },
+      {
+        "from": 5056,
+        "to": 5111,
+        "text": "Your new patient check-up appointment"
+      },
+      {
+        "from": 5111,
+        "to": 5197,
+        "text": "is booked for Wednesday, the 7th of October"
+      },
+      {
+        "from": 5197,
+        "to": 5251,
+        "text": "at 3pm."
+      },
+      {
+        "from": 5251,
+        "to": 5303,
+        "text": "The team has all your details"
+      },
+      {
+        "from": 5303,
+        "to": 5352,
+        "text": "and looks forward to seeing you then."
+      },
+      {
+        "from": 5352,
+        "to": 5402,
+        "text": "Is there anything else I can help with?"
+      },
+      {
+        "from": 5402,
+        "to": 5475,
+        "text": "No, that would be all. Thank you. Bye-bye."
+      },
+      {
+        "from": 5485,
+        "to": 5555,
+        "text": "You can see the appointment in the calendar and"
+      },
+      {
+        "from": 5555,
+        "to": 5582,
+        "text": "the recorded request."
+      },
+      {
+        "from": 5603,
+        "to": 5660,
+        "text": "That's the workflow this example demonstrates."
+      },
+      {
+        "from": 5684,
+        "to": 5763,
+        "text": "Your scheduling system, appointment types and forwarding"
+      },
+      {
+        "from": 5763,
+        "to": 5816,
+        "text": "arrangements still need checking."
+      },
+      {
+        "from": 5834,
+        "to": 5937,
+        "text": "Compatibility is assessed and tested for your practice; it"
+      },
+      {
+        "from": 5937,
+        "to": 5991,
+        "text": "isn't a promise that every system connects."
+      },
+      {
+        "from": 6010,
+        "to": 6055,
+        "text": "Some calls need different rules."
+      },
+      {
+        "from": 6081,
+        "to": 6158,
+        "text": "In this second recorded example, the agent asks about"
+      },
+      {
+        "from": 6158,
+        "to": 6228,
+        "text": "warning signs, and the caller answers."
+      },
+      {
+        "from": 6254,
+        "to": 6315,
+        "text": "Is your son experiencing any swelling,"
+      },
+      {
+        "from": 6315,
+        "to": 6369,
+        "text": "uncontrolled bleeding, trauma,"
+      },
+      {
+        "from": 6369,
+        "to": 6425,
+        "text": "or trouble breathing or swallowing?"
+      },
+      {
+        "from": 6471,
+        "to": 6516,
+        "text": "No, none of that."
+      },
+      {
+        "from": 6516,
+        "to": 6577,
+        "text": "Just that he's complaining about his toothache,"
+      },
+      {
+        "from": 6577,
+        "to": 6633,
+        "text": "it\u2019s causing him a headache and things of that nature."
+      },
+      {
+        "from": 6633,
+        "to": 6659,
+        "text": "I just wanna get him checked out"
+      },
+      {
+        "from": 6659,
+        "to": 6713,
+        "text": "and make sure it's nothing too serious."
+      },
+      {
+        "from": 6721,
+        "to": 6816,
+        "text": "That question is not evidence of a clinically validated"
+      },
+      {
+        "from": 6816,
+        "to": 6896,
+        "text": "triage service or a completed emergency handoff."
+      },
+      {
+        "from": 6911,
+        "to": 7001,
+        "text": "Your practice approves escalation instructions and human handoffs"
+      },
+      {
+        "from": 7001,
+        "to": 7025,
+        "text": "before activation."
+      },
+      {
+        "from": 7049,
+        "to": 7129,
+        "text": "The agent supports your team within agreed rules; it"
+      },
+      {
+        "from": 7129,
+        "to": 7171,
+        "text": "doesn't replace clinical judgment."
+      },
+      {
+        "from": 7192,
+        "to": 7293,
+        "text": "Privacy, patient-data and security requirements must also be"
+      },
+      {
+        "from": 7293,
+        "to": 7323,
+        "text": "resolved for your setup."
+      },
+      {
+        "from": 7335,
+        "to": 7447,
+        "text": "We confirm a deliverable scope, explain the investment and"
+      },
+      {
+        "from": 7447,
+        "to": 7492,
+        "text": "agree the implementation requirements."
+      },
+      {
+        "from": 7519,
+        "to": 7571,
+        "text": "If those are clear and you're ready to proceed,"
+      },
+      {
+        "from": 7578,
+        "to": 7649,
+        "text": "an agreement and initial payment start configuration."
+      },
+      {
+        "from": 7680,
+        "to": 7745,
+        "text": "We then configure the workflow, test it with your"
+      },
+      {
+        "from": 7745,
+        "to": 7840,
+        "text": "team, and activate forwarding only after your approval."
+      },
+      {
+        "from": 7858,
+        "to": 7965,
+        "text": "Unresolved compatibility or review requirements are conditions to"
+      },
+      {
+        "from": 7965,
+        "to": 7996,
+        "text": "settle before proceeding."
+      },
+      {
+        "from": 8014,
+        "to": 8095,
+        "text": "Book your fifteen-minute Flow Audit walkthrough."
+      },
+      {
+        "from": 8111,
+        "to": 8193,
+        "text": "Bring the practice owner or someone authorized to purchase."
+      },
+      {
+        "from": 8212,
+        "to": 8286,
+        "text": "You'll already have seen the demonstration, so the call"
+      },
+      {
+        "from": 8286,
+        "to": 8399,
+        "text": "focuses on your practice: the relevant workflow, requirements,"
+      },
+      {
+        "from": 8406,
+        "to": 8433,
+        "text": "scope and investment."
+      },
+      {
+        "from": 8452,
+        "to": 8512,
+        "text": "If it's the right fit, we'll discuss getting your"
+      },
+      {
+        "from": 8512,
+        "to": 8542,
+        "text": "configuration started."
+      },
+      {
+        "from": 8555,
+        "to": 8624,
+        "text": "For a larger group, we can identify the approvals"
+      },
+      {
+        "from": 8624,
+        "to": 8663,
+        "text": "and next decision needed."
+      },
+      {
+        "from": 8679,
+        "to": 8709,
+        "text": "Book your walkthrough below."
+      }
+    ],
+    "audio": "audio/MainVSL.m4a"
+  },
+  "ExecutiveSummary": {
+    "duration": 2025,
+    "segments": [
+      {
+        "kind": "narration",
+        "id": "E01",
+        "duration": 307,
+        "visual": {
+          "mode": "flow",
+          "eyebrow": "A PRACTICAL NEXT STEP",
+          "headline": "Configured around your practice.",
+          "items": [
+            "Clarify the appointment inquiry",
+            "Offer available times",
+            "Create the agreed booking"
+          ],
+          "footer": "Recorded Google Calendar workflow",
+          "graphicY": 190
+        },
+        "from": 0
+      },
+      {
+        "kind": "narration",
+        "id": "E02",
+        "duration": 312,
+        "visual": {
+          "mode": "opening",
+          "eyebrow": "WATCH THE WORKFLOW",
+          "headline": "From inquiry to appointment.",
+          "items": [
+            "Listen to the request",
+            "Hear the available times",
+            "See the selected booking"
+          ],
+          "footer": "Recorded demonstration \u00b7 Privacy & label edits",
+          "graphicY": 190
+        },
+        "from": 307
+      },
+      {
+        "kind": "routine",
+        "sourceFrom": 43.3,
+        "duration": 270,
+        "visual": {
+          "headline": "The appointment choices.",
+          "kind": "routine",
+          "source": "demo/routine-landscape-panels.mp4",
+          "disclosure": "Recorded demonstration \u00b7 Google Calendar\nPrivacy beeps and redrawn labels; not customer proof."
+        },
+        "from": 619
+      },
+      {
+        "kind": "routine",
+        "sourceFrom": 75.9,
+        "duration": 315,
+        "visual": {
+          "headline": "Later in the same call.",
+          "kind": "routine",
+          "source": "demo/routine-landscape-panels.mp4",
+          "disclosure": "Recorded demonstration \u00b7 Later in the same call\nPrivacy & label edits; not customer proof."
+        },
+        "from": 889
+      },
+      {
+        "kind": "narration",
+        "id": "E03",
+        "duration": 348,
+        "visual": {
+          "mode": "steps",
+          "eyebrow": "WHAT PURCHASING INVOLVES",
+          "headline": "Agree. Configure. Test. Approve.",
+          "items": [
+            "Confirm scope & investment",
+            "Agreement & initial payment",
+            "Configure the workflow",
+            "Test with your team",
+            "Practice approval \u2192 activate"
+          ],
+          "footer": "Payment starts agreed work; approval precedes activation",
+          "graphicY": 190
+        },
+        "from": 1204
+      },
+      {
+        "kind": "narration",
+        "id": "E04",
+        "duration": 473,
+        "visual": {
+          "mode": "cta",
+          "eyebrow": "THE DECISION CALL",
+          "headline": "Book a 15-minute FlowAudit walkthrough.",
+          "items": [],
+          "footer": "https://flowaudit.co.uk/book",
+          "graphicY": 190
+        },
+        "from": 1552
+      }
+    ],
+    "captions": [
+      {
+        "from": 0,
+        "to": 79,
+        "text": "When your front desk is busy, callers still need"
+      },
+      {
+        "from": 79,
+        "to": 97,
+        "text": "an answer."
+      },
+      {
+        "from": 109,
+        "to": 195,
+        "text": "Flow Audit is an AI phone agent configured around"
+      },
+      {
+        "from": 195,
+        "to": 298,
+        "text": "your practice, supporting your team with agreed call workflows."
+      },
+      {
+        "from": 307,
+        "to": 394,
+        "text": "This recorded demonstration uses Google Calendar."
+      },
+      {
+        "from": 413,
+        "to": 482,
+        "text": "Listen to the appointment choices, then see the selected"
+      },
+      {
+        "from": 482,
+        "to": 494,
+        "text": "booking."
+      },
+      {
+        "from": 514,
+        "to": 597,
+        "text": "The recording includes privacy beeps and edited labels."
+      },
+      {
+        "from": 621,
+        "to": 686,
+        "text": "The first available appointment this afternoon"
+      },
+      {
+        "from": 686,
+        "to": 805,
+        "text": "is at 2.30 or three in the afternoon or 3.30."
+      },
+      {
+        "from": 805,
+        "to": 849,
+        "text": "Which one works for you?"
+      },
+      {
+        "from": 849,
+        "to": 886,
+        "text": "Can we do three o'clock?"
+      },
+      {
+        "from": 908,
+        "to": 963,
+        "text": "Your new patient check-up appointment"
+      },
+      {
+        "from": 963,
+        "to": 1049,
+        "text": "is booked for Wednesday, the 7th of October"
+      },
+      {
+        "from": 1049,
+        "to": 1103,
+        "text": "at 3pm."
+      },
+      {
+        "from": 1103,
+        "to": 1155,
+        "text": "The team has all your details"
+      },
+      {
+        "from": 1155,
+        "to": 1204,
+        "text": "and looks forward to seeing you then."
+      },
+      {
+        "from": 1204,
+        "to": 1252,
+        "text": "That's one booking workflow."
+      },
+      {
+        "from": 1274,
+        "to": 1324,
+        "text": "Integration depends on your setup."
+      },
+      {
+        "from": 1344,
+        "to": 1449,
+        "text": "Agreed scope and initial payment start configuration; we then"
+      },
+      {
+        "from": 1449,
+        "to": 1478,
+        "text": "test with your team."
+      },
+      {
+        "from": 1484,
+        "to": 1536,
+        "text": "Activation follows practice approval."
+      },
+      {
+        "from": 1552,
+        "to": 1640,
+        "text": "Book a fifteen-minute Flow Audit walkthrough with the purchasing"
+      },
+      {
+        "from": 1640,
+        "to": 1689,
+        "text": "decision-maker."
+      },
+      {
+        "from": 1689,
+        "to": 1806,
+        "text": "We'll discuss requirements, implementation, investment and, if it"
+      },
+      {
+        "from": 1806,
+        "to": 1841,
+        "text": "fits, getting started."
+      }
+    ],
+    "audio": "audio/ExecutiveSummary.m4a"
+  },
+  "Teaser": {
+    "duration": 900,
+    "segments": [
+      {
+        "kind": "narration",
+        "id": "T01",
+        "duration": 212,
+        "visual": {
+          "mode": "opening",
+          "eyebrow": "WHEN PATIENTS CALL",
+          "headline": "Give them a clear next step.",
+          "items": [
+            "Busy at the desk",
+            "Another call",
+            "After closing"
+          ],
+          "footer": "Support for your front desk",
+          "graphicY": 190
+        },
+        "from": 0
+      },
+      {
+        "kind": "routine",
+        "sourceFrom": 76.5,
+        "duration": 198,
+        "visual": {
+          "headline": "See the selected booking.",
+          "kind": "routine",
+          "source": "demo/routine-landscape-panels.mp4",
+          "disclosure": "Recorded demonstration \u00b7 Google Calendar\nPrivacy beeps and redrawn labels; not customer proof."
+        },
+        "from": 212
+      },
+      {
+        "kind": "narration",
+        "id": "T02",
+        "duration": 490,
+        "visual": {
+          "mode": "cta",
+          "eyebrow": "THE DECISION CALL",
+          "headline": "Book a 15-minute FlowAudit walkthrough.",
+          "items": [],
+          "footer": "https://flowaudit.co.uk/book",
+          "graphicY": 190
+        },
+        "from": 410
+      }
+    ],
+    "captions": [
+      {
+        "from": 0,
+        "to": 80,
+        "text": "When your front desk is busy, callers still need"
+      },
+      {
+        "from": 80,
+        "to": 98,
+        "text": "an answer."
+      },
+      {
+        "from": 117,
+        "to": 198,
+        "text": "See a recorded Flow Audit booking in Google Calendar."
+      },
+      {
+        "from": 213,
+        "to": 268,
+        "text": "Your new patient check-up appointment"
+      },
+      {
+        "from": 268,
+        "to": 354,
+        "text": "is booked for Wednesday, the 7th of October"
+      },
+      {
+        "from": 354,
+        "to": 408,
+        "text": "at 3pm."
+      },
+      {
+        "from": 408,
+        "to": 410,
+        "text": "The team has all your details"
+      },
+      {
+        "from": 410,
+        "to": 490,
+        "text": "Book a fifteen-minute walkthrough to discuss requirements,"
+      },
+      {
+        "from": 498,
+        "to": 544,
+        "text": "investment and getting started."
+      }
+    ],
+    "audio": "audio/Teaser.m4a"
+  },
+  "RoutineDemonstration": {
+    "duration": 2725,
+    "audio": "audio/RoutineDemonstration.m4a",
+    "segments": [
+      {
+        "kind": "routine",
+        "from": 0,
+        "duration": 2725,
+        "sourceFrom": 0,
+        "visual": {
+          "headline": "From inquiry to booked appointment.",
+          "kind": "routine",
+          "source": "demo/routine-landscape-panels.mp4",
+          "disclosure": "Recorded demonstration \u00b7 Google Calendar\nPrivacy beeps and redrawn labels; not customer proof."
+        }
+      }
+    ],
+    "captions": [
+      {
+        "to": 80,
+        "text": "[Phone ringing]",
+        "from": 0
+      },
+      {
+        "to": 177,
+        "text": "Thanks for",
+        "from": 155
+      },
+      {
+        "to": 215,
+        "text": "[Privacy beep]",
+        "from": 177
+      },
+      {
+        "to": 287,
+        "text": "I'm Liv, how can I help?",
+        "from": 224
+      },
+      {
+        "to": 371,
+        "text": "Hiya, I just wanted to ring in and book an appointment.",
+        "from": 287
+      },
+      {
+        "to": 496,
+        "text": "Thanks, can you please tell me",
+        "from": 448
+      },
+      {
+        "to": 562,
+        "text": "if this is for you or someone else?",
+        "from": 496
+      },
+      {
+        "to": 617,
+        "text": "It's for me, I'm new in the area,",
+        "from": 562
+      },
+      {
+        "to": 688,
+        "text": "I want to register with the dentist",
+        "from": 617
+      },
+      {
+        "to": 736,
+        "text": "and then get checked up as well.",
+        "from": 688
+      },
+      {
+        "to": 846,
+        "text": "Got it, are you looking for",
+        "from": 814
+      },
+      {
+        "to": 902,
+        "text": "a new patient check-up appointment?",
+        "from": 846
+      },
+      {
+        "to": 990,
+        "text": "Also, do you have a day or time that suits you best?",
+        "from": 902
+      },
+      {
+        "to": 1045,
+        "text": "Ideally today, if we could do later on today,",
+        "from": 990
+      },
+      {
+        "to": 1087,
+        "text": "that'd be great and yeah,",
+        "from": 1045
+      },
+      {
+        "to": 1146,
+        "text": "this would be a new patient check-up.",
+        "from": 1087
+      },
+      {
+        "to": 1366,
+        "text": "The first available appointment this afternoon",
+        "from": 1301
+      },
+      {
+        "to": 1485,
+        "text": "is at 2.30 or three in the afternoon or 3.30.",
+        "from": 1366
+      },
+      {
+        "to": 1529,
+        "text": "Which one works for you?",
+        "from": 1485
+      },
+      {
+        "to": 1566,
+        "text": "Can we do three o'clock?",
+        "from": 1529
+      },
+      {
+        "to": 1715,
+        "text": "Thanks, may I have your full name",
+        "from": 1660
+      },
+      {
+        "to": 1787,
+        "text": "and the best phone number to reach you on please?",
+        "from": 1715
+      },
+      {
+        "to": 1848,
+        "text": "Yeah, my name is Tristan Adams",
+        "from": 1787
+      },
+      {
+        "to": 1938,
+        "text": "and the best number to reach me on is this one.",
+        "from": 1848
+      },
+      {
+        "to": 2012,
+        "text": "[Contact detail privacy beep]",
+        "from": 1944
+      },
+      {
+        "to": 2087,
+        "text": "[Contact detail privacy beep]",
+        "from": 2025
+      },
+      {
+        "to": 2351,
+        "text": "Your new patient check-up appointment",
+        "from": 2296
+      },
+      {
+        "to": 2437,
+        "text": "is booked for Wednesday, the 7th of October",
+        "from": 2351
+      },
+      {
+        "to": 2491,
+        "text": "at 3pm.",
+        "from": 2437
+      },
+      {
+        "to": 2543,
+        "text": "The team has all your details",
+        "from": 2491
+      },
+      {
+        "to": 2592,
+        "text": "and looks forward to seeing you then.",
+        "from": 2543
+      },
+      {
+        "to": 2642,
+        "text": "Is there anything else I can help with?",
+        "from": 2592
+      },
+      {
+        "to": 2715,
+        "text": "No, that would be all. Thank you. Bye-bye.",
+        "from": 2642
+      }
+    ]
+  }
+}

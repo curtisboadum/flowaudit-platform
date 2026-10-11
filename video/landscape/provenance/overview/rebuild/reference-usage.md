@@ -1,0 +1,14 @@
+# Creative references actually used
+
+Money Channel: /Users/curtis/Documents/Codex/2026-10-03/start-in-code-money-channel-read-2/outputs/money-channel-showcases/editable-source/CANON.md (Money Autopsy), and style-b-horizontal/SCRIPT.md and TIMED-STORYBOARD.md (The Emergency Stamp). Read during planning. Applied recognizable situations, visible consequences, purposeful framing, speech-timed reveals, and a brief payoff. No comedy, distinctive lines, characters or money storyline imported.
+
+Companions: story-bible-builder preserved the existing premise, company/agent distinction and identity; motion-builder supplied audio/transcript mapping principles and routes exact diagrams/UI to Remotion. Remotion Builder supplied stage continuity, centralized style values, props and synchronization checks. Its component-library search reported no configured roots; no matching reusable component was available. Existing Stage and evidence source assets were reused. Existing warm editorial system was explicitly preserved by the approved user plan; no new style or generation approval gate was needed. No image/video generation batch occurred. User authorization overrides the generic skill’s no-generated-narration default, solely for the established local VoiceStudio route.
+
+# Voice
+The Explainer profile 185daf92, reference SHA-256 c55b60949bf388248f80ad2c77acda5a1bd325bd453ee8eda02a3bf497925998, local MLX Qwen3 Base revision 37e955a1deb861c088ae5f3a67043185f3d1a60c. Verified each pinned model file hash. Seed 42, speed 1.0, raw effects, no denoising/postprocess. R03 reuses the earlier corrected FlowAudit sentence; every other changed block was locally generated. Raw takes remain intact. Edited takes remove only documented silence; no speed change or time stretching. Runtime reports MLX loaded and Apple Silicon/MPS routing, without per-operation device tracing.
+
+# Evidence edit
+Source call audio is extracted from the preserved routine.mp4. Overview excerpts use 9.24–11.60s, 42.70–52.00s and 75.75–82.55s. Independent ASR revealed the original recording VTT ran late; new overview cues use measured word timings. Original routine VTT and recording remain unchanged. The calendar display is a clean still captured at source-panel video time 76.45s, labelled as a still with original call audio, with explanatory appointment details revealed alongside the confirmation. It prevents a source context menu obscuring the booking. The moving enquiry and available-time recording excerpts remain genuine. Privacy beeps and edited labels stay in the complete original recording; selected overview excerpts skip contact details.
+
+# Listening limitation
+The agent cannot hear audio. ASR, decode, loudness and unmuted playback are technical evidence, never listening approval. Human review of delivery, joins and music balance remains outstanding.

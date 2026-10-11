@@ -157,9 +157,7 @@ function GoogleReviewerAccessBlock() {
           Revenue Recovery Desk is a B2B workflow that a business connects only after onboarding. Google reviewers can use the dedicated reviewer instructions page plus the one-time Google Workspace connect URL supplied in the verification response to test the exact consent and callback flow.
         </p>
         <ol className="mt-5 list-decimal space-y-2 pl-5 font-sans text-sm leading-6 text-[#49423D]">
-          <li>
-            Start with the reviewer instructions page: <Link className="font-semibold text-amber-700 underline" href="/revenue-recovery/reviewer">Google OAuth reviewer test flow</Link>.
-          </li>
+          <li>Start with the reviewer instructions supplied by FlowAudit in the Google verification response.</li>
           <li>Open the one-time Google Workspace connect URL supplied by FlowAudit in the Google verification response.</li>
           <li>Confirm the setup page says Connect Google Workspace for the reviewer account, then click Connect securely.</li>
           <li>Confirm the Google consent screen requests only read-only Gmail and Drive metadata scopes.</li>

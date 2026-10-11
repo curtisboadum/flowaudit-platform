@@ -1,0 +1,78 @@
+{
+  "audio": [
+    {
+      "src": "audio/overview/bold/B01.wav",
+      "from": 9,
+      "frames": 152
+    },
+    {
+      "src": "audio/overview/bold/B02.wav",
+      "from": 183,
+      "frames": 111
+    },
+    {
+      "src": "audio/overview/bold/B03.wav",
+      "from": 329,
+      "frames": 142
+    }
+  ],
+  "motion": {
+    "ring": 50,
+    "paperBlock": 66,
+    "close": 82,
+    "secondCall": 124,
+    "gather": 183,
+    "zoom": 205,
+    "resolve": 329,
+    "gateOpen": 426,
+    "arrival": 487,
+    "hold": 495
+  },
+  "captions": [
+    {
+      "from": 9,
+      "to": 44,
+      "text": "The desk is busy."
+    },
+    {
+      "from": 50,
+      "to": 76,
+      "text": "The phone rings."
+    },
+    {
+      "from": 82,
+      "to": 118,
+      "text": "The practice closes."
+    },
+    {
+      "from": 124,
+      "to": 160,
+      "text": "Another call comes in."
+    },
+    {
+      "from": 183,
+      "to": 229,
+      "text": "Your team can\u2019t be everywhere."
+    },
+    {
+      "from": 239,
+      "to": 290,
+      "text": "The caller still needs a next step."
+    },
+    {
+      "from": 329,
+      "to": 386,
+      "text": "FlowAudit builds AI phone agents"
+    },
+    {
+      "from": 386,
+      "to": 426,
+      "text": "that support staff"
+    },
+    {
+      "from": 426,
+      "to": 465,
+      "text": "through agreed workflows."
+    }
+  ]
+}

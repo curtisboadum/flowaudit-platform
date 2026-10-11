@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-09T13:24:03.663383+00:00",
+  "production_env": {
+    "CAL_WEBHOOK_SECRET": "empty",
+    "CAL_EVENT_TYPE_IDS": "absent",
+    "CHAT_ENABLED": "absent"
+  },
+  "providers": {
+    "Gemini": {
+      "http_status": 403,
+      "probe": "GET https://generativelanguage.googleapis.com/v1beta/models",
+      "result": "leaked-key rejection"
+    },
+    "DeepSeek": {
+      "http_status": 200,
+      "probe": "GET https://api.deepseek.com/user/balance",
+      "result": "balance unavailable",
+      "is_available": false
+    },
+    "Revenue Recovery": {
+      "http_status": 402,
+      "probe": "GET https://revenue-recovery-web-ivory.vercel.app",
+      "result": "DEPLOYMENT_DISABLED"
+    }
+  }
+}

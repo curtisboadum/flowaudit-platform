@@ -1,0 +1,8 @@
+{
+  "direction": "approved",
+  "opening_visual_approval": "pending for revised opening",
+  "human_listening_approval": "pending",
+  "full_film_completion": "gated",
+  "generation": "none; all existing takes reused",
+  "public_media_replacement": false
+}

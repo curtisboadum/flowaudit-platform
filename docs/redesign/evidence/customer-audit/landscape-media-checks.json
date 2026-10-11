@@ -1,0 +1,66 @@
+[
+  {
+    "film": "main",
+    "source": "flowaudit-main-vsl.playback.mp4",
+    "source_sha256": "bcd80c64f211e29f9188a09bdf46b35744fefc6a26ab8fefc964ba47b96b8fb9",
+    "landscape_sha256": "39206da3aeb6aefca5f5d16861ec0c8f683aa9c8fbaaba9397bf0407a76f2612",
+    "audio_packet_sha256": "SHA256=aaca1bf094f9dc2e60fea89cff08fa6e6d1668a0abde1c74645f216d09d4dbb2",
+    "audio_packet_identity": true,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "fps": "30/1",
+    "duration": 300.0,
+    "full_decode": "pass",
+    "captions": "Original caption timeline baked once; VTT and transcript unchanged"
+  },
+  {
+    "film": "routine",
+    "source": "routine-demonstration-vertical.playback.mp4",
+    "source_sha256": "95254ab2a994ff8ccc2752b242e6adcf0fd9dda5aace07d593af3178f31cea02",
+    "landscape_sha256": "1adf0b141dd33e4d7a5765414c54c4f385c35fb514079afb43e89421210a937a",
+    "audio_packet_sha256": "SHA256=7b766d0611e341c3d5c3ad5ccbf1bd2dab835dee99c61a3cdd6f07926099b4b9",
+    "audio_packet_identity": true,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "fps": "30/1",
+    "duration": 90.833333,
+    "full_decode": "pass",
+    "captions": "Original caption timeline baked once; VTT and transcript unchanged"
+  },
+  {
+    "film": "summary",
+    "source": "flowaudit-executive-summary.playback.mp4",
+    "source_sha256": "47f51149e5838b6e6b386d411790c20ad1b0ca45a92c138b5993a66e8a8d1678",
+    "landscape_sha256": "ecb5dcf82ebde84c1ff15e6a0a1144c4abfc13d1f190fc56164d3207dc5cb0b8",
+    "audio_packet_sha256": "SHA256=9029b107ccbbac71e19fc6103c1d8d367c6d14a7ab54ea5e72a15842565c9e68",
+    "audio_packet_identity": true,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "fps": "30/1",
+    "duration": 67.5,
+    "full_decode": "pass",
+    "captions": "Original caption timeline baked once; VTT and transcript unchanged"
+  },
+  {
+    "film": "teaser",
+    "source": "flowaudit-teaser.playback.mp4",
+    "source_sha256": "67e495e83baa792a86840f0354d022e6b3dd69a8e48de89b5d91bf5e22929cd3",
+    "landscape_sha256": "11cac8310d367981d81fa57d14e26282c58e1337e5cab141f9e5ead06cce328e",
+    "audio_packet_sha256": "SHA256=5d36f71f1d03e21698cad6ae40d57bbc00ef5571544fdccdc67e4df6fe4bba48",
+    "audio_packet_identity": true,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "fps": "30/1",
+    "duration": 30.0,
+    "full_decode": "pass",
+    "captions": "Original caption timeline baked once; VTT and transcript unchanged"
+  }
+]

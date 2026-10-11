@@ -1,0 +1,56 @@
+[
+  {
+    "path": "/api/crm/leads",
+    "status": 401,
+    "location": null,
+    "type": "application/json"
+  },
+  {
+    "path": "/api/crm/auth/me",
+    "status": 401,
+    "location": null,
+    "type": "application/json"
+  },
+  {
+    "path": "/crm",
+    "status": 307,
+    "location": "/crm/login",
+    "type": null
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "location": null,
+    "type": "text/plain"
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "location": null,
+    "type": "application/xml"
+  },
+  {
+    "path": "/opengraph-image",
+    "status": 200,
+    "location": null,
+    "type": "image/png"
+  },
+  {
+    "path": "/revenue-recovery/theme.css",
+    "status": 402,
+    "location": null,
+    "type": "text/plain; charset=utf-8"
+  },
+  {
+    "check": "Invalid analytics body rejected",
+    "status": 400
+  },
+  {
+    "check": "Foreign origin rejected",
+    "status": 403
+  },
+  {
+    "check": "Unconfigured webhook fails closed",
+    "status": 503
+  }
+]

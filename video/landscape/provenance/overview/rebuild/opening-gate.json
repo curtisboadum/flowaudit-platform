@@ -1,0 +1,23 @@
+{
+  "sample": "overview-opening.mp4",
+  "duration_seconds": 18,
+  "actual_player_url": "http://localhost:3019/phone-agent#demo",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "player_width": 348,
+  "player_height": 259.75,
+  "picture_height": 195.75,
+  "native_control_reserve": 64,
+  "observed_playback": {
+    "ended": true,
+    "currentTime": 18
+  },
+  "inspected_question_seek": 5.04,
+  "both_pain_points_visible": true,
+  "opening_revision": "Added large changing headlines to establish each situation immediately.",
+  "caption_revision": "Split clause captions at substantial commas; shared caption source updated.",
+  "voice_review": "Reference hashes, model identity, natural speed and ASR verified. Audio cannot be heard; listening approval outstanding.",
+  "gate": "Pass for visual progression, subtitle clearance, technical playback and measured pacing. Listening unassessed."
+}
