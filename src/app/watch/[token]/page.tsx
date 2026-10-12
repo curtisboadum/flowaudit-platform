@@ -127,7 +127,7 @@ export default async function WatchPage({ params }: WatchPageProps) {
             Any questions? Just reply to me on LinkedIn.
           </p>
           <Link
-            href="/phone-agent#demo"
+            href={leadRef ? `/phone-agent?ref=${leadRef}#demo` : "/phone-agent#demo"}
             className="font-sans text-xs text-[rgba(55,50,47,0.75)] underline underline-offset-4"
           >
             See the other demo calls
