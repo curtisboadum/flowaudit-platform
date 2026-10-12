@@ -270,3 +270,16 @@ test("Overview reserves separate space for actions and native controls", async (
   await reserves();
   await page.keyboard.press("Escape");
 });
+
+test("Off-screen demonstration posters wait until the viewer approaches them", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const posters: string[] = [];
+  page.on("request", (request) => {
+    if (/\/media\/(overview|routine|urgent)\.jpg/.test(request.url())) posters.push(request.url());
+  });
+  await page.goto("/phone-agent");
+  await expect.poll(() => posters.some((url) => url.includes("overview.jpg"))).toBe(true);
+  expect(posters.some((url) => /\/(routine|urgent)\.jpg/.test(url))).toBe(false);
+  await page.locator('video[data-media-id="urgent"]').scrollIntoViewIfNeeded();
+  await expect.poll(() => posters.some((url) => url.includes("urgent.jpg"))).toBe(true);
+});

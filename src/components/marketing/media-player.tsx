@@ -76,6 +76,27 @@ export function MediaPlayer({
   const current = films[active];
   const videoRef = useRef<HTMLVideoElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
+  const [nearViewport, setNearViewport] = useState(false);
+  const posterUrl = `/media/${active}.jpg?v=${active === "overview" ? filmMetadata.version : "landscape-20261009"}`;
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+    if (!("IntersectionObserver" in window)) {
+      setNearViewport(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setNearViewport(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(frame);
+    return () => observer.disconnect();
+  }, []);
   const fullscreenButton = useRef<HTMLButtonElement>(null);
   const [fullscreen, setFullscreen] = useState(false);
   const [fullscreenSupported, setFullscreenSupported] = useState(false);
@@ -215,6 +236,9 @@ export function MediaPlayer({
           ref={frameRef}
           className={`fa-player-frame ${active === "overview" ? "fa-overview-frame" : ""}`}
         >
+          {qualificationCta && active === "overview" && (
+            <link rel="preload" as="image" href={posterUrl} fetchPriority="high" />
+          )}
           <video
             ref={videoRef}
             width={1920}
@@ -224,7 +248,7 @@ export function MediaPlayer({
             controlsList={qualificationCta ? "nofullscreen" : undefined}
             playsInline
             preload="none"
-            poster={`/media/${active}.jpg?v=${active === "overview" ? filmMetadata.version : "landscape-20261009"}`}
+            poster={active === "overview" || nearViewport ? posterUrl : undefined}
             aria-label={`${text(locale, current.label)} · ${current.duration}`}
             data-media-id={active}
             onLoadedMetadata={(event) => {
