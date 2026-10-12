@@ -1,7 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
-import { recordEvent } from "@/lib/funnel-client";
 import { useLocale } from "@/components/providers/locale-provider";
 import { offers, c, text, type ServiceId } from "@/lib/marketing-copy";
 import {
@@ -19,7 +17,6 @@ import { WorkflowExplorer } from "./workflow-explorer";
 
 export function OfferPage({ service }: { service: ServiceId }) {
   const { locale } = useLocale();
-  const [seenEnough, setSeenEnough] = useState(false);
   const offer = offers.find((x) => x.id === service);
   if (!offer) return null;
   const phone = service === "phone-agent";
@@ -104,29 +101,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
                 )}
               </h1>
             </div>
-            <MediaPlayer
-              film="overview"
-              compact
-              onPositionChange={(seconds, active) => {
-                if (active === "overview" && seconds >= 30) setSeenEnough(true);
-              }}
-              afterPlayer={
-                <div className="fa-seen-enough-slot">
-                  {seenEnough && (
-                    <Link
-                      href="/book?service=phone-agent&entry=vsl"
-                      className="fa-button fa-seen-enough"
-                      data-cta="phone-agent"
-                      onClick={() =>
-                        recordEvent("cta_click", { service: "phone-agent", mediaId: "overview" })
-                      }
-                    >
-                      Seen enough <Arrow />
-                    </Link>
-                  )}
-                </div>
-              }
-            />
+            <MediaPlayer film="overview" compact qualificationCta />
             <p className="fa-vsl-intro">{text(locale, offer.intro)}</p>
             <p className="fa-small">{text(locale, offer.note)}</p>
             <div className="fa-vsl-actions">
@@ -135,7 +110,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
               </BookLink>
             </div>
           </section>
-          <section className="fa-container fa-section" id="booking-recording">
+          <section className="fa-container fa-section" id="full-demonstrations">
             <SectionHeading
               number="02"
               label={c("The genuine recording", "La grabación real")}
@@ -148,7 +123,27 @@ export function OfferPage({ service }: { service: ServiceId }) {
                 "La demostración habitual completa: una consulta de paciente nuevo, horarios disponibles y una reserva en Google Calendar. Se conservan los pitidos de privacidad y las etiquetas editadas. Es evidencia del producto, no un resultado de cliente.",
               )}
             />
-            <MediaPlayer film="routine" compact />
+            <div id="booking-recording">
+              <h3>
+                {text(
+                  locale,
+                  c("New-patient enquiry and booking", "Consulta de nuevo paciente y reserva"),
+                )}
+              </h3>
+              <MediaPlayer film="routine" compact />
+            </div>
+            <div className="fa-full-demo">
+              <h3>
+                {text(
+                  locale,
+                  c(
+                    "A call about a child’s toothache",
+                    "Una llamada sobre dolor de muelas infantil",
+                  ),
+                )}
+              </h3>
+              <MediaPlayer film="urgent" compact />
+            </div>
             <div className="fa-media-cta">
               <BookLink service="phone-agent" />
             </div>

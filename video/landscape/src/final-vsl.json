@@ -1,0 +1,772 @@
+{
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "durationInFrames": 3003,
+  "openingDuration": 669,
+  "audio": "audio/final/mix.wav",
+  "events": {
+    "busy": 0,
+    "night": 222,
+    "organise": 348,
+    "complete": 532,
+    "retain": 579,
+    "closeup": 591,
+    "returnWide": 620,
+    "settled": 647,
+    "openingEnd": 669,
+    "openRequest": 493
+  },
+  "segments": [
+    {
+      "id": "N01",
+      "from": 0,
+      "duration": 222,
+      "voiceFrom": 0.12,
+      "audioStart": 0,
+      "audioDuration": 7.0,
+      "audioFile": "audio/final/N01.wav",
+      "text": "Your receptionist is mid-conversation when another patient calls. They need a check-up. Your team is already helping someone."
+    },
+    {
+      "id": "N02",
+      "from": 222,
+      "duration": 126,
+      "voiceFrom": 7.5200000000000005,
+      "audioStart": 0,
+      "audioDuration": 3.72,
+      "audioFile": "audio/final/N02.wav",
+      "text": "After closing, the desk is quiet. The caller still needs an answer."
+    },
+    {
+      "id": "N03",
+      "from": 348,
+      "duration": 151,
+      "voiceFrom": 11.719999999999999,
+      "audioStart": 0,
+      "audioDuration": 4.46,
+      "audioFile": "audio/final/N03.wav",
+      "text": "FlowAudit builds AI phone agents around the calls your practice agrees they can handle."
+    },
+    {
+      "id": "N04",
+      "from": 499,
+      "duration": 170,
+      "voiceFrom": 16.753333333333334,
+      "audioStart": 0,
+      "audioDuration": 5.02,
+      "audioFile": "audio/final/N04.wav",
+      "text": "One caller gets a clear next step. The other request is acknowledged and kept for your team."
+    },
+    {
+      "id": "N05",
+      "from": 669,
+      "duration": 86,
+      "voiceFrom": 22.419999999999998,
+      "audioStart": 0,
+      "audioDuration": 2.38,
+      "audioFile": "audio/final/N05.wav",
+      "text": "Here is a recorded new-patient enquiry."
+    },
+    {
+      "id": "D01",
+      "from": 755,
+      "duration": 610,
+      "voiceFrom": 25.166666666666664,
+      "audioStart": 9.24,
+      "audioDuration": 20.159999999999997,
+      "audioFile": "audio/final/demo-source.wav",
+      "sourceRange": [
+        9.24,
+        29.4
+      ],
+      "sourceVideoStartFrame": 277
+    },
+    {
+      "id": "D02",
+      "from": 1365,
+      "duration": 284,
+      "voiceFrom": 45.5,
+      "audioStart": 42.7,
+      "audioDuration": 9.299999999999997,
+      "audioFile": "audio/final/demo-source.wav",
+      "sourceRange": [
+        42.7,
+        52
+      ],
+      "sourceVideoStartFrame": 1281
+    },
+    {
+      "id": "N06",
+      "from": 1649,
+      "duration": 111,
+      "voiceFrom": 55.086666666666666,
+      "audioStart": 0,
+      "audioDuration": 3.38,
+      "audioFile": "audio/final/N06.wav",
+      "text": "And the confirmed booking, shown in a still from the recording."
+    },
+    {
+      "id": "D03",
+      "from": 1760,
+      "duration": 209,
+      "voiceFrom": 58.666666666666664,
+      "audioStart": 75.75,
+      "audioDuration": 6.799999999999997,
+      "audioFile": "audio/final/demo-source.wav",
+      "sourceRange": [
+        75.75,
+        82.55
+      ],
+      "sourceVideoStartFrame": 2272
+    },
+    {
+      "id": "N10",
+      "from": 1969,
+      "duration": 124,
+      "voiceFrom": 65.75333333333334,
+      "audioStart": 0,
+      "audioDuration": 3.7,
+      "audioFile": "audio/final/N10.wav",
+      "text": "These are selected excerpts. You can watch both full demonstrations below."
+    },
+    {
+      "id": "N07",
+      "from": 2093,
+      "duration": 242,
+      "voiceFrom": 69.88666666666667,
+      "audioStart": 0,
+      "audioDuration": 7.64,
+      "audioFile": "audio/final/N07.wav",
+      "text": "Your practice sets the limits: which appointments, which questions, and when a person takes over. Clinical judgement stays with your team."
+    },
+    {
+      "id": "N08",
+      "from": 2335,
+      "duration": 289,
+      "voiceFrom": 77.95333333333333,
+      "audioStart": 0,
+      "audioDuration": 9.14,
+      "audioFile": "audio/final/N08.wav",
+      "text": "We assess your scheduling, forwarding and patient-data requirements, then agree scope and investment. Configuration is tested with your team. Activation follows your approval."
+    },
+    {
+      "id": "N09",
+      "from": 2624,
+      "duration": 379,
+      "voiceFrom": 87.58666666666667,
+      "audioStart": 0,
+      "audioDuration": 11.52,
+      "audioFile": "audio/final/N09C.wav",
+      "text": "Book a fifteen-minute demo for your practice. Bring the person who can approve the project. We will assess how your team handles calls, the setup you need, and the investment. Then we will agree a useful next step."
+    }
+  ],
+  "captions": [
+    {
+      "id": "N01",
+      "text": "Your receptionist is mid-conversation",
+      "from": 4,
+      "to": 62
+    },
+    {
+      "id": "N01",
+      "text": "when another patient calls.",
+      "from": 62,
+      "to": 105
+    },
+    {
+      "id": "N01",
+      "text": "They need a check-up.",
+      "from": 114,
+      "to": 152
+    },
+    {
+      "id": "N01",
+      "text": "Your team is already helping someone.",
+      "from": 152,
+      "to": 209
+    },
+    {
+      "id": "N02",
+      "text": "After closing, the desk is quiet.",
+      "from": 226,
+      "to": 281
+    },
+    {
+      "id": "N02",
+      "text": "The caller still needs an answer.",
+      "from": 281,
+      "to": 330
+    },
+    {
+      "id": "N03",
+      "text": "FlowAudit builds AI phone agents",
+      "from": 352,
+      "to": 406
+    },
+    {
+      "id": "N03",
+      "text": "around the calls your practice",
+      "from": 406,
+      "to": 448
+    },
+    {
+      "id": "N03",
+      "text": "agrees they can handle.",
+      "from": 448,
+      "to": 482
+    },
+    {
+      "id": "N04",
+      "text": "One caller gets a clear next step.",
+      "from": 503,
+      "to": 561
+    },
+    {
+      "id": "N04",
+      "text": "The other request is acknowledged",
+      "from": 561,
+      "to": 606
+    },
+    {
+      "id": "N04",
+      "text": "and kept for your team.",
+      "from": 606,
+      "to": 646
+    },
+    {
+      "id": "N05",
+      "text": "Here is a recorded new-patient enquiry.",
+      "from": 673,
+      "to": 731
+    },
+    {
+      "from": 760,
+      "to": 777,
+      "text": "Hiya.",
+      "id": "D01"
+    },
+    {
+      "from": 777,
+      "to": 820,
+      "text": "I just wanted to ring in and book an appointment.",
+      "id": "D01"
+    },
+    {
+      "from": 919,
+      "to": 933,
+      "text": "Thanks.",
+      "id": "D01"
+    },
+    {
+      "from": 946,
+      "to": 996,
+      "text": "Can you please tell me if this is for you",
+      "id": "D01"
+    },
+    {
+      "from": 996,
+      "to": 1020,
+      "text": "or someone else?",
+      "id": "D01"
+    },
+    {
+      "from": 1036,
+      "to": 1053,
+      "text": "It's for me.",
+      "id": "D01"
+    },
+    {
+      "from": 1060,
+      "to": 1089,
+      "text": "I'm a new in the area.",
+      "id": "D01"
+    },
+    {
+      "from": 1099,
+      "to": 1154,
+      "text": "I want to, you know, register with the dentist",
+      "id": "D01"
+    },
+    {
+      "from": 1154,
+      "to": 1200,
+      "text": "and then get checked up as well.",
+      "id": "D01"
+    },
+    {
+      "from": 1283,
+      "to": 1306,
+      "text": "Got it.",
+      "id": "D01"
+    },
+    {
+      "from": 1306,
+      "to": 1348,
+      "text": "Are you looking for a new patient checkup",
+      "id": "D01"
+    },
+    {
+      "from": 1348,
+      "to": 1357,
+      "text": "appointment?",
+      "id": "D01"
+    },
+    {
+      "from": 1367,
+      "to": 1442,
+      "text": "The first available appointment this afternoon",
+      "id": "D02"
+    },
+    {
+      "from": 1442,
+      "to": 1552,
+      "text": "is at 2.30 or 3 in the afternoon or 3.30.",
+      "id": "D02"
+    },
+    {
+      "from": 1565,
+      "to": 1597,
+      "text": "Which one works for you?",
+      "id": "D02"
+    },
+    {
+      "from": 1608,
+      "to": 1639,
+      "text": "Can we do 3 o\u2019clock?",
+      "id": "D02"
+    },
+    {
+      "id": "N06",
+      "text": "And the confirmed booking,",
+      "from": 1653,
+      "to": 1684
+    },
+    {
+      "id": "N06",
+      "text": "shown in a still from the recording.",
+      "from": 1684,
+      "to": 1745
+    },
+    {
+      "id": "D03",
+      "text": "Your new patient checkup appointment is booked",
+      "from": 1764,
+      "to": 1847
+    },
+    {
+      "id": "D03",
+      "text": "for Wednesday, the 7th of October",
+      "from": 1847,
+      "to": 1910
+    },
+    {
+      "id": "D03",
+      "text": "at 3 in the afternoon.",
+      "from": 1910,
+      "to": 1958
+    },
+    {
+      "id": "N10",
+      "text": "These are selected excerpts.",
+      "from": 1973,
+      "to": 2015
+    },
+    {
+      "id": "N10",
+      "text": "You can watch both full demonstrations below.",
+      "from": 2015,
+      "to": 2081
+    },
+    {
+      "id": "N07",
+      "text": "Your practice sets the limits:",
+      "from": 2097,
+      "to": 2141
+    },
+    {
+      "id": "N07",
+      "text": "which appointments, which questions,",
+      "from": 2141,
+      "to": 2207
+    },
+    {
+      "id": "N07",
+      "text": "and when a person takes over.",
+      "from": 2207,
+      "to": 2245
+    },
+    {
+      "id": "N07",
+      "text": "Clinical judgement stays with your team.",
+      "from": 2254,
+      "to": 2322
+    },
+    {
+      "id": "N08",
+      "text": "We assess your scheduling, forwarding",
+      "from": 2339,
+      "to": 2393
+    },
+    {
+      "id": "N08",
+      "text": "and patient-data requirements,",
+      "from": 2393,
+      "to": 2432
+    },
+    {
+      "id": "N08",
+      "text": "then agree scope and investment.",
+      "from": 2432,
+      "to": 2482
+    },
+    {
+      "id": "N08",
+      "text": "Configuration is tested with your team.",
+      "from": 2499,
+      "to": 2553
+    },
+    {
+      "id": "N08",
+      "text": "Activation follows your approval.",
+      "from": 2561,
+      "to": 2603
+    },
+    {
+      "id": "N09",
+      "text": "Book a fifteen-minute demo",
+      "from": 2628,
+      "to": 2662
+    },
+    {
+      "id": "N09",
+      "text": "for your practice.",
+      "from": 2662,
+      "to": 2692
+    },
+    {
+      "id": "N09",
+      "text": "Bring the person who can approve the project.",
+      "from": 2692,
+      "to": 2761
+    },
+    {
+      "id": "N09",
+      "text": "We will assess how your team handles calls,",
+      "from": 2761,
+      "to": 2830
+    },
+    {
+      "id": "N09",
+      "text": "the setup you need, and the investment.",
+      "from": 2830,
+      "to": 2903
+    },
+    {
+      "id": "N09",
+      "text": "Then we will agree a useful next step.",
+      "from": 2903,
+      "to": 2968
+    }
+  ],
+  "voiceEdits": [
+    {
+      "id": "N01",
+      "sourceRate": 24000,
+      "sourceInSample": 12480,
+      "sourceOutSampleExclusive": 180480,
+      "sourceDuration": 7.52,
+      "duration": 7.0,
+      "sha256": "5b7904d2f43c57b2d330027cd2b8c32727d3244d8e55890dbb121c16c05b8981",
+      "editedSHA256": "a484ce1b2a67f73c21fb7cf629e49fea3da5e8e135925464e8ea31beab327f99",
+      "intended": "Your receptionist is mid-conversation when another patient calls. They need a check-up. Your team is already helping someone.",
+      "asr": "Your receptionist is mid-conversation when another patient calls. They need a check-up. Your team is already helping someone."
+    },
+    {
+      "id": "N02",
+      "sourceRate": 24000,
+      "sourceInSample": 4800,
+      "sourceOutSampleExclusive": 94080,
+      "sourceDuration": 3.92,
+      "duration": 3.72,
+      "sha256": "729a621bb2265b873d8b65e198fbb4f338330ace08f9f187cf4ecff00471f7e5",
+      "editedSHA256": "54643257e2c16f95da6a161856aa454e20abe3faff5dbc95536216f0231d3f79",
+      "intended": "After closing, the desk is quiet. The caller still needs an answer.",
+      "asr": "After closing, the desk is quiet. The caller still needs an answer."
+    },
+    {
+      "id": "N03",
+      "sourceRate": 24000,
+      "sourceInSample": 480,
+      "sourceOutSampleExclusive": 107520,
+      "sourceDuration": 4.48,
+      "duration": 4.46,
+      "sha256": "01925971402728ef48f4dcba4b16f3ea7e39c7c2fd2b0a967c312077ca34dc2c",
+      "editedSHA256": "af515620caa5529a6b4dbcd6a565c3cadd76e979c4e4ce895732af4cc263234f",
+      "intended": "FlowAudit builds AI phone agents around the calls your practice agrees they can handle.",
+      "asr": "Flow Audit builds AI phone agents around the calls your practice agrees they can handle."
+    },
+    {
+      "id": "N04",
+      "sourceRate": 24000,
+      "sourceInSample": 8160,
+      "sourceOutSampleExclusive": 128640,
+      "sourceDuration": 5.36,
+      "duration": 5.02,
+      "sha256": "2594d87f945e99f9754784eb84a34e2df6c411efb9226602571ddd69ed39dccf",
+      "editedSHA256": "77f260adecefe412a25e8efbdc88e8a2b075a043f59f3913a4eaecd5321e931a",
+      "intended": "One caller gets a clear next step. The other request is acknowledged and kept for your team.",
+      "asr": "One caller gets a clear next step. The other request is acknowledged and kept for your team."
+    },
+    {
+      "id": "N05",
+      "sourceRate": 24000,
+      "sourceInSample": 6240,
+      "sourceOutSampleExclusive": 63360,
+      "sourceDuration": 2.64,
+      "duration": 2.38,
+      "sha256": "8299c7b89937d19df8701fc7b719f2b9edf700c4d42169e451222254715cfbb2",
+      "editedSHA256": "0d3aede38a5b31487e97d251c679ae40532d5165e6ac0ba2fc7597888dfc367b",
+      "intended": "Here is a recorded new-patient enquiry.",
+      "asr": "Here is a recorded new patient inquiry."
+    },
+    {
+      "id": "N06",
+      "sourceRate": 24000,
+      "sourceInSample": 7200,
+      "sourceOutSampleExclusive": 88320,
+      "sourceDuration": 3.68,
+      "duration": 3.38,
+      "sha256": "afc891263b408eaa89ee327bc9b2f0f2dc3143d550d2a62bb9037ed62460f80f",
+      "editedSHA256": "acdf256305db2c830384c7242fe6abcb88f183d0105d07fbe17e34d570a57e3e",
+      "intended": "And the confirmed booking, shown in a still from the recording.",
+      "asr": "and the confirmed booking shown in a still from the recording."
+    },
+    {
+      "id": "N07",
+      "sourceRate": 24000,
+      "sourceInSample": 10560,
+      "sourceOutSampleExclusive": 193920,
+      "sourceDuration": 8.08,
+      "duration": 7.64,
+      "sha256": "2c1cc93d18c842b1dcc905dc638db9d9efc29c370c6a36b371646db4208cbb32",
+      "editedSHA256": "b240be88004f1fd840aaddc164c62be7703abf002d50b13e1369690cba44b09e",
+      "intended": "Your practice sets the limits: which appointments, which questions, and when a person takes over. Clinical judgement stays with your team.",
+      "asr": "Your practice sets the limits. Which appointments, which questions, and when a person takes over. Clinical judgment stays with your team."
+    },
+    {
+      "id": "N08",
+      "sourceRate": 24000,
+      "sourceInSample": 1440,
+      "sourceOutSampleExclusive": 220800,
+      "sourceDuration": 9.2,
+      "duration": 9.14,
+      "sha256": "d0bdec27b77dcae870f5bd3481843793825a3aa9f17c95aaa24ccd8493c9174b",
+      "editedSHA256": "a22b6ecf663c4f8d328596ba588534eb737ca4b08466eeba614e31e211ea7928",
+      "intended": "We assess your scheduling, forwarding and patient-data requirements, then agree scope and investment. Configuration is tested with your team. Activation follows your approval.",
+      "asr": "We assess your scheduling, forwarding and patient data requirements, then agree scope and investment. Configuration is tested with your team. Activation follows your approval."
+    },
+    {
+      "id": "N09C",
+      "sourceRate": 24000,
+      "sourceInSample": 8160,
+      "sourceOutSampleExclusive": 284640,
+      "sourceDuration": 11.92,
+      "duration": 11.52,
+      "sha256": "a1fe0c7a3aaa7826ae944a583d3b0f36bb702dbe23fe362802566969843061ab",
+      "editedSHA256": "187c73ba3f69aed026ed42163fa349f691bf679104558a0ef5076b0054aea256",
+      "intended": "Book a fifteen-minute demo for your practice. Bring the person who can approve the project. We will assess how your team handles calls, the setup you need, and the investment. Then we will agree a useful next step.",
+      "asr": "Book a 15-minute demo for your practice. Bring the person who can approve the project. We will assess how your team handles calls, the setup you need, and the investment. Then we will agree a useful next step."
+    }
+  ],
+  "provenance": [
+    {
+      "path": "/Users/curtis/Code/flowaudit-sdr/video/phone-agent-demo2.mp4",
+      "sha256": "d0152e91bb74fa9aa5f06b5a20292e3f4d0a891ad75202f417a864d0909748a6",
+      "bytes": 4451544
+    },
+    {
+      "path": "/Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site/video/landscape/public/demo/routine-landscape-panels.mp4",
+      "sha256": "9c7c2dafc12e2e98a8e10a95eb0734b3dc1cf2c09faed7ec178a990ea45c1d16",
+      "bytes": 3885517
+    },
+    {
+      "path": "/Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site/video/landscape/public/demo/overview-calendar-still.png",
+      "sha256": "2a3f6d92b1150162f2580a08042e0eddb9a6535cc0e3118f6fa923174412b1cc",
+      "bytes": 128748
+    },
+    {
+      "path": "/Users/curtis/Documents/Codex/2026-10-12/files-pasted-by-the-user-take-2/outputs/audio/originals/Easy Lemon.mp3",
+      "sha256": "2486b8ecfe4575f9ab31613a2c03c2ee45e6e5280301d05b4dd7237c9e1c2531",
+      "bytes": 5057420
+    }
+  ],
+  "soundEvents": [
+    {
+      "name": "busy ring",
+      "frame": 19,
+      "length": 0.38,
+      "peakDBFS": -34,
+      "method": "ring"
+    },
+    {
+      "name": "after-hours ring",
+      "frame": 292,
+      "length": 0.34,
+      "peakDBFS": -35,
+      "method": "ring"
+    },
+    {
+      "name": "closure",
+      "frame": 244,
+      "length": 0.35,
+      "peakDBFS": -38,
+      "method": "close"
+    },
+    {
+      "name": "paper organisation",
+      "frame": 403,
+      "length": 0.28,
+      "peakDBFS": -37,
+      "method": "paper"
+    },
+    {
+      "name": "completion acknowledgement",
+      "frame": 541,
+      "length": 0.36,
+      "peakDBFS": -35,
+      "method": "ack"
+    },
+    {
+      "name": "request retained",
+      "frame": 585,
+      "length": 0.2,
+      "peakDBFS": -37,
+      "method": "paper"
+    }
+  ],
+  "audioProcessing": {
+    "gainMap": [
+      {
+        "id": "N01",
+        "gainDB": 2.119137763977051,
+        "audioIn": 0,
+        "duration": 7.0
+      },
+      {
+        "id": "N02",
+        "gainDB": 2.5215671062469482,
+        "audioIn": 0,
+        "duration": 3.72
+      },
+      {
+        "id": "N03",
+        "gainDB": 1.3045846223831177,
+        "audioIn": 0,
+        "duration": 4.46
+      },
+      {
+        "id": "N04",
+        "gainDB": 0.6688339710235596,
+        "audioIn": 0,
+        "duration": 5.02
+      },
+      {
+        "id": "N05",
+        "gainDB": -0.2665400803089142,
+        "audioIn": 0,
+        "duration": 2.38
+      },
+      {
+        "id": "D01",
+        "gainDB": 5.624100685119629,
+        "audioIn": 9.24,
+        "duration": 20.16
+      },
+      {
+        "id": "D02",
+        "gainDB": 5.901498794555664,
+        "audioIn": 42.7,
+        "duration": 9.3
+      },
+      {
+        "id": "N06",
+        "gainDB": 2.4499411582946777,
+        "audioIn": 0,
+        "duration": 3.38
+      },
+      {
+        "id": "D03",
+        "gainDB": 13.138026237487793,
+        "audioIn": 75.75,
+        "duration": 6.8
+      },
+      {
+        "id": "N10",
+        "gainDB": 1.8717073202133179,
+        "audioIn": 0,
+        "duration": 3.7
+      },
+      {
+        "id": "N07",
+        "gainDB": 3.517904043197632,
+        "audioIn": 0,
+        "duration": 7.64
+      },
+      {
+        "id": "N08",
+        "gainDB": 3.4768474102020264,
+        "audioIn": 0,
+        "duration": 9.14
+      },
+      {
+        "id": "N09",
+        "gainDB": 2.792393922805786,
+        "audioIn": 0,
+        "duration": 11.52
+      }
+    ],
+    "master": "two-pass FFmpeg loudnorm I=-16 TP=-1.5 LRA=7",
+    "deliveryHeadroomDb": -0.4,
+    "speechSpeed": 1.0
+  },
+  "sourceMap": [
+    {
+      "id": "D01",
+      "sourceIn": 9.24,
+      "sourceOut": 29.4,
+      "finalIn": 25.166666666666664,
+      "finalOut": 45.32666666666666,
+      "videoStartAt30fps": 9.233333333333333,
+      "videoRoundingMilliseconds": -6.666666666667709,
+      "dialogue": "unchanged wording and speed; level and final mix mastering only",
+      "picture": "original recording panels"
+    },
+    {
+      "id": "D02",
+      "sourceIn": 42.7,
+      "sourceOut": 52.0,
+      "finalIn": 45.5,
+      "finalOut": 54.8,
+      "videoStartAt30fps": 42.7,
+      "videoRoundingMilliseconds": 0.0,
+      "dialogue": "unchanged wording and speed; level and final mix mastering only",
+      "picture": "original recording panels"
+    },
+    {
+      "id": "D03",
+      "sourceIn": 75.75,
+      "sourceOut": 82.55,
+      "finalIn": 58.666666666666664,
+      "finalOut": 65.46666666666667,
+      "videoStartAt30fps": 75.73333333333333,
+      "videoRoundingMilliseconds": -16.66666666666572,
+      "dialogue": "unchanged wording and speed; level and final mix mastering only",
+      "picture": "genuine calendar still from source 76.45s"
+    }
+  ],
+  "captionEditNotes": {
+    "policy": "Canonical phrases, locally aligned; compact measured plates. Gaps of at most six frames within one passage bridged. Native caption tracks not displayed over baked captions."
+  },
+  "revision": "20261012-r2"
+}

@@ -1,9 +1,12 @@
 "use client";
+import Link from "next/link";
+import filmMetadata from "@/lib/film-metadata.json";
 import { useEffect, useId, useRef, useState } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
 import { c, text } from "@/lib/marketing-copy";
 import { mediaTranscripts } from "@/lib/media-transcripts";
 import {
+  attribution,
   recordEvent,
   recordEventOnce,
   resetWatchBaseline,
@@ -22,12 +25,19 @@ const detailedChapters = [
 
 const overviewChapters = [
   [0, c("Busy desk and after hours", "Recepción ocupada y fuera de horario")],
-  [21.733333333333334, c("Recorded demo", "Demo grabada")],
-  [69.63333333333334, c("Setup and your next step", "Configuración y siguiente paso")],
+  [filmMetadata.demo, c("Recorded demo", "Demo grabada")],
+  [filmMetadata.setup, c("Setup and your next step", "Configuración y siguiente paso")],
 ] as const;
 const films = {
-  overview: { label: c("The 90-second overview", "Resumen de 90 segundos"), duration: "1:30" },
+  overview: {
+    label: c("The FlowAudit overview", "Resumen de FlowAudit"),
+    duration: filmMetadata.durationLabel,
+  },
   routine: { label: c("Booking demonstration", "Demostración de reserva"), duration: "1:31" },
+  urgent: {
+    label: c("A call about a child’s toothache", "Una llamada sobre dolor de muelas infantil"),
+    duration: "2:42",
+  },
   main: { label: c("The full walkthrough", "La explicación completa"), duration: "5:00" },
   summary: { label: c("Executive overview", "Resumen ejecutivo"), duration: "1:08" },
   teaser: { label: c("A quick introduction", "Una introducción breve"), duration: "0:30" },
@@ -39,13 +49,13 @@ export function MediaPlayer({
   compact = false,
   choices,
   onPositionChange,
-  afterPlayer,
+  qualificationCta = false,
 }: {
   film?: Film;
   switchable?: boolean;
   compact?: boolean;
   choices?: Film[];
-  afterPlayer?: React.ReactNode;
+  qualificationCta?: boolean;
   onPositionChange?: (seconds: number, film: Film) => void;
 }) {
   const { locale } = useLocale();
@@ -65,6 +75,84 @@ export function MediaPlayer({
   }, [buffering]);
   const current = films[active];
   const videoRef = useRef<HTMLVideoElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const fullscreenButton = useRef<HTMLButtonElement>(null);
+  const [fullscreen, setFullscreen] = useState(false);
+  const [fullscreenSupported, setFullscreenSupported] = useState(false);
+  const [fullscreenError, setFullscreenError] = useState(false);
+  const [ctaUnlocked, setCtaUnlocked] = useState(false);
+  const [bookingHref, setBookingHref] = useState("/book?service=phone-agent&entry=vsl");
+  const playbackKey = `fa-playback:${active}:${filmMetadata.version}`;
+  const savePosition = (video: HTMLVideoElement) => {
+    if (!Number.isFinite(video.currentTime)) return;
+    try {
+      sessionStorage.setItem(
+        playbackKey,
+        JSON.stringify({
+          position: video.currentTime,
+          unlocked: ctaUnlocked || video.currentTime >= filmMetadata.opening,
+        }),
+      );
+    } catch {
+      /* Playback still works. */
+    }
+  };
+  useEffect(() => {
+    if (!qualificationCta) return;
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(playbackKey) ?? "{}");
+      if (
+        typeof saved.position === "number" &&
+        Number.isFinite(saved.position) &&
+        saved.position > 0
+      ) {
+        // Restore the paused timeline on return without requiring a play gesture.
+        videoRef.current?.load();
+      }
+    } catch {
+      /* Invalid or unavailable storage does not prevent playback. */
+    }
+  }, [playbackKey, qualificationCta]);
+  useEffect(() => {
+    const query = new URLSearchParams({ service: "phone-agent", entry: "vsl", ...attribution() });
+    setBookingHref(`/book?${query}`);
+    setFullscreenSupported(
+      Boolean(document.fullscreenEnabled && frameRef.current?.requestFullscreen),
+    );
+    const changed = () => {
+      setFullscreen(document.fullscreenElement === frameRef.current);
+      fullscreenButton.current?.focus();
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && document.fullscreenElement === frameRef.current) {
+        event.preventDefault();
+        void document.exitFullscreen().catch(() => {});
+      }
+    };
+    document.addEventListener("fullscreenchange", changed);
+    document.addEventListener("keydown", escape);
+    return () => {
+      document.removeEventListener("fullscreenchange", changed);
+      document.removeEventListener("keydown", escape);
+    };
+  }, []);
+  const leavePlayer = () => {
+    const video = videoRef.current;
+    if (video) {
+      savePosition(video);
+      video.pause();
+    }
+    if (document.fullscreenElement) void document.exitFullscreen().catch(() => {});
+  };
+  const toggleFullscreen = async () => {
+    try {
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else await frameRef.current?.requestFullscreen();
+    } catch {
+      setFullscreenError(true);
+    }
+  };
+  const ChapterHeading = qualificationCta ? "h2" : "h3";
   const keys = choices ?? (Object.keys(films) as Film[]);
   const chapters =
     active === "overview" ? overviewChapters : active === "main" ? detailedChapters : [];
@@ -123,18 +211,43 @@ export function MediaPlayer({
         id={switchable ? `${playerId}-film-panel` : undefined}
         aria-labelledby={switchable ? `${playerId}-tab-${active}` : undefined}
       >
-        <div className={`fa-player-frame ${active === "overview" ? "fa-overview-frame" : ""}`}>
+        <div
+          ref={frameRef}
+          className={`fa-player-frame ${active === "overview" ? "fa-overview-frame" : ""}`}
+        >
           <video
             ref={videoRef}
             width={1920}
             height={1080}
             key={active}
             controls
+            controlsList={qualificationCta ? "nofullscreen" : undefined}
             playsInline
             preload="none"
-            poster={`/media/${active}.jpg?v=${active === "overview" ? "editorial-20261010" : "landscape-20261009"}`}
+            poster={`/media/${active}.jpg?v=${active === "overview" ? filmMetadata.version : "landscape-20261009"}`}
             aria-label={`${text(locale, current.label)} · ${current.duration}`}
             data-media-id={active}
+            onLoadedMetadata={(event) => {
+              if (!qualificationCta) return;
+              try {
+                const saved = JSON.parse(sessionStorage.getItem(playbackKey) ?? "{}");
+                if (
+                  typeof saved.position === "number" &&
+                  saved.position > 0 &&
+                  Number.isFinite(saved.position)
+                ) {
+                  const value = Math.min(
+                    saved.position,
+                    Math.max(0, event.currentTarget.duration - 0.1),
+                  );
+                  event.currentTarget.currentTime = value;
+                  setPosition(value);
+                }
+                setCtaUnlocked(saved.unlocked === true);
+              } catch {
+                /* Ignore invalid storage. */
+              }
+            }}
             onError={() => {
               setError(true);
               setBuffering(false);
@@ -149,7 +262,10 @@ export function MediaPlayer({
               resetWatchBaseline(e.currentTarget);
               recordEventOnce("video_start", { mediaId: active, service: "phone-agent" });
             }}
-            onPause={(e) => resetWatchBaseline(e.currentTarget)}
+            onPause={(e) => {
+              resetWatchBaseline(e.currentTarget);
+              if (qualificationCta) savePosition(e.currentTarget);
+            }}
             onSeeking={(e) => resetWatchBaseline(e.currentTarget)}
             onSeeked={(e) => {
               resetWatchBaseline(e.currentTarget);
@@ -157,12 +273,16 @@ export function MediaPlayer({
             }}
             onTimeUpdate={(event) => {
               setPosition(event.currentTarget.currentTime);
+              if (qualificationCta) {
+                if (event.currentTarget.currentTime >= filmMetadata.opening) setCtaUnlocked(true);
+                savePosition(event.currentTarget);
+              }
               onPositionChange?.(event.currentTarget.currentTime, active);
               watchedCoverage(event.currentTarget, active, "phone-agent");
             }}
           >
             <source
-              src={`/media/${active}.mp4`}
+              src={`/media/${active}.mp4?v=${active === "overview" ? filmMetadata.version : "landscape-20261009"}`}
               type="video/mp4"
               onError={() => {
                 setError(true);
@@ -177,14 +297,61 @@ export function MediaPlayer({
               ),
             )}
           </video>
+          {qualificationCta && (
+            <div className="fa-player-actions">
+              {fullscreenSupported && (
+                <button
+                  ref={fullscreenButton}
+                  type="button"
+                  aria-label={text(
+                    locale,
+                    fullscreen
+                      ? c("Exit fullscreen", "Salir de pantalla completa")
+                      : c("Fullscreen player", "Reproductor a pantalla completa"),
+                  )}
+                  onClick={() => void toggleFullscreen()}
+                >
+                  {fullscreen ? "↙" : "⛶"}
+                </button>
+              )}
+              {(ctaUnlocked || position >= filmMetadata.opening) && (
+                <Link
+                  className="fa-player-cta"
+                  href={bookingHref}
+                  onClick={() => {
+                    leavePlayer();
+                    recordEvent("cta_click", { service: "phone-agent", mediaId: active });
+                  }}
+                >
+                  {text(locale, c("Seen enough?", "¿Ya lo tienes claro?"))}
+                  <span aria-hidden="true"> ↗</span>
+                </Link>
+              )}
+            </div>
+          )}
+          {qualificationCta &&
+            position >= filmMetadata.demoHint &&
+            position < filmMetadata.demoHint + 5 && (
+              <a className="fa-player-demo-link" href="#full-demonstrations" onClick={leavePlayer}>
+                {text(locale, c("Both full demos below ↓", "Las dos demos completas abajo ↓"))}
+              </a>
+            )}
         </div>
-        {afterPlayer}
+        {qualificationCta && (!fullscreenSupported || fullscreenError) && (
+          <p className="fa-small">
+            {text(locale, c("Keep watching here, or", "Sigue viendo aquí, o"))}{" "}
+            <Link href={bookingHref} onClick={leavePlayer}>
+              {text(locale, c("book a demo", "reserva una demo"))}
+            </Link>
+            .
+          </p>
+        )}
         <div className="fa-media-context">
           <p className="fa-eyebrow">
             {text(
               locale,
               active === "overview"
-                ? c("The offer in 90 seconds", "La oferta en 90 segundos")
+                ? c("The offer and recorded evidence", "La oferta y evidencia grabada")
                 : c("Recorded evidence", "Evidencia grabada"),
             )}{" "}
             <span>{current.duration}</span>
@@ -207,11 +374,15 @@ export function MediaPlayer({
               locale,
               c(
                 active === "overview"
-                  ? "See how agreed call workflows can support your team during busy periods and after hours. Watch the complete recorded demo below."
-                  : "The routine example shows a conversation, offered appointment times and a Google Calendar booking. It is a demonstration, not a customer result.",
+                  ? "See how agreed call workflows can support your team during busy periods and after hours. Watch both full recorded demonstrations below."
+                  : active === "urgent"
+                    ? "The complete second recorded call concerns a child’s toothache. It shows the recorded conversation, not evidence of validated clinical triage or a completed emergency handoff."
+                    : "The routine example shows a conversation, offered appointment times and a Google Calendar booking. It is a demonstration, not a customer result.",
                 active === "overview"
-                  ? "Descubre cómo los flujos de llamadas acordados pueden apoyar a tu equipo en horas de mucho trabajo y fuera de horario. Mira la demo grabada completa abajo."
-                  : "El ejemplo habitual muestra una conversación, horarios disponibles y una reserva en Google Calendar. Es una demostración, no un resultado de cliente.",
+                  ? "Descubre cómo los flujos de llamadas acordados pueden apoyar a tu equipo en horas de mucho trabajo y fuera de horario. Mira las dos demostraciones completas abajo."
+                  : active === "urgent"
+                    ? "La segunda llamada completa trata sobre dolor de muelas infantil. No acredita triaje clínico validado ni un traspaso de emergencia completado."
+                    : "El ejemplo habitual muestra una conversación, horarios disponibles y una reserva en Google Calendar. Es una demostración, no un resultado de cliente.",
               ),
             )}
           </p>
@@ -276,7 +447,9 @@ export function MediaPlayer({
               className="fa-chapters"
               aria-label={text(locale, c("Film chapters", "Capítulos del vídeo"))}
             >
-              <h3>{text(locale, c("Jump to a chapter", "Ir a un capítulo"))}</h3>
+              <ChapterHeading>
+                {text(locale, c("Jump to a chapter", "Ir a un capítulo"))}
+              </ChapterHeading>
               <p className="fa-small">
                 {text(
                   locale,
@@ -320,18 +493,15 @@ export function MediaPlayer({
           )}
           <div className="fa-media-links">
             {active === "overview" ? (
-              <a href="/phone-agent#booking-recording">
+              <a href="/phone-agent#full-demonstrations">
                 {text(
                   locale,
-                  c("Watch the genuine booking recording", "Ver la grabación real de la reserva"),
+                  c("Watch both full demonstrations", "Ver las dos demostraciones completas"),
                 )}
               </a>
             ) : active === "routine" ? (
               <a href="/phone-agent#demo">
-                {text(
-                  locale,
-                  c("Back to the 90-second overview", "Volver al resumen de 90 segundos"),
-                )}
+                {text(locale, c("Back to the overview", "Volver al resumen"))}
               </a>
             ) : null}
             <a href={`/media/${active}-transcript.txt`} download>

@@ -1,4 +1,22 @@
 export const system = {
+  finalVsl: {
+    caption: {top: 810, height: 156, size: 56, lineHeight: 66, width: 1280, padX: 24, padY: 10, radius: 14},
+    heading: 74, label: 46, note: 29, cta: 71,
+    brand: {x: 100, y: 54, width: 250, height: 75},
+    stage: {counterY: 666, artBottom: 718, inset: 100},
+    motion: {transition: 24, travel: 34, ringAngle: 2.6, ringLift: 2.5, closeScale: 1.8, nod: 3, gaze: 2, gesture: 9, entry: {damping: 24, stiffness: 110, mass: 1}, paper: {damping: 17, stiffness: 180, mass: .65}},
+    source: {left: 100, top: 231, width: 1720, height: 520},
+  },
+  reception: {
+    palette: { white: "#F9FAFC", ink: "#101827", blue: "#234BFF", coral: "#FF6B5D", green: "#8CE0B2", paper: "#D5DFFF", shade: "#293B60", muted: "#A5B5DA" },
+    fonts: { sans: "FlowInter", serif: "FlowSerif" },
+    stage: { width: 1920, height: 1080, inset: 100, captionTop: 720, captionHeight: 118, artTransform: "translate(134 0) scale(.86)", controlSafeBottom: 242 },
+    type: { eyebrow: 28, title: 66, label: 34, caption: 80, note: 27 },
+    surface: { radius: 28, shadowOpacity: 0.12, shadowBlur: 12, keylightX: 0, keylightY: 0 },
+    phone: { width: 385, height: 280, topPlane: "matrix(1 -.12 .18 .92 0 0)", ringAngle: 3, ringLift: 4 },
+    springs: { phone: { damping: 25, stiffness: 220, mass: 0.7 }, paper: { damping: 27, stiffness: 150, mass: 0.9 }, screen: { damping: 36, stiffness: 135, mass: 2 } },
+    finalHoldFrames: 66,
+  },
   openingCollage: {
     grid: 48,
     majorGrid: 240,

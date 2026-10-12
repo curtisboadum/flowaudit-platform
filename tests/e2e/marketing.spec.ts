@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import filmMetadata from "../../src/lib/film-metadata.json";
 for (const path of [
   "/",
   "/services",
@@ -175,7 +176,7 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
     .toBeGreaterThan(1);
-  expect(await video.evaluate((node: HTMLVideoElement) => node.duration)).toBeCloseTo(90, 0);
+  expect(await video.evaluate((node: HTMLVideoElement) => node.duration)).toBeCloseTo(filmMetadata.duration, 2);
   expect(
     await video.evaluate((node: HTMLVideoElement) => [node.videoWidth, node.videoHeight]),
   ).toEqual([1920, 1080]);
@@ -186,7 +187,7 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   await page.getByRole("button", { name: /Setup and your next step/ }).click();
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
-    .toBeGreaterThan(63.9);
+    .toBeGreaterThan(filmMetadata.setup - 0.1);
   expect(events.filter((event) => /^video_(25|50|75|complete)$/.test(event))).toEqual([]);
   await video.evaluate((node: HTMLVideoElement) => node.pause());
   await expect(video.locator("track")).toHaveCount(0);
@@ -202,7 +203,7 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
     .getByText("Read the full transcript (English)", { exact: true })
     .click();
   await expect(page.locator("#demo")).toContainText(
-    "FlowAudit builds AI phone agents that support staff through agreed workflows.",
+    "FlowAudit builds AI phone agents that support your team through agreed workflows.",
   );
   const transcriptDownload = await page.request.get("/media/overview-transcript.txt");
   const inlineTranscript = await page.locator('#demo .fa-transcript [lang="en"]').textContent();
@@ -215,7 +216,7 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
     const response = await page.request.get(path);
     expect(response.ok()).toBe(true);
     const contents = (await response.text()).replace(/\s+/g, " ");
-    expect(contents).toContain("FlowAudit builds AI phone agents");
+    expect(contents).toContain("Clinical judgement stays with your team.");
     expect(contents).not.toContain("Flow Audit is an AI phone agent");
   }
 });
@@ -280,7 +281,7 @@ test("Provider readiness and booking status are distinct; no client booking conv
 });
 
 test("Unavailable video and calendar expose recovery options", async ({ page }) => {
-  await page.route("**/media/*.mp4", (r) => r.abort());
+  await page.route("**/media/*.mp4*", (r) => r.abort());
   await page.goto("/phone-agent");
   await page
     .locator('video[data-media-id="overview"]')
@@ -304,7 +305,12 @@ test("Landscape evidence uses comfortable viewing width across breakpoints", asy
     const box = await page.locator('video[data-media-id="overview"]').boundingBox();
     expect(box).not.toBeNull();
     expect(box!.width).toBeGreaterThanOrEqual(width < 768 ? width - 44 : width < 1024 ? 650 : 900);
-    expect((box!.height - 64) / box!.width).toBeCloseTo(9 / 16, 2);
+    const reserve = await page.locator('video[data-media-id="overview"]').evaluate((node) => {
+      const style = getComputedStyle(node);
+      return parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+    });
+    expect(reserve).toBeGreaterThanOrEqual(64);
+    expect((box!.height - reserve) / box!.width).toBeCloseTo(9 / 16, 2);
     await expect(page.getByRole("navigation", { name: "Film chapters" })).toBeVisible();
     expect(
       await page
@@ -386,8 +392,8 @@ test("Overview and genuine demo have reciprocal links, independent playback and 
   await page.getByRole("button", { name: "Keep analytics off" }).click();
   const overview = page.locator('video[data-media-id="overview"]');
   const routine = page.locator('video[data-media-id="routine"]');
-  await page.getByRole("link", { name: "Watch the genuine booking recording" }).click();
-  await expect(page).toHaveURL(/#booking-recording$/);
+  await page.getByRole("link", { name: "Watch both full demonstrations" }).click();
+  await expect(page).toHaveURL(/#full-demonstrations$/);
   await routine.evaluate((v: HTMLVideoElement) => {
     v.muted = true;
     return v.play();
@@ -395,7 +401,7 @@ test("Overview and genuine demo have reciprocal links, independent playback and 
   await expect
     .poll(() => routine.evaluate((v: HTMLVideoElement) => v.currentTime))
     .toBeGreaterThan(0);
-  await page.getByRole("link", { name: "Back to the 90-second overview" }).click();
+  await page.getByRole("link", { name: "Back to the overview" }).first().click();
   await expect(page).toHaveURL(/#demo$/);
   await overview.evaluate((v: HTMLVideoElement) => {
     v.muted = true;

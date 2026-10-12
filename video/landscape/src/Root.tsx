@@ -1,3 +1,5 @@
+import FinalVSL from "./scenes/final-vsl/Scene";
+import finalData from "./final-vsl.json";
 import { defaults as boldDefaults } from "./scenes/bold-opening/schema";
 import { BoldOpening } from "./BoldOpening";
 import { Overview } from "./Overview";
@@ -12,8 +14,18 @@ import Narrative from "./scenes/narrative/Scene";
 import Evidence from "./scenes/evidence/Scene";
 import { defaults as n } from "./scenes/narrative/schema";
 import { defaults as e } from "./scenes/evidence/schema";
+import ReceptionStudy from "./scenes/reception-studies/Scene";
+import { defaults as receptionDefaults, type StudyKind } from "./scenes/reception-studies/schema";
 export const RemotionRoot: React.FC = () => (
   <>
+    <Composition id="FlowAuditVSL" component={FinalVSL} durationInFrames={finalData.durationInFrames} width={1920} height={1080} fps={30}/>
+    <Composition id="FlowAuditOpening" component={FinalVSL} defaultProps={{openingOnly:true}} durationInFrames={finalData.openingDuration} width={1920} height={1080} fps={30}/>
+    <Composition id="FlowAuditOpeningNested" component={FinalVSL} defaultProps={{openingOnly:true,nested:true}} durationInFrames={finalData.openingDuration} width={1920} height={1080} fps={30}/>
+
+    {(["phone", "opening", "outcome"] as StudyKind[]).map((study) => (
+      <Composition key={study} id={`ReceptionStudy-${study}`} component={ReceptionStudy}
+        defaultProps={{...receptionDefaults, study}} durationInFrames={1} width={1920} height={1080} fps={30}/>
+    ))}
     <Composition
       id="BoldOpening"
       component={BoldOpening}
