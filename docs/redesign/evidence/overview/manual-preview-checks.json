@@ -1,0 +1,46 @@
+{
+  "reviewed_commit": "0bfe94f917c364129da429260453098314b97d02",
+  "deployment_id": "dpl_G1CTSQuQ1nmPD8xYXrhR9RwoxP95",
+  "preview": "https://flowaudit-platform-git-feat-premi-095c5f-curtisboadums-projects.vercel.app/phone-agent#demo",
+  "viewports": [
+    [
+      390,
+      844
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1440,
+      1000
+    ]
+  ],
+  "manual_actions": [
+    "native play/pause overview and genuine recording",
+    "starting recording pauses overview",
+    "overview chapter seeking to 0/38/64 seconds; seeking remains paused",
+    "native scrubber seeking to 28.717 seconds",
+    "preserved walkthrough urgent chapter seeks to 200.333 seconds",
+    "secondary main/summary switching at all three viewports",
+    "reciprocal overview/recording links",
+    "English inline transcript expanded",
+    "caption and transcript downloads match delivery bytes",
+    "Spanish interface switch; English captions/transcript labelled",
+    "booking navigation at all three viewports; no form submission",
+    "full unmuted overview playback: played range [0,90], currentTime90, ended=true",
+    "native fullscreen entered and exited; final CTA visible"
+  ],
+  "observations": [
+    "No duplicate text tracks; native controls remain",
+    "Top captions clear mobile native controls",
+    "Small source/evidence details benefit from fullscreen; full English transcript and source note available",
+    "Initial media metadata buffered, then native playback loaded both durations correctly (90 and90.833333)"
+  ],
+  "limitations": [
+    "No ability to hear audio; ASR, decode, loudness and unmuted playback do not establish human listening approval",
+    "No physical device tests",
+    "No booking submission, confirmation/webhook/CRM end-to-end test"
+  ],
+  "protection": "Unauthenticated media request redirects to Vercel SSO; protection retained"
+}

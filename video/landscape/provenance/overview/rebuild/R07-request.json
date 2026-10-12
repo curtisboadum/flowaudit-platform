@@ -1,0 +1,13 @@
+{
+  "text": "That's the workflow to assess: give routine enquiries a clear next step, during busy periods and after hours, without pulling your team away from the patient in front of them.",
+  "language": "Auto",
+  "profile_id": "185daf92",
+  "seed": 42,
+  "speed": 1.0,
+  "engine": "mlx-audio",
+  "effect_preset": "raw",
+  "postprocess_output": "false",
+  "denoise": "false",
+  "max_chunk_chars": 0,
+  "wav_bits": "24"
+}

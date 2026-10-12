@@ -1,0 +1,10 @@
+{
+  "generation_seconds": 3.33593487739563,
+  "sha256": "3c98b86b8fcb2ff3a1022229a840d5f4ce8cbdfa7389c0cb274444be7fe68f70",
+  "reference_sha256": "c55b60949bf388248f80ad2c77acda5a1bd325bd453ee8eda02a3bf497925998",
+  "paid_generation": false,
+  "seconds": 5.28,
+  "asr_text": "Flow Audit builds AI phone agents that support your team through agreed workflows.",
+  "model_revision": "37e955a1deb861c088ae5f3a67043185f3d1a60c",
+  "human_listening_review": false
+}

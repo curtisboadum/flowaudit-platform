@@ -1,0 +1,26 @@
+When your front desk is busy, callers still need
+an answer.
+Flow Audit is an AI phone agent configured around
+your practice, supporting your team with agreed call workflows.
+This recorded demonstration uses Google Calendar.
+Listen to the appointment choices, then see the selected
+booking.
+The recording includes privacy beeps and edited labels.
+The first available appointment this afternoon
+is at 2.30 or three in the afternoon or 3.30.
+Which one works for you?
+Can we do three o'clock?
+Your new patient check-up appointment
+is booked for Wednesday, the 7th of October
+at 3pm.
+The team has all your details
+and looks forward to seeing you then.
+That's one booking workflow.
+Integration depends on your setup.
+Agreed scope and initial payment start configuration; we then
+test with your team.
+Activation follows practice approval.
+Book a fifteen-minute Flow Audit walkthrough with the purchasing
+decision-maker.
+We'll discuss requirements, implementation, investment and, if it
+fits, getting started.

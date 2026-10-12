@@ -1,0 +1,19 @@
+{
+  "starting_commit": "d6f1d8c1ea19cdc84d7f0e215199c3499bcccef7",
+  "build": "passed with bundled Node 24.19.0",
+  "lint": "passed",
+  "typescript": "passed",
+  "remotion_typescript": "passed",
+  "remotion_sync": "7 beats; 2700 frames; 0 errors; 0 warnings",
+  "unit_tests": 30,
+  "browser_tests": {
+    "passed": 36,
+    "skipped": 1,
+    "unexpected_failures": 0
+  },
+  "initial_attempts": {
+    "build": "Host Node 26 triggered webpack WasmHash failure; clean build with required Node 24 passed.",
+    "browser": "Default port reused older pre-overview server; stopped run and reran against fresh port 3018."
+  },
+  "human_listening_review": false
+}

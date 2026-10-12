@@ -1,0 +1,11 @@
+docs/
+tests/
+scripts/
+test-results/
+playwright-report/
+__screenshots__/
+*.png
+*.mp4
+!public/**
+.env*
+.git/

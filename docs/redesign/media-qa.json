@@ -1,0 +1,21 @@
+{
+  "status": "finished",
+  "files_checked": 8,
+  "full_decode": "pass",
+  "dimensions": "1080x1920",
+  "fps": 30,
+  "main_seconds": 300,
+  "executive_seconds": 67.5,
+  "teaser_frames": 900,
+  "technical_sample_seconds": 32.56666666666667,
+  "encoded_lufs_range": [
+    -16.42,
+    -16.18
+  ],
+  "encoded_true_peak_max_dbtp": -1.64,
+  "audio_lag_ms": 5,
+  "typecheck": "pass",
+  "sync_locked_beats": "pass",
+  "standalone_scene_renders": 12,
+  "human_listening_viewing_approval": "pending"
+}

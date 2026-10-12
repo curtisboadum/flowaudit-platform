@@ -1,0 +1,465 @@
+[
+  {
+    "url": "https://leftclick.ai/",
+    "status": 200,
+    "title": [
+      "LeftClick AI \u2014 AI Growth Systems by Nick Saraev"
+    ],
+    "headings": [
+      "The definitive AI growth partner for fast-moving B2B companies.",
+      "$10M+ in revenue generated for clients.",
+      "Some of our work.",
+      "Building with AI since 2019.",
+      "We don't just advise. We build.",
+      "And we teach, too.",
+      "From first call to launch.",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 27233
+  },
+  {
+    "url": "https://leftclick.ai/what-is-leftclick.html",
+    "status": 200,
+    "title": [
+      "What Is LeftClick? | LeftClick AI"
+    ],
+    "headings": [
+      "What is LeftClick?",
+      "Not to be confused with",
+      "What LeftClick builds",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13925
+  },
+  {
+    "url": "https://leftclick.ai/services.html",
+    "status": 200,
+    "title": [
+      "Services \u2014 LeftClick AI"
+    ],
+    "headings": [
+      "AI systems across every vertical.",
+      "Proven across verticals.",
+      "Maker School",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 41657
+  },
+  {
+    "url": "https://leftclick.ai/ai-automation.html",
+    "status": 200,
+    "title": [
+      "AI Automation Services | LeftClick AI"
+    ],
+    "headings": [
+      "AI automation.",
+      "What's included",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13167
+  },
+  {
+    "url": "https://leftclick.ai/ai-lead-generation.html",
+    "status": 200,
+    "title": [
+      "AI Lead Generation Services | LeftClick AI"
+    ],
+    "headings": [
+      "AI lead generation.",
+      "What's included",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13153
+  },
+  {
+    "url": "https://leftclick.ai/ai-agents.html",
+    "status": 200,
+    "title": [
+      "Custom AI Agent Development | LeftClick AI"
+    ],
+    "headings": [
+      "Custom AI agents.",
+      "What's included",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13072
+  },
+  {
+    "url": "https://leftclick.ai/crm-sales-automation.html",
+    "status": 200,
+    "title": [
+      "CRM & Sales Automation | LeftClick AI"
+    ],
+    "headings": [
+      "CRM &amp; sales automation.",
+      "What's included",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13115
+  },
+  {
+    "url": "https://leftclick.ai/workshops.html",
+    "status": 200,
+    "title": [
+      "AI Workshops & Training for Teams | LeftClick AI"
+    ],
+    "headings": [
+      "AI workshops &amp; training.",
+      "What's included",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13210
+  },
+  {
+    "url": "https://leftclick.ai/about.html",
+    "status": 200,
+    "title": [
+      "About \u2014 LeftClick AI"
+    ],
+    "headings": [
+      "The people behind your AI systems.",
+      "Building with AI since 2019.",
+      "Our leadership.",
+      "Building, consulting, &amp; training.",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 24180
+  },
+  {
+    "url": "https://leftclick.ai/about-nick-saraev.html",
+    "status": 200,
+    "title": [
+      "Nick Saraev \u2014 Founder of LeftClick AI"
+    ],
+    "headings": [
+      "Nick Saraev &mdash; founder of LeftClick.",
+      "By the numbers",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13702
+  },
+  {
+    "url": "https://leftclick.ai/case-studies.html",
+    "status": 200,
+    "title": [
+      "Case Studies \u2014 Our Work | LeftClick AI"
+    ],
+    "headings": [
+      "Our work.",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 14074
+  },
+  {
+    "url": "https://leftclick.ai/industries.html",
+    "status": 200,
+    "title": [
+      "Industries We Serve | LeftClick AI"
+    ],
+    "headings": [
+      "AI systems for 20+ industries.",
+      "Where we've delivered",
+      "One approach, many verticals",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13778
+  },
+  {
+    "url": "https://leftclick.ai/pricing.html",
+    "status": 200,
+    "title": [
+      "Pricing \u2014 Fixed-Price AI Engagements | LeftClick AI"
+    ],
+    "headings": [
+      "Simple, fixed-price engagements.",
+      "How engagements are priced",
+      "Why fixed price?",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13283
+  },
+  {
+    "url": "https://leftclick.ai/process.html",
+    "status": 200,
+    "title": [
+      "Our Process \u2014 From First Call to Launch | LeftClick AI"
+    ],
+    "headings": [
+      "From first call to launch.",
+      "How we work",
+      "What you can expect",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13514
+  },
+  {
+    "url": "https://leftclick.ai/faq.html",
+    "status": 200,
+    "title": [
+      "FAQ \u2014 Frequently Asked Questions | LeftClick AI"
+    ],
+    "headings": [
+      "Frequently asked questions",
+      "",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 17123
+  },
+  {
+    "url": "https://leftclick.ai/reviews.html",
+    "status": 200,
+    "title": [
+      "Results & Reviews | LeftClick AI"
+    ],
+    "headings": [
+      "Results &amp; reviews.",
+      "Documented outcomes",
+      "Where to review us",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13447
+  },
+  {
+    "url": "https://leftclick.ai/press.html",
+    "status": 200,
+    "title": [
+      "Press & Media | LeftClick AI"
+    ],
+    "headings": [
+      "Press &amp; media.",
+      "Track record",
+      "Media inquiries",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13139
+  },
+  {
+    "url": "https://leftclick.ai/careers.html",
+    "status": 200,
+    "title": [
+      "Careers at LeftClick AI"
+    ],
+    "headings": [
+      "Work with us.",
+      "Who we look for",
+      "Interested?",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 13546
+  },
+  {
+    "url": "https://leftclick.ai/contact.html",
+    "status": 200,
+    "title": [
+      "Contact LeftClick AI"
+    ],
+    "headings": [
+      "Let's talk.",
+      "Ready to scale with AI?"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "interactions.js"
+    ],
+    "bytes": 12706
+  },
+  {
+    "url": "https://leftclick.ai/privacy.html",
+    "status": 200,
+    "title": [
+      "Privacy Policy \u2014 LeftClick AI"
+    ],
+    "headings": [
+      "Privacy Policy",
+      "1. Introduction",
+      "2. Information We Collect",
+      "3. How We Use Your Information",
+      "4. Sharing of Information",
+      "5. Cookies",
+      "6. Data Security",
+      "7. Data Retention",
+      "8. Your Rights",
+      "9. Changes to This Policy",
+      "10. Contact"
+    ],
+    "formCount": 0,
+    "scripts": [],
+    "bytes": 10658
+  },
+  {
+    "url": "https://leftclick.ai/terms.html",
+    "status": 200,
+    "title": [
+      "Terms of Service \u2014 LeftClick AI"
+    ],
+    "headings": [
+      "Terms of Service",
+      "1. Agreement to Terms",
+      "2. Services",
+      "3. Client Obligations",
+      "4. Intellectual Property",
+      "5. Payment Terms",
+      "6. Confidentiality",
+      "7. Limitation of Liability",
+      "8. Termination",
+      "9. Governing Law",
+      "10. Changes to Terms",
+      "11. Contact"
+    ],
+    "formCount": 0,
+    "scripts": [],
+    "bytes": 10687
+  },
+  {
+    "url": "https://leftclick.ai/case-studies/1secondcopy.html",
+    "status": 200,
+    "title": [
+      "1SecondCopy Case Study \u2014 LeftClick AI",
+      "1SecondCopy \u2014 LeftClick AI"
+    ],
+    "headings": [
+      "1SecondCopy"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "../interactions.js"
+    ],
+    "bytes": 12789
+  },
+  {
+    "url": "https://leftclick.ai/case-studies/altercall.html",
+    "status": 200,
+    "title": [
+      "AlterCall Case Study \u2014 LeftClick AI",
+      "AlterCall \u2014 LeftClick AI"
+    ],
+    "headings": [
+      "AlterCall"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "../interactions.js"
+    ],
+    "bytes": 12344
+  },
+  {
+    "url": "https://leftclick.ai/case-studies/dads-printing.html",
+    "status": 200,
+    "title": [
+      "Dad's Printing Case Study \u2014 LeftClick AI",
+      "Dad's Printing \u2014 LeftClick AI"
+    ],
+    "headings": [
+      "Dad's Printing"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "../interactions.js"
+    ],
+    "bytes": 12610
+  },
+  {
+    "url": "https://leftclick.ai/case-studies/dental-media-corp.html",
+    "status": 200,
+    "title": [
+      "Dental Media Corp Case Study \u2014 LeftClick AI",
+      "Dental Media Corp \u2014 LeftClick AI"
+    ],
+    "headings": [
+      "Dental Media Corp"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "../interactions.js"
+    ],
+    "bytes": 12782
+  },
+  {
+    "url": "https://leftclick.ai/case-studies/xwecan.html",
+    "status": 200,
+    "title": [
+      "XWECAN Case Study \u2014 LeftClick AI",
+      "XWECAN \u2014 LeftClick AI"
+    ],
+    "headings": [
+      "XWECAN"
+    ],
+    "formCount": 0,
+    "scripts": [
+      "../interactions.js"
+    ],
+    "bytes": 12607
+  }
+]

@@ -1,0 +1,281 @@
+{
+  "segments": [
+    {
+      "id": "E01",
+      "from": 0,
+      "duration": 182,
+      "voiceFrom": 0.0,
+      "audioFile": "audio/overview/editorial/E01-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 4.89,
+      "text": "Your receptionist is helping a patient. The phone rings. Later, the practice closes. Someone else calls.",
+      "kind": "hook"
+    },
+    {
+      "id": "E02",
+      "from": 182,
+      "duration": 167,
+      "voiceFrom": 6.066666666666666,
+      "audioFile": "audio/overview/editorial/E02-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 4.026917,
+      "text": "Your team can\u2019t be in two places at once. But the caller still needs a next step.",
+      "kind": "hook"
+    },
+    {
+      "id": "E03",
+      "from": 349,
+      "duration": 157,
+      "voiceFrom": 11.633333333333333,
+      "audioFile": "audio/overview/editorial/E03-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 4.703,
+      "text": "FlowAudit builds AI phone agents that support staff through agreed workflows.",
+      "kind": "route"
+    },
+    {
+      "id": "E04",
+      "from": 506,
+      "duration": 146,
+      "voiceFrom": 16.866666666666667,
+      "audioFile": "audio/overview/editorial/E04-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 4.24,
+      "text": "You agree which calls and appointments it handles, and when a person steps in.",
+      "kind": "route"
+    },
+    {
+      "id": "E05",
+      "from": 652,
+      "duration": 64,
+      "voiceFrom": 21.733333333333334,
+      "audioFile": "audio/overview/editorial/E05-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 1.922625,
+      "text": "Here\u2019s a recorded new-patient enquiry.",
+      "kind": "evidence"
+    },
+    {
+      "id": "D01",
+      "from": 716,
+      "duration": 608,
+      "voiceFrom": 23.866666666666667,
+      "audioFile": "audio/RoutineDemonstration.m4a",
+      "audioStart": 9.24,
+      "audioDuration": 20.159999999999997,
+      "text": "",
+      "kind": "evidence"
+    },
+    {
+      "id": "D02",
+      "from": 1324,
+      "duration": 285,
+      "voiceFrom": 44.13333333333333,
+      "audioFile": "audio/RoutineDemonstration.m4a",
+      "audioStart": 42.7,
+      "audioDuration": 9.299999999999997,
+      "text": "",
+      "kind": "evidence"
+    },
+    {
+      "id": "E06",
+      "from": 1609,
+      "duration": 64,
+      "voiceFrom": 53.63333333333333,
+      "audioFile": "audio/overview/editorial/E06-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 1.928333,
+      "text": "And here\u2019s the booking in Google Calendar.",
+      "kind": "calendar"
+    },
+    {
+      "id": "D03",
+      "from": 1673,
+      "duration": 228,
+      "voiceFrom": 55.766666666666666,
+      "audioFile": "audio/RoutineDemonstration.m4a",
+      "audioStart": 75.75,
+      "audioDuration": 6.799999999999997,
+      "text": "",
+      "kind": "calendar"
+    },
+    {
+      "id": "E07",
+      "from": 1901,
+      "duration": 188,
+      "voiceFrom": 63.36666666666667,
+      "audioFile": "audio/overview/editorial/E07-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 5.458667,
+      "text": "A clear next step for the caller. Support for your team when the desk is busy, or the practice is closed.",
+      "kind": "return"
+    },
+    {
+      "id": "E08",
+      "from": 2089,
+      "duration": 291,
+      "voiceFrom": 69.63333333333334,
+      "audioFile": "audio/overview/editorial/E08-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 8.870708,
+      "text": "We assess your scheduling, phone forwarding and patient-data requirements. Then configure and test the agreed workflow with your team. Activation follows your approval.",
+      "kind": "approval"
+    },
+    {
+      "id": "E09",
+      "from": 2380,
+      "duration": 320,
+      "voiceFrom": 79.33333333333333,
+      "audioFile": "audio/overview/editorial/E09-edit.wav",
+      "audioStart": 0,
+      "audioDuration": 8.642083,
+      "text": "Book a fifteen-minute demo and fit assessment. Bring the person who approves the purchase. We\u2019ll look at your call workflows and see whether FlowAudit fits.",
+      "kind": "cta"
+    }
+  ],
+  "shots": [
+    {
+      "id": "opening",
+      "from": 0,
+      "duration": 349,
+      "visual": {
+        "kind": "hook",
+        "duration": 349,
+        "eventFrames": [
+          82,
+          249
+        ],
+        "transferFrames": 52
+      }
+    },
+    {
+      "id": "workflow",
+      "from": 349,
+      "duration": 303,
+      "visual": {
+        "kind": "route",
+        "duration": 303,
+        "eventFrames": [
+          157,
+          254
+        ],
+        "callTravelFrames": 100
+      }
+    },
+    {
+      "id": "E05",
+      "from": 652,
+      "duration": 64,
+      "visual": {
+        "kind": "evidence",
+        "duration": 64,
+        "sourceMode": "call",
+        "sourceFrom": 9.24,
+        "label": "",
+        "eventFrames": []
+      }
+    },
+    {
+      "id": "D01",
+      "from": 716,
+      "duration": 608,
+      "visual": {
+        "kind": "evidence",
+        "duration": 608,
+        "sourceMode": "call",
+        "sourceFrom": 9.24,
+        "label": "",
+        "eventFrames": [
+          281,
+          528
+        ]
+      }
+    },
+    {
+      "id": "D02",
+      "from": 1324,
+      "duration": 285,
+      "visual": {
+        "kind": "evidence",
+        "duration": 285,
+        "sourceMode": "call",
+        "sourceFrom": 42.7,
+        "label": "",
+        "eventFrames": [
+          77,
+          146,
+          243
+        ]
+      }
+    },
+    {
+      "id": "E06",
+      "from": 1609,
+      "duration": 64,
+      "visual": {
+        "kind": "evidence",
+        "duration": 64,
+        "sourceMode": "calendar",
+        "sourceFrom": 9.24,
+        "label": "",
+        "eventFrames": []
+      }
+    },
+    {
+      "id": "D03",
+      "from": 1673,
+      "duration": 228,
+      "visual": {
+        "kind": "evidence",
+        "duration": 228,
+        "sourceMode": "calendar",
+        "sourceFrom": 75.75,
+        "label": "",
+        "eventFrames": []
+      }
+    },
+    {
+      "id": "resolution",
+      "from": 1901,
+      "duration": 188,
+      "visual": {
+        "kind": "return",
+        "duration": 188,
+        "eventFrames": [
+          116,
+          0
+        ],
+        "transferFrames": 90
+      }
+    },
+    {
+      "id": "approval",
+      "from": 2089,
+      "duration": 291,
+      "visual": {
+        "kind": "approval",
+        "duration": 291,
+        "eventFrames": [
+          117,
+          216
+        ],
+        "callTravelFrames": 90
+      }
+    },
+    {
+      "id": "invitation",
+      "from": 2380,
+      "duration": 320,
+      "visual": {
+        "kind": "cta",
+        "duration": 320,
+        "eventFrames": [],
+        "callTravelFrames": 80
+      }
+    }
+  ],
+  "speech_speed": 1.0,
+  "no_time_stretch": true,
+  "reading_hold_frames": 60,
+  "source_gaps_retained": true
+}

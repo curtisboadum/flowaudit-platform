@@ -1,0 +1,222 @@
+{
+  "asr_differences": [
+    {
+      "operation": "replace",
+      "script": "enquiry",
+      "asr": "inquiry"
+    },
+    {
+      "operation": "replace",
+      "script": "enquiry,",
+      "asr": "inquiry,"
+    },
+    {
+      "operation": "replace",
+      "script": "results.",
+      "asr": "result."
+    },
+    {
+      "operation": "replace",
+      "script": "X-ray",
+      "asr": "x -ray"
+    },
+    {
+      "operation": "replace",
+      "script": "Missed",
+      "asr": "Mist"
+    },
+    {
+      "operation": "replace",
+      "script": "patients.",
+      "asr": "patient."
+    },
+    {
+      "operation": "replace",
+      "script": "patient-data",
+      "asr": "patient data"
+    },
+    {
+      "operation": "replace",
+      "script": "practice-approved",
+      "asr": "practice approved"
+    },
+    {
+      "operation": "replace",
+      "script": "human-handoff",
+      "asr": "human handoff"
+    },
+    {
+      "operation": "replace",
+      "script": "15-minute",
+      "asr": "15 -minute"
+    },
+    {
+      "operation": "replace",
+      "script": "decision-maker.",
+      "asr": "decision maker."
+    }
+  ],
+  "cues": [
+    {
+      "from": 0,
+      "to": 106,
+      "text": "When your dental front desk is busy or closed, an"
+    },
+    {
+      "from": 106,
+      "to": 191,
+      "text": "appointment enquiry can end before anyone helps."
+    },
+    {
+      "from": 226,
+      "to": 325,
+      "text": "Flow Audit is an AI phone agent supporting your team"
+    },
+    {
+      "from": 325,
+      "to": 356,
+      "text": "through agreed workflows."
+    },
+    {
+      "from": 378,
+      "to": 436,
+      "text": "The separate recording below shows an enquiry,"
+    },
+    {
+      "from": 458,
+      "to": 539,
+      "text": "available times and a Google Calendar booking, with"
+    },
+    {
+      "from": 539,
+      "to": 586,
+      "text": "privacy beeps and edited labels."
+    },
+    {
+      "from": 610,
+      "to": 640,
+      "text": "It's demonstration evidence,"
+    },
+    {
+      "from": 661,
+      "to": 691,
+      "text": "not customer results."
+    },
+    {
+      "from": 711,
+      "to": 806,
+      "text": "Published US exam, cleaning and X-ray costs range from"
+    },
+    {
+      "from": 806,
+      "to": 859,
+      "text": "$50 to $350."
+    },
+    {
+      "from": 859,
+      "to": 959,
+      "text": "That's a fee benchmark, not a revenue forecast."
+    },
+    {
+      "from": 979,
+      "to": 1043,
+      "text": "Use your own attendance, collections and costs."
+    },
+    {
+      "from": 1063,
+      "to": 1124,
+      "text": "Missed calls aren't automatically lost patients."
+    },
+    {
+      "from": 1141,
+      "to": 1199,
+      "text": "Your scheduling system, appointment types and"
+    },
+    {
+      "from": 1199,
+      "to": 1233,
+      "text": "forwarding need checking."
+    },
+    {
+      "from": 1246,
+      "to": 1335,
+      "text": "Compatibility, patient-data and security requirements"
+    },
+    {
+      "from": 1335,
+      "to": 1391,
+      "text": "must be resolved before proceeding."
+    },
+    {
+      "from": 1507,
+      "to": 1592,
+      "text": "Urgent calls follow practice-approved escalation and"
+    },
+    {
+      "from": 1592,
+      "to": 1620,
+      "text": "human-handoff rules."
+    },
+    {
+      "from": 1620,
+      "to": 1720,
+      "text": "The recorded question doesn't establish validated"
+    },
+    {
+      "from": 1720,
+      "to": 1804,
+      "text": "clinical triage or a completed emergency handoff."
+    },
+    {
+      "from": 1819,
+      "to": 1877,
+      "text": "Clinical judgment stays with your team."
+    },
+    {
+      "from": 1917,
+      "to": 1970,
+      "text": "Agree scope and investment first."
+    },
+    {
+      "from": 1988,
+      "to": 2056,
+      "text": "Agreement and initial payment start configuration,"
+    },
+    {
+      "from": 2084,
+      "to": 2128,
+      "text": "followed by testing with your team."
+    },
+    {
+      "from": 2146,
+      "to": 2212,
+      "text": "Practice approval comes before activation."
+    },
+    {
+      "from": 2301,
+      "to": 2389,
+      "text": "Book a 15-minute demo and fit assessment."
+    },
+    {
+      "from": 2389,
+      "to": 2458,
+      "text": "Bring your purchasing decision-maker."
+    },
+    {
+      "from": 2477,
+      "to": 2537,
+      "text": "Groups should include relevant approvers."
+    },
+    {
+      "from": 2555,
+      "to": 2638,
+      "text": "We'll discuss requirements, investment and the next"
+    },
+    {
+      "from": 2638,
+      "to": 2668,
+      "text": "decision."
+    }
+  ],
+  "method": "ASR word timing aligned to supplied narration text; differences require audio review, not assumed errors in ASR."
+}

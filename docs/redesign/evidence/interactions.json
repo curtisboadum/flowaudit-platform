@@ -1,0 +1,34 @@
+[
+  {
+    "check": "Cal embed",
+    "frameCount": 1,
+    "frameSrc": "https://app.cal.com/curtis-salesos/flowaudit-call/embed?layout=month_view&useSlotsViewOnSmallScreen=true&theme=light&metadata%5Bservice%5D=phone-agent&notes=Service%3A+phone-agent%0ABusiness%3A+FlowAudit+QA%0AWebsite%3A+%0ARole%3A+Owner+%2F+partner%0APriority%3A+Review+booking+setup%0ALocations%3A+%3B+call+volume%3A+&metadata%5Bref%5D=fa-sdr-qa&utm_source=qa&embedType=inline&embed=flowaudit-call",
+    "fallback": "https://cal.com/curtis-salesos/flowaudit-call?metadata%5Bservice%5D=phone-agent&notes=Service%3A+phone-agent%0ABusiness%3A+FlowAudit+QA%0AWebsite%3A+%0ARole%3A+Owner+%2F+partner%0APriority%3A+Review+booking+setup%0ALocations%3A+%3B+call+volume%3A+&metadata%5Bref%5D=fa-sdr-qa&utm_source=qa"
+  },
+  {
+    "check": "Keyboard media tabs",
+    "selected": "Executive overview\n1:08"
+  },
+  {
+    "check": "Consent enables events",
+    "requests": 1
+  },
+  {
+    "check": "Spanish language",
+    "lang": "es",
+    "headline": "Atiende las llamadas.\nConecta el trabajo.\nMantén el control."
+  },
+  {
+    "check": "Mobile menu open",
+    "expanded": "true"
+  },
+  {
+    "check": "Mobile menu Escape",
+    "expanded": "false"
+  },
+  {
+    "check": "200% zoom equivalent at 1440px",
+    "overflow": false,
+    "violations": []
+  }
+]

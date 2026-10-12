@@ -4,9 +4,23 @@ const revenueRecoveryDestination = "https://revenue-recovery-web-ivory.vercel.ap
 const revenueRecoveryProxyVersion = "20260702-google-reviewer-flow";
 
 const nextConfig: NextConfig = {
+  htmlLimitedBots: /.*/,
+  outputFileTracingRoot: process.cwd(),
   /* typedRoutes requires a build to generate route types - disabled for marketing site */
   async headers() {
     return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          {
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'self'; object-src 'none'; base-uri 'self'",
+          },
+        ],
+      },
       {
         source: "/revenue-recovery/:path*",
         headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }],

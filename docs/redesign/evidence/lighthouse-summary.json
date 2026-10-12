@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/",
+    "scores": {
+      "performance": 95,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": "2.9 s",
+      "cumulative-layout-shift": "0",
+      "total-blocking-time": "10 ms"
+    }
+  },
+  {
+    "path": "/phone-agent",
+    "scores": {
+      "performance": 93,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": "3.2 s",
+      "cumulative-layout-shift": "0",
+      "total-blocking-time": "0 ms"
+    }
+  },
+  {
+    "path": "/book?service=phone-agent",
+    "scores": {
+      "performance": 97,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": "2.6 s",
+      "cumulative-layout-shift": "0",
+      "total-blocking-time": "0 ms"
+    }
+  }
+]

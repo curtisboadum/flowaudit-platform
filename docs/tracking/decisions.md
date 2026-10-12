@@ -179,6 +179,27 @@
 
 ---
 
+## ADR-010: cal.com for Public Booking
+
+**Date:** 2026-10-07
+**Status:** Accepted
+**Context:** Public booking ran on a Google Calendar appointment schedule (Google Meet links), which could not be branded for FlowAudit or embedded inline. Needed a branded booking surface with controlled availability, buffers, and an inline embed, without touching the outreach booking link, on a free plan.
+**Decision:** Use cal.com as the single public booking surface: event `curtis-salesos/flowaudit-call` (FlowAudit Call, 15 min, Cal Video), embedded inline via the official embed.js on `/book` and `/revenue-recovery/book`.
+**Rationale:**
+
+- Branded booking page (FlowAudit display name, avatar, brand color); Cal Video built in
+- Per-event availability schedule (Mon-Fri 14:00-19:00 Europe/London), buffers, minimum notice, rolling booking window
+- Official inline embed, light theme, month view, per-page brand color, fallback link
+- Outreach 15-min event and the account default schedule left untouched
+
+**Consequences:**
+
+- Free plan gates some features (global daily booking cap is organization-only; buffers bound the day instead); upgrade path exists if needed
+- Booking depends on cal.com and its embed script (fallback link provided)
+- Legacy Google appointment schedule remains online until retired; the separate `cal.com/flowaudit` account remains unused
+
+---
+
 ## ADR Template
 
 ```markdown

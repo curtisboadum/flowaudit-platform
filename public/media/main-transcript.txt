@@ -1,0 +1,118 @@
+When a patient calls your practice, your team may
+already be helping someone at the desk, taking another
+call, or finishing for the evening.
+The patient still needs an answer.
+And an appointment inquiry can end before anyone has
+had a useful conversation.
+Flow Audit is an AI phone agent configured around
+your practice.
+In the recorded demonstration you'll see, it handles an
+appointment inquiry, offers available times, and creates a
+booking in a connected calendar.
+It supports your front desk with agreed call workflows
+and human handoffs.
+If that could help your practice, book a fifteen-minute
+walkthrough.
+We'll discuss your requirements, the investment, and whether
+you're ready to move forward.
+Start with your own call records.
+What happens during busy periods, at lunch, and after
+closing?
+How many callers are reached later, how many book,
+and how many attend?
+Those are different measures.
+A missed call is not automatically a lost patient.
+For illustration only, suppose five additional appointments were
+attended, each with an assumed gross value of one
+hundred and fifty dollars.
+That's seven hundred and fifty dollars in gross appointment
+value, before costs.
+These are hypothetical inputs, not Flow Audit's results or
+a forecast.
+Actual revenue depends on attendance, treatment, collection and
+your practice's circumstances.
+Use your own figures to judge the opportunity.
+Here's a recorded demonstration using Google Calendar.
+A new patient wants to register and arrange a
+checkup.
+Listen as the agent clarifies the request, offers appointment
+times, and confirms the selected booking.
+This recording includes short privacy beeps and edited
+demonstration labels.
+[Phone ringing]
+Thanks for
+[Privacy beep]
+I'm Liv, how can I help?
+Hiya, I just wanted to ring in and book an appointment.
+Thanks, can you please tell me
+if this is for you or someone else?
+It's for me, I'm new in the area,
+I want to register with the dentist
+and then get checked up as well.
+Got it, are you looking for
+a new patient check-up appointment?
+Also, do you have a day or time that suits you best?
+Ideally today, if we could do later on today,
+that'd be great and yeah,
+this would be a new patient check-up.
+The first available appointment this afternoon
+is at 2.30 or three in the afternoon or 3.30.
+Which one works for you?
+Can we do three o'clock?
+Thanks, may I have your full name
+and the best phone number to reach you on please?
+Yeah, my name is Tristan Adams
+and the best number to reach me on is this one.
+[Contact detail privacy beep]
+[Contact detail privacy beep]
+Your new patient check-up appointment
+is booked for Wednesday, the 7th of October
+at 3pm.
+The team has all your details
+and looks forward to seeing you then.
+Is there anything else I can help with?
+No, that would be all. Thank you. Bye-bye.
+You can see the appointment in the calendar and
+the recorded request.
+That's the workflow this example demonstrates.
+Your scheduling system, appointment types and forwarding
+arrangements still need checking.
+Compatibility is assessed and tested for your practice; it
+isn't a promise that every system connects.
+Some calls need different rules.
+In this second recorded example, the agent asks about
+warning signs, and the caller answers.
+Is your son experiencing any swelling,
+uncontrolled bleeding, trauma,
+or trouble breathing or swallowing?
+No, none of that.
+Just that he's complaining about his toothache,
+it’s causing him a headache and things of that nature.
+I just wanna get him checked out
+and make sure it's nothing too serious.
+That question is not evidence of a clinically validated
+triage service or a completed emergency handoff.
+Your practice approves escalation instructions and human handoffs
+before activation.
+The agent supports your team within agreed rules; it
+doesn't replace clinical judgment.
+Privacy, patient-data and security requirements must also be
+resolved for your setup.
+We confirm a deliverable scope, explain the investment and
+agree the implementation requirements.
+If those are clear and you're ready to proceed,
+an agreement and initial payment start configuration.
+We then configure the workflow, test it with your
+team, and activate forwarding only after your approval.
+Unresolved compatibility or review requirements are conditions to
+settle before proceeding.
+Book your fifteen-minute Flow Audit walkthrough.
+Bring the practice owner or someone authorized to purchase.
+You'll already have seen the demonstration, so the call
+focuses on your practice: the relevant workflow, requirements,
+scope and investment.
+If it's the right fit, we'll discuss getting your
+configuration started.
+For a larger group, we can identify the approvals
+and next decision needed.
+Book your walkthrough below.

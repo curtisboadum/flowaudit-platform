@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  useCallback,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
 import type { Locale } from "@/lib/i18n";
 import { getLocaleFromCookie, setLocaleCookie, getTranslations } from "@/lib/i18n";
 import type { Translations } from "@/lib/translations/en";
@@ -28,20 +21,23 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("en");
 
   useEffect(() => {
-    setLocaleState(getLocaleFromCookie());
+    const requested = new URLSearchParams(window.location.search).get("lang");
+    const chosen = requested === "en" || requested === "es" ? requested : getLocaleFromCookie();
+    if (requested === "en" || requested === "es") setLocaleCookie(chosen);
+    setLocaleState(chosen);
+    document.documentElement.lang = chosen;
   }, []);
 
   const setLocale = useCallback((newLocale: Locale) => {
     setLocaleCookie(newLocale);
     setLocaleState(newLocale);
+    document.documentElement.lang = newLocale;
   }, []);
 
   const t = getTranslations(locale);
 
   return (
-    <LocaleContext.Provider value={{ locale, t, setLocale }}>
-      {children}
-    </LocaleContext.Provider>
+    <LocaleContext.Provider value={{ locale, t, setLocale }}>{children}</LocaleContext.Provider>
   );
 }
 

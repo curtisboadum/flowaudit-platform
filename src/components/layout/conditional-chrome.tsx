@@ -23,6 +23,10 @@ export function ConditionalSiteFooter() {
 
 export function ConditionalChatWidget() {
   const pathname = usePathname();
-  if (isCrmPath(pathname)) return null;
+  if (
+    isCrmPath(pathname) ||
+    ["/book", "/phone-agent", "/demos", "/revenue-recovery/book"].includes(pathname)
+  )
+    return null;
   return <ChatWidget />;
 }

@@ -4,6 +4,24 @@ Patterns discovered, solutions to problems, and general learnings during develop
 
 ---
 
+## 2026-10-07, Video Revision 3 + cal.com Migration
+
+### cal.com Embed Needs the Queue Proxy Before embed.js Loads
+
+- The official embed.js does not create `window.Cal` by itself: the loader queue proxy must exist first, because `init`/`inline`/`ui` instructions queue onto it and the script drains them on load
+- Port the proxy semantics faithfully (namespace api + `initNamespace` queuing) or the embed fails silently with no iframe
+
+### Kinetic Captions Defeat Sequence Searches
+
+- A phone number rendered one digit at a time is invisible to OCR greps for full sequences; sweep the caption-band region for isolated digit tokens instead
+- Lock mask windows with 30 fps boundary audits plus exact-frame source-vs-deliverable comparisons, not 2 fps spot checks
+
+### cal.com Free-Plan Gating
+
+- Global daily booking caps are gated to organizations with 15+ members; on the free plan the per-event buffers are the practical bound (15/15 buffers ≈ 6 bookings in a 5-hour window)
+
+---
+
 ## 2026-02-15, Session 8: Rebrand, Trades Copy, Gulf Currencies
 
 ### GITHUB_TOKEN= Workaround Confirmed

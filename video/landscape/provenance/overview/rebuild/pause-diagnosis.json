@@ -1,0 +1,385 @@
+{
+  "baseline": {
+    "O04_take_end": 46.72,
+    "O05_take_start": 50,
+    "O04_to_O05_intertake_gap_seconds": 3.28,
+    "O06_take_end": 74.08,
+    "O07_take_start": 77,
+    "O06_to_O07_intertake_gap_seconds": 2.92,
+    "O07_detected_pause": [
+      78.669125,
+      78.918625
+    ]
+  },
+  "method": "ffprobe take durations + timeline voiceFrom; ffmpeg silencedetect and independent source/demo word ASR. Actual speech boundaries differ from whole-take ends.",
+  "revised_silence_edits": {
+    "R01": {
+      "raw_duration": 7.28,
+      "edited_duration": 6.940333,
+      "silence_intervals": [
+        [
+          0.0,
+          0.103292
+        ],
+        [
+          1.821333,
+          2.388333
+        ],
+        [
+          4.351417,
+          4.556042
+        ],
+        [
+          5.424792,
+          5.664125
+        ],
+        [
+          7.110625,
+          7.28
+        ]
+      ],
+      "removed_silence": [
+        [
+          0,
+          0.043292
+        ],
+        [
+          1.971333,
+          2.238333
+        ],
+        [
+          7.250624999999999,
+          7.28
+        ]
+      ],
+      "asr_differences": []
+    },
+    "R02": {
+      "raw_duration": 4.0,
+      "edited_duration": 3.669792,
+      "silence_intervals": [
+        [
+          0.0,
+          0.390208
+        ],
+        [
+          2.014042,
+          2.47975
+        ]
+      ],
+      "removed_silence": [
+        [
+          0,
+          0.330208
+        ]
+      ],
+      "asr_differences": []
+    },
+    "R03": {
+      "raw_duration": 5.28,
+      "edited_duration": 4.91025,
+      "silence_intervals": [
+        [
+          0.0,
+          0.390583
+        ],
+        [
+          1.419333,
+          1.516667
+        ],
+        [
+          2.587125,
+          2.844542
+        ],
+        [
+          3.820458,
+          4.037042
+        ],
+        [
+          5.100833,
+          5.28
+        ]
+      ],
+      "removed_silence": [
+        [
+          0,
+          0.330583
+        ],
+        [
+          5.240832999999999,
+          5.28
+        ]
+      ],
+      "asr_differences": [
+        {
+          "expected": "FlowAudit",
+          "asr": "Flow Audit"
+        }
+      ]
+    },
+    "R04": {
+      "raw_duration": 5.600042,
+      "edited_duration": 5.513458,
+      "silence_intervals": [
+        [
+          0.0,
+          0.146583
+        ],
+        [
+          1.767833,
+          2.073583
+        ],
+        [
+          3.64975,
+          4.0225
+        ],
+        [
+          5.476208,
+          5.600042
+        ]
+      ],
+      "removed_silence": [
+        [
+          0,
+          0.086583
+        ]
+      ],
+      "asr_differences": []
+    },
+    "R05": {
+      "raw_duration": 5.76,
+      "edited_duration": 5.439292,
+      "silence_intervals": [
+        [
+          0.0,
+          0.111458
+        ],
+        [
+          1.302417,
+          1.566667
+        ],
+        [
+          3.420167,
+          3.989417
+        ]
+      ],
+      "removed_silence": [
+        [
+          0,
+          0.051458000000000004
+        ],
+        [
+          3.570167,
+          3.839417
+        ]
+      ],
+      "asr_differences": []
+    },
+    "R06": {
+      "raw_duration": 4.48,
+      "edited_duration": 4.115542,
+      "silence_intervals": [
+        [
+          0.0,
+          0.424458
+        ],
+        [
+          1.706292,
+          1.791625
+        ],
+        [
+          1.821,
+          2.294042
+        ],
+        [
+          3.293583,
+          3.436333
+        ],
+        [
+          4.372875,
+          4.48
+        ]
+      ],
+      "removed_silence": [
+        [
+          0,
+          0.364458
+        ]
+      ],
+      "asr_differences": [
+        {
+          "expected": "o\u2019clock.",
+          "asr": "o 'clock"
+        }
+      ]
+    },
+    "R07": {
+      "raw_duration": 9.12,
+      "edited_duration": 8.947083,
+      "silence_intervals": [
+        [
+          0.0,
+          0.174208
+        ],
+        [
+          1.555708,
+          1.760958
+        ],
+        [
+          3.633917,
+          4.112167
+        ],
+        [
+          6.277792,
+          6.5565
+        ],
+        [
+          8.921292,
+          9.12
+        ]
+      ],
+      "removed_silence": [
+        [
+          0,
+          0.114208
+        ],
+        [
+          9.061292,
+          9.12
+        ]
+      ],
+      "asr_differences": []
+    },
+    "R08": {
+      "raw_duration": 15.28,
+      "edited_duration": 14.944083,
+      "silence_intervals": [
+        [
+          0.0,
+          0.395917
+        ],
+        [
+          1.023583,
+          1.416042
+        ],
+        [
+          2.41425,
+          2.617792
+        ],
+        [
+          4.342292,
+          4.8385
+        ],
+        [
+          6.48175,
+          6.943167
+        ],
+        [
+          8.443083,
+          8.79675
+        ],
+        [
+          11.415125,
+          11.80525
+        ],
+        [
+          13.2735,
+          13.712917
+        ],
+        [
+          15.1955,
+          15.28
+        ]
+      ],
+      "removed_silence": [
+        [
+          0,
+          0.335917
+        ]
+      ],
+      "asr_differences": [
+        {
+          "expected": "patient-data",
+          "asr": "patient data"
+        }
+      ]
+    },
+    "R09": {
+      "raw_duration": 9.2,
+      "edited_duration": 8.514,
+      "silence_intervals": [
+        [
+          0.0,
+          0.500792
+        ],
+        [
+          1.479042,
+          1.561125
+        ],
+        [
+          1.947875,
+          2.027958
+        ],
+        [
+          2.974,
+          3.519208
+        ],
+        [
+          5.476458,
+          5.877667
+        ]
+      ],
+      "removed_silence": [
+        [
+          0,
+          0.440792
+        ],
+        [
+          3.124,
+          3.369208
+        ]
+      ],
+      "asr_differences": [
+        {
+          "expected": "fifteen-minute",
+          "asr": "15 -minute"
+        }
+      ]
+    },
+    "R10": {
+      "raw_duration": 6.24,
+      "edited_duration": 5.641375,
+      "silence_intervals": [
+        [
+          0.0,
+          0.363792
+        ],
+        [
+          1.874583,
+          2.220208
+        ],
+        [
+          3.71625,
+          4.087417
+        ],
+        [
+          5.805167,
+          6.24
+        ]
+      ],
+      "removed_silence": [
+        [
+          0,
+          0.303792
+        ],
+        [
+          5.945167,
+          6.24
+        ]
+      ],
+      "asr_differences": []
+    }
+  },
+  "source_caption_finding": "Original routine VTT runs late relative to independent word ASR; revised overview excerpt boundaries and captions use the actual audio, preserve full opening words and stop at sentence boundaries. Original routine film/VTT remain unchanged.",
+  "listening_approval": false
+}

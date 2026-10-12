@@ -1,0 +1,2648 @@
+{
+  "text": " Your receptionist is helping a patient. The phone rings later the practice closes. Someone else calls what happens to those inquiries. Watch how a call can reach a booking while your team stays in control. Flow audit builds AI phone agents that support your team through agreed workflows. You agree when calls are forwarded, which appointments the agent can handle and when a person needs to step in. Here's a recorded demo. A new patient asks for a checkup. Hi, I just wanted to ring in and book an appointment. The agent offers available times. The first available appointment this afternoon is at 2.30 or 3 in the afternoon or 3.30. Which one works for you? Can we do 3 o'clock? The caller chooses 3 o'clock and here is the booking in Google Calendar. Your new patient checkup appointment is booked for Wednesday, the 7th of October at 3 in the afternoon. That's the workflow to assess. Give routine inquiries a clear next step during busy periods and after hours without pulling your team away from the patient in front of them. Start with your own call records, which inquiries need a reply and which can your team already handle. Before set up, we check your scheduling, forwarding and patient data requirements. Clinical judgment stays with your team. You agree scope and investment. Agreement and initial payment start configuration followed by testing with your team. Activation follows your approval. Book a 15-minute demo and fit assessment. Bring the person who approves the purchase. We'll look at your call workflows and decide whether there's a useful fit.",
+  "segments": [
+    {
+      "id": 0,
+      "seek": 0,
+      "start": 0.0,
+      "end": 1.58,
+      "text": " Your receptionist is helping a patient.",
+      "tokens": [
+        50363,
+        3406,
+        16307,
+        396,
+        318,
+        5742,
+        257,
+        5827,
+        13,
+        50465
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " Your",
+          "start": 0.0,
+          "end": 0.14,
+          "probability": 0.890562891960144
+        },
+        {
+          "word": " receptionist",
+          "start": 0.14,
+          "end": 0.78,
+          "probability": 0.9979463219642639
+        },
+        {
+          "word": " is",
+          "start": 0.78,
+          "end": 0.88,
+          "probability": 0.9983162879943848
+        },
+        {
+          "word": " helping",
+          "start": 0.88,
+          "end": 1.1,
+          "probability": 0.9991402626037598
+        },
+        {
+          "word": " a",
+          "start": 1.1,
+          "end": 1.28,
+          "probability": 0.9965816140174866
+        },
+        {
+          "word": " patient.",
+          "start": 1.28,
+          "end": 1.58,
+          "probability": 0.9995734095573425
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "seek": 0,
+      "start": 2.06,
+      "end": 3.7,
+      "text": " The phone rings later the practice closes.",
+      "tokens": [
+        50465,
+        383,
+        3072,
+        13917,
+        1568,
+        262,
+        3357,
+        20612,
+        13,
+        50573
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " The",
+          "start": 2.06,
+          "end": 2.12,
+          "probability": 0.9850587844848633
+        },
+        {
+          "word": " phone",
+          "start": 2.12,
+          "end": 2.3,
+          "probability": 0.9934105277061462
+        },
+        {
+          "word": " rings",
+          "start": 2.3,
+          "end": 2.5,
+          "probability": 0.997387707233429
+        },
+        {
+          "word": " later",
+          "start": 2.5,
+          "end": 2.94,
+          "probability": 0.899975597858429
+        },
+        {
+          "word": " the",
+          "start": 2.94,
+          "end": 3.08,
+          "probability": 0.9127118587493896
+        },
+        {
+          "word": " practice",
+          "start": 3.08,
+          "end": 3.32,
+          "probability": 0.8886846303939819
+        },
+        {
+          "word": " closes.",
+          "start": 3.32,
+          "end": 3.7,
+          "probability": 0.997738242149353
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "seek": 0,
+      "start": 4.24,
+      "end": 6.36,
+      "text": " Someone else calls what happens to those inquiries.",
+      "tokens": [
+        50573,
+        17877,
+        2073,
+        3848,
+        644,
+        4325,
+        284,
+        883,
+        23538,
+        13,
+        50717
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " Someone",
+          "start": 4.24,
+          "end": 4.4,
+          "probability": 0.9955520033836365
+        },
+        {
+          "word": " else",
+          "start": 4.4,
+          "end": 4.58,
+          "probability": 0.9962306618690491
+        },
+        {
+          "word": " calls",
+          "start": 4.58,
+          "end": 4.9,
+          "probability": 0.9992377758026123
+        },
+        {
+          "word": " what",
+          "start": 4.9,
+          "end": 5.38,
+          "probability": 0.5353380441665649
+        },
+        {
+          "word": " happens",
+          "start": 5.38,
+          "end": 5.7,
+          "probability": 0.998826801776886
+        },
+        {
+          "word": " to",
+          "start": 5.7,
+          "end": 5.96,
+          "probability": 0.9992769360542297
+        },
+        {
+          "word": " those",
+          "start": 5.96,
+          "end": 6.12,
+          "probability": 0.997858464717865
+        },
+        {
+          "word": " inquiries.",
+          "start": 6.12,
+          "end": 6.36,
+          "probability": 0.9216943979263306
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "seek": 0,
+      "start": 7.08,
+      "end": 8.48,
+      "text": " Watch how a call can reach a booking",
+      "tokens": [
+        50717,
+        6305,
+        703,
+        257,
+        869,
+        460,
+        3151,
+        257,
+        25452,
+        50821
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " Watch",
+          "start": 7.08,
+          "end": 7.18,
+          "probability": 0.9896492958068848
+        },
+        {
+          "word": " how",
+          "start": 7.18,
+          "end": 7.44,
+          "probability": 0.9979434609413147
+        },
+        {
+          "word": " a",
+          "start": 7.44,
+          "end": 7.52,
+          "probability": 0.9989058971405029
+        },
+        {
+          "word": " call",
+          "start": 7.52,
+          "end": 7.72,
+          "probability": 0.990825355052948
+        },
+        {
+          "word": " can",
+          "start": 7.72,
+          "end": 7.94,
+          "probability": 0.9983224272727966
+        },
+        {
+          "word": " reach",
+          "start": 7.94,
+          "end": 8.1,
+          "probability": 0.9985790252685547
+        },
+        {
+          "word": " a",
+          "start": 8.1,
+          "end": 8.28,
+          "probability": 0.9790716767311096
+        },
+        {
+          "word": " booking",
+          "start": 8.28,
+          "end": 8.48,
+          "probability": 0.9994874000549316
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "seek": 0,
+      "start": 9.16,
+      "end": 10.56,
+      "text": " while your team stays in control.",
+      "tokens": [
+        50821,
+        981,
+        534,
+        1074,
+        14768,
+        287,
+        1630,
+        13,
+        50907
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " while",
+          "start": 9.02,
+          "end": 9.26,
+          "probability": 0.5792131423950195
+        },
+        {
+          "word": " your",
+          "start": 9.26,
+          "end": 9.4,
+          "probability": 0.9956205487251282
+        },
+        {
+          "word": " team",
+          "start": 9.4,
+          "end": 9.66,
+          "probability": 0.9917735457420349
+        },
+        {
+          "word": " stays",
+          "start": 9.66,
+          "end": 10.0,
+          "probability": 0.9966997504234314
+        },
+        {
+          "word": " in",
+          "start": 10.0,
+          "end": 10.24,
+          "probability": 0.9995315074920654
+        },
+        {
+          "word": " control.",
+          "start": 10.24,
+          "end": 10.56,
+          "probability": 0.9983900785446167
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "seek": 0,
+      "start": 11.02,
+      "end": 12.86,
+      "text": " Flow audit builds AI phone agents",
+      "tokens": [
+        50907,
+        27782,
+        14984,
+        12188,
+        9552,
+        3072,
+        6554,
+        51031
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " Flow",
+          "start": 11.02,
+          "end": 11.06,
+          "probability": 0.9579874873161316
+        },
+        {
+          "word": " audit",
+          "start": 11.06,
+          "end": 11.34,
+          "probability": 0.8264499306678772
+        },
+        {
+          "word": " builds",
+          "start": 11.34,
+          "end": 11.72,
+          "probability": 0.994154155254364
+        },
+        {
+          "word": " AI",
+          "start": 11.72,
+          "end": 12.14,
+          "probability": 0.9711952805519104
+        },
+        {
+          "word": " phone",
+          "start": 12.14,
+          "end": 12.54,
+          "probability": 0.9345641732215881
+        },
+        {
+          "word": " agents",
+          "start": 12.54,
+          "end": 12.86,
+          "probability": 0.9981750249862671
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "seek": 0,
+      "start": 12.86,
+      "end": 15.42,
+      "text": " that support your team through agreed workflows.",
+      "tokens": [
+        51031,
+        326,
+        1104,
+        534,
+        1074,
+        832,
+        4987,
+        670,
+        44041,
+        13,
+        51159
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " that",
+          "start": 12.86,
+          "end": 13.44,
+          "probability": 0.9820204377174377
+        },
+        {
+          "word": " support",
+          "start": 13.44,
+          "end": 13.62,
+          "probability": 0.998414158821106
+        },
+        {
+          "word": " your",
+          "start": 13.62,
+          "end": 13.92,
+          "probability": 0.9979540109634399
+        },
+        {
+          "word": " team",
+          "start": 13.92,
+          "end": 14.26,
+          "probability": 0.9995474219322205
+        },
+        {
+          "word": " through",
+          "start": 14.26,
+          "end": 14.62,
+          "probability": 0.9938107132911682
+        },
+        {
+          "word": " agreed",
+          "start": 14.62,
+          "end": 14.86,
+          "probability": 0.9857315421104431
+        },
+        {
+          "word": " workflows.",
+          "start": 14.86,
+          "end": 15.42,
+          "probability": 0.9913658499717712
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "seek": 0,
+      "start": 15.96,
+      "end": 17.38,
+      "text": " You agree when calls are forwarded,",
+      "tokens": [
+        51159,
+        921,
+        4236,
+        618,
+        3848,
+        389,
+        28308,
+        11,
+        51255
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " You",
+          "start": 15.96,
+          "end": 16.04,
+          "probability": 0.996157705783844
+        },
+        {
+          "word": " agree",
+          "start": 16.04,
+          "end": 16.28,
+          "probability": 0.9892838597297668
+        },
+        {
+          "word": " when",
+          "start": 16.28,
+          "end": 16.6,
+          "probability": 0.9511972665786743
+        },
+        {
+          "word": " calls",
+          "start": 16.6,
+          "end": 16.86,
+          "probability": 0.987775444984436
+        },
+        {
+          "word": " are",
+          "start": 16.86,
+          "end": 17.04,
+          "probability": 0.995473325252533
+        },
+        {
+          "word": " forwarded,",
+          "start": 17.04,
+          "end": 17.38,
+          "probability": 0.9992038607597351
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "seek": 0,
+      "start": 17.9,
+      "end": 19.32,
+      "text": " which appointments the agent can handle",
+      "tokens": [
+        51255,
+        543,
+        23976,
+        262,
+        5797,
+        460,
+        5412,
+        51351
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " which",
+          "start": 17.9,
+          "end": 17.94,
+          "probability": 0.9990123510360718
+        },
+        {
+          "word": " appointments",
+          "start": 17.94,
+          "end": 18.32,
+          "probability": 0.9816608428955078
+        },
+        {
+          "word": " the",
+          "start": 18.32,
+          "end": 18.62,
+          "probability": 0.9948087930679321
+        },
+        {
+          "word": " agent",
+          "start": 18.62,
+          "end": 18.8,
+          "probability": 0.9983391761779785
+        },
+        {
+          "word": " can",
+          "start": 18.8,
+          "end": 19.0,
+          "probability": 0.9995545744895935
+        },
+        {
+          "word": " handle",
+          "start": 19.0,
+          "end": 19.32,
+          "probability": 0.9991989731788635
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "seek": 0,
+      "start": 19.32,
+      "end": 21.2,
+      "text": " and when a person needs to step in.",
+      "tokens": [
+        51351,
+        290,
+        618,
+        257,
+        1048,
+        2476,
+        284,
+        2239,
+        287,
+        13,
+        51441
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " and",
+          "start": 19.32,
+          "end": 19.86,
+          "probability": 0.47471848130226135
+        },
+        {
+          "word": " when",
+          "start": 19.86,
+          "end": 20.02,
+          "probability": 0.9987254738807678
+        },
+        {
+          "word": " a",
+          "start": 20.02,
+          "end": 20.1,
+          "probability": 0.9986584186553955
+        },
+        {
+          "word": " person",
+          "start": 20.1,
+          "end": 20.42,
+          "probability": 0.9998379945755005
+        },
+        {
+          "word": " needs",
+          "start": 20.42,
+          "end": 20.6,
+          "probability": 0.9968429803848267
+        },
+        {
+          "word": " to",
+          "start": 20.6,
+          "end": 20.82,
+          "probability": 0.999468982219696
+        },
+        {
+          "word": " step",
+          "start": 20.82,
+          "end": 20.98,
+          "probability": 0.9992576241493225
+        },
+        {
+          "word": " in.",
+          "start": 20.98,
+          "end": 21.2,
+          "probability": 0.9968074560165405
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "seek": 0,
+      "start": 21.62,
+      "end": 22.58,
+      "text": " Here's a recorded demo.",
+      "tokens": [
+        51441,
+        3423,
+        338,
+        257,
+        6264,
+        13605,
+        13,
+        51515
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " Here's",
+          "start": 21.62,
+          "end": 21.82,
+          "probability": 0.9534329175949097
+        },
+        {
+          "word": " a",
+          "start": 21.82,
+          "end": 21.9,
+          "probability": 0.9986227750778198
+        },
+        {
+          "word": " recorded",
+          "start": 21.9,
+          "end": 22.24,
+          "probability": 0.9973500967025757
+        },
+        {
+          "word": " demo.",
+          "start": 22.24,
+          "end": 22.58,
+          "probability": 0.99837327003479
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "seek": 0,
+      "start": 23.06,
+      "end": 24.82,
+      "text": " A new patient asks for a checkup.",
+      "tokens": [
+        51515,
+        317,
+        649,
+        5827,
+        7893,
+        329,
+        257,
+        2198,
+        929,
+        13,
+        51635
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " A",
+          "start": 23.06,
+          "end": 23.08,
+          "probability": 0.9838477969169617
+        },
+        {
+          "word": " new",
+          "start": 23.08,
+          "end": 23.26,
+          "probability": 0.9988844990730286
+        },
+        {
+          "word": " patient",
+          "start": 23.26,
+          "end": 23.58,
+          "probability": 0.9986361861228943
+        },
+        {
+          "word": " asks",
+          "start": 23.58,
+          "end": 24.04,
+          "probability": 0.9832684397697449
+        },
+        {
+          "word": " for",
+          "start": 24.04,
+          "end": 24.36,
+          "probability": 0.9993368983268738
+        },
+        {
+          "word": " a",
+          "start": 24.36,
+          "end": 24.46,
+          "probability": 0.9986400008201599
+        },
+        {
+          "word": " checkup.",
+          "start": 24.46,
+          "end": 24.82,
+          "probability": 0.8772555291652679
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "seek": 0,
+      "start": 25.24,
+      "end": 27.26,
+      "text": " Hi, I just wanted to ring in and book an appointment.",
+      "tokens": [
+        51635,
+        15902,
+        11,
+        314,
+        655,
+        2227,
+        284,
+        5858,
+        287,
+        290,
+        1492,
+        281,
+        12557,
+        13,
+        51751
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.10826601300920759,
+      "compression_ratio": 1.6677524429967427,
+      "no_speech_prob": 0.0035897372290492058,
+      "words": [
+        {
+          "word": " Hi,",
+          "start": 25.24,
+          "end": 25.54,
+          "probability": 0.41008585691452026
+        },
+        {
+          "word": " I",
+          "start": 25.64,
+          "end": 25.66,
+          "probability": 0.8952247500419617
+        },
+        {
+          "word": " just",
+          "start": 25.66,
+          "end": 26.02,
+          "probability": 0.9939268231391907
+        },
+        {
+          "word": " wanted",
+          "start": 26.02,
+          "end": 26.18,
+          "probability": 0.9876519441604614
+        },
+        {
+          "word": " to",
+          "start": 26.18,
+          "end": 26.38,
+          "probability": 0.9935557246208191
+        },
+        {
+          "word": " ring",
+          "start": 26.38,
+          "end": 26.52,
+          "probability": 0.8959178924560547
+        },
+        {
+          "word": " in",
+          "start": 26.52,
+          "end": 26.66,
+          "probability": 0.9615352153778076
+        },
+        {
+          "word": " and",
+          "start": 26.66,
+          "end": 26.76,
+          "probability": 0.8240077495574951
+        },
+        {
+          "word": " book",
+          "start": 26.76,
+          "end": 26.92,
+          "probability": 0.9481104016304016
+        },
+        {
+          "word": " an",
+          "start": 26.92,
+          "end": 27.04,
+          "probability": 0.979727029800415
+        },
+        {
+          "word": " appointment.",
+          "start": 27.04,
+          "end": 27.26,
+          "probability": 0.9979414343833923
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "seek": 2726,
+      "start": 27.26,
+      "end": 29.22,
+      "text": " The agent offers available times.",
+      "tokens": [
+        50387,
+        383,
+        5797,
+        4394,
+        1695,
+        1661,
+        13,
+        50491
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " The",
+          "start": 27.26,
+          "end": 27.84,
+          "probability": 0.4445297122001648
+        },
+        {
+          "word": " agent",
+          "start": 27.84,
+          "end": 28.1,
+          "probability": 0.933799147605896
+        },
+        {
+          "word": " offers",
+          "start": 28.1,
+          "end": 28.46,
+          "probability": 0.9882100820541382
+        },
+        {
+          "word": " available",
+          "start": 28.46,
+          "end": 28.82,
+          "probability": 0.9592976570129395
+        },
+        {
+          "word": " times.",
+          "start": 28.82,
+          "end": 29.22,
+          "probability": 0.9245061278343201
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "seek": 2726,
+      "start": 30.16,
+      "end": 32.16,
+      "text": " The first available appointment this afternoon",
+      "tokens": [
+        50491,
+        383,
+        717,
+        1695,
+        12557,
+        428,
+        6672,
+        50613
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " The",
+          "start": 30.16,
+          "end": 30.36,
+          "probability": 0.7190682888031006
+        },
+        {
+          "word": " first",
+          "start": 30.36,
+          "end": 30.52,
+          "probability": 0.8889457583427429
+        },
+        {
+          "word": " available",
+          "start": 30.52,
+          "end": 30.84,
+          "probability": 0.9918889403343201
+        },
+        {
+          "word": " appointment",
+          "start": 30.84,
+          "end": 31.44,
+          "probability": 0.9941582679748535
+        },
+        {
+          "word": " this",
+          "start": 31.44,
+          "end": 31.76,
+          "probability": 0.9769660830497742
+        },
+        {
+          "word": " afternoon",
+          "start": 31.76,
+          "end": 32.16,
+          "probability": 0.9947512745857239
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "seek": 2726,
+      "start": 32.16,
+      "end": 35.82,
+      "text": " is at 2.30 or 3 in the afternoon or 3.30.",
+      "tokens": [
+        50613,
+        318,
+        379,
+        362,
+        13,
+        1270,
+        393,
+        513,
+        287,
+        262,
+        6672,
+        393,
+        513,
+        13,
+        1270,
+        13,
+        50805
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " is",
+          "start": 32.16,
+          "end": 32.6,
+          "probability": 0.9813841581344604
+        },
+        {
+          "word": " at",
+          "start": 32.6,
+          "end": 32.72,
+          "probability": 0.9865909814834595
+        },
+        {
+          "word": " 2",
+          "start": 32.72,
+          "end": 32.9,
+          "probability": 0.8178136944770813
+        },
+        {
+          "word": ".30",
+          "start": 32.9,
+          "end": 33.28,
+          "probability": 0.8574093878269196
+        },
+        {
+          "word": " or",
+          "start": 33.28,
+          "end": 33.7,
+          "probability": 0.7923552393913269
+        },
+        {
+          "word": " 3",
+          "start": 33.7,
+          "end": 34.0,
+          "probability": 0.9583107829093933
+        },
+        {
+          "word": " in",
+          "start": 34.0,
+          "end": 34.16,
+          "probability": 0.5784388780593872
+        },
+        {
+          "word": " the",
+          "start": 34.16,
+          "end": 34.24,
+          "probability": 0.9973456263542175
+        },
+        {
+          "word": " afternoon",
+          "start": 34.24,
+          "end": 34.56,
+          "probability": 0.989547848701477
+        },
+        {
+          "word": " or",
+          "start": 34.56,
+          "end": 35.2,
+          "probability": 0.8837353587150574
+        },
+        {
+          "word": " 3",
+          "start": 35.2,
+          "end": 35.44,
+          "probability": 0.9875274300575256
+        },
+        {
+          "word": ".30.",
+          "start": 35.44,
+          "end": 35.82,
+          "probability": 0.9990439713001251
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "seek": 2726,
+      "start": 36.52,
+      "end": 37.34,
+      "text": " Which one works for you?",
+      "tokens": [
+        50805,
+        9022,
+        530,
+        2499,
+        329,
+        345,
+        30,
+        50877
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " Which",
+          "start": 36.52,
+          "end": 36.56,
+          "probability": 0.9699543118476868
+        },
+        {
+          "word": " one",
+          "start": 36.56,
+          "end": 36.72,
+          "probability": 0.9970797896385193
+        },
+        {
+          "word": " works",
+          "start": 36.72,
+          "end": 36.92,
+          "probability": 0.997897744178772
+        },
+        {
+          "word": " for",
+          "start": 36.92,
+          "end": 37.16,
+          "probability": 0.9984713196754456
+        },
+        {
+          "word": " you?",
+          "start": 37.16,
+          "end": 37.34,
+          "probability": 0.9992756247520447
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "seek": 2726,
+      "start": 37.74,
+      "end": 38.72,
+      "text": " Can we do 3 o'clock?",
+      "tokens": [
+        50877,
+        1680,
+        356,
+        466,
+        513,
+        267,
+        6,
+        15750,
+        30,
+        50947
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " Can",
+          "start": 37.74,
+          "end": 38.0,
+          "probability": 0.5180829763412476
+        },
+        {
+          "word": " we",
+          "start": 38.0,
+          "end": 38.12,
+          "probability": 0.9819396138191223
+        },
+        {
+          "word": " do",
+          "start": 38.12,
+          "end": 38.2,
+          "probability": 0.9931673407554626
+        },
+        {
+          "word": " 3",
+          "start": 38.2,
+          "end": 38.42,
+          "probability": 0.64958256483078
+        },
+        {
+          "word": " o",
+          "start": 38.42,
+          "end": 38.52,
+          "probability": 0.9231047034263611
+        },
+        {
+          "word": "'clock?",
+          "start": 38.52,
+          "end": 38.72,
+          "probability": 0.9886676967144012
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "seek": 2726,
+      "start": 39.0,
+      "end": 40.44,
+      "text": " The caller chooses 3 o'clock",
+      "tokens": [
+        50947,
+        383,
+        24955,
+        19769,
+        513,
+        267,
+        6,
+        15750,
+        51031
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " The",
+          "start": 39.0,
+          "end": 39.16,
+          "probability": 0.9125106334686279
+        },
+        {
+          "word": " caller",
+          "start": 39.16,
+          "end": 39.36,
+          "probability": 0.9300038814544678
+        },
+        {
+          "word": " chooses",
+          "start": 39.36,
+          "end": 39.72,
+          "probability": 0.9946929812431335
+        },
+        {
+          "word": " 3",
+          "start": 39.72,
+          "end": 40.08,
+          "probability": 0.9678167700767517
+        },
+        {
+          "word": " o",
+          "start": 40.08,
+          "end": 40.18,
+          "probability": 0.9676584601402283
+        },
+        {
+          "word": "'clock",
+          "start": 40.18,
+          "end": 40.44,
+          "probability": 0.9925035834312439
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "seek": 2726,
+      "start": 40.44,
+      "end": 42.86,
+      "text": " and here is the booking in Google Calendar.",
+      "tokens": [
+        51031,
+        290,
+        994,
+        318,
+        262,
+        25452,
+        287,
+        3012,
+        26506,
+        13,
+        51161
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " and",
+          "start": 40.44,
+          "end": 41.04,
+          "probability": 0.5287042856216431
+        },
+        {
+          "word": " here",
+          "start": 41.04,
+          "end": 41.24,
+          "probability": 0.9957881569862366
+        },
+        {
+          "word": " is",
+          "start": 41.24,
+          "end": 41.4,
+          "probability": 0.988554060459137
+        },
+        {
+          "word": " the",
+          "start": 41.4,
+          "end": 41.52,
+          "probability": 0.9980194568634033
+        },
+        {
+          "word": " booking",
+          "start": 41.52,
+          "end": 41.8,
+          "probability": 0.9926018118858337
+        },
+        {
+          "word": " in",
+          "start": 41.8,
+          "end": 42.18,
+          "probability": 0.99250727891922
+        },
+        {
+          "word": " Google",
+          "start": 42.18,
+          "end": 42.38,
+          "probability": 0.9667131304740906
+        },
+        {
+          "word": " Calendar.",
+          "start": 42.38,
+          "end": 42.86,
+          "probability": 0.6454455256462097
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "seek": 2726,
+      "start": 43.82,
+      "end": 46.7,
+      "text": " Your new patient checkup appointment is booked for Wednesday,",
+      "tokens": [
+        51161,
+        3406,
+        649,
+        5827,
+        2198,
+        929,
+        12557,
+        318,
+        21765,
+        329,
+        3583,
+        11,
+        51361
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " Your",
+          "start": 43.82,
+          "end": 44.16,
+          "probability": 0.40028488636016846
+        },
+        {
+          "word": " new",
+          "start": 44.16,
+          "end": 44.3,
+          "probability": 0.9886526465415955
+        },
+        {
+          "word": " patient",
+          "start": 44.3,
+          "end": 44.6,
+          "probability": 0.9839478731155396
+        },
+        {
+          "word": " checkup",
+          "start": 44.6,
+          "end": 45.16,
+          "probability": 0.7143532633781433
+        },
+        {
+          "word": " appointment",
+          "start": 45.16,
+          "end": 45.5,
+          "probability": 0.9986494183540344
+        },
+        {
+          "word": " is",
+          "start": 45.5,
+          "end": 46.02,
+          "probability": 0.996070146560669
+        },
+        {
+          "word": " booked",
+          "start": 46.02,
+          "end": 46.18,
+          "probability": 0.9976285099983215
+        },
+        {
+          "word": " for",
+          "start": 46.18,
+          "end": 46.44,
+          "probability": 0.9864515066146851
+        },
+        {
+          "word": " Wednesday,",
+          "start": 46.44,
+          "end": 46.7,
+          "probability": 0.9940610527992249
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "seek": 2726,
+      "start": 47.4,
+      "end": 49.66,
+      "text": " the 7th of October at 3 in the afternoon.",
+      "tokens": [
+        51361,
+        262,
+        767,
+        400,
+        286,
+        3267,
+        379,
+        513,
+        287,
+        262,
+        6672,
+        13,
+        51501
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " the",
+          "start": 47.4,
+          "end": 47.5,
+          "probability": 0.6651753783226013
+        },
+        {
+          "word": " 7th",
+          "start": 47.5,
+          "end": 47.98,
+          "probability": 0.9212099313735962
+        },
+        {
+          "word": " of",
+          "start": 47.98,
+          "end": 47.98,
+          "probability": 0.9883747100830078
+        },
+        {
+          "word": " October",
+          "start": 47.98,
+          "end": 48.26,
+          "probability": 0.9879305362701416
+        },
+        {
+          "word": " at",
+          "start": 48.26,
+          "end": 48.86,
+          "probability": 0.8966983556747437
+        },
+        {
+          "word": " 3",
+          "start": 48.86,
+          "end": 49.12,
+          "probability": 0.9925258159637451
+        },
+        {
+          "word": " in",
+          "start": 49.12,
+          "end": 49.26,
+          "probability": 0.984512984752655
+        },
+        {
+          "word": " the",
+          "start": 49.26,
+          "end": 49.36,
+          "probability": 0.9991812109947205
+        },
+        {
+          "word": " afternoon.",
+          "start": 49.36,
+          "end": 49.66,
+          "probability": 0.9968512654304504
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "seek": 2726,
+      "start": 50.2,
+      "end": 51.32,
+      "text": " That's the workflow to assess.",
+      "tokens": [
+        51501,
+        1320,
+        338,
+        262,
+        30798,
+        284,
+        4659,
+        13,
+        51583
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " That's",
+          "start": 50.2,
+          "end": 50.44,
+          "probability": 0.9837296605110168
+        },
+        {
+          "word": " the",
+          "start": 50.44,
+          "end": 50.54,
+          "probability": 0.9968312382698059
+        },
+        {
+          "word": " workflow",
+          "start": 50.54,
+          "end": 50.74,
+          "probability": 0.8867233991622925
+        },
+        {
+          "word": " to",
+          "start": 50.74,
+          "end": 51.14,
+          "probability": 0.9974539875984192
+        },
+        {
+          "word": " assess.",
+          "start": 51.14,
+          "end": 51.32,
+          "probability": 0.9861968159675598
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "seek": 2726,
+      "start": 51.84,
+      "end": 53.68,
+      "text": " Give routine inquiries a clear next step",
+      "tokens": [
+        51583,
+        13786,
+        8027,
+        23538,
+        257,
+        1598,
+        1306,
+        2239,
+        51693
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " Give",
+          "start": 51.84,
+          "end": 51.92,
+          "probability": 0.9951213002204895
+        },
+        {
+          "word": " routine",
+          "start": 51.92,
+          "end": 52.18,
+          "probability": 0.9715152978897095
+        },
+        {
+          "word": " inquiries",
+          "start": 52.18,
+          "end": 52.52,
+          "probability": 0.8557572364807129
+        },
+        {
+          "word": " a",
+          "start": 52.52,
+          "end": 52.98,
+          "probability": 0.9929637908935547
+        },
+        {
+          "word": " clear",
+          "start": 52.98,
+          "end": 53.12,
+          "probability": 0.9953609108924866
+        },
+        {
+          "word": " next",
+          "start": 53.12,
+          "end": 53.38,
+          "probability": 0.983475923538208
+        },
+        {
+          "word": " step",
+          "start": 53.38,
+          "end": 53.68,
+          "probability": 0.9984830021858215
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "seek": 2726,
+      "start": 53.68,
+      "end": 56.22,
+      "text": " during busy periods and after hours",
+      "tokens": [
+        51693,
+        1141,
+        8179,
+        9574,
+        290,
+        706,
+        2250,
+        51815
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2775539245605469,
+      "compression_ratio": 1.635379061371841,
+      "no_speech_prob": 0.05936770141124725,
+      "words": [
+        {
+          "word": " during",
+          "start": 53.68,
+          "end": 54.22,
+          "probability": 0.6947352886199951
+        },
+        {
+          "word": " busy",
+          "start": 54.22,
+          "end": 54.56,
+          "probability": 0.997584342956543
+        },
+        {
+          "word": " periods",
+          "start": 54.56,
+          "end": 55.06,
+          "probability": 0.9980266690254211
+        },
+        {
+          "word": " and",
+          "start": 55.06,
+          "end": 55.5,
+          "probability": 0.9897894263267517
+        },
+        {
+          "word": " after",
+          "start": 55.5,
+          "end": 55.76,
+          "probability": 0.9970201849937439
+        },
+        {
+          "word": " hours",
+          "start": 55.76,
+          "end": 56.22,
+          "probability": 0.9873742461204529
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "seek": 5622,
+      "start": 56.22,
+      "end": 58.26,
+      "text": " without pulling your team away from the patient",
+      "tokens": [
+        50383,
+        1231,
+        10427,
+        534,
+        1074,
+        1497,
+        422,
+        262,
+        5827,
+        50475
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " without",
+          "start": 56.22,
+          "end": 56.72,
+          "probability": 0.4445757269859314
+        },
+        {
+          "word": " pulling",
+          "start": 56.72,
+          "end": 57.12,
+          "probability": 0.9949823021888733
+        },
+        {
+          "word": " your",
+          "start": 57.12,
+          "end": 57.28,
+          "probability": 0.9889922142028809
+        },
+        {
+          "word": " team",
+          "start": 57.28,
+          "end": 57.48,
+          "probability": 0.9979000091552734
+        },
+        {
+          "word": " away",
+          "start": 57.48,
+          "end": 57.68,
+          "probability": 0.9962944388389587
+        },
+        {
+          "word": " from",
+          "start": 57.68,
+          "end": 57.92,
+          "probability": 0.9965807795524597
+        },
+        {
+          "word": " the",
+          "start": 57.92,
+          "end": 58.02,
+          "probability": 0.9906806349754333
+        },
+        {
+          "word": " patient",
+          "start": 58.02,
+          "end": 58.26,
+          "probability": 0.9962249994277954
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "seek": 5622,
+      "start": 58.26,
+      "end": 58.96,
+      "text": " in front of them.",
+      "tokens": [
+        50475,
+        287,
+        2166,
+        286,
+        606,
+        13,
+        50519
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " in",
+          "start": 58.26,
+          "end": 58.48,
+          "probability": 0.9877341389656067
+        },
+        {
+          "word": " front",
+          "start": 58.48,
+          "end": 58.64,
+          "probability": 0.9992808699607849
+        },
+        {
+          "word": " of",
+          "start": 58.64,
+          "end": 58.82,
+          "probability": 0.9982032775878906
+        },
+        {
+          "word": " them.",
+          "start": 58.82,
+          "end": 58.96,
+          "probability": 0.9988804459571838
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "seek": 5622,
+      "start": 59.34,
+      "end": 60.48,
+      "text": " Start with your own call records,",
+      "tokens": [
+        50519,
+        7253,
+        351,
+        534,
+        898,
+        869,
+        4406,
+        11,
+        50611
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " Start",
+          "start": 59.34,
+          "end": 59.5,
+          "probability": 0.9478349089622498
+        },
+        {
+          "word": " with",
+          "start": 59.5,
+          "end": 59.68,
+          "probability": 0.9987738728523254
+        },
+        {
+          "word": " your",
+          "start": 59.68,
+          "end": 59.84,
+          "probability": 0.9974969029426575
+        },
+        {
+          "word": " own",
+          "start": 59.84,
+          "end": 60.02,
+          "probability": 0.9981038570404053
+        },
+        {
+          "word": " call",
+          "start": 60.02,
+          "end": 60.18,
+          "probability": 0.9521675109863281
+        },
+        {
+          "word": " records,",
+          "start": 60.18,
+          "end": 60.48,
+          "probability": 0.998012900352478
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "seek": 5622,
+      "start": 61.08,
+      "end": 62.46,
+      "text": " which inquiries need a reply",
+      "tokens": [
+        50611,
+        543,
+        23538,
+        761,
+        257,
+        10971,
+        50705
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " which",
+          "start": 61.08,
+          "end": 61.24,
+          "probability": 0.9957337975502014
+        },
+        {
+          "word": " inquiries",
+          "start": 61.24,
+          "end": 61.46,
+          "probability": 0.8888483643531799
+        },
+        {
+          "word": " need",
+          "start": 61.46,
+          "end": 62.02,
+          "probability": 0.9948327541351318
+        },
+        {
+          "word": " a",
+          "start": 62.02,
+          "end": 62.18,
+          "probability": 0.9223994016647339
+        },
+        {
+          "word": " reply",
+          "start": 62.18,
+          "end": 62.46,
+          "probability": 0.999108612537384
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "seek": 5622,
+      "start": 63.06,
+      "end": 64.58,
+      "text": " and which can your team already handle.",
+      "tokens": [
+        50705,
+        290,
+        543,
+        460,
+        534,
+        1074,
+        1541,
+        5412,
+        13,
+        50807
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " and",
+          "start": 62.84,
+          "end": 63.1,
+          "probability": 0.5624372959136963
+        },
+        {
+          "word": " which",
+          "start": 63.1,
+          "end": 63.28,
+          "probability": 0.9982979893684387
+        },
+        {
+          "word": " can",
+          "start": 63.28,
+          "end": 63.48,
+          "probability": 0.9850645661354065
+        },
+        {
+          "word": " your",
+          "start": 63.48,
+          "end": 63.64,
+          "probability": 0.9863722920417786
+        },
+        {
+          "word": " team",
+          "start": 63.64,
+          "end": 63.9,
+          "probability": 0.9990628361701965
+        },
+        {
+          "word": " already",
+          "start": 63.9,
+          "end": 64.22,
+          "probability": 0.9969685673713684
+        },
+        {
+          "word": " handle.",
+          "start": 64.22,
+          "end": 64.58,
+          "probability": 0.999725878238678
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "seek": 5622,
+      "start": 65.04,
+      "end": 66.94,
+      "text": " Before set up, we check your scheduling,",
+      "tokens": [
+        50807,
+        7413,
+        900,
+        510,
+        11,
+        356,
+        2198,
+        534,
+        26925,
+        11,
+        50915
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " Before",
+          "start": 65.04,
+          "end": 65.26,
+          "probability": 0.9863883852958679
+        },
+        {
+          "word": " set",
+          "start": 65.26,
+          "end": 65.48,
+          "probability": 0.4254288375377655
+        },
+        {
+          "word": " up,",
+          "start": 65.48,
+          "end": 65.68,
+          "probability": 0.914470374584198
+        },
+        {
+          "word": " we",
+          "start": 65.98,
+          "end": 66.14,
+          "probability": 0.9898684024810791
+        },
+        {
+          "word": " check",
+          "start": 66.14,
+          "end": 66.28,
+          "probability": 0.9923237562179565
+        },
+        {
+          "word": " your",
+          "start": 66.28,
+          "end": 66.48,
+          "probability": 0.9845761060714722
+        },
+        {
+          "word": " scheduling,",
+          "start": 66.48,
+          "end": 66.94,
+          "probability": 0.9970431923866272
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "seek": 5622,
+      "start": 67.18,
+      "end": 68.72,
+      "text": " forwarding and patient data requirements.",
+      "tokens": [
+        50915,
+        43448,
+        290,
+        5827,
+        1366,
+        5359,
+        13,
+        51029
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " forwarding",
+          "start": 67.18,
+          "end": 67.44,
+          "probability": 0.9979392886161804
+        },
+        {
+          "word": " and",
+          "start": 67.44,
+          "end": 67.8,
+          "probability": 0.7403568625450134
+        },
+        {
+          "word": " patient",
+          "start": 67.8,
+          "end": 68.06,
+          "probability": 0.9946573376655579
+        },
+        {
+          "word": " data",
+          "start": 68.06,
+          "end": 68.3,
+          "probability": 0.991958498954773
+        },
+        {
+          "word": " requirements.",
+          "start": 68.3,
+          "end": 68.72,
+          "probability": 0.9975236058235168
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "seek": 5622,
+      "start": 69.4,
+      "end": 71.04,
+      "text": " Clinical judgment stays with your team.",
+      "tokens": [
+        51029,
+        21234,
+        8492,
+        14768,
+        351,
+        534,
+        1074,
+        13,
+        51135
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " Clinical",
+          "start": 69.4,
+          "end": 69.66,
+          "probability": 0.9850799441337585
+        },
+        {
+          "word": " judgment",
+          "start": 69.66,
+          "end": 70.04,
+          "probability": 0.7916063070297241
+        },
+        {
+          "word": " stays",
+          "start": 70.04,
+          "end": 70.44,
+          "probability": 0.997947633266449
+        },
+        {
+          "word": " with",
+          "start": 70.44,
+          "end": 70.66,
+          "probability": 0.9994595646858215
+        },
+        {
+          "word": " your",
+          "start": 70.66,
+          "end": 70.78,
+          "probability": 0.996552586555481
+        },
+        {
+          "word": " team.",
+          "start": 70.78,
+          "end": 71.04,
+          "probability": 0.9994382262229919
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "seek": 5622,
+      "start": 71.64,
+      "end": 72.84,
+      "text": " You agree scope and investment.",
+      "tokens": [
+        51135,
+        921,
+        4236,
+        8354,
+        290,
+        4896,
+        13,
+        51229
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " You",
+          "start": 71.64,
+          "end": 71.7,
+          "probability": 0.9785933494567871
+        },
+        {
+          "word": " agree",
+          "start": 71.7,
+          "end": 71.9,
+          "probability": 0.967495858669281
+        },
+        {
+          "word": " scope",
+          "start": 71.9,
+          "end": 72.24,
+          "probability": 0.7793365716934204
+        },
+        {
+          "word": " and",
+          "start": 72.24,
+          "end": 72.56,
+          "probability": 0.9916655421257019
+        },
+        {
+          "word": " investment.",
+          "start": 72.56,
+          "end": 72.84,
+          "probability": 0.9993963241577148
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "seek": 5622,
+      "start": 73.46,
+      "end": 75.64,
+      "text": " Agreement and initial payment start configuration",
+      "tokens": [
+        51229,
+        12729,
+        290,
+        4238,
+        6074,
+        923,
+        8398,
+        51375
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " Agreement",
+          "start": 73.46,
+          "end": 73.7,
+          "probability": 0.943178117275238
+        },
+        {
+          "word": " and",
+          "start": 73.7,
+          "end": 74.18,
+          "probability": 0.9965983033180237
+        },
+        {
+          "word": " initial",
+          "start": 74.18,
+          "end": 74.48,
+          "probability": 0.9884955883026123
+        },
+        {
+          "word": " payment",
+          "start": 74.48,
+          "end": 74.8,
+          "probability": 0.7823786735534668
+        },
+        {
+          "word": " start",
+          "start": 74.8,
+          "end": 75.2,
+          "probability": 0.9875889420509338
+        },
+        {
+          "word": " configuration",
+          "start": 75.2,
+          "end": 75.64,
+          "probability": 0.9958997368812561
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "seek": 5622,
+      "start": 76.46000000000001,
+      "end": 77.82,
+      "text": " followed by testing with your team.",
+      "tokens": [
+        51375,
+        3940,
+        416,
+        4856,
+        351,
+        534,
+        1074,
+        13,
+        51473
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " followed",
+          "start": 76.33999999999999,
+          "end": 76.6,
+          "probability": 0.6631228923797607
+        },
+        {
+          "word": " by",
+          "start": 76.6,
+          "end": 76.82,
+          "probability": 0.9995129108428955
+        },
+        {
+          "word": " testing",
+          "start": 76.82,
+          "end": 77.08,
+          "probability": 0.9987900853157043
+        },
+        {
+          "word": " with",
+          "start": 77.08,
+          "end": 77.34,
+          "probability": 0.9980918765068054
+        },
+        {
+          "word": " your",
+          "start": 77.34,
+          "end": 77.5,
+          "probability": 0.998357355594635
+        },
+        {
+          "word": " team.",
+          "start": 77.5,
+          "end": 77.82,
+          "probability": 0.9993249177932739
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "seek": 5622,
+      "start": 78.4,
+      "end": 79.68,
+      "text": " Activation follows your approval.",
+      "tokens": [
+        51473,
+        13144,
+        341,
+        5679,
+        534,
+        7546,
+        13,
+        51561
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " Activation",
+          "start": 78.4,
+          "end": 78.92,
+          "probability": 0.97939333319664
+        },
+        {
+          "word": " follows",
+          "start": 78.92,
+          "end": 79.18,
+          "probability": 0.9986686706542969
+        },
+        {
+          "word": " your",
+          "start": 79.18,
+          "end": 79.42,
+          "probability": 0.9965272545814514
+        },
+        {
+          "word": " approval.",
+          "start": 79.42,
+          "end": 79.68,
+          "probability": 0.9998189806938171
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "seek": 5622,
+      "start": 80.2,
+      "end": 82.36,
+      "text": " Book a 15-minute demo and fit assessment.",
+      "tokens": [
+        51561,
+        4897,
+        257,
+        1315,
+        12,
+        11374,
+        13605,
+        290,
+        4197,
+        8922,
+        13,
+        51699
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " Book",
+          "start": 80.2,
+          "end": 80.22,
+          "probability": 0.9382503032684326
+        },
+        {
+          "word": " a",
+          "start": 80.22,
+          "end": 80.36,
+          "probability": 0.9627071022987366
+        },
+        {
+          "word": " 15",
+          "start": 80.36,
+          "end": 80.68,
+          "probability": 0.9694945812225342
+        },
+        {
+          "word": "-minute",
+          "start": 80.68,
+          "end": 81.08,
+          "probability": 0.8383435606956482
+        },
+        {
+          "word": " demo",
+          "start": 81.08,
+          "end": 81.38,
+          "probability": 0.9969698786735535
+        },
+        {
+          "word": " and",
+          "start": 81.38,
+          "end": 81.76,
+          "probability": 0.9937090873718262
+        },
+        {
+          "word": " fit",
+          "start": 81.76,
+          "end": 81.94,
+          "probability": 0.9767067432403564
+        },
+        {
+          "word": " assessment.",
+          "start": 81.94,
+          "end": 82.36,
+          "probability": 0.9986659288406372
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "seek": 5622,
+      "start": 82.92,
+      "end": 84.64,
+      "text": " Bring the person who approves the purchase.",
+      "tokens": [
+        51699,
+        24347,
+        262,
+        1048,
+        508,
+        43770,
+        262,
+        5001,
+        13,
+        51817
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1168217733502388,
+      "compression_ratio": 1.7458745874587458,
+      "no_speech_prob": 0.017078503966331482,
+      "words": [
+        {
+          "word": " Bring",
+          "start": 82.92,
+          "end": 83.0,
+          "probability": 0.993174135684967
+        },
+        {
+          "word": " the",
+          "start": 83.0,
+          "end": 83.14,
+          "probability": 0.9985785484313965
+        },
+        {
+          "word": " person",
+          "start": 83.14,
+          "end": 83.4,
+          "probability": 0.9986507296562195
+        },
+        {
+          "word": " who",
+          "start": 83.4,
+          "end": 83.72,
+          "probability": 0.9976156949996948
+        },
+        {
+          "word": " approves",
+          "start": 83.72,
+          "end": 83.98,
+          "probability": 0.9901297688484192
+        },
+        {
+          "word": " the",
+          "start": 83.98,
+          "end": 84.32,
+          "probability": 0.9983554482460022
+        },
+        {
+          "word": " purchase.",
+          "start": 84.32,
+          "end": 84.64,
+          "probability": 0.9992485642433167
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "seek": 8464,
+      "start": 85.28,
+      "end": 86.52,
+      "text": " We'll look at your call workflows",
+      "tokens": [
+        50395,
+        775,
+        1183,
+        804,
+        379,
+        534,
+        869,
+        670,
+        44041,
+        50471
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.20982571081681686,
+      "compression_ratio": 1.0,
+      "no_speech_prob": 0.03438393399119377,
+      "words": [
+        {
+          "word": " We'll",
+          "start": 85.08999999999999,
+          "end": 85.38,
+          "probability": 0.692457526922226
+        },
+        {
+          "word": " look",
+          "start": 85.38,
+          "end": 85.54,
+          "probability": 0.9960731267929077
+        },
+        {
+          "word": " at",
+          "start": 85.54,
+          "end": 85.66,
+          "probability": 0.9966112971305847
+        },
+        {
+          "word": " your",
+          "start": 85.66,
+          "end": 85.8,
+          "probability": 0.9937267303466797
+        },
+        {
+          "word": " call",
+          "start": 85.8,
+          "end": 86.02,
+          "probability": 0.06317266076803207
+        },
+        {
+          "word": " workflows",
+          "start": 86.02,
+          "end": 86.52,
+          "probability": 0.9581445157527924
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "seek": 8464,
+      "start": 86.52,
+      "end": 88.48,
+      "text": " and decide whether there's a useful fit.",
+      "tokens": [
+        50471,
+        290,
+        5409,
+        1771,
+        612,
+        338,
+        257,
+        4465,
+        4197,
+        13,
+        50571
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.20982571081681686,
+      "compression_ratio": 1.0,
+      "no_speech_prob": 0.03438393399119377,
+      "words": [
+        {
+          "word": " and",
+          "start": 86.52,
+          "end": 86.84,
+          "probability": 0.9764478802680969
+        },
+        {
+          "word": " decide",
+          "start": 86.84,
+          "end": 87.12,
+          "probability": 0.9972336888313293
+        },
+        {
+          "word": " whether",
+          "start": 87.12,
+          "end": 87.54,
+          "probability": 0.9889953136444092
+        },
+        {
+          "word": " there's",
+          "start": 87.54,
+          "end": 87.92,
+          "probability": 0.9068715274333954
+        },
+        {
+          "word": " a",
+          "start": 87.92,
+          "end": 88.0,
+          "probability": 0.9955689311027527
+        },
+        {
+          "word": " useful",
+          "start": 88.0,
+          "end": 88.18,
+          "probability": 0.9958003163337708
+        },
+        {
+          "word": " fit.",
+          "start": 88.18,
+          "end": 88.48,
+          "probability": 0.8873715400695801
+        }
+      ]
+    }
+  ],
+  "language": "en"
+}

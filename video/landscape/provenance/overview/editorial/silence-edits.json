@@ -1,0 +1,245 @@
+{
+  "E01": {
+    "raw_duration": 4.89,
+    "edited_duration": 4.89,
+    "silence_intervals": [
+      [
+        1.778042,
+        2.078042
+      ],
+      [
+        4.041125,
+        4.24575
+      ]
+    ],
+    "removed_silence": [],
+    "asr_differences": []
+  },
+  "E02": {
+    "raw_duration": 4.08,
+    "edited_duration": 4.026917,
+    "silence_intervals": [
+      [
+        0.0,
+        0.113083
+      ],
+      [
+        2.061792,
+        2.464208
+      ]
+    ],
+    "removed_silence": [
+      [
+        0,
+        0.053083000000000005
+      ]
+    ],
+    "asr_differences": []
+  },
+  "E03": {
+    "raw_duration": 4.72,
+    "edited_duration": 4.703,
+    "silence_intervals": [
+      [
+        2.0905,
+        2.451917
+      ],
+      [
+        4.563,
+        4.72
+      ]
+    ],
+    "removed_silence": [
+      [
+        4.702999999999999,
+        4.72
+      ]
+    ],
+    "asr_differences": [
+      {
+        "expected": "FlowAudit",
+        "asr": "Flow Audit"
+      }
+    ]
+  },
+  "E04": {
+    "raw_duration": 4.24,
+    "edited_duration": 4.24,
+    "silence_intervals": [
+      [
+        2.42075,
+        2.919625
+      ]
+    ],
+    "removed_silence": [],
+    "asr_differences": []
+  },
+  "E05": {
+    "raw_duration": 2.16,
+    "edited_duration": 1.922625,
+    "silence_intervals": [
+      [
+        0.0,
+        0.297375
+      ]
+    ],
+    "removed_silence": [
+      [
+        0,
+        0.237375
+      ]
+    ],
+    "asr_differences": [
+      {
+        "expected": "new-patient enquiry.",
+        "asr": "new patient inquiry."
+      }
+    ]
+  },
+  "E06": {
+    "raw_duration": 2.08,
+    "edited_duration": 1.928333,
+    "silence_intervals": [
+      [
+        0.0,
+        0.211667
+      ],
+      [
+        1.076042,
+        1.19775
+      ]
+    ],
+    "removed_silence": [
+      [
+        0,
+        0.151667
+      ]
+    ],
+    "asr_differences": []
+  },
+  "E07": {
+    "raw_duration": 6.0,
+    "edited_duration": 5.458667,
+    "silence_intervals": [
+      [
+        0.0,
+        0.601333
+      ],
+      [
+        0.642083,
+        0.724292
+      ],
+      [
+        1.453708,
+        1.535667
+      ],
+      [
+        2.058167,
+        2.56325
+      ],
+      [
+        4.437583,
+        4.80825
+      ]
+    ],
+    "removed_silence": [
+      [
+        0,
+        0.5413330000000001
+      ]
+    ],
+    "asr_differences": []
+  },
+  "E08": {
+    "raw_duration": 9.28,
+    "edited_duration": 8.870708,
+    "silence_intervals": [
+      [
+        0.0,
+        0.469292
+      ],
+      [
+        1.559833,
+        1.802
+      ],
+      [
+        2.474833,
+        2.559083
+      ],
+      [
+        3.92675,
+        4.433625
+      ],
+      [
+        5.420542,
+        5.504667
+      ],
+      [
+        6.849375,
+        7.631625
+      ],
+      [
+        9.152083,
+        9.28
+      ]
+    ],
+    "removed_silence": [
+      [
+        0,
+        0.409292
+      ]
+    ],
+    "asr_differences": [
+      {
+        "expected": "patient-data",
+        "asr": "patient data"
+      }
+    ]
+  },
+  "E09": {
+    "raw_duration": 8.96,
+    "edited_duration": 8.642083,
+    "silence_intervals": [
+      [
+        0.0,
+        0.377917
+      ],
+      [
+        1.693458,
+        1.922125
+      ],
+      [
+        2.894208,
+        3.39225
+      ],
+      [
+        5.208583,
+        5.725667
+      ],
+      [
+        7.791167,
+        7.873792
+      ],
+      [
+        8.617875,
+        8.724625
+      ]
+    ],
+    "removed_silence": [
+      [
+        0,
+        0.317917
+      ]
+    ],
+    "asr_differences": [
+      {
+        "expected": "fifteen-minute",
+        "asr": "15 -minute"
+      },
+      {
+        "expected": "FlowAudit",
+        "asr": "Flow Audit"
+      }
+    ]
+  }
+}

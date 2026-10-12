@@ -14,8 +14,7 @@ export const es: Translations = {
     revenueRecovery: "Recuperación de Ingresos",
     solutions: "Soluciones",
     howItWorks: "Cómo Funciona",
-    pricing: "Precios",
-    calculator: "Calculadora",
+    phoneAgent: "Agente Telefónico IA",
     about: "Nosotros",
     bookCall: "Agenda una Llamada",
     careers: "Empleo",
@@ -77,29 +76,19 @@ export const es: Translations = {
     hiddenCostSubtext:
       "Cada hora en administración es una hora que no inviertes en crecer.",
     hiddenCostItems: [
-      { label: "Cotizaciones y estimaciones", hours: "6 hrs/semana" },
-      { label: "Facturación y cobros", hours: "5 hrs/semana" },
-      { label: "Agenda y coordinación", hours: "4 hrs/semana" },
-      { label: "Seguimiento a clientes", hours: "3 hrs/semana" },
+      { label: "Cotizaciones y estimaciones", hours: "Gestionadas" },
+      { label: "Facturación y cobros", hours: "Cobrados" },
+      { label: "Agenda y coordinación", hours: "Coordinada" },
+      { label: "Seguimiento a clientes", hours: "Seguido" },
     ],
-    impactTitle: "El Impacto",
-    impactSubtext: "Los equipos usando FlowAudit ven resultados en la primera semana.",
-    impactHours: "20+",
-    impactHoursLabel: "horas ahorradas por semana, en promedio",
-    impactDays: "10 días",
-    impactDaysLabel: "para estar en línea",
-    impactRoi: "5x",
-    impactRoiLabel: "ROI típico",
-  },
-
-  // Pricing
-  pricing: {
-    badge: "Precios",
-    headline: "Precios Simples de Implementación",
-    subtext: "Pago único de configuración. Sin suscripciones mensuales. Sin cargos sorpresa.",
-    guarantee:
-      "Garantía de satisfacción 100%. Paga una vez, es tuyo para siempre. Paquetes de soporte opcionales disponibles.",
-    notSure: "¿No estás seguro cuál paquete? Comienza con una llamada de estrategia gratuita →",
+    impactTitle: "Lo Que Cambia",
+    impactSubtext: "El asistente te quita el trabajo repetitivo y registra cada acción.",
+    impactHours: "24/7",
+    impactHoursLabel: "el asistente no duerme ni pide vacaciones",
+    impactDays: "Humano",
+    impactDaysLabel: "aprobación donde importa",
+    impactRoi: "Registrado",
+    impactRoiLabel: "cada acción queda registrada con un resumen",
   },
 
   // FAQ
@@ -114,7 +103,7 @@ export const es: Translations = {
     subtext:
       "Agenda una llamada de estrategia gratuita. Te mostraremos exactamente qué partes de tu semana se pueden automatizar. y cuánto vas a ahorrar.",
     button: "Agenda una Llamada de Estrategia Gratuita",
-    note: "Llamada de 30 minutos. Sin compromiso. Sin tecnicismos.",
+    note: "Llamada de 15 minutos. Sin compromiso. Sin tecnicismos.",
   },
 
   // Footer
@@ -131,24 +120,185 @@ export const es: Translations = {
 
   // Book page
   book: {
-    headline: "Agenda una Llamada de Estrategia Gratuita",
+    headline: "Agenda una llamada",
     subtext:
-      "Descubre cómo la automatización puede manejar tu administración. 30 minutos. Sin tecnicismos. Sin presión.",
-    scheduleTitle: "Agenda Tu Llamada de Estrategia Gratuita",
+      "Elige un horario y tu confirmación incluye un enlace de Cal Video. 15 minutos, sin tecnicismos, sin presión.",
+    scheduleTitle: "Elige un horario",
     scheduleSubtext:
-      "Envíanos un email a support@flowaudit.co.uk y encontraremos un horario que te funcione. O llámanos directamente.",
-    emailButton: "Envíanos un Email",
-    responseNote: "Respondemos todas las consultas dentro de 24 horas.",
+      "Reserva un hueco en el calendario. ¿Prefieres email? Escribe a support@flowaudit.co.uk y te responderemos con horarios.",
+    responseNote: "Tu confirmación de reserva incluye un enlace de Cal Video.",
     expectTitle: "Qué Esperar",
     step1Title: "Conversación Rápida Sobre Tu Negocio",
     step1Desc:
-      "Te preguntaremos sobre tu semana típica. qué te consume tiempo, qué se te escapa.",
-    step2Title: "Identificar las Oportunidades Rápidas",
+      "Te preguntaremos sobre tu semana típica: qué te consume tiempo y qué se te escapa.",
+    step2Title: "Detectar las Oportunidades Rápidas",
     step2Desc:
-      "Encontraremos 2-3 cosas que se pueden automatizar de inmediato. generalmente cotizaciones, facturación o seguimientos.",
+      "Encontraremos 2-3 cosas que se pueden automatizar de inmediato, normalmente cotizaciones, facturación o seguimientos.",
     step3Title: "Obtener un Plan Claro",
     step3Desc:
-      "Recibirás una propuesta en lenguaje simple mostrando qué construiremos, cuánto cuesta y cuánto tiempo vas a ahorrar.",
+      "Recibirás un plan en lenguaje sencillo con lo que construiremos y cómo funcionará.",
+  },
+
+  // Phone Agent page
+  phoneAgent: {
+    hero: {
+      badge: "Para clínicas dentales",
+      headline: "Cada llamada contestada. Cada paciente agendado.",
+      subtext:
+        "El agente telefónico con IA de FlowAudit contesta el teléfono de tu clínica, hace las preguntas correctas, maneja los casos urgentes con cuidado y agenda la cita directamente en el calendario que tu equipo ya usa.",
+      ctaPrimary: "Ver la llamada de demostración",
+      ctaSecondary: "Agendar una sesión de 15 minutos",
+      note: "Mira la llamada completa, desde el primer tono hasta la cita reservada.",
+    },
+    leak: {
+      badge: "La fuga",
+      headline: "Las llamadas de las que nunca te enteras",
+      subtext:
+        "La mayoría de quienes llegan al buzón de voz no dejan mensaje. Simplemente llaman a la siguiente clínica.",
+      moments: [
+        {
+          title: "Mientras el equipo atiende",
+          desc: "Un paciente llama durante un empaste. El teléfono suena y nadie contesta. Esa persona no espera.",
+        },
+        {
+          title: "En la comida y en la salida del colegio",
+          desc: "Las horas de más llamadas coinciden justo con los momentos de más trabajo en recepción.",
+        },
+        {
+          title: "Después del cierre",
+          desc: "El dolor de noche y las urgencias de fin de semana también llaman. El buzón de voz no resuelve ninguna.",
+        },
+      ],
+      stat: "En una revisión de MGMA, algunas clínicas tenían más de la mitad de sus llamadas entrantes cayendo al buzón de voz. Cada una de esas personas tuvo que ir a otro sitio.",
+      statSource: "MGMA, marzo de 2026",
+    },
+    handles: {
+      badge: "Qué resuelve",
+      headline: "Una recepción que nunca pierde una llamada",
+      items: [
+        {
+          title: "Contesta en unos dos tonos",
+          desc: "Todas las llamadas, de día y de noche, incluidos los fines de semana. Sin música en espera, sin buzón de voz.",
+        },
+        {
+          title: "Cualifica a quien llama",
+          desc: "Paciente nuevo o existente, motivo de la visita, urgencia y los datos de contacto correctos.",
+        },
+        {
+          title: "Clasifica urgencias con seguridad",
+          desc: "Hinchazón, sangrado, traumatismo o dificultad para respirar se revisan primero y se escalan según tus reglas.",
+        },
+        {
+          title: "Reserva la cita",
+          desc: "Disponibilidad real de tu calendario, ofrecida en la llamada y confirmada en voz alta.",
+        },
+        {
+          title: "Te envía un resumen",
+          desc: "Una nota breve y la transcripción después de cada llamada, para que el equipo sepa exactamente qué pasó.",
+        },
+        {
+          title: "Deriva cuando corresponde",
+          desc: "Las preguntas complejas o clínicas pasan a tu equipo con un resumen completo, no con una llamada perdida.",
+        },
+      ],
+    },
+    demo: {
+      badge: "La demostración",
+      headline: "Mira una llamada real, de principio a fin",
+      subtext:
+        "Una madre llama por su hijo con dolor de muelas. Mira al agente clasificar, revisar el calendario, ofrecer un hueco de urgencia y confirmar la reserva. El número de teléfono está oculto en esta grabación.",
+      note: "2 minutos 41 segundos, grabado desde la consola real del producto.",
+    },
+    how: {
+      badge: "Cómo funciona",
+      headline: "Se configura contigo y entra en marcha",
+      steps: [
+        {
+          title: "Cuéntanos sobre la clínica",
+          desc: "Servicios, horarios, ubicaciones y las preguntas que realmente hacen quienes llaman.",
+        },
+        {
+          title: "Configuramos el agente",
+          desc: "Tu saludo, tu voz y tus reglas para llamadas urgentes y derivaciones.",
+        },
+        {
+          title: "Conecta tu calendario",
+          desc: "El agente solo reserva huecos reales del calendario que ya usas.",
+        },
+        {
+          title: "Llamadas de prueba y en marcha",
+          desc: "Escuchas llamadas reales, las apruebas y el agente empieza a contestar.",
+        },
+      ],
+    },
+    guardrails: {
+      badge: "Límites",
+      headline: "Lo que el agente nunca hace",
+      items: [
+        "Nunca inventa disponibilidad ni reserva un hueco que no es real",
+        "Nunca cotiza precios ni estima costes de tratamiento",
+        "Nunca da consejo clínico ni un diagnóstico",
+        "Nunca dice que es humano cuando se lo preguntan",
+        "Nunca deja una urgencia sin una ruta de escalado",
+        "Nunca empieza a operar en un número que no estés listo para desviar",
+      ],
+    },
+    audience: {
+      badge: "Para quién es",
+      headline: "Hecho para equipos dentales",
+      items: [
+        {
+          title: "Clínicas de una sola sede",
+          desc: "Cubre la comida, los momentos de más trabajo y todas las llamadas después del cierre.",
+        },
+        {
+          title: "Grupos con varias sedes y DSOs",
+          desc: "Un número o muchos, cada uno con sus propias reglas y calendario.",
+        },
+        {
+          title: "Clínicas de ortodoncia, implantes y urgencias",
+          desc: "Las llamadas de alto valor y las urgentes se contestan primero, con las preguntas correctas.",
+        },
+      ],
+      markets: "Ajustado para clínicas de Estados Unidos, Reino Unido y Canadá.",
+    },
+    faqItems: [
+      {
+        q: "¿Los pacientes notarán que hablan con una IA?",
+        a: "Escucha la llamada de demostración y decide por ti mismo. Si un paciente lo pregunta directamente, el agente dice con claridad que es un asistente de IA de la clínica, y puede pedir hablar con una persona.",
+      },
+      {
+        q: "¿Qué pasa con las urgencias?",
+        a: "Los síntomas urgentes se revisan primero, siguiendo las reglas de clasificación de la propia clínica. El agente puede ofrecer huecos de urgencia, aplicar el recargo de urgencia que use tu clínica y avisar a tu equipo de inmediato.",
+      },
+      {
+        q: "¿Funciona con nuestro número y nuestro equipo actuales?",
+        a: "Sí. Contesta junto a tu número y tu recepción actuales. Tú eliges cuándo entra: desbordamiento, fuera de horario o todas las llamadas.",
+      },
+      {
+        q: "¿Dónde caen las reservas?",
+        a: "En el calendario que ya usas. El agente ve la disponibilidad real, reserva el hueco y confirma los detalles en voz alta durante la llamada.",
+      },
+      {
+        q: "¿Cómo se gestiona la grabación de llamadas?",
+        a: "La grabación y el consentimiento se configuran según la política de la clínica y las normas locales, incluido cualquier aviso que exija tu jurisdicción.",
+      },
+      {
+        q: "¿Cuánto tarda la puesta en marcha?",
+        a: "La mayor parte del trabajo es configuración, no código. Construimos el flujo de llamada, conectamos el calendario, hacemos llamadas de prueba contigo y salimos en vivo cuando lo apruebas.",
+      },
+      {
+        q: "¿Cuánto cuesta?",
+        a: "El precio se trata en la llamada de presentación, donde podemos ajustar la configuración a la clínica. No publicamos una lista de tarifas.",
+      },
+    ],
+    cta: {
+      headline: "Escúchalo en las llamadas de tu propia clínica",
+      subtext:
+        "Agenda una sesión de 15 minutos. Te mostraremos la consola real, responderemos tus preguntas y veremos cómo sería la puesta en marcha en tu clínica.",
+      button: "Agendar una sesión de 15 minutos",
+      note: "Tu confirmación de reserva incluye un enlace de Cal Video.",
+    },
   },
 
   // Web Design page
@@ -178,41 +328,30 @@ export const es: Translations = {
     productsSubtext:
       "Empieza con un sitio web. Agrega herramientas a medida que tu negocio crece. Cancela en cualquier momento después de tu plazo de 12 meses.",
     everythingLabel: "Todo Incluido",
-    everythingPrice: "£712/mes",
-    everythingDesc: "Los 8 productos incluidos",
-    priceNote:
-      "Contratos de 12 meses. 15% de descuento por lealtad en la renovación. Todos los precios excluyen IVA.",
+    everythingDesc: "Las 8 herramientas incluidas",
 
     product1: "Sitio Web Personalizado",
-    product1Price: "£149/mes",
     product1Desc:
       "Diseño único, optimizado para móviles, acceso CMS, hosting y SSL incluidos.",
     product2: "Chatbot con IA",
-    product2Price: "£129/mes",
     product2Desc:
       "Asistente de IA 24/7 entrenado en tu negocio. Captura clientes mientras duermes.",
     product3: "IA Fuera de Horario",
-    product3Price: "£99/mes",
     product3Desc:
       "Maneja llamadas y mensajes fuera de tu horario laboral. Nunca pierdas un cliente potencial.",
     product4: "Respuesta Automática a Llamadas Perdidas",
-    product4Price: "£89/mes",
     product4Desc:
       "Envía un mensaje automático a los clientes en segundos cuando pierdes su llamada.",
     product5: "Sistema de Reservas",
-    product5Price: "£79/mes",
     product5Desc:
       "Deja que los clientes reserven citas online. Envía recordatorios automáticamente.",
     product6: "Facturación Automatizada",
-    product6Price: "£69/mes",
     product6Desc:
       "Envía facturas profesionales por mensaje. Rastrea pagos. Cobra vencidos automáticamente.",
     product7: "Sistema de Solicitud de Cotización",
-    product7Price: "£49/mes",
     product7Desc:
       "Captura solicitudes de cotización desde tu sitio web. Recibe notificaciones al instante.",
     product8: "Recolector de Testimonios",
-    product8Price: "£49/mes",
     product8Desc:
       "Recopila automáticamente reseñas de clientes satisfechos y muéstralas en tu sitio.",
 
@@ -235,7 +374,7 @@ export const es: Translations = {
       "Después de tu plazo de 12 meses, puedes cancelar en cualquier momento con 30 días de aviso. Si cancelas, tu sitio web y todas las herramientas se desconectan ya que funcionan en nuestra infraestructura.",
     faq2Q: "¿Puedo comprar mi sitio web definitivamente?",
     faq2A:
-      "Sí, ofrecemos opciones de compra única. Agenda una llamada para discutir precios.",
+      "Revisamos juntos las opciones de propiedad en una llamada y ponemos por escrito el alcance recomendado antes de empezar.",
     faq3Q: "¿Cuánto tiempo toma construir mi sitio web?",
     faq3A:
       "La mayoría de los sitios web están listos en 5-10 días hábiles. Las herramientas adicionales se configuran dentro de 48 horas después de que tu sitio esté en línea.",
@@ -273,12 +412,6 @@ export const es: Translations = {
     ],
   },
 
-  // Logo grid
-  logoGrid: {
-    badge: "Prueba Social",
-    headline: "Equipos que confían en FlowAudit",
-    subtext: "Operadores de todas las industrias recuperan su tiempo con nuestros asistentes de IA.",
-  },
 
   // Calculator section
   calc: {
@@ -304,9 +437,9 @@ export const es: Translations = {
   // Process section
   process: {
     badge: "Cómo Funciona",
-    headline: "De Manual a Automatizado en 10 Días",
-    subtext: "Nosotros hacemos el trabajo pesado. tú solo asistes a una llamada de 30 minutos.",
-    step1: "Llamada de Flujo de Trabajo de 30 Minutos",
+    headline: "Del Trabajo Manual al Automatizado",
+    subtext: "Nosotros hacemos el trabajo pesado. tú solo asistes a una llamada de 15 minutos.",
+    step1: "Llamada de Flujo de Trabajo de 15 Minutos",
     step1Desc: "Mapeamos tus flujos de trabajo actuales e identificamos los mayores consumidores de tiempo.",
     step2: "Identificar Tareas Repetitivas",
     step2Desc: "Señalamos exactamente qué tareas se pueden automatizar para el máximo impacto.",
@@ -338,17 +471,17 @@ export const es: Translations = {
 
   // FAQ items
   faqItems: [
-    { q: "¿En qué se diferencia de contratar un asistente virtual?", a: "Un asistente virtual es otra persona que gestionar y pagar mensualmente. Nuestro sistema funciona 24/7, no comete errores y tiene un costo único de configuración. no un salario continuo." },
+    { q: "¿En qué se diferencia de contratar un asistente virtual?", a: "Un asistente virtual es otra persona que gestionar, formar y cubrir. Nuestro sistema funciona 24/7, sigue tu proceso exactamente y se encarga del trabajo repetitivo para que tú (o tu equipo) se concentren en el trabajo de verdad." },
     { q: "¿Con qué industrias trabajan?", a: "Principalmente oficios (plomeros, electricistas, constructores), contratistas y pequeñas empresas de servicios con 1-30 personas. Si estás copiando información entre apps o persiguiendo facturas, podemos ayudarte." },
     { q: "Soy un operador individual. ¿vale la pena?", a: "Absolutamente. Ya seas solo o tengas un equipo pequeño, las mayores ganancias vienen de eliminar la administración que consume tu día. Ahorrar 10-15 horas por semana significa más trabajos o recuperar tus noches." },
     { q: "No soy experto en tecnología. ¿podré usar esto?", a: "Sí. Nosotros manejamos toda la configuración técnica. Tu asistente funciona a través de herramientas que ya usas. email, mensajes de texto, tu software contable." },
-    { q: "¿Cuánto tiempo toma la configuración?", a: "Aproximadamente 10 días desde la primera llamada hasta estar en vivo. Empezamos con una charla de 30 minutos, construimos tus automatizaciones, las probamos con tus datos reales y las activamos." },
-    { q: "¿Qué incluye el piloto?", a: "El piloto es una prueba de 5 días de una automatización. La construimos, la ejecutamos con tus datos reales y te mostramos exactamente cuánto tiempo ahorra." },
-    { q: "¿Mis datos están seguros?", a: "Sí. Usamos controles de acceso basados en roles, hosting encriptado y registros de auditoría completos. Tus datos nunca se venden, comparten o usan para entrenamiento." },
+    { q: "¿Cuánto tiempo toma la configuración?", a: "La configuración es sobre todo ajuste, no código. Empezamos con una llamada para mapear el trabajo, construimos y probamos con tus datos reales, y salimos en vivo cuando lo apruebas." },
+    { q: "¿Qué incluye el piloto?", a: "El piloto es una prueba corta de una automatización. La construimos, la ejecutamos con tus datos reales y te mostramos exactamente qué hizo. Solo sigues adelante si se gana su lugar." },
+    { q: "¿Mis datos están seguros?", a: "Configuramos controles de acceso y guardamos un registro de lo que hace el asistente. Tus datos no se venden ni se comparten, y son tuyos." },
     { q: "¿Qué pasa si no sé qué flujos de trabajo automatizar?", a: "Para eso es la primera llamada. Revisaremos tu día a día juntos, encontraremos los mayores consumidores de tiempo y recomendaremos por dónde empezar." },
-    { q: "¿Cuál es el modelo de precios?", a: "Cada proyecto se ajusta exactamente a lo que necesitas, así que el precio depende de tu configuración. Te lo explicamos en una llamada estratégica gratuita. Sin cuotas mensuales para la construcción principal." },
+    { q: "¿Cómo obtengo un precio?", a: "Agenda una llamada gratuita y definimos el alcance contigo, luego ponemos por escrito el alcance completo y la cifra antes de empezar. Cada proyecto es distinto, así que no publicamos una lista de tarifas." },
     { q: "¿Necesito conocimiento técnico?", a: "Para nada. Nosotros manejamos toda la configuración. Interactúas con tu asistente a través de herramientas que ya usas." },
-    { q: "¿Qué tipo de ROI puedo esperar?", a: "La mayoría de los clientes ven un retorno de 5x en su inversión. El negocio promedio ahorra más de 20 horas por semana en administración." },
+    { q: "¿Cómo miden si funciona?", a: "Acordamos qué queremos mover antes de empezar, y el asistente registra lo que hace para que el cambio sea visible. No prometemos ingresos, horas ni posiciones." },
   ],
 
   // Hero visual demos
@@ -409,37 +542,13 @@ export const es: Translations = {
     badge: "Inicio Sin Riesgo",
     headline: "Prueba Un Flujo de Trabajo Primero",
     subtext: "¿No estás seguro si la automatización es para ti? Empieza pequeño. Valida con un flujo de trabajo antes de comprometerte.",
-    items: ["Piloto de 5 días", "Una automatización", "Resultados medibles", "Decide después de validar"],
-    disclaimer: "Sin tarjeta de crédito. Sin compromiso. Solo resultados.",
+    items: ["Piloto corto", "Una automatización", "Reporte claro", "Decide después de validar"],
+    disclaimer: "Sin tarjeta de crédito. Sin compromiso.",
     button: "Comienza con un Piloto",
   },
 
-  // Impact metrics
-  impact: {
-    badge: "Resultados",
-    headline: "Más Tiempo. Más Margen. Menos Caos.",
-    metrics: [
-      { value: "20+", unit: "hrs/semana", label: "Horas Ahorradas", description: "Tiempo promedio recuperado por equipo" },
-      { value: "40%", unit: "", label: "Reducción de Costos", description: "Disminución de costos operacionales" },
-      { value: "10", unit: "días", label: "Tiempo de Implementación", description: "Desde la primera llamada hasta estar en vivo" },
-      { value: "5x", unit: "", label: "Múltiplo de ROI", description: "Retorno típico de inversión" },
-    ],
-  },
 
-  // Testimonials
-  testimonials: {
-    badge: "Resultados",
-    headline: "Lo Que Dicen Los Operadores",
-  },
 
-  // Testimonial items
-  testimonialItems: [
-    { quote: "Pasaba 2 horas cada noche persiguiendo cotizaciones y haciendo facturas. FlowAudit maneja todo eso ahora. no he abierto una hoja de cálculo en 3 meses. Mi tasa de cierre subió 20% solo porque las cotizaciones se siguen el mismo día.", name: "Marcus Rodriguez", title: "Propietario, Summit Electrical Services", initials: "MR" },
-    { quote: "Era escéptico sobre la IA, pero el piloto me convenció en 3 días. Ahora mi equipo se enfoca en trabajo facturable en vez de copiar datos entre hojas de cálculo.", name: "Sarah Chen", title: "Socia Gerente, Cascade Insurance Group", initials: "SC" },
-    { quote: "Pasamos de rastrear manualmente más de 200 renovaciones a tener todo automatizado. El ROI fue obvio en el primer mes.", name: "David Okafor", title: "Director de Operaciones, Atlas Property Management", initials: "DO" },
-    { quote: "Tengo una operación pequeña de plomería. Pensé que la IA era para empresas grandes. Resulta que es perfecta para negocios como el mío. hace el trabajo de oficina que nunca tuve tiempo de hacer. La mejor inversión que he hecho.", name: "Tom Walsh", title: "Propietario, Walsh Plumbing & Heating", initials: "TW" },
-    { quote: "Intentamos contratar un gerente de oficina dos veces. Las dos no funcionó. FlowAudit cuesta menos que un mes de su salario y nunca se reporta enfermo. Nuestras cotizaciones son 3 veces más rápidas ahora.", name: "Rachel Nguyen", title: "Directora, Precision HVAC Solutions", initials: "RN" },
-  ],
 
   // Security
   security: {
@@ -448,7 +557,7 @@ export const es: Translations = {
     subtext: "Simple y claro. así es como protegemos tu negocio.",
     items: [
       { title: "Solo Tú Ves Tus Datos", description: "Configuramos permisos para que solo las personas correctas accedan a tu información." },
-      { title: "Seguridad de Nivel Bancario", description: "Tus datos están encriptados y alojados en el mismo tipo de infraestructura que usan los bancos." },
+      { title: "Segura Por Defecto", description: "Usamos conexiones cifradas y proveedores de hosting establecidos." },
       { title: "Transparencia Total", description: "Puedes ver exactamente qué ha hecho tu asistente. cada email enviado, cada factura creada." },
       { title: "Tus Datos Son Tuyos", description: "Nunca vendemos tus datos, los compartimos con nadie, ni los usamos para nada más que ejecutar tus automatizaciones." },
       { title: "Eres Dueño de Todo", description: "Todas tus automatizaciones, configuraciones y datos te pertenecen. Siempre." },

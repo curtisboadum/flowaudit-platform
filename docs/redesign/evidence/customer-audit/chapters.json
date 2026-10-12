@@ -1,0 +1,191 @@
+[
+  {
+    "start": 0,
+    "label": "The offer",
+    "caption_context": [
+      {
+        "start": 0.0,
+        "text": "When a patient calls your practice, your team may"
+      },
+      {
+        "start": 2.7,
+        "text": "already be helping someone at the desk, taking another"
+      },
+      {
+        "start": 5.367,
+        "text": "call, or finishing for the evening."
+      },
+      {
+        "start": 7.633,
+        "text": "The patient still needs an answer."
+      },
+      {
+        "start": 9.467,
+        "text": "And an appointment inquiry can end before anyone has"
+      }
+    ],
+    "basis": "Approved MainVSL chapter manifest, caption text and browser chapter seeking; timestamps retained"
+  },
+  {
+    "start": 51.533333,
+    "label": "Illustrative value",
+    "caption_context": [
+      {
+        "start": 51.533,
+        "text": "For illustration only, suppose five additional appointments were"
+      },
+      {
+        "start": 54.933,
+        "text": "attended, each with an assumed gross value of one"
+      },
+      {
+        "start": 57.9,
+        "text": "hundred and fifty dollars."
+      },
+      {
+        "start": 58.967,
+        "text": "That's seven hundred and fifty dollars in gross appointment"
+      },
+      {
+        "start": 61.5,
+        "text": "value, before costs."
+      }
+    ],
+    "basis": "Approved MainVSL chapter manifest, caption text and browser chapter seeking; timestamps retained"
+  },
+  {
+    "start": 92,
+    "label": "Recorded booking",
+    "caption_context": [
+      {
+        "start": 90.233,
+        "text": "demonstration labels."
+      },
+      {
+        "start": 92.0,
+        "text": "[Phone ringing]"
+      },
+      {
+        "start": 97.167,
+        "text": "Thanks for"
+      },
+      {
+        "start": 97.9,
+        "text": "[Privacy beep]"
+      },
+      {
+        "start": 99.467,
+        "text": "I'm Liv, how can I help?"
+      },
+      {
+        "start": 101.56700000000001,
+        "text": "Hiya, I just wanted to ring in and book an appointment."
+      }
+    ],
+    "basis": "Approved MainVSL chapter manifest, caption text and browser chapter seeking; timestamps retained"
+  },
+  {
+    "start": 182.833333,
+    "label": "Compatibility limits",
+    "caption_context": [
+      {
+        "start": 182.833,
+        "text": "You can see the appointment in the calendar and"
+      },
+      {
+        "start": 185.167,
+        "text": "the recorded request."
+      },
+      {
+        "start": 186.767,
+        "text": "That's the workflow this example demonstrates."
+      },
+      {
+        "start": 189.467,
+        "text": "Your scheduling system, appointment types and forwarding"
+      },
+      {
+        "start": 192.1,
+        "text": "arrangements still need checking."
+      }
+    ],
+    "basis": "Approved MainVSL chapter manifest, caption text and browser chapter seeking; timestamps retained"
+  },
+  {
+    "start": 200.333333,
+    "label": "Urgent-call boundaries",
+    "caption_context": [
+      {
+        "start": 200.333,
+        "text": "Some calls need different rules."
+      },
+      {
+        "start": 202.7,
+        "text": "In this second recorded example, the agent asks about"
+      },
+      {
+        "start": 205.267,
+        "text": "warning signs, and the caller answers."
+      },
+      {
+        "start": 208.46699999999998,
+        "text": "Is your son experiencing any swelling,"
+      }
+    ],
+    "basis": "Approved MainVSL chapter manifest, caption text and browser chapter seeking; timestamps retained"
+  },
+  {
+    "start": 244.5,
+    "label": "Payment, testing and approval",
+    "caption_context": [
+      {
+        "start": 243.1,
+        "text": "resolved for your setup."
+      },
+      {
+        "start": 244.5,
+        "text": "We confirm a deliverable scope, explain the investment and"
+      },
+      {
+        "start": 248.233,
+        "text": "agree the implementation requirements."
+      },
+      {
+        "start": 250.633,
+        "text": "If those are clear and you're ready to proceed,"
+      },
+      {
+        "start": 252.6,
+        "text": "an agreement and initial payment start configuration."
+      }
+    ],
+    "basis": "Approved MainVSL chapter manifest, caption text and browser chapter seeking; timestamps retained"
+  },
+  {
+    "start": 267.133333,
+    "label": "Your 15-minute call",
+    "caption_context": [
+      {
+        "start": 265.5,
+        "text": "settle before proceeding."
+      },
+      {
+        "start": 267.133,
+        "text": "Book your fifteen-minute Flow Audit walkthrough."
+      },
+      {
+        "start": 270.367,
+        "text": "Bring the practice owner or someone authorized to purchase."
+      },
+      {
+        "start": 273.733,
+        "text": "You'll already have seen the demonstration, so the call"
+      },
+      {
+        "start": 276.2,
+        "text": "focuses on your practice: the relevant workflow, requirements,"
+      }
+    ],
+    "basis": "Approved MainVSL chapter manifest, caption text and browser chapter seeking; timestamps retained"
+  }
+]
