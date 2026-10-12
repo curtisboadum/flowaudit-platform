@@ -165,7 +165,7 @@ export function FilmPicture({frame,openingOnly=false}:{frame:number;openingOnly?
    {frame<data.openingDuration?<OpeningScene {...defaults} frame={frame}/>:
     seg.id==='N05'?<IntroDemo/>:
     demo||still?<><Text y={195} size={still?57:66}>{still?'Still from recorded demonstration':seg.id==='D01'?'A new-patient enquiry.':'Appointment choices, in the original call.'}</Text><Text x={1800} y={99} anchor="end" size={T.note} weight={450}>Recorded demo · not a customer result</Text></>:
-    seg.id==='N10'?<DemoHint frame={frame} start={seg.from}/>: 
+    seg.id==='N10'?<DemoHint frame={frame} start={seg.from}/>:
     seg.id==='N07'?<ControlScene frame={frame} start={seg.from} duration={seg.duration}/>:
     seg.id==='N08'?<FitScene frame={frame} start={seg.from} duration={seg.duration}/>:
     <InvitationScene frame={frame} start={seg.from}/>}
