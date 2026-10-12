@@ -75,14 +75,14 @@ export default async function WatchPage({ params }: WatchPageProps) {
         <div className="mt-10 w-full overflow-hidden rounded-2xl border border-[rgba(55,50,47,0.08)] bg-black shadow-[0px_1px_2px_rgba(55,50,47,0.08)]">
           <video
             className="h-auto w-full"
-            width={1288}
-            height={706}
+            width={1920}
+            height={1080}
             controls
             playsInline
             preload="metadata"
             poster="/assets/watch/phone-agent-demo2-poster.jpg"
           >
-            <source src="/assets/watch/phone-agent-demo2.mp4" type="video/mp4" />
+            <source src="/media/routine.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -90,7 +90,30 @@ export default async function WatchPage({ params }: WatchPageProps) {
           This is a real call handled by the agent. The caller details are masked for privacy.
         </p>
 
-        <div className="mt-10 flex flex-col items-center gap-3">
+        <div className="mt-14 w-full">
+          <h2 className="text-center font-serif text-xl text-[#37322F] sm:text-2xl">
+            Want the full picture?
+          </h2>
+          <p className="mt-3 text-center font-sans text-sm leading-6 text-[rgba(55,50,47,0.75)]">
+            A 100 second overview of how the agent fits into a practice.
+          </p>
+          <div className="mx-auto mt-6 w-full max-w-[760px] overflow-hidden rounded-2xl border border-[rgba(55,50,47,0.08)] bg-black shadow-[0px_1px_2px_rgba(55,50,47,0.08)]">
+            <video
+              className="h-auto w-full"
+              width={1920}
+              height={1080}
+              controls
+              playsInline
+              preload="none"
+              poster="/media/overview.jpg"
+            >
+              <source src="/media/overview.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-center gap-3">
           {leadRef ? (
             <Button size="lg" asChild>
               <Link href={`/book?ref=${leadRef}`}>Book a 15 minute call</Link>
@@ -103,6 +126,12 @@ export default async function WatchPage({ params }: WatchPageProps) {
           <p className="font-sans text-xs text-[rgba(55,50,47,0.75)]">
             Any questions? Just reply to me on LinkedIn.
           </p>
+          <Link
+            href="/phone-agent#demo"
+            className="font-sans text-xs text-[rgba(55,50,47,0.75)] underline underline-offset-4"
+          >
+            See the other demo calls
+          </Link>
         </div>
 
         <p className="mt-16 font-sans text-[11px] text-[rgba(55,50,47,0.72)]">
