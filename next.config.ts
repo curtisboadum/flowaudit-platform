@@ -25,6 +25,16 @@ const nextConfig: NextConfig = {
         source: "/revenue-recovery/:path*",
         headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }],
       },
+      {
+        // Personal, token-gated demo pages: never cache, never index, and
+        // never leak the token via the Referer header to any third party.
+        source: "/watch/:path*",
+        headers: [
+          { key: "Cache-Control", value: "no-store, max-age=0" },
+          { key: "Referrer-Policy", value: "no-referrer" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+        ],
+      },
     ];
   },
   async redirects() {

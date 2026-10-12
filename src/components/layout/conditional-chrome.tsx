@@ -9,22 +9,30 @@ function isCrmPath(pathname: string): boolean {
   return pathname === "/crm" || pathname.startsWith("/crm/");
 }
 
+function isWatchPath(pathname: string): boolean {
+  return pathname === "/watch" || pathname.startsWith("/watch/");
+}
+
+function hidesChrome(pathname: string): boolean {
+  return isCrmPath(pathname) || isWatchPath(pathname);
+}
+
 export function ConditionalSiteHeader() {
   const pathname = usePathname();
-  if (isCrmPath(pathname)) return null;
+  if (hidesChrome(pathname)) return null;
   return <SiteHeader />;
 }
 
 export function ConditionalSiteFooter() {
   const pathname = usePathname();
-  if (isCrmPath(pathname)) return null;
+  if (hidesChrome(pathname)) return null;
   return <SiteFooter />;
 }
 
 export function ConditionalChatWidget() {
   const pathname = usePathname();
   if (
-    isCrmPath(pathname) ||
+    hidesChrome(pathname) ||
     ["/book", "/phone-agent", "/demos", "/revenue-recovery/book"].includes(pathname)
   )
     return null;
