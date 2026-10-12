@@ -14,6 +14,7 @@ export default function robots(): MetadataRoute.Robots {
         "/revenue-recovery/vault",
         "/revenue-recovery/oauth-start",
         "/revenue-recovery/oauth-callback",
+        "/watch/",
       ],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,

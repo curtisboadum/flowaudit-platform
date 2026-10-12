@@ -12,6 +12,7 @@ export const REF_PREFIX = "fa-sdr-";
 
 export const BEACON_EVENTS = [
   "open",
+  "watch_open",
   "video_25",
   "video_50",
   "video_75",
