@@ -181,7 +181,17 @@ export function Process({
     </section>
   );
 }
-export function Closing({ service = "general" }: { service?: ServiceId }) {
+export function Closing({
+  service = "general",
+  title,
+  body,
+  small,
+}: {
+  service?: ServiceId;
+  title?: Copy;
+  body?: Copy;
+  small?: Copy;
+}) {
   const { locale } = useLocale();
   return (
     <section className="fa-closing">
@@ -189,41 +199,46 @@ export function Closing({ service = "general" }: { service?: ServiceId }) {
         <Eyebrow>{text(locale, c("A focused conversation", "Una conversación concreta"))}</Eyebrow>
         <div>
           <h2>
-            {text(
-              locale,
-              service === "phone-agent"
-                ? c(
-                    "Your questions.\nA clear buying decision.",
-                    "Tus preguntas.\nUna decisión clara.",
-                  )
-                : c(
-                    "Show us where\nthe work gets stuck.",
-                    "Muéstranos dónde\nse atasca el trabajo.",
-                  ),
-            )}
+            {title
+              ? text(locale, title)
+              : text(
+                  locale,
+                  service === "phone-agent"
+                    ? c(
+                        "Your questions.\nA clear buying decision.",
+                        "Tus preguntas.\nUna decisión clara.",
+                      )
+                    : c(
+                        "Show us where\nthe work gets stuck.",
+                        "Muéstranos dónde\nse atasca el trabajo.",
+                      ),
+                )}
           </h2>
           <aside>
             <p>
-              {text(
-                locale,
-                c(
-                  service === "phone-agent"
-                    ? "15 minutes to discuss your requirements, remaining questions, scope and investment. Invite the person who approves the purchase."
-                    : "15 minutes to explore the problem, see a relevant example and agree whether there is a useful next step.",
-                  service === "phone-agent"
-                    ? "15 minutos para comentar requisitos, dudas, alcance e inversión. Invita a quien aprueba la compra."
-                    : "15 minutos para explorar el problema, ver un ejemplo relevante y acordar si hay un siguiente paso útil.",
-                ),
-              )}
+              {body
+                ? text(locale, body)
+                : text(
+                    locale,
+                    c(
+                      service === "phone-agent"
+                        ? "15 minutes to discuss your requirements, remaining questions, scope and investment. Invite the person who approves the purchase."
+                        : "15 minutes to explore the problem, see a relevant example and agree whether there is a useful next step.",
+                      service === "phone-agent"
+                        ? "15 minutos para comentar requisitos, dudas, alcance e inversión. Invita a quien aprueba la compra."
+                        : "15 minutos para explorar el problema, ver un ejemplo relevante y acordar si hay un siguiente paso útil.",
+                    ),
+                  )}
             </p>
             <BookLink service={service} light />
             <p className="fa-small">
               {text(
                 locale,
-                c(
-                  "Clear scope. Considered decisions. No pressure.",
-                  "Alcance claro. Decisiones cuidadas. Sin presión.",
-                ),
+                small ??
+                  c(
+                    "Clear scope. Considered decisions. No pressure.",
+                    "Alcance claro. Decisiones cuidadas. Sin presión.",
+                  ),
               )}
             </p>
           </aside>

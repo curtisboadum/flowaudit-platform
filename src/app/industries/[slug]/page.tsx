@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const data = industries[slug];
   if (!data) return {};
-  return pageMetadata(data.name.en, data.intro.en, `/industries/${slug}`);
+  return pageMetadata(data.metaTitle, data.metaDescription, `/industries/${slug}`);
 }
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

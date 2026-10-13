@@ -47,6 +47,7 @@ export function MediaPlayer({
   film = "routine",
   switchable = false,
   compact = false,
+  standalone = false,
   choices,
   onPositionChange,
   qualificationCta = false,
@@ -54,6 +55,7 @@ export function MediaPlayer({
   film?: Film;
   switchable?: boolean;
   compact?: boolean;
+  standalone?: boolean;
   choices?: Film[];
   qualificationCta?: boolean;
   onPositionChange?: (seconds: number, film: Film) => void;
@@ -516,14 +518,14 @@ export function MediaPlayer({
             </nav>
           )}
           <div className="fa-media-links">
-            {active === "overview" ? (
+            {!standalone && active === "overview" ? (
               <a href="/phone-agent#full-demonstrations">
                 {text(
                   locale,
                   c("Watch both full demonstrations", "Ver las dos demostraciones completas"),
                 )}
               </a>
-            ) : active === "routine" ? (
+            ) : !standalone && active === "routine" ? (
               <a href="/phone-agent#demo">
                 {text(locale, c("Back to the overview", "Volver al resumen"))}
               </a>

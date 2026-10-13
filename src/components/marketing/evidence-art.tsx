@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useLocale } from "@/components/providers/locale-provider";
 import { c, text } from "@/lib/marketing-copy";
 import { Arrow } from "./primitives";
-export function EvidenceArt() {
+export function EvidenceArt({ href = "/phone-agent#demo" }: { href?: string }) {
   const { locale } = useLocale();
   return (
     <Link
-      href="/phone-agent#demo"
+      href={href}
       className="fa-evidence-art"
       aria-label={text(
         locale,

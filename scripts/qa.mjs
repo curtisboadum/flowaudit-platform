@@ -30,9 +30,17 @@ const routes = [
   "/blog/real-cost-of-manual-work",
   "/blog/hire-vs-automate",
   "/blog/revenue-per-employee",
-  ...["trades", "solopreneurs", "insurance", "agencies", "accounting", "legal", "consultants"].map(
-    (x) => `/industries/${x}`,
-  ),
+  ...[
+    "trades",
+    "property",
+    "clinics",
+    "solopreneurs",
+    "insurance",
+    "agencies",
+    "accounting",
+    "legal",
+    "consultants",
+  ].map((x) => `/industries/${x}`),
 ];
 const errors = [],
   rows = [],
@@ -94,34 +102,75 @@ await writeFile(
   `${out}/browser-qa.json`,
   JSON.stringify({ base, at: new Date().toISOString(), rows, linkResults, errors }, null, 2),
 );
-await page.goto(base + "/phone-agent");
-await page.getByRole("tab", { name: /full walkthrough/i }).click();
-await page.getByRole("tab", { name: /full walkthrough/i }).press("ArrowRight");
-rows.push({
-  check: "Media keyboard tabs",
-  selected: await page.getByRole("tab", { selected: true }).first().innerText(),
-});
-await page.goto(base + "/book?service=phone-agent&ref=fa-sdr-qa&utm_source=qa");
-await page.getByLabel("Business or practice name").fill("FlowAudit QA");
-await page.getByLabel("Your role").selectOption("Owner / partner");
-await page.getByLabel("What would you like to improve?").fill("Review booking setup");
-await page.screenshot({ path: `${out}/qualification-390.png`, fullPage: true });
-await page.locator("form button[type=submit]").click();
-await page.waitForTimeout(4000);
-rows.push({
-  check: "Cal embed",
-  frames: await page.locator("iframe").count(),
-  fallback: await page.getByRole("link", { name: /Open the booking page/ }).getAttribute("href"),
-});
-await page.screenshot({ path: `${out}/calendar.png`, fullPage: true });
-await page.goto(base + "/?lang=es");
-await page.waitForTimeout(500);
-rows.push({
-  check: "Spanish locale",
-  lang: await page.locator("html").getAttribute("lang"),
-  headline: await page.locator("h1").innerText(),
-});
-await page.goto(base + "/not-a-real-page");
+try {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(base + "/industries/trades", { waitUntil: "networkidle" });
+  await page.evaluate(() => window.scrollTo(0, 900));
+  await page.waitForTimeout(500);
+  rows.push({
+    check: "Industry sticky CTA after scroll",
+    visible: await page.locator(".fa-sticky-cta-visible").count(),
+  });
+  await page.locator(".fa-sticky-cta a[href^='/book']").click();
+  await page.waitForTimeout(600);
+  rows.push({ check: "Industry sticky CTA booking route", url: page.url() });
+} catch (error) {
+  rows.push({ check: "Industry sticky CTA", error: String(error).slice(0, 200) });
+}
+try {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(base + "/industries/clinics", { waitUntil: "networkidle" });
+  await page.locator('a[href="#recording"]').first().click();
+  await page.waitForTimeout(600);
+  rows.push({
+    check: "Industry recording anchor",
+    hashes: await page.evaluate(() => location.hash),
+    player: await page.locator("#recording video").count(),
+  });
+} catch (error) {
+  rows.push({ check: "Industry recording anchor", error: String(error).slice(0, 200) });
+}
+try {
+  await page.goto(base + "/phone-agent");
+  await page.locator("summary", { hasText: /More detail/ }).click();
+  await page.getByRole("tab", { name: /full walkthrough/i }).click();
+  await page.getByRole("tab", { name: /full walkthrough/i }).press("ArrowRight");
+  rows.push({
+    check: "Media keyboard tabs",
+    selected: await page.getByRole("tab", { selected: true }).first().innerText(),
+  });
+} catch (error) {
+  rows.push({ check: "Media keyboard tabs", error: String(error).slice(0, 200) });
+}
+try {
+  await page.goto(base + "/book?service=phone-agent&ref=fa-sdr-qa&utm_source=qa");
+  await page.getByText("Add context for the call (optional)", { exact: true }).click();
+  await page.getByLabel("Business or practice name").fill("FlowAudit QA");
+  await page.getByLabel("Your role").selectOption("Owner / partner");
+  await page.getByLabel("What would you like to improve?").fill("Review booking setup");
+  await page.screenshot({ path: `${out}/qualification-390.png`, fullPage: true });
+  await page.locator("form button[type=submit]").click();
+  await page.waitForTimeout(4000);
+  rows.push({
+    check: "Cal embed",
+    frames: await page.locator("iframe").count(),
+    fallback: await page.getByRole("link", { name: /Open the booking page/ }).getAttribute("href"),
+  });
+  await page.screenshot({ path: `${out}/calendar.png`, fullPage: true });
+} catch (error) {
+  rows.push({ check: "Cal embed", error: String(error).slice(0, 200) });
+}
+try {
+  await page.goto(base + "/?lang=es");
+  await page.waitForTimeout(500);
+  rows.push({
+    check: "Spanish locale",
+    lang: await page.locator("html").getAttribute("lang"),
+    headline: await page.locator("h1").innerText(),
+  });
+} catch (error) {
+  rows.push({ check: "Spanish locale", error: String(error).slice(0, 200) });
+}
 rows.push({
   check: "404",
   status: (await context.request.get(base + "/not-a-real-page")).status(),

@@ -2,6 +2,29 @@
 
 ## Current Session
 
+## Session 2026-10-13 — R2Q industry conversion pages (all nine)
+
+**Date:** 2026-10-13
+**Goal:** Rebuild every industry page and the three R2Q subdomains into purposeful conversion pages so members who land book a call
+**Status:** Built, QA green, awaiting owner review before merge and production deploy
+
+### Context
+
+- Owner reviewed the September industry pages and rejected them: copy vague and hedge-heavy, design bare, no offer, not industry-specific, subdomains broken
+- Campaign grounding: R2Q pain research for trades, property, clinics and professional services (`flowaudit-sales/r2q/reports/pain-research-*.md`), plus the 1,387-member scan (only 56 of 150 trades members have a site; 38 of those have no booking)
+- Approved direction: AI phone agent leads per niche, other services ride as a cross-sell band, no pricing on pages, dental recording used with honest framing, UK trust line, no timeline promise, no founding-member framing
+
+### What changed
+
+- New content model and content for all nine industries (trades, property, clinics, accounting, legal, insurance, consultants, agencies, solopreneurs) with full EN/ES parity
+- Conversion blueprint per page: hero + evidence card, trust strip, pain scenarios, capability grid, embedded recorded demo, rules band, three-step start, FAQ, cross-sell band, per-niche closing, sticky mobile CTA
+- Fixed: trades booking attribution to `service=phone-agent`; secondary CTA no longer exits to /solutions; UK flow no longer routes through the US-first phone-agent page
+- QA: 67 unit tests green (19 new), axe WCAG 2.2 AA zero violations across 47 route/viewport combos, no overflow, link check clean, production build prerenders all nine pages
+
+### Next
+
+- Owner review on localhost and Vercel preview; then merge, production deploy, IONOS DNS records for trades/property/clinics subdomains
+
 ## Session 2026-10-07 — Video revision 3 + cal.com booking migration
 
 **Date:** 2026-10-07
