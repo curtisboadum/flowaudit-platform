@@ -7,6 +7,7 @@ export interface Industry {
   boundary: Copy;
   service?: ServiceId;
   secondary?: { href: string; label: Copy };
+  demo?: boolean;
 }
 export const industries: Record<string, Industry> = {
   trades: {
@@ -37,6 +38,7 @@ export const industries: Record<string, Industry> = {
       "Commercial commitments and unusual job requirements need an authorised reviewer.",
       "Compromisos comerciales y requisitos inusuales requieren un revisor autorizado.",
     ),
+    demo: true,
   },
   property: {
     name: c("Property & real estate", "Inmobiliario y gestión de propiedades"),
@@ -71,6 +73,7 @@ export const industries: Record<string, Industry> = {
       href: "/phone-agent",
       label: c("See the recorded call", "Ver la llamada grabada"),
     },
+    demo: true,
   },
   clinics: {
     name: c("Clinics & private practices", "Clínicas y consultas privadas"),
@@ -105,6 +108,7 @@ export const industries: Record<string, Industry> = {
       href: "/phone-agent#demo",
       label: c("See the recorded dental call", "Ver la llamada dental grabada"),
     },
+    demo: true,
   },
   solopreneurs: {
     name: c("Independent operators", "Profesionales independientes"),

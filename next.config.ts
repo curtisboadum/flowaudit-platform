@@ -42,6 +42,22 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return {
+      beforeFiles: [
+        // R2Q channel: per-niche offer pages served on their own subdomains.
+        // Canonicals stay on the main domain (see SITE_URL), and these hosts
+        // resolve only once the Vercel domains + DNS records exist.
+        ...(
+          [
+            ["trades.flowaudit.co.uk", "/industries/trades"],
+            ["property.flowaudit.co.uk", "/industries/property"],
+            ["clinics.flowaudit.co.uk", "/industries/clinics"],
+          ] as Array<[string, string]>
+        ).map(([host, destination]) => ({
+          source: "/",
+          has: [{ type: "host" as const, value: host }],
+          destination,
+        })),
+      ],
       afterFiles: [
         // Keep /revenue-recovery available for the FlowAudit marketing page.
         // Only proxy client-operation subroutes to the standalone RRD web app.
