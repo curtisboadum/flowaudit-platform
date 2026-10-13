@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useLocale } from "@/components/providers/locale-provider";
 import { industries, posts } from "@/lib/editorial-copy";
 import { c, text } from "@/lib/marketing-copy";
-import { Arrow, BookLink, Closing, Eyebrow } from "./primitives";
+import { Arrow, BookLink, Closing, Eyebrow, Process } from "./primitives";
+import { EvidenceArt } from "./evidence-art";
 export function IndustryPage({ slug }: { slug: string }) {
   const { locale } = useLocale();
   const data = industries[slug];
@@ -15,13 +16,48 @@ export function IndustryPage({ slug }: { slug: string }) {
         <h1>{text(locale, data.title)}</h1>
         <p className="fa-lead">{text(locale, data.intro)}</p>
         <div className="fa-hero-actions">
-          <BookLink service="automation" />
-          <Link href="/solutions" className="fa-text-link">
-            {text(locale, c("Explore operations automation", "Explorar automatización operativa"))}
-            <Arrow />
-          </Link>
+          <BookLink service={data.service ?? "automation"} />
+          {data.secondary ? (
+            <Link href={data.secondary.href} className="fa-text-link">
+              {text(locale, data.secondary.label)}
+              <Arrow />
+            </Link>
+          ) : (
+            <Link href="/solutions" className="fa-text-link">
+              {text(
+                locale,
+                c("Explore operations automation", "Explorar automatización operativa"),
+              )}
+              <Arrow />
+            </Link>
+          )}
         </div>
       </section>
+      {data.demo && (
+        <section className="fa-container fa-section fa-trust">
+          <div>
+            <Eyebrow>
+              {text(locale, c("A working example", "Un ejemplo en funcionamiento"))}
+            </Eyebrow>
+            <h2>
+              {text(
+                locale,
+                c("See it work\nbefore you decide.", "Véalo funcionar\nantes de decidir."),
+              )}
+            </h2>
+            <p className="fa-small">
+              {text(
+                locale,
+                c(
+                  "Recorded demonstration. Privacy edits disclosed. Not customer proof.",
+                  "Demostración grabada. Ediciones de privacidad indicadas. No es prueba de cliente.",
+                ),
+              )}
+            </p>
+          </div>
+          <EvidenceArt />
+        </section>
+      )}
       <section className="fa-container fa-section fa-trust">
         <div>
           <Eyebrow>
@@ -54,7 +90,8 @@ export function IndustryPage({ slug }: { slug: string }) {
           </p>
         </div>
       </section>
-      <Closing service="automation" />
+      {data.demo && <Process compact />}
+      <Closing service={data.service ?? "automation"} />
     </>
   );
 }

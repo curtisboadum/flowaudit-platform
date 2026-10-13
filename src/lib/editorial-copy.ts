@@ -1,10 +1,13 @@
-import { c, type Copy } from "@/lib/marketing-copy";
+import { c, type Copy, type ServiceId } from "@/lib/marketing-copy";
 export interface Industry {
   name: Copy;
   title: Copy;
   intro: Copy;
   examples: Copy[];
   boundary: Copy;
+  service?: ServiceId;
+  secondary?: { href: string; label: Copy };
+  demo?: boolean;
 }
 export const industries: Record<string, Industry> = {
   trades: {
@@ -35,6 +38,77 @@ export const industries: Record<string, Industry> = {
       "Commercial commitments and unusual job requirements need an authorised reviewer.",
       "Compromisos comerciales y requisitos inusuales requieren un revisor autorizado.",
     ),
+    demo: true,
+  },
+  property: {
+    name: c("Property & real estate", "Inmobiliario y gestión de propiedades"),
+    title: c(
+      "Answer the enquiry.\nKeep the viewing moving.",
+      "Atiende la consulta.\nMantén la visita en marcha.",
+    ),
+    intro: c(
+      "Enquiries, viewings, tenant and landlord calls arrive while you are showing, driving or mid-negotiation. Start with the calls that most often go unanswered.",
+      "Consultas, visitas y llamadas de inquilinos y propietarios llegan mientras muestras, conduces o negocias. Empieza por las llamadas que más suelen quedar sin respuesta.",
+    ),
+    examples: [
+      c(
+        "Route new sales, lettings and valuation enquiries to the right person.",
+        "Dirigir nuevas consultas de venta, alquiler y valoración a la persona adecuada.",
+      ),
+      c(
+        "Prepare viewing and valuation confirmations for review.",
+        "Preparar confirmaciones de visitas y valoraciones para revisar.",
+      ),
+      c(
+        "Keep tenant and maintenance call notes together for follow-up.",
+        "Mantener juntas las notas de llamadas de inquilinos y mantenimiento para el seguimiento.",
+      ),
+    ],
+    boundary: c(
+      "Commercial terms, tenancy decisions and commitments remain with the responsible agent.",
+      "Términos comerciales, decisiones de arrendamiento y compromisos quedan con el agente responsable.",
+    ),
+    service: "phone-agent",
+    secondary: {
+      href: "/phone-agent",
+      label: c("See the recorded call", "Ver la llamada grabada"),
+    },
+    demo: true,
+  },
+  clinics: {
+    name: c("Clinics & private practices", "Clínicas y consultas privadas"),
+    title: c(
+      "Answer every patient call.\nKeep the diary moving.",
+      "Atiende cada llamada de paciente.\nMantén la agenda en marcha.",
+    ),
+    intro: c(
+      "New patient enquiries, booking questions and reschedule requests often arrive while the team is with someone. Start by making the phone dependable.",
+      "Consultas de nuevos pacientes, dudas de reserva y cambios de cita llegan a menudo mientras el equipo está con alguien. Empieza por hacer fiable el teléfono.",
+    ),
+    examples: [
+      c(
+        "Give new patient enquiries a clear next step, including booking.",
+        "Dar a las consultas de nuevos pacientes un siguiente paso claro, incluida la reserva.",
+      ),
+      c(
+        "Prepare answers to routine questions like hours, parking and treatments.",
+        "Preparar respuestas a preguntas habituales como horarios, aparcamiento y tratamientos.",
+      ),
+      c(
+        "Keep reschedule and follow-up requests with a named owner.",
+        "Mantener solicitudes de cambio de cita y seguimiento con un responsable.",
+      ),
+    ],
+    boundary: c(
+      "Clinical advice, treatment decisions and pricing commitments remain with the responsible clinician.",
+      "El asesoramiento clínico, las decisiones de tratamiento y los compromisos de precio quedan con el clínico responsable.",
+    ),
+    service: "phone-agent",
+    secondary: {
+      href: "/phone-agent#demo",
+      label: c("See the recorded dental call", "Ver la llamada dental grabada"),
+    },
+    demo: true,
   },
   solopreneurs: {
     name: c("Independent operators", "Profesionales independientes"),
