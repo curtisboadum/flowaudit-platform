@@ -15,11 +15,18 @@ export function IndustryPage({ slug }: { slug: string }) {
         <h1>{text(locale, data.title)}</h1>
         <p className="fa-lead">{text(locale, data.intro)}</p>
         <div className="fa-hero-actions">
-          <BookLink service="automation" />
-          <Link href="/solutions" className="fa-text-link">
-            {text(locale, c("Explore operations automation", "Explorar automatización operativa"))}
-            <Arrow />
-          </Link>
+          <BookLink service={data.service ?? "automation"} />
+          {data.secondary ? (
+            <Link href={data.secondary.href} className="fa-text-link">
+              {text(locale, data.secondary.label)}
+              <Arrow />
+            </Link>
+          ) : (
+            <Link href="/solutions" className="fa-text-link">
+              {text(locale, c("Explore operations automation", "Explorar automatización operativa"))}
+              <Arrow />
+            </Link>
+          )}
         </div>
       </section>
       <section className="fa-container fa-section fa-trust">
@@ -54,7 +61,7 @@ export function IndustryPage({ slug }: { slug: string }) {
           </p>
         </div>
       </section>
-      <Closing service="automation" />
+      <Closing service={data.service ?? "automation"} />
     </>
   );
 }
