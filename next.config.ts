@@ -22,6 +22,14 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/demo/:path*",
+        headers: [
+          { key: "Cache-Control", value: "no-store, max-age=0" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+          { key: "Referrer-Policy", value: "no-referrer" },
+        ],
+      },
+      {
         source: "/revenue-recovery/:path*",
         headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }],
       },
@@ -43,6 +51,10 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
+        // Tracked VSL and private reporting, hosted by the dedicated demo app.
+        // Keep the existing homepage, /demos gallery and /watch links intact.
+        { source: "/demo", destination: "https://flowaudit-demo.vercel.app/demo" },
+        { source: "/demo/:path*", destination: "https://flowaudit-demo.vercel.app/demo/:path*" },
         // R2Q channel: per-niche offer pages served on their own subdomains.
         // Canonicals stay on the main domain (see SITE_URL), and these hosts
         // resolve only once the Vercel domains + DNS records exist.
