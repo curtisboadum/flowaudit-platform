@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "/Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site/playwright.config.ts",
-    "rootDir": "/Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site/tests/e2e",
+    "configFile": "/Users/curtis/workspace/flowaudit-wt/r2q-pages-v2/playwright.config.ts",
+    "rootDir": "/Users/curtis/workspace/flowaudit-wt/r2q-pages-v2/tests/e2e",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -16,7 +16,7 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site/test-results",
+        "outputDir": "/Users/curtis/workspace/flowaudit-wt/r2q-pages-v2/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -24,7 +24,7 @@
         },
         "id": "",
         "name": "",
-        "testDir": "/Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site/tests/e2e",
+        "testDir": "/Users/curtis/workspace/flowaudit-wt/r2q-pages-v2/tests/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -56,75 +56,9 @@
     "updateSourceMethod": "patch",
     "version": "1.58.2",
     "workers": 3,
-    "webServer": {
-      "command": "npm run start -- --port 3016",
-      "url": "http://localhost:3016",
-      "reuseExistingServer": true
-    }
+    "webServer": null
   },
   "suites": [
-    {
-      "title": "live-calendar.spec.ts",
-      "file": "live-calendar.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "Live Cal event and calendar screenshots",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [
-                {
-                  "type": "skip",
-                  "description": "External provider smoke is explicitly opt-in",
-                  "location": {
-                    "file": "/Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site/tests/e2e/live-calendar.spec.ts",
-                    "line": 4,
-                    "column": 8
-                  }
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "skipped",
-                  "duration": 246,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:23:44.620Z",
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "description": "External provider smoke is explicitly opt-in",
-                      "location": {
-                        "file": "/Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site/tests/e2e/live-calendar.spec.ts",
-                        "line": 4,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "b4d0fc7df609f98aea09-025846c2624c99131338",
-          "file": "live-calendar.spec.ts",
-          "line": 3,
-          "column": 5
-        }
-      ]
-    },
     {
       "title": "marketing.spec.ts",
       "file": "marketing.spec.ts",
@@ -144,15 +78,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 388,
+                  "duration": 734,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:44.625Z",
+                  "startTime": "2026-10-13T19:13:09.664Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -178,15 +112,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 373,
+                  "duration": 716,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:44.624Z",
+                  "startTime": "2026-10-13T19:13:09.663Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -212,15 +146,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 328,
+                  "duration": 729,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:45.408Z",
+                  "startTime": "2026-10-13T19:13:09.662Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -249,12 +183,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 266,
+                  "duration": 202,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:45.526Z",
+                  "startTime": "2026-10-13T19:13:11.119Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -280,15 +214,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 266,
+                  "duration": 600,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:45.559Z",
+                  "startTime": "2026-10-13T19:13:11.120Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -314,15 +248,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 218,
+                  "duration": 515,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:45.752Z",
+                  "startTime": "2026-10-13T19:13:11.120Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -351,12 +285,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 243,
+                  "duration": 194,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:45.799Z",
+                  "startTime": "2026-10-13T19:13:11.328Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -382,15 +316,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 235,
+                  "duration": 238,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:45.831Z",
+                  "startTime": "2026-10-13T19:13:11.528Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -416,15 +350,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 254,
+                  "duration": 300,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:45.981Z",
+                  "startTime": "2026-10-13T19:13:11.650Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -450,15 +384,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 248,
+                  "duration": 372,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:46.050Z",
+                  "startTime": "2026-10-13T19:13:11.728Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -484,15 +418,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 250,
+                  "duration": 238,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:46.074Z",
+                  "startTime": "2026-10-13T19:13:11.775Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -518,15 +452,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 243,
+                  "duration": 336,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:46.247Z",
+                  "startTime": "2026-10-13T19:13:11.961Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -555,12 +489,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 246,
+                  "duration": 294,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:46.304Z",
+                  "startTime": "2026-10-13T19:13:12.019Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -586,15 +520,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 452,
+                  "duration": 1241,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:46.331Z",
+                  "startTime": "2026-10-13T19:13:12.113Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -620,15 +554,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 2749,
+                  "duration": 810,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:46.499Z",
+                  "startTime": "2026-10-13T19:13:12.304Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -657,12 +591,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 391,
+                  "duration": 469,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:46.562Z",
+                  "startTime": "2026-10-13T19:13:12.320Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -688,15 +622,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 384,
+                  "duration": 332,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:46.792Z",
+                  "startTime": "2026-10-13T19:13:12.798Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -722,15 +656,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 236,
+                  "duration": 287,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:46.959Z",
+                  "startTime": "2026-10-13T19:13:13.122Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -756,15 +690,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 839,
+                  "duration": 933,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:47.184Z",
+                  "startTime": "2026-10-13T19:13:13.140Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -790,15 +724,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 639,
+                  "duration": 863,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:47.202Z",
+                  "startTime": "2026-10-13T19:13:13.368Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -824,15 +758,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 856,
+                  "duration": 1235,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:47.848Z",
+                  "startTime": "2026-10-13T19:13:13.419Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -858,15 +792,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 579,
+                  "duration": 663,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:48.030Z",
+                  "startTime": "2026-10-13T19:13:14.080Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -892,15 +826,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 848,
+                  "duration": 1355,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:48.622Z",
+                  "startTime": "2026-10-13T19:13:14.237Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -926,15 +860,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 565,
+                  "duration": 609,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:48.716Z",
+                  "startTime": "2026-10-13T19:13:14.665Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -960,15 +894,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1052,
+                  "duration": 910,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:49.257Z",
+                  "startTime": "2026-10-13T19:13:14.750Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -994,15 +928,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 606,
+                  "duration": 599,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:49.288Z",
+                  "startTime": "2026-10-13T19:13:15.280Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1028,15 +962,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 973,
+                  "duration": 1060,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:49.476Z",
+                  "startTime": "2026-10-13T19:13:15.598Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1065,12 +999,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 615,
+                  "duration": 650,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:49.901Z",
+                  "startTime": "2026-10-13T19:13:15.669Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1096,15 +1030,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 2544,
+                  "duration": 2684,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:50.316Z",
+                  "startTime": "2026-10-13T19:13:15.886Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1130,15 +1064,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 289,
+                  "duration": 403,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:50.457Z",
+                  "startTime": "2026-10-13T19:13:16.327Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1164,15 +1098,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 11267,
+                  "duration": 11235,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:50.524Z",
+                  "startTime": "2026-10-13T19:13:16.664Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1198,15 +1132,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 408,
+                  "duration": 454,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:50.755Z",
+                  "startTime": "2026-10-13T19:13:16.740Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1232,15 +1166,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 349,
+                  "duration": 371,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:51.168Z",
+                  "startTime": "2026-10-13T19:13:17.202Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1266,15 +1200,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1389,
+                  "duration": 1009,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:51.521Z",
+                  "startTime": "2026-10-13T19:13:17.577Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1300,15 +1234,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 9181,
+                  "duration": 9219,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:52.865Z",
+                  "startTime": "2026-10-13T19:13:18.575Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1334,15 +1268,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3844,
+                  "duration": 4021,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-12T12:23:52.914Z",
+                  "startTime": "2026-10-13T19:13:18.592Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1356,1606 +1290,14 @@
           "column": 5
         }
       ]
-    },
-    {
-      "title": "vsl-journey.spec.ts",
-      "file": "vsl-journey.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "In-frame CTA, keyboard, fullscreen and restored position at 390",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 678,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:23:56.768Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-1e8e04ec86e446419418",
-          "file": "vsl-journey.spec.ts",
-          "line": 23,
-          "column": 7
-        },
-        {
-          "title": "In-frame CTA, keyboard, fullscreen and restored position at 768",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 684,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:23:57.452Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-db91308c92b58c1e52f2",
-          "file": "vsl-journey.spec.ts",
-          "line": 23,
-          "column": 7
-        },
-        {
-          "title": "In-frame CTA, keyboard, fullscreen and restored position at 1440",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 678,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:23:58.141Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-b5559fd404816f06e50c",
-          "file": "vsl-journey.spec.ts",
-          "line": 23,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, Busy periods, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 828,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:23:58.825Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-8bdad8abccedcec233ed",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, Busy periods, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 835,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:23:59.661Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-a9fdfb3a7f3c900cddb5",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, Busy periods, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 808,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:00.502Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-14c07725d9479950dace",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, After hours, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 849,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:01.316Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-f8484ce4fa6a2890adc5",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, After hours, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 874,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:01.801Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-f26cd0a2578c0e3daec7",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, After hours, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 885,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:02.055Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-42b3103c97b1d22198ba",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, Both, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 875,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:02.172Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-8565406b2c37a21ca057",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, Both, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 911,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:02.682Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-277c9849b630731dad7a",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, Both, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 873,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:02.946Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-3123bfb23c9cc763a393",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, Exploring the fit, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 872,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:03.055Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-4a3c06d3403be9c8081f",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, Exploring the fit, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 878,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:03.599Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-3949e84d20b27511c615",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Independent practice, Exploring the fit, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 882,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:03.824Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-b41bc477055d794309c3",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, Busy periods, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 884,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:03.934Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-81c991525621c31f137e",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, Busy periods, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 1069,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:04.483Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-0a7c4109d1b25bac1969",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, Busy periods, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1195,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:04.713Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-143d734f3c4450a25a20",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, After hours, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 1208,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:04.825Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-469e503166e1da203481",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, After hours, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 1203,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:05.561Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-b4df9f51f587af66dea4",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, After hours, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1227,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:05.915Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-b70ed8d7a6923a3b41fa",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, Both, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 1120,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:06.040Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-32204adf7e54afdf59bb",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, Both, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 1014,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:06.772Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-9cd61084900a490e9ed9",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, Both, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1076,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:07.151Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-cf80580ba93a68958439",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, Exploring the fit, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 1056,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:07.168Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-88331276a77c5ceeb282",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, Exploring the fit, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 925,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:07.792Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-ad8aae32c8f5cf6d87f6",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Multi-location group or DSO, Exploring the fit, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 935,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:08.230Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-93437c415ab4ddec81d3",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, Busy periods, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 953,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:08.234Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-ee5066682c25c38c2cb0",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, Busy periods, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 942,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:08.722Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-5449ec69946fc3d9ca72",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, Busy periods, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 972,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:09.171Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-d5f9a3617f02aa45f9c3",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, After hours, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 999,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:09.193Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-7d644b899285f9b3a135",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, After hours, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 969,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:09.670Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-ada2eebb63b0eecf624e",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, After hours, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 944,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:10.147Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-00ff834b2bdae640aca9",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, Both, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 944,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:10.197Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-53578fed78e98813767d",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, Both, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 926,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:10.645Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-8cacce0b78c78cb141cb",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, Both, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 965,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:11.097Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-dd42be64d0edf9cf58b7",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, Exploring the fit, I can approve the project",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 964,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:11.148Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-42aa80983a183a97f2d9",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, Exploring the fit, Evaluating with an approver",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 940,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:11.576Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-ccc9dc6fcfcc111acc6d",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Qualification: Other, Exploring the fit, Early research",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 936,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:12.066Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-ec8ba6cc669765aa0730",
-          "file": "vsl-journey.spec.ts",
-          "line": 75,
-          "column": 7
-        },
-        {
-          "title": "Other detail stays editable, irrelevant detail omitted, old and corrupt state cannot skip",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 571,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:12.119Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-11c1c735a9b9fc250a95",
-          "file": "vsl-journey.spec.ts",
-          "line": 112,
-          "column": 5
-        },
-        {
-          "title": "Storage denied still supports keyboard completion",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 580,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:12.521Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-271d96a38a011515c4e5",
-          "file": "vsl-journey.spec.ts",
-          "line": 140,
-          "column": 5
-        },
-        {
-          "title": "Both genuine full demos are visible, deferred, and exclusive",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 305,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:12.697Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-446eeab60fa3dc88968a",
-          "file": "vsl-journey.spec.ts",
-          "line": 160,
-          "column": 5
-        },
-        {
-          "title": "Qualification reaches a complete mocked contact/scheduling handoff",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [
-                {
-                  "type": "skip",
-                  "description": "Only run against the explicitly labelled local review fixture",
-                  "location": {
-                    "file": "/Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site/tests/e2e/vsl-journey.spec.ts",
-                    "line": 184,
-                    "column": 8
-                  }
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "skipped",
-                  "duration": 139,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:13.007Z",
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "description": "Only run against the explicitly labelled local review fixture",
-                      "location": {
-                        "file": "/Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site/tests/e2e/vsl-journey.spec.ts",
-                        "line": 184,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-91e991b7bc8f58e65bbe",
-          "file": "vsl-journey.spec.ts",
-          "line": 183,
-          "column": 5
-        },
-        {
-          "title": "Corrupt storage cannot bypass questions",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 325,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:13.008Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-11a961edac9f747abdad",
-          "file": "vsl-journey.spec.ts",
-          "line": 206,
-          "column": 5
-        },
-        {
-          "title": "Touch, resize and unavailable wrapper fullscreen keep a working route",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 693,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:13.112Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-bf9b0b744bbe1eb36d50",
-          "file": "vsl-journey.spec.ts",
-          "line": 214,
-          "column": 5
-        },
-        {
-          "title": "Overview reserves separate space for actions and native controls",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 363,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-12T12:24:13.155Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "216ebc5871bcc43d9986-9c35fd724f93b1e02ed1",
-          "file": "vsl-journey.spec.ts",
-          "line": 253,
-          "column": 5
-        }
-      ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-12T12:23:44.100Z",
-    "duration": 366446.003,
-    "expected": 81,
-    "skipped": 2,
+    "startTime": "2026-10-13T19:13:09.163Z",
+    "duration": 18912.396,
+    "expected": 36,
+    "skipped": 0,
     "unexpected": 0,
     "flaky": 0
   }

@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3016",
-  "at": "2026-10-09T02:36:57.591Z",
+  "base": "http://localhost:3017",
+  "at": "2026-10-13T19:11:02.847Z",
   "rows": [
     {
       "route": "/",
@@ -157,6 +157,20 @@
       "violations": []
     },
     {
+      "route": "/industries/property",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/clinics",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
       "route": "/industries/solopreneurs",
       "width": 390,
       "status": 200,
@@ -353,6 +367,20 @@
       "violations": []
     },
     {
+      "route": "/industries/property",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/industries/clinics",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
       "route": "/industries/solopreneurs",
       "width": 1440,
       "status": 200,
@@ -475,13 +503,25 @@
       "overflow": false
     },
     {
+      "check": "Industry sticky CTA after scroll",
+      "visible": 1
+    },
+    {
+      "check": "Industry sticky CTA booking route",
+      "url": "http://localhost:3017/book?service=phone-agent"
+    },
+    {
+      "check": "Industry recording anchor",
+      "hashes": "#recording",
+      "player": 1
+    },
+    {
       "check": "Media keyboard tabs",
-      "selected": "Executive overview\n1:08"
+      "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('tab', { name: /full walkthrough/i })\u001b[22m\n"
     },
     {
       "check": "Cal embed",
-      "frames": 1,
-      "fallback": "https://cal.com/curtis-salesos/flowaudit-call?metadata%5Bservice%5D=phone-agent&notes=Service%3A+phone-agent%0ABusiness%3A+FlowAudit+QA%0AWebsite%3A+%0ARole%3A+Owner+%2F+partner%0APriority%3A+Review+booking+setup%0ALocations%3A+%3B+call+volume%3A+&metadata%5Bref%5D=fa-sdr-qa&utm_source=qa&metadata%5Butm_source%5D=qa"
+      "error": "TimeoutError: locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Business or practice name')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" maxlength=\"120\" name=\"pra"
     },
     {
       "check": "Spanish locale",
@@ -551,15 +591,11 @@
       "status": 200
     },
     {
-      "href": "/industries/solopreneurs",
+      "href": "/industries/property",
       "status": 200
     },
     {
-      "href": "/industries/insurance",
-      "status": 200
-    },
-    {
-      "href": "/industries/agencies",
+      "href": "/industries/clinics",
       "status": 200
     },
     {
@@ -571,7 +607,19 @@
       "status": 200
     },
     {
+      "href": "/industries/insurance",
+      "status": 200
+    },
+    {
       "href": "/industries/consultants",
+      "status": 200
+    },
+    {
+      "href": "/industries/agencies",
+      "status": 200
+    },
+    {
+      "href": "/industries/solopreneurs",
       "status": 200
     },
     {
@@ -587,11 +635,55 @@
       "status": 200
     },
     {
+      "href": "/media/overview.mp4",
+      "status": 200
+    },
+    {
+      "href": "/media/overview.vtt",
+      "status": 200
+    },
+    {
+      "href": "/media/overview.srt",
+      "status": 200
+    },
+    {
+      "href": "/media/overview-transcript.txt",
+      "status": 200
+    },
+    {
       "href": "/media/routine.mp4",
       "status": 200
     },
     {
       "href": "/media/routine.vtt",
+      "status": 200
+    },
+    {
+      "href": "/media/routine-transcript.txt",
+      "status": 200
+    },
+    {
+      "href": "/media/urgent.mp4",
+      "status": 200
+    },
+    {
+      "href": "/media/urgent.vtt",
+      "status": 200
+    },
+    {
+      "href": "/media/urgent-transcript.txt",
+      "status": 200
+    },
+    {
+      "href": "/media/main.mp4",
+      "status": 200
+    },
+    {
+      "href": "/media/main.vtt",
+      "status": 200
+    },
+    {
+      "href": "/media/main-transcript.txt",
       "status": 200
     },
     {

@@ -276,3 +276,20 @@ All notable changes to FlowAudit Platform, in reverse chronological order.
 ```
 
 Actions: Created, Updated, Fixed, Removed, Refactored, Deployed
+
+---
+
+## 2026-10-13
+
+### R2Q industry conversion pages (all nine)
+
+- **Created** `src/lib/industry-content.ts` content model for industry landing pages
+- **Created** `src/lib/industry-copy-professional-a.ts` and `industry-copy-professional-b.ts` (accounting, legal, insurance, consultants, agencies, solopreneurs; full EN/ES, grounded in R2Q pain research)
+- **Updated** `src/lib/editorial-copy.ts` trades, property and clinics content; hero lines approved by the owner
+- **Updated** `src/components/marketing/editorial-pages.tsx` IndustryPage to the conversion blueprint: hero with evidence card, trust strip, pain grid, capability grid with examples, standalone compact recorded demo, rules band, three-step start, FAQ, cross-sell band, per-niche closing
+- **Created** `src/components/marketing/sticky-cta.tsx` mobile booking bar (appears after scroll)
+- **Updated** `media-player.tsx` (`standalone` prop), `evidence-art.tsx` (`href` prop), `primitives.tsx` (Closing accepts per-page title and body), `globals.css` (trust strip, capability grid, cross-sell rows, sticky CTA)
+- **Fixed** trades booking now attributes `service=phone-agent`; secondary hero CTA anchors to the on-page recording instead of exiting; UK journeys no longer depend on the US-first phone-agent page
+- **Created** `tests/unit/industries.test.ts` (structure, bilingual completeness, banned-pattern scan: no em dashes, no pricing, no statistics, no slop words)
+- **Updated** `scripts/qa.mjs` (nine industries, sticky CTA and recording anchor checks, robust interaction blocks)
+- **QA** 67 unit tests pass; axe WCAG 2.2 AA zero violations across 47 route/viewport combinations; no horizontal overflow; link check clean; production build with all nine pages prerendered
