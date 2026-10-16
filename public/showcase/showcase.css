@@ -25,3 +25,5 @@
 .duo-title{font-family:FlowSerif,Georgia,serif;font-size:26px;font-weight:400;letter-spacing:-.5px;margin:0}
 .duo-summary{font-size:14px;line-height:1.65;color:#605a57;max-width:62ch;margin:0 0 14px}
 @media(max-width:700px){.showcase-duo-videos{gap:26px}.duo-title{font-size:22px}}
+
+.video-section-3x2 video{aspect-ratio:1.5}
