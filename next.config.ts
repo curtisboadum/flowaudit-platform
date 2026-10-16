@@ -77,6 +77,7 @@ const nextConfig: NextConfig = {
         { source: "/demo/showcase/dental/checkup", destination: "/showcase/dental-checkup.html" },
         { source: "/demo/showcase/trades", destination: "/showcase/trades.html" },
         { source: "/demo/showcase/walkthrough", destination: "/showcase/walkthrough.html" },
+        { source: "/demo/showcase/agile-tech", destination: "/showcase/agile-tech.html" },
         // Tracked VSL and private reporting, hosted by the dedicated demo app.
         // Keep the existing homepage, /demos gallery and /watch links intact.
         { source: "/demo", destination: "https://flowaudit-demo.vercel.app/demo" },
