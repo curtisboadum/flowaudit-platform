@@ -30,6 +30,24 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // FlowAudit showcase pages served locally: never cache, never index,
+        // and never leak the token via the Referer header to any third party.
+        source: "/showcase",
+        headers: [
+          { key: "Cache-Control", value: "no-store, max-age=0" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+          { key: "Referrer-Policy", value: "no-referrer" },
+        ],
+      },
+      {
+        source: "/showcase/:path*",
+        headers: [
+          { key: "Cache-Control", value: "no-store, max-age=0" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+          { key: "Referrer-Policy", value: "no-referrer" },
+        ],
+      },
+      {
         source: "/revenue-recovery/:path*",
         headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }],
       },
@@ -51,6 +69,14 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
+        // FlowAudit showcase: multi-demo pages served by this deployment,
+        // ahead of the /demo proxy to the dedicated demo app.
+        { source: "/demo/showcase", destination: "/showcase/index.html" },
+        { source: "/demo/showcase/dental", destination: "/showcase/dental.html" },
+        { source: "/demo/showcase/dental/urgent", destination: "/showcase/dental-urgent.html" },
+        { source: "/demo/showcase/dental/checkup", destination: "/showcase/dental-checkup.html" },
+        { source: "/demo/showcase/trades", destination: "/showcase/trades.html" },
+        { source: "/demo/showcase/walkthrough", destination: "/showcase/walkthrough.html" },
         // Tracked VSL and private reporting, hosted by the dedicated demo app.
         // Keep the existing homepage, /demos gallery and /watch links intact.
         { source: "/demo", destination: "https://flowaudit-demo.vercel.app/demo" },
