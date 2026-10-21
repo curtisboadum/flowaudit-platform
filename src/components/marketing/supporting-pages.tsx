@@ -23,15 +23,15 @@ export function DemosPage() {
           {text(
             locale,
             c(
-              "Start with a genuine recorded booking conversation. The supporting films explain the offer, requirements and activation process.",
-              "Empieza con una conversación de reserva grabada. Los vídeos adicionales explican oferta, requisitos y proceso de activación.",
+              "Start with a genuine recorded booking conversation. Review the demonstrated booking and discuss your own requirements.",
+              "Empieza con una conversación de reserva grabada. Revisa la reserva demostrada y comenta tus propios requisitos.",
             ),
           )}
         </p>
       </section>
       <section className="fa-services-band">
         <div className="fa-container fa-section">
-          <MediaPlayer switchable />
+          <MediaPlayer streamlined />
         </div>
       </section>
       <section className="fa-container fa-section fa-trust">
@@ -113,15 +113,15 @@ export function ApproachPage() {
             [
               c("Phone configuration", "Configuración telefónica"),
               c(
-                "Agreement and initial payment start the agreed configuration. Practice testing and approval precede activation.",
-                "El acuerdo y pago inicial comienzan la configuración. Las pruebas y aprobación de la clínica preceden a la activación.",
+                "We configure the workflow with your team. Testing and approval precede activation; commercial terms are discussed privately after discovery.",
+                "Las condiciones comerciales se hablan en privado tras el análisis. Las pruebas y aprobación de la clínica preceden a la activación.",
               ),
             ],
             [
               c("Website demonstration", "Demostración web"),
               c(
-                "Review a bounded custom demonstration before payment. Approve the scope before the paid build and existing 12-month managed arrangement.",
-                "Revisa una demostración personalizada limitada antes del pago. Aprueba el alcance antes de la construcción y gestión de 12 meses.",
+                "Review a bounded custom demonstration and approve the scope. The proposal defines the build, support and responsibilities.",
+                "Revisa una demostración limitada y aprueba el alcance. La propuesta define construcción, soporte y responsabilidades.",
               ),
             ],
             [

@@ -103,13 +103,10 @@ export const offers: Offer[] = [
         ),
       },
       {
-        q: c(
-          "How do configuration and payment work?",
-          "¿Cómo funcionan la configuración y el pago?",
-        ),
+        q: c("What happens before activation?", "¿Qué sucede antes de activar?"),
         a: c(
-          "The fit assessment leads to an agreed scope and quote. Agreement and initial payment start configuration. The system is tested and approved by your practice before patient-facing activation.",
-          "La evaluación lleva a un alcance y presupuesto acordados. El acuerdo y pago inicial comienzan la configuración. Tu clínica prueba y aprueba el sistema antes de la activación para pacientes.",
+          "We discuss your workflow and requirements, then configure and test the system with your practice before patient-facing activation. Commercial terms are discussed privately after discovery.",
+          "Revisamos procesos y requisitos, configuramos y probamos con tu clínica antes de activar para pacientes. Las condiciones comerciales se hablan en privado tras el análisis.",
         ),
       },
       {
@@ -270,8 +267,8 @@ export const offers: Offer[] = [
       "Un sitio cuidado, centrado en tu oferta y en cómo deciden tus clientes. Mira una demostración personalizada de alcance limitado antes de comprometerte.",
     ),
     note: c(
-      "Custom demonstration before payment. A 12-month managed arrangement, with cancellation available after that term.",
-      "Demostración personalizada antes del pago. Gestión durante 12 meses, con cancelación disponible después de ese periodo.",
+      "Website design and ongoing support are scoped around your business. Commercial arrangements are agreed privately.",
+      "Diseño web y soporte adaptados a tu empresa. Los acuerdos comerciales se definen en privado.",
     ),
     steps: [
       {
@@ -291,17 +288,17 @@ export const offers: Offer[] = [
       {
         title: c("Approve, then build", "Aprobar y construir"),
         body: c(
-          "Approve the scope and demonstration before payment. The proposal defines the build, support and 12-month arrangement.",
-          "Aprobar alcance y demostración antes del pago. La propuesta define construcción, soporte y gestión durante 12 meses.",
+          "Review the scope and demonstration. The proposal defines the build, support and responsibilities before work begins.",
+          "Revisa el alcance y la demostración. La propuesta define construcción, soporte y responsabilidades antes de comenzar.",
         ),
       },
     ],
     faq: [
       {
-        q: c("Do we pay before seeing a design?", "¿Pagamos antes de ver un diseño?"),
+        q: c("Can we review the approach first?", "¿Podemos revisar el enfoque primero?"),
         a: c(
-          "No. The website offer includes a bounded custom demonstration before payment. Once you approve it and the scope, we move into the agreed paid build.",
-          "No. La oferta incluye una demostración personalizada limitada antes del pago. Tras aprobarla y acordar el alcance, comienza la construcción pagada.",
+          "We discuss your goals and review relevant examples before defining the project. Deliverables and commercial terms are agreed privately after discovery.",
+          "Hablamos de tus objetivos y revisamos ejemplos antes de definir el proyecto. Entregables y condiciones se acuerdan en privado tras el análisis.",
         ),
       },
       {
@@ -314,8 +311,8 @@ export const offers: Offer[] = [
       {
         q: c("How long is the arrangement?", "¿Cuánto dura el acuerdo?"),
         a: c(
-          "The existing managed website offer has a 12-month term, with cancellation available after that term. Your proposal sets out billing, changes, handover and any additional services.",
-          "La oferta actual de gestión web tiene un periodo de 12 meses, con cancelación disponible después. La propuesta detalla facturación, cambios, entrega y servicios adicionales.",
+          "Your written proposal sets out the service scope, ongoing support, changes and handover. Commercial terms are agreed privately after discovery.",
+          "Tu propuesta escrita define alcance, soporte, cambios y entrega. Los términos comerciales se acuerdan en privado tras el análisis.",
         ),
       },
     ],
@@ -330,17 +327,35 @@ export const generalFaq: Faq[] = [
     ),
   },
   {
-    q: c("How do you price the work?", "¿Cómo se fija el precio?"),
+    q: c("How is the scope agreed?", "¿Cómo se acuerda el alcance?"),
     a: c(
-      "We quote a defined scope. Complexity, system access, usage, implementation and ongoing support affect the price. We agree the commercial terms before paid work begins.",
-      "Presupuestamos un alcance definido. Complejidad, acceso a sistemas, uso, implementación y soporte influyen en el precio. Acordamos términos antes del trabajo pagado.",
+      "We assess your workflow, system access and support requirements, then agree the scope and commercial terms privately after discovery.",
+      "Evaluamos procesos, acceso y soporte, y acordamos alcance y condiciones en privado tras el análisis.",
     ),
   },
   {
     q: c("Can we see an example first?", "¿Podemos ver un ejemplo primero?"),
     a: c(
-      "Yes. The dental recording is available without a form. Custom website demonstrations precede payment; bespoke phone configuration begins after agreement and initial payment. Activation follows testing and approval.",
-      "Sí. La grabación dental está disponible sin formulario. Las demostraciones web personalizadas preceden al pago; la configuración telefónica empieza tras acuerdo y pago inicial. La activación sigue a pruebas y aprobación.",
+      "Yes. The dental recording is available without a form. We discuss your own workflow and commercial terms privately after discovery. Activation follows testing and approval.",
+      "Sí. La grabación dental está disponible sin formulario. Tu proceso y las condiciones comerciales se hablan en privado tras el análisis. La activación sigue a pruebas y aprobación.",
     ),
   },
 ];
+
+export const dentalOffer: Offer = { ...(offers[0] as Offer) };
+const phoneOffer = offers[0];
+if (phoneOffer) {
+  phoneOffer.label = c("AI phone agents", "Agentes telefónicos IA");
+  phoneOffer.headline = c(
+    "Give callers a clear next step.",
+    "Ofrece a quien llama un siguiente paso claro.",
+  );
+  phoneOffer.intro = c(
+    "Phone agents configured around inbound enquiries, useful details and approved next steps. Assess your workflow, connections and handoff requirements before activation.",
+    "Agentes telefónicos configurados para consultas, datos útiles y siguientes pasos aprobados. Evalúa procesos, conexiones y traspasos antes de activar.",
+  );
+  phoneOffer.note = c(
+    "For established service businesses. USA primary, UK supported.",
+    "Para empresas de servicios consolidadas. Prioridad EE. UU., Reino Unido disponible.",
+  );
+}

@@ -60,18 +60,15 @@ export const operationalQuestions: Faq[] = [
       "¿Cuánto tarda la configuración y qué aprueba nuestro equipo?",
     ),
     a: c(
-      "Timing is quoted after requirements and dependencies are understood. Your team supplies approved call rules, scheduling access and escalation contacts, then reviews routine calls and exceptions. Agreement and initial payment start configuration. Activation follows successful agreed tests and practice approval. There is no fixed launch deadline or automatic activation promised here.",
-      "El plazo se presupuesta tras entender requisitos y dependencias. Tu equipo aporta reglas, acceso a citas y contactos; después revisa llamadas habituales y excepciones. El acuerdo y pago inicial comienzan la configuración. La activación sigue a las pruebas acordadas y aprobación. No prometemos fecha fija ni activación automática.",
+      "Timing is quoted after requirements and dependencies are understood. Your team supplies approved call rules, scheduling access and escalation contacts, then reviews routine calls and exceptions. Commercial terms are discussed privately after discovery. Activation follows successful agreed tests and practice approval. There is no fixed launch deadline or automatic activation promised here.",
+      "El plazo se presupuesta tras entender requisitos y dependencias. Tu equipo aporta reglas, acceso a citas y contactos; después revisa llamadas habituales y excepciones. Las condiciones comerciales se hablan en privado tras el análisis. La activación sigue a las pruebas acordadas y aprobación. No prometemos fecha fija ni activación automática.",
     ),
   },
   {
-    q: c(
-      "What will pricing, contract terms and support include?",
-      "¿Qué incluirán el precio, contrato y soporte?",
-    ),
+    q: c("How are scope and support agreed?", "¿Cómo se acuerdan alcance y soporte?"),
     a: c(
-      "The fit assessment leads to a scoped quote. Set out setup and ongoing charges, call allowances or overages, locations, connectors, testing, support hours, monitoring, change requests, contract length and cancellation or ownership terms in writing before purchase. These are items to agree, not unlimited inclusions. No trial, refund, revenue guarantee or fixed public price is offered here.",
-      "La evaluación conduce a un presupuesto definido. Antes de comprar, acuerda por escrito cargos iniciales y recurrentes, llamadas o excesos, ubicaciones, conexiones, pruebas, soporte, supervisión, cambios, duración, cancelación y propiedad. No son inclusiones ilimitadas. Aquí no se ofrece prueba, reembolso, garantía de ingresos ni precio público fijo.",
+      "Discovery identifies your workflow, required access, testing and support needs. Commercial terms and responsibilities are agreed privately before work begins.",
+      "El análisis identifica procesos, acceso, pruebas y soporte. Los términos comerciales y responsabilidades se acuerdan en privado antes de comenzar.",
     ),
   },
   {

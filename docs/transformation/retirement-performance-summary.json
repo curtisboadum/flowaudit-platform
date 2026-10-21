@@ -1,0 +1,48 @@
+{
+  "checkpoint": "legacy-media-retirement-20261021",
+  "scope": "Single local Lighthouse mobile lab sample per route, not field CWV",
+  "results": [
+    {
+      "name": "home",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "largest-contentful-paint": "2.5 s",
+        "cumulative-layout-shift": "0",
+        "total-blocking-time": "10 ms"
+      }
+    },
+    {
+      "name": "product",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "largest-contentful-paint": "2.5 s",
+        "cumulative-layout-shift": "0",
+        "total-blocking-time": "10 ms"
+      }
+    },
+    {
+      "name": "demos",
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "largest-contentful-paint": "2.7 s",
+        "cumulative-layout-shift": "0",
+        "total-blocking-time": "10 ms"
+      }
+    }
+  ]
+}

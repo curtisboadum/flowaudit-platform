@@ -22,10 +22,11 @@ export function SiteHeader() {
     return () => document.removeEventListener("keydown", close);
   }, []);
   const links = [
-    { href: "/services", label: c("Services", "Servicios") },
+    { href: "/phone-agent", label: c("Phone agents", "Agentes telefónicos") },
+    { href: "/industries/home-services", label: c("Home services", "Servicios para el hogar") },
     { href: "/demos", label: c("See the work", "Ver el trabajo") },
     { href: "/how-it-works", label: c("Our approach", "Nuestro enfoque") },
-    { href: "/about", label: c("About", "Nosotros") },
+    { href: "/trust", label: c("Trust & technical", "Confianza y técnica") },
   ];
   return (
     <header className="fa-header">

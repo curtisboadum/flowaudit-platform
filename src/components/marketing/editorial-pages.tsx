@@ -9,28 +9,43 @@ export function IndustryPage({ slug }: { slug: string }) {
   const { locale } = useLocale();
   const data = industries[slug];
   if (!data) return null;
+  const demoFirst = slug === "home-services" || slug === "trades";
   return (
-    <>
+    <div lang={data.title.en === data.title.es ? "en" : undefined}>
       <section className="fa-container fa-page-intro">
         <Eyebrow>{text(locale, data.name)}</Eyebrow>
         <h1>{text(locale, data.title)}</h1>
         <p className="fa-lead">{text(locale, data.intro)}</p>
         <div className="fa-hero-actions">
-          <BookLink service={data.service ?? "automation"} />
-          {data.secondary ? (
-            <Link href={data.secondary.href} className="fa-text-link">
-              {text(locale, data.secondary.label)}
-              <Arrow />
-            </Link>
+          {demoFirst ? (
+            <>
+              <Link className="fa-button" href="/demos#industry-recordings">
+                {text(locale, c("Explore the recordings", "Explorar las grabaciones"))}
+                <Arrow />
+              </Link>
+              <Link className="fa-text-link" href="/book?service=phone-agent">
+                {text(locale, c("Book a 15-minute call", "Reservar 15 minutos"))}
+                <Arrow />
+              </Link>
+            </>
           ) : (
-            <Link href="/solutions" className="fa-text-link">
-              {text(
-                locale,
-                c("Explore operations automation", "Explorar automatización operativa"),
-              )}
-              <Arrow />
-            </Link>
+            <BookLink service={data.service ?? "automation"} />
           )}
+          {!demoFirst &&
+            (data.secondary ? (
+              <Link href={data.secondary.href} className="fa-text-link">
+                {text(locale, data.secondary.label)}
+                <Arrow />
+              </Link>
+            ) : (
+              <Link href="/solutions" className="fa-text-link">
+                {text(
+                  locale,
+                  c("Explore operations automation", "Explorar automatización operativa"),
+                )}
+                <Arrow />
+              </Link>
+            ))}
         </div>
       </section>
       {data.demo && (
@@ -42,7 +57,7 @@ export function IndustryPage({ slug }: { slug: string }) {
             <h2>
               {text(
                 locale,
-                c("See it work\nbefore you decide.", "Véalo funcionar\nantes de decidir."),
+                c("Hear a dental\nbooking example.", "Escucha un ejemplo\nde reserva dental."),
               )}
             </h2>
             <p className="fa-small">
@@ -92,7 +107,7 @@ export function IndustryPage({ slug }: { slug: string }) {
       </section>
       {data.demo && <Process compact />}
       <Closing service={data.service ?? "automation"} />
-    </>
+    </div>
   );
 }
 export function BlogIndex() {

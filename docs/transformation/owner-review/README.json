@@ -1,0 +1,7 @@
+{
+  "checkpoint": "legacy-media-retirement-20261021",
+  "authentication": "Vercel Authentication is required. Protection is unchanged; no bypass link or secret is included in the review material.",
+  "review": "Current local build after legacy media retirement; desktop and390pxmobile. Home/product have no videos. Calendar viewed without selecting or submitting. Exact commit in PR32 and staging checkpoint.",
+  "libraryIndex": "/tmp/flowaudit-review-library-index.json",
+  "parentCommit": "d0c06b2"
+}

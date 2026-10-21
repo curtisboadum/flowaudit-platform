@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { canonicalUrl } from "@/lib/seo";
 export const metadata = pageMetadata(
   "Custom website design",
-  "See a bounded custom website demonstration before payment. Explore the scope, enquiry journey and managed 12-month arrangement.",
+  "Explore a considered website, a clearer enquiry journey and support requirements. Scope and commercial arrangements are agreed privately.",
   "/web-design",
 );
 export default function Page() {
@@ -17,7 +17,7 @@ export default function Page() {
           "@type": "Service",
           name: "Custom website design",
           description:
-            "See a bounded custom website demonstration before payment. Explore the scope, enquiry journey and managed 12-month arrangement.",
+            "Explore a considered website, a clearer enquiry journey and support requirements. Scope and commercial arrangements are agreed privately.",
           url: canonicalUrl("/web-design"),
           provider: { "@type": "Organization", name: "FlowAudit", url: canonicalUrl("/") },
         }}

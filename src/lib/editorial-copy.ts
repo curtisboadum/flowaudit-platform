@@ -78,8 +78,8 @@ export const industries: Record<string, Industry> = {
   clinics: {
     name: c("Clinics & private practices", "Clínicas y consultas privadas"),
     title: c(
-      "Answer every patient call.\nKeep the diary moving.",
-      "Atiende cada llamada de paciente.\nMantén la agenda en marcha.",
+      "Help with patient enquiries.\nKeep the diary moving.",
+      "Ayuda con consultas de pacientes.\nMantén la agenda en marcha.",
     ),
     intro: c(
       "New patient enquiries, booking questions and reschedule requests often arrive while the team is with someone. Start by making the phone dependable.",
@@ -276,6 +276,157 @@ export const industries: Record<string, Industry> = {
     ),
   },
 };
+// Phone-agent industry entry points. Existing SEO slugs remain available.
+const phoneIndustry = (
+  name: string,
+  title: string,
+  intro: string,
+  examples: string[],
+  boundary: string,
+): Industry => ({
+  name: c(name, name),
+  title: c(title, title),
+  intro: c(intro, intro),
+  examples: examples.map((value) => c(value, value)),
+  boundary: c(boundary, boundary),
+  service: "phone-agent",
+  secondary: { href: "/demos", label: c("See the recorded examples", "Ver los ejemplos grabados") },
+});
+industries["home-services"] = phoneIndustry(
+  "Home services",
+  "On the job.\nStill open to enquiries.",
+  "AI phone agents for established HVAC, plumbing, roofing, restoration and trades businesses. Map what happens when an enquiry arrives while your office or field team cannot pick up.",
+  [
+    "Intake to configure: ask about the job, service location and useful context without making a diagnosis or promising attendance.",
+    "Next steps to assess: approved inspection bookings or callback requests, subject to calendar access and your service-area rules.",
+    "Handoffs to test: urgent requests, unclear details, unavailable slots and situations that need your team.",
+  ],
+  "These are configurable workflows. Emergency response, dispatch, live transfer and specific field-service integrations are not established by a dental booking demonstration.",
+);
+industries.trades = {
+  ...(industries["home-services"] as Industry),
+  name: c("Trades & contractors", "Oficios y contratistas"),
+};
+industries.property = phoneIndustry(
+  "Property management",
+  "Give every enquiry\na responsible next step.",
+  "Explore phone intake for maintenance, tenant and landlord enquiries while your team is away from the desk.",
+  [
+    "Collect the type of request and agreed property context.",
+    "Assess approved callback or appointment routes with the responsible team.",
+    "Test urgent maintenance and unavailable-staff fallback against your own instructions.",
+  ],
+  "Emergency response, tenancy advice, dispatch and integrations require separate assessment. These are configurable workflows, not established property deployments.",
+);
+industries.automotive = phoneIndustry(
+  "Automotive repair",
+  "Keep the workshop moving.\nGive callers a next step.",
+  "Scope phone handling around service enquiries while your team is with a customer or working on a vehicle.",
+  [
+    "Collect the caller’s enquiry and the vehicle details your team needs.",
+    "Assess approved service-booking or callback workflows against actual workshop capacity.",
+    "Agree which diagnostic, safety and unusual requests must reach a person.",
+  ],
+  "Repair diagnosis, completion times and authorization remain with your workshop. Booking-system compatibility and handoff behavior need assessment and testing.",
+);
+industries["it-services"] = phoneIndustry(
+  "IT & web hosting",
+  "Understand the enquiry.\nRoute the next conversation.",
+  "Explore phone intake for hosting enquiries and support requests, with a clear distinction between a sales callback and an operational support incident.",
+  [
+    "Collect the business enquiry and a useful non-sensitive description.",
+    "Assess callback scheduling with a named sales or support owner.",
+    "Test incident escalation and fallback without requesting passwords or access credentials.",
+  ],
+  "No hosting migration, incident resolution, uptime commitment or named platform integration is implied. Agree permissions and escalation boundaries first.",
+);
+industries["professional-services"] = phoneIndustry(
+  "Professional services",
+  "Keep the context.\nMake the next conversation useful.",
+  "Scope enquiry handling for firms whose people are often in appointments or focused on client work.",
+  [
+    "Gather the type of enquiry and agreed business context.",
+    "Assess callback or consultation-booking routes.",
+    "Keep acceptance decisions, advice and sensitive information with authorised staff.",
+  ],
+  "Professional advice, eligibility and case acceptance require your own controls and approval. Do not submit confidential client information in public forms.",
+);
+
+// Website translations describe the same qualified scope, not additional product languages.
+const industrySpanish: Record<string, [string, string, string, string[], string]> = {
+  "home-services": [
+    "Servicios para el hogar",
+    "En pleno trabajo.\nDisponible para nuevas consultas.",
+    "Agentes telefónicos IA para empresas consolidadas de climatización, fontanería, tejados, restauración y oficios. Define qué ocurre cuando llega una consulta y tu equipo de oficina o campo no puede atender.",
+    [
+      "Recepción por configurar: preguntar por el trabajo, la ubicación y el contexto útil sin diagnosticar ni prometer una visita.",
+      "Siguientes pasos por evaluar: reservas de inspección o solicitudes de devolución de llamada aprobadas, según el acceso a la agenda y las zonas que atiendes.",
+      "Traspasos por probar: solicitudes urgentes, datos poco claros, horarios no disponibles y situaciones que necesitan a tu equipo.",
+    ],
+    "Son procesos configurables. Una demostración de reserva dental no acredita respuesta a emergencias, despacho, transferencia en vivo ni conexiones con sistemas de gestión de campo.",
+  ],
+  property: [
+    "Gestión inmobiliaria",
+    "Un siguiente paso con responsable\npara cada consulta.",
+    "Explora la recepción telefónica de consultas de mantenimiento, inquilinos y propietarios cuando tu equipo está fuera de la oficina.",
+    [
+      "Recoger el tipo de solicitud y el contexto de la propiedad acordado.",
+      "Evaluar devoluciones de llamada o citas aprobadas con el equipo responsable.",
+      "Probar las alternativas ante mantenimiento urgente o personal no disponible según tus propias instrucciones.",
+    ],
+    "La respuesta a emergencias, el asesoramiento de alquiler, el despacho y las conexiones requieren evaluación independiente. Son procesos configurables, no implementaciones inmobiliarias acreditadas.",
+  ],
+  automotive: [
+    "Talleres de automoción",
+    "Mantén el taller en marcha.\nOfrece un siguiente paso.",
+    "Define la atención de consultas de servicio mientras tu equipo está con un cliente o trabajando en un vehículo.",
+    [
+      "Recoger la consulta y los datos del vehículo que necesita tu equipo.",
+      "Evaluar reservas de servicio o devoluciones de llamada aprobadas según la capacidad real del taller.",
+      "Acordar qué consultas de diagnóstico, seguridad o casos inusuales debe atender una persona.",
+    ],
+    "El diagnóstico, los plazos de reparación y las autorizaciones quedan con el taller. Hay que evaluar y probar la compatibilidad de la agenda y los traspasos.",
+  ],
+  "it-services": [
+    "Informática y alojamiento web",
+    "Comprende la consulta.\nDirige la siguiente conversación.",
+    "Explora la recepción telefónica de consultas de alojamiento y soporte, distinguiendo una devolución de llamada comercial de un incidente operativo.",
+    [
+      "Recoger la consulta empresarial y una descripción útil sin datos sensibles.",
+      "Evaluar la programación de devoluciones de llamada con un responsable comercial o de soporte.",
+      "Probar el escalado de incidentes y las alternativas sin pedir contraseñas ni credenciales de acceso.",
+    ],
+    "No se implica migración, resolución de incidentes, compromiso de disponibilidad ni conexión con una plataforma concreta. Primero hay que acordar permisos y límites de escalado.",
+  ],
+  "professional-services": [
+    "Servicios profesionales",
+    "Conserva el contexto.\nHaz útil la siguiente conversación.",
+    "Define la recepción de consultas para empresas cuyos profesionales suelen estar en citas o concentrados en el trabajo de sus clientes.",
+    [
+      "Recoger el tipo de consulta y el contexto empresarial acordado.",
+      "Evaluar devoluciones de llamada o reservas de consulta.",
+      "Mantener las decisiones de aceptación, el asesoramiento y los datos sensibles con personal autorizado.",
+    ],
+    "El asesoramiento, la elegibilidad y la aceptación de casos requieren tus propios controles y aprobación. No envíes información confidencial de clientes en formularios públicos.",
+  ],
+};
+for (const [slug, translated] of Object.entries(industrySpanish)) {
+  const original = industries[slug];
+  if (!original) continue;
+  industries[slug] = {
+    ...original,
+    name: c(original.name.en, translated[0]),
+    title: c(original.title.en, translated[1]),
+    intro: c(original.intro.en, translated[2]),
+    examples: original.examples.map((item, index) => c(item.en, translated[3][index] ?? item.es)),
+    boundary: c(original.boundary.en, translated[4]),
+  };
+}
+industries.trades = {
+  ...(industries["home-services"] as Industry),
+  name: c("Trades & contractors", "Oficios y contratistas"),
+};
+
 export interface Post {
   title: Copy;
   intro: Copy;

@@ -1,0 +1,90 @@
+{
+  "checkpoint": "legacy-media-retirement-20261021",
+  "notes": "Local production build. Existing calendar viewed without selecting or submitting.",
+  "results": [
+    {
+      "name": "home",
+      "device": "desktop",
+      "path": "/",
+      "mainVideos": 0,
+      "overflow": false
+    },
+    {
+      "name": "product",
+      "device": "desktop",
+      "path": "/phone-agent",
+      "mainVideos": 0,
+      "overflow": false
+    },
+    {
+      "name": "home-services",
+      "device": "desktop",
+      "path": "/industries/home-services",
+      "mainVideos": 0,
+      "overflow": false
+    },
+    {
+      "name": "demos",
+      "device": "desktop",
+      "path": "/demos",
+      "mainVideos": 1,
+      "overflow": false
+    },
+    {
+      "name": "booking",
+      "device": "desktop",
+      "path": "/book",
+      "mainVideos": 0,
+      "overflow": false
+    },
+    {
+      "name": "dental",
+      "device": "desktop",
+      "path": "/industries/dental",
+      "mainVideos": 1,
+      "overflow": false
+    },
+    {
+      "name": "home",
+      "device": "mobile",
+      "path": "/",
+      "mainVideos": 0,
+      "overflow": false
+    },
+    {
+      "name": "product",
+      "device": "mobile",
+      "path": "/phone-agent",
+      "mainVideos": 0,
+      "overflow": false
+    },
+    {
+      "name": "home-services",
+      "device": "mobile",
+      "path": "/industries/home-services",
+      "mainVideos": 0,
+      "overflow": false
+    },
+    {
+      "name": "demos",
+      "device": "mobile",
+      "path": "/demos",
+      "mainVideos": 1,
+      "overflow": false
+    },
+    {
+      "name": "booking",
+      "device": "mobile",
+      "path": "/book",
+      "mainVideos": 0,
+      "overflow": false
+    },
+    {
+      "name": "dental",
+      "device": "mobile",
+      "path": "/industries/dental",
+      "mainVideos": 1,
+      "overflow": false
+    }
+  ]
+}
