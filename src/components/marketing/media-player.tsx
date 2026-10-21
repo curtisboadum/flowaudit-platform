@@ -39,12 +39,14 @@ export function MediaPlayer({
   choices,
   onPositionChange,
   qualificationCta = false,
+  priority = false,
 }: {
   film?: Film;
   switchable?: boolean;
   compact?: boolean;
   choices?: Film[];
   qualificationCta?: boolean;
+  priority?: boolean;
   onPositionChange?: (seconds: number, film: Film) => void;
 }) {
   const { locale } = useLocale();
@@ -65,8 +67,11 @@ export function MediaPlayer({
   const current = films[active];
   const videoRef = useRef<HTMLVideoElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
-  const [nearViewport, setNearViewport] = useState(false);
-  const posterUrl = `/media/${active}.jpg?v=${active === "overview" ? filmMetadata.version : "landscape-20261009"}`;
+  const [nearViewport, setNearViewport] = useState(priority);
+  const posterUrl =
+    active === "routine"
+      ? "/media/routine-poster.webp?v=20261021"
+      : `/media/${active}.jpg?v=${active === "overview" ? filmMetadata.version : "landscape-20261009"}`;
   useEffect(() => {
     const frame = frameRef.current;
     if (!frame) return;
@@ -224,7 +229,7 @@ export function MediaPlayer({
           ref={frameRef}
           className={`fa-player-frame ${active === "overview" ? "fa-overview-frame" : ""}`}
         >
-          {qualificationCta && active === "overview" && (
+          {(priority || (qualificationCta && active === "overview")) && (
             <link rel="preload" as="image" href={posterUrl} fetchPriority="high" />
           )}
           <video
@@ -236,7 +241,7 @@ export function MediaPlayer({
             controlsList={qualificationCta ? "nofullscreen" : undefined}
             playsInline
             preload="none"
-            poster={active === "overview" || nearViewport ? posterUrl : undefined}
+            poster={priority || active === "overview" || nearViewport ? posterUrl : undefined}
             aria-label={`${text(locale, current.label)} · ${current.duration}`}
             data-media-id={active}
             onLoadedMetadata={(event) => {

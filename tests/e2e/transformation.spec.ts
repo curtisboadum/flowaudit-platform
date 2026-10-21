@@ -60,3 +60,28 @@ test("Reduced motion, consent and privacy boundaries", async ({ page }) => {
   expect(privateResponse.headers()["x-robots-tag"]).toContain("noindex");
   expect((await page.request.get("/media/main.mp4")).status()).toBe(404);
 });
+
+test("New visitor journeys have complete Spanish website copy and disclose English recordings", async ({
+  page,
+}) => {
+  for (const [route, heading] of [
+    ["/industries/home-services", "En pleno trabajo"],
+    ["/industries/automotive", "Mantén el taller"],
+    ["/industries/property", "Un siguiente paso"],
+    ["/industries/it-services", "Comprende la consulta"],
+    ["/trust", "Comprende qué está demostrado"],
+    ["/demos", "Escucha la necesidad"],
+    ["/book?service=phone-agent", "Hablemos de"],
+  ]) {
+    await page.route("**/embed/embed.js", (r) =>
+      r.fulfill({ body: "", contentType: "application/javascript" }),
+    );
+    await page.goto(route + (route?.includes("?") ? "&" : "?") + "lang=es");
+    await expect(page.locator("html")).toHaveAttribute("lang", "es");
+    await expect(page.locator("h1")).toContainText(heading ?? "");
+    expect(await page.locator('main section[lang="en"],main article[lang="en"]').count()).toBe(0);
+  }
+  await page.goto("/demos?lang=es");
+  await expect(page.locator("main")).toContainText("subtítulos visibles en inglés");
+  await expect(page.locator("main")).not.toContainText("Review in progress");
+});

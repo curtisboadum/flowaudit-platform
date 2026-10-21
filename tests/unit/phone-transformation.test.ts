@@ -28,3 +28,23 @@ describe("phone-agent public journeys", () => {
     ).toBeNull();
   });
 });
+
+describe("Website language parity", () => {
+  it("provides distinct Spanish copy for every new industry workflow", () => {
+    for (const slug of [
+      "home-services",
+      "trades",
+      "property",
+      "automotive",
+      "it-services",
+      "professional-services",
+    ]) {
+      const industry = industries[slug];
+      expect(industry).toBeDefined();
+      expect(industry?.title.es).not.toBe(industry?.title.en);
+      expect(industry?.intro.es).not.toBe(industry?.intro.en);
+      expect(industry?.boundary.es).not.toBe(industry?.boundary.en);
+      for (const example of industry?.examples ?? []) expect(example.es).not.toBe(example.en);
+    }
+  });
+});

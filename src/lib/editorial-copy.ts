@@ -352,6 +352,81 @@ industries["professional-services"] = phoneIndustry(
   "Professional advice, eligibility and case acceptance require your own controls and approval. Do not submit confidential client information in public forms.",
 );
 
+// Website translations describe the same qualified scope, not additional product languages.
+const industrySpanish: Record<string, [string, string, string, string[], string]> = {
+  "home-services": [
+    "Servicios para el hogar",
+    "En pleno trabajo.\nDisponible para nuevas consultas.",
+    "Agentes telefónicos IA para empresas consolidadas de climatización, fontanería, tejados, restauración y oficios. Define qué ocurre cuando llega una consulta y tu equipo de oficina o campo no puede atender.",
+    [
+      "Recepción por configurar: preguntar por el trabajo, la ubicación y el contexto útil sin diagnosticar ni prometer una visita.",
+      "Siguientes pasos por evaluar: reservas de inspección o solicitudes de devolución de llamada aprobadas, según el acceso a la agenda y las zonas que atiendes.",
+      "Traspasos por probar: solicitudes urgentes, datos poco claros, horarios no disponibles y situaciones que necesitan a tu equipo.",
+    ],
+    "Son procesos configurables. Una demostración de reserva dental no acredita respuesta a emergencias, despacho, transferencia en vivo ni conexiones con sistemas de gestión de campo.",
+  ],
+  property: [
+    "Gestión inmobiliaria",
+    "Un siguiente paso con responsable\npara cada consulta.",
+    "Explora la recepción telefónica de consultas de mantenimiento, inquilinos y propietarios cuando tu equipo está fuera de la oficina.",
+    [
+      "Recoger el tipo de solicitud y el contexto de la propiedad acordado.",
+      "Evaluar devoluciones de llamada o citas aprobadas con el equipo responsable.",
+      "Probar las alternativas ante mantenimiento urgente o personal no disponible según tus propias instrucciones.",
+    ],
+    "La respuesta a emergencias, el asesoramiento de alquiler, el despacho y las conexiones requieren evaluación independiente. Son procesos configurables, no implementaciones inmobiliarias acreditadas.",
+  ],
+  automotive: [
+    "Talleres de automoción",
+    "Mantén el taller en marcha.\nOfrece un siguiente paso.",
+    "Define la atención de consultas de servicio mientras tu equipo está con un cliente o trabajando en un vehículo.",
+    [
+      "Recoger la consulta y los datos del vehículo que necesita tu equipo.",
+      "Evaluar reservas de servicio o devoluciones de llamada aprobadas según la capacidad real del taller.",
+      "Acordar qué consultas de diagnóstico, seguridad o casos inusuales debe atender una persona.",
+    ],
+    "El diagnóstico, los plazos de reparación y las autorizaciones quedan con el taller. Hay que evaluar y probar la compatibilidad de la agenda y los traspasos.",
+  ],
+  "it-services": [
+    "Informática y alojamiento web",
+    "Comprende la consulta.\nDirige la siguiente conversación.",
+    "Explora la recepción telefónica de consultas de alojamiento y soporte, distinguiendo una devolución de llamada comercial de un incidente operativo.",
+    [
+      "Recoger la consulta empresarial y una descripción útil sin datos sensibles.",
+      "Evaluar la programación de devoluciones de llamada con un responsable comercial o de soporte.",
+      "Probar el escalado de incidentes y las alternativas sin pedir contraseñas ni credenciales de acceso.",
+    ],
+    "No se implica migración, resolución de incidentes, compromiso de disponibilidad ni conexión con una plataforma concreta. Primero hay que acordar permisos y límites de escalado.",
+  ],
+  "professional-services": [
+    "Servicios profesionales",
+    "Conserva el contexto.\nHaz útil la siguiente conversación.",
+    "Define la recepción de consultas para empresas cuyos profesionales suelen estar en citas o concentrados en el trabajo de sus clientes.",
+    [
+      "Recoger el tipo de consulta y el contexto empresarial acordado.",
+      "Evaluar devoluciones de llamada o reservas de consulta.",
+      "Mantener las decisiones de aceptación, el asesoramiento y los datos sensibles con personal autorizado.",
+    ],
+    "El asesoramiento, la elegibilidad y la aceptación de casos requieren tus propios controles y aprobación. No envíes información confidencial de clientes en formularios públicos.",
+  ],
+};
+for (const [slug, translated] of Object.entries(industrySpanish)) {
+  const original = industries[slug];
+  if (!original) continue;
+  industries[slug] = {
+    ...original,
+    name: c(original.name.en, translated[0]),
+    title: c(original.title.en, translated[1]),
+    intro: c(original.intro.en, translated[2]),
+    examples: original.examples.map((item, index) => c(item.en, translated[3][index] ?? item.es)),
+    boundary: c(original.boundary.en, translated[4]),
+  };
+}
+industries.trades = {
+  ...(industries["home-services"] as Industry),
+  name: c("Trades & contractors", "Oficios y contratistas"),
+};
+
 export interface Post {
   title: Copy;
   intro: Copy;

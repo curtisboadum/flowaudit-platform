@@ -39,40 +39,49 @@ test("Mobile menu responds to Escape and Spanish persists across navigation", as
   await page.goto("/phone-agent");
   await expect(page.locator("html")).toHaveAttribute("lang", "es");
 });
-test("Calendar is immediate; optional context retains drafts and attribution", async ({ page }) => {
-  await page.route("**/embed/embed.js", (r) =>
-    r.fulfill({ body: "", contentType: "application/javascript" }),
-  );
-  await page.goto("/book?service=phone-agent&ref=fa-sdr-qa&utm_source=qa");
-  await expect(page.getByRole("link", { name: "Let’s talk", exact: true })).toHaveAttribute(
-    "href",
-    "#booking-calendar",
-  );
-  const fallback = page.getByRole("link", { name: /Open the booking page/ });
-  await expect(fallback).toBeVisible();
-  await expect(fallback).toHaveAttribute("href", /metadata%5Bservice%5D=phone-agent/);
-  await page.getByText("Add context for the call (optional)", { exact: true }).click();
-  await page.getByLabel("Business name (optional)").fill("QA practice");
-  await page.getByLabel("Your role (optional)").selectOption("General manager");
-  await page.getByLabel("Scheduling system (optional)").fill("Not sure");
-  await page.getByLabel("What would you like to improve? (optional)").fill("Booking fit");
-  await page.getByRole("button", { name: "Use this context" }).click();
-  await expect(fallback).toHaveAttribute("href", /metadata%5Bref%5D=fa-sdr-qa/);
-  await expect(fallback).toHaveAttribute("href", /QA\+practice/);
-  await page.getByText("Add context for the call (optional)", { exact: true }).click();
-  await expect(page.getByLabel("Business name (optional)")).toHaveValue("QA practice");
-  await expect(page.locator("form [required]")).toHaveCount(0);
-  const events: { event: string; service: string }[] = [];
-  await page.route("**/api/events", (r) => {
-    events.push(JSON.parse(r.request().postData() ?? "{}"));
-    return r.fulfill({ status: 200, body: '{"stored":true}' });
+test("Calendar selection survives optional guidance, consent and query navigation", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    const state = { mounts: 0 };
+    const api = (instruction: string, options: { elementOrSelector?: string }) => {
+      if (instruction !== "inline" || !options.elementOrSelector) return;
+      state.mounts++;
+      const frame = document.createElement("iframe");
+      frame.title = "Book a 15-minute FlowAudit call";
+      frame.srcdoc = "<p>Scheduling test double: no booking is created.</p>";
+      document.querySelector(options.elementOrSelector)?.append(frame);
+    };
+    Object.assign(window, {
+      qaCalendar: state,
+      Cal: Object.assign(() => {}, { ns: { "flowaudit-call": api } }),
+    });
   });
+  await page.goto("/book?service=phone-agent&ref=fa-sdr-qa&utm_source=qa");
+  const frame = page.locator('iframe[title="Book a 15-minute FlowAudit call"]');
+  await expect(frame).toBeVisible();
+  await frame.evaluate((node) => node.setAttribute("data-selected-slot", "synthetic-slot"));
+  const mounts = () =>
+    page.evaluate(
+      () => (window as unknown as { qaCalendar: { mounts: number } }).qaCalendar.mounts,
+    );
+  expect(await mounts()).toBe(1);
+  await page.getByText("What to add in Additional notes (optional)", { exact: true }).click();
+  await expect(page.locator(".fa-book-context")).toContainText(
+    "industry, main call-handling problem",
+  );
   await page.getByRole("button", { name: "Allow analytics" }).click();
-  await page.getByRole("link", { name: "Let’s talk", exact: true }).click();
-  await expect
-    .poll(() => events.some((e) => e.event === "book_click" && e.service === "phone-agent"))
-    .toBe(true);
-  await expect(page.locator("h1")).toContainText("your business");
+  await page.getByRole("button", { name: "Privacy choices" }).click();
+  await page.getByRole("button", { name: "Keep analytics off" }).click();
+  // Exercise a real Next client navigation by clicking an existing internal footer link.
+  // The mounted session keeps its initial service/context until a fresh page visit.
+  await page.getByRole("link", { name: "Book a call", exact: true }).last().click();
+  await expect(frame).toHaveAttribute("data-selected-slot", "synthetic-slot");
+  expect(await mounts()).toBe(1);
+  await expect(page.locator("#booking-calendar form")).toHaveCount(0);
+  const fallback = page.getByRole("link", { name: /Open the booking page/ });
+  await expect(fallback).toHaveAttribute("href", /metadata%5Bref%5D=fa-sdr-qa/);
+  await expect(fallback).toHaveAttribute("href", /metadata%5Bservice%5D=phone-agent/);
 });
 test("Product video is user initiated and transcript stays accessible", async ({ page }) => {
   await page.goto("/phone-agent");
@@ -312,29 +321,25 @@ test("Landscape evidence uses comfortable viewing width across breakpoints", asy
   await page.goto("/");
   const poster = page.locator('video[data-media-id="routine"]');
   await expect(poster).toHaveAttribute("width", "1920");
-  await expect(poster).toHaveAttribute("poster", /routine.jpg/);
+  await expect(poster).toHaveAttribute("poster", /routine-poster.webp/);
 });
 
-test("Generic booking keeps service editable after selecting the phone offer", async ({ page }) => {
-  await page.route("**/cal.com/embed.js", (route) => route.abort());
+test("Booking uses Cal's native optional context field without a duplicate questionnaire", async ({
+  page,
+}) => {
+  await page.route("**/embed/embed.js", (route) =>
+    route.fulfill({ body: "", contentType: "application/javascript" }),
+  );
   await page.goto("/book");
-  await page.getByText("Add context for the call (optional)", { exact: true }).click();
-  const select = page.getByRole("combobox", { name: "I’m interested in", exact: true });
-  for (const service of [
-    "phone-agent",
-    "automation",
-    "revenue-recovery",
-    "web-design",
-    "general",
-  ]) {
-    await select.selectOption(service);
-    await expect(select).toBeVisible();
-    await expect(
-      page.getByRole("link", { name: "Open the booking page in a new tab" }),
-    ).toHaveAttribute("href", new RegExp(`metadata%5Bservice%5D=${service}`));
-  }
+  await expect(page.getByRole("link", { name: /Open the booking page/ })).toBeVisible();
+  await page.getByText("What to add in Additional notes (optional)", { exact: true }).click();
+  await expect(page.locator(".fa-book-context")).toContainText(
+    "no separate website form or calendar reload",
+  );
+  await expect(
+    page.locator("#booking-calendar input, #booking-calendar textarea, #booking-calendar select"),
+  ).toHaveCount(0);
 });
-
 test("Chapters preserve paused state and work before first playback", async ({ page }) => {
   await page.goto("/industries/dental");
   await page.getByRole("button", { name: "Keep analytics off" }).click();

@@ -132,8 +132,8 @@ export function PhonePlatform({ home = false }: { home?: boolean }) {
             {text(
               locale,
               c(
-                "When your team can’t pick up, give callers a next step.",
-                "Cuando tu equipo no puede atender, ofrece un siguiente paso.",
+                "An AI receptionist for the calls you can’t take.",
+                "Un recepcionista IA para las llamadas que no puedes atender.",
               ),
             )}
           </h1>
@@ -141,8 +141,8 @@ export function PhonePlatform({ home = false }: { home?: boolean }) {
             {text(
               locale,
               c(
-                "Handle inbound enquiries, collect the useful details and move the conversation toward an approved booking, callback or team handoff. Configured around your business and tested with your team.",
-                "Atiende consultas, recoge los datos útiles y avanza hacia una reserva, devolución de llamada o traspaso aprobado. Configurado para tu empresa y probado con tu equipo.",
+                "Handle inbound enquiries, collect useful details and agree the next step. Bookings, callbacks and handoffs are configured around your business and tested with your team.",
+                "Atiende consultas, recoge datos útiles y acuerda el siguiente paso. Las reservas, devoluciones de llamada y traspasos se configuran para tu empresa y se prueban con tu equipo.",
               ),
             )}
           </p>
@@ -172,7 +172,7 @@ export function PhonePlatform({ home = false }: { home?: boolean }) {
               c("Hear a real recorded demonstration", "Escucha una demostración grabada real"),
             )}
           </div>
-          <MediaPlayer film="routine" compact />
+          <MediaPlayer film="routine" compact priority />
           <p className="fa-small">
             {text(
               locale,

@@ -38,7 +38,7 @@ export function DemoLibrary() {
         </p>
       </section>
       <section className="fa-container fa-section" id="routine">
-        <MediaPlayer film="routine" compact />
+        <MediaPlayer film="routine" compact priority />
         <div className="fa-focus-heading mt-8">
           <div>
             <h2>
@@ -82,32 +82,53 @@ export function DemoLibrary() {
           </p>
           <div className="fa-sector-grid">
             {[
-              [
-                "Home services: roof-leak enquiry",
-                "Review in progress. The recording needs privacy edits and a verified transcript before public release.",
-                "/industries/home-services",
-              ],
-              [
-                "Home services: live walkthrough",
-                "Review in progress. The complete call and visible calendar details need public-use clearance.",
-                "/industries/home-services",
-              ],
-              [
-                "IT & hosting: enquiry and callback",
-                "Review in progress. Caller details, editorial claims and the demonstrated next step need verification.",
-                "/industries/it-services",
-              ],
-              [
-                "Dental: urgent appointment enquiry",
-                "The scope includes clinical and privacy considerations. This example is not evidence of validated triage or an emergency transfer.",
-                "/industries/dental",
-              ],
-            ].map(([title, body, href]) => (
-              <article lang="en" className="fa-call-proof" key={title}>
-                <h3 className="mb-4 text-2xl">{title}</h3>
-                <p className="mb-6">{body}</p>
-                <Link className="fa-text-link" href={href ?? "/phone-agent"}>
-                  Explore the workflow ↗
+              {
+                title: c(
+                  "Home services: roof-leak enquiry",
+                  "Servicios para el hogar: consulta por gotera",
+                ),
+                body: c(
+                  "Review in progress. The recording needs privacy edits and a verified transcript before public release.",
+                  "En revisión. La grabación necesita ediciones de privacidad y una transcripción verificada antes de publicarse.",
+                ),
+                href: "/industries/home-services",
+              },
+              {
+                title: c(
+                  "Home services: live walkthrough",
+                  "Servicios para el hogar: demostración en vivo",
+                ),
+                body: c(
+                  "Review in progress. The complete call and visible calendar details need public-use clearance.",
+                  "En revisión. La llamada completa y los datos visibles de la agenda necesitan autorización de uso público.",
+                ),
+                href: "/industries/home-services",
+              },
+              {
+                title: c(
+                  "IT & hosting: enquiry and callback",
+                  "Informática y alojamiento: consulta y devolución de llamada",
+                ),
+                body: c(
+                  "Review in progress. Caller details, editorial claims and the demonstrated next step need verification.",
+                  "En revisión. Hay que verificar los datos de quien llama, las afirmaciones editoriales y el siguiente paso demostrado.",
+                ),
+                href: "/industries/it-services",
+              },
+              {
+                title: c("Dental: urgent appointment enquiry", "Dental: consulta por cita urgente"),
+                body: c(
+                  "The scope includes clinical and privacy considerations. This example is not evidence of validated triage or an emergency transfer.",
+                  "El alcance incluye consideraciones clínicas y de privacidad. Este ejemplo no acredita un triaje validado ni una transferencia de emergencia.",
+                ),
+                href: "/industries/dental",
+              },
+            ].map(({ title, body, href }) => (
+              <article className="fa-call-proof" key={href + title.en}>
+                <h3 className="mb-4 text-2xl">{text(locale, title)}</h3>
+                <p className="mb-6">{text(locale, body)}</p>
+                <Link className="fa-text-link" href={href}>
+                  {text(locale, c("Explore the workflow", "Explorar el proceso"))} ↗
                 </Link>
               </article>
             ))}

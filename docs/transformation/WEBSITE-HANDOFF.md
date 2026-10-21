@@ -18,4 +18,7 @@ Media integration is deliberately open. Current discoverable /demos plays docume
 
 Integration points: src/components/marketing/phone-platform.tsx (homepage/product proof); demo-library.tsx (public library); media-player.tsx and src/lib/media-transcripts.ts (player, caption/transcript, supported events). Incoming media must be permission reviewed, pricing-free and meaning preserving. Existing private /demo/showcase and /watch should not be replaced or have protections relaxed.
 
-Known limits: media clearance/production; partial Spanish fallback; optional-context calendar remount with explicit disclosure; no real appointment/confirmation receipt tested; Cal third-party-cookie browser findings; field CWV not measured. No production approval or release. No credentials, DNS, permissions, Cal settings, outreach or memories changed.
+Known limits: media clearance/production; core Spanish copy completed in later refinements; native Cal optional notes preserve the mounted booking session; no real appointment/confirmation receipt tested; Cal third-party-cookie browser findings; field CWV not measured. No production approval or release. No credentials, DNS, permissions, Cal settings, outreach or memories changed.
+
+
+Follow-up source changes and current evidence: REFINEMENTS.md and REFINEMENT-REVIEW.md. New51unit/build/lint/types PASS; full refined browser72PASS/1skip, poster/booking4PASS and final service-navigation regression1PASS. Product/demos localLCP2.7s remains above target. A new refinement commit and remote checks supersede earlier source checkpoint only once CI is verified. Private film playback is loopback-only; PRIVATE-MEDIA-INTEGRATION.md retains release gates.
