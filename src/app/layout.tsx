@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import {
   ConditionalChatWidget,
   ConditionalSiteFooter,
@@ -11,26 +11,14 @@ import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import { FunnelProvider } from "@/components/marketing/funnel-provider";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  variable: "--font-instrument-serif",
-  weight: ["400"],
-  display: "swap",
-  preload: true,
-});
+const inter = localFont({ src:"./fonts/inter.woff2", variable:"--font-inter", display:"swap", preload:true });
+const instrumentSerif = localFont({ src:"./fonts/instrument-serif.woff2", variable:"--font-instrument-serif", display:"swap", preload:true });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "FlowAudit | AI systems for established service businesses",
+  title: "FlowAudit | AI phone agents & voice automation",
   description:
-    "Phone handling, operations automation, revenue recovery and websites, with clear scope and approval before activation.",
+    "AI phone agents configured around your inbound enquiries, with testing and approval before activation. USA primary, UK supported.",
   openGraph: {
     title: "FlowAudit | Better systems. Clearer next steps.",
     description: "AI systems built around your business, with clear scope and your approval.",

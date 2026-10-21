@@ -1,0 +1,2 @@
+import fs from 'node:fs';
+for(const route of ['home','phone-agent','home-services','demos','book']) {const f=`docs/transformation/lighthouse-${route}.json`;if(!fs.existsSync(f))continue;const r=JSON.parse(fs.readFileSync(f));console.log(JSON.stringify({route,scores:Object.fromEntries(Object.entries(r.categories).map(([k,v])=>[k,v.score*100])),metrics:Object.fromEntries(['largest-contentful-paint','total-blocking-time','cumulative-layout-shift'].map(k=>[k,r.audits[k].displayValue]))}));}

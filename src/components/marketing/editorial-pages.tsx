@@ -10,7 +10,7 @@ export function IndustryPage({ slug }: { slug: string }) {
   const data = industries[slug];
   if (!data) return null;
   return (
-    <>
+    <div lang={data.title.en === data.title.es ? "en" : undefined}>
       <section className="fa-container fa-page-intro">
         <Eyebrow>{text(locale, data.name)}</Eyebrow>
         <h1>{text(locale, data.title)}</h1>
@@ -42,7 +42,7 @@ export function IndustryPage({ slug }: { slug: string }) {
             <h2>
               {text(
                 locale,
-                c("See it work\nbefore you decide.", "Véalo funcionar\nantes de decidir."),
+                c("Hear a dental\nbooking example.", "Escucha un ejemplo\nde reserva dental."),
               )}
             </h2>
             <p className="fa-small">
@@ -92,7 +92,7 @@ export function IndustryPage({ slug }: { slug: string }) {
       </section>
       {data.demo && <Process compact />}
       <Closing service={data.service ?? "automation"} />
-    </>
+    </div>
   );
 }
 export function BlogIndex() {

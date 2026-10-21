@@ -2,18 +2,15 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
 import type { Locale } from "@/lib/i18n";
-import { getLocaleFromCookie, setLocaleCookie, getTranslations } from "@/lib/i18n";
-import type { Translations } from "@/lib/translations/en";
+import { getLocaleFromCookie, setLocaleCookie } from "@/lib/i18n";
 
 interface LocaleContextValue {
   locale: Locale;
-  t: Translations;
   setLocale: (locale: Locale) => void;
 }
 
 const LocaleContext = createContext<LocaleContextValue>({
   locale: "en",
-  t: getTranslations("en"),
   setLocale: () => {},
 });
 
@@ -34,11 +31,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = newLocale;
   }, []);
 
-  const t = getTranslations(locale);
-
-  return (
-    <LocaleContext.Provider value={{ locale, t, setLocale }}>{children}</LocaleContext.Provider>
-  );
+  return <LocaleContext.Provider value={{ locale, setLocale }}>{children}</LocaleContext.Provider>;
 }
 
 export function useLocale() {

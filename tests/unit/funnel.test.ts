@@ -33,11 +33,12 @@ beforeEach(() => {
   }
 });
 describe("Privacy and funnel validation", () => {
-  it("keeps overview analytics distinct from the historical walkthrough", () => {
+  it("keeps overview and urgent analytics distinct from the retired walkthrough", () => {
     expect(parseFunnel({ ...valid, event: "video_start", mediaId: "overview" })?.mediaId).toBe(
       "overview",
     );
-    expect(parseFunnel({ ...valid, event: "video_start", mediaId: "main" })?.mediaId).toBe("main");
+    expect(parseFunnel({ ...valid, event: "video_start", mediaId: "urgent" })?.mediaId).toBe("urgent");
+    expect(parseFunnel({ ...valid, event: "video_start", mediaId: "main" })?.mediaId).toBeUndefined();
     expect(
       parseFunnel({ ...valid, event: "video_start", mediaId: "unknown" })?.mediaId,
     ).toBeUndefined();

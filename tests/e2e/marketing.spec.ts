@@ -52,15 +52,15 @@ test("Calendar is immediate; optional context retains drafts and attribution", a
   await expect(fallback).toBeVisible();
   await expect(fallback).toHaveAttribute("href", /metadata%5Bservice%5D=phone-agent/);
   await page.getByText("Add context for the call (optional)", { exact: true }).click();
-  await page.getByLabel("Business or practice name (optional)").fill("QA practice");
-  await page.getByLabel("Your role (optional)").selectOption("Practice manager");
+  await page.getByLabel("Business name (optional)").fill("QA practice");
+  await page.getByLabel("Your role (optional)").selectOption("General manager");
   await page.getByLabel("Scheduling system (optional)").fill("Not sure");
   await page.getByLabel("What would you like to improve? (optional)").fill("Booking fit");
   await page.getByRole("button", { name: "Use this context" }).click();
   await expect(fallback).toHaveAttribute("href", /metadata%5Bref%5D=fa-sdr-qa/);
   await expect(fallback).toHaveAttribute("href", /QA\+practice/);
   await page.getByText("Add context for the call (optional)", { exact: true }).click();
-  await expect(page.getByLabel("Business or practice name (optional)")).toHaveValue("QA practice");
+  await expect(page.getByLabel("Business name (optional)")).toHaveValue("QA practice");
   await expect(page.locator("form [required]")).toHaveCount(0);
   const events: { event: string; service: string }[] = [];
   await page.route("**/api/events", (r) => {
@@ -72,27 +72,15 @@ test("Calendar is immediate; optional context retains drafts and attribution", a
   await expect
     .poll(() => events.some((e) => e.event === "book_click" && e.service === "phone-agent"))
     .toBe(true);
-  await expect(page.locator("h1")).toContainText("your practice");
+  await expect(page.locator("h1")).toContainText("your business");
 });
-test("Video is user initiated and film tabs support keyboard", async ({ page }) => {
+test("Product video is user initiated and transcript stays accessible", async ({ page }) => {
   await page.goto("/phone-agent");
-  await expect(page.locator('video[data-media-id="overview"]')).toHaveAttribute("preload", "none");
-  expect(await page.locator('video[data-media-id="overview"]').getAttribute("autoplay")).toBeNull();
-  await page.getByText("More detail: walkthrough and executive overview", { exact: true }).click();
-  const first = page.getByRole("tab", { name: /full walkthrough/ });
-  await first.focus();
-  await first.press("End");
-  await expect(page.getByRole("tab", { name: /Executive overview/ })).toHaveAttribute(
-    "aria-selected",
-    "true",
-  );
-  await page
-    .locator('video[data-media-id="summary"]')
-    .locator("..")
-    .locator("..")
-    .getByText("Read the full transcript (English)")
-    .click();
-  await expect(page.locator(".fa-media-context .fa-transcript div:visible")).toHaveCount(1);
+  const video = page.locator('video[data-media-id="routine"]');
+  await expect(video).toHaveAttribute("preload", "none");
+  expect(await video.getAttribute("autoplay")).toBeNull();
+  await page.getByText("Read the full transcript (English)", { exact: true }).click();
+  await expect(page.locator(".fa-transcript div:visible")).toHaveCount(1);
 });
 test("Optional analytics sends nothing before consent and stops after decline", async ({
   page,
@@ -160,7 +148,7 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
     events.push(JSON.parse(r.request().postData() ?? "{}").event);
     return r.fulfill({ status: 200, body: '{"stored":true}' });
   });
-  await page.goto("/phone-agent");
+  await page.goto("/industries/dental");
   await page.getByRole("button", { name: "Allow analytics" }).click();
   const video = page.locator('video[data-media-id="overview"]');
   await expect(video).toHaveAttribute("data-media-id", "overview");
@@ -176,7 +164,10 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
     .toBeGreaterThan(1);
-  expect(await video.evaluate((node: HTMLVideoElement) => node.duration)).toBeCloseTo(filmMetadata.duration, 2);
+  expect(await video.evaluate((node: HTMLVideoElement) => node.duration)).toBeCloseTo(
+    filmMetadata.duration,
+    2,
+  );
   expect(
     await video.evaluate((node: HTMLVideoElement) => [node.videoWidth, node.videoHeight]),
   ).toEqual([1920, 1080]);
@@ -282,7 +273,7 @@ test("Provider readiness and booking status are distinct; no client booking conv
 
 test("Unavailable video and calendar expose recovery options", async ({ page }) => {
   await page.route("**/media/*.mp4*", (r) => r.abort());
-  await page.goto("/phone-agent");
+  await page.goto("/industries/dental");
   await page
     .locator('video[data-media-id="overview"]')
     .evaluate((node: HTMLVideoElement) => void node.play().catch(() => {}));
@@ -299,7 +290,7 @@ test("Unavailable video and calendar expose recovery options", async ({ page }) 
 });
 
 test("Landscape evidence uses comfortable viewing width across breakpoints", async ({ page }) => {
-  await page.goto("/phone-agent");
+  await page.goto("/industries/dental");
   for (const width of [360, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     const box = await page.locator('video[data-media-id="overview"]').boundingBox();
@@ -319,13 +310,9 @@ test("Landscape evidence uses comfortable viewing width across breakpoints", asy
     ).toBe("contain");
   }
   await page.goto("/");
-  const poster = page.locator(".fa-art-screen img");
+  const poster = page.locator('video[data-media-id="routine"]');
   await expect(poster).toHaveAttribute("width", "1920");
-  await expect
-    .poll(() => poster.evaluate((node: HTMLImageElement) => node.naturalWidth))
-    .toBeGreaterThan(0);
-  const posterBox = await poster.boundingBox();
-  expect(posterBox!.height / posterBox!.width).toBeCloseTo(9 / 16, 2);
+  await expect(poster).toHaveAttribute("poster", /routine.jpg/);
 });
 
 test("Generic booking keeps service editable after selecting the phone offer", async ({ page }) => {
@@ -349,7 +336,7 @@ test("Generic booking keeps service editable after selecting the phone offer", a
 });
 
 test("Chapters preserve paused state and work before first playback", async ({ page }) => {
-  await page.goto("/phone-agent");
+  await page.goto("/industries/dental");
   await page.getByRole("button", { name: "Keep analytics off" }).click();
   const video = page.locator('video[data-media-id="overview"]');
   await page.getByRole("button", { name: /Recorded demo/ }).click();
@@ -373,7 +360,7 @@ test("Chapters preserve paused state and work before first playback", async ({ p
 });
 
 test("Slow media offers transcript and optional booking recovery", async ({ page }) => {
-  await page.goto("/phone-agent");
+  await page.goto("/industries/dental");
   await page.getByRole("button", { name: "Keep analytics off" }).click();
   await page.locator('video[data-media-id="overview"]').dispatchEvent("waiting");
   await expect(page.getByRole("status")).toContainText("Video loading slowly", { timeout: 12000 });
@@ -388,7 +375,7 @@ test("Slow media offers transcript and optional booking recovery", async ({ page
 test("Overview and genuine demo have reciprocal links, independent playback and unique IDs", async ({
   page,
 }) => {
-  await page.goto("/phone-agent");
+  await page.goto("/industries/dental");
   await page.getByRole("button", { name: "Keep analytics off" }).click();
   const overview = page.locator('video[data-media-id="overview"]');
   const routine = page.locator('video[data-media-id="routine"]');
@@ -401,7 +388,7 @@ test("Overview and genuine demo have reciprocal links, independent playback and 
   await expect
     .poll(() => routine.evaluate((v: HTMLVideoElement) => v.currentTime))
     .toBeGreaterThan(0);
-  await page.getByRole("link", { name: "Back to the overview" }).first().click();
+  await page.getByRole("link", { name: "See the dental overview" }).first().click();
   await expect(page).toHaveURL(/#demo$/);
   await overview.evaluate((v: HTMLVideoElement) => {
     v.muted = true;
@@ -410,10 +397,10 @@ test("Overview and genuine demo have reciprocal links, independent playback and 
   await expect.poll(() => routine.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
   await overview.evaluate((v: HTMLVideoElement) => v.pause());
   await page.getByText("More detail: walkthrough and executive overview", { exact: true }).click();
-  await expect(page.getByRole("button", { name: /Recorded booking/ })).toBeVisible();
+  await expect(page.locator('video[data-media-id="summary"]')).toBeVisible();
   const ids = await page.locator("[id]").evaluateAll((nodes) => nodes.map((n) => n.id));
   expect(ids.length).toBe(new Set(ids).size);
-  for (const media of ["overview", "routine", "main"]) {
+  for (const media of ["overview", "routine", "summary"]) {
     const response = await page.request.get(`/media/${media}.vtt`);
     expect(response.ok()).toBe(true);
     expect(await response.text()).toContain("WEBVTT");

@@ -270,8 +270,8 @@ export const offers: Offer[] = [
       "Un sitio cuidado, centrado en tu oferta y en cómo deciden tus clientes. Mira una demostración personalizada de alcance limitado antes de comprometerte.",
     ),
     note: c(
-      "Custom demonstration before payment. A 12-month managed arrangement, with cancellation available after that term.",
-      "Demostración personalizada antes del pago. Gestión durante 12 meses, con cancelación disponible después de ese periodo.",
+      "Website design and ongoing support are scoped around your business. Commercial arrangements are agreed privately.",
+      "Diseño web y soporte adaptados a tu empresa. Los acuerdos comerciales se definen en privado.",
     ),
     steps: [
       {
@@ -291,8 +291,8 @@ export const offers: Offer[] = [
       {
         title: c("Approve, then build", "Aprobar y construir"),
         body: c(
-          "Approve the scope and demonstration before payment. The proposal defines the build, support and 12-month arrangement.",
-          "Aprobar alcance y demostración antes del pago. La propuesta define construcción, soporte y gestión durante 12 meses.",
+          "Review the scope and demonstration. The proposal defines the build, support and responsibilities before work begins.",
+          "Revisa el alcance y la demostración. La propuesta define construcción, soporte y responsabilidades antes de comenzar.",
         ),
       },
     ],
@@ -314,8 +314,8 @@ export const offers: Offer[] = [
       {
         q: c("How long is the arrangement?", "¿Cuánto dura el acuerdo?"),
         a: c(
-          "The existing managed website offer has a 12-month term, with cancellation available after that term. Your proposal sets out billing, changes, handover and any additional services.",
-          "La oferta actual de gestión web tiene un periodo de 12 meses, con cancelación disponible después. La propuesta detalla facturación, cambios, entrega y servicios adicionales.",
+          "Your written proposal sets out the service scope, ongoing support, changes and handover. Commercial terms are agreed privately after discovery.",
+          "Tu propuesta escrita define alcance, soporte, cambios y entrega. Los términos comerciales se acuerdan en privado tras el análisis.",
         ),
       },
     ],
@@ -330,10 +330,10 @@ export const generalFaq: Faq[] = [
     ),
   },
   {
-    q: c("How do you price the work?", "¿Cómo se fija el precio?"),
+    q: c("How is the scope agreed?", "¿Cómo se acuerda el alcance?"),
     a: c(
-      "We quote a defined scope. Complexity, system access, usage, implementation and ongoing support affect the price. We agree the commercial terms before paid work begins.",
-      "Presupuestamos un alcance definido. Complejidad, acceso a sistemas, uso, implementación y soporte influyen en el precio. Acordamos términos antes del trabajo pagado.",
+      "We assess your workflow, system access and support requirements, then agree the scope and commercial terms privately after discovery.",
+      "Evaluamos procesos, acceso y soporte, y acordamos alcance y condiciones en privado tras el análisis.",
     ),
   },
   {
@@ -344,3 +344,21 @@ export const generalFaq: Faq[] = [
     ),
   },
 ];
+
+export const dentalOffer: Offer = { ...(offers[0] as Offer) };
+const phoneOffer = offers[0];
+if (phoneOffer) {
+  phoneOffer.label = c("AI phone agents", "Agentes telefónicos IA");
+  phoneOffer.headline = c(
+    "Give callers a clear next step.",
+    "Ofrece a quien llama un siguiente paso claro.",
+  );
+  phoneOffer.intro = c(
+    "Phone agents configured around inbound enquiries, useful details and approved next steps. Assess your workflow, connections and handoff requirements before activation.",
+    "Agentes telefónicos configurados para consultas, datos útiles y siguientes pasos aprobados. Evalúa procesos, conexiones y traspasos antes de activar.",
+  );
+  phoneOffer.note = c(
+    "For established service businesses. USA primary, UK supported.",
+    "Para empresas de servicios consolidadas. Prioridad EE. UU., Reino Unido disponible.",
+  );
+}

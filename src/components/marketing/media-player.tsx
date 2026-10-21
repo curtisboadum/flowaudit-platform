@@ -13,16 +13,6 @@ import {
   watchedCoverage,
 } from "@/lib/funnel-client";
 
-const detailedChapters = [
-  [0, c("The offer", "La oferta")],
-  [51.533333, c("Illustrative value", "Valor ilustrativo")],
-  [92, c("Recorded booking", "Reserva grabada")],
-  [182.833333, c("Compatibility limits", "Límites de compatibilidad")],
-  [200.333333, c("Urgent-call boundaries", "Límites ante urgencias")],
-  [244.5, c("Payment, testing and approval", "Pago, pruebas y aprobación")],
-  [267.133333, c("Your 15-minute call", "Tu llamada de 15 minutos")],
-] as const;
-
 const overviewChapters = [
   [0, c("Busy desk and after hours", "Recepción ocupada y fuera de horario")],
   [filmMetadata.demo, c("Recorded demo", "Demo grabada")],
@@ -38,7 +28,6 @@ const films = {
     label: c("A call about a child’s toothache", "Una llamada sobre dolor de muelas infantil"),
     duration: "2:42",
   },
-  main: { label: c("The full walkthrough", "La explicación completa"), duration: "5:00" },
   summary: { label: c("Executive overview", "Resumen ejecutivo"), duration: "1:08" },
   teaser: { label: c("A quick introduction", "Una introducción breve"), duration: "0:30" },
 };
@@ -175,8 +164,7 @@ export function MediaPlayer({
   };
   const ChapterHeading = qualificationCta ? "h2" : "h3";
   const keys = choices ?? (Object.keys(films) as Film[]);
-  const chapters =
-    active === "overview" ? overviewChapters : active === "main" ? detailedChapters : [];
+  const chapters = active === "overview" ? overviewChapters : [];
   return (
     <div className={`fa-media-shell ${compact ? "fa-media-compact" : ""}`}>
       {switchable && (
@@ -517,16 +505,16 @@ export function MediaPlayer({
           )}
           <div className="fa-media-links">
             {active === "overview" ? (
-              <a href="/phone-agent#full-demonstrations">
+              <Link href="/industries/dental#full-demonstrations">
                 {text(
                   locale,
                   c("Watch both full demonstrations", "Ver las dos demostraciones completas"),
                 )}
-              </a>
+              </Link>
             ) : active === "routine" ? (
-              <a href="/phone-agent#demo">
-                {text(locale, c("Back to the overview", "Volver al resumen"))}
-              </a>
+              <Link href="/industries/dental#demo">
+                {text(locale, c("See the dental overview", "Ver el resumen dental"))}
+              </Link>
             ) : null}
             <a href={`/media/${active}-transcript.txt`} download>
               {text(locale, c("Download transcript (English)", "Descargar transcripción (inglés)"))}

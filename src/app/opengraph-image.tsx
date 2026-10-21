@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-export const alt = "FlowAudit. Better systems. Clearer next steps.";
+export const alt = "FlowAudit. AI phone agents and voice automation.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function Image() {
@@ -26,10 +26,10 @@ export default function Image() {
           lineHeight: 1.05,
         }}
       >
-        Better systems. Clearer next steps.
+        Give callers a clear next step.
       </div>
       <div style={{ display: "flex", fontSize: 24, color: "#605a57" }}>
-        Phone handling · Operations · Revenue recovery · Websites
+        AI phone agents & voice automation · USA & UK
       </div>
     </div>,
     size,

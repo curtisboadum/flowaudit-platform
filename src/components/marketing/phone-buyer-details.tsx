@@ -65,13 +65,10 @@ export const operationalQuestions: Faq[] = [
     ),
   },
   {
-    q: c(
-      "What will pricing, contract terms and support include?",
-      "¿Qué incluirán el precio, contrato y soporte?",
-    ),
+    q: c("How are scope and support agreed?", "¿Cómo se acuerdan alcance y soporte?"),
     a: c(
-      "The fit assessment leads to a scoped quote. Set out setup and ongoing charges, call allowances or overages, locations, connectors, testing, support hours, monitoring, change requests, contract length and cancellation or ownership terms in writing before purchase. These are items to agree, not unlimited inclusions. No trial, refund, revenue guarantee or fixed public price is offered here.",
-      "La evaluación conduce a un presupuesto definido. Antes de comprar, acuerda por escrito cargos iniciales y recurrentes, llamadas o excesos, ubicaciones, conexiones, pruebas, soporte, supervisión, cambios, duración, cancelación y propiedad. No son inclusiones ilimitadas. Aquí no se ofrece prueba, reembolso, garantía de ingresos ni precio público fijo.",
+      "Discovery identifies your workflow, required access, testing and support needs. Commercial terms and responsibilities are agreed privately before work begins.",
+      "El análisis identifica procesos, acceso, pruebas y soporte. Los términos comerciales y responsabilidades se acuerdan en privado antes de comenzar.",
     ),
   },
   {

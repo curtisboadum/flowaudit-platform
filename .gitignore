@@ -51,3 +51,5 @@ pnpm-debug.log*
 .env.staging
 # Private commercial strategy notes
 /docs/redesign/PRIVATE-PRICING.md
+
+/node_modules

@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services",
     "/solutions",
     "/phone-agent",
+    "/industries/dental",
+    "/trust",
     "/web-design",
     "/revenue-recovery",
     "/demos",
@@ -22,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   return paths.map((path) => ({
     url: `${SITE_URL}${path}`,
-    lastModified: new Date("2026-10-09"),
+    lastModified: new Date("2026-10-21"),
     changeFrequency: path.startsWith("/blog/") ? "monthly" : "weekly",
     priority: path === "" ? 1 : path === "/phone-agent" ? 0.9 : 0.7,
   }));

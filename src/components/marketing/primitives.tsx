@@ -193,8 +193,8 @@ export function Closing({ service = "general" }: { service?: ServiceId }) {
               locale,
               service === "phone-agent"
                 ? c(
-                    "Your questions.\nA clear buying decision.",
-                    "Tus preguntas.\nUna decisión clara.",
+                    "Your calls.\nA practical place to start.",
+                    "Tus llamadas.\nUn punto de partida práctico.",
                   )
                 : c(
                     "Show us where\nthe work gets stuck.",
@@ -208,10 +208,10 @@ export function Closing({ service = "general" }: { service?: ServiceId }) {
                 locale,
                 c(
                   service === "phone-agent"
-                    ? "15 minutes to discuss your requirements, remaining questions, scope and investment. Invite the person who approves the purchase."
+                    ? "15 minutes to understand the calls you need help with, your current setup and a sensible starting point."
                     : "15 minutes to explore the problem, see a relevant example and agree whether there is a useful next step.",
                   service === "phone-agent"
-                    ? "15 minutos para comentar requisitos, dudas, alcance e inversión. Invita a quien aprueba la compra."
+                    ? "15 minutos para comprender tus llamadas, el sistema actual y un punto de partida útil."
                     : "15 minutos para explorar el problema, ver un ejemplo relevante y acordar si hay un siguiente paso útil.",
                 ),
               )}

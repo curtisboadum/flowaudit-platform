@@ -120,8 +120,8 @@ export function ApproachPage() {
             [
               c("Website demonstration", "Demostración web"),
               c(
-                "Review a bounded custom demonstration before payment. Approve the scope before the paid build and existing 12-month managed arrangement.",
-                "Revisa una demostración personalizada limitada antes del pago. Aprueba el alcance antes de la construcción y gestión de 12 meses.",
+                "Review a bounded custom demonstration and approve the scope. The proposal defines the build, support and responsibilities.",
+                "Revisa una demostración limitada y aprueba el alcance. La propuesta define construcción, soporte y responsabilidades.",
               ),
             ],
             [

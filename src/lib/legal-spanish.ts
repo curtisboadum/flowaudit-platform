@@ -62,7 +62,7 @@ export const legalSpanish = {
       "La propuesta, pedido, alcance o acuerdo de pago define configuración, cuotas, costes de terceros, honorarios de éxito u otros cargos cuando se acuerden. Revenue Recovery Desk puede incluir costes autorizados de cartas, mensajes, pagos o uso de terceros.",
     ]),
     s("Secuencia y sitios gestionados", [
-      "El acuerdo y pago inicial del agente telefónico comienzan la configuración; las pruebas y tu aprobación preceden la activación. Los sitios empiezan con una demo personalizada de alcance limitado antes del pago. El servicio gestionado tiene un plazo de 12 meses, con cancelación después según el acuerdo. Alcance, dependencias, uso, soporte y costes de terceros se definen por escrito.",
+      "El acuerdo y pago inicial del agente telefónico comienzan la configuración; las pruebas y tu aprobación preceden la activación. Los sitios empiezan con una demo personalizada de alcance limitado antes del pago. La duración, el soporte y la finalización del servicio web se especifican en el acuerdo individual. Alcance, dependencias, uso, soporte y costes de terceros se definen por escrito.",
     ]),
     s("7. Propiedad", [
       "El cliente conserva sus datos, procesos, registros, facturas y contenido. FlowAudit conserva su software, patrones, plantillas, procesos y materiales salvo acuerdo escrito.",

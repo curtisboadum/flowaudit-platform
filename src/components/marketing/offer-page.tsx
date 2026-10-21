@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useLocale } from "@/components/providers/locale-provider";
-import { offers, c, text, type ServiceId } from "@/lib/marketing-copy";
+import { offers, dentalOffer, c, text, type ServiceId } from "@/lib/marketing-copy";
 import {
   Arrow,
   BookLink,
@@ -17,7 +17,7 @@ import { WorkflowExplorer } from "./workflow-explorer";
 
 export function OfferPage({ service }: { service: ServiceId }) {
   const { locale } = useLocale();
-  const offer = offers.find((x) => x.id === service);
+  const offer = service === "phone-agent" ? dentalOffer : offers.find((x) => x.id === service);
   if (!offer) return null;
   const phone = service === "phone-agent";
   return (
@@ -163,7 +163,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
                   ),
                 )}
               </summary>
-              <MediaPlayer film="main" switchable compact choices={["main", "summary"]} />
+              <MediaPlayer film="summary" compact />
             </details>
           </section>
           <section className="fa-container fa-section">

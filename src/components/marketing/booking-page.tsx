@@ -58,9 +58,7 @@ export function BookingPage({
     // A service change intentionally starts a new calendar, without form answers.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [service, initialNotes]);
-  const groups = ["Practice manager", "Operations leader", "Group executive"].includes(
-    draft.role ?? "",
-  );
+  const groups = ["General manager", "Operations leader", "Director"].includes(draft.role ?? "");
   return (
     <div className="fa-container fa-book-grid">
       <section className="fa-book-intro">
@@ -72,7 +70,7 @@ export function BookingPage({
           {text(
             locale,
             phone
-              ? c("Let’s talk about\nyour practice.", "Hablemos de\ntu clínica.")
+              ? c("Let’s talk about\nyour business.", "Hablemos de\ntu empresa.")
               : c(
                   "A clearer\nnext step starts here.",
                   "Un siguiente paso\nmás claro empieza aquí.",
@@ -115,8 +113,8 @@ export function BookingPage({
           {text(
             locale,
             c(
-              "Invite an owner or someone authorised to purchase. A practice manager can bring the operational questions and invite the relevant approver. Groups may need further systems, security or procurement review.",
-              "Invita al propietario o a alguien autorizado a comprar. La persona responsable de la clínica puede aportar las preguntas operativas e invitar a quien aprueba. Los grupos pueden necesitar revisión de sistemas, seguridad o compras.",
+              "Bring your call-handling priority and the person who understands daily operations. Owners, general managers and operations leads are welcome.",
+              "Trae tu prioridad y a la persona que conoce las operaciones diarias. Propietarios, gerentes y responsables de operaciones son bienvenidos.",
             ),
           )}
         </p>
@@ -203,13 +201,30 @@ export function BookingPage({
                 </label>
               )}
               <label className="fa-field">
-                {text(
-                  locale,
-                  c(
-                    "Business or practice name (optional)",
-                    "Nombre de empresa o clínica (opcional)",
-                  ),
-                )}
+                {text(locale, c("Industry (optional)", "Sector (opcional)"))}
+                <select
+                  name="industry"
+                  value={draft.industry ?? ""}
+                  onChange={(e) => setDraft({ ...draft, industry: e.target.value })}
+                >
+                  <option value="">
+                    {text(locale, c("Choose if useful", "Elige si lo deseas"))}
+                  </option>
+                  {[
+                    "Home services / trades",
+                    "Automotive repair",
+                    "Property management",
+                    "Professional services",
+                    "IT / web hosting",
+                    "Healthcare",
+                    "Other",
+                  ].map((value) => (
+                    <option key={value}>{value}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="fa-field">
+                {text(locale, c("Business name (optional)", "Nombre de empresa (opcional)"))}
                 <input
                   name="practice"
                   value={draft.practice ?? ""}
@@ -230,9 +245,9 @@ export function BookingPage({
                   </option>
                   {[
                     ["Owner / partner", "Propietario / socio"],
-                    ["Practice manager", "Responsable de clínica"],
+                    ["General manager", "Gerente general"],
                     ["Operations leader", "Responsable de operaciones"],
-                    ["Group executive", "Directivo de grupo"],
+                    ["Director", "Director"],
                     ["Team member / other", "Miembro del equipo / otro"],
                   ].map(([en, es]) => (
                     <option key={en} value={en}>
@@ -342,8 +357,8 @@ export function BookingPage({
               {text(
                 locale,
                 c(
-                  "If scope and deliverability are clear and you choose to proceed, agreement and initial payment start configuration. Testing and practice approval come before activation.",
-                  "Si el alcance y la viabilidad están claros y decides continuar, el acuerdo y el pago inicial comienzan la configuración. Las pruebas y la aprobación de la clínica preceden a la activación.",
+                  "If scope and deliverability are clear and you choose to proceed, agreement and initial payment start configuration. Testing and your approval come before activation.",
+                  "Si el alcance y la viabilidad están claros y decides continuar, el acuerdo y el pago inicial comienzan la configuración. Las pruebas y tu aprobación preceden a la activación.",
                 ),
               )}
             </p>

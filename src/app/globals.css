@@ -2156,3 +2156,31 @@ select {
 .fa-player-frame:fullscreen .fa-player-demo-link { top:12px; bottom:auto; }
 .fa-player-frame:fullscreen video { height:100%; }
 @media(max-width:600px) { .fa-player-demo-link { display:none; } }
+
+/* Call-first hierarchy: retain FlowAudit's established warm editorial identity. */
+.fa-call-first-hero { align-items: start; gap: clamp(32px,5vw,80px); }
+.fa-call-first-hero h1 { font-size: clamp(44px,4.65vw,72px); max-width: 13ch; }
+.fa-call-proof { align-self: center; min-width: 0; padding: 24px; background: #efeae5; border-radius: 16px; }
+.fa-proof-label { font-weight: 600; margin-bottom: 16px; font-size: 15px; }
+.fa-call-proof > .fa-small { margin-block: 16px; }
+.fa-focus-heading { display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; gap: 48px; margin-bottom: 48px; }
+.fa-focus-heading h2 { max-width: 18ch; }
+.fa-focus-heading p { max-width: 52ch; line-height: 1.8; }
+.fa-sector-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.fa-sector-grid > a { padding: 30px; border: 1px solid var(--fa-line); border-radius: 12px; background: #fffdfa; transition: border-color 180ms ease; }
+.fa-sector-grid > a:hover { border-color: var(--fa-ink); }
+.fa-sector-grid h3 { font-size: 24px; margin-bottom: 12px; }
+.fa-sector-grid p { color: var(--fa-muted); margin-bottom: 28px; }
+.fa-sector-grid span { font-size: 14px; font-weight: 600; }
+.fa-secondary-services { border-top: 1px solid var(--fa-line); }
+.fa-secondary-services h2 { font-size: 32px; }
+.fa-secondary-services p { margin: 20px 0; max-width: 65ch; }
+@media(max-width:900px) { .fa-focus-heading { grid-template-columns: 1fr; gap: 20px; } .fa-call-first-hero h1 { max-width: 17ch; } }
+@media(max-width:600px) { .fa-sector-grid { grid-template-columns:1fr; } .fa-call-proof { padding:16px; } .fa-sector-grid > a { padding:24px; } }
+@media(prefers-reduced-motion:reduce) { .fa-sector-grid > a { transition:none; } }
+/* Consent stays in document flow so it cannot obscure calls to action. */
+.fa-consent { position: static; width: auto; max-width: 1280px; margin: 24px auto; box-shadow:none; border-radius:8px; }
+@media(max-width:1376px) { .fa-consent { margin-inline:24px; } }
+
+.fa-call-first-hero { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); }
+@media(max-width:900px) { .fa-call-first-hero { grid-template-columns:1fr; } }

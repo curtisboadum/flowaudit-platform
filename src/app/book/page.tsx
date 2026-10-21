@@ -1,4 +1,3 @@
-import { VslBooking } from "@/components/marketing/vsl-booking";
 import { BookingPage } from "@/components/marketing/booking-page";
 import { pageMetadata } from "@/lib/page-metadata";
 import { serviceId } from "@/lib/marketing-copy";
@@ -13,6 +12,5 @@ export default async function Page({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const params = await searchParams;
-  if (params.entry === "vsl" && params.service === "phone-agent") return <VslBooking />;
   return <BookingPage initialService={serviceId(params.service)} />;
 }

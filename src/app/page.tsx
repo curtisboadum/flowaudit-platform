@@ -1,8 +1,8 @@
 import { Home } from "@/components/marketing/home";
 import { pageMetadata } from "@/lib/page-metadata";
 export const metadata = pageMetadata(
-  "AI systems for established service businesses",
-  "Phone handling, operations automation, revenue recovery and websites, with clear scope and approval before activation.",
+  "AI phone agents & voice automation",
+  "AI phone agents for established service businesses. Handle inbound enquiries through approved workflows. USA primary, UK supported.",
   "/",
 );
 export default function Page() {

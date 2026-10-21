@@ -44,7 +44,7 @@ export function parseFunnel(body: unknown) {
     }
   const mediaId =
     typeof r.mediaId === "string" &&
-    ["overview", "routine", "main", "summary", "teaser"].includes(r.mediaId)
+    ["overview", "routine", "urgent", "summary", "teaser"].includes(r.mediaId)
       ? r.mediaId
       : undefined;
   return {

@@ -9,7 +9,8 @@ export default defineConfig({
       },
   testDir: "./tests/e2e",
   fullyParallel: true,
-  workers: 3,
+  workers: 1,
+  globalTimeout: 180000,
   use: {
     baseURL: process.env.QA_URL ?? "http://localhost:3016",
     channel: "chrome",
