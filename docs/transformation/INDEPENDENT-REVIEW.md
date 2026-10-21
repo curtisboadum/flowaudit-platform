@@ -1,41 +1,44 @@
-# Independent code, security and factual review · 21 October 2026
+# Independent website review · 21 October 2026
 
-Review covers the transformation diff against 7cf9785, with an initial review and a source recheck after implementing fixes. This is not production approval or a claim that the full media brief is complete.
+Rechecked source and recorded evidence at **4fb6f97**, draft PR **#32**. This review covers the website checkpoint only. It does not accept the unfinished video mission or authorize a production release.
 
 ## Scoped verdicts
 
-- **Technical source review: PASS for reviewed fixes, subject to final build/browser evidence.** No new auth weakening, credential creation, arbitrary execution, production-setting changes or privileged API expansion found. Existing private-showcase protections are retained. Typecheck and `git diff --check` passed independently during review.
-- **Factual/public-content review: remaining correction and fresh-bundle verification required.** Source import path for obsolete dictionaries is fixed. Clinics Spanish headline still contains the every-call absolute at recheck; see pending items below.
-- **Whole-task acceptance: INCOMPLETE.** Five-demo public release, main/extended/teaser finished films, rights/privacy clearance, narration and media QA remain explicit gaps. A production bible is not a finished film. Do not present this review as whole-task PASS.
+- **Website technical source: PASS for staging review.** Previously identified runtime dictionary leak, hero CSS collision, broken media links and catalogue positioning issues are fixed. Independent source inspection and `git diff --check` found no remaining blocking source defect in the reviewed changes. Final build/browser evidence is recorded below. Latest CI remains pending after the origin-specific test correction; local evidence is not a substitute for claiming CI passed.
+- **Website security/privacy source: PASS within changed scope.** No new authentication weakening, credential creation, privileged API expansion, token publication or production-setting change found. Existing private showcase/watch protections remain. Unreviewed showcase media has not been added to the new discoverable demo journey. Do not interpret noindex as access authorization or evidence of publication rights.
+- **Website design: PASS as a coherent reviewable foundation.** Desktop and 390px homepage screenshots were inspected. Warm editorial typography, clear call-first headline, restrained palette, consistent spacing, real recording and subordinate secondary services form a cohesive journey. Desktop proof sits beside the headline; mobile stacks cleanly with visible actions and no evident horizontal clipping. Consent now sits in document flow and does not cover the hero CTA. The proof panel still contains many download/explanation controls; it could be simplified progressively when relevant reviewed home-services proof is ready.
+- **Whole-task acceptance: INCOMPLETE.** Five-demo public release, finished 75–90s main VSL, conditional extended film, teasers, 9:16 masters and their final audio/caption/media QA remain undelivered here. The production bible is not a finished film. Do not describe this scoped review as whole-mission PASS.
 
-## Resolved findings · source verified
+## Findings resolved · source verified
 
-1. **Legacy public-dictionary exposure:** Initial generated output contained obsolete pricing examples and unsupported absolutes in `.next/static/chunks/9120-a152b739c0358d38.js`. Recheck confirms `LocaleProvider` now carries only locale and setter; `i18n.ts` imports no dictionaries and contains no discount helper. Legacy translation and unused section/content source is archived as `.txt` outside `src` and `public`, preserving history without runtime imports. A fresh production build and bundle scan must confirm the old chunk is gone; the old output was not itself proof of a failed fix.
-2. **Desktop hero CSS collision:** New hero now uses `fa-call-first-hero` with explicit `display:grid`, desktop columns and a ≤900px single-column override. It no longer inherits `.fa-phone-hero {display:block}`. Verify actual screenshots/computed layout in final browser pass.
-3. **Retired media anchors:** Overview link now uses `/industries/dental#full-demonstrations`; routine link uses `/industries/dental#demo` and “See the dental overview.” These target the retained dental page instead of removed general-product anchors.
-4. **Shared service positioning:** A separate `dentalOffer` preserves targeted dental content; common phone service label, headline, intro and note now describe general service-business phone agents, USA primary / UK supported. `/services` no longer needs to inherit the dental/DSO intro.
-5. **English clinics absolute:** English title now says “Help with patient enquiries” rather than “Answer every patient call.” Spanish remains to correct.
-6. **Public historical monetary film:** Five-minute arithmetic film and its downloads/transcript moved outside `public/`; runtime transcript entry and player choice removed. Historical source is preserved, not destroyed.
-7. **Booking event semantics:** Client funnel whitelist does not admit invented `booking_confirmed`; genuine provider confirmation paths remain separate. New test verifies rejection of unsupported client booking confirmation.
+1. Initial browser output contained legacy monetary examples and unsupported every-call claims because `LocaleProvider → i18n → translations` imported both complete dictionaries. `LocaleProvider` now carries only locale/setter; `i18n.ts` imports no dictionaries or discount helper. Obsolete source is preserved as `.txt` outside `src` and `public`. Fresh generated public-content scan reports zero matches for the defined monetary/absolute-claim patterns.
+2. New `fa-call-first-hero` explicitly declares desktop grid and a ≤900px single-column layout, isolating it from the legacy `.fa-phone-hero {display:block}` rule. Screenshot inspection confirms the intended layout.
+3. Overview/routine media links now target retained dental sections, with corrected link wording. The general product page no longer needs the removed `full-demonstrations` anchor.
+4. A separately preserved `dentalOffer` retains targeted dental copy; common phone-agent service catalogue language is general, USA primary / UK supported.
+5. Clinics every-call headline is qualified in both English and Spanish. Spanish now says “Ayuda con consultas de pacientes.”
+6. Historical five-minute arithmetic film and downloads/transcript moved outside public assets. Runtime transcript entry/player choice removed. Source history was preserved rather than destroyed.
+7. Social card now leads with “AI phone agents & voice automation · USA & UK.”
+8. English fallback industry content and technical/demo blocks have explicit language tagging where implemented; this improves language attribution but does not constitute full Spanish localization.
+9. Browser tests were adapted to the retained dental journey and calendar-first booking. Final bounded local browser JSON records 71 expected passes, one intentional skip, zero unexpected failures and zero flaky results; focused rerun records 28 expected passes and zero failures.
 
-## Pending corrections / limitations
+## Evidence inspected
 
-1. **P1 · Spanish clinics every-call absolute.** `src/lib/editorial-copy.ts` clinics title still says “Atiende cada llamada de paciente” (= answer every patient call). Replace with qualified enquiry-handling language in Spanish too, then include both languages in public-content scans.
-2. **P2 · Final browser tests still contain retired assertions.** `tests/e2e/marketing.spec.ts` around lines 391/403 still refers to “Back to the overview” and `main` media. Source routes have changed correctly; update test expectations to the retained dental overview/summary and run the entire browser suite. `vsl-journey.spec.ts` now points to the dental route; no full suite was run concurrently by this reviewer.
-3. **P2 · Language attribution.** New industry helper copies English into Spanish fields, demo cards are English-only, and `/trust` is English-only while global locale can set `html lang=es`. Translate or explicitly mark English-only sections with `lang=en`/provide a clear English fallback. This is a language/accessibility limitation, not evidence of translated completion.
-4. **P2 · Booking context still resets the calendar.** Optional context uses `setRevision` and remounts the Cal embed. Existing disclosure asks users to apply context before choosing a time. Determine whether supported provider APIs can update context without losing selection; otherwise retain the disclosure and report the limitation. No live Cal settings were changed.
-5. **P2 · Shared social card remains broad.** `src/app/opengraph-image.tsx` still says “Phone handling · Operations · Revenue recovery · Websites.” Refocus it on phone agents for consistency; secondary services can remain discoverable in their own journeys.
-6. **P2 · Final scope gaps.** Five-demo public library currently offers one cleared recording and four held-context cards. Main film script/bible is deliberately unfinished pending verified source dialogue, clearance/redaction and suitable narration. Those gaps must remain explicit and block full-mission completion claims.
+- Source recheck at 4fb6f97 and independent `git diff --check`: PASS.
+- Independent initial TypeScript check: PASS. Final parent-run strict types/lint and 50 unit tests: PASS per QA report; production build generates 65 routes.
+- `browser-all.json`: 71 passed, 1 intentionally skipped, 0 unexpected/flaky; duration 67.98 seconds. Live Cal smoke is intentionally opt-in/skipped; no test appointment was created.
+- `browser-final.json`: 28 passed, 0 skipped/unexpected/flaky; current JSON duration 16.97 seconds.
+- `public-content-scan.json`: zero matches across `.next/static/chunks`, `.next/server/app`, `public` for its defined monetary/absolute-claim patterns. This targeted scan does not establish every spoken word or image pixel is clear; no end-to-end audio/media rights review is claimed.
+- Visual inspection: `home-desktop.png` and `evidence/home-390.png`.
+- Lighthouse raw JSON independently read: home **96/100/100/100**, phone-agent **91/100/100/100**, demos **95/100/100/100**, home-services **98/100/100/100**, booking **98/100/77/100** (performance/accessibility/best-practices/SEO). CLS 0 in all five samples. These are lab measurements, not field Core Web Vitals.
+- Preview provided by implementer: https://flowaudit-platform-b9xgh7690-curtisboadums-projects.vercel.app . Parent verified HTTP 200 and noindex; reviewer did not independently make a preview-network request. Draft PR: https://github.com/curtisboadum/flowaudit-platform/pull/32 . Production remains unchanged.
 
-## Validation evidence
+## Remaining limitations / blockers
 
-- PASS: independent `pnpm --config.verify-deps-before-run=false typecheck` during initial review.
-- PASS: `git diff --check` at initial review and after source-fix recheck.
-- Confirmed initial defect: public bundle included legacy monetary examples/absolute claims.
-- SOURCE FIX VERIFIED: obsolete dictionary runtime import path removed.
-- PENDING: fresh-bundle content scan after current build; final lint/types/unit tests/build; browser/axe/Lighthouse evidence; media decode/listening/rights verification. Parent owns final execution and exact results.
+1. **Media and commercial evidence:** The new discoverable library has one previously documented redacted dental recording and four held-context cards. Relevant home-services proof still requires verified dialogue, privacy redaction and public-use rights. Existing source accessibility is not consent. No fabricated workflow or customer success may be inserted to fill the gap.
+2. **Finished production:** Main film, extended film decision, teasers, portrait versions, final SRT/transcript/stems and edit QA remain separate deliverables. Current production bible accurately describes gaps; it must not be presented as completed production.
+3. **CI resolved after review:** Initial origin-hardcode issue was fixed in 4fb6f97. Source CI run 39540762265 subsequently completed successfully. Draft PR remains appropriate because media and full acceptance remain open.
+4. **Performance targets not all met:** LCP lab samples are home 2.8s, product 3.5s, demos 3.0s, home-services/booking 2.5s. Product/demos (and home) exceed the <2.5s “good” target. Booking best-practices 77 reflects existing Cal third-party-cookie/Issues-panel behavior; no live provider settings were changed. Report these gaps without claiming all quality targets passed.
+5. **Booking context:** Applying optional context remounts the existing calendar; users are warned to apply it before selecting a time. Persistent direct provider fallback remains. No real confirmed-booking receipt was tested; a genuine supported provider event remains required for confirmation measurement.
+6. **Partial localization:** Language tagging now distinguishes English fallback content, but the new industry/trust/demo content is not fully translated. Do not claim full bilingual parity.
 
-No new public link exposes the supplied prospect token or personalized showcase label. No memories were edited. Findings were sent to the implementing parent incrementally; this review is stored in docs to respect the user's instruction not to alter local memory.
-
-## Implementation response
-After review: Spanish clinics absolute corrected; social card now phone-agent focused; stale film assertions updated; trust/demo English-only blocks marked lang=en. Calendar context deliberately remains optional, with an explicit warning that applying it reloads the provider before time selection; changing live Cal behavior is outside scope. Fresh bundle scan excludes technical React reference tokens from monetary-amount matching. See final QA report for executed evidence rather than treating earlier results as final.
+No memories were edited. Review files live in docs, respecting the user's no-memory-change instruction. No production release, paid purchase, DNS change, new credential or sales outreach is included in this review approval.
