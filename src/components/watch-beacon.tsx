@@ -61,10 +61,12 @@ export function WatchBeacon({ leadRef }: { leadRef: string }) {
 
     const video = document.querySelector("video");
     video?.addEventListener("timeupdate", onTime);
-    document.addEventListener("click", onClick);
+    // Capture phase: a link component may stop propagation before the event
+    // reaches the document bubble, which silently dropped cta_click.
+    document.addEventListener("click", onClick, true);
     return () => {
       video?.removeEventListener("timeupdate", onTime);
-      document.removeEventListener("click", onClick);
+      document.removeEventListener("click", onClick, true);
     };
   }, [leadRef]);
 

@@ -15,8 +15,8 @@ import { Button } from "@/components/ui/button";
 import { WatchBeacon } from "@/components/watch-beacon";
 import { getWatchLink } from "@/lib/watch-link-store";
 import {
+  displayCompany,
   displayFirstName,
-  displayPractice,
   isValidWatchToken,
   watchLeadRef,
   watchLinkState,
@@ -54,7 +54,12 @@ export default async function WatchPage({ params }: WatchPageProps) {
   if (!row) notFound();
 
   const first = displayFirstName(row);
-  const practice = displayPractice(row);
+  const rawCompany = displayCompany(row);
+  // Dental is archived. Suppress legacy dental company names so an old token
+  // cannot keep dental copy on the live home-services watch page.
+  const company = /dental|dentist|orthodont|endodont|periodont/i.test(rawCompany)
+    ? ""
+    : rawCompany;
   const leadRef = watchLeadRef(row);
 
   return (
@@ -67,8 +72,8 @@ export default async function WatchPage({ params }: WatchPageProps) {
           {first ? `${first}, here is the demo I mentioned` : "Here is the demo I mentioned"}
         </h1>
         <p className="mt-4 max-w-[620px] text-center font-sans text-base leading-7 text-[rgba(55,50,47,0.72)]">
-          {practice
-            ? `A quick look at the phone agent for ${practice}.`
+          {company
+            ? `A quick look at the phone agent for ${company}.`
             : "A quick look at the phone agent."}
         </p>
 
@@ -80,38 +85,15 @@ export default async function WatchPage({ params }: WatchPageProps) {
             controls
             playsInline
             preload="metadata"
-            poster="/assets/watch/phone-agent-demo2-poster.jpg"
+            poster="/showcase/assets/trades-call-demo-poster.jpg"
           >
-            <source src="/media/routine.mp4" type="video/mp4" />
+            <source src="/showcase/assets/trades-call-demo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
         <p className="mt-4 max-w-[620px] text-center font-sans text-xs leading-5 text-[rgba(55,50,47,0.75)]">
           This is a real call handled by the agent. The caller details are masked for privacy.
         </p>
-
-        <div className="mt-14 w-full">
-          <h2 className="text-center font-serif text-xl text-[#37322F] sm:text-2xl">
-            Want the full picture?
-          </h2>
-          <p className="mt-3 text-center font-sans text-sm leading-6 text-[rgba(55,50,47,0.75)]">
-            A 100 second overview of how the agent fits into a practice.
-          </p>
-          <div className="mx-auto mt-6 w-full max-w-[760px] overflow-hidden rounded-2xl border border-[rgba(55,50,47,0.08)] bg-black shadow-[0px_1px_2px_rgba(55,50,47,0.08)]">
-            <video
-              className="h-auto w-full"
-              width={1920}
-              height={1080}
-              controls
-              playsInline
-              preload="none"
-              poster="/media/overview.jpg"
-            >
-              <source src="/media/overview.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
 
         <div className="mt-12 flex flex-col items-center gap-3">
           {leadRef ? (
@@ -126,12 +108,6 @@ export default async function WatchPage({ params }: WatchPageProps) {
           <p className="font-sans text-xs text-[rgba(55,50,47,0.75)]">
             Any questions? Just reply to me on LinkedIn.
           </p>
-          <Link
-            href={leadRef ? `/phone-agent?ref=${leadRef}#demo` : "/phone-agent#demo"}
-            className="font-sans text-xs text-[rgba(55,50,47,0.75)] underline underline-offset-4"
-          >
-            See the other demo calls
-          </Link>
         </div>
 
         <p className="mt-16 font-sans text-[11px] text-[rgba(55,50,47,0.72)]">

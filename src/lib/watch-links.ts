@@ -68,6 +68,9 @@ export function displayFirstName(row: Pick<WatchLinkRow, "first_name">): string 
   return sanitizeName(row.first_name).split(/\s+/)[0] ?? "";
 }
 
-export function displayPractice(row: Pick<WatchLinkRow, "practice_name">): string {
+export function displayCompany(row: Pick<WatchLinkRow, "practice_name">): string {
   return sanitizeName(row.practice_name).replace(/^of\s+/i, "");
 }
+
+/** Legacy alias for old callers. The stored column is still practice_name. */
+export const displayPractice = displayCompany;
