@@ -17,7 +17,8 @@ for (const width of [390, 768, 1440])
       await page.setViewportSize({ width, height: 900 });
       await page.route("**/*", (route) => {
         const u = new URL(route.request().url());
-        if (u.origin !== "http://127.0.0.1:3016") return route.abort();
+        if (u.origin !== new URL(test.info().project.use.baseURL ?? "http://localhost:3016").origin)
+          return route.abort();
         if (!["GET", "HEAD"].includes(route.request().method()))
           return route.fulfill({ status: 204 });
         return route.continue();
