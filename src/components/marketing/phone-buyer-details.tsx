@@ -60,8 +60,8 @@ export const operationalQuestions: Faq[] = [
       "¿Cuánto tarda la configuración y qué aprueba nuestro equipo?",
     ),
     a: c(
-      "Timing is quoted after requirements and dependencies are understood. Your team supplies approved call rules, scheduling access and escalation contacts, then reviews routine calls and exceptions. Agreement and initial payment start configuration. Activation follows successful agreed tests and practice approval. There is no fixed launch deadline or automatic activation promised here.",
-      "El plazo se presupuesta tras entender requisitos y dependencias. Tu equipo aporta reglas, acceso a citas y contactos; después revisa llamadas habituales y excepciones. El acuerdo y pago inicial comienzan la configuración. La activación sigue a las pruebas acordadas y aprobación. No prometemos fecha fija ni activación automática.",
+      "Timing is quoted after requirements and dependencies are understood. Your team supplies approved call rules, scheduling access and escalation contacts, then reviews routine calls and exceptions. Commercial terms are discussed privately after discovery. Activation follows successful agreed tests and practice approval. There is no fixed launch deadline or automatic activation promised here.",
+      "El plazo se presupuesta tras entender requisitos y dependencias. Tu equipo aporta reglas, acceso a citas y contactos; después revisa llamadas habituales y excepciones. Las condiciones comerciales se hablan en privado tras el análisis. La activación sigue a las pruebas acordadas y aprobación. No prometemos fecha fija ni activación automática.",
     ),
   },
   {

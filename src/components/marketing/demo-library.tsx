@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useLocale } from "@/components/providers/locale-provider";
 import { c, text } from "@/lib/marketing-copy";
 import { MediaPlayer } from "./media-player";
-import { BookLink, Closing } from "./primitives";
+import { Closing } from "./primitives";
 export function DemoLibrary() {
   const { locale } = useLocale();
   return (
@@ -38,7 +38,18 @@ export function DemoLibrary() {
         </p>
       </section>
       <section className="fa-container fa-section" id="routine">
-        <MediaPlayer film="routine" compact priority />
+        <MediaPlayer film="routine" compact priority streamlined />
+        <div className="fa-demo-next">
+          <p>
+            {text(
+              locale,
+              c(
+                "Dental booking demonstration · enquiry, available times and calendar booking.",
+                "Demostración de reserva dental · consulta, horarios y reserva en agenda.",
+              ),
+            )}
+          </p>
+        </div>
         <div className="fa-focus-heading mt-8">
           <div>
             <h2>
@@ -61,7 +72,6 @@ export function DemoLibrary() {
             )}
           </p>
         </div>
-        <BookLink service="phone-agent" />
       </section>
       <section className="fa-services-band">
         <div className="fa-container fa-section">
@@ -80,7 +90,7 @@ export function DemoLibrary() {
               ),
             )}
           </p>
-          <div className="fa-sector-grid">
+          <div className="fa-sector-grid" id="industry-recordings">
             {[
               {
                 title: c(

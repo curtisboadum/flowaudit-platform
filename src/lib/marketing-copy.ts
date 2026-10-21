@@ -103,13 +103,10 @@ export const offers: Offer[] = [
         ),
       },
       {
-        q: c(
-          "How do configuration and payment work?",
-          "¿Cómo funcionan la configuración y el pago?",
-        ),
+        q: c("What happens before activation?", "¿Qué sucede antes de activar?"),
         a: c(
-          "The fit assessment leads to an agreed scope and quote. Agreement and initial payment start configuration. The system is tested and approved by your practice before patient-facing activation.",
-          "La evaluación lleva a un alcance y presupuesto acordados. El acuerdo y pago inicial comienzan la configuración. Tu clínica prueba y aprueba el sistema antes de la activación para pacientes.",
+          "We discuss your workflow and requirements, then configure and test the system with your practice before patient-facing activation. Commercial terms are discussed privately after discovery.",
+          "Revisamos procesos y requisitos, configuramos y probamos con tu clínica antes de activar para pacientes. Las condiciones comerciales se hablan en privado tras el análisis.",
         ),
       },
       {
@@ -298,10 +295,10 @@ export const offers: Offer[] = [
     ],
     faq: [
       {
-        q: c("Do we pay before seeing a design?", "¿Pagamos antes de ver un diseño?"),
+        q: c("Can we review the approach first?", "¿Podemos revisar el enfoque primero?"),
         a: c(
-          "No. The website offer includes a bounded custom demonstration before payment. Once you approve it and the scope, we move into the agreed paid build.",
-          "No. La oferta incluye una demostración personalizada limitada antes del pago. Tras aprobarla y acordar el alcance, comienza la construcción pagada.",
+          "We discuss your goals and review relevant examples before defining the project. Deliverables and commercial terms are agreed privately after discovery.",
+          "Hablamos de tus objetivos y revisamos ejemplos antes de definir el proyecto. Entregables y condiciones se acuerdan en privado tras el análisis.",
         ),
       },
       {
@@ -339,8 +336,8 @@ export const generalFaq: Faq[] = [
   {
     q: c("Can we see an example first?", "¿Podemos ver un ejemplo primero?"),
     a: c(
-      "Yes. The dental recording is available without a form. Custom website demonstrations precede payment; bespoke phone configuration begins after agreement and initial payment. Activation follows testing and approval.",
-      "Sí. La grabación dental está disponible sin formulario. Las demostraciones web personalizadas preceden al pago; la configuración telefónica empieza tras acuerdo y pago inicial. La activación sigue a pruebas y aprobación.",
+      "Yes. The dental recording is available without a form. We discuss your own workflow and commercial terms privately after discovery. Activation follows testing and approval.",
+      "Sí. La grabación dental está disponible sin formulario. Tu proceso y las condiciones comerciales se hablan en privado tras el análisis. La activación sigue a pruebas y aprobación.",
     ),
   },
 ];

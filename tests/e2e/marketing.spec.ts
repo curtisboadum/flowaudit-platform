@@ -83,11 +83,14 @@ test("Calendar selection survives optional guidance, consent and query navigatio
   await expect(fallback).toHaveAttribute("href", /metadata%5Bref%5D=fa-sdr-qa/);
   await expect(fallback).toHaveAttribute("href", /metadata%5Bservice%5D=phone-agent/);
 });
-test("Product video is user initiated and transcript stays accessible", async ({ page }) => {
-  await page.goto("/phone-agent");
+test("Dental library video is user initiated and transcript stays accessible", async ({ page }) => {
+  await page.goto("/demos");
   const video = page.locator('video[data-media-id="routine"]');
   await expect(video).toHaveAttribute("preload", "none");
   expect(await video.getAttribute("autoplay")).toBeNull();
+  await page
+    .getByText("Evidence details · transcript, downloads & privacy edits", { exact: true })
+    .click();
   await page.getByText("Read the full transcript (English)", { exact: true }).click();
   await expect(page.locator(".fa-transcript div:visible")).toHaveCount(1);
 });
@@ -318,7 +321,7 @@ test("Landscape evidence uses comfortable viewing width across breakpoints", asy
         .evaluate((node) => getComputedStyle(node).objectFit),
     ).toBe("contain");
   }
-  await page.goto("/");
+  await page.goto("/demos");
   const poster = page.locator('video[data-media-id="routine"]');
   await expect(poster).toHaveAttribute("width", "1920");
   await expect(poster).toHaveAttribute("poster", /routine-poster.webp/);

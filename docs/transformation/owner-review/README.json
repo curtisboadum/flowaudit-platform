@@ -1,6 +1,7 @@
 {
-  "checkpoint": "3a6c0a8",
+  "checkpoint": "conversion-correction-20261021",
   "authentication": "Vercel Authentication is required. Protection is unchanged; no bypass link or secret is included in the review material.",
-  "review": "Screenshots captured from authorized local build matching the staged source. Booking calendar loaded without selecting a slot or submitting a form.",
-  "libraryIndex": "/tmp/flowaudit-review-library-index.json"
+  "review": "Current conversion correction: no generic dental homepage/product player; calendar loaded without selecting/submitting. Exact resulting commit is recorded in PR32 and task checkpoint.",
+  "libraryIndex": "/tmp/flowaudit-review-library-index.json",
+  "parentCommit": "f048693"
 }

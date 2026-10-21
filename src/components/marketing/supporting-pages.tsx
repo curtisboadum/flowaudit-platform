@@ -113,8 +113,8 @@ export function ApproachPage() {
             [
               c("Phone configuration", "Configuración telefónica"),
               c(
-                "Agreement and initial payment start the agreed configuration. Practice testing and approval precede activation.",
-                "El acuerdo y pago inicial comienzan la configuración. Las pruebas y aprobación de la clínica preceden a la activación.",
+                "We configure the workflow with your team. Testing and approval precede activation; commercial terms are discussed privately after discovery.",
+                "Las condiciones comerciales se hablan en privado tras el análisis. Las pruebas y aprobación de la clínica preceden a la activación.",
               ),
             ],
             [

@@ -1,0 +1,18 @@
+{
+  "width": 390,
+  "scheduleY": 391.328125,
+  "preparationY": 1356.8125,
+  "pages": [
+    {
+      "path": "/",
+      "mainVideos": 0,
+      "workflowDisclosure": "Illustrative workflow. Configuration and testing required. This is not a recorded demonstration."
+    },
+    {
+      "path": "/phone-agent",
+      "mainVideos": 0,
+      "workflowDisclosure": "Illustrative workflow. Configuration and testing required. This is not a recorded demonstration."
+    }
+  ],
+  "liveCalSettingsChanged": false
+}

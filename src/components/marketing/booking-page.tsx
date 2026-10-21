@@ -44,55 +44,16 @@ export function BookingPage({
           <span>15 min</span>
         </Eyebrow>
         <h1 ref={headingRef} tabIndex={session.notes ? -1 : undefined}>
-          {text(locale, c("Let’s talk about\nyour business.", "Hablemos de\ntu empresa."))}
+          {text(locale, c("Book your 15-minute call.", "Reserva tu llamada de 15 minutos."))}
         </h1>
         <p className="fa-lead">
           {text(
             locale,
             c(
-              "Bring the calls you need help with and the way your team works. We’ll explore your setup and a practical place to start.",
-              "Trae las llamadas en las que necesitas ayuda y cómo trabaja tu equipo. Exploraremos tu sistema y un punto de partida práctico.",
+              "Tell us which calls need help. We’ll discuss your current setup and a practical starting point.",
+              "Cuéntanos qué llamadas necesitan ayuda. Hablaremos de tu sistema y un punto de partida práctico.",
             ),
           )}
-        </p>
-        <ul className="fa-book-agenda">
-          {[
-            c(
-              "The enquiries and interruptions you want help with.",
-              "Las consultas e interrupciones en las que necesitas ayuda.",
-            ),
-            c(
-              "Your current phone, scheduling and handoff setup.",
-              "Tu sistema actual de teléfono, agenda y traspasos.",
-            ),
-            c(
-              "Requirements, questions and a sensible next step.",
-              "Requisitos, dudas y un siguiente paso útil.",
-            ),
-          ].map((copy, i) => (
-            <li key={i}>
-              <span>0{i + 1}</span>
-              {text(locale, copy)}
-            </li>
-          ))}
-        </ul>
-        <p className="fa-small">
-          {text(
-            locale,
-            c(
-              "For owners, general managers and the people running daily operations. No need to watch a film or fill in a separate questionnaire first.",
-              "Para propietarios, gerentes y responsables de las operaciones diarias. No necesitas ver un vídeo ni completar otro cuestionario antes.",
-            ),
-          )}
-        </p>
-        <Link className="fa-text-link" href="/demos">
-          {text(locale, c("Review the recorded examples", "Ver los ejemplos grabados"))} ↗
-        </Link>
-        <p className="fa-small">
-          {text(locale, c("Prefer email?", "¿Prefieres correo?"))}{" "}
-          <a className="underline" href="mailto:support@flowaudit.co.uk">
-            support@flowaudit.co.uk
-          </a>
         </p>
       </section>
       <section className="fa-book-card" id="booking-calendar">
@@ -114,6 +75,13 @@ export function BookingPage({
           <button className="fa-text-link fa-qualification-back" type="button" onClick={onBack}>
             {text(locale, c("← Back to questions", "← Volver a las preguntas"))}
           </button>
+        )}
+        {config ? (
+          <CalEmbed config={config} service={service} />
+        ) : (
+          <p role="status">
+            {text(locale, c("Loading the booking calendar…", "Cargando calendario…"))}
+          </p>
         )}
         <details className="fa-book-context">
           <summary>
@@ -144,13 +112,50 @@ export function BookingPage({
             )}
           </p>
         </details>
-        {config ? (
-          <CalEmbed config={config} service={service} />
-        ) : (
-          <p role="status">
-            {text(locale, c("Loading the booking calendar…", "Cargando calendario…"))}
+        <details className="fa-book-expectations">
+          <summary>
+            {text(locale, c("What we’ll cover & how to prepare", "Qué veremos y cómo prepararte"))}
+          </summary>
+          <ul className="fa-book-agenda">
+            {[
+              c(
+                "The enquiries and interruptions you want help with.",
+                "Las consultas e interrupciones en las que necesitas ayuda.",
+              ),
+              c(
+                "Your current phone, scheduling and handoff setup.",
+                "Tu sistema actual de teléfono, agenda y traspasos.",
+              ),
+              c(
+                "Requirements, questions and a sensible next step.",
+                "Requisitos, dudas y un siguiente paso útil.",
+              ),
+            ].map((copy, i) => (
+              <li key={i}>
+                <span>0{i + 1}</span>
+                {text(locale, copy)}
+              </li>
+            ))}
+          </ul>
+          <p className="fa-small">
+            {text(
+              locale,
+              c(
+                "For owners, general managers and the people running daily operations. No need to watch a film or fill in a separate questionnaire first.",
+                "Para propietarios, gerentes y responsables de las operaciones diarias. No necesitas ver un vídeo ni completar otro cuestionario antes.",
+              ),
+            )}
           </p>
-        )}
+          <Link className="fa-text-link" href="/demos">
+            {text(locale, c("Review the recorded examples", "Ver los ejemplos grabados"))} ↗
+          </Link>
+          <p className="fa-small">
+            {text(locale, c("Prefer email?", "¿Prefieres correo?"))}{" "}
+            <a className="underline" href="mailto:support@flowaudit.co.uk">
+              support@flowaudit.co.uk
+            </a>
+          </p>
+        </details>
         <div className="fa-calendar-ready">
           <h3 className="font-medium">
             {text(locale, c("Prepare for your call", "Prepara tu llamada"))}

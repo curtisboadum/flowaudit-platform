@@ -71,7 +71,7 @@ test("New visitor journeys have complete Spanish website copy and disclose Engli
     ["/industries/it-services", "Comprende la consulta"],
     ["/trust", "Comprende qué está demostrado"],
     ["/demos", "Escucha la necesidad"],
-    ["/book?service=phone-agent", "Hablemos de"],
+    ["/book?service=phone-agent", "Reserva tu llamada"],
   ]) {
     await page.route("**/embed/embed.js", (r) =>
       r.fulfill({ body: "", contentType: "application/javascript" }),
@@ -84,4 +84,42 @@ test("New visitor journeys have complete Spanish website copy and disclose Engli
   await page.goto("/demos?lang=es");
   await expect(page.locator("main")).toContainText("subtítulos visibles en inglés");
   await expect(page.locator("main")).not.toContainText("Review in progress");
+});
+
+test("Booking prioritizes scheduling and product adds workflow detail", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.route("**/embed/embed.js", (r) =>
+    r.fulfill({ body: "", contentType: "application/javascript" }),
+  );
+  await page.goto("/book?service=phone-agent");
+  const schedule = await page
+    .getByRole("heading", { name: "Choose your time", exact: true })
+    .boundingBox();
+  expect(schedule?.y).toBeLessThan(480);
+  await expect(page.locator(".fa-book-expectations")).not.toHaveAttribute("open", "");
+  const prep = await page.locator(".fa-book-expectations").boundingBox();
+  expect(prep?.y).toBeGreaterThan(schedule?.y ?? 0);
+  await page.goto("/");
+  const homeHeading = await page.locator("h1").innerText();
+  await expect(page.locator(".fa-hero-audience")).toContainText("Home services first");
+  await expect(page.locator("main video")).toHaveCount(0);
+  await expect(page.locator(".fa-call-flow")).toContainText("This is not a recorded demonstration");
+  await page.goto("/demos");
+  const details = page.locator(".fa-evidence-details");
+  await expect(details).not.toHaveAttribute("open", "");
+  await details.locator("summary").first().focus();
+  await page.keyboard.press("Enter");
+  await expect(details).toHaveAttribute("open", "");
+  await page.goto("/phone-agent");
+  expect(await page.locator("h1").innerText()).not.toBe(homeHeading);
+  await expect(page.locator("main video")).toHaveCount(0);
+  await expect(page.locator("#call-workflow article")).toHaveCount(4);
+  await expect(
+    page.getByRole("heading", { name: "Check the connections before the first live call." }),
+  ).toBeVisible();
+  await page.goto("/industries/home-services");
+  await expect(page.locator("main .fa-hero-actions .fa-button").first()).toHaveAttribute(
+    "href",
+    "/demos#industry-recordings",
+  );
 });

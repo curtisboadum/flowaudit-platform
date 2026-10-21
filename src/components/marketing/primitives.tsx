@@ -161,8 +161,8 @@ export function Process({
           "Verlo funcionar. Aprobarlo.\nDespués activarlo.",
         )}
         body={c(
-          "A clear path from an example to an agreed, tested setup. Payment starts scoped work; activation follows approval.",
-          "Un camino claro desde un ejemplo hasta una configuración acordada y probada. El pago inicia el trabajo definido; la activación sigue a la aprobación.",
+          "Show us the calls you need help with. We map the workflow, check the connections and test with your team before activation.",
+          "Cuéntanos qué llamadas necesitan ayuda. Definimos el proceso, comprobamos conexiones y probamos con tu equipo antes de activar.",
         )}
       />
       <ol className="fa-process">
