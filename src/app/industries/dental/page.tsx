@@ -1,11 +1,10 @@
-import filmMetadata from "@/lib/film-metadata.json";
 import { OfferPage } from "@/components/marketing/offer-page";
 import { pageMetadata } from "@/lib/page-metadata";
 import { JsonLd } from "@/components/seo/json-ld";
 import { canonicalUrl } from "@/lib/seo";
 export const metadata = pageMetadata(
   "AI receptionist for dental practices",
-  "Watch the dental AI phone-agent overview. Review booking evidence, setup requirements and investment, then book a 15-minute demo and fit assessment.",
+  "Hear a recorded dental booking call. Review the enquiry, appointment choices and demonstrated Google Calendar booking, then discuss your practice’s requirements.",
   "/industries/dental",
 );
 export default function Page() {
@@ -16,13 +15,13 @@ export default function Page() {
         data={{
           "@context": "https://schema.org",
           "@type": "VideoObject",
-          name: "FlowAudit dental phone-agent overview",
+          name: "FlowAudit dental booking demonstration",
           description:
-            "The offer, separate booking recording, evidence limits, implementation requirements and next step for dental practices.",
-          thumbnailUrl: canonicalUrl("/media/overview.jpg"),
-          contentUrl: canonicalUrl("/media/overview.mp4"),
-          uploadDate: "2026-10-12T00:00:00Z",
-          duration: `PT${filmMetadata.duration}S`,
+            "A recorded new-patient enquiry, appointment choices and a Google Calendar booking. Includes privacy edits; this is a demonstration, not customer evidence.",
+          thumbnailUrl: canonicalUrl("/media/routine.jpg"),
+          contentUrl: canonicalUrl("/media/routine.mp4"),
+          uploadDate: "2026-10-09T00:00:00Z",
+          duration: "PT90.833333S",
           inLanguage: "en",
         }}
       />
@@ -32,7 +31,7 @@ export default function Page() {
           "@type": "Service",
           name: "AI receptionist for dental practices",
           description:
-            "Watch the dental AI phone-agent overview. Review booking evidence, setup requirements and investment, then book a 15-minute demo and fit assessment.",
+            "Hear a recorded dental booking call. Review the enquiry, appointment choices and demonstrated Google Calendar booking, then discuss your practice’s requirements.",
           url: canonicalUrl("/industries/dental"),
           provider: { "@type": "Organization", name: "FlowAudit", url: canonicalUrl("/") },
         }}

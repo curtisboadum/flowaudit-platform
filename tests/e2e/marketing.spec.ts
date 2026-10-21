@@ -1,5 +1,4 @@
 import { test, expect } from "@playwright/test";
-import filmMetadata from "../../src/lib/film-metadata.json";
 for (const path of [
   "/",
   "/services",
@@ -83,16 +82,24 @@ test("Calendar selection survives optional guidance, consent and query navigatio
   await expect(fallback).toHaveAttribute("href", /metadata%5Bref%5D=fa-sdr-qa/);
   await expect(fallback).toHaveAttribute("href", /metadata%5Bservice%5D=phone-agent/);
 });
-test("Dental library video is user initiated and transcript stays accessible", async ({ page }) => {
+test("Dental library video is user initiated and evidence remains keyboard accessible", async ({
+  page,
+}) => {
   await page.goto("/demos");
-  const video = page.locator('video[data-media-id="routine"]');
+  const video = page.locator(".fa-media-frame video");
+  await expect(video).toHaveCount(1);
   await expect(video).toHaveAttribute("preload", "none");
   expect(await video.getAttribute("autoplay")).toBeNull();
-  await page
-    .getByText("Evidence details · transcript, downloads & privacy edits", { exact: true })
-    .click();
-  await page.getByText("Read the full transcript (English)", { exact: true }).click();
-  await expect(page.locator(".fa-transcript div:visible")).toHaveCount(1);
+  const evidence = page.locator(".fa-media-transcript");
+  await evidence.locator("summary").first().focus();
+  await page.keyboard.press("Enter");
+  await expect(evidence).toHaveAttribute("open", "");
+  await evidence.locator(".fa-transcript > summary").click();
+  await expect(evidence.locator('[lang="en"]')).toBeVisible();
+  await expect(evidence.getByRole("link", { name: /Download transcript/ })).toHaveAttribute(
+    "href",
+    "/media/routine-transcript.txt",
+  );
 });
 test("Optional analytics sends nothing before consent and stops after decline", async ({
   page,
@@ -152,9 +159,7 @@ for (const width of [360, 390, 768, 1024, 1440]) {
   }
 }
 
-test("The approved VSL decodes and plays; chapters do not assert watched milestones", async ({
-  page,
-}) => {
+test("Actual routine demo decodes; seeking is not watched engagement", async ({ page }) => {
   const events: string[] = [];
   await page.route("**/api/events", (r) => {
     events.push(JSON.parse(r.request().postData() ?? "{}").event);
@@ -162,13 +167,9 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   });
   await page.goto("/industries/dental");
   await page.getByRole("button", { name: "Allow analytics" }).click();
-  const video = page.locator('video[data-media-id="overview"]');
-  await expect(video).toHaveAttribute("data-media-id", "overview");
-  await page.setViewportSize({ width: 390, height: 844 });
-  const player = await video.boundingBox();
-  expect(player).not.toBeNull();
-  // Native controls need their own area below the 16:9 picture on narrow screens.
-  expect(player!.height - (player!.width * 9) / 16).toBeGreaterThanOrEqual(60);
+  const video = page.locator(".fa-media-frame video");
+  await expect(video).toHaveCount(1);
+  await expect(video).toHaveAttribute("data-media-id", "routine");
   await video.evaluate((node: HTMLVideoElement) => {
     node.muted = true;
     return node.play();
@@ -176,52 +177,34 @@ test("The approved VSL decodes and plays; chapters do not assert watched milesto
   await expect
     .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
     .toBeGreaterThan(1);
-  expect(await video.evaluate((node: HTMLVideoElement) => node.duration)).toBeCloseTo(
-    filmMetadata.duration,
-    2,
-  );
+  expect(await video.evaluate((node: HTMLVideoElement) => node.duration)).toBeCloseTo(90.833, 1);
   expect(
     await video.evaluate((node: HTMLVideoElement) => [node.videoWidth, node.videoHeight]),
   ).toEqual([1920, 1080]);
   await video.evaluate((node: HTMLVideoElement) => node.pause());
   await video.evaluate((node: HTMLVideoElement) => node.play());
   await expect.poll(() => events.filter((event) => event === "video_start").length).toBe(1);
-  await expect(page.getByRole("navigation", { name: "Film chapters" })).toBeVisible();
-  await page.getByRole("button", { name: /Setup and your next step/ }).click();
-  await expect
-    .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
-    .toBeGreaterThan(filmMetadata.setup - 0.1);
+  await video.evaluate((node: HTMLVideoElement) => {
+    node.pause();
+    node.dispatchEvent(new Event("seeking"));
+    node.currentTime = 75;
+    node.dispatchEvent(new Event("seeked"));
+    node.dispatchEvent(new Event("timeupdate"));
+  });
   expect(events.filter((event) => /^video_(25|50|75|complete)$/.test(event))).toEqual([]);
-  await video.evaluate((node: HTMLVideoElement) => node.pause());
+  await expect(page.getByRole("navigation", { name: "Film chapters" })).toHaveCount(0);
   await expect(video.locator("track")).toHaveCount(0);
-  await expect(
-    page.locator("#demo").getByRole("link", { name: "Download captions" }),
-  ).toHaveAttribute("href", "/media/overview.vtt");
-  await expect(page.locator("#demo").getByRole("link", { name: "Captions (SRT)" })).toHaveAttribute(
+  const evidence = page.locator(".fa-media-transcript");
+  await evidence.locator("summary").first().click();
+  const transcript = await page.request.get("/media/routine-transcript.txt");
+  expect(transcript.ok()).toBe(true);
+  expect((await evidence.locator('[lang="en"]').textContent())?.trim()).toBe(
+    (await transcript.text()).trim(),
+  );
+  await expect(evidence.getByRole("link", { name: /Download captions/ })).toHaveAttribute(
     "href",
-    "/media/overview.srt",
+    "/media/routine.vtt",
   );
-  await page
-    .locator("#demo")
-    .getByText("Read the full transcript (English)", { exact: true })
-    .click();
-  await expect(page.locator("#demo")).toContainText(
-    "FlowAudit builds AI phone agents that support your team through agreed workflows.",
-  );
-  const transcriptDownload = await page.request.get("/media/overview-transcript.txt");
-  const inlineTranscript = await page.locator('#demo .fa-transcript [lang="en"]').textContent();
-  expect(inlineTranscript?.trim()).toBe((await transcriptDownload.text()).trim());
-  expect(inlineTranscript).not.toContain("It's demonstration evidence, not customer results.");
-  for (const extension of ["vtt", "srt", "-transcript.txt"]) {
-    const path = extension.startsWith("-")
-      ? `/media/overview${extension}`
-      : `/media/overview.${extension}`;
-    const response = await page.request.get(path);
-    expect(response.ok()).toBe(true);
-    const contents = (await response.text()).replace(/\s+/g, " ");
-    expect(contents).toContain("Clinical judgement stays with your team.");
-    expect(contents).not.toContain("Flow Audit is an AI phone agent");
-  }
 });
 
 test("Provider readiness and booking status are distinct; no client booking conversion is emitted", async ({
@@ -283,48 +266,44 @@ test("Provider readiness and booking status are distinct; no client booking conv
   expect(events.some((event) => /booked|booking_complete/.test(event))).toBe(false);
 });
 
-test("Unavailable video and calendar expose recovery options", async ({ page }) => {
+test("Unavailable routine video and calendar expose recovery options", async ({ page }) => {
   await page.route("**/media/*.mp4*", (r) => r.abort());
   await page.goto("/industries/dental");
   await page
-    .locator('video[data-media-id="overview"]')
+    .locator(".fa-media-frame video")
     .evaluate((node: HTMLVideoElement) => void node.play().catch(() => {}));
-  await expect(page.locator(".fa-media-context [role=alert]")).toContainText("Video unavailable");
-  await page
-    .locator("#demo")
-    .getByText("Read the full transcript (English)", { exact: true })
-    .click();
-  await expect(page.locator(".fa-media-context .fa-transcript div:visible")).toHaveCount(1);
+  await expect(page.locator(".fa-media-shell [role=alert]")).toContainText("Video unavailable");
+  const evidence = page.locator(".fa-media-transcript");
+  await evidence.locator("summary").first().click();
+  await evidence.locator(".fa-transcript > summary").click();
+  await expect(evidence.locator('[lang="en"]')).toBeVisible();
+  await expect(evidence.getByRole("link", { name: "Open video", exact: true })).toHaveAttribute(
+    "href",
+    "/media/routine.mp4",
+  );
   await page.route("**/embed/embed.js", (r) => r.abort());
   await page.goto("/book?service=phone-agent");
   await expect(page.getByRole("link", { name: /Open the booking page/ })).toBeVisible();
   await expect(page.getByRole("status")).toContainText("taking longer", { timeout: 15000 });
 });
 
-test("Landscape evidence uses comfortable viewing width across breakpoints", async ({ page }) => {
+test("Routine recording fits the available width across breakpoints", async ({ page }) => {
   await page.goto("/industries/dental");
+  const video = page.locator(".fa-media-frame video");
   for (const width of [360, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    const box = await page.locator('video[data-media-id="overview"]').boundingBox();
+    const box = await video.boundingBox();
     expect(box).not.toBeNull();
-    expect(box!.width).toBeGreaterThanOrEqual(width < 768 ? width - 44 : width < 1024 ? 650 : 900);
-    const reserve = await page.locator('video[data-media-id="overview"]').evaluate((node) => {
-      const style = getComputedStyle(node);
-      return parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
-    });
-    expect(reserve).toBeGreaterThanOrEqual(64);
-    expect((box!.height - reserve) / box!.width).toBeCloseTo(9 / 16, 2);
-    await expect(page.getByRole("navigation", { name: "Film chapters" })).toBeVisible();
-    expect(
-      await page
-        .locator('video[data-media-id="overview"]')
-        .evaluate((node) => getComputedStyle(node).objectFit),
-    ).toBe("contain");
+    expect(box?.width).toBeGreaterThanOrEqual(280);
+    expect((box?.x ?? 0) + (box?.width ?? 0)).toBeLessThanOrEqual(width);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    await expect(video).toHaveAttribute("controls", "");
+    await expect(video).toHaveAttribute("playsinline", "");
   }
-  await page.goto("/demos");
-  const poster = page.locator('video[data-media-id="routine"]');
-  await expect(poster).toHaveAttribute("width", "1920");
-  await expect(poster).toHaveAttribute("poster", /routine-poster.webp/);
+  await expect(video).toHaveAttribute("poster", /routine-poster.webp/);
+  await expect(page.getByRole("navigation", { name: "Film chapters" })).toHaveCount(0);
 });
 
 test("Booking uses Cal's native optional context field without a duplicate questionnaire", async ({
@@ -343,75 +322,85 @@ test("Booking uses Cal's native optional context field without a duplicate quest
     page.locator("#booking-calendar input, #booking-calendar textarea, #booking-calendar select"),
   ).toHaveCount(0);
 });
-test("Chapters preserve paused state and work before first playback", async ({ page }) => {
+test("Slow routine media offers visible transcript and booking recovery", async ({ page }) => {
   await page.goto("/industries/dental");
   await page.getByRole("button", { name: "Keep analytics off" }).click();
-  const video = page.locator('video[data-media-id="overview"]');
-  await page.getByRole("button", { name: /Recorded demo/ }).click();
-  expect(await video.evaluate((node: HTMLVideoElement) => node.paused)).toBe(true);
-  await video.evaluate((node: HTMLVideoElement) => {
-    node.muted = true;
-    return node.play();
-  });
-  await expect
-    .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
-    .toBeGreaterThan(21.5);
-  await video.evaluate((node: HTMLVideoElement) => node.pause());
-  await page.getByRole("button", { name: /Busy desk and after hours/ }).click();
-  await expect
-    .poll(() => video.evaluate((node: HTMLVideoElement) => node.currentTime))
-    .toBeCloseTo(0, 1);
-  expect(await video.evaluate((node: HTMLVideoElement) => node.paused)).toBe(true);
-  await expect(page.locator('#demo .fa-chapters button[aria-current="true"]')).toContainText(
-    "Busy desk and after hours",
-  );
-});
-
-test("Slow media offers transcript and optional booking recovery", async ({ page }) => {
-  await page.goto("/industries/dental");
-  await page.getByRole("button", { name: "Keep analytics off" }).click();
-  await page.locator('video[data-media-id="overview"]').dispatchEvent("waiting");
+  await page.locator(".fa-media-frame video").dispatchEvent("waiting");
   await expect(page.getByRole("status")).toContainText("Video loading slowly", { timeout: 12000 });
-  await page
-    .locator("#demo")
-    .getByText("Read the full transcript (English)", { exact: true })
-    .click();
-  await expect(page.locator(".fa-media-context .fa-transcript div:visible")).toHaveCount(1);
-  await expect(page.getByRole("link", { name: "Book a demo & fit assessment" })).toBeVisible();
+  const evidence = page.locator(".fa-media-transcript");
+  await evidence.locator("summary").first().click();
+  await evidence.locator(".fa-transcript > summary").click();
+  await expect(evidence.locator('[lang="en"]')).toBeVisible();
+  await expect(page.locator(".fa-media-next-step a").first()).toBeVisible();
 });
 
-test("Overview and genuine demo have reciprocal links, independent playback and unique IDs", async ({
+test("Retired sales and fee-bearing media stay unavailable; actual routine remains", async ({
   page,
 }) => {
   await page.goto("/industries/dental");
-  await page.getByRole("button", { name: "Keep analytics off" }).click();
-  const overview = page.locator('video[data-media-id="overview"]');
-  const routine = page.locator('video[data-media-id="routine"]');
-  await page.getByRole("link", { name: "Watch both full demonstrations" }).click();
-  await expect(page).toHaveURL(/#full-demonstrations$/);
-  await routine.evaluate((v: HTMLVideoElement) => {
-    v.muted = true;
-    return v.play();
+  await expect(page.locator("main video")).toHaveCount(1);
+  await expect(page.locator("main")).not.toContainText(
+    /initial payment|payment starts|surcharge|executive overview|investment/i,
+  );
+  await expect(page.locator(".fa-media-shell [role=tablist]")).toHaveCount(0);
+  const scripts = await page.locator('script[type="application/ld+json"]').allTextContents();
+  const schema = scripts.join(" ");
+  const videoSchema = scripts
+    .map((contents) => JSON.parse(contents) as Record<string, unknown>)
+    .find((data) => data["@type"] === "VideoObject");
+  expect(videoSchema).toMatchObject({
+    contentUrl: "https://flowaudit.co.uk/media/routine.mp4",
+    thumbnailUrl: "https://flowaudit.co.uk/media/routine.jpg",
+    duration: "PT90.833333S",
+    uploadDate: "2026-10-09T00:00:00Z",
   });
-  await expect
-    .poll(() => routine.evaluate((v: HTMLVideoElement) => v.currentTime))
-    .toBeGreaterThan(0);
-  await page.getByRole("link", { name: "See the dental overview" }).first().click();
-  await expect(page).toHaveURL(/#demo$/);
-  await overview.evaluate((v: HTMLVideoElement) => {
-    v.muted = true;
-    return v.play();
-  });
-  await expect.poll(() => routine.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
-  await overview.evaluate((v: HTMLVideoElement) => v.pause());
-  await page.getByText("More detail: walkthrough and executive overview", { exact: true }).click();
-  await expect(page.locator('video[data-media-id="summary"]')).toBeVisible();
-  const ids = await page.locator("[id]").evaluateAll((nodes) => nodes.map((n) => n.id));
+  expect(schema).not.toMatch(/\/media\/(overview|opening|urgent|summary|teaser|main)\.(mp4|jpg)/);
+  const retired = ["main", "overview", "opening", "urgent", "summary", "teaser"];
+  for (const media of retired) {
+    for (const suffix of [".mp4", ".jpg", ".vtt", ".srt", "-transcript.txt"]) {
+      expect(
+        (await page.request.get(`/media/${media}${suffix}`)).status(),
+        `${media}${suffix} retired`,
+      ).toBe(404);
+    }
+  }
+  for (const path of [
+    "/assets/phone-agent/phone-agent-demo.mp4",
+    "/assets/phone-agent/phone-agent-demo-poster.jpg",
+  ]) {
+    expect((await page.request.get(path)).status(), `${path} duplicate retired`).toBe(404);
+  }
+  // Read legacy showcase markup without executing its separate tracking script.
+  for (const path of ["/demo/showcase", "/demo/showcase/dental", "/demo/showcase/dental/urgent"]) {
+    const response = await page.request.get(path);
+    expect(response.status(), `${path} remains available`).toBe(200);
+    expect(response.headers()["x-robots-tag"]).toContain("noindex");
+    const html = await response.text();
+    expect(html, `${path} must not embed or link a retired urgent asset`).not.toMatch(
+      /(?:src|href)=["'][^"']*(?:\/media\/urgent(?:[.\-])|\/assets\/phone-agent\/phone-agent-demo(?:[.\-]))/i,
+    );
+    if (path.endsWith("/urgent")) {
+      expect(html).not.toMatch(/<video\b/i);
+      expect(html).toMatch(/review|held|unavailable|not available/i);
+    }
+  }
+  for (const path of [
+    "/media/routine.mp4",
+    "/media/routine.jpg",
+    "/media/routine-poster.webp",
+    "/media/routine.vtt",
+    "/media/routine-transcript.txt",
+  ]) {
+    expect((await page.request.get(path)).ok(), `${path} retained`).toBe(true);
+  }
+  expect(await (await page.request.get("/media/routine.vtt")).text()).toContain("WEBVTT");
+  const ids = await page.locator("[id]").evaluateAll((nodes) => nodes.map((node) => node.id));
   expect(ids.length).toBe(new Set(ids).size);
-  for (const media of ["overview", "routine", "summary"]) {
-    const response = await page.request.get(`/media/${media}.vtt`);
-    expect(response.ok()).toBe(true);
-    expect(await response.text()).toContain("WEBVTT");
-    expect((await page.request.get(`/media/${media}-transcript.txt`)).ok()).toBe(true);
+  for (const path of ["/", "/phone-agent"]) {
+    await page.goto(path);
+    await expect(page.locator("main video")).toHaveCount(0);
+    await expect(page.locator(".fa-call-flow")).toContainText(
+      "This is not a recorded demonstration",
+    );
   }
 });

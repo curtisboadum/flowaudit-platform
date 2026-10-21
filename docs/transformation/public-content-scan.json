@@ -10,7 +10,10 @@
     "/Every patient booked/gi",
     "/Answer every patient call/gi",
     "/hundred and fifty dollars/gi",
-    "/Revenue Protected/gi"
+    "/Revenue Protected/gi",
+    "/initial payment/gi",
+    "/payment starts scoped work/gi",
+    "/emergency call[ -]?out surcharge/gi"
   ],
   "failures": []
 }

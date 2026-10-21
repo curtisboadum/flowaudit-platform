@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 const roots=['.next/static/chunks','.next/server/app','public'];
-const patterns=[/[$£]\s*(?:\d{3,}|\d{1,3},\d{3}|\d+\.\d{2}|\d+[Kk])/g,/Every call answered/gi,/Every patient booked/gi,/Answer every patient call/gi,/hundred and fifty dollars/gi,/Revenue Protected/gi];
+const patterns=[/[$£]\s*(?:\d{3,}|\d{1,3},\d{3}|\d+\.\d{2}|\d+[Kk])/g,/Every call answered/gi,/Every patient booked/gi,/Answer every patient call/gi,/hundred and fifty dollars/gi,/Revenue Protected/gi,/initial payment/gi,/payment starts scoped work/gi,/emergency call[ -]?out surcharge/gi];
 let failures=[];
 function walk(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){const f=path.join(dir,item.name);if(item.isDirectory())walk(f);else if(/\.(js|html|json|txt|vtt|srt)$/.test(f)&&!f.includes('/api/')){const s=fs.readFileSync(f,'utf8');for(const p of patterns){p.lastIndex=0;const m=p.exec(s);if(m)failures.push({file:f,match:m[0]});}}}}
 for(const root of roots)walk(root);

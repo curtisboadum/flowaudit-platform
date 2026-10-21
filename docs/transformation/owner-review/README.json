@@ -1,7 +1,7 @@
 {
-  "checkpoint": "conversion-correction-20261021",
+  "checkpoint": "legacy-media-retirement-20261021",
   "authentication": "Vercel Authentication is required. Protection is unchanged; no bypass link or secret is included in the review material.",
-  "review": "Current conversion correction: no generic dental homepage/product player; calendar loaded without selecting/submitting. Exact resulting commit is recorded in PR32 and task checkpoint.",
+  "review": "Current local build after legacy media retirement; desktop and390pxmobile. Home/product have no videos. Calendar viewed without selecting or submitting. Exact commit in PR32 and staging checkpoint.",
   "libraryIndex": "/tmp/flowaudit-review-library-index.json",
-  "parentCommit": "f048693"
+  "parentCommit": "d0c06b2"
 }

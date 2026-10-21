@@ -1,3 +1,5 @@
+Status update, 21 October: the inventory below describes original discovery, not the currently published asset set. The staged site now retains routine only; overview, opening, summary, teaser and urgent are preserved in the local private archive. See LEGACY-MEDIA-RETIREMENT.md for exact reasons and paths.
+
 Current worktree: /Users/curtis/Documents/Codex/2026-10-21/task/site
 Branch: feat/phone-agent-transformation; baseline 7cf9785.
 Original active older site: /Users/curtis/Documents/Codex/2026-10-08/codex-plan-mode-flowaudit-world-class/site (do not edit: uncommitted QA files).

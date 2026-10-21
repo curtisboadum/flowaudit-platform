@@ -1,24 +1,29 @@
-# Website handoff
+# Website staging handoff
 
-Worktree: /Users/curtis/Documents/Codex/2026-10-21/task/site
-Repository admin clone: /Users/curtis/Documents/Codex/2026-10-21/task/repository
-Remote: curtisboadum/flowaudit-platform
-Branch: feat/phone-agent-transformation
-Validated source commit: 4fb6f972ab0df52abbf84bb51127b4478c1ea1b1
+Worktree: `/Users/curtis/Documents/Codex/2026-10-21/task/site`
+Branch: `feat/phone-agent-transformation`
 Draft PR: https://github.com/curtisboadum/flowaudit-platform/pull/32
-Stable branch preview: https://flowaudit-platform-git-feat-phone-534b32-curtisboadums-projects.vercel.app
-Verified immutable preview: https://flowaudit-platform-fglgnx4bv-curtisboadums-projects.vercel.app
-Local preview remains running: http://127.0.0.1:3016
+Stable protected branch preview: https://flowaudit-platform-git-feat-phone-534b32-curtisboadums-projects.vercel.app
+Local review: http://127.0.0.1:3016 while the QA server is running.
 
-Implementation: homepage/general product, home-services priority, trades/property refinement, automotive/IT/professional-services, targeted dental preservation, technical/trust page, business-focused optional qualification, subordinate secondary services. Consent in flow; private showcase controls preserved; obsolete runtime financial/absolute-claim strings archived outside public; no new pricing or hypothetical financial film in public journey. Original checkouts and uncommitted work unchanged.
+The PR and local `/Users/curtis/Documents/Codex/2026-10-21/task/private-media-review/STAGING-CHECKPOINT.json` carry the exact latest commit, immutable Ready deployment and terminal CI result. The previously completed owner-correction commit `d0c06b242cb111aadb1f865195784ea2f104a306` passed CI run39545141197. The subsequent legacy-media retirement is described in LEGACY-MEDIA-RETIREMENT.md. Do not confuse an older immutable preview with the updated branch preview.
 
-Evidence: QA-REPORT.md, INDEPENDENT-REVIEW.md, browser-all.json (71 passed /1 intentional skip), browser-final.json (28 passed), Lighthouse JSON, evidence screenshots, public-content-scan.json. Remote CI run39540762265 passed on4fb6f97. Source lint/types/build50unit pass. Home96/product91/home-services98/demos95/book98 local performance; all accessibility/SEO100; book best-practices77 due existing Cal cookies. CLS0 all samples; some LCP above2.5s remains open.
+## Implemented
 
-Media integration is deliberately open. Current discoverable /demos plays documented redacted dental evidence and shows four review-context cards. It is not a finished five-demo library or final home-services proof. Separate video task should provide cleared source/transcript/redaction evidence, 75–90s main film, thumbnails, measured captions and derivatives; do not insert private source recordings without clearance. No new main film rendering is taking place in this website worktree.
+The homepage and general product page lead with AI phone agents for service businesses. Neither contains a dental video or a substitute fake demo. The clearly labeled illustrative workflow is a correction checkpoint, pending relevant cleared home-services proof. The product adds call lifecycle, routing, scheduling/timezone and handoff assessment. Home-services/trades, automotive, property, IT and professional-service journeys support the primary offer; useful secondary services, policies, contact details and canonical routes remain.
 
-Integration points: src/components/marketing/phone-platform.tsx (homepage/product proof); demo-library.tsx (public library); media-player.tsx and src/lib/media-transcripts.ts (player, caption/transcript, supported events). Incoming media must be permission reviewed, pricing-free and meaning preserving. Existing private /demo/showcase and /watch should not be replaced or have protections relaxed.
+The booking page puts scheduling immediately after its brief introduction: the preceding d0c06b2 geometry check placed Choose your time at y391 on a390px viewport. Optional context uses the existing Cal notes field; consent and query navigation preserve the mounted calendar session. Supported Spanish website copy is complete for the tested visitor journeys, with English recordings explicitly disclosed. This does not claim multilingual phone-agent capability.
 
-Known limits: media clearance/production; core Spanish copy completed in later refinements; native Cal optional notes preserve the mounted booking session; no real appointment/confirmation receipt tested; Cal third-party-cookie browser findings; field CWV not measured. No production approval or release. No credentials, DNS, permissions, Cal settings, outreach or memories changed.
+The single publicly offered routine dental recording remains in its targeted dental page and labeled demo library, with immediate booking, native controls, English captions, transcript/download details and privacy disclosures. The legacy payment-sequencing summary, surcharge-bearing urgent call, its duplicate showcase asset and superseded sales presentation are retired from the staged surface. Exact originals are preserved outside the public repository. The showcase retirement state preserves noindex/referrer and token-link behavior; those are not equivalent to authentication. The existing token-gated watch route retains validation.
 
+## Review and evidence
 
-Follow-up source changes and current evidence: REFINEMENTS.md and REFINEMENT-REVIEW.md. New51unit/build/lint/types PASS; full refined browser72PASS/1skip, poster/booking4PASS and final service-navigation regression1PASS. Product/demos localLCP2.7s remains above target. A new refinement commit and remote checks supersede earlier source checkpoint only once CI is verified. Private film playback is loopback-only; PRIVATE-MEDIA-INTEGRATION.md retains release gates.
+Vercel Authentication remains required. No bypass URL or secret was generated; an external unauthenticated reviewer cannot inspect the protected preview. Native Library screenshots provide a separate review route. Current IDs are in `/tmp/flowaudit-review-library-index.json`; updates replace the same ten files. Screenshot review is distinct from functional live preview review.
+
+Core evidence: CONVERSION-CORRECTION.md, LEGACY-MEDIA-RETIREMENT.md, media-retirement-final-browser.json, public-content-scan.json and final checkpoint/PR checks. Historical audit and measurements remain available with their source context; earlier Lighthouse results must not be attributed to a newer layout. Local Node26 differs from required Node24; remote CI verifies the supported runtime. No real booking or outbound email is created by the test suite.
+
+## Open deliverables and limits
+
+The five-demo public center and main/industry video system are not accepted or complete. Home-services material needs clearance, verified dialogue/results and creative approval. The owner rejected the separately produced films; they are preserved, their review server is stopped, and they were not integrated. Do not publish them. Website integration points are phone-platform.tsx, demo-library.tsx, media-player.tsx and media-transcripts.ts.
+
+Field Core Web Vitals, real confirmed booking delivery, broad browser/device coverage and human audiovisual approval are not established by local tests. Cal third-party-cookie behavior remains a provider limitation. Production, DNS, credentials, permissions and live Cal settings are unchanged. No spend, outreach or local-memory edits occurred. Historical Git/deployment copies were not rewritten. Existing unstaged evidence and original checkout work are preserved; there was no restore/delete cleanup.

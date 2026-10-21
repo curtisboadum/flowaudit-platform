@@ -23,15 +23,15 @@ export function DemosPage() {
           {text(
             locale,
             c(
-              "Start with a genuine recorded booking conversation. The supporting films explain the offer, requirements and activation process.",
-              "Empieza con una conversación de reserva grabada. Los vídeos adicionales explican oferta, requisitos y proceso de activación.",
+              "Start with a genuine recorded booking conversation. Review the demonstrated booking and discuss your own requirements.",
+              "Empieza con una conversación de reserva grabada. Revisa la reserva demostrada y comenta tus propios requisitos.",
             ),
           )}
         </p>
       </section>
       <section className="fa-services-band">
         <div className="fa-container fa-section">
-          <MediaPlayer switchable />
+          <MediaPlayer streamlined />
         </div>
       </section>
       <section className="fa-container fa-section fa-trust">

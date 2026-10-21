@@ -101,74 +101,15 @@ export function OfferPage({ service }: { service: ServiceId }) {
                 )}
               </h1>
             </div>
-            <MediaPlayer film="overview" compact qualificationCta />
             <p className="fa-vsl-intro">{text(locale, offer.intro)}</p>
             <p className="fa-small">{text(locale, offer.note)}</p>
-            <div className="fa-vsl-actions">
-              <BookLink service="phone-agent">
-                {text(locale, c("Book a demo & fit assessment", "Reservar demo y evaluación"))}
-              </BookLink>
-            </div>
-          </section>
-          <section className="fa-container fa-section" id="full-demonstrations">
-            <SectionHeading
-              number="02"
-              label={c("The genuine recording", "La grabación real")}
-              title={c(
-                "Hear the call.\nExamine the booking.",
-                "Escucha la llamada.\nExamina la reserva.",
-              )}
-              body={c(
-                "The complete recorded routine demonstration: a new-patient enquiry, appointment choices and a Google Calendar booking. Privacy beeps and edited labels are retained. This is product evidence, not a customer result.",
-                "La demostración habitual completa: una consulta de paciente nuevo, horarios disponibles y una reserva en Google Calendar. Se conservan los pitidos de privacidad y las etiquetas editadas. Es evidencia del producto, no un resultado de cliente.",
-              )}
-            />
             <div id="booking-recording">
-              <h3>
-                {text(
-                  locale,
-                  c("New-patient enquiry and booking", "Consulta de nuevo paciente y reserva"),
-                )}
-              </h3>
-              <MediaPlayer film="routine" compact />
+              <MediaPlayer film="routine" compact priority streamlined />
             </div>
-            <div className="fa-full-demo">
-              <h3>
-                {text(
-                  locale,
-                  c(
-                    "A call about a child’s toothache",
-                    "Una llamada sobre dolor de muelas infantil",
-                  ),
-                )}
-              </h3>
-              <MediaPlayer film="urgent" compact />
-            </div>
-            <div className="fa-media-cta">
-              <BookLink service="phone-agent" />
-            </div>
-            <details
-              className="fa-transcript"
-              onToggle={(event) => {
-                if (!event.currentTarget.open)
-                  event.currentTarget.querySelectorAll("video").forEach((video) => video.pause());
-              }}
-            >
-              <summary>
-                {text(
-                  locale,
-                  c(
-                    "More detail: walkthrough and executive overview",
-                    "Más detalles: explicación completa y resumen ejecutivo",
-                  ),
-                )}
-              </summary>
-              <MediaPlayer film="summary" compact />
-            </details>
           </section>
           <section className="fa-container fa-section">
             <SectionHeading
-              number="03"
+              number="02"
               label={c("Follow the call", "Seguir la llamada")}
               title={c(
                 "A visible path\nfrom enquiry to confirmation.",
@@ -227,7 +168,7 @@ export function OfferPage({ service }: { service: ServiceId }) {
       )}
       <section className="fa-container fa-section">
         <SectionHeading
-          number={phone ? "04" : "01"}
+          number={phone ? "03" : "01"}
           label={c("What the engagement involves", "Qué implica el trabajo")}
           title={c(
             "A defined scope.\nAn accountable next step.",

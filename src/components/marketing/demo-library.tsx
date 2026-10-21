@@ -126,10 +126,10 @@ export function DemoLibrary() {
                 href: "/industries/it-services",
               },
               {
-                title: c("Dental: urgent appointment enquiry", "Dental: consulta por cita urgente"),
+                title: c("Dental: practice workflow", "Dental: proceso de la clínica"),
                 body: c(
-                  "The scope includes clinical and privacy considerations. This example is not evidence of validated triage or an emergency transfer.",
-                  "El alcance incluye consideraciones clínicas y de privacidad. Este ejemplo no acredita un triaje validado ni una transferencia de emergencia.",
+                  "Review the routine booking demonstration in its dental context. Clinical decisions and urgent-call handling require a separate assessment.",
+                  "Revisa la demostración de reserva habitual en su contexto dental. Las decisiones clínicas y llamadas urgentes necesitan una evaluación independiente.",
                 ),
                 href: "/industries/dental",
               },
