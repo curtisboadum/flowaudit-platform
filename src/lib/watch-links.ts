@@ -188,11 +188,13 @@ export function demoMatchesTrade(demoId: DemoId, trade: string | null | undefine
 
 /** Return the stored demo only when it is valid for the stored trade. */
 export function resolveDemoId(
-  row: Pick<WatchLinkRow, "demo_id" | "trade">,
+  row: Pick<WatchLinkRow, "demo_id" | "trade" | "approved_by">,
 ): DemoId | null {
   const stored = asDemoId(row.demo_id);
   if (!stored) return null;
   if (!demoMatchesTrade(stored, row.trade)) return null;
+  // The retired roof-leak source may only render with a recorded approval.
+  if (stored === "roof-leak" && !row.approved_by) return null;
   return stored;
 }
 

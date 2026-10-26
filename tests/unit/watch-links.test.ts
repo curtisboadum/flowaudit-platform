@@ -136,7 +136,10 @@ describe("demo routing matches the trade", () => {
   it("never lets a trade lead resolve to roof-leak", () => {
     expect(demoMatchesTrade("roof-leak", "plumbing")).toBe(false);
     expect(resolveDemoId(row({ demo_id: "roof-leak", trade: "plumbing" }))).toBeNull();
-    expect(resolveDemoId(row({ demo_id: "roof-leak", trade: "roofing" }))).toBe("roof-leak");
+    expect(resolveDemoId(row({ demo_id: "roof-leak", trade: "roofing" }))).toBeNull();
+    expect(
+      resolveDemoId(row({ demo_id: "roof-leak", trade: "roofing", approved_by: "curtis" })),
+    ).toBe("roof-leak");
   });
   it("rejects a missing or unknown demo_id instead of guessing", () => {
     expect(resolveDemoId(row({ demo_id: null }))).toBeNull();
