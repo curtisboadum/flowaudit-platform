@@ -1,7 +1,7 @@
 /** Signed booking lifecycle receiver. Scheduled meeting events do not prove attendance. */
 import { createHash } from "crypto";
 import { NextResponse } from "next/server";
-import { mapCalWebhook, verifyCalSignature } from "@/lib/sdr-tracking";
+import { calLeadRef, mapCalWebhook, verifyCalSignature } from "@/lib/sdr-tracking";
 import { insertSdrEvent } from "@/lib/sdr-event-store";
 
 export async function POST(request: Request) {
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
   const stored = await insertSdrEvent({
     event_id: `cal-${createHash("sha256").update(`${event.uid}:${event.normalized}:${event.startTime}`).digest("hex")}`,
     kind: "cal",
-    lead_ref: event.attendeeEmail || event.uid,
+    lead_ref: calLeadRef(event),
     event: event.normalized,
     payload: {
       eventType: event.eventType,
@@ -51,6 +51,7 @@ export async function POST(request: Request) {
       primary: event.primary,
       startTime: event.startTime,
       uid: event.uid,
+      attendeeEmail: event.attendeeEmail,
       attribution: event.attribution,
     },
   });

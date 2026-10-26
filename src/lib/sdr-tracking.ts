@@ -6,26 +6,68 @@
  * @issues None.
  * @todo None.
  */
-import { createHmac, timingSafeEqual } from "crypto";
+import { createHash, createHmac, timingSafeEqual } from "crypto";
+import { demoId, type DemoId } from "@/lib/demo-registry";
 
 export const REF_PREFIX = "fa-sdr-";
+export const LINK_REF_RE = /^(wl_[a-z0-9]{8,32}|sdr-[a-z0-9-]{1,80})$/;
+const SESSION_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 export const BEACON_EVENTS = [
   "open",
   "watch_open",
+  "video_start",
   "video_25",
   "video_50",
   "video_75",
+  "video_complete",
   "cta_click",
   "book_click",
+  "transcript_click",
+  "measurement_off",
 ] as const;
 
 export type BeaconEvent = (typeof BEACON_EVENTS)[number];
+export type BeaconSurface = "watch" | "site";
 
 export interface BeaconInput {
   ref: string;
   event: BeaconEvent;
   ts: string;
+  surface: BeaconSurface;
+  linkRef?: string;
+  sessionId?: string;
+  demoId?: DemoId;
+  visible?: boolean;
+  interacted?: boolean;
+  webdriver?: boolean;
+  pct?: number;
+}
+
+const BOT_RE =
+  /(bot|crawler|spider|preview|headless|python-requests|python-urllib|curl|wget|facebookexternalhit|slackbot|twitterbot|linkedinbot|googlebot|bingbot|applebot|semrush|ahrefs)/i;
+
+/** Scanner/email-preview requests must not become watch events. */
+export function isBotUserAgent(userAgent: string | null | undefined): boolean {
+  return BOT_RE.test(userAgent || "");
+}
+
+/** Coarse browser family for audit, never a full fingerprint. */
+export function uaFamily(userAgent: string | null | undefined): string {
+  const ua = userAgent || "";
+  if (/Edg\//.test(ua)) return "Edge";
+  if (/Chrome\//.test(ua)) return "Chrome";
+  if (/CriOS\//.test(ua)) return "Chrome iOS";
+  if (/Firefox\//.test(ua)) return "Firefox";
+  if (/Safari\//.test(ua)) return "Safari";
+  if (!ua) return "unknown";
+  return "other";
+}
+
+/** Stable per-session dedupe key. The token is never part of an event. */
+export function watchEventId(linkRef: string, sessionId: string, event: string): string {
+  return createHash("sha256").update(`watch:${linkRef}:${sessionId}:${event}`).digest("hex");
 }
 
 export const CAL_PRIMARY_EVENT = "flowaudit-call";
@@ -69,7 +111,46 @@ export function parseBeacon(body: unknown): BeaconInput | null {
   if (!leadId) return null;
   if (typeof event !== "string" || !BEACON_EVENTS.includes(event as BeaconEvent)) return null;
   if (typeof ts !== "string" || ts.length < 10 || ts.length > 40) return null;
-  return { ref: record.ref as string, event: event as BeaconEvent, ts };
+
+  const surface: BeaconSurface = record.surface === "watch" ? "watch" : "site";
+  const linkRef = typeof record.link_ref === "string" ? record.link_ref : undefined;
+  const sessionId = typeof record.session_id === "string" ? record.session_id : undefined;
+  const demo = record.demo_id === undefined ? undefined : demoId(record.demo_id);
+  const visible = typeof record.visible === "boolean" ? record.visible : undefined;
+  const interacted = typeof record.interacted === "boolean" ? record.interacted : undefined;
+  const webdriver = record.webdriver === true;
+  const pct =
+    typeof record.pct === "number" && Number.isFinite(record.pct)
+      ? Math.min(100, Math.max(0, Math.round(record.pct)))
+      : undefined;
+
+  if (linkRef !== undefined && !LINK_REF_RE.test(linkRef)) return null;
+  if (record.demo_id !== undefined && !demo) return null;
+  if (surface === "watch") {
+    if (!linkRef || !sessionId || !SESSION_RE.test(sessionId)) return null;
+    if (!demo) return null;
+  } else if (sessionId && !SESSION_RE.test(sessionId)) {
+    return null;
+  }
+
+  return {
+    ref: record.ref as string,
+    event: event as BeaconEvent,
+    ts,
+    surface,
+    linkRef,
+    sessionId,
+    demoId: demo,
+    visible,
+    interacted,
+    webdriver,
+    pct,
+  };
+}
+
+/** Prefer the tracked ref; fall back to attendee email, then the Cal uid. */
+export function calLeadRef(event: Pick<CalEvent, "attribution" | "attendeeEmail" | "uid">): string {
+  return event.attribution.ref || event.attendeeEmail || event.uid;
 }
 
 export function mapCalWebhook(payload: unknown): CalEvent | null {
@@ -101,7 +182,15 @@ export function mapCalWebhook(payload: unknown): CalEvent | null {
       ? (inner.metadata as Record<string, unknown>)
       : {};
   const attribution: Record<string, string> = {};
-  for (const key of ["ref", "utm_source", "utm_medium", "utm_campaign", "service", "journeyId"]) {
+  for (const key of [
+    "ref",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "service",
+    "journeyId",
+    "demo",
+  ]) {
     const value = metadata[key];
     if (typeof value === "string" && /^[a-zA-Z0-9_-]{1,100}$/.test(value)) attribution[key] = value;
   }

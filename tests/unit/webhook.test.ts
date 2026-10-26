@@ -38,6 +38,14 @@ it("uses a stable event id for duplicate deliveries", async () => {
     vi.mocked(insertSdrEvent).mock.calls[1]?.[0].event_id,
   );
 });
+it("maps the booking to the tracked ref and keeps the attendee email", async () => {
+  vi.mocked(insertSdrEvent).mockResolvedValue(true);
+  expect((await POST(request())).status).toBe(200);
+  const row = vi.mocked(insertSdrEvent).mock.calls[0]?.[0];
+  expect(row?.lead_ref).toBe("fa-sdr-qa");
+  expect(row?.payload.attendeeEmail).toBe("qa@example.test");
+  expect((row?.payload.attribution as Record<string, string>).ref).toBe("fa-sdr-qa");
+});
 it("rejects unsigned requests", async () => {
   expect(
     (

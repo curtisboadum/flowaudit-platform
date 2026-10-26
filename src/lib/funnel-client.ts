@@ -16,6 +16,7 @@ export const CONSENT_KEY = "fa-analytics-consent";
 export interface EventContext {
   service?: ServiceId;
   mediaId?: string;
+  demoId?: string;
 }
 export function analyticsAllowed(): boolean {
   try {
@@ -28,12 +29,13 @@ export function attribution(): Record<string, string> {
   const result: Record<string, string> = {};
   if (typeof window === "undefined") return result;
   const params = new URLSearchParams(window.location.search);
-  for (const key of ["ref", "utm_source", "utm_medium", "utm_campaign"]) {
+  for (const key of ["ref", "utm_source", "utm_medium", "utm_campaign", "demo"]) {
     const value = params.get(key);
     if (
       value &&
       /^[a-zA-Z0-9_-]{1,100}$/.test(value) &&
-      (key !== "ref" || /^fa-sdr-[a-z0-9-]+$/.test(value))
+      (key !== "ref" || /^fa-sdr-[a-z0-9-]+$/.test(value)) &&
+      (key !== "demo" || /^[a-z0-9-]{1,40}$/.test(value))
     )
       result[key] = value;
   }
@@ -46,7 +48,7 @@ export function attribution(): Record<string, string> {
       for (const [key, value] of Object.entries(prior)) {
         if (
           !result[key] &&
-          ["ref", "utm_source", "utm_medium", "utm_campaign"].includes(key) &&
+          ["ref", "utm_source", "utm_medium", "utm_campaign", "demo"].includes(key) &&
           typeof value === "string" &&
           /^[a-zA-Z0-9_-]{1,100}$/.test(value)
         )
@@ -77,6 +79,7 @@ export function recordEvent(event: FunnelEvent, context: EventContext = {}): voi
           ? "phone-agent"
           : serviceId(new URLSearchParams(location.search).get("service"))),
       mediaId: context.mediaId,
+      demoId: context.demoId,
       path: location.pathname,
       attribution: attribution(),
       ts: new Date().toISOString(),
@@ -98,8 +101,12 @@ export function recordEvent(event: FunnelEvent, context: EventContext = {}): voi
   }
 }
 /** Consent-scoped deduplication survives player switches and pause/resume. */
-export function recordEventOnce(event: FunnelEvent, context: EventContext = {}): void {
-  if (!analyticsAllowed()) return;
+export function recordEventOnce(
+  event: FunnelEvent,
+  context: EventContext = {},
+  allowed: () => boolean = analyticsAllowed,
+): void {
+  if (!allowed()) return;
   try {
     let journey = sessionStorage.getItem("fa-journey");
     if (!journey) {
@@ -148,6 +155,8 @@ export function watchedCoverage(
   video: HTMLVideoElement,
   mediaId: string,
   service: ServiceId,
+  onMilestone?: (event: FunnelEvent) => void,
+  allowed: () => boolean = analyticsAllowed,
 ): void {
   const now = performance.now();
   const current = video.currentTime;
@@ -157,7 +166,7 @@ export function watchedCoverage(
     coverage.set(video, state);
     return;
   }
-  if (!analyticsAllowed()) {
+  if (!allowed()) {
     state.intervals = [];
     state.last = current;
     state.wall = now;
@@ -184,9 +193,10 @@ export function watchedCoverage(
     [0.75, "video_75"],
     [0.95, "video_complete"],
   ] as const) {
-    if (percent >= threshold && !state.fired.has(event) && analyticsAllowed()) {
+    if (percent >= threshold && !state.fired.has(event) && allowed()) {
       state.fired.add(event);
-      recordEventOnce(event, { mediaId, service });
+      if (onMilestone) onMilestone(event);
+      else recordEventOnce(event, { mediaId, service }, allowed);
     }
   }
 }

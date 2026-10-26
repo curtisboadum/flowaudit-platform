@@ -57,6 +57,9 @@ export function FunnelProvider() {
     setVisible(false);
     window.dispatchEvent(new Event("fa-consent-change"));
   };
+  // Personalized demo pages own their measurement notice. Do not show the
+  // site-wide banner there, and do not imply the two choices are the same.
+  if (pathname.startsWith("/watch/")) return null;
   if (pathname.startsWith("/crm") || (!visible && choice !== "")) return null;
   return (
     <aside

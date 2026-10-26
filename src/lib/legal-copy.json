@@ -21,6 +21,12 @@
       ]
     },
     {
+      "title": "Personalized demo links",
+      "paragraphs": [
+        "Some FlowAudit outreach includes a personalized demo link. On that page we measure whether the page was opened and how much of the video was watched so we can follow up appropriately. This is first-party measurement: no advertising cookies, no cross-site tracking, and the link token is not shared with third parties. We use a random session identifier that is not stored on your device, plus the link reference, demo identifier, timestamp and a coarse browser family. We do not record your name, email address, form answers or IP address in these events. You can turn measurement off on the page; we then stop recording events for that link. Where optional site analytics uses a different consent choice, that choice remains separate. Our legal basis is our legitimate interest in following up on a business enquiry; you can object at any time by replying to the email or using the contact details below."
+      ]
+    },
+    {
       "title": "3. Revenue Recovery Desk data",
       "paragraphs": [
         "Revenue Recovery Desk helps clients identify overdue accounts, prepare recovery communications, manage approvals, and track recovery activity. To provide that service, we may process client-authorized business data such as customer contact details, invoice data, account balances, payment status, CRM records, support notes, and recovery history.",
