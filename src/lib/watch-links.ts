@@ -21,6 +21,9 @@ export interface WatchLinkRow {
   lead_id: string;
   first_name: string;
   practice_name: string;
+  trade?: string | null;
+  demo_id?: string | null;
+  campaign?: string | null;
   created_at: string;
   expires_at: string | null;
   revoked_at: string | null;

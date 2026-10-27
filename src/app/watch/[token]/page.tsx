@@ -20,6 +20,7 @@ import {
   isValidWatchToken,
   watchLeadRef,
   watchLinkState,
+  type WatchLinkRow,
 } from "@/lib/watch-links";
 
 export const dynamic = "force-dynamic";
@@ -33,6 +34,40 @@ async function loadValidRow(token: string) {
   const row = await getWatchLink(token);
   if (!row || watchLinkState(row, new Date()) !== "valid") return null;
   return row;
+}
+
+const HOME_SERVICES = new Set([
+  "home-services",
+  "plumbing",
+  "roofing",
+  "restoration",
+  "electrical",
+  "hvac",
+  "garage-door",
+  "pest-control",
+  "property-management",
+  "auto-repair",
+]);
+
+function videoFor(row: WatchLinkRow) {
+  const demo = (row.demo_id || "").toLowerCase();
+  const trade = (row.trade || "").toLowerCase();
+  if (demo === "smart-street" || HOME_SERVICES.has(trade)) {
+    return {
+      src: "/showcase/assets/trades-call-demo.mp4",
+      poster: "/showcase/assets/trades-call-demo-poster.jpg",
+    };
+  }
+  if (demo === "agile-tech") {
+    return {
+      src: "/showcase/assets/agile-tech-demo.mp4",
+      poster: "/showcase/assets/agile-tech-demo-poster.jpg",
+    };
+  }
+  if (demo === "urgent") {
+    return { src: "/media/urgent.mp4", poster: "/media/urgent.jpg" };
+  }
+  return { src: "/media/routine.mp4", poster: "/media/routine.jpg" };
 }
 
 export async function generateMetadata({ params }: WatchPageProps): Promise<Metadata> {
@@ -56,6 +91,7 @@ export default async function WatchPage({ params }: WatchPageProps) {
   const first = displayFirstName(row);
   const practice = displayPractice(row);
   const leadRef = watchLeadRef(row);
+  const video = videoFor(row);
 
   return (
     <div className="flex min-h-screen w-full flex-col items-center bg-[#FCFBF9] px-4 py-12 sm:px-6 sm:py-16">
@@ -80,9 +116,9 @@ export default async function WatchPage({ params }: WatchPageProps) {
             controls
             playsInline
             preload="metadata"
-            poster="/assets/watch/phone-agent-demo2-poster.jpg"
+            poster={video.poster}
           >
-            <source src="/media/routine.mp4" type="video/mp4" />
+            <source src={video.src} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -116,11 +152,13 @@ export default async function WatchPage({ params }: WatchPageProps) {
         <div className="mt-12 flex flex-col items-center gap-3">
           {leadRef ? (
             <Button size="lg" asChild>
-              <Link href={`/book?ref=${leadRef}`}>Book a 15 minute call</Link>
+              <Link href={`/book?entry=email&ref=${leadRef}`}>
+                Check fit and book the install call
+              </Link>
             </Button>
           ) : (
             <Button size="lg" asChild>
-              <Link href="/book">Book a 15 minute call</Link>
+              <Link href="/book?entry=email">Check fit and book the install call</Link>
             </Button>
           )}
           <p className="font-sans text-xs text-[rgba(55,50,47,0.75)]">

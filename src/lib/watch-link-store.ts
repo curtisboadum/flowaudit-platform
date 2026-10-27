@@ -21,7 +21,9 @@ export async function getWatchLink(token: string): Promise<WatchLinkRow | null> 
     const supabase = createClient(url, key, { auth: { persistSession: false } });
     const { data, error } = await supabase
       .from("watch_links")
-      .select("token, lead_id, first_name, practice_name, created_at, expires_at, revoked_at")
+      .select(
+        "token, lead_id, first_name, practice_name, trade, demo_id, campaign, created_at, expires_at, revoked_at",
+      )
       .eq("token", token)
       .maybeSingle();
     if (error) {

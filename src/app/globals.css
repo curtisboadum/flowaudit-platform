@@ -1103,6 +1103,27 @@ html {
   font-size: 10px;
   padding-top: 4px;
 }
+.fa-book-quote {
+  background: #fff;
+  border: 1px solid var(--fa-line);
+  border-radius: 5px;
+  padding: 22px 24px;
+  margin-block: 28px;
+}
+.fa-quote-line {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+.fa-quote-line strong {
+  font-weight: 600;
+}
+.fa-quote-small {
+  color: var(--fa-muted);
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 14px 0 0;
+}
 .fa-book-card {
   background: #fff;
   border: 1px solid var(--fa-line);
